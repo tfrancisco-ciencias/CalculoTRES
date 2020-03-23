@@ -165,19 +165,320 @@ body {
  <div class="leftcolumn">
 
    <div class="card">
-     <h2>Lues 23 de marzo  </h2>
-     <h4> Derivadas parciales en \( \mathbb{R}^2\) </h4>
+
+     <h2> Derivadas parciales en \( \mathbb{R}^2\) y \( \mathbb{R}^n\) </h2>
+
+
+            <h3> Definición </h3>
+            <p>Sea \(U\subseteq \mathbb{R}^2\) un conjunto abierto y
+              \( f:U\to \mathbb{R} \) una función y
+            \((x_0, y_0)\in U\) un punto fijo.</p>
+            <p>Las derivadas parciales de \(f\), en punto \((x_0,y_0)\), se definen
+            como:</p>
+            <ol>
+            <li>  <p>parcial con respecto a la variable x: </p>
+            <p> \(
+              \partial_x f(x_0,y_0)=\frac{\partial f}{\partial x}(x_0,y_0)=
+              \lim_{s\to 0} \frac{f(x_0+s,y_0)}{s}
+            \)
+          </p>
+          </li>
+
+        <li> <p> parcial con respecto a la variable y:</p>
+            <p>
+          \(
+          \partial_y f(x_0,y_0)=\frac{\partial f}{\partial y}(x_0,y_0)=
+          \lim_{t\to 0} \frac{f(x_0,y_0+t)}{t}
+          \)
+          </p>
+            <p>siempre y cuando los l\'imites existen. </p>
+
+
+                         <h4> Nota </h4>
+                         <p>Dependiendo de las variables independientes la notación
+                           de parciales puede cambiar. Por
+                         ejemplo, si tenemos una función \( f(x_1,x_2) \), las parciales
+                         se denotan \( \partial_{x_1}f \)
+                         y \( \partial_{x_2}f\) o si es  \( f(r,\theta) \)
+                         tendríamos \( \partial_r f\), \( \partial_\theta f\).
+                       </p>
+
+
+                      <h3> Ejercicio </h3>
+                                  <p> Sean \(g,h:\mathbb{R}\to \mathbb{R}\)
+                                    funciones de una variable, ambas diferenciables,
+                                    y define \( f(x,y)=g(x)h(y) \). </p>
+                                  <p> Fija un punto \( (x_0,y_0) \). Demuestra que</p>
+                                <p>  \(
+                                  \partial_xf(x_0,y_0)=g'(x_0)h(y_0), \quad \partial_yf(x_0,y_0)=g(x_0)h'(y_0).
+                                  \)
+                                </p>
+
+
+                      <h4>  Solución </h4>
+                              <p>Primero formamos el cociente diferencial para
+                                \( \partial_xf(x_0,y_0) \) </p>
+                                <p>
+                                  \(
+                                  \frac{f(x_0+t,y_0)-f(x_0,y_0)}{t}=\frac{g(x_0+t)h(y_0)-g(x_0)h(x_0)}{t}.
+                                  \)
+                                </p>
+                                <p>Factorizando \( h(x_0)\) se sigue que </p >
+                                    <p>
+                                      \(
+                                    \frac{f(x_0+t,y_0)-f(x_0,y_0)}{t}=\left( \frac{g(x_0+t)-g(x_0)}{t}\right) h(y_0)
+                                      \)
+                                    </p>
+
+                                    <p> Reconocemos el cociente diferencial para \( g\), así
+                                      que al tomar límite
+                                    cuando \( t\to 0\) concluimos
+                                    <p>
+                                    \(
+                                    \partial_xf(x_0,y_0)=g'(x_0)h(y_0)
+                                    \)
+                                  </p>
+
+                                  <p>La fórmula
+                                    \( \partial_yf(x_0,y_0)=g(x_0)h'(y_0)\)
+                                    se prueba de manera similar. </p>
+
+
+                          <h3> Ejemplo </h3>
+                           <p> Usando el ejercicio anterior, si
+                             \( f(x.y)=\cos(x)\operatorname{sen}(y)\) entonces
+                             <p>
+                               \(
+                               \partial_xf(x_0,y_0)=-\operatorname{sen}(x_0)
+                               \operatorname{sen}(y_0),
+                               \)
+                             </p>
+                             <p>
+                               \(
+                               \partial_yf(x_0,y_0)=\cos(x_0)\cos(y_0)
+                                \)
+                            </p>
+
+                                       <h3> Proposición </h3>
+                                          <p> Sea \( f(x,y)\) una funci\'on de dos variables definida en un abierto de
+                                          \( \mathbb{R}^2\) y fija
+                                          \((x_0,y_0)\) un punto en dicho abierto. Supongamos que \( \partial_xf(x_0,y_0)\)
+                                          y \(\partial_y f(x_0,y_0)\) existen. Define funciones de una variable
+                                          </p>
+                                       <p>
+                                       \(
+                                       g(x)=f(x,y_0), \quad h(y)=f(x_0,y)
+                                       \)
+                                      </p>
+                                      <p> Usando la definici\'on de derivada parcial y derivada usual,
+                                        demuestra que \( g'(x_0)=\partial_x(x_0,y_0)\)
+                                       y \( h'(y)=\partial_yf(x_0,y_0)\).
+                                     </p>
+
+                                       <p>Es decir, este ejercicio muestra que para calcular las derivadas parciales simplemente se
+                                       calcula la derivada uno dimensional, pensando  las otras variables como constantes.
+                                      </p>
+
+
+
+                  <h4> Demostración  </h4>
+                <p>Primero, usamos la definición de \(g\) para formar  su el cociente diferencial:</p>
+                 <p>
+                  \(
+                  \frac{g(x_0+s)-g(x_0)}{t}=\frac{f(x_0+s,y_0)-f(x_0,y_0)}{s}
+                  \)
+                </p>
+
+                <p>Tomando límite cuando \( s\to 0 \) vemos que el límite del cociente
+                  diferencial es el
+                  mismo que el que aparece en la definición de derivada parcial y concluimos </p>
+                  <p>
+                    \(
+                    g'(x_0)=\partial_x f(x_0,y_0).
+                    \)
+                  </p>
+                  <p>De manera similar,</p>
+                  <p>
+                    \(
+                    \frac{h(y_0+t)-h(y_0)}{t}=\frac{f(x_0,y_0+t)-f(x_0,y_0)}{t}
+                    \)
+                  </p>
+                  <p>y al tomar el l\'imite cuando $t\to 0$ concluimos</p>
+                  <p>
+                    \(
+                    h'(y_0)=\partial_yf(x_0,y_0).
+                    \)
+                  </p>
+
+
+                  <h3> Ejemplo </h3>
+                  <p>Sea \( f(x,y)=e^{x^2y}\). Entonces </p>
+                  <p>
+                  \(
+                  \partial_xf(x_0,y_0)=2x_0e^{x_0^2y_0},
+                  \quad \partial_yf(x_0,y_0)=e^{x_0^2y_0}
+                  \)
+                  </p>
+
+
+
+                              <h4> Nota </h4>
+                               <p>Para cada punto \( (x_0,y_0) \),  al  calcular las  parciales
+                               <p>
+                                 \( \partial_xf(x_0,y_0), \quad \partial_{y}f(x_0,y_0) \)
+                               </p>
+                               <p>obtenemos  números reales. Pero,   si pensamos a \( (x_0,y_0) \)
+                                 variando en un dominio y
+                               lo denotamos \( (x,y) \) (notación de variable), obtenemos funciones
+                             </p>
+                             <p>
+                              \( \partial_xf(x,y),\quad \partial_yf(x,y) \)
+                             </p>
+                               <p> Note que en las expresiones
+                               anteriores las \( x\) que aparecen son distintas. La de la parcial
+                               indica con respecto a qué
+                               variable se diferencia y la otra indica en qué punto se está evaluando.
+                               Asi por ejemplo
+                               si  \( \partial_xf(x,y)=6x-2y \) entonces
+                               \( \partial_xf(3,5)=6(3)-2(5)=8 \), sin embargo \( \partial_3f(x,y)\)
+                               o \( \partial_3f(3,5)\) no tienen sentido.
+                             </p>
 
 
 
 
-   </div>
+                             <h3> Ejemplo </h3>
+                               <p>Encuentra el dominio de definici\'on
+                               de \( \partial_xf(x,y) \) donde \( f(x,y)=\log(4-x^2-y^2)\).
+                             </p>
+
+
+                             <h4> Solución </h4>
+                               <p> Diferenciando \( f(x,y) \), con respecto a \( x\) tomando
+                                 \( y\) como constante tenemos </p>
+                               <p>
+                                 \(
+                               \partial_xf(x,y)=\frac{1}{4-x^2-y^2}(-2x)
+                               \)
+                             </p>
+                               <p>donde se usa la regla de la cadena. </p>
+
+                               <P>Para que lo anterior tenga sentido necesitamos que \( 4-x^2-y^2\ne 0\),
+                                 nada más. </p>
 
 
 
 
- </div>
-</div>
+
+                             <h3> Ejemplo </h3>
+                               <p> Considera la función \( f:\mathbb{R}^2 \to \mathbb{R}\) dada
+                                 por \(f(x,y)=\sqrt[3]{x}\sqrt[3]{y}\). Demuestra
+                              que \( \partial_xf(0,0)=0=\partial_yf(0,0)\).
+                              Además, muestra que para toda \( y_0\ne0 \), \( \partial_xf(0,y_0)\)
+                              no existe.</p>
 
 
-</html>
+                              <h4 > Solución </h4>
+
+                                <p> Para \( \partial_xf(0,0) \), primero calculamos el
+                                  cociente diferencial
+                                </p>
+
+                                <p>
+                                \(
+                                \frac{f(0+s,0)-f(0,0)}{s}=\frac{\sqrt[3]{s}\sqrt[3]{0}-
+                                \sqrt[3]{0}\sqrt[3]{0}}{s}=\frac{0}{s}=0
+                                \)
+                              </p>
+                                <p>Tomando límite cuando \( s\to 0 \) concluimos que
+                                  \( \partial_xf(0,0)=0\).
+                                </p>
+
+                                <p>De manera similar</p>
+                                <p>
+                                \(
+                                \frac{f(0,0+t)-f(0,0)}{t}=\frac{\sqrt[3]{0}\sqrt[3]{t}-
+                                \sqrt[3]{0}\sqrt[3]{0}}{t}=\frac{0}{t}=0
+                                \)
+                              </p>
+                              <p>  y al tomar límite cuanto \( t\to 0\) se obtiene
+                                \( \partial_yf(0,0)=0 \).
+                              </p>
+
+                                <p>Ahora fijemos \( y_0\ne 0\). Al formar
+                                  el cociente diferencial para \( \partial_xf(0,y_0)\)
+                                obtenemos</p>
+                                <p>
+                                  \(
+                                \frac{f(0+s,y_0)-f(0,y_0)}{s}=\frac{\sqrt[3]{s}\sqrt[3]{y_0}
+                                -\sqrt[3]{0}\sqrt[3]{y_0}}{s}=\frac{\sqrt[3]{s}}{s} \sqrt[3]{y_0}=
+                                \frac{1}{s^{2/3}}\sqrt[3]{y_0}
+                                \)
+                              </p>
+                                <p>Ya que </p>
+                                <p>
+                                  \(
+                                  \lim_{s\to 0} \frac{1}{s^{2/3}}\sqrt[3]{y_0}=+\infty, \quad   \textrm{si \(y_0>0\)}
+                                  \)
+                                </p>
+                              <p>  y </p>
+                              <p>
+                                \(
+                                \lim_{s\to 0} \frac{1}{s^{2/3}}\sqrt[3]{y_0}=-\infty, \quad
+                                \textrm{si \(y_0<0 \) }
+                                \)
+                              </p>
+                                <p>la derivada parcial \( \partial_xf(0,y_0)\) no existe.</p>
+
+
+
+
+
+                                            <h3> Definición </h3>
+                                              <p> Sea \( f(p) \) una función de n-variables,
+                                                \( p=(p_1,\dots, p_n)\) ,definida en un abierto en
+                                                \( \mathbb{R}^n\).Fija
+                                              \( j\in\{1,\dots,n\}\). La derivada parcial de \( f\),
+                                              con respecto a la variable \( p_j\) (también llamada
+                                              la j-ésima derivada
+                                              parcial), valuada en \(p\) se define como </p>
+                                              <p>
+                                                \(
+                                              \partial_{p_j}f(p)=\lim_{h\to 0} \frac{f(p+he_j)-f(p)}{h}
+                                              \)
+                                            </p>
+                                              <p>donde \( \{e_1,\dots, e_1\}\) es la base can\'onica de
+                                              \( \mathbb{R}^n\).</p>
+
+
+
+                                            <h4>Nota </h4>
+                                              <p>Al igual que en el caso de dos variables, las derivadas parciales se obtienen diferenciando como en el caso de una
+                                              variable, tratando a las otras como constantes.
+                                            </p>
+
+
+                                            <h3> Ejemplo </h3>
+
+                                              <p> Considera la función
+                                                \(f(p)=\sum_{i=1}^n e^{p_i^2}\), donde \( p=(p_1,\dots, p_n)\). Entonces </p>
+
+                                              <p>
+                                                \(
+                                              \partial_j f(p)= 2p_je^{p_j^2}
+                                              \)
+                                            </p>
+
+
+
+
+          </div>
+
+
+
+
+        </div>
+       </div>
+
+
+       </html>
