@@ -1,0 +1,49 @@
+
+\documentclass{article}
+\usepackage{amssymb, latexsym, amsmath, amsthm, amsfonts, amsbsy, enumerate, tabularx, graphicx}
+\newtheorem{definicion}{Definici\'on}
+
+\newtheorem{teorema}{Teorema}
+\newtheorem{prop}{Proposici\'on}
+\newtheorem{coro}{Corolario}
+\newtheorem{lema}{Lema}
+\theoremstyle{definition}
+\newtheorem{nota}{Nota}
+\newtheorem{notas}{Notas}
+\newtheorem{ejemplo}{Ejemplo}
+\newtheorem{ejemplos}{Ejemplos}
+%\newtheorem{definicion}{Definici\'on}
+\newtheorem{notacion}{Notaci\'on}
+\newcommand{\sen}{\operatorname{sen}}
+\newcommand{\senh}{\operatorname{senh}}
+\newcommand{\csch}{\operatorname{csch}}
+\newcommand{\sech}{\operatorname{sech}}
+\newcommand{\arcsec}{\operatorname{arcsec}}
+\newcommand{\arcsen}{\operatorname{arcsen}}
+\newcommand{\id}{\operatorname{id}}
+\begin{document}
+
+
+
+
+  \section*{T16 }
+
+  
+  
+	\begin{enumerate}
+
+        \item Mostrar que $xy+z+3xz^5=4$ es soluble para $z$ como
+          funci\'on de $x,y$ cerca de $(1,0,1)$. Adem\'as 
+          calcular $\partial_xz(1,0)$ y $\partial_yz(1,0)$.
+
+          \item 
+          
+            
+          \end{enumerate}
+          
+
+          
+
+	
+  
+       \end{document}

@@ -1,0 +1,119 @@
+
+\documentclass{article}
+\usepackage{amssymb, latexsym, amsmath, amsthm, amsfonts, amsbsy, enumerate, tabularx, graphicx}
+\newtheorem{definicion}{Definici\'on}
+
+\newtheorem{teorema}{Teorema}
+\newtheorem{prop}{Proposici\'on}
+\newtheorem{coro}{Corolario}
+\newtheorem{lema}{Lema}
+\theoremstyle{definition}
+\newtheorem{nota}{Nota}
+\newtheorem{notas}{Notas}
+\newtheorem{ejemplo}{Ejemplo}
+\newtheorem{ejemplos}{Ejemplos}
+%\newtheorem{definicion}{Definici\'on}
+\newtheorem{notacion}{Notaci\'on}
+\newcommand{\sen}{\operatorname{sen}}
+\newcommand{\senh}{\operatorname{senh}}
+\newcommand{\csch}{\operatorname{csch}}
+\newcommand{\sech}{\operatorname{sech}}
+\newcommand{\arcsec}{\operatorname{arcsec}}
+\newcommand{\arcsen}{\operatorname{arcsen}}
+\newcommand{\id}{\operatorname{id}}
+\begin{document}
+
+
+
+
+  \section*{T 3}
+
+
+\begin{enumerate}
+
+\item\label{Ejer:BaseConProductoCruz} Sean $u,v\in \mathbb{R}^3$, dos vectores distintos de cero y linealmente
+  independientes.
+
+\begin{enumerate}
+\item Demuestra que el conjunto
+  $\{u,v, u\times v\}$ es linealmente independiente.
+  \item Es un hecho, no lo demuestres, que un conjunto linealmente independiente de tres vectores genera
+  $\mathbb{R}^3$. Usando lo anterior muestra que, si $p$ es perpendicular a $u\times v$, entonces existen
+  $s,t\in \mathbb{R}$ tales que $p=su+tv$ (es decir, $p$ est\'a en el plano generado por $u$ y $v$).
+  
+  \end{enumerate}
+
+\item Sean $u,v\in \mathbb{R}^3$ dos vectores unitarios y perpendiculares y sea $P:\mathbb{R}^3 \to \mathbb{R}^3$,
+la proyecci\'on ortogonal al plano generado por $u$ y $v$, es decir
+$$
+P(p)= \langle u,p\rangle u + \langle v, p \rangle v.
+$$
+
+\begin{enumerate}
+\item Toma $w=u\times v$ y denota $P_w$ la proyecci\'on ortogonal a la recta generada por $w$. Demuestra que para todo punto $p\in \mathbb{R}^3$, $P(p)=p-P_{w}(p)$. 
+	
+	Sugerencia: empieza probando que $p-P_w(p)$ es ortogonal a $w$ por lo tanto, usando el ejercicio \ref{Ejer:BaseConProductoCruz}, $p-P_w(p)$ est\'a en el plano generado por $u$ y $v$.
+
+
+\item Concluye que,  para todo
+$p\in \mathbb{R}^3$, se cumple
+$$
+p=\langle p, u \rangle u + \langle p, v \rangle v + \langle p, w \rangle w.
+$$
+\end{enumerate}
+
+\item Para las siguientes 	funciones, describe los conjuntos de nivel para los valores dados.
+	
+	\begin{enumerate}
+%	\item $f(x,y)=x^2+y^2$, $c=-1,0,1.$
+	\item $f(x,y)=2x^2+4y^2$, $c=-2,0,2$.
+%	\item $f(x,y)=x^2-y^2$, $c=-3,0,3$.
+	\item $f(x,y)=5x+7y$, $c=-5,0,7$.
+%	\item $f(x,y)=(x+y)^2$, $c=-4,0,4$.
+	\item $f(x,y)=(2x-y)^2$, $c=-1,0,2$.
+%	\item $f(x,y)=y+\log(x^2)$, $c=-3,0,3$.
+	\item $f(x,y)=y+3e^x$, $c=-2,0,2$.
+%	\item $f(x,y)=\min\{|x|,|y| \}$, $c=0,1,2$.
+\end{enumerate}		
+	
+	\item Para las siguientes funciones, describe los conjuntos de nivel para los valores dados.
+	\begin{enumerate}
+	%\item $f(x,y,z)=x^2+y^2$, $c=-1,0,1$.
+	\item $f(x,y,z)=x^2+y^2+z^2$, $c=-1,0,1$.
+	%\item $f(x,y,z)=x^2+y^2-z^2$, $c=-2,0,2$.
+	\item $f(x,y,z)=xyz$, $c=-4,0,4$.
+	%\item $f(x,y,z)=\log(x)+\log(y)+\log(z)$, $c=-4,0,4.$
+	\item $f(x,y,z)=e^{x^2}e^{y^3}e^{z^2}$, $c=-5,0,5$.
+	%\item $f(x,y,z)=\max\{ |x|, |y|, |z| \}$, $c=-2,0,2$.
+	\item $f(x,y,z)=2x-y+3z$, $c=-1,0,1$.
+	\end{enumerate}
+	
+	
+	\item Usa coordenadas polares para describir las curvas de nivel de la funci\'on dada por
+	$$
+	f(x,y)=\left\{
+	\begin{array}{cc}
+	\frac{2xy}{x^2+y^2} & (x,y)\ne (0,0)\\
+	0 & (x,y)=(0,0).
+	\end{array}
+	\right.
+	$$
+	
+	
+	\item Construye una funci\'on $f(x,y)$, tal que el conjunto de nivel para $c=0$ consiste en una cantidad infinita
+	de partes.
+	
+	\item Para cada una de las siguientes trayectorias, da un bosquejo de su traza (pueden usar matlab u otro software).
+	\begin{enumerate}
+	%\item $\gamma(t)=(\cos(t), \sen(t))$, $t\in \mathbb{R}$.
+	\item $\gamma(t)=(\cos(t), \sen(t), t)$, $t\in \mathbb{R}$.
+	%\item $\gamma(t)=(t,t^2)$, $t\in \mathbb{R}$.
+	\item $\gamma(t)=(\cos(t), \sen(t), e^t)$, $t\in \mathbb{R}$.
+	%\item $\gamma(t)=2(\sen(\pi/4)\cos(t), \sen(\pi/4)\sen(t), \cos(\pi/4))$, $t\in \mathbb{R}$.
+	\end{enumerate}
+	
+
+
+\end{enumerate}
+  
+       \end{document}

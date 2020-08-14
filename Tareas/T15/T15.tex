@@ -1,0 +1,154 @@
+
+\documentclass{article}
+\usepackage{amssymb, latexsym, amsmath, amsthm, amsfonts, amsbsy, enumerate, tabularx, graphicx}
+\newtheorem{definicion}{Definici\'on}
+
+\newtheorem{teorema}{Teorema}
+\newtheorem{prop}{Proposici\'on}
+\newtheorem{coro}{Corolario}
+\newtheorem{lema}{Lema}
+\theoremstyle{definition}
+\newtheorem{nota}{Nota}
+\newtheorem{notas}{Notas}
+\newtheorem{ejemplo}{Ejemplo}
+\newtheorem{ejemplos}{Ejemplos}
+%\newtheorem{definicion}{Definici\'on}
+\newtheorem{notacion}{Notaci\'on}
+\newcommand{\sen}{\operatorname{sen}}
+\newcommand{\senh}{\operatorname{senh}}
+\newcommand{\csch}{\operatorname{csch}}
+\newcommand{\sech}{\operatorname{sech}}
+\newcommand{\arcsec}{\operatorname{arcsec}}
+\newcommand{\arcsen}{\operatorname{arcsen}}
+\newcommand{\id}{\operatorname{id}}
+\begin{document}
+
+
+
+
+  \section*{T15 }
+
+  
+  
+	\begin{enumerate}
+
+
+          
+        \item Encuentra el m\'inimo de $f(x,y)=xy$ sujeto a la
+          restricci\'on $x+y=1$. \textquestiondown Con las
+          mismas condiciones, existe el m\'aximo ? Explica.
+          
+        \item Encuentra los m\'aximos y m\'inimos de la funci\'on
+          $f(x,y,z)=x-2y+2z$ sobre la esfera $x^2+y^2+z^2=1$.
+
+          
+        \item Encuentra las distancias m\'aximas y m\'inimas 
+          desde el origen a la curva $5x^2+6xy+5y^2=8$.
+
+          Sugerencia: es m\'as sencillo minimizar la distancias al cuadrado.
+
+
+    
+        \item Encuentra el m\'inimo de $f(x,y,z)=x^2+2y^2+z^2$ con
+          la restricci\'on $x+y+z=0$ y $x-z=1$.
+
+		
+		\item Sea $f:\mathbb{R}\to \mathbb{R}$ de la forma $f(t)=mt+c$, donde
+		$m$ y $c$ son constantes. Demuestra que el m\'aximo y m\'inimo de
+		$f$, restringida al intervalo $[a,b]$ se alcanzan en los extremos del intervalo.
+          
+        \item Para las siguientes funciones arm\'onicas, encuentra
+          el m\'aximo y m\'inimo absolutos sobre la regi\'on dada.
+
+          \begin{enumerate}
+         
+          \item $f(x,y)=\log(x^2+y^2)$, sobre el anillo
+            $S=\{(x,y)\in \mathbb{R}^2:  1\leq  x^2+y^2\leq 4\}$.
+          \item $f(x,y)=e^y\cos(x)$, sobre el tri\'angulo (relleno)
+            con v\'ertices $(0,\log(5))$, $(-\pi,0)$, $(\pi,0)$.
+
+             \item $f(x,y,z)=x^2-y^2+z$, sobre la esfera
+            $S=\{(x,y)\in \mathbb{R}^2: x^2+y^2+z^2=1\}$.
+            
+          \end{enumerate}
+          
+        \item Un canal de riego tiene lados y fondo de concreto con
+          secci\'on transversal trapezoidal de \'area $A=y(x+y\tan(\theta))$
+          y per\'imetro h\'umedo $P=x+\frac{2y}{\cos(\theta)}$, donde
+          $x$ es el ancho del fondo, $y$ la profundidad del agua y
+          $\theta$ la inclinaci\'on lateral, medida a partir de la
+          vertical. El mejor dise\~no para una inclinaci\'on
+          fija $\theta$ se halla resolviendo $P=$ m\'inimo
+          sujeto a la condici\'on $A=$ constante. Mostrar que
+          $y^2=\frac{A\cos(\theta)}{2-\cos(\theta)}$.
+
+        \item Considera la funci\'on $f(x,y)=x^2+xy+y^2$,
+          en el disco unitario $D=\{(x,y): x^2+y^2 \leq 1\}$. Usa
+          multiplicadores de Lagrange para maximizar $f$ en
+          el circulo unitario  $\partial D=\{(x,y): x^2+y^2=1\}$. Usa
+          lo anterior para encontrar los m\'aximos y m\'inimos absolutos
+          de $f$ en $D$.
+          
+        \item Minimiza la funci\'on $f(x,y)=x^2+xy+y^2$ con
+          la restricci\'on $x+y \geq 4$.
+
+          
+          
+        \item Maximiza la funci\'on $f(x,y,z)=2x+3y+5z$ sujeto
+          a las restricciones $x\geq 0, y\geq 0, z\geq 0 $ y
+          $x+y+z \leq 1$.
+
+
+        \item 
+          \begin{enumerate}
+          \item Encuentra m\'aximo de la funci\'on
+            $f(x_1,\dots, x_n)=(x_1\cdots x_n)^2$, sujeta a la
+            restricci\'on $x_1^2+\cdots +x_n^2=1$.
+          \item Usando el inciso anterior demuestra la
+            desigualdad aritm\'etico geom\'etrica, es decir,
+            para escalares mayores o iguales a cero, $a_1,\dots, a_n$,
+            se cumple
+            $$
+            \sqrt[n]{a_1\cdots a_n} \leq \frac{a_1+\cdots +a_n}{n}
+            $$
+
+            Sugerencia: considera
+            $x_i=\frac{\sqrt{a_i}}{\sqrt{a_1+\cdots +a_n}}$, $i=1,\dots,n$.
+          \end{enumerate}
+
+        \item
+          \begin{enumerate}
+          \item Sean $p>1, q>1$ tal que $\frac{1}{p}+\frac{1}{q}=1$. Demuestra
+            que el m\'inimo de la funci\'on
+            $$
+            f(x,y)=\frac{x^p}{p}+\frac{y^q}{q}
+            $$
+            sujeta a la restricci\'on $xy=1$ es 1.
+
+          \item Usando el inciso anterior, prueba que si $a$ y $b$ son
+            reales mayores o iguales a cero, entonces
+            $$
+            ab \leq \frac{a^p}{p}+\frac{b^q}{q}
+            $$
+          \item Sean $a_1,\dots, a_n$, $b_1,\dots, b_n$, numeros
+            reales mayores o iguales a cero, demuestra la desigualdad
+            $$
+            \sum_{j=1}^n a_jb_j \leq \left( \sum_{j=1}^n a_j^p \right)^{1/p}
+            \left( \sum_{j=1}^n b_j^q \right)^{1/q}
+            $$
+
+            Sugerencia: sean $A=\left( \sum_{j=1}^n a_j^p \right)^{1/p}$,
+            $B=\left( \sum_{j=1}^n b_j^q \right)^{1/q}$, aplica
+            la desigualdad del inciso anterior a $a=a_j/A$, $b=b_j/B$.
+         
+          \end{enumerate}
+          
+            
+          \end{enumerate}
+          
+
+          
+
+	
+  
+       \end{document}

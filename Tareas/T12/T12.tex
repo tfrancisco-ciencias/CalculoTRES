@@ -1,0 +1,161 @@
+
+\documentclass{article}
+\usepackage{amssymb, latexsym, amsmath, amsthm, amsfonts, amsbsy, enumerate, tabularx, graphicx}
+\newtheorem{definicion}{Definici\'on}
+
+\newtheorem{teorema}{Teorema}
+\newtheorem{prop}{Proposici\'on}
+\newtheorem{coro}{Corolario}
+\newtheorem{lema}{Lema}
+\theoremstyle{definition}
+\newtheorem{nota}{Nota}
+\newtheorem{notas}{Notas}
+\newtheorem{ejemplo}{Ejemplo}
+\newtheorem{ejemplos}{Ejemplos}
+%\newtheorem{definicion}{Definici\'on}
+\newtheorem{notacion}{Notaci\'on}
+\newcommand{\sen}{\operatorname{sen}}
+\newcommand{\senh}{\operatorname{senh}}
+\newcommand{\csch}{\operatorname{csch}}
+\newcommand{\sech}{\operatorname{sech}}
+\newcommand{\arcsec}{\operatorname{arcsec}}
+\newcommand{\arcsen}{\operatorname{arcsen}}
+\newcommand{\id}{\operatorname{id}}
+\begin{document}
+
+
+
+
+  \section*{T12 }
+  \begin{enumerate}
+  
+
+    
+  \item Considera las funciones $F:\mathbb{R}^3\to \mathbb{R}^2$ y $G:\mathbb{R}^3\to \mathbb{R}^3$ dadas
+    por
+    $$
+    F(x,y,z)=(x^2+y+z, 2x+y+z^2), \quad G(u,v,w)=(2uv^2w^2,w^2\sen(v),u^2e^v)
+    $$
+    \begin{enumerate}
+    \item Encuentra la matriz de derivadas parciales $D_{(x,y,z)}F$ y $D_{(u,v,w)}G$.
+    \item Define $H=F\circ G$. Usa la regla de la cadena para calcular la matriz derivada
+      parciales $D_{(u,0,w)}H$.
+    \end{enumerate}
+
+
+    
+  \item Hallar la ecuaci\'on del plano tangente a las superficies
+    dadas en los puntos indicados.
+    \begin{enumerate}
+    \item $x^2+2y^2+3xz=10$ en $(1,2,1/3)$,
+    \item $y^2-x^2=3$ en $(1,2,8)$,
+    \item $xyz=1$ en $(1,1,1)$.
+    \end{enumerate}
+
+
+  %\item Dada una superficie $S$ en $\mathbb{R}^3$ y un punto $p_0$ en la superficie, vamos a
+   % denotar $N,U,L$, a tres vectores unitarios con las caracter\'isticas de que: $N$
+   % es el vector normal al plano tangente a $S$ que pasa por $p_0$; $U$ es vector que indica
+   % la direcci\'on donde la raz\'on de crecimiento, en $p_0$, es m\'axima; $L$ es el
+   % vector donde la raz\'on de crecimiento, en $p_0$, es cero.
+
+    %Nota:  en general hay dos elecciones para dichos vectores, pues podemos tomar su negativo
+    %(por ejemplo $-N$ o $N$).
+
+    %Para las siguientes superficies calcula $N,U$ y $L$ para un punto general de la superficie.
+    %\begin{enumerate}
+    %\item $S$ es la gr\'afica de la funci\'on $g(x,y)=1-x-y$ (un plano).
+    %\item $S$ es la superficie dada por la ecuaci\'on $x^2+y^2-z^2=0$ (un cono). En este ejemplo
+    %  se evita el v\'ertica, pues el plano tangente en ese punto no est\'a bien definido.
+    %\end{enumerate}
+
+
+  \item Recuerda que, para una superficie de nivel $S \subset \mathbb{R}^3$, de la funci\'on $g(x,y,z)$,
+    la ecuaci\'on del plano tangente es
+    $$
+    \langle \nabla_{(x_0,y_0,z_0)}g, (x-x_0,y-y_0,z-z_0) \rangle =0
+    $$
+    donde $(x_0,y_0z_0)$ es un punto en la superficie $S$.
+
+    Demuestra que, como caso especial, la f\'ormula del plano tangente a la gr\'afica de la funci\'on
+    $f(x,y)$, se puede obtener de la ecuaci\'on anterior si se considera a la gr\'afica
+    como una superficie de nivel de $F(x,y,z)=f(x,y)-z$.
+ 
+    
+  \item Considera la funci\'on $f(x,y)=-(1-x^2-y^2)^{1/2}$, definida para los puntos $(x,y)$
+    con $x^2+y^2<1$. Prueba que el plano tangente a la gr\'afica de $f$, en el punto $(x_0,y_0,f(x_0,y_0))$
+    es ortogonal al vector $(x_0,y_0,f(x_0,y_0))$.
+
+    \item Usa la regla de la cadena para probar que, si $g:U\to \mathbb{R}$ es de clase
+      $C^1$ en $U$, con $U$ un abierto de $\mathbb{R}^n$, entonces
+      $$
+      \nabla_{p}(1/g)=-\frac{1}{g(p)^2}\nabla_p g
+      $$    
+      donde suponemos que $g(p)\ne 0$, para toda $p\in U$.
+    
+  \item Sean $G:\mathbb{R}^m \to \mathbb{R}^n$, una funci\'on de clase $C^1$ en $\mathbb{R}^m$, con funciones
+    coordenadas $G(q)=(g_1(q),\dots, g_n(q))$ y sea $f:\mathbb{R}^n \to \mathbb{R}$ una funci\'on
+    de clase $C^1$ en $\mathbb{R}^n$ y sea $h=f\circ G$. Usa la regla de la cadena para demostrar que
+    el gradiente de $h$ es una combinaci\'on lineal de los gradientes de las $g_k$, en espec\'ifico:
+    $$
+    \nabla_{q_0} h= \sum_{k=1}^n \partial_{p_k}f(G(q_0)) \nabla_{q_0}g_k
+    $$
+    nota que $\partial_{p_k}f(g(q_0))$ es escalar y $\nabla_{q_0}g_k$ es vector.
+
+
+    \item Encuentra el conjunto de puntos $(a,b,c)$ en $\mathbb{R}^3$, para los cuales las
+      dos esferas: $(x-a)^2+(y-b)^2+(z-c)^2=1$ y $x^2+y^2+z^2=1$, se intersectan ortogonalmente.
+
+      Nota: Dos superficies se intersectan ortogonalmente si, para todo punto en su intersecci\'on,
+      los planos tangentes son ortogonales. 
+
+      Sugerencia: ve las esferas como superficies de nivel y utiliza gradientes. 
+
+  \item
+    \begin{enumerate}
+    \item Considera la funci\'on $I:\mathbb{R}^3\to \mathbb{R}^3$ dada por $I(x,y,z)=(x,y,z)$.
+      Demuestra que
+      $$
+      D_{(x,y,z)}I=\left[
+        \begin{array}{ccc}
+          1 & 0 & 0 \\
+          0 & 1 & 0 \\
+          0 & 0 & 1
+        \end{array}
+      \right]
+      $$
+    \item Encuentra todas las funciones diferenciables en $\mathbb{R}^3$,
+      $F:\mathbb{R}^3 \to \mathbb{R}^3$, para las cuales
+
+      $$
+      D_{(x,y,z)}F=\left[
+        \begin{array}{ccc}
+          x & 0 & 0 \\
+          0 & y & 0 \\
+          0 & 0 & x
+        \end{array}
+      \right]
+      $$
+
+    \item Sean $p,q,r:\mathbb{R}\to \mathbb{R}$ funciones continuas en todo $\mathbb{R}$. Encuentra
+      todas la funciones diferenciables en $\mathbb{R}^3$, $G:\mathbb{R}^3 \to \mathbb{R}^3$, para
+      las cuales
+
+      $$
+      D_{(x,y,z)}G=\left[
+        \begin{array}{ccc}
+          p(x) & 0 & 0 \\
+          0 & q(y) & 0 \\
+          0 & 0 & r(z)
+        \end{array}
+      \right]
+      $$
+
+      
+    \end{enumerate}
+
+    \end{enumerate}
+
+       \end{document}
+
+

@@ -1,0 +1,204 @@
+
+\documentclass{article}
+\usepackage{amssymb, latexsym, amsmath, amsthm, amsfonts, amsbsy, enumerate, tabularx, graphicx}
+\newtheorem{definicion}{Definici\'on}
+
+\newtheorem{teorema}{Teorema}
+\newtheorem{prop}{Proposici\'on}
+\newtheorem{coro}{Corolario}
+\newtheorem{lema}{Lema}
+\theoremstyle{definition}
+\newtheorem{nota}{Nota}
+\newtheorem{notas}{Notas}
+\newtheorem{ejemplo}{Ejemplo}
+\newtheorem{ejemplos}{Ejemplos}
+%\newtheorem{definicion}{Definici\'on}
+\newtheorem{notacion}{Notaci\'on}
+\newcommand{\sen}{\operatorname{sen}}
+\newcommand{\senh}{\operatorname{senh}}
+\newcommand{\csch}{\operatorname{csch}}
+\newcommand{\sech}{\operatorname{sech}}
+\newcommand{\arcsec}{\operatorname{arcsec}}
+\newcommand{\arcsen}{\operatorname{arcsen}}
+\newcommand{\id}{\operatorname{id}}
+\begin{document}
+
+
+
+
+  \section*{T2}
+  
+  \begin{enumerate}
+       \item Supon que $f:\mathbb{R}^2 \to \mathbb{R}$ es lineal y que $f(0,1)=3, f(1,1)=-1$. Calcula
+       \begin{enumerate}
+       \item $f(0,5)$,
+       \item $f(2,2)$,
+         \item $f(-1,0)$.
+       \end{enumerate}
+
+       \item Sea $\sigma$ una permutaci\'on del conjunto $\{1,2,3\}$. Define $F:\mathbb{R}^3\to \mathbb{R}^3$ por
+  $F(p_1,p_2,p_3)=(p_{\sigma(1)}, p_{\sigma(2)}, p_{\sigma(3)})$. Prueba que $F$ es una funci\'on lineal.
+
+
+       \item Todas las expresiones que siguen, excepto una, dan funciones lineales, por lo que se pueden escribir de la forma $Ap$, donde $A$ es una matriz y $p$ un vector. Encuentra la expresi\'on que no es lineal y para las otras  escribelas  de la forma $Ap$.
+
+       
+       \begin{enumerate}
+       \item 
+       $$
+       \left[
+       \begin{array}{cc}
+       p_1+p_2 \\
+       p_1-p_2
+       \end{array}
+       \right]	
+       $$
+       para $p\in \mathbb{R}^2$.
+       \item $2p_1+p_3$, para  $p\in \mathbb{R}^3$.
+       \item $2p_1+p_3$, para $p\in \mathbb{R}^4$.
+       \item 
+       $$
+       \left[
+       \begin{array}{c}
+       p_1-2p_2 \\
+       p_3+4p_4
+       p_1+p_2+p_3+p_4
+       \end{array}
+       \right]
+       $$
+       para $p\in \mathbb{R}^4$.
+       
+	\item 
+	$$
+	\left[
+	\begin{array}{c}
+	0 \\
+	p_1-2p_2\\
+	p_3 \\
+	p_3-p_1
+	\end{array}
+	\right]
+	$$       
+       con $p\in\mathbb{R}^3$.
+       \end{enumerate}
+
+	\item Sean $A,B$ dos matrices de $m \times n$. Demuestra que si $A\mathbf{p}=B\mathbf{p}$,
+	para todo $\mathbf{p}\in \mathbb{R}^n$, entonces $A=B$. 
+	
+	Sugerencia: ve tomando $\mathbf{p}=\mathbf{e}_i$, $i=1,\dots, n$.
+
+
+
+        
+\item Considera $\theta\in [0, 2\pi)$ y la matriz 
+$$
+M=\left[
+\begin{array}{cc}
+\cos(\theta ) & -\sen(\theta) \\
+\sen(\theta) & \cos(\theta)
+\end{array}
+\right]
+$$
+
+\begin{enumerate}
+\item Tome el vector en el circulo unitario $u=(\cos(\varphi), \sen(\varphi))$. Demuestra que
+$$
+Mu=\left[
+\begin{array}{c}
+\cos(\theta+\varphi) \\
+\sen(\theta+\varphi)
+\end{array}
+\right]
+$$
+
+
+Por lo tanto, la matriz $M$ representa la transformaci\'on que es rotar el plano un \'angulo $\theta$
+(asi que las rotaciones son funciones lineales).
+
+\item Dado cualquier vector $u\in \mathbb{R}^2$, usa coordenadas polares para escribir $u=(r\cos(\varphi), r\sen(\varphi))$, con $r\geq 0$ y $\varphi\in [0,2\pi)$. Demuestra que si $Mu=0$ entonces $u=0$.
+\end{enumerate}
+
+
+	
+	\item Considera la funci\'on $F:\mathbb{R}^3\to  \mathbb{R}^3$ dada por
+	$F(x,y,z)=(x+y+z, 2y-z, 5z)$. Resuelve el sistema de ecuaciones, para $x,y,z$
+	$$
+	\begin{array}{c}
+	u=x-y+2z \\
+	v=y-2z\\
+	w=4z
+	\end{array}
+	$$
+	para encontrar la funci\'on inversa de $F$.
+
+
+        \item Verifica que 
+	$$
+	\left[
+	\begin{array}{cc}
+	a & b \\
+	c & d
+	\end{array}
+	\right] 
+	\left[
+	\begin{array}{cc}
+	d & -b \\
+	-c & a
+	\end{array}
+	\right]=
+	\left[
+	\begin{array}{cc}
+	ad-bc & 0 \\
+	0 & ad-bc 
+	\end{array}
+	\right]
+	$$
+
+	Concluye que una matriz de $2 \times 2$ es invertible sii su determinante es distinto de cero y
+	$$
+\left[
+	\begin{array}{cc}
+	a & b \\
+	c & d
+	\end{array}
+	\right]^{-1} 
+	=\frac{1}{ad-bc}\left[
+	\begin{array}{cc}
+	d & -b \\
+	-c & a
+	\end{array}
+	\right]
+	$$
+	
+	
+	\item Con ayuda del ejercicio encuentra las inversas de las siguientes funciones.
+	\begin{enumerate}
+	\item $F(x,y)=(2x-y, x+5y)$
+	\item $F(x,y)=(x+y, x-y)$
+	\item $F(x,y)=(5x+7y, y)$
+	\end{enumerate}			
+	
+	
+     \item Sean $u,v, w \in \mathbb{R}^2$ tres
+       puntos en el circulo unitario tal que lo dividen en tres arcos de circunferencia cada uno de la misma longitud.
+       \begin{enumerate}
+       \item Prueba que la transformaci\'on que rota a el plano un \'angulo $\pi/3$ (en cualquier direcci\'on)
+         deja al vector $u+v+w$ fijo. De lo anterior concluye que $u+v+w=0$.
+       \item Usando el inciso anterior prueba que, para todo \'angulo $\theta$
+         \begin{eqnarray*}
+         \sen(\theta)+\sen(\theta+2\pi/3)+\sen(\theta+4\pi/3)&=&0, \\
+         \cos(\theta)+\cos(\theta+2\pi/3)+\cos(\theta+4\pi/3)&=&0 .
+         \end{eqnarray*}
+
+       \item Generaliza el inciso anterior para demostrar
+         \begin{eqnarray*}
+         \sum_{k=1}^n \cos(\theta+ 2\pi k/n)=0, \quad  \sum_{k=1}^n \sen(\theta 2\pi k /n)=0.
+         \end{eqnarray*}
+       \end{enumerate}
+
+
+
+  \end{enumerate}
+
+  
+       \end{document}

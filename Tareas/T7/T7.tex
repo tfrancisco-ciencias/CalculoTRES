@@ -1,0 +1,175 @@
+
+\documentclass{article}
+\usepackage{amssymb, latexsym, amsmath, amsthm, amsfonts, amsbsy, enumerate, tabularx, graphicx}
+\newtheorem{definicion}{Definici\'on}
+
+\newtheorem{teorema}{Teorema}
+\newtheorem{prop}{Proposici\'on}
+\newtheorem{coro}{Corolario}
+\newtheorem{lema}{Lema}
+\theoremstyle{definition}
+\newtheorem{nota}{Nota}
+\newtheorem{notas}{Notas}
+\newtheorem{ejemplo}{Ejemplo}
+\newtheorem{ejemplos}{Ejemplos}
+%\newtheorem{definicion}{Definici\'on}
+\newtheorem{notacion}{Notaci\'on}
+\newcommand{\sen}{\operatorname{sen}}
+\newcommand{\senh}{\operatorname{senh}}
+\newcommand{\csch}{\operatorname{csch}}
+\newcommand{\sech}{\operatorname{sech}}
+\newcommand{\arcsec}{\operatorname{arcsec}}
+\newcommand{\arcsen}{\operatorname{arcsen}}
+\newcommand{\id}{\operatorname{id}}
+\begin{document}
+
+
+
+
+\section*{T7}
+
+\begin{enumerate}
+\item Considera la funci\'on $f(x,y)=xy$. Usando solamente la definici\'on, prueba
+  que para todo punto  $(x_0,y_0)$, $f$ es diferenciable en $(x_0,y_0)$
+
+
+
+  Hint: para la parte de la definici\'on que involucra  l\'imite,
+  primero prueba
+        $$
+        f(x,y)-f(x_0,y_0)- (\partial_xf(x_0,y_0))(x-x_0)-(\partial_yf(x_0,y_0))
+        (y-y_0)= (x-x_0)(y-y_0)
+        $$
+
+
+
+      \item Para cada una de las siguientes funciones calcula el gradiente.
+        \begin{enumerate}
+        \item $f(x,y)=\frac{xy}{(x^2+y^2)^{1/2}}$
+        \item $f(x,y)=\log(x^2+y^2)$
+          \item $f(x,y)=\frac{x}{y}+\frac{y}{x}$
+        \end{enumerate}
+
+
+        
+      \item Para cada una de las siguientes superficies encuentra la
+        ecuaci\'on del plano tangente en el punto indicado.
+        \begin{enumerate}
+        \item $z=x^2+y^3$ en $(1,2,9)$.
+        \item $z=e^{x^2+xy}$ en $(0,1,1)$.
+        \item $x^2+y^2+z^2=1$ en $(1/\sqrt{3}, 1/\sqrt{3}), 1/\sqrt{3})$.
+          \item $x^2+y^2-z^2=1$ en $(1,2,-2)$.
+        \end{enumerate}
+
+
+                
+      \item Usando la notaci\'on  $p=(x,y)$ y  $p_0=(x_0,y_0)$, prueba que el
+        l\'imite de la definici\'on de derivada  es equivalente a
+        $$
+        \lim_{p\to p_0}\frac{f(p)-f(p_0)-T(p-p_0) }{\|p-p_0\|}=0.
+        $$
+        donde $T$ es la funci\'on lineal asociada al vector
+        $(\partial_xf(x_0,y_0), \partial_yf(x_0,y_0))$.
+
+
+        
+
+                \begin{definicion}
+          Sea $U$ un abierto de $\mathbb{R}^n$ y $F:U \to \mathbb{R}^m$ una funci\'on.
+          Escribe las funciones coordenadas de $F$ como $F(p)=(f_1(p), \dots, f_m(p))$,
+          donde cada $f_i$ es una funci\'on que toma valores en $\mathbb{R}$. Supon que
+          todas las derivadas parciales de todas la $f_i$ existen. La matriz de derivadas
+          parciales es la matriz de $m\times n$ cuya entrada $(i,j)$ es $\partial_{p_j}f_i$.
+        \end{definicion}
+
+      \item Para cada una de las siguientes funciones encuentra la matriz de derivadas
+        parciales
+
+        \begin{enumerate}
+        \item $F(x,y)=(xe^y, ye^x)$
+        \item $F(x,y)=(xy\cos(x), xy\sen(y))$
+        \item $F(x,y)=(xy+x^2,x^2+y^2, x^3+xy+y^3)$
+        \item $F(x,y,z)=(xyz, x^2y^2z^2)$
+        \end{enumerate}
+
+
+        
+      \item Supongamos que  $F:\mathbb{R}^n \to \mathbb{R}^m$ es una funci\'on lineal.
+        Usando la definici\'on demuestra que, para todo $p_0\in \mathbb{R}^n$, $F$ es
+        diferenciable en $p_0$ y $D_{p_0}F=F$.
+
+
+      \item Sea $U$ un abierto de $\mathbb{R}^n$, $p_0\in U$  y $f,g:U \to \mathbb{R}$ dos funciones diferenciables en 
+         $p_0$. Demuestra que
+        $$
+        \nabla_{p_0}(fg)=f(p_0)\nabla_{p_0}g + g(p_0)\nabla_{p_0}f  
+        $$
+
+
+
+
+          \item Sea $U$ un abierto de $\mathbb{R}^2$, $p_0\in U$
+            y $F:U \to \mathbb{R}^2$ una funci\'on. Escribamos
+            las funciones coordenadas
+            $$
+            F(x,y)=(f_1(x,y), f_2(x,y)).
+            $$
+            Supon que las derivadas parciales de  $f_1$ y
+            $f_2$ existen en $(x_0,y_0)$.
+            \begin{enumerate}
+            \item Demuestra que, para $i=1,2$
+              \begin{eqnarray*}
+                & & \frac{|f_i(x,y)-f_i(x_0,y_0)-(\partial_xf_i(x_0,y_0))(x-x_0)-
+                (\partial_yf_i(x_0,y_0))(y-y_0)|}{\|(x-x_0,y-y_0)\|} \\
+              &\leq &
+              \frac{\|F(x,y)-F(x_0,y_0)-T(x-x_0,y-y_0) \|}{\|(x-x_0,y-y_0)\|}
+              \end{eqnarray*}
+            donde $T$ es la matriz de darivadas parciales evaluadas
+            en $(x_0,y_0)$.
+
+            Hint: primero prueba  que, para todo vector $(a,b)$
+            $$
+            |a|\leq \| (a,b)\|, \quad |b|\leq \|(a,b) \|
+            $$
+            
+          \item Usando el inciso anterior demuestra que, si suponemos
+            que $F$ es diferenciable en $(x_0,y_0)$, entonces
+            $f_1$ y $f_2$ son diferenciables en $(x_0,y_0)$.
+
+          \item Demuestra que
+            \begin{eqnarray*}
+              & & \frac{\|F(x,y)-F(x_0,y_0)-T(x-x_0,y-y_0) \|}{\|(x-x_0,y-y_0)\|} \\
+              &\leq &
+                      \frac{|f_1(x,y)-f_1(x_0,y_0)-
+                      (\partial_xf_1(x_0,y_0))(x-x_0)-
+                      (\partial_yf_1(x_0,y_0))(y-y_0)|}
+                      {\| (x-x_0,y-y_0)\|} \\
+              &+&  \frac{|f_2(x,y)-f_2(x_0,y_0)-
+                      (\partial_xf_2(x_0,y_0))(x-x_0)-
+                      (\partial_yf_2(x_0,y_0))(y-y_0)|}
+                      {\| (x-x_0,y-y_0)\|}
+            \end{eqnarray*}
+
+            Hint: primero prueba que, para todo vector $(a,b)$
+            $$
+            \| (a,b) \| \leq |a| + |b|.
+            $$
+
+            \item Usando el inciso anterior prueba que, si
+          suponemos que $f_1$ y $f_2$ son diferenciables
+          en $p_0$, entonces $F$ tambi\'en es diferenciable
+          en $p_0$.
+
+
+          Nota: este ejercicio prueba que una funci\'on,
+          con valores vectoriales, es diferenciable si y s\'olo si,
+          todas sus funciones coordenadas son diferenciables.
+         
+          \end{enumerate}
+
+        
+\end{enumerate}
+
+
+  
+       \end{document}

@@ -1,0 +1,106 @@
+
+\documentclass{article}
+\usepackage{amssymb, latexsym, amsmath, amsthm, amsfonts, amsbsy, enumerate, tabularx, graphicx}
+\newtheorem{definicion}{Definici\'on}
+
+\newtheorem{teorema}{Teorema}
+\newtheorem{prop}{Proposici\'on}
+\newtheorem{coro}{Corolario}
+\newtheorem{lema}{Lema}
+\theoremstyle{definition}
+\newtheorem{nota}{Nota}
+\newtheorem{notas}{Notas}
+\newtheorem{ejemplo}{Ejemplo}
+\newtheorem{ejemplos}{Ejemplos}
+%\newtheorem{definicion}{Definici\'on}
+\newtheorem{notacion}{Notaci\'on}
+\newcommand{\sen}{\operatorname{sen}}
+\newcommand{\senh}{\operatorname{senh}}
+\newcommand{\csch}{\operatorname{csch}}
+\newcommand{\sech}{\operatorname{sech}}
+\newcommand{\arcsec}{\operatorname{arcsec}}
+\newcommand{\arcsen}{\operatorname{arcsen}}
+\begin{document}
+
+
+
+
+  \section*{T1}
+
+	\begin{enumerate}
+
+		\item Da un ejemplo que muestra que $\|p+q\|\ne \|p\|+\|q\|$.	
+
+
+ \item Este ejercicio muestra que el \'area del tri\'angulo con v\'ertices  $0, u=(u_1,u_2)$ y $v=(v_1,v_2)$
+       es $\frac{1}{2}|u_1v_2-u_2v_1|$.
+       \begin{enumerate}
+       \item Prueba que el \'area del tri\'angulo es $\frac{1}{2}\|u\|(\|v\| \sen(\theta))$,
+         donde $\theta\in [0,\pi]$, es el \'angulo entre $v$ y $u$.
+       \item Prueba que $\sen(\theta)=\sqrt{1- \left( \frac{\langle u , v \rangle }{\|u\|\|v\|} \right)^2}$.
+       Sugerencia: usa ecuaci\'on $\langle u, v \rangle=\|u\|\|v\|\cos(\theta)$.
+       \item Prueba que el \'area es igual a $\frac{1}{2}\sqrt{\|u\|^2\|v\|^2-(\langle u,  v\rangle )^2}$.
+       \item Finalmente prueba que $\|u\|^2\|v\|^2-(\langle u,  v\rangle )^2=(u_1v_2-u_2v_1)^2$.
+       \end{enumerate}
+       
+        \item Encuentra el \'area del tri\'angulo con v\'ertices en los puntos $(1,1), (0,3)$ y $(4,5)$.
+	
+	
+         \begin{definicion}
+           Dos vectores $p,q\in \mathbb{R}^n$ se llaman ortogonales si $\langle p,q \rangle=0$.
+         \end{definicion}
+         
+         
+       \item (Teorema de Pit\'agoras)
+
+         Par dos vectores $p, q \in \mathbb{R}^n$, demuestra:
+
+         $\|p+q\|^2=\|p\|^2+\|q\|^2$ si y s\'olo si los vectores son prependiculares.
+
+ \item (La otra desigualdad del tri\'angulo)
+
+                Demuestra, para todos  los vectores $p,q$ en un espacio con producto interior:
+                $$
+                |\|p\| - \|q\|| \leq \|p-q\|.
+                $$
+
+                Sugerencia: empieza con $\|p\|$ suma  y resta $q$ y usa la desigualdad del tri\'angulo.	
+
+\item\label{Ejer:DeterRenglonesRepetidos} Sea $A$ una matriz de $3 \times 3$. Supongamos que dos renglones de $A$ son iguales. Demuestra
+que $\det(A)=0$. Sugerencia: utiliza la propiedad alternante del determinante.
+
+\item Considera los vectores $v=(v_1,v_2,v_3), w=(w_1,w_2,w_3)$. 
+
+Dados escalares $\alpha, \beta$ construye
+el vector $u=\alpha v+ \beta w$. Demuestra que 
+$$
+\det\left[
+\begin{array}{ccc}
+u_1 & u_2 & u_3 \\
+v_1 & v_2 & v_3 \\
+w_1 & w_2 & w_3
+\end{array}
+\right]=0
+$$
+
+
+\item Demuestra 
+	$$
+	(u\times v) \times w= (u \cdot w) v - (v \cdot w ) u
+	$$
+	
+	$$
+	u\times (v\times w)=   (u \cdot w )v -(u \cdot v ) w	
+	$$
+
+	Usa las f\'ormulas anteriores para dar un ejemplo de vectores $u,v$ y $w$ que muestren 
+	$(u\times v) \times w\ne u \times (v \times w) $.
+	
+	\end{enumerate}
+
+
+
+
+
+  
+       \end{document}

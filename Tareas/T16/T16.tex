@@ -1,0 +1,122 @@
+
+\documentclass{article}
+\usepackage{amssymb, latexsym, amsmath, amsthm, amsfonts, amsbsy, enumerate, tabularx, graphicx}
+\newtheorem{definicion}{Definici\'on}
+
+\newtheorem{teorema}{Teorema}
+\newtheorem{prop}{Proposici\'on}
+\newtheorem{coro}{Corolario}
+\newtheorem{lema}{Lema}
+\theoremstyle{definition}
+\newtheorem{nota}{Nota}
+\newtheorem{notas}{Notas}
+\newtheorem{ejemplo}{Ejemplo}
+\newtheorem{ejemplos}{Ejemplos}
+%\newtheorem{definicion}{Definici\'on}
+\newtheorem{notacion}{Notaci\'on}
+\newcommand{\sen}{\operatorname{sen}}
+\newcommand{\senh}{\operatorname{senh}}
+\newcommand{\csch}{\operatorname{csch}}
+\newcommand{\sech}{\operatorname{sech}}
+\newcommand{\arcsec}{\operatorname{arcsec}}
+\newcommand{\arcsen}{\operatorname{arcsen}}
+\newcommand{\id}{\operatorname{id}}
+\begin{document}
+
+
+
+
+  \section*{T16 }
+
+  
+  
+	\begin{enumerate}
+
+        \item Mostrar que $xy+z+3xz^5=4$ es soluble para $z$ como
+          funci\'on de $x,y$ cerca de $(1,0,1)$. Adem\'as:
+          \begin{enumerate}
+          \item calcular $\partial_xz(1,0)$ y $\partial_yz(1,0)$.
+          \item usando una aproximaci\'on lineal, estimar el valor de $z$
+            cuando $x=1.1$ y $y=0.5$.
+          \end{enumerate}
+          
+        \item Considera la superficie en $\mathbb{R}^3$ dada por
+          $$
+          2y^2z^2-2x=0
+          $$
+
+          \begin{enumerate}
+
+          \item Encuentra dos simetrias de la superficie.
+            
+          \item Usar el teorema de la funci\'on impl\'icita para verificar
+            que, para cualquier punto en la curva,
+            podemos despejar $x$ en terminos de $y$ y $z$ y usando
+            tambi\'en el teorema de la funci\'on impl\'icita
+            calcula $\partial_y x$ y $\partial_z x$
+          \item de manera directa despeja $x$ y usa este despeja para calcular
+            $\partial_y x$ y $\partial_z x$.
+
+            
+
+          \item Usando el teorema de la funci\'on
+            impl\'icita, prueba que cerca de los punto $(1,1,1)$ y $(1,-1,1)$ podemos
+            despejar a  $y$, en t\'erminos de las otras dos variables. Adem\'as
+            calcula $\partial_xy(1,1)$, $\partial_z y (1,1)$. Nota:
+            las parciales dependen si est\'as en el punto $(1,1,1)$ o $(1,-1,1)$.
+
+          \item Trata de despejar de manera directa $y$ en $2y^2z^2-2x=0$
+            para encontrar una f\'ormula para $y$ cerca de $(1,1,1)$
+            y para $y$ cerca de $(1,-1,1)$.
+            
+
+          \end{enumerate}
+
+
+        \item Analiza la solubilidad del sistema
+          \begin{eqnarray*}
+            3x+2y+z^2+u+v^2&=&0\\
+            4x+3y+z+u^2+v+w+2&=&0\\
+            x+z+w+u^2+2&=&0\\
+          \end{eqnarray*}
+          para $u$, $v$ y $w$ en t\'erminos de $x,y$ y $z$ cerca de $x=y=z=0$,
+          $u=v=0$ y $w=-2$.
+
+        \item Investiga si el siguiente sistema
+
+          \begin{eqnarray*}
+            u(x,y,z)&=&x+yxz \\
+            v(z,y,z)&=&y+xy\\
+            w(x,y,z)&=&z+2x+3z^2
+          \end{eqnarray*}
+
+          puede resolverse para $x,y,z$ (despejar $x,y$ y $z$) en t\'erminos
+          de $u,v$ y $w$, cerca del punto $(x,y,z)=(0,0,0)$.
+          
+        \item Considera la funci\'on $f:\mathbb{R}\to \mathbb{R}$ dada por
+          $$
+          f(x)=\left\{
+            \begin{array}{cc}
+              x+2x^2\sen(1/x) & x\ne 0 \\
+              0 & x=0
+              \end{array}
+            \right.
+          $$
+
+          En este caso recuerda que $D_0f$ es simplemente $f'(0)$ y que
+          la condici\'on de que $D_0f$ sea inyectiva simplemente se traduce
+          a $f'(0)\ne0$.
+
+          Prueba que $f'(0)$ existe, es distinta de cero, pero sin embargo,
+          $f$ no es invertible cerca de $x=0$.
+
+          \textquestiondown Contradice esto el teorema de la funci\'on inversa?
+            
+          \end{enumerate}
+          
+
+          
+
+	
+  
+       \end{document}

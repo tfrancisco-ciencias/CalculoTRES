@@ -1,0 +1,100 @@
+
+\documentclass{article}
+\usepackage{amssymb, latexsym, amsmath, amsthm, amsfonts, amsbsy, enumerate, tabularx, graphicx}
+\newtheorem{definicion}{Definici\'on}
+
+\newtheorem{teorema}{Teorema}
+\newtheorem{prop}{Proposici\'on}
+\newtheorem{coro}{Corolario}
+\newtheorem{lema}{Lema}
+\theoremstyle{definition}
+\newtheorem{nota}{Nota}
+\newtheorem{notas}{Notas}
+\newtheorem{ejemplo}{Ejemplo}
+\newtheorem{ejemplos}{Ejemplos}
+%\newtheorem{definicion}{Definici\'on}
+\newtheorem{notacion}{Notaci\'on}
+\newcommand{\sen}{\operatorname{sen}}
+\newcommand{\senh}{\operatorname{senh}}
+\newcommand{\csch}{\operatorname{csch}}
+\newcommand{\sech}{\operatorname{sech}}
+\newcommand{\arcsec}{\operatorname{arcsec}}
+\newcommand{\arcsen}{\operatorname{arcsen}}
+\newcommand{\id}{\operatorname{id}}
+\begin{document}
+
+
+
+
+  \section*{T13 }
+  \begin{enumerate}
+  \item Para las siguientes funciones, determinar la f\'ormula
+    de Taylor de segundo orden en los puntos dados.
+    \begin{enumerate}
+    \item $f(x,y)=(x+2y)^2$, en $x_0=0$, $y_0=0$.
+    \item $f(x,y)=\frac{1}{1+x^2+y^2}$, en $x_0=0$, $y_0=0$.
+    \item $f(x,y)=e^{(x-1)^2}\cos(y)$, en  $x_0=1$, $y_0=0$.
+    \end{enumerate}
+
+    \begin{definicion}
+      Sea $f:U  \to \mathbb{R}$,
+      una funci\'on diferenciable en el abierto $U\subseteq \mathbb{R}^n$.
+      Decimos
+      que un $p_0\in U$ es un punto cr\'itico
+      o estacionario de $f$ si $\nabla_{p_0}f=0$. Es decir, si todas
+      las derivadas parciales de $f$ se anulan en $p_0$.
+    \end{definicion}
+    
+    
+  \item\label{Ejer:PtsCriticos}
+    Para las siguientes funciones  encuentra sus puntos cr\'iticos.
+  
+ 
+    \begin{enumerate}
+    \item $f(x,y)=x^2-y^2+xy$,
+    \item $f(x,y)=x^2+y^2-xy$,
+    \item $f(x,y)=e^{1+x^2-y^2}$,
+    \item $f(x,y)=x^2-3xy+5x-2y+6y^2+8$,
+    \item $f(x,y)=xy+\frac{1}{x}+\frac{1}{y}$.
+    \end{enumerate}
+    
+
+    \begin{definicion}
+      Sea $f:U \to \mathbb{R}$ una funci\'on definida en el
+      abierto $U\subseteq \mathbb{R}^n$, tal que tiene derivadas
+      parciales de segundo orden, $\partial^2_{p_i p_j}f(p_0)$, $i,j=1,\dots, n$
+      en  $p_0\in U$. El Hessiano de $f$ en $p_0$, denotado $H_{p_0}f$
+      o $Hf(p_0)$ es la funci\'on cuadr\'atica dada por
+      $$
+      H_{p_0}f(p):=\frac{1}{2}\sum_{i,j=1}^n
+      \partial^2_{p_i p_j}f(p_0)p_ip_j
+      $$
+      donde $p=(p_1,\dots, p_n)\in \mathbb{R}^n$.
+      \end{definicion}
+    
+  \item Para cada una de las funciones del ejercicio  \ref{Ejer:PtsCriticos}
+    encuentra el Hessiano en los puntos cr\'iticos y determina si es
+    definitivamente positivo, negativo o ninguno.
+
+  \item Sea $n\geq 2$ un entero y define $f(x,y)=ax^n+cy^n$, donde
+    $a$ y $c$ satisfacen $ac\ne 0$.
+    \begin{enumerate}
+    \item prueba que $f$ tiene un \'unico punto cr\'itico;
+    \item calcula el Hessiano de $f$ en dicho punto cr\'itico
+      y determina si es definitivamente positivo o definitivamente
+      negativo o ninguno.
+    \end{enumerate}
+
+  \item Encuentra los puntos cr\'iticos de
+    $$
+    f(x,y,z)=x^2+y^2+z^2+xy
+    $$
+
+    Despu\'es calcula el Hessiano en dichos puntos y determina si es
+    definitivamente positivo, definitivamente negativo o ninguno.
+
+ 
+  \end{enumerate}
+  
+
+  \end{document}
