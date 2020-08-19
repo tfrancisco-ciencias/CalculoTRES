@@ -1,0 +1,49 @@
+\documentclass[12pt]{article}
+\setlength{\topmargin}{-.75in}\addtolength{\textheight}{2.00in}
+\setlength{\oddsidemargin}{.00in}\addtolength{\textwidth}{.75in}
+\usepackage{amsmath,amssymb}
+\nofiles
+
+\pagestyle{empty}
+\setlength{\parindent}{0in}
+\newcommand{\sen}{\operatorname{sen}}
+
+
+\begin{document}
+
+\noindent{\sc {\bf{\large Quiz 10 }}
+           \hfill C\'alculo 3, semestre 2020-2}
+\bigskip
+
+\noindent {\sc{
+            { \Large Nombre: \underline {\hspace {10 cm }}}}}
+            
+\bigskip
+\bigskip
+\bigskip
+
+
+\begin{enumerate}
+
+  
+\item(2 pts) Para las siguientes funciones $f:\mathbb{R}^3 \to \mathbb{R}$ y
+  $\gamma:\mathbb{R}\to \mathbb{R}^3$, encuentra $\nabla f $, $\gamma'(t)$ y usa la regla de la
+  cadena para calcular $(f\circ \gamma)'(1)$.
+  $$f(x,y,z)=xz+yz+xy, \quad \gamma(t)=(e^t,\cos(t),\sen(t))$$
+ 
+ 
+
+
+  \vspace{3cm}
+
+\item(3 pts) Usa la regla de la cadena para calcular $\partial_s(f\circ T)(1,0)$, donde
+  \begin{eqnarray*}
+    f(u,v)&=&\cos(u)\sen(v)\\
+    T(s,t)&=&(\cos(t^2s), \log(\sqrt{1+s^2}))
+  \end{eqnarray*}
+  
+\end{enumerate}
+
+
+  
+\end{document}

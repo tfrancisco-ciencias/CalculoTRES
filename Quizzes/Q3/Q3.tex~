@@ -1,0 +1,48 @@
+\documentclass[12pt]{article}
+\setlength{\topmargin}{-.75in}\addtolength{\textheight}{2.00in}
+\setlength{\oddsidemargin}{.00in}\addtolength{\textwidth}{.75in}
+\usepackage{amsmath,amssymb}
+\nofiles
+
+\pagestyle{empty}
+\setlength{\parindent}{0in}
+
+
+
+\begin{document}
+
+\noindent{\sc {\bf{\large Quiz 2 }}
+           \hfill C\'alculo 3, semestre 2020-2}
+\bigskip
+
+\noindent {\sc{
+            { \Large Nombre: \underline {\hspace {10 cm }}}}}
+            
+\bigskip
+\bigskip
+\bigskip
+
+
+\begin{enumerate}
+
+\item (1 pts) Supon que $f:\mathbb{R}^2 \to \mathbb{R}$ es lineal y que $f(1,0)=2, f(-1,-1)=1$. Calcula el 
+ valor de $f(0,2)$.
+\vspace{4cm}
+  
+  \item (2 pts) Considera la funci\'on lineal $F:\mathbb{R}^2 \to \mathbb{R}^3$ dada por
+  $$F(x,y)=(x+y, x-y, 5x+2y)$$ 
+  
+  Encuentra la matriz $A$, tal que  $F(p)=Ap$, para todo $p\in \mathbb{R}^2$.
+
+
+\vspace*{4cm}
+
+\item (2 pts)  Sean $F:\mathbb{R}^n \to \mathbb{R}^m$ y $G:\mathbb{R}^m \to \mathbb{R}^k$ dos funciones lineales,
+demuestra que la composici\'on $G\circ F:\mathbb{R}^n \to \mathbb{R}^k$,  tambi\'en es una funci\'on  lineal.
+
+  \end{enumerate}
+
+
+  \vspace{3cm}
+  
+\end{document}

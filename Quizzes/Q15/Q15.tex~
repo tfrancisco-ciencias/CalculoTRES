@@ -1,0 +1,51 @@
+\documentclass[12pt]{article}
+\setlength{\topmargin}{-.75in}\addtolength{\textheight}{2.00in}
+\setlength{\oddsidemargin}{.00in}\addtolength{\textwidth}{.75in}
+\usepackage{amsmath,amssymb}
+\nofiles
+
+\pagestyle{empty}
+\setlength{\parindent}{0in}
+\newcommand{\sen}{\operatorname{sen}}
+
+
+\begin{document}
+
+\noindent{\sc {\bf{\large Quiz 14 }}
+           \hfill C\'alculo 3, semestre 2020-2}
+\bigskip
+
+\noindent {\sc{
+            { \Large Nombre: \underline {\hspace {10 cm }}}}}
+            
+\bigskip
+\bigskip
+\bigskip
+
+
+
+
+
+
+\begin{enumerate}
+
+\item (2 pts) Encuentra el m\'aximo y m\'inimo de la funci\'on $f(x,y)=x$, restringida a la superficie
+$x^2+2y^2=3$.
+
+
+  \vspace{8cm}
+
+
+\item (3 pts) Encuentra el m\'aximo y m\'inimo de la funci\'on $f(x,y,z)=x+y+z$, restringida
+a las dos condiciones $x^2+y^2=1$ y $2x+z=1$.
+  
+
+\end{enumerate}
+ 
+
+
+
+
+
+  
+\end{document}

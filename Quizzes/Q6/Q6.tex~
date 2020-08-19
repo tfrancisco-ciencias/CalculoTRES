@@ -1,0 +1,40 @@
+\documentclass[12pt]{article}
+\setlength{\topmargin}{-.75in}\addtolength{\textheight}{2.00in}
+\setlength{\oddsidemargin}{.00in}\addtolength{\textwidth}{.75in}
+\usepackage{amsmath,amssymb}
+\nofiles
+
+\pagestyle{empty}
+\setlength{\parindent}{0in}
+\newcommand{\sen}{\operatorname{sen}}
+
+
+\begin{document}
+
+\noindent{\sc {\bf{\large Quiz 6 }}
+           \hfill C\'alculo 3, semestre 2020-2}
+\bigskip
+
+\noindent {\sc{
+            { \Large Nombre: \underline {\hspace {10 cm }}}}}
+            
+\bigskip
+\bigskip
+\bigskip
+
+
+\begin{enumerate}
+
+\item (2 pts) Sea $U$ un abierto en $\mathbb{R}^2$, $p_0\in U$ y $f:U\to \mathbb{R}$ una
+  funci\'on. Escribe la definici\'on de que $f$ sea diferenciable en $p_0$.
+
+  
+\vspace{5cm}  
+  
+\item (3 pts) Sea $F:\mathbb{R}^2 \to \mathbb{R}^3$ dada por $F(x,y)=(\sen(xy), \cos(xy),\tan(xy))$.
+  Encuentra la matriz de derivadas parciales.
+  \end{enumerate}
+
+
+  
+\end{document}

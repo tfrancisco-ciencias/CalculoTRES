@@ -1,0 +1,37 @@
+\documentclass[12pt]{article}
+\setlength{\topmargin}{-.75in}\addtolength{\textheight}{2.00in}
+\setlength{\oddsidemargin}{.00in}\addtolength{\textwidth}{.75in}
+\usepackage{amsmath,amssymb}
+\nofiles
+
+\pagestyle{empty}
+\setlength{\parindent}{0in}
+\newcommand{\sen}{\operatorname{sen}}
+
+
+\begin{document}
+
+\noindent{\sc {\bf{\large Quiz 3 }}
+           \hfill C\'alculo 3, semestre 2020-2}
+\bigskip
+
+\noindent {\sc{
+            { \Large Nombre: \underline {\hspace {10 cm }}}}}
+            
+\bigskip
+\bigskip
+\bigskip
+
+
+\begin{enumerate}
+
+\item (2 pts)
+  
+\vspace{4cm}  
+  
+\item (3 pts) 
+  \end{enumerate}
+
+
+  
+\end{document}

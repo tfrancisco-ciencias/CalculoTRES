@@ -1,0 +1,50 @@
+\documentclass[12pt]{article}
+\setlength{\topmargin}{-.75in}\addtolength{\textheight}{2.00in}
+\setlength{\oddsidemargin}{.00in}\addtolength{\textwidth}{.75in}
+\usepackage{amsmath,amssymb}
+\nofiles
+
+\pagestyle{empty}
+\setlength{\parindent}{0in}
+\newcommand{\sen}{\operatorname{sen}}
+
+
+\begin{document}
+
+\noindent{\sc {\bf{\large Quiz 12 }}
+           \hfill C\'alculo 3, semestre 2020-2}
+\bigskip
+
+\noindent {\sc{
+            { \Large Nombre: \underline {\hspace {10 cm }}}}}
+            
+\bigskip
+\bigskip
+\bigskip
+
+
+Considera la funci\'on $f(x,y)=(x-y)(xy-1)$.
+
+
+
+\begin{enumerate}
+
+\item (3pts) Determina la f\'ormula de Taylor para $f$
+  en el punto $(\sqrt{3},1)$.
+
+
+\item (2pts) Determina si el Hessiano de $f$ en $(\sqrt{3},1)$ es
+  definitivamente positivo, definitivamente negativo o ninguno.
+
+
+  
+
+\end{enumerate}
+ 
+
+
+
+
+
+  
+\end{document}
