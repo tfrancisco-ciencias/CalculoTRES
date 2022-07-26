@@ -1,177 +1,144 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html PUBLIC >
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<html lang="es">
   <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
-    <meta name="Generator" content="iWeb 3.0.3" />
-    <meta name="iWeb-Build" content="local-build-20111108" />
-    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
-    <meta name="viewport" content="width=700" />
-    <title>Home</title>
-    <link rel="stylesheet" type="text/css" media="screen,print" href="Home_files/Home.css" />
-    <!--[if lt IE 8]><link rel='stylesheet' type='text/css' media='screen,print' href='Home_files/HomeIE.css'/><![endif]-->
-    <!--[if gte IE 8]><link rel='stylesheet' type='text/css' media='screen,print' href='Media/IE8.css'/><![endif]-->
-    <script type="text/javascript" src="Scripts/iWebSite.js"></script>
-    <script type="text/javascript" src="Scripts/Widgets/SharedResources/WidgetCommon.js"></script>
-    <script type="text/javascript" src="Scripts/Widgets/Navbar/navbar.js"></script>
-    <script type="text/javascript" src="Scripts/iWebImage.js"></script>
-    <script type="text/javascript" src="Home_files/Home.js"></script>
-
-    <style>
-ul.menu {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
-
-li.menu {
-  float: left;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li a:hover {
-  background-color: grey;
-}
- </style>
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="./main.js"></script>
+
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1]
+          }
+        }
+      };
+    </script>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="style.css" />
+
+    
+    <!-- Top Menu  -->
+
+
+        <header class="main-header">
+          <h1> Cálculo TRES </h1>
+         <nav class="top-nav">
+           <ul>
+              <li> <a href="./Home.html"> Inicio  </a> </li>
+              <li> <a href="./InfoPrimerDia.html"> Información general </a> </li>
+              <li> <a href="./Secciones.html"> Secciones  </a> </li>
+              <li> <a href="./ExternalLinks.html"> Links </a> </li>
+              
+              
+            </ul>
+          </nav>
+          <nav class="small-nav" align="right">
+            <button onclick="myFunction()">Claro/Obscuro 
+          </nav>
+        </header>
+
+      <!-- This part is for title in tab-->
+      <title>Inicio</title>
+    
   </head>
-  <body style="background: rgb(247, 246, 246); margin: 0pt; " onload="onPageLoad();" onunload="onPageUnload();">
-    <div style="text-align: center; ">
 
-    <div style="margin-bottom: 0px; margin-left: auto; margin-right: auto; margin-top: 0px; overflow: hidden;
-    position: relative; word-wrap: break-word;  background: rgb(247, 246, 246); text-align: left; width: 700px; " id="body_content">
+  <body class="fondo-body" >
+    
+      
+     <div class="info-box">
+      <h2> Profesor: Francisco J. Torres Ayala. </h2>
+      <h2> Ayudante: Niels Wacher Casas. </h2>
+      
 
-<h1> Cálculo TRES </h1>
+        
+          <h3> Temario  </h3>
+          <p>
+            De manera muy general los temas que se cubrirán son:
+            <ul>
+              <li>
+                Algebra y geometría vectorial: producto punto, producto cruz, norma, perpendicularidad.
+              </li>
+              <li>
+                Algebra lineal: funciones lineales en \(\mathbb{R}^n\), matrices.
+              </li>
+              <li>
+                Geometría de funciones de varias variables.
+              </li>
+              <li>
+                Conjuntos abiertos y cerrados en \(\mathbb{R}^n\).
+              </li>
+              <li>
+                Límites.
+              </li>
+              <li>
+                Derivadas parciales.
+              </li>
+              <li>
+                Diferenciabilidad: aproximación lineal, gradiente, derivadas direccionales.
+              </li>
+              <li>
+                Regla de la cadena.
+              </li>
+              <li>
+                Teorema de Taylor.
+              </li>
+              <li>
+                Puntos extremos, multiplicadores de Lagrange.
+              </li>
+              <li>
+                Teorema de la Función Implícita.
+              </li>
+              <li>
+                Teorema de la función inversa.
+              </li>
+            </ul>
+          </p>
+        
 
-<ul class="menu">
-  <li class="menu"><a class="menu" class="active" href="Home.html">Home</a></li>
-  <!-- <li class="menu"><a class="menu" href="InfoPrimerDia.html"> Primer día de clases</a> </li> -->
-<li class="menu"><a class="menu" href="Clases.html"> Vidoes y PDFs </a></li>
-  <li class="menu"><a class="menu" href="Tareas.html"> Tareas y quizzes  </a></li>
-<li class="menu"><a class="menu" href="Examenes.html"> Exámenes </a></li>
-  <!--- <li class="menu"><a href="Moodle.html">Moodle Ciencias </a></li> -->
-<!--  <li class="menu"><a class="menu" href="Matlab.html">Matlab </a></li> -->
-  <li class="menu"><a class="menu" href="ExternalLinks.html"> Links </a></li>
- </ul>
+          <h3> Objetivos </h3>
 
+          <p> Manejar
+            <a href="./Definiciones-Calc3.html"> estas definiciones</a>
+              y saber aplicar <a href="https://www.dropbox.com/s/di9yqv8ya0ourdz/TeoPrin-Calc3.pdf?dl=0">
+              estos teoremas</a>.
+            </p>
+          
+          <h3> Bibliografía </h3>
+          <p>El mejor libro de cálculo... es al que le entiendes. </p>
+          
+          <h4>Básica:</h4>
+          
+          <ul>
+            <li> Marsden, Tromba. Vector Calculus. </li>
+            <li> Apostol. Calculus, Vol. II. </li>
+            <li> Stewart. Calculus . </li>
+          </ul>
+          
+          <h4>Recomendable: </h4>
+          <ul>
+            <li> Bartle. The elements of Real Analysis. </li>
+            <li> Williamson, Crowell, Trotter. Calculus of vector functions. </li>
+          </ul>
 
-
-<h2> Profesor: Francisco J. Torres Ayala. </h2>
-      <!-- <h3> Horas de asesorias: lu,ma,mi: 4-5, cubiículo 242, depto. mate. </h3> -->
-<h2> 1er Ayudante: Pablo Jorge Hernández Hernández. </h2>
-<h2> 2o Ayudante: Osvaldo Aparicio Hernández. </h2>
-<!-- <h3> Horarios </h3> -->
-
-<div>
-<!--<ul>
-<li> <strike >Clases: lu,ma,mi: 2-4 </strike> </li>
-<li> <strike>Ayudantías: ju, vi, 2-4 </strike></li>
-</ul>
--->
-</div>
-
-<h2>
-Descripción
-</h2>
-
-<p>
-  Estas páginas contienen parte del material presentado
-  durante una porción del semestre 2020-2,
-  el de la pandemia del COVID-19, y sigue el temario de la Facultad de
-  Ciencias de la UNAM.  El material de videos y pdfs inicia con derivadas
-  parciales pues los temas anteriores  se presentaron
-  de manera prescencial, cuando la UNAM todavía estaba
-  abierta (medidados de marzo 2020).
-</p>
-<p>
-  La parte de videos y pdfs contienen ejercicios resueltos,
-  una pequeña parte de la teoría y están organizados por temas.
-
-  La parte de tareas y quizzes son listas de ejercicios
-  para prácticar los conceptos y teoremás correspondientes
-  a cada tema. La diferencia entre tareas y quizzes es que
-  éstos últimos están pensandos para ser resueltos rápidamente
-  (unos 20 minutos por quiz) y generalmente son preguntas sencillas que se resuelven
-  aplicando un teorema o definición adecuada.
-</p>
-
-<!--
-<h2> Anuncios  </h2>
-
-
-
-<h3> <font color="red"> 19 de marzo </font> </h3>
-<p> Para continuar con el curso a distancia vamos.. </p>
-<ol>
-<li>usar primariamente la página del curso y google classroom para subir
-  material(tareas, quizzes, exámenes). En estos dos lugares
-  va a estar esencialmente la misma información, pero
-  quiero tener dos por que dos siempre es mejor que uno(más
-  en estos casos)
-</li>
-
-<li>para tener un control y para que Pablo, Osvaldo y yo
-  podamos tener acceso independiente a sus tareas, quizzes
-  y  exámenes, estos se subirán en googleclassroom
-</li>
- <li>como apoyo adicional está google meet, en la cual iré
-   programando sesiones para preguntas. Yo les voy
-   informando de esto la siguiente semana.
- </li>
-</ol>
-
- <p>Nota: me parece que para el uso de google meet hay qu
-   e usar el correode la Facultad de Ciencias.</p>
-
- <p>Dicho esto, el curso se retoma formalmente la siguiente
-   semana, empezando el lunes. Lo que les pido por el momento es que:
-
-   <ol>
-     <li> marquen la página del curso para que tengan esta
-       opción
-     </li>
-     <lo> que acepten la invitación que envié en google
-       classroom y vean si pueden acceder
-     </li>
-     <li>
-       chequen que pueden acceder a google meet.
-     </li>
-   </ol>
-
- <p> Nota: a los servicios de google meet y classroom se
-   llega primero accediendo a google, tienen que estar
-   ingresados con su cuenta, y si ven en la parte superior
-   derecha, hay un arreglo de 6 cuadritos,
-   ahí le pican y salen varias iconos, entre ellos
-   classroom y google meet.
- </op>
+     </div> 
 
 
-<h3>  <font color="red"> 16 de marzo </font> </h3>
 
-<p> Suspensión de clases en la Facultad de Ciencias
-  a partir del martes 17 de marzo. La semana del 17
-  al 20 de marzo será para reajustar el curso y
-  ver opciones para continuar.</p>
-  <p> Si les es posible
-ingresar a
-<a href="https://moodle.fciencias.unam.mx/cursos/">moodle Ciencias,
-</a> para una encuesta.  </p>
--->
-
-      </div>
-    </div>
+      
   </body>
 </html>

@@ -1,200 +1,120 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html PUBLIC >
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<html lang="es">
   <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
-    <meta name="Generator" content="iWeb 3.0.3" />
-    <meta name="iWeb-Build" content="local-build-20111108" />
-    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
-    <meta name="viewport" content="width=700" />
-    <title>Primer día de clases</title>
-    <link rel="stylesheet" type="text/css" media="screen,print" href="Home_files/Home.css" />
-    <!--[if lt IE 8]><link rel='stylesheet' type='text/css' media='screen,print' href='Home_files/HomeIE.css'/><![endif]-->
-    <!--[if gte IE 8]><link rel='stylesheet' type='text/css' media='screen,print' href='Media/IE8.css'/><![endif]-->
-    <script type="text/javascript" src="Scripts/iWebSite.js"></script>
-    <script type="text/javascript" src="Scripts/Widgets/SharedResources/WidgetCommon.js"></script>
-    <script type="text/javascript" src="Scripts/Widgets/Navbar/navbar.js"></script>
-    <script type="text/javascript" src="Scripts/iWebImage.js"></script>
-    <script type="text/javascript" src="Home_files/Home.js"></script>
-
-    <style>
-ul.menu {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
-
-li.menu {
-  float: left;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li a:hover {
-  background-color: #111;
-}
-</style>
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="main.js"></script>
+
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1]
+          }
+        }
+      };
+    </script>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="style.css" />
+
+    
+    <!-- Top Menu  -->
+
+
+        <header class="main-header">
+          <h1> Cálculo TRES</h1>
+         <nav class="top-nav">
+           <ul>
+              <li> <a href="./Home.html"> Inicio  </a> </li>
+              <li> <a href="./InfoPrimerDia.html"> Información general </a> </li>
+              <li> <a href="./Secciones.html"> Secciones  </a> </li>
+              <li> <a href="./ExternalLinks.html"> Links </a> </li>
+              
+              
+            </ul>
+          </nav>
+          <nav class="small-nav" align=right>
+            <button onclick="myFunction()">Claro/Obscuro 
+          </nav>
+        </header>
+
+      <!-- This part is for title in tab-->
+      <title>Información general</title>
+    
   </head>
-  <body style="background: rgb(247, 246, 246); margin: 0pt; " onload="onPageLoad();" onunload="onPageUnload();">
-    <div style="text-align: center; ">
 
-<div style="margin-bottom: 0px; margin-left: auto; margin-right: auto; margin-top: 0px; overflow: hidden;
-position: relative; word-wrap: break-word;  background: rgb(247, 246, 246); text-align: left; width: 700px; " id="body_content">
+  <body class="fondo-body" >
 
-<h1> Cálculo TRES </h1>
+ 
 
-<ul class="menu">
-  <li class="menu"><a class="menu" class="active" href="Home.html">Home</a></li>
-  <li class="menu"><a class="menu" href="InfoPrimerDia.html"> Primer día de clases</a> </li>
-  <li class="menu"><a class="menu" href="Tareas.html"> Tareas </a></li>
-  <!--- <li class="menu"><a href="Moodle.html">Moodle Ciencias </a></li> -->
-  <li class="menu"><a class="menu" href="Matlab.html">Matlab </a></li>
-  <li class="menu"><a class="menu" href="ExternalLinks.html"> Links </a></li>
-  <li class="menu"><a class="menu" href="Examenes.html"> Exámenes </a></li>
-  <li class="menu"><a class="menu" href="Clases.html"> Clases </a></li>
-</ul>
+<title>Información general</title>
 
+<div class="info-box">
+  <h2> Dinámica del curso </h2>
+    <p> 
+      El curso será en modo presencial (salvo indicaciones de la Facultad de Ciencias). Nota: el la página de la 
+      Facultad puede aparecer que el curso es en línea pero hasta el momento (<span id="date">  </span>), es presencial.
+    </p>
+    <p>
+      En la medida de lo posible se grabarán las clases y subirán los videos en el google classroom.
+    </p>
+  
+    <p>
+      Para la evaluación se presentarán tres exámenes parciales y quizzes semanales. Se dejarán 
+      tareas las cuales no se califican pero sirven de práctica para los exámenes.
+    </p>
+  <h2> Plataformas </h2>
+    <ul>
+      <li> Google classroom </li>
+        <p>
+          Se usará para organizar el material del curso: lista de ejercicios,
+          videos, notas de clase, material de lectura, anuncios.
+           Pudes usar el <a href="https://classroom.google.com/c/NTM3MjAzNzk3NTkx?cjc=dbhejro">Link de invitación</a>
+           para unirte.
+        </p>
+        <p>
+          Nota: Usar su correo de ciencias para inscribirse a Google classroom. 
+        </p>
+        <li>
+          Página del curso.
+        </li>
+        <p>
+          Esta que estas leyendo. Su usará para publicar ejercicios resueltos y resultados principales.
+        </p>
 
+    </ul>
 
+</div>
 
-<h2> Información para el primer día de clases </h2>
-
-
- <h3> Objetivos </h3>
-
-<p> Manejar
-  <a href="https://www.dropbox.com/s/wfclt4l7btzcrrt/Definiciones-Calc3.pdf?dl=0" >
-    estas definiciones </a>
-    y saber aplicar
-  <a href="https://www.dropbox.com/s/di9yqv8ya0ourdz/TeoPrin-Calc3.pdf?dl=0">
-    estos teoremas </a>.
-
- </p>
-
-<h3> Bibliografía </h3>
-<p>El mejor libro de cálculo... es al que le entiendes. </p>
-
-<h4>Básica:</h4>
-
-<ul>
-<li> Marsden, Tromba. Vector Calculus. </li>
-<li> Apostol. Calculus, Vol. II. </li>
-<li> Stewart. Calculus . </li>
-
-
-</ul>
-
-<h4>Recomendable: </h4>
-<ul>
-  <li> Bartle. The elements of Real Analysis. </li>
-<li> Williamson, Crowell, Trotter. Calculus of vector functions. </li>
-
-
-</ul>
-
-<h3>Evaluación </h3>
-
-<p>Se tomarán en cuenta : </p>
-<ul>
-  <li><strong>3 exámenes  </strong>(salvo causas de fuerza mayor); </li>
-  <li> varios <strong>quizzes-semanales</strong> (controles). </li>
-</ul>
-
-<p>Cada examen tiene un peso del 25%. El promedio de las
-calificaciones de los quizzes  también pesa 25%. </p>
-
-<p>Su calificación es:  </p>
-
-<h4> Calificación = Promedio exámenes + Promedio quizzes </h4>
-
-<h3>Tareas </h3>
-<p>Se dejaran varias listas de ejercicios esemanales. Se sugiere (fuertemente) resolver
-los ejercicios de la tarea, asi como asistir a las ayudantias donde también se
-resolverán ejercicios. </p>
+</div>
 
 
 
-<h3>Incentivos (puntos extra)</h3>
-
-<h4> Quizzes </h4>
- <p>Si  entregan el 80% los quizzes y :</p>
-<ol type="a">
-<li >tienen al menos 2 puntos en todos y cada uno; </li>
-<li> tienen una calificación aprobatoria de 6 o más. </li>
-</ol>
-<p>ENTONCES y sólo entonces tienen un punto extra en su calificación final.</p>
-
-<h4> Tareas </h4>
-
-  <p> A pesar que las tareas no forman parte de la calificación, pueden
-  ayudarlos a obtener puntos extras en cada examen. Por cada periodo
-de examen se pedirán ejercicios para subir 0.5 puntos en su calificación
-del exámen. Cada semana  se pedirá una ejercicio al hazar, de la lista semanal de ejercicios.
-Si tienen el 80% de ejercicios entregados y bien hechos, subirán 0.5 puntos
-en el examen correspondiente. </p>
-
-<h4> Participaciones </h4>
-
-<p>Durante las ayudantías se darán opciones de participación, pasando al pizarrón
-a exponer ejercicios de la tarea.Por cada periodo de examen se recolectarán participaciones.
-Cada participación bien hecha puede subir 0.3 puntos en cada examen. </p>
-
-<h4> Prácticas en Matlab </h4>
-
-<p>La UNAM tiene convenio con Matworks así que pueden bajar Matlab (requieren su cuenta
-de correo con terminación unam.mx). Por cada periodo
- de examen, se dejarán prácticas de Matlab basadas en el libro <i>MATLAB, An introduction with aplications</i>, de Amos Gilat. Si entregan
-el 80% de las prácticas y bien hechas, subirán 0.5 puntos en ell examen correspondiente. </p>
 
 
 
-<h3>Reposiciones, final  y calificaciones </h3>
-
-<h4> #Reposiciones= Piso[ (# de  exámenes aplicados durante el semestre)/2] </h4>
-
-<p>Las reposiciones se presentan en la primera y segunda vuelta.
-En la segunda vuelta se presentarán el examen final (el presentarlo no es muy recomendable).
-Si presentan el examen final renuncian a todas las calificaciones que hayan tenido durante en curso.
-Cualquier aclaración, pregunta o desacuerdo con la calificación de exámenes o tareas
-debe hacerse dentro de los 3 días de la entrega calificada de los mismos. </p>
-
-<p>Calificaciones finales como 6.5,  7.5 etc quedan como 6, 7 etc. Calificaciones finales como
-6.6, 7.6, etc suben a 7,8, etc. </p>
-
-<h3>Asistencias y Faltas </h3>
-<p>Asistencia a clase es fuertemente recomendada, pero no obligatoria. Si por una fuerte
-razón faltan a mas de dos exámenes, por favor en cuanto puedan hablen conmigo
-para hacer una reposición.</p>
-
-<h3>Uso de calculadora</h3>
-<p>NO esta permitido el uso de calculadoras durante ex.amenes. </p>
-
-<h3>Uso de celulares</h3>
+<!-- <h3>Uso de celulares</h3>
 <p>NO se permite el uso de teléfonos celulares dentro del salón de clase. Por favor,
 apaguen o silencien su celular. Durante exámenes, todos los teléfonos celulares
 deben ser apagados o silenciados antes de empezar.
 Los mensajes de texto durante clase son una distracción para ustedes
-y los demás, así que NO están permitidos.</p>
+y los demás, así que NO están permitidos.</p>-->
 
 
-<h3>Deshonestidad </h3>
-<p>Para propósitos de .este curso, hacer trampa se definirá  como (pero no se limita a
-acceso o uso de material no autorizado durante exámenes, colaboración entre
-estudiantes durante exámenes, copiar del trabajo de otro estudiante o permitir
-que otro estudiante copie de tu trabajo durante exámenes. Si son sorprendidos
-actuando deshonestamente, están reprobados.</p>
 
       </div>
 

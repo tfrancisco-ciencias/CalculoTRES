@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC >
+
+<html lang="es">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="./main.js"></script>
+
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1]
+          },
+          tags: "ams" /* this part is for numbered equations */
+        }
+      };
+    </script>
+
+    <!-- This part is for using single $ for latex input, instead of \(\) -->
+    <script>
+        MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="./style.css" />
+
+    <!-- This part restart counter of cards to start at n+1 -->
+    <style>
+        body.number-title{
+          counter-reset: sectionCounter -1 cardCounter ;
+        }
+        h1.number-title{
+          counter-reset: sectionCounter -1 cardCounter ;
+        }
+      </style>
+  
+    <!-- Top Menu  -->
+
+
+        <header class="main-header">
+          <h1> Cálculo DOS </h1>
+         <nav class="top-nav">
+           <ul>
+              <li> <a href="./Home.html"> Inicio  </a> </li>
+              <li> <a href="./InfoPrimerDia.html"> Información general </a> </li>
+              <li> <a href="./Secciones.html"> Secciones  </a> </li>
+              <li> <a href="./ExternalLinks.html"> Links </a> </li>
+              
+            </ul>
+          </nav>
+          <nav class="small-nav" align=right>
+            <button onclick="myFunction()">Claro/Obscuro 
+          </nav>
+        </header>
+
+      <!-- This part is for title in tab-->
+      <title>Definiciones</title>
+    
+  </head>
+
+  <body class="fondo-body" >
+  
+
+ 
+    <h1 class="number-title flexbox"> Definiciones   </h1>     
+
+<div class="definicion-box">
+    <h2 class="number-title"> Definición</h2>
+    <p>
+        Una norma en $\mathbb{R}^n$ es una función, $\| \cdot \| :\mathbb{R}^n \to \mathbb{R}$ que satisface
+        <ol>
+            <li>
+                $\|p\| \geq 0$ para todo $p\in \mathbb{R}^n$. Además,  $\| p \|=0$ si y sólo si $p=0$,
+            </li> 
+            <li>
+                $\| \lambda p \| = |\lambda |\|p\|$, para todo $\lambda \in \mathbb{R}$, $p\in \mathbb{R}^n$,
+            </li> 
+             <li>
+                $\|p+q\| \leq \|p\| + \|q\|$, for all $p,q\in \mathbb{R}$.
+             </li>  
+        </ol>
+    </p>
+        <p>
+            La norma más popular en $\mathbb{R}^n$ es la norma euclideana,  
+            la cual  está dada, para $p=(p_1,\dots, p_n)$, como:
+            $$
+            \|p\|_2=\left( \sum_{k=1}^n p_i^2 \right)^{1/2}.
+            $$
+
+        </p>
+</div>
+
+
+
+<div class="definicion-box">
+    <h2 class="number-title"> Definición</h2>
+    <p>
+        Un producto interior en $\mathbb{R}^n$ es una función $\langle , \rangle : \mathbb{R}^n \times \mathbb{R}^n \to \mathbb{R}$
+        que satisface
+        <ol>
+            <li>
+                $\langle p, p \rangle \geq 0$ para todo $p\in \mathbb{R}^n$. 
+                Además, $\langle p,p \rangle=0$ si y sólo si $p=0$.
+            </li>
+            <li>
+                $\langle p, q \rangle = \langle q,p \rangle$, para todos $p,q \in \mathbb{R}^n$,
+            </li> 
+            <li>
+                $\langle p_1+\lambda p_2, q \rangle = \langle p_1, q\rangle + \lambda \langle p_2,q \rangle$, para todos
+                $p_1,p_2,q\in\mathbb{R}$ and $\lambda \in \mathbb{R}$.
+            </li> 
+        </ol>
+    </p>
+
+    <p>
+        El ejemplo de producto interior más usado es el producto punto definido, 
+        para $p=(p_1,\dots, p_n), q=(q_1,\dots, q_n)\in \mathbb{R}^n$ como:
+        $$
+        \langle p, q \rangle=p\cdot q= \sum_{k=1}^n p_kq_k.
+        $$
+    </p>
+</div>
+
+
+
+
+<div class="definicion-box">
+    <h2 class="number-title"> Definición</h2>
+    <p>
+        La bola abierta, con centro en $p_0\in \mathbb{R}$ y radio $r>0$, es el conjunto
+        $$
+        B_r(p_0)=\{p\in \mathbb{R}: \|p-p_0\| < r \}
+        $$
+    </p>
+
+</div>
+
+
+
+<div class="definicion-box">
+    <h2 class="number-title"> Definición</h2>
+    <p>
+        Sea $A\subseteq \mathbb{R}^n$ y $p\in \mathbb{R}^n$.
+
+        <ol>
+            <li>
+                $p$ se llama punto interior de $A$ si existe $r>0$ tal que $B_r(p)\subset A$.
+            </li>
+            <li>
+                $p$ se llama punto de acumulación de $A$ si, para toda $r>0$, existe $q\ne p$ con $q\in B_r(p)\cap A$.
+            </li>
+            <li>
+                $p$ se llama punto frontera de $A$ si, para toda $r>0$ $B_r(p)\cap A \ne \emptyset$ y 
+                $B_r(p)\cap A^c \ne \emptyset$.
+            </li>
+        </ol>
+    </p>
+
+</div>
+
+
+<div class="definicion-box">
+    <h2 class="number-title"> Definición</h2>
+    <p>
+        Un subconjunto $U\subseteq \mathbb{R}^n$ se llama abierto si, para todo $u_0\in U$, existe $r>0$ 
+        (que depende de $u_0$)
+        tal que $B_r(u_0)\subseteq U$. Es decir, un conjunto es abierto si todos sus puntos son puntos interiores.
+    </p>
+
+</div>
+
+
+</div>
+
+
+<div class="definicion-box">
+    <h2 class="number-title"> Definición</h2>
+    <p>
+        La bola perforada con centro en $p_0\in \mathbb{R}^n$ y radio $r>0$ es simplemente $B_r(p_0)\setminus \{p_0\}$.
+        Es decir, la bola sin el centro.    
+    </p>
+    <p>
+        También se le llama vecindad perforada con centro en $p_0$.
+    </p>
+
+</div>
+
+
+
+
+<div class="definicion-box">
+    <h2 class="number-title"> Definición</h2>
+    <p>
+        Sea $f$ una función definida en vecindad perforada con centro en $p_0$. Decimos que 
+        $\lim_{p\to p_0}f(p)=L$ si, para toda
+        $\varepsilon >0$ existe $\delta=\delta(\varepsilon, p_0)$ (que depende de 
+        $\varepsilon$ y $p_0$) tal que si
+        $$
+        0 < \| p-p_0\| < \delta \Rightarrow \| f(p)-L \| < \varepsilon.
+        $$
+    </p>
+</div>
+
+
+
+
+<div class="definicion-box">
+    <h2 class="number-title"> Definición</h2>
+    <p>
+        Una función o transformación lineal de $\mathbb{R}^n$ a $\mathbb{R}^m$ es una 
+        función $T:\mathbb{R}^n \to \mathbb{R}^m$
+        tal que
+        $$
+        T(p+\lambda q)=T(p)+\lambda T(q)
+        $$
+        para todos $p,q\in \mathbb{R}^n$ y todo $\lambda\in \mathbb{R}^n$.
+    </p>
+
+</div>
+
+
+
+<div class="definicion-box">
+    <h2 class="number-title"> Definición</h2>
+    <p>
+        Sea $U$ un subconjunto abierto de $\mathbb{R}^n$ y $f: U \to \mathbb{R}$ una función. 
+        Decimos que $f$ es diferenciable
+        en $p_0\in U$ si, existe una transformación lineal $T:\mathbb{R}^n \to \mathbb{R}^n$ tal que
+        $$
+        \lim_{v \to 0} \frac{\|f(p_0+v)- f(p_0)-T(v)  \|}{\| v\|}=0.
+        $$
+        El límite anterior es equivalente a
+        $$
+        \lim_{p \to p_0} \frac{\| f(p)-f(p_0)-T(p-p_0)\|}{\| p-p_0\|}=0
+        $$
+        tomando $p=p_0+v$.
+    </p>
+
+</div>
+
+    
+
+
+
+</body>
