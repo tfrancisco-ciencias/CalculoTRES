@@ -1,0 +1,460 @@
+<!DOCTYPE html PUBLIC >
+
+<html lang="es">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="./main.js"></script>
+
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1]
+          },
+          tags: "ams" /* this part is for numbered equations */
+        }
+      };
+    </script>
+
+    <!-- This part is for using single $ for latex input, instead of \(\) -->
+    <script>
+        MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="./style.css" />
+
+    <!-- This part restart counter of cards to start at n+1 -->
+    <style>
+        body.number-title{
+          counter-reset: sectionCounter 0 cardCounter ;
+        }
+        h1.number-title{
+          counter-reset: sectionCounter 0 cardCounter ;
+        }
+      </style>
+  
+    <!-- Top Menu  -->
+
+
+        <header class="main-header">
+          <h1> Cálculo DOS </h1>
+         <nav class="top-nav">
+           <ul>
+              <li> <a href="./Home.html"> Inicio  </a> </li>
+              <li> <a href="./InfoPrimerDia.html"> Información general </a> </li>
+              <li> <a href="./Secciones.html"> Secciones  </a> </li>
+              <li> <a href="./ExternalLinks.html"> Links </a> </li>
+              
+            </ul>
+          </nav>
+          <nav class="small-nav" align=right>
+            <button onclick="myFunction()">Claro/Obscuro 
+          </nav>
+        </header>
+
+      <!-- This part is for title in tab-->
+      <title>Teoremas Principales</title>
+    
+  </head>
+
+  <body class="fondo-body" >
+  
+    <h1 class="number-title flexbox"> Teoremas Principales</h1>
+
+    <div class="info-box"> 
+    <h2 class="number-title"> Notación </h2>
+
+    <ol>
+    <li>
+        Dados $p,q\in \mathbb{R}^n$, por $\langle p,q \rangle$, denotamos el producto interior o el producto
+        punto de los dos vectores.
+    </li> 
+    <li>
+        Dado $p\in \mathbb{R}^n$, por $\|p\|$ denotamos la norma euclideana del vector.
+    </li>
+    <li>
+        Dada una función $f$, en las variables $p_1,\dots, p_n$, por $\partial_{p_i}f$ denotamos
+        la derivada parcial de $f$, con respecto a $p_i$, siempre y cuanto ésta exista.
+    </li>
+    <li>
+        Dada una función diferenciable  $f$, por $D_pf$ y $H_pf$ denotamos la matriz derivada y la matriz
+        hessiana, de $f$ en el punto $p$, respectivamente.
+    </li>
+    <li>
+        Dada una función diferenciable, con valores reales,  por $\nabla_pf$ denotamos a el vector gradiente
+        de $f$ en $p$, formado por las derivadas parciales de $f$ evaluadas en $p$.
+    </li>
+
+</ol>
+</div>
+
+
+
+
+
+
+<h1 class="flexbox"> Normas y Topología </h1>
+
+
+<div class="teorema-box"> 
+    <h2 class="number-title"> Teorema </h2>
+ Dado un producto interior $\langle , \rangle :\mathbb{R}^n \to \mathbb{R}^n$, la función
+$$
+\| p\|:= \langle p,p \rangle ^{1/2}
+$$
+define una norma en $\mathbb{R}^n$.
+</div>
+
+
+<div class="teorema-box"> 
+    <h2 class="number-title"> Teorema </h2>
+    <h3> Desigualdad de Cauchy-Schwartz</h3>
+    <p>
+        Dado un producto interior $\langle , \rangle :\mathbb{R}^n \to \mathbb{R}$ y $\| \cdot \|$ su 
+        norma inducida, se tiene que
+        $$
+        |\langle p, q \rangle| \leq \|p\| \|q\|
+        $$
+        
+        para todos $p,q\in \mathbb{R}.$
+    </p>
+
+</div>
+
+
+<div class="teorema-box"> 
+    <h2 class="numbertitle"> Teorema </h2>
+    <h3>Teorema de Bolzano-Weirestrass</h3>
+    <p>
+        Sea $K$ un subconjunto de $\mathbb{R}^n$, cerrado y acotado. Entonces toda sucesión $(p_n)\subset K$ admite una subsucesión
+        convergente a un punto de $K$. Es decir, existe $p\in K$ y $(p_{n_k})_{k\geq 1}$ una subsucesión tal que
+        $$
+        \lim_{k \to \infty}p_{n_k}=p.
+        $$
+    </p>
+
+</div>
+
+
+
+<h1 class="flexbox"> Propiedades de la Derivada </h1>
+
+<div class="teorema-box"> 
+<h2 class="number-title"> Teorema </h2>
+<h3>Linealidad de la derivada</h3>
+<p>
+    Sea $U$ un abierto de $R^n$ y  $f,g:U \to \mathbb{R}^m$ funciones diferenciables en $p_0\in U$. Sea
+    $a\in \mathbb{R}$ un escalar. Entonces la función $af+g$ es diferenciable en $p_0$ y
+    $$
+    D_{p_0}(af+g)=aD_{p_0}f+D_{p_0}g.
+    $$
+</p>
+</div>
+
+
+<div class="teorema-box"> 
+    <h2 class="number-title"> Teorema</h2>
+    <h3>Regla de la cadena</h3>
+    <p>
+        Sea $U$ un abierto de $\mathbb{R}^n$ y  $V$ un abierto de $\mathbb{R}^m$.
+
+        Considera funciones $f:U \to \mathbb{R}^m$, $g:V\to \mathbb{R}^k$ 
+        tales  que $f(U) \subseteq V$, para que la función composición, $g\circ f$
+        esté bien definida.
+        
+        Si $f$ es diferenciable en $p_0\in U$ y $g$ es diferenciable en $f(p_0)\in V$, entonces
+        la composición, $g\circ f$ es diferenciable en $p_0$ y
+        $$
+        D_{p_0}(g\circ f)= D_{f(p_0)}g D_{p_0}f.
+        $$
+    </p>
+    <p>
+        Nota: en la ecuación anterior el lado derecho es la multiplicación de matrices.
+    </p>
+</div>
+
+
+<div class="teorema-box"> 
+    <h2 class="number-title"> Teorema</h2>
+    <h3>Igualdad de las derivadas mixtas</h3>
+
+Sea $U$ un abierto de $\mathbb{R}^2$. Supongamos que las derivadas parciales $\partial_xf, \partial_yf,
+\partial_{x,y}f$ existen en todo punto de $U$ y que $\partial_{x,y}f$ es continua en $(x_0,y_0)\in U$.
+
+Entonces la derivada parcial $\partial_{y,x}f$ existe en $(x_0,y_0)$ y
+$$\partial_{x,y}f(x_0,y_0)=\partial_{y,x}f(x_0,y_0)$$
+
+</div>
+
+
+  <div class="teorema-box"> 
+    <h2 class="number-title"> Teorema </h2>
+    <h3>del valor medio</h3>
+   Sea $U$ un abierto de $\mathbb{R}^n$ y $f:U \to \mathbb{R}$ una función.
+
+   Supón que $p,q\in U$ y que $U$ contiene el segmento de línea que une $p$ con $q$.
+
+  Si $f$ es diferenciable en todo punto del segmento de línea que una $p$ con $q$, entonces
+  existe un punto $c\in U$ tal que
+  $$
+  f(q)-f(p)=D_cf(q-p).
+  $$
+
+ </div>
+
+
+
+
+
+<h1 class="flexbox"> Teorema de Taylor</h1>
+
+<div class="teorema-box"> 
+    <h2 class="number-title">Teorema </h2>
+    <h3>Taylor de orden 1</h3>
+
+ Sea $U$ un abierto de $R^n$ y $f:U\to \mathbb{R}$ una función diferenciable en $p_0\in U$. Entonces
+ $$
+ f(p_0+h)=f(p_0)+\sum_{j=1}^n h_j \partial_{p_j}f(p_0)+ E_1(p_0,h)
+ $$
+ donde $\lim_{h\to 0} \frac{E_1(p_0,h)}{\|h\|}=0$.
+</div>
+
+
+
+<div class="teorema-box"> 
+    <h2 class="number-title"> Teorema</h2>
+    <h3>Taylor de orden 2</h3>
+
+Sea $U$ un abierto de $R^n$ y $f:U\to \mathbb{R}$ una función de clase $C^2$ en $U$. Dado $p_0\in U$
+entonces
+$$
+f(p_0+h)=f(p_0)+ \langle h , \nabla_{p_0}f \rangle + \frac{1}{2}\langle h, H_{p_0}f h \rangle+E_2(p_0,h)  
+$$
+donde $\lim_{h\to 0} \frac{E_2(p_0,h)}{\|h\|^2}=0$.
+</div>
+
+
+<h1 class="flexbox"> Teorema de la función inversa</h1>
+
+<div class="teorema-box"> 
+    <h2 class="number-title"> Teorema</h2>
+    <h3>Solubilidad local</h3>
+
+Sea $U\subseteq \mathbb{R}^n$ un abierto y $F:U \to \mathbb{R}^n$ una función de clase $C^1$ en $U$.
+
+Si $p_0\in U$ es tal que $D_{p_0}F$ es invertible entonces existe $r_1, r_2>0$ tales que, para
+toda $q\in B_{r_2}(F(p_0))$ existe $p\in B_{r_1}(p_0)$ tal que $F(p)=q$.
+
+
+</div>
+
+
+
+<div class="teorema-box"> 
+    <h2 class="number-title"> Teorema</h2> 
+    <h3>Del mapeo abierto</h3>
+
+
+Sea $U\subseteq \mathbb{R}^n$ un abierto y $F:U \to \mathbb{R}^n$ una función diferenciable en $U$.
+
+Si $D_PF$ es invertible, para todo $p\in U$, entonces $F(U)\subseteq \mathbb{R}^n$ es abierto en $\mathbb{R}^n$.
+
+</div>
+
+
+
+<div class="teorema-box"> 
+    <h2 class="number-title"> Teorema </h2>
+    <h3>de la Función Inversa</h3>
+
+Sea $U\subseteq \mathbb{R}^p$ un abierto y  $F:U\subseteq \mathbb{R}^n \to \mathbb{R}^n$ una función de
+clase $C^1$ en $U$.
+
+Si $p_0\in U$ es tal que $\det(D_{p_0}F)\ne 0$ entonces, existen abierto $V,W \subseteq \mathbb{R}^n$ tales
+que:
+<ol>
+<li> $p_0\in V, F(p_0)\in W$,</li>
+<li> la restricción  $F:V \to W$ es una biyección,</li>
+<li> la función inversa $F^{-1}:W \to V$  es diferenciable de clase $C^1$.</li>
+</ol>
+</div> 
+
+
+
+<h1 class="flexbox">Teorema de la Función Implícita</h1>
+
+<div class="teorema-box"> 
+    <h2 class="number-title"> Teorema</h2>
+    <h3>de la función implícita, 1 dimensional</h3>
+
+ 
+ Sea $F:\mathbb{R}^{n+1} \to \mathbb{R}$ una función de clase $C^1$ en $\mathbb{R}^{n+1}$.
+
+ Denotamos los puntos en $R^{n+1}$ por $(p,x)$, con $p\in \mathbb{R}^n, x\in \mathbb{R}$.
+
+ Supongamos que $(p_0,x_0)$ satisface
+ \begin{eqnarray*}
+   F(p_0,x_0)=0, \quad \partial_{x}F(p_0,x_0)\ne 0.
+ \end{eqnarray*}
+
+ Entonces existe $U$ un abierto de $\mathbb{R}^n$, $V$ un abierto de $\mathbb{R}$, una función
+ $g:U \to V$, tales que
+ <ol>
+ <li> $p_0\in U$, $x_0 \in V$,</li>
+ <li> $F(p,g(p))=0$,</li>
+ <li> si $p\in U$ y $x\in V$ satisfacen $F(p,x)=0$ entonces $x=g(p)$,</li>
+ <li> $g$ es de clase $C^1$ en $U$,</li>
+   <li> para todo $i=1,\dots, n$, $\partial_{p_i}g(p)= \left. -\frac{\partial_{p_i}F}{\partial_{x}F} \right|_{(p,g(p))}$.</li>
+ </ol>
+ 
+ 
+</div>
+
+
+<div class="teorema-box"> 
+    <h2 class="number-title"> Teorema </h2>
+
+ Supongamos que tenemos $F_1,\dots, F_m:\mathbb{R}^n\times R^{m} \to \mathbb{R}$ funciones de clase $C^1$.
+
+ Denotamos los puntos como $(p,x)$, donde $p\in \mathbb{R}^n, x\in \mathbb{R}^m$.
+
+ Supongamos que $(p_0, x_0)$ satisface $F(p_0,x_0)=0$ y
+ \begin{eqnarray*}
+   \det
+   \left[
+   \begin{array}{ccc}
+     \partial_{x_1}F_1(p_0,x_0) \cdots \partial_{x_m}F_1(p_0,x_0) \\
+     \vdots   \hspace{1cm} \vdots \\
+     \partial_{x_1}F_m(p_0,x_0) \cdots \partial_{x_m}F_m(p_0,x_0)
+   \end{array}
+   \right]\ne 0
+   \end{eqnarray*}
+   Entonces, en una vecindad de $(p_0,x_0)$, el sistema de ecuaciones
+   \begin{eqnarray*}
+     F_1(p_1,\cdots, p_n, x_1,\dots, x_m)=0, \\
+     F_2(p_1,\cdots, p_n,x_1,\dots, x_m)=0 \\
+     \vdots \\
+     F_m(p_1,\dots, p_n, x_1,\dots, x_m)=0
+   \end{eqnarray*}
+   define, de manera única, funciones de clase $C^1$,
+   $$
+   x_j=g_j(p_1,\dots, p_n), \quad j=1,\dots, m.
+   $$
+   Las derivadas de las funciones $g_j$, se pueden calcular por diferenciación implícita.
+
+   Es decir, existe una funcióßn $G=(g_1(p),\dots, g_m(p))$,
+   clase $C^1$ en una vecindad de $p_0$, tal que $G(p_0)=x_0$ y
+   $$
+   F(p,G(p))=0, \quad \textrm{prara toda $p$ es una vecindad de $p_0$}.
+   $$
+ 
+</div>
+
+
+
+
+
+<h1 class="flexbox"> Extremos locales</h1>
+
+
+<div class="teorema-box"> 
+    <h2 class="number-title"> Teorema</h2>
+ Sea $C$ un subconjunto cerrado y acotado de $\mathbb{R}^n$ y sea $f:C \to \mathbb{R}$ una función contínua
+ en $C$. Entonces existen puntos $c_*, c^* \in C$ tal que
+ $$
+ f(c_*)=\min_{p\in C}\{f(p) \}, \quad f(c^*)=\max_{p\in C}\{f(p) \}.
+ $$
+</div>
+
+
+
+
+<div class="teorema-box"> 
+    <h2 class="number-title"> Teorema </h2>
+
+ Sea $U$ un abierto de $\mathbb{R}^n$ y $f:U\to \mathbb{R}$ una función diferenciable en $U$.
+
+ Si $f$ alcanza un máximo o mínimo local en $p_0\in U$ entonces
+ $$
+ \nabla_{p_0}f=0.
+ $$
+</div>
+
+
+
+<div class="teorema-box"> 
+    <h2 class="number-title"> Teorema</h2>
+    <h3>Criterio de la matriz Hessiana para puntos extremos</h3>
+ 
+ Sea $U$ un subconjunto abierto de $\mathbb{R}^n$ y $f:U\to \mathbb{R}$ una función de clase $C^2$ en $U$.
+
+ Sea $p_0\in U$ un punto crítico de $f$. Entonces
+ <ol>
+ <li> Si  $H_{p_0}f >0$ entonces $f$ alcanza un mínimo local en $p_0$.</li>
+ <li> Si $H_{p_0}f < 0 $ entonces $f$ alcanza un máximo local en $p_0$.</li>
+   <li> En otro caso, $p_0$ es un punto silla.</li>
+ </ol>
+ 
+</div>
+
+
+
+<div class="teorema-box"> 
+    <h2 class="number-title"> Teorema </h2>
+ Sea $U$ un abierto de $\mathbb{R}^2$ y $f:U \to \mathbb{R}$ una función de clase $C^2$ en $U$.
+
+ Sea $p_0\in U$ un punto crítico de $f$. Entonces
+ <ol>
+ <li> Si $\det(H_{p_0}f)>0$ y $\partial_{x,x}f(p_0)>0$, entonces $f$ alcanza un mínimo local en $p_0$.</li>
+ <li> Si $\det(H_{p_0}f)>0 $ y $\partial_{x,x}f(p_0)$, entonces $f$ alcanza un máximo local en $p_0$.</li>
+   <li> Si $\det(H_{p_0}f)< 0$ entonces $p_0$ es un punto silla.</li>
+ </ol>
+
+
+</div>
+
+
+
+<div class="teorema-box"> 
+    <h2 class="number-title"> Teorema </h2>
+    <h3>Multiplicadores de Lagrange</h3>
+
+ Sea $U$ un subconjunto abierto de $\mathbb{R}^n$ y $f,g: U \to \mathbb{R}$, dos funciones
+ de clase $C^1$ en $U$.
+ 
+ Considera el conjunto de nivel:
+ $$
+ S:=\{ p\in U: g(p)=c \}
+ $$
+
+ Si $f|_S$ (es decir, $f$restringida a $S$),  alcanza un máximo o mínimo local en $p_0\in S$
+ y $\nabla_{p_0}g\ne 0$, entonces existe un real  $\lambda$ (que bien puede ser cero), tal que
+ $$
+ \nabla_{p_0}f=\lambda \nabla_{p_0}g
+ $$
+
+ </div>
+ 
+
+
+</body>

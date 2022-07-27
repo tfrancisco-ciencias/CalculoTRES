@@ -1,96 +1,83 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html PUBLIC >
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<html lang="es">
   <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
-    <meta name="Generator" content="iWeb 3.0.3" />
-    <meta name="iWeb-Build" content="local-build-20111108" />
-    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
-    <meta name="viewport" content="width=700" />
-    <title>Links</title>
-    <link rel="stylesheet" type="text/css" media="screen,print" href="Home_files/Home.css" />
-    <!--[if lt IE 8]><link rel='stylesheet' type='text/css' media='screen,print' href='Home_files/HomeIE.css'/><![endif]-->
-    <!--[if gte IE 8]><link rel='stylesheet' type='text/css' media='screen,print' href='Media/IE8.css'/><![endif]-->
-    <script type="text/javascript" src="Scripts/iWebSite.js"></script>
-    <script type="text/javascript" src="Scripts/Widgets/SharedResources/WidgetCommon.js"></script>
-    <script type="text/javascript" src="Scripts/Widgets/Navbar/navbar.js"></script>
-    <script type="text/javascript" src="Scripts/iWebImage.js"></script>
-    <script type="text/javascript" src="Home_files/Home.js"></script>
-
-    <style>
-ul.menu {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
-
-li.menu {
-  float: left;
-}
-
-li a.menu {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li a:hover {
-  background-color: grey;
-}
- </style>
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="./main.js"></script>
+
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1]
+          }
+        }
+      };
+    </script>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="style.css" />
+
+    
+    <!-- Top Menu  -->
+
+
+        <header class="main-header">
+          <h1> Cálculo TRES </h1>
+         <nav class="top-nav">
+           <ul>
+              <li> <a href="./Home.html"> Inicio  </a> </li>
+              <li> <a href="./InfoPrimerDia.html"> Información general </a> </li>
+              <li> <a href="./Secciones.html"> Secciones  </a> </li>
+              <li> <a href="./ExternalLinks.html"> Links </a> </li>
+              
+              
+            </ul>
+          </nav>
+          <nav class="small-nav" align="right">
+            <button onclick="myFunction()">Claro/Obscuro 
+          </nav>
+        </header>
+
+      <!-- This part is for title in tab-->
+      <title>Links</title>
+    
   </head>
-  <body style="background: rgb(247, 246, 246); margin: 0pt; " onload="onPageLoad();" onunload="onPageUnload();">
-    <div style="text-align: center; ">
 
-    <div style="margin-bottom: 0px; margin-left: auto; margin-right: auto; margin-top: 0px; overflow: hidden;
-    position: relative; word-wrap: break-word;  background: rgb(247, 246, 246); text-align: left; width: 700px; " id="body_content">
-
-<h1> Cálculo TRES </h1>
-
-<ul class="menu">
-  <li class="menu"><a class="menu" class="active" href="Home.html">Home</a></li>
-  <!-- <li class="menu"><a class="menu" href="InfoPrimerDia.html"> Primer día de clases</a> </li> -->
-<li class="menu"><a class="menu" href="Clases.html"> Vidoes y PDFs </a></li>
-  <li class="menu"><a class="menu" href="Tareas.html"> Tareas y quizzes  </a></li>
-<li class="menu"><a class="menu" href="Examenes.html"> Exámenes </a></li>
-  <!--- <li class="menu"><a href="Moodle.html">Moodle Ciencias </a></li> -->
-<!--  <li class="menu"><a class="menu" href="Matlab.html">Matlab </a></li> -->
-  <li class="menu"><a class="menu" href="ExternalLinks.html"> Links </a></li>
- </ul>
-<h1> Links </h1>
-
-<h2> Páginas </h2>
-<div>
-<ol>
-<li > <a href="http://tutorial.math.lamar.edu/Classes/CalcIII/CalcIII.aspx"> Paul's Online Notes </a> </li>
-<li> Thomson, Bruckner, Bruckner. <a href="http://classicalrealanalysis.info/com/FREE-PDF-DOWNLOADS.php"> Libro Real Analysis </a>. </li>
-</ol>
-</div>
-
-
-<h2> Videos </h2>
-
-<div>
-<ol>
-  <li> Paylist <a href="https://www.youtube.com/playlist?list=PLSQl0a2vh4HC5feHa6Rc5c0wbRTx56nF7"> Multivariable Calculus</a> (en inlgés). </li>
-  <li> <a href="https://youtu.be/m2MIpDrF7Es"> Video sobre el número e de Euler. </a>   </li>
-</ol>
-</div>
-
-<h2> Material de consulta general </h2>
-
-  <p> <a href="https://www.dropbox.com/sh/kus6e1gfd54biyy/AADJObqMW8g3BzxMvu7WpfTCa?dl=0">Link</a></p>
-
-
-      </div>
-    </div>
-  </body>
+  <body class="fondo-body" >
+    
+      
+  <div class="info-box">
+    <h2> Páginas </h2>
+      <div>
+        <ol>
+          <li > <a href="http://tutorial.math.lamar.edu/Classes/CalcIII/CalcIII.aspx"> Paul's Online Notes </a> </li>
+          <li> Thomson, Bruckner, Bruckner. <a href="http://classicalrealanalysis.info/com/FREE-PDF-DOWNLOADS.php"> Libro Real Analysis </a>. </li>
+      </ol>
+  
+  
+  
+  <h2> Videos </h2>
+  
+  
+      <ol>
+        <li> Paylist <a href="https://www.youtube.com/playlist?list=PLSQl0a2vh4HC5feHa6Rc5c0wbRTx56nF7"> Multivariable Calculus</a> (en inlgés). </li>
+        <li> <a href="https://youtu.be/m2MIpDrF7Es"> Video sobre el número e de Euler. </a>   </li>
+      </ol>
+  </div>
+  
+</body>
 </html>
