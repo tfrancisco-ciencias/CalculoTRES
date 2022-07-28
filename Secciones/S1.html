@@ -82,4 +82,618 @@
     <h1 class="number-title flexbox"> El espacio Euclideano </h1>     
 
 
+
+
+  
+
+ <div class="definicion-box">
+    <h2 class="number-title""> Definición </h2>
+    <p>
+        Por $\mathbb{R}^n$ denotamos al conjunto de $n$-adas de números
+        reales, es decir
+        $$
+        \mathbb{R}^n=\{(p_1,\dots, p_n): p_1,\dots, p_n\in \mathbb{R}  \}
+        $$
+        A los elementos de $\mathbb{R}^n$ se les llama vectores o puntos en
+        $\mathbb{R}^n$. En $\mathbb{R}^n$ has dos operaciones:
+        <ol>
+            <li>la suma, la cual se realiza sumando entrada por entrada,</li> 
+            <li>multiplicación escalar.</li> 
+        </ol>
+        
+        Con estas operaciones se dice que $\mathbb{R}^n$ es un espacio vectorial.
+    </p>
+    
+ </div>
+
+
+
+
+      
+
+<div class="ejercicio-box">
+    <h2 class="number-title""> Ejercicio</h2> 
+    <p>
+        Este ejercicio muestra la importancia de $\mathbb{R}^n$.
+    </p>
+    <ol>  
+        <li>
+            <p>
+                Considera el espacio de polinomios de grado a lo más $n$, es
+                decir expresiones de la forma
+                $$
+                a_0+a_1x+\cdots +a_n x^{n+1}
+                $$
+                donde $a_0,\dots, a_{n+1}\in \mathbb{R}^n$.
+        
+            </p>
+            <p>
+                Prueba que con las operaciones de suma de polinomios
+                y multiplicación por un escalar, el espacio de polinomios
+                es isomorfo a $\mathbb{R}^n$.
+        
+            </p>
+            
+        </li> 
+        <li>
+            Fija un intervalo $[a,b]$ y $P=\{a=x_0 < \cdots < x_n=b \}$
+            una partición.
+        
+            Prueba que el conjunto de funciones escalonadas, con soporte
+            en $P$ es isomorfo a $\mathbb{R}^n$.
+        
+        </li> 
+        <li>
+            Sea $M_n$ el conjunto de matrices de $n\times n$, con las
+            operaciones usuales de suma de matrices y multiplicación escalar.
+        
+            Prueba que $M_n$ es isomorfo a $\mathbb{R}^{n^2}$.
+        </li> 
+  </ol>
+</div>
+
+  
+ <div class="ejercicio-box">
+    <h2 class="number-title""> Ejercicio</h2> 
+    <p>
+        Soluciona la siguiente ecuación para $x,y,z$.
+    </p>
+    <ol>
+        <li>
+            $$
+            x(1,2,3)+(y,3y,2)+(z,2,1)=(1,2,3).
+        $$
+        </li>
+        
+        <li>
+            $$
+            y(-1,3,2)+(x,-x,3)+(z,2,5)=(-1,0,3).
+            $$
+        </li>
+    </ol>
+</div>
+
+  <div class="ejercicio-box">
+    <h2 class="number-title""> Ejercicio</h2> 
+    <p>
+        Encuentra todos los pares de números reales $a,b$ que satisfacen
+    $$
+    a(-1,1)+b(1,1)=0.
+    $$
+    </p>
+</div>
+
+    
+    <div class="definicion-box">
+        <h2 class="number-title""> Definición </h2>
+        <p>
+            Las ecuación paramétrica de la linea recta con vector dirección  $v$ y 
+            que pasa por el punto  $p_0$ esta tadas por
+            $$
+            p=p_0+tv, \quad t\in \mathbb{R}
+            $$
+      
+        </p>
+        <p>
+            Por ejemplo, en $\mathbb{R}^3$, si $v=(v_1,v_2,v_3), p_0=(x_0,y_0,z_0)$ y $p=(x,y,z)$ 
+            esta ecuación es equivalente a
+            $$
+            x=x_0+tv_1, \quad y=y_0+tv_2, \quad z=z_0+tv_3
+            $$
+        </p>
+    </div>
+
+
+
+
+
+  <div class="ejercicio-box">
+    <h2 class="number-title""> Ejercicio</h2> 
+    <p>
+        Encuentra las ecuaciones de la rectas con la información dada
+    </p>
+    <ol>
+        <li>La recta que pasa por el punto $(1,2,3)$ con vector dirección $v=(-1,2,-3)$.</li> 
+        <li>La recta que pasa por los puntos $(5,-7,1)$ y $(-1,0,1)$.</li> 
+        <li>La recta que pasa por el punto $(5,10,15)$ y que es paralela al eje $x$.</li> 
+        <li>La recta que por el punto $(3,-2,-3)$ y que es perpendicular al plano $yz$.</li> 
+    </ol>
+  </div>
+  
+  
+    <div class="ejercicio-box">
+        <h2 class="number-title""> Ejercicio</h2> 
+        <p>
+            Encuentra todos los puntos de intersección de la recta $x=2+5t,y=5-2t,z=6+3t$ con los planos coordenados.
+        </p>
+    </div>
+
+    <div class="ejercicio-box">
+        <h2 class="number-title""> Ejercicio</h2> 
+        <p>
+            Demuestra que las ecuaciones paramétricas de la linea recta que une los puntos $(x_0,y_0,z_0)$ y $(x_1,y_1,z_1)$
+            son
+            $$
+            x=x_0+t(x_1-x_0), \quad y=y_0+t(y_1-y_0), \quad z=z_0+t(z_1-z_0).
+            $$
+        </p>
+    </div>
+ 
+      
+    <div class="ejercicio-box">
+        <h2 class="number-title""> Ejercicio</h2> 
+        <p>
+            Determina si las rectas con ecuaciones paramátricas
+            $$
+            x=1+6t, \quad y=3-3t, \quad z=3t-2, \quad t\in \mathbb{R}
+            $$
+            
+            $$
+            x=2-5s, \quad y=1-2s,\quad z=1+s, \quad s \in \mathbb{R}
+            $$
+            se intersectan o no.
+        </p>
+    </div>    
+
+
+    <div class="ejercicio-box">
+        <h2 class="number-title""> Ejercicio</h2> 
+        <p>
+            Determina si los puntos dados están  o no en une misma recta:
+        </p>
+      <ol>
+        <li>$(2,2,4)$, $(1,2,5)$, $(1,2-5)$.</li> 
+        <li>$(1,-1,-2)$, $(3,0,1)$, $(5,-1,0)$</li> 
+      </ol>
+    </div>
+
+      
+    <div class="ejercicio-box">
+        <h2 class="number-title""> Ejercicio</h2> 
+        <p>
+            Supon que $L\subset \mathbb{R}^3$ es la linea recta con ecuación paramétrica $p=p_0+tv$, donde
+            $p_0=(x_0,y_0,z_0)$ y $v=(v_1,v_2,v_3)$ con $v_i \ne 0$, $i=1,2,3$. Prueba que un punto $(x,y,z)$ pertenece a $L$
+            sii $\frac{x-x_0}{v_1}=\frac{y-y_0}{v_2}=\frac{z-z_0}{v_3}$.      
+        </p>
+    </div>
+    
+    
+    
+    <div class="ejercicio-box">
+        <h2 class="number-title""> Ejercicio</h2> 
+        <p>
+            Considera la linea recta en $\mathbb{R}^2$ con ecuación paramétrica
+            $$p=(0,1)+t(1,1)=(t,t+1).$$
+        </p>
+        <ol>
+            <li>Encuentra $t_0$ que muestre que  $(2,3)=(0,1)+t_0(1,1)$. Es decir, $p_1=(2,3)$  está en la linea recta.</li> 
+            <li>El vector $u=(4,4)$ está en la misma dirección que $v$ (son linealmente dependientes). Por lo tanto
+                la misma recta tiene ecuación paramétrica $(2,3)+s(4,4)$, con $s$ un distinto parámetro. 
+                Encuentra $s_0$ tal que $(0,1)=p_1+s_0u$.</li> 
+
+                
+            <li>
+                Generaliza el inciso anterior, es decir, dado cualquier punto $p=(t,t+1)$ en la recta, encuentra  $s$ (en términos de $t$) tal que
+                $p=p_1+su$.
+            </li> 
+        </ol>
+        <p>
+            Nota: se puede pensar al parámetro $t$ como las coordenas del punto sobre la recta. Estas coordenadas dependen del vector
+            dirección y el punto en la recta que tomamos. Por lo tanto $t$ depende de $p_0$ y $v$,  $s$ depende de $p_1$ y $u$. La relación
+            entre $t$ y $s$ se puede pensar como una fórmula de  cambio de coordenadas. 
+        </p>
+    </div> 
+
+<div class="definicion-box">
+    <h2 class="number-title""> Definición </h2>
+    <p>
+        Decimos que dos vectores distintos de cero, $u$ y $v$, son 
+        linealmente independientes si uno no es multiplo escalar del otro.
+    </p>
+</div>
+
+
+       <div class="definicion-box"><h2 class="number-title""> Definición </h2>
+        <p>
+            Sean $u\ne 0$, $v\ne 0$, vectores linealmente independientes.  
+            La ecuación paramétrica del plano que pasa por el punto $p_0$ 
+            y está generado por los vectores $u$ y $v$ está
+             dada por
+             $$
+             p=p_0+tu+sv, \quad t,s \in \mathbb{R}
+             $$
+        </p>
+        <p>
+            Si el plano está en $\mathbb{R}^3$, y $p_0=(x_0,y_0,z_0)$, $u=(u_1,u_2,u_3), v=(v_1,v_2,v_3)$ 
+            podemos escribir las ecuaciones como
+            $$
+            x=x_0+tu_1+sv_1+, \quad y= y_0+tu_2+sv_2, \quad z=z_0+tu_3+sv_3.
+            $$
+        </p>         
+       </div>
+
+
+       
+     <div class="ejercicio-box">
+        <h2 class="number-title""> Ejercicio</h2> 
+        <p>
+            Encuentras las ecuaciones paramétricas del plano que paso por $p_0=(1,1,1)$, generado por los vectores
+            $u=(1,0,1), v=(-1,-1,0)$. Después demuestra que todos los puntos de dicho plano satisfacen la relación
+            $x-y-z+1=0$.
+        </p>
+    </div>
+    
+    <div class="definicion-box">
+        <h2 class="number-title""> Definición </h2>
+         <p>
+            Un conjunto de vectores $\{\mathbf{v}_1, \dots , \mathbf{v}_k\}$, todos distintos de cero,
+            se llama linealmente
+            independiente si siempre que se cumpla la igualdad
+            $$
+            \sum_{i=1}^k \alpha_i \mathbf{v}_i=0,
+            $$
+            con  $\alpha_i \in \mathbb{R}$,  se sigue que $\alpha_i=0$ para toda $i=1,\dots, k$.
+         </p>
+     </div>
+       
+
+
+
+
+     <div class="ejercicio-box"> 
+        <h2 class="number-title""> Ejercicio </h2> 
+        Demuestra que el conjunto $\{(1,-1,0),(0,1,0), (0,1,-1) \}$ es linealmente independiente.
+     </div>
+
+   
+
+	<div class="definicion-box">
+        <h2 class="number-title""> Definición </h2>
+	En $\mathbb{R}^n$ se define la norma de un vector $p=(p_1,\dots, p_k)$ como
+	$$
+		\|p\|=\left( \sum_{k=1}^k p_k\right)^{1/2}
+	$$
+	
+	La distancia entre dos puntos $p,q \in \mathbb{R}^n$ se define como
+	$$
+	\|p-q\|	
+	$$
+	</div>
+
+	
+	<div class="ejercicio-box"> 
+        <h2 class="number-title""> Ejercicio </h2> 
+        Demuestra las siguientes propiedades de la norma:
+	<ol>
+	    <li>
+            $\|\alpha p \|=|\alpha| \|p\|$.
+        </li>
+        <li>
+            $\|p\|=0$ sii $p=0$.
+        </li> 	
+	 
+	</ol>
+    </div>
+
+
+       <div class="definicion-box">
+        <h2 class="number-title""> Definición </h2>
+         En $\mathbb{R}^n$ el producto interior usual es el producto punto
+         $$
+        \langle  p,  q \rangle=p\cdot q= \sum_{j=1}^n p_jq_j.
+         $$
+       </div>
+       
+   
+       
+       <div class="ejercicio-box"> 
+        <h2 class="number-title""> Ejercicio </h2> 
+        Describe el conjunto de puntos $p=(x,y)$ en el  plano que satisface
+         <ol>
+            <li>
+                $\|p\|_2=3$
+            </li> 
+            <li>
+                $\|p-\hat{j}\|_2=6$
+            </li>
+            <li>
+                $p\cdot \hat{i}=2$
+            </li>
+            <li>
+                $p\cdot \hat{i} = \|p\|_2$
+            </li>
+         </ol>
+         Recuerda que $\hat{i}=(1,0)$ y $\hat{j}=(0,1)$.
+         </div>
+
+
+		<div class="ejercicio-box"> 
+            <h2 class="number-title""> Ejercicio </h2> 
+            Dados $p,q,v\in \mathbb{R}^n$ y $\alpha \in \mathbb{R}$, demuestra las siguientes propiedades.
+		
+        <ol>
+		   <li>
+             $\langle p, q \rangle = \langle q,p \rangle$.
+           </li>
+		   <li>
+            $\langle p, \alpha q +v \rangle = \alpha \langle p,q \rangle + \langle p,v \rangle$.
+           </li> 
+		</ol>
+        </div>
+
+
+		<div class="ejercicio-box"> 
+            <h2 class="number-title"> Ejercicio </h2> 
+            Da un ejemplo que muestra que $\|p+q\|\ne \|p\|+\|q\|$.	
+        </div>
+
+       <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        (Desigualdad de Cauchy-Schwartz en $\mathbb{R}^n$)
+
+         Sean $p,q\in \mathbb{R}^n$.
+         <ol>
+           <li>
+            Usa la ley de los cosenos para probar
+            $$
+                \|p-q\|^2=\|p\|^2+\|q\|^2-2\|p\|\|q\| \cos(\theta)
+            $$
+            donde $\theta\in [0,\pi]$ es el \'angulo entre $p$ y $q$. 
+           </li> 
+       
+            <li>
+                Usando lo anterior concluye que 
+                \begin{equation}\label{Eqn:PrevioCauchySchwartz}
+               \langle  p , q  \rangle= \|p\| \|q\|  \cos(\theta).
+                \end{equation}
+            </li> 
+
+            <li>
+                Concluye que
+                $$
+                |\langle p, q \rangle| \leq \|p\|  \|q\| 
+                $$
+                conocida como la desigualdad de Cauchy-Schwartz.
+            </li> 
+         </ol>
+        </div>
+     
+
+     <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        Este ejercicio muestra que el \'area del tri\'angulo con v\'ertices  $0, u=(u_1,u_2)$ y $v=(v_1,v_2)$
+        es $\frac{1}{2}|u_1v_2-u_2v_1|$.
+       <ol>
+            <li>
+                Prueba que el \'area del tri\'angulo es $\frac{1}{2}\|u\|(\|v\| \sen(\theta))$,
+                donde $\theta\in [0,\pi]$, es el \'angulo entre $v$ y $u$.
+            </li> 
+            <li>
+                Prueba que $\sen(\theta)=\sqrt{1- \left( \frac{\langle u , v \rangle }{\|u\|\|v\|} \right)^2}$.
+                Sugerencia: usa ecuaci\'on \eqref{Eqn:PrevioCauchySchwartz}.
+            </li> 
+            <li>
+                Prueba que el \'area es igual a $\frac{1}{2}\sqrt{\|u\|^2\|v\|^2-(\langle u,  v\rangle )^2}$.
+            </li>
+            <li>
+                Finalmente prueba que $\|u\|^2\|v\|^2-(\langle u,  v\rangle )^2=(u_1v_2-u_2v_1)^2$.
+            </li>
+       </ol>
+     </div>
+
+
+    <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        Encuentra el \'area del tri\'angulo con v\'ertices en los puntos $(1,1), (0,3)$ y $(4,5)$.
+     </div>
+
+    <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        Sean $v, w\in \mathbb{R}^n$.
+       	Usando las propiedades del procuto interior, demostrar la siguiente identidad (llamada ley del paralelogramo)
+         $$
+         \|v+w\|^2+\|v-w\|^2=2(\|v\|^2+\|w\|^2)
+         $$
+    </div>
+
+    <div class="definicion-box"><h2 class="number-title""> Definición </h2>
+           Dos vectores $p,q\in \mathbb{R}^n$ se llaman ortogonales si $\langle p,q \rangle=0$.
+    </div>
+         
+         
+    <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        (Teorema de Pit\'agoras)
+
+         Par dos vectores $p, q \in \mathbb{R}^n$, demuestra:
+
+         $\|p+q\|^2=\|p\|^2+\|q\|^2$ si y s\'olo si los vectores son prependiculares.
+    </div>
+
+    <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        Encuentra los valoes de $x$ para los cuales los vectores $(x,2x,1)$ y $(4x,-1,x)$ son ortogonles.
+    </div>
+
+
+    <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        Demuestra que, para todos $p,q\in \mathbb{R}^3$
+           $$
+           \| p-q\|^2= \|p\|^2-2 \langle p, q \rangle +\|q\|^2.
+           $$
+    </div>
+
+    <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        Sean $u,v,w\in \mathbb{R}^3$ tres vectores distintos de cero y ortogonales dos a dos.
+           <ol>
+             <li>
+                Demuestra que
+                el conjunto $\{u,v,w\}$ es linealmente independiente.
+             </li> 
+             <li>
+                Es un hecho, no lo demuestres, que un conjunto de tres vectores en $\mathbb{R}^3$, linealmente
+                independientes, genera $\mathbb{R}^3$, decir para todo $p\in \mathbb{R}^3$,
+                existen escalares $\alpha,\beta,\gamma$ tales que $p=\alpha u+ \beta v +\gamma w$.
+                Usando lo anterior demuestra que, para todo $p\in \mathbb{R}^3$
+                $$
+                p=\frac{\langle p, u \rangle}{\|u\|^2} u + \frac{\langle p,v\rangle}{\|v\|^2} v+
+                \frac{\langle p,w \rangle}{\|w\|^2} w.
+                $$
+             </li>
+         
+           </ol>
+    </div>
+
+    <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        (Otra demostraci\'on de la desigualdad de Cauchy-Schwartz)
+       
+         Sean $p$ y $q$ dos vectores en $\mathbb{R}^n$. Entonces
+         $$
+         |\langle p,q \rangle| \leq \|p\|\|q\|.
+         $$
+
+         Sugerencia: considera la funci\'on $f(t)=\|p+tq\|^2$, $t\in \mathbb{R}$. Prueba que $f$ es una
+         cuadr\'atica cuya gr\'afica
+         siempre est\'a por arriba del eje horizontal y finalmente  encuentra su discriminante.
+    </div>
+
+    <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        Este ejercicio da otra prueba de la desigualdad de Cauchy-Schwartz, en espacios con producto interior.
+
+         Sea $v$ un vector arbitrario y $u$ un vector unitario, en un espacio con producto interior.
+         <ol>
+            <li>
+                Usando las propiedades del producto interior demuestra que
+                $$
+                0\leq \| v- \langle u,v \rangle u\|^2=\|v\|^2-(\langle u , v \rangle )^2.
+                $$
+            </li>
+            <li>
+                Con el inciso anterior da otra demostraci\'on de la desigualdad de Cauchy-Schwartz.
+            </li>
+            <li>
+                Demuestra que si $|\langle u,  v \rangle |=\|u\|\|v\|$ entonces $v=\langle u, v \rangle  u$.
+            </li> 
+           <li>
+            Usando el ejercicio anterior muestra que la igualdad en la desigualdad de Cauchy-Schwartz
+            se da si y s\'olo si uno de los vectores es m\'ultiplo escalar del otro (es decir, 
+            si son linealmente dependientes).
+           </li>
+        
+         </ol>
+     </div>
+
+
+           
+           		
+    <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        (Desigualdad del tri\'angulo) 
+		Usa la desigualdad de Cauchy-Schwartz para probar que, para todos los vectores $p,q$
+		$$
+		\| p+q\| \leq \|p\|+\|q\|.	
+		$$ 	
+    </div>
+
+	<div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        Para un vector $p=(p_1\dots, p_n) $ demuestra
+			<ol>
+			    <li>
+                    $	\|p\| \leq \sum_{i=1}^n|p_i| $. 
+                </li>
+                <li>
+                    para toda $i=1,\dots, n$, $|p_i| \leq \|p\|$
+                </li>
+			
+			</ol>
+     </div>
+
+    <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        (La otra desigualdad del tri\'angulo)
+
+                Demuestra, para todos  los vectores $p,q$ en un espacio con producto interior:
+                $$
+                |\|p\| - \|q\|| \leq \|p-q\|.
+                $$
+
+                Sugerencia: empieza con $\|p\|$ suma  y resta $q$ y usa la desigualdad del tri\'angulo.
+    </div>
+
+    <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        Usar la dsigualdad de Cauchy-Schwarz para probar que, para cualesqueira tres
+         reales $a,b,c$
+         $$
+         (a+b+c)^2 \leq 3(a^2+b^2+c^2)
+         $$
+    </div>
+
+
+    <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        Sean $x_1,\dots, x_n, y_1,\dots, y_n \in \mathbb{R}.$
+
+         <ol>
+            <li>
+                Demostrar la identidad de Lagrange:
+        
+                $$
+                \bigg( \sum_{i=1}^n x_iy_i \bigg)^2=\bigg( \sum_{i=1}^n x_i^2 \bigg)\bigg( \sum_{i=1}^n y_i^2 \bigg)-
+                \sum_{i < j} (x_iy_j -x_jy_i)^2
+                $$
+       
+                Sugerencia: procede por inducción desarrollando ambos lados directamente.
+            </li>
+            <li>
+                Con el inciso anterior da otra demostraci\'on de la desigualdad de Cauchy-Schwartz, es decir:
+                $$
+               \left| \sum_{i=i}^n x_iy_i \right| \leq \left( \sum_{i=1}^n x_i^2 \right)^{1/2}\left( \sum_{i=1}^n y_i^2 \right)^{1/2} 
+                $$
+            </li> 
+
+       </ol>
+    </div>
+
+
+    <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        Sea $L$ una l\'inea recta con ecuaci\'on $p_0+tv$. Supongamos que $p_1\in L$ y que $u\ne 0$ es otro vector linealmente
+       dependiente con $v$, para que $p_1+su$ sea otra ecuaci\'on param\'etrica de $L$. Demuestra que si
+       $$
+       p_0+tv=p_1+su
+       $$
+       entonces $s= \frac{1}{\|u\|^2} \langle (p_0-p_1), u \rangle + t \frac{\langle v,  u \rangle}{\|u\|^2}$.
+
+       Sugerencia: haz producto  interior de $p_0+tv=p_1+su$ con el vector $\frac{1}{\|u\|^2}u$ y utiliza las propiedades del
+       producto interior.
+    </div>
+
+
+
 </body>

@@ -126,11 +126,25 @@ h1.number-title{
   counter-reset: sectionCounter  cardCounter ;
   font-family: "Muli";
 }
+
 h1.number-title:before{
  counter-increment: sectionCounter;
  content:"Sección " counter(sectionCounter) " ";
  font-family: "Muli";
 }
+
+h1.number-title-a{
+  counter-reset: sectionCounter  cardCounter ;
+  font-family: "Muli";
+
+}
+
+h1.number-title-a:before{
+  counter-increment: sectionCounter;
+  content:"Apéndice" counter(sectionCounter) " ";
+  font-family: "Muli";
+ }
+ 
 
 h2.number-title{
   font-family: "Roboto";
