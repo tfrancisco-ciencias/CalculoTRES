@@ -1,0 +1,577 @@
+<!DOCTYPE html PUBLIC >
+
+<html lang="es">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
+
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1]
+          },
+          tags: "ams", /* this part is for numbered equations */
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+      };
+    </script>
+
+    <!-- This part is for using single $ for latex input, instead of \(\) -->
+    <!--<script>
+        MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>-->
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../style.css" />
+
+    <!-- This part restart counter of cards to start at n+1 -->
+    <style>
+        body.number-title{
+          counter-reset: sectionCounter 2 cardCounter ;
+        }
+        h1.number-title{
+          counter-reset: sectionCounter 2 cardCounter ;
+        }
+      </style>
+  
+    <!-- Top Menu  -->
+
+
+        <header class="main-header">
+          <h1> Cálculo DOS </h1>
+         <nav class="top-nav">
+           <ul>
+              <li> <a href="../Home.html"> Inicio  </a> </li>
+              <li> <a href="../InfoPrimerDia.html"> Información general </a> </li>
+              <li> <a href="../Secciones.html"> Secciones  </a> </li>
+              <li> <a href="../ExternalLinks.html"> Links </a> </li>
+              
+            </ul>
+          </nav>
+          <nav class="small-nav" align=right>
+            <button onclick="myFunction()">Claro/Obscuro 
+          </nav>
+        </header>
+
+      <!-- This part is for title in tab-->
+      <title> § 2 </title>
+    
+  </head>
+
+  <body class="fondo-body" >
+
+   <h1 class="number-title flexbox"> Algebra lineal (repaso)</h1> 
+
+
+
+
+
+<div class="definicion-box">
+    <h2 class="number-title"> Definición </h2>
+    <p>
+        La transpuesta de una matriz de $2\times 2$ se define como:
+        $$
+        \left[
+        \begin{array}{cc}
+        a_{1,1} & a_{1,2} \\
+        a_{2,1} & a_{2,2}
+        \end{array}
+        \right]^t
+        =
+        \left[
+        \begin{array}{cc}
+        a_{1,1}& a_{2,1}\\
+        a_{1,2} & a_{2,2}
+        \end{array}
+        \right]
+        $$
+    </p>
+</div>
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p> 
+        Sen $A,B$ dos matrices de $2\times 2$ y $\alpha \in \mathbb{R}$. Demuestra que $(\alpha A+B)^t=\alpha A^t+B^t$.
+    </p>
+</div>
+
+
+
+<div class="definicion-box">
+    <h2 class="number-title"> Definición </h2>
+    <p>
+        El determinante de una matriz de \(2\times 2\) se define como
+    </p>
+    <p>
+        $$
+        \det\left[
+        \begin{array}{cc}
+        a_{1,1} & a_{1,2}\\
+        a_{2,1} & a_{2,2}
+        \end{array}
+        \right]=
+        a_{1,1}a_{2,2}-a_{1,2}a_{2,1}
+        $$
+    </p>
+
+</div>
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Sea $A$ una matriz de $2\times 2$. Demuestra que $\det(A)=\det(A^t)$. 
+    </p>
+</div>
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <h3> Propiedad alternante del determinante.</h3>
+    <p>
+        Demuestra que 
+        $$
+        \det\left[ \begin{array}{cc}
+        a_{1,1} & a_{1,2} \\
+        a_{2,1} & a_{2,2}
+        \end{array}
+        \right]
+        =
+        -\det \left[ \begin{array}{cc}
+        a_{2,1} & a_{2,2}\\
+        a_{1,1} & a_{1,2}
+        \end{array}
+        \right]
+        $$
+        Ahora, utilizando la relación entre la transpuesta y el determinante prueba que:
+        
+        $$
+        \det \left[\begin{array}{cc}
+        a_{1,1} & a_{1,2} \\
+        a_{2,1} & a_{2,2}
+        \end{array}\right]
+        =
+        -\det \left[\begin{array}{cc}
+        a_{1,2} & a_{1,1}\\
+        a_{2,2} & a_{2,1}
+        \end{array}
+        \right]
+        $$
+        
+    </p>
+</div>
+
+
+
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Sea $\alpha$ un escalar. Demuestra que
+        $$
+        \det\left[
+        \begin{array}{cc}
+        \alpha a_{1,1} & a_{1,2}\\
+        \alpha a_{2,1} & a_{2,2}
+        \end{array}
+        \right]
+        =
+        \alpha\det\left[
+        \begin{array}{cc}
+        a_{1,1} & a_{1,2} \\
+        a_{2,1} & a_{2,2}
+        \end{array}
+        \right]
+        $$
+                
+    </p>
+</div>
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Demuestra que
+        $$
+        \det\left[
+        \begin{array}{cc}
+        a_{1,1}+v_1 & a_{1,2} \\
+        a_{2,1}+v_2 & a_{2,2}
+        \end{array}
+        \right]=
+        \det\left[
+        \begin{array}{cc}
+        a_{1,1} & a_{1,2}  \\
+        a_{2,1} & a_{2,2}
+        \end{array}
+        \right]
+        +
+        \det\left[
+        \begin{array}{cc}
+        v_1 & a_{1,2}\\
+        v_2 & a_{2,2}
+        \end{array}
+        \right]
+        $$        
+    </p>
+</div>
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title" id="Ejer:DeterRenglonesRepetidos"> Ejercicio</h2> 
+    <p>
+        Sea $A$ una matriz de $3 \times 3$. Supongamos que dos renglones de $A$ son iguales. Demuestra
+        que $\det(A)=0$. Sugerencia: utiliza la propiedad alternante del determinante.
+        
+    </p>
+</div>
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Considera los vectores $v=(v_1,v_2,v_3), w=(w_1,w_2,w_3)$. 
+
+        Dados escalares $\alpha, \beta$ construye
+        el vector $u=\alpha v+ \beta w$. Demuestra que 
+        $$
+        \det\left[
+        \begin{array}{ccc}
+        u_1 & u_2 & u_3 \\
+        v_1 & v_2 & v_3 \\
+        w_1 & w_2 & w_3
+        \end{array}
+        \right]=0
+        $$
+        
+    </p>
+</div>
+
+         
+
+<div class="definicion-box">
+    <h2 class="number-title"> Definición </h2>
+        En $\mathbb{R}^3$ existe un producto que toma dos vectores y como resultado arroja un nuevo vector. Se llama producto curz
+       y se define como
+       $$
+       p\times q=( p_2q_3-p_3q_2, -(p_1q_3-p_3q_1), p_1q_2-p_2q_1 )  =  \det\left[
+        \begin{array}{ccc}
+        \hat{i} & \hat{j} & \hat{j} \\
+        p_1 & p_2 & p_3 \\
+        q_1 & q_2 & q_3
+        \end{array}
+        \right]
+        $$
+</div>
+
+
+       <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio</h2> 
+        <p>
+            Prueba que
+            $$
+            \hat{i}\times \hat{j}= \hat{k}, \quad \hat{j} \times \hat{k}=\hat{i}, \quad \hat{k}\times \hat{i}=j.
+            $$
+   
+        </p>
+        </div>
+
+
+
+    <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio</h2> 
+        <p>
+            Demuestra las siguientes propiedades del producto cruz.
+        </p>
+         <ol>
+            <li>
+                $p\times q= - q\times p$.
+            </li>
+            <li>
+                $p\times p=0$ para todo vector $p$.
+            </li>
+            <li>
+                $p\times (\beta v+u)=\beta p\times v+ p\times u $.
+            </li>
+         </ol>
+    </div>
+
+
+         
+       <div class="ejercicio-box"> 
+        <h2 class="number-title" id="Ejer:TripleProducto"> Ejercicio</h2>
+        <p>     
+            Demuetra la siguiente indentidad
+            $$
+            ( u\times v)\cdot  w =\det\left[
+              \begin{array}{ccc}
+                u_1 & u_2 & u_3 \\
+                v_1 & v_2 & v_3 \\
+                w_1 & w_2 & w_3
+              \end{array}
+            \right]
+            $$
+   
+        </p> 
+        </div>
+
+       <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio</h2> 
+        <p>
+            Usando los <a href="#Ejer:TripleProducto">Ejercicio 3.13</a> y  
+            <a href="#Ejer:DeterRenglonesRepetidos"> Ejercicio 3.8</a>, 
+            prueba que $u\times v$ es perpendicular tanto
+             a $u$ como a $v$.
+        </p>
+        </div>
+
+
+
+    <div class="ejercicio-box"> 
+            <h2 class="number-title"> Ejercicio</h2> 
+            <p>
+                Sean $p,q\in \mathbb{R}^3$.
+            </p>
+           <ol>
+            <li>
+                Demuestra
+                $$\|p\times q\|^2=\|p\|^2\|q\|^2-(p\cdot q)^2$$
+                <p>
+                    Sugerencia: expande ambos lados en las coordenadas de $p$ y $q$.
+                </p>
+            </li>
+            <li>
+                Usando la ecuación   \(\langle p, q\rangle = \|p\|\|q\|\cos(\theta)\) y en inciso anterior prueba:
+                \begin{equation}\label{Eqn:NormaProductoCruz}
+                \|p \times q\|=\|p\|\|q\||\sen(\theta)|
+                \end{equation}
+                donde $\theta\in [0,\pi]$, es el ángulo entre
+                $p$ y $q$.
+            </li> 
+           
+          </ol>
+	 </div>
+
+	<div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+            Dos vectores $p,q\in \mathbb{R}^n$, distintos de cero, se llaman linealmente independientes si 
+            uno no es multiplo escalar del otro. Son linealmente dependientes si uno es multiplo escalar del otro.
+        </p>
+        
+	</div>
+
+	<div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio</h2> 
+        <p> 
+            Demuestra que $p \times q =0$ sii $p$ o $q$ son iguales a cero o $p$ y $q$ son linealmente
+            dependientes. Sugerencia: usa ecuación \eqref{Eqn:NormaProductoCruz}.
+        </p>        
+	</div>
+
+	
+    <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio</h2> 
+        <p> 
+            Demuestra que el área del paralelogramo generado por $p, q \in \mathbb{R}^3$
+            está dada por $\|p\times q\|$.
+      
+        </p>
+    </div>
+
+		<div class="ejercicio-box"> 
+            <h2 class="number-title"> Ejercicio</h2> 
+            <p>
+                El volumen del paralelepipedo generado por $u,v,w$ está dado por
+                $$
+                \left|  \det\left[
+                \begin{array}{ccc}
+                u_1 & u_2 & u_3 \\
+                v_1 & v_2 & v_3 \\
+                w_1 & w_2 & w_3
+                \end{array}				
+                \right]
+                 \right|
+                $$
+            </p>
+            <p>
+                Sugerencia: por la fórmula del triple producto el valor absoluto anterior es igual a 
+                $| (u\times v)\cdot w |$. Despues usar \(\langle p, q\rangle = \|p\|\|q\|\cos(\theta)\) y la interpretación
+                de $\|u\times v\|$ como el área generada por el paralelogramo generado por $u$ y $v$.
+        
+            </p>
+    </div>		
+
+    <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio</h2> 
+        <p>
+            Ecuación del plano, forma normal. 
+
+            Sean $u\ne 0, v\ne 0$, dos vectores en $\mathbb{R}^3$, linealmente independientes. Considera la ecuación 
+            paramétrica
+            $$
+            p=p_0+tu+sv
+            $$	
+            con $p_0=(x_0,y_0,z_0)$. Sea $(A,B,C)=u\times v$. Demuestra que todo punto $p=(x,y,z)$ en el plano
+            generado por $u$ y $v$ satisface
+            $$
+            A(x-x_0)+B(y-y_0)+C(z-z_0)=0.
+            $$
+            
+            Al vector $(A,B,C)$ se le llama un  vector normal al plano.
+            
+        </p>
+    </div>
+
+    <div class="ejercicio-box"> 
+        <h2 class="number-title" id="Ejer:BaseConProductoCruz"> Ejercicio</h2>
+        <p>
+            Sean $u,v\in \mathbb{R}^3$, no cero y linealmente independientes. 
+        </p> 
+
+        <ol>
+            <li>
+                Demuestra que el conjunto
+                $\{u,v, u\times v\}$ es linealmente independiente.
+            </li> 
+            <li>
+                Es un hecho, no lo demuestres, que un conjunto linealmente independiente de tres vectores genera
+                $\mathbb{R}^3$. Usando lo anterior muestra que, si $p$ es perpendicular a $u\times v$, entonces existen
+                $s,t\in \mathbb{R}$ tales que $p=su+tv$ (es decir, $p$ está en el plano generado por $u$ y $v$).
+            </li>
+        </ol>
+    </div>
+    
+    <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio</h2>
+
+        <ol>
+            <li>
+                Demuestra 
+                $$
+                (u\times v) \times w= (u \cdot w) v - (v \cdot w ) u
+                $$
+                
+                $$
+                u\times (v\times w)=   (u \cdot w )v -(u \cdot v ) w	
+                $$
+                <p>
+                    Sugerencia: empieza probando, directamente, la primera identidad para los casos $w=\hat{i},\hat{j}, \hat{k}$;
+                    después usa las propiedades del producto cruz y producto interior para probar la igualdad para cualquier
+                    $w$ en general. Sigue el mismo método para la segunda identidad.
+            
+                </p>
+            </li> 
+            <li>
+                Usando las identidades anteriores demuestra la identidad de Jacobi, que dice
+                $$
+                (u\times v)\times w+ (v\times w)\times u+ (w\times u)\times v=0. 
+                $$
+            </li>
+            <li>
+                Después, demuestra que $(u\times v)\times w=u\times (v\times w)$ sii $(u\times w)\times v=0$. Por lo
+                tanto, el producto cruz no es asociativo.
+            </li>
+        </ol>
+    </div>
+
+
+
+
+<div class="nota-box">
+    <h2 class="number-title"> Notación </h2>
+    <p>
+        Dada $A$, una matriz de $n\times m$, por $A_{i,j}$, denotamos a la entrada $i,j$ de $A$. Por
+        $A(i:)$ dentoamos el renglón $i$ de $A$ y por $A(:j)$ denotamos la columna $j$ de $A$.    
+    </p>
+    
+</div>
+
+
+<div class="definicion-box">
+    <h2 class="number-title"> Definición </h2>
+    <p>
+        Dada una matriz de $n\times m$, la matriz transpuesta, denotada $A^t$, es la matriz de
+        $m\times n$, cuyas entradas están dadas por $(A^t)_{i,j}=A_{j,i}$.
+    </p>
+</div>
+
+<div class="prop-box">
+    <h2 class="number-title"> Proposición </h2>
+    <p>
+
+    </p>
+    Sea $A$ una matriz de $n\times n$. Entonces $\det(A)=\det(A^t)$.
+
+    Nota: esta resultado implica que las propiedades que se pueden probar para renglones tienen 
+    su contraparte en columnas.
+    
+</div>
+
+
+<div class="prop-box">
+    <h2 class="number-title"> Proposición </h2>
+    Sea $A$ una matrz de $n \times n $ y sea $A'$ la  matriz que se obtiene de $A$ al intercambiar dos renglones (o columnas). Entonces 
+    $$
+    \det(A')=-\det(A).
+    $$
+    
+</div>
+
+
+
+<div class="prop-box">
+    <h2 class="number-title"> Proposición </h2>
+Dada  una matriz $A$, de $n\times n$, y un escalar $\alpha$, constuye $A'$ multiplicando 
+todas las entradas de una columna fija por $\alpha$. Entonces
+$$
+\det(A')=\alpha \det(A).
+$$
+</div>
+
+<div class="prop-box">
+    <h2 class="number-title"> Proposición </h2>
+Sea $A$ una matriz de $n\times n$ y sean $i,k$ números enteros fijos y arbitrarios
+entre $1$ y $n$. Si la matriz $A'$ se construye reemplazando $A(i:)$ por $A(i:)+A(k:)$, entonces
+$$
+\det(A)=\det(A').
+$$
+</div>
+
+   
+<div class="definicion-box">
+    <h2 class="number-title"> Definición </h2>
+        Decimos que un vector $u$ es combinación lineal de los vectores $v^{(1)},\dots, v^{(n)}$ si existen escalares
+        $\alpha_1,\dots, \alpha_n$ tales que
+        $$
+        u=\sum_{i=1}^n \alpha_i v^{(i)}.
+        $$
+        Por ejemplo, $(1,0)$ es combinación lineal de $(-1,1)$ y $(1,1)$ pues
+        $$
+        (1,0)=\frac{-1}{2}(-1,1)+\frac{1}{2}(1,1).
+        $$
+</div>
+
+<div class="prop-box">
+    <h2 class="number-title"> Proposición </h2>
+    Sea $A$ una matriz de $n\times n$. Supon que un renglón de $A$ es combinación lineal de algunos otros
+    renglones de $A$. Entonces $\det(A)=0$.
+</div>
+
