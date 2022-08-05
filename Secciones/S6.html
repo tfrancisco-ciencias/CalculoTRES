@@ -1,0 +1,364 @@
+<!DOCTYPE html PUBLIC >
+
+<html lang="es">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
+
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1],
+            id: "\\operatorname{id}",
+          },
+          tags: "ams", /* this part is for numbered equations */
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+      };
+    </script>
+
+    <!-- This part is for using single $ for latex input, instead of \(\) -->
+    <!--<script>
+        MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>-->
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../style.css" />
+
+    <!-- This part restart counter of cards to start at n+1 -->
+    <style>
+        body.number-title{
+          counter-reset: sectionCounter 5 cardCounter ;
+        }
+        h1.number-title{
+          counter-reset: sectionCounter 5 cardCounter ;
+        }
+      </style>
+  
+    <!-- Top Menu  -->
+
+
+        <header class="main-header">
+          <h1> Cálculo DOS </h1>
+         <nav class="top-nav">
+           <ul>
+              <li> <a href="../Home.html"> Inicio  </a> </li>
+              <li> <a href="../InfoPrimerDia.html"> Información general </a> </li>
+              <li> <a href="../Secciones.html"> Secciones  </a> </li>
+              <li> <a href="../ExternalLinks.html"> Links </a> </li>
+              
+            </ul>
+          </nav>
+          <nav class="small-nav" align=right>
+            <button onclick="myFunction()">Claro/Obscuro 
+          </nav>
+        </header>
+
+      <!-- This part is for title in tab-->
+      <title> § 6 </title>
+    
+  </head>
+  <body class="fondo-body" >
+
+    <h1 class="number-title flexbox"> Derivadas parciales en \(\mathbb{R}^n\) </h1> 
+
+
+  
+    \begin{definicion}
+    Sea $U\subseteq \mathbb{R}^2$ un conjunto abierto y $f:U\to \mathbb{R}$ una funci\'on y 
+    $(x_0, y_0)\in U$ un punto fijo. Las derivadas parciales de $f$, en punto $(x_0,y_0)$, se definen
+    como:
+    \begin{enumerate}
+    \item  parcial con respecto a la variable x:
+    $$
+    \partial_x f(x_0,y_0)=\frac{\partial f}{\partial x}(x_0,y_0)=\lim_{s\to 0} \frac{f(x_0+s,y_0)}{s} 
+    $$
+    \item  parcial con respecto a la variable y:
+    $$
+    \partial_y f(x_0,y_0)=\frac{\partial f}{\partial y}(x_0,y_0)=\lim_{t\to 0} \frac{f(x_0,y_0+t)}{t} 
+    $$
+    siempre y cuando los l\'imites existen.
+
+ \end{enumerate}
+
+   \end{definicion}
+   
+     \begin{nota}
+     Dependiendo de las variables independientes la notaci\'on de parciales puede cambiar. Por
+     ejemplo, si tenemos una funci\'on $f(x_1,x_2)$, las parciales se denotan $\partial_{x_1}f$
+     y $\partial_{x_2}f$ o si es  $f(r,\theta)$ tendr\'iamos $\partial_r f$, $\partial_\theta f$.
+   \end{nota}
+   
+
+   \begin{nota}
+     Para cada punto $(x_0,y_0)$,  al  calcular las  parciales
+     $$\partial_xf(x_0,y_0), \quad \partial_{y}f(x_0,y_0)$$
+     obtenemos  n\'umeros reales. Pero,   si pensamos a $(x_0,y_0)$ variando en un dominio y
+     lo denotamos $(x,y)$ (notaci\'on de variable), obtenemos funciones
+     $$\partial_xf(x,y),\quad \partial_yf(x,y)$$
+
+     Note que en las expresiones
+     anteriores las $x$ que aparecen son distintas. La de la parcial indica con respecto a qu\'e
+     variable se diferencia y la otra indica en qu\'e punto se est\'a evaluando. Asi por ejemplo
+     si $\partial_xf(x,y)=6x-2y$ entonces  $\partial_xf(3,5)=6(3)-2(5)=8$, sin embargo $\partial_3f(x,y)$
+     o $\partial_3f(3,5)$ no tienen sentido.
+   \end{nota}
+
+
+ \item Sean $g,h:\mathbb{R}\to \mathbb{R}$ funciones de una variable, ambas diferenciables,  y define $f(x,y)=g(x)h(y)$.
+   Fija un punto $(x_0,y_0)$. Demuestra que
+   $$
+   \partial_xf(x_0,y_0)=g'(x_0)h(y_0), \quad \partial_yf(x_0,y_0)=g(x_0)h'(y_0).
+   $$
+
+   \begin{proof}
+     Primero formamos el cociente diferencial para $\partial_xf(x_0,y_0) $:
+     $$
+     \frac{f(x_0+t,y_0)-f(x_0,y_0)}{t}=\frac{g(x_0+t)h(y_0)-g(x_0)h(x_0)}{t}.
+     $$
+     Factorizando $h(x_0)$ se sigue que
+     $$
+     \frac{f(x_0+t,y_0)-f(x_0,y_0)}{t}=\left( \frac{g(x_0+t)-g(x_0)}{t}\right) h(y_0)
+     $$
+     Reconocemos el cociente diferencial para $g$, as\'i que al tomar l\'imite
+     cuando $t\to 0$ concluimos
+     $$
+     \partial_xf(x_0,y_0)=g'(x_0)h(y_0)
+     $$
+
+     La f\'ormula $\partial_yf(x_0,y_0)=g(x_0)h'(y_0)$ se prueba de manera similar.
+   \end{proof}
+   
+
+   
+ 
+ \item Sea $f(x,y)$ una funci\'on de dos variables definida en un abierto de $\mathbb{R}^2$ y fija
+   $(x_0,y_0)$ un punto en dicho abierto. Supongamos que $\partial_xf(x_0,y_0)$
+   y $\partial_y f(x_0,y_0)$ existen. Define funciones de una variable
+   $$
+   g(x)=f(x,y_0), \quad h(y)=f(x_0,y)
+   $$
+   Usando la definici\'on de derivada parcial y derivada usual, demuestra que $g'(x_0)=\partial_x(x_0,y_0)$
+   y $h'(y)=\partial_yf(x_0,y_0)$.
+
+   Es decir, este ejercicio muestra que para calcular las derivadas parciales simplemente se
+   calcula la derivada uno dimensional, pensando  las otras variables como constantes. 
+
+   \begin{proof}
+     Primero, usamos la definici\'on de $g$ para formar  su el cociente diferencial:
+     $$
+     \frac{g(x_0+s)-g(x_0)}{t}=\frac{f(x_0+s,y_0)-f(x_0,y_0)}{s}
+     $$
+
+     Tomando l\'imite cuando $s\to 0$ vemos que el l\'imite del cociente diferencial es el
+     mismo que el que aparece en la definici\'on de derivada parcial y concluimos
+     $$
+     g'(x_0)=\partial_x f(x_0,y_0).
+     $$
+     De manera similar,
+     $$
+     \frac{h(y_0+t)-h(y_0)}{t}=\frac{f(x_0,y_0+t)-f(x_0,y_0)}{t}
+     $$
+     y al tomar el l\'imite cuando $t\to 0$ concluimos
+     $$
+     h'(y_0)=\partial_yf(x_0,y_0).
+     $$
+   \end{proof}
+   
+
+   
+    \item Para cada una de las siguientes funciones encuentra la derivada parcial en los puntos indicados.
+    \begin{enumerate}
+    \item $f(x,y)=xy+x^2$ en $(1,0)$ y en $(0,1)$.
+    \item $f(x,y)=\log(\sqrt{1+x^2y^2})$ en $(1,0)$ y en $(1,1)$.
+    \item $f(x,y)=(x^2+y^2)e^{x^2+y^2}$ en $(1,1)$ y en $(2,2)$.
+    \item $f(x,y)=xy\cos(2x+y)$ en $(\frac{\pi}{2},0)$ y en $(0,\frac{\pi}{2})$.
+    \end{enumerate}
+    
+
+  \item Para cada una de las siguientes funciones $f(x,y)$, encuentra el dominio de definici\'on
+    de las funciones $\partial_xf(x,y)$ y $\partial_yf(x,y)$.
+
+    \begin{enumerate}
+    \item $f(x,y)=\log(x^2+y^2+1)$.
+    \item $f(x,y)=\frac{1}{\sqrt{x^2+y^2}}$.
+    \item $f(x,y)=y\sqrt{1-x^2-y^2}$.
+      \item $f(x,y)=\frac{x}{y}$.
+    \end{enumerate}
+    
+
+  \item Sea $D:\mathbb{R}\to \mathbb{R}$ la funci\'on de Dirichlet
+     $$
+     D(x)=\left\{
+     \begin{array}{cc}
+     1, & \textrm{$x$ racional.}\\
+     0, & \textrm{$x$ irracional.}
+     \end{array}
+     \right.	
+     $$
+    Define la funci\'on $f:\mathbb{R}^2 \to \mathbb{R}$ dada por $f(x,y)=y^2D(x)$.
+    
+    \begin{enumerate}
+    \item Demuestra que, para todo puntos $(x_0,y_0)$, $\partial_yf(x_0,y_0)$ siempre existe y calcula su valor.
+    \item Adem\'as, prueba que si $y_0\ne 0$, $\partial_xf(x_0,y_0)$ no existe y que para todo
+    $x_0$, $\partial_yf(x_0,0)=0$. 
+    \end{enumerate}
+    
+    \item Considera la funci\'on $f:\mathbb{R}^2 \to \mathbb{R}$ dada por $f(x,y)=\sqrt[3]{x}\sqrt[3]{y}$. Demuestra
+    que $\partial_xf(0,0)=0=\partial_yf(0,0)$. Adem\'as, muestra que para toda $y_0\ne0$, $\partial_xf(0,y_0)$
+    no existe.
+
+
+    \begin{proof}
+
+      Para $\partial_xf(0,0)$, primero calculamos el cociente diferencial
+      $$
+      \frac{f(0+s,0)-f(0,0)}{s}=\frac{\sqrt[3]{s}\sqrt[3]{0}-\sqrt[3]{0}\sqrt[3]{0}}{s}=\frac{0}{s}=0
+      $$
+      Tomando l\'imite cuando $s\to 0$ concluimos que $\partial_xf(0,0)=0$.
+
+      De manera similar
+      $$
+      \frac{f(0,0+t)-f(0,0)}{t}=\frac{\sqrt[3]{0}\sqrt[3]{t}-\sqrt[3]{0}\sqrt[3]{0}}{t}=\frac{0}{t}=0
+      $$
+      y al tomar l\'imite cuanto $t\to 0$ se obtiene $\partial_yf(0,0)=0$.
+
+      Ahora fijemos $y_0\ne 0$. Al formar el cociente diferencial para $\partial_xf(0,y_0)$
+      obtenemos
+      $$
+      \frac{f(0+s,y_0)-f(0,y_0)}{s}=\frac{\sqrt[3]{s}\sqrt[3]{y_0}-\sqrt[3]{0}\sqrt[3]{y_0}}{s}=\frac{\sqrt[3]{s}}{s} \sqrt[3]{y_0}=
+      \frac{1}{s^{2/3}}\sqrt[3]{y_0}
+      $$
+      Ya que
+      $$\lim_{s\to 0} \frac{1}{s^{2/3}}\sqrt[3]{y_0}=+\infty, \quad   \textrm{si $y_0>0$}$$
+      y
+      $$\lim_{s\to 0} \frac{1}{s^{2/3}}\sqrt[3]{y_0}=-\infty, \quad  \textrm{si $y_0<0$}$$
+      la derivada parcial $\partial_xf(0,y_0)$ no existe.
+    \end{proof}
+    
+    
+
+  \item Considera la funci\'on $f(x,y)=|x+y|-|x-y|$.
+    \begin{enumerate}
+    \item Demuestra que, para todos $x_0,y_0\in \mathbb{R}$
+      $$
+      \partial_xf(x_0,0)=0, \quad \partial_yf(0,y_0)=0.
+      $$
+    \item Demuestra que $\partial_xf(1,1)$ no existe.
+      
+    \end{enumerate}
+    
+    
+  \item Las derivadas parciales tienen las siguiente interpretaci\'on geom\'etrica.
+
+    Dada una funci\'on $f: U\to \mathbb{R}$, definida en un abierto,
+
+    \begin{itemize}
+      \item $\partial_xf(x_0,y_0)$ es la pendiente de la recta tangente
+        a la gr\'afica que se obtiene al cortar la gr\'afica de $f$ con el plano $y=y_0$.
+      \item $\partial_yf(x_0,y_0)$  es le pendiente de la recta tangente a la gr\'afica
+        que se obtiene al cortar la gr\'afica de $f$ con el plano $x=x_0$.
+    \end{itemize}
+        Ejemplo.
+
+        Considera el paraboloide de revoluci\'on $f(x,y)=x^2+xy+y^2$.       
+    
+    \begin{enumerate}
+    \item Define $g(x)=f(x,0)$. Nota que $g$ es una par\'abola y prueba que $g'(x)=\partial_xf(x,0)$.
+    As\'i las pendientes de las rectas tangentes a  $g$  est\'an dadas por $\partial_xf(x,0)$.
+    \item Define $h(y)=f(0,y)$. Nota que $h$ es una par\'abola y  prueba que $h'(y)=\partial_yf(0,y)$.
+    As\'i las pendientes de las rectas tangentes a  $h$  est\'an dadas por $\partial_yf(0,y)$.
+     \item De manera m\'as general, dados $x_0, y_0$ define 
+     $$g_{y_0}(x):=f(x,y_0), \quad h_{x_0}(y)=f(x_0,y)$$
+     Nota que $g_{y_0}$ y $h_{x_0}$ son par\'abolas.
+     
+     Por $G(g_{y_0})$ y $G(h_{x_0})$ denotamos las gr\'aficas de $g_{y_0}$ y $h_{y_0}$, respectivamente.
+     Encuentra los puntos $(x_0, y_0)$, para las cuales las rectas tangentes a $G(g_{x_0})$
+     y a $G(h_{y_0})$, que pasan por $(1,g_{y_0}(1))$ y $(1,h_{y_0}(1))$ respectivamente, tienen pendiente iguales.		       
+    \end{enumerate}
+
+  \item Considera la funci\'on
+    $$
+    f(x,y)=\left\{
+      \begin{array}{cc}
+        \frac{\sen(x^2+y^2)}{x^2+y^2} & (x,y)\ne (0,0) \\
+        1 & (x,y)=(0,0)
+      \end{array}
+      \right.
+      $$
+      
+      Calcula $\partial_xf(0,0)$ y $\partial_yf(0,0)$.
+      
+      
+      
+
+    
+  \item Para cada una de las siguientes funciones calcula $\partial_x\left( \int_0^x f(s,y)ds \right)$. \textquestiondown Encuentras alg\'un patron?:
+    \begin{enumerate}
+    \item $f(x,y)=x^2+xy+y^2$,
+    \item $f(x,y)=e^{xy}$,
+    \item $f(x,y)=\cos(x+2y)$.
+    \end{enumerate}
+    
+  \item\label{Ejer:TFCyParciales} Para cada una de las siguientes funciones calcula,  $\int_0^x(\partial_s f(s,y))ds$.
+   \textquestiondown Encuentras alg\'un patron?
+
+    \begin{enumerate}
+    \item $f(x,y)=x^3y^2+xy+x^2y$
+    \item $f(x,y)=e^{x^2+y}$
+    \item $f(x,y)=\sen(xy)$
+    \end{enumerate}
+
+    
+   
+  \item Este ejercicio generaliza al ejercicio \ref{Ejer:TFCyParciales}. Usa el Teorema Fundamental para probar
+    que $\int_0^x(\partial_s f(s,y))ds=f(x,y)-f(0,y)$.
+   
+    
+    
+
+
+    
+    
+      \begin{definicion}
+               Sea $f(p)$ una funci\'on de n-variables, $p=(p_1,\dots, p_n)$ ,definida en un abierto en $\mathbb{R}^n$.Fija
+               $j\in\{1,\dots,n\}$. La derivada parcial de $f$, con respecto a la variable $p_j$ (tambi\'en llamada  la j-\'esima derivada
+               parcial), valuada en $p$ se define como
+               $$
+               \partial_{p_j}f(p)=\lim_{h\to 0} \frac{f(p+he_j)-f(p)}{h}
+               $$
+               donde $\{e_1,\dots, e_1\}$ es la base can\'onica de $\mathbb{R}^n$.
+             \end{definicion}
+
+           \item Para cada una de las siguientes funciones encuentra la derivada parcial con respecto a la variable indicada.
+             \begin{enumerate}
+             \item $f(p)=\sum_{i=1}^n p_i^2$. Calcular $\partial_{p_j}f(p)$.
+             \item $f(x)=\langle x, y \rangle$, donde $x=(x_1,\dots, x_n)$ y $y=(y_1,\dots, y_n)$ es un vector fijo. Calcular
+               $\partial_{x_j}f(x)$. \textquestiondown La notaci\'on $\partial_{y_j}f(x)$ tiene sentido en este ejemplo?
+             \item $f(z)=\left( \sum_{i=1}^n \log(z_i^2+1) \right)^2$, donde $z=(z_1,\dots, z_n)$. Calcular $\partial_{z_j}f(z)$.
+               \item $f(x,y,z)=100x^{1/2}y^{1/4}z^{1/5}$. Calcular $\partial_xf(x,y,z), \partial_yf(x,y,z)$ y $\partial_zf(x,y,z)$.
+             \end{enumerate}
+    
+
+
+ </body>

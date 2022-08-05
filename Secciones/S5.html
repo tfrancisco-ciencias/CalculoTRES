@@ -1,0 +1,478 @@
+<!DOCTYPE html PUBLIC >
+
+<html lang="es">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
+
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1],
+            id: "\\operatorname{id}",
+          },
+          tags: "ams", /* this part is for numbered equations */
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+      };
+    </script>
+
+    <!-- This part is for using single $ for latex input, instead of \(\) -->
+    <!--<script>
+        MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>-->
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../style.css" />
+
+    <!-- This part restart counter of cards to start at n+1 -->
+    <style>
+        body.number-title{
+          counter-reset: sectionCounter 4 cardCounter ;
+        }
+        h1.number-title{
+          counter-reset: sectionCounter 4 cardCounter ;
+        }
+      </style>
+  
+    <!-- Top Menu  -->
+
+
+        <header class="main-header">
+          <h1> Cálculo DOS </h1>
+         <nav class="top-nav">
+           <ul>
+              <li> <a href="../Home.html"> Inicio  </a> </li>
+              <li> <a href="../InfoPrimerDia.html"> Información general </a> </li>
+              <li> <a href="../Secciones.html"> Secciones  </a> </li>
+              <li> <a href="../ExternalLinks.html"> Links </a> </li>
+              
+            </ul>
+          </nav>
+          <nav class="small-nav" align=right>
+            <button onclick="myFunction()">Claro/Obscuro 
+          </nav>
+        </header>
+
+      <!-- This part is for title in tab-->
+      <title> § 5 </title>
+    
+  </head>
+  <body class="fondo-body" >
+
+    <h1 class="number-title flexbox"> Límites </h1> 
+
+
+
+<div class="definicion-box"> 
+    <h2 class="number-title">  Definición </h2>
+    <p>
+        Una bola abierta en $\mathbb{R}^n$, de radio $r>0$ y centrada en $p_0\in \mathbb{R}^n$, es el conjunto
+
+        $$
+        B_r(p_0)=\{ p \in \mathbb{R}^m : \|p-p_0\| < r \}.
+        $$ 
+        
+        Una bola abierta perforada se define como la bola abierta sin el centro es decir
+        $$
+        \check{B}_r(p_0)=\{  p\in \mathbb{R}^n: 0 < \| p-p_0\| < r  \}
+        $$
+    </p>
+
+</div> 
+
+
+
+<div class="definicion-box"> 
+    <h2 class="number-title">  Definición </h2>
+    <p>
+        Sea $f$ una función definida en una bola perforada alrededor de $p_0$. Decimos que
+        $$
+        \lim_{p\to p_0} f(p)=q
+        $$
+        si, para toda $\varepsilon >0$, existe $\delta >0$, tal que:
+         $$ \|p-p_0\| <\delta \Rightarrow \|f(p)-f(p_0)\| <\varepsilon$$
+    </p>
+</div> 
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title" id="Ejer:DesigualdadProductoNorma2"> Ejercicio </h2>  
+    <p>
+        Demuestra que, para todos $x,y\in \mathbb{R}$, $|xy| \leq \frac{x^2+y^2}{2}$.
+    </p>
+    <p>
+        Sugerencia: usa la desigualdad aritmético geométrica. 
+    </p>
+</div>
+
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title" id="Ejer:PrimerEjemploLimite"> Ejercicio </h2>   
+    <p>
+        Denota $f(x,y)=\frac{|xy|}{\sqrt{x^2+y^2}}$, $(x,y)\ne (0,0)$.
+
+        <ol> 
+            <li>
+                Demuestra que $|f(x,y)| \leq \frac{1}{2} \| (x,y)\|$.
+                <p>
+                    Sugerencia: usa el ejercicio \ref{Ejer:DesigualdadProductoNorma2}.
+                </p>
+            </li> 
+            <li>
+                Usando el inciso anterior muestra que $\lim_{(x,y) \to (0,0)}  f(x,y)=0$.
+            </li>
+        </ol>
+    </p>
+</div>
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+    <p>
+        Demuestra que:
+        <ol>
+            <li>
+                $\frac{|xy|}{|x|+|y|} \leq |x|$.
+            </li>
+            <li>
+                Usa el inciso anterior para probar $\lim_{(x,y)\to (0,0)}\frac{xy}{|x|+|y|}=0$.
+            </li>
+        </ol>
+        
+    </p> 
+</div>
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+    <p>
+        Este ejercicio generaliza las técnicas del ejercicio \ref{Ejer:PrimerEjemploLimite}. 
+
+        Sea $f$ una función, que toma valores reales,  definida en una bola perforada alrededor de $p_0$. 
+        
+        Asume que existe una función $\phi$, definida en un intervalo centrado en cero, 
+        que toma valores reales, que satisface
+
+        <ol>
+            <li>
+                $\lim_{t\to 0}\phi(t)=0$.
+            </li>
+            <li>
+                existe un número $L$  que satisface $|f(p)-L| \leq \phi(\|p-p_0\|)$, para $p$ en una bola
+                perforada alrededor de $p_0$.
+            </li>
+        </ol>
+        Demuestra que $\lim_{p\to p_0}f(p)=L$.        
+    </p> 
+</div>
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2>  
+    <p>
+        Si modificamos un poco el límite del ejercicio \ref{Ejer:PrimerEjemploLimite}, la convergencia desaparece. Este ejercicio prueba que el límite $\lim_{(x,y) \to (0,0)} \frac{xy}{x^2+y^2}$ no existe. Denotemos $f(x,y)=\frac{xy}{x^2+y^2}$.
+
+        Supongamos que sí existe, y denotemoslo por $L$. Entonces, para  $\varepsilon=\frac{1}{10^n}$ (donde
+        $n\geq 1$ es un natural), existe $\delta >0$ (que depende de $n$) tal que
+        $$
+        0< \| (x,y) \| <\delta \Rightarrow |f(x,y)-L| <\frac{1}{10^n}
+        $$
+    </p>
+    <p>
+        <ol>
+            <li>
+                Tomando puntos de la forma  $(x,0)$, donde $x$ satisface $0<|x|<\delta$, se tiene que $f(x,0)=0$ 
+                y se concluye que
+                $$
+                |L| <\frac{1}{10^n}.
+                $$
+                Como $n$ es arbitrario,  $L=0$.        
+            </li>
+            <li>
+                Por otro lado, tomando puntos de la forma $(x,x)$, donde   
+                $x$ satisface $0<|x|<\delta/\sqrt{2}$, $f(x,x)=1/2$ y concluye que
+                $$
+                | \frac{1}{2}-L |<\frac{1}{10^n}
+                $$
+                Como $n$ es arbitrario, $L=1/2$.        
+            </li>
+            <li>
+                De los incisos anteriores se concluye que el límite $\lim_{(x,y)\to (0,0)}f(x,y)$, no existe.
+            </li>
+        </ol>        
+    </p>
+</div>
+
+
+		<div class="definicion-box"> <h2 class="number-title">  Definición </h2> 
+		Sea $f$ una función   definida en una bola perforada alrededor de $p_0$. 
+		 Cosidera la recta $L$, que pasa por $p_0$ con parametrización $p_0+tu$,  $t\in \mathbb{R}$. 
+		 
+		 Decimos que
+		 $f$ tiene límite, cuando $p\to p_0$, sobre la recta $L$, si el siguiente límite existe
+		 $$
+		 \lim_{t\to 0} f(p_0+tu).
+		 $$ 	 
+		 Si $\lim_{t\to 0^+} f(p_0+tu)$ y $\lim_{t\to 0^-} f(p_0+tu)$ existen, también se dice que 
+		 $f$ tiene limites radiales a lo largo de $L$.
+		 </div> 
+		 
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+    <p>
+        Este ejercicio muestra que todos los límites sobre rectas pueden existir,
+        pero sin embargo el  límite no. 
+    </p> 
+    <p>
+        Considera la función $f(x,y)=\frac{xy}{x^2+y^2}$.		 
+		 
+        <ol>
+            <li>
+                Demuestra que, para cualquier recta $L$ que pasa por el origen,  
+                el límite $f(x,y)$, cuando $(x,y)\to (0,0)$, existe a lo largo de $L$.
+            </li>
+            <li>
+                Sin embargo, demuestra que $\lim_{(x,y)\to (0,0)} f(x,y)$ no existe. 
+            </li>
+        </ol>
+    </p>
+</div>
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+    <p>
+        Sea $f$ una función que toma valores reales y que está definida en una bola perforada alrededor de  $p_0$. 
+
+        Demuestra que si $\lim_{p \to p_0}f(p)$ existe  entonces, para toda recta $L$ que pasa por $p_0$, 
+        $f$ tiene límite, cuando $p\to p_0$,  a lo largo de $L$.
+    </p> 
+</div>
+
+
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+<ol>
+    <li>
+        Demuestra que $\lim_{(x,y)\to (0,0)} \frac{\sen(x^2+y^2)}{x^2+y^2}$ existe.
+        <p>
+            Sugerencia: $\lim_{t\to 0}\frac{\sen(t)}{t}=1$.
+        </p>
+    </li>
+    <li>
+        Encuentra las  $\alpha >0$ para las cuales el límite $\lim_{(x,y) \to (0,0)} 
+        \frac{\sen(x^2+y^2)}{\alpha x^2+y^2}$, existe. 
+        <p>
+            Sugerencia: calcula los límites a lo largo de rectas que pasan por el origen.
+        </p>
+    </li>
+</ol>	
+</div>
+
+	
+	
+
+	<div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        <p>
+            Encuentra los siguientes límites.
+            <ol>
+                <li>
+                    $\lim_{(x,y)\to (0,0)} \frac{\sen(xy)}{xy}$.
+                </li>
+                <li>
+                    $\lim_{(x,y) \to (0,0)} \frac{\cos(x^4+y^4)-1}{x^4+y^4}.$
+                </li>
+                <li>
+                    $\lim_{(x,y)\to (0,0)} \frac{\cos(x^2+y^2)-1}{x^2+y^2+1}.$
+                </li>
+                <li>
+                    $\lim_{(x,y)\to (0,0)} \frac{x^2}{(x^2+y^2)^{1/4}}$.
+                </li>
+                <li>
+                    $\lim_{(x,y)\to (0,0)} \frac{5x^2y+x^2+y^2}{x^2+y^2}$.
+                </li>
+            </ol>
+        </p> 
+	</div>
+    
+		
+     <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        <p>
+            Considera la función dada por
+            $$
+            f(x)=
+            \left\{
+              \begin{array}{cc}
+                \frac{xy^3}{x^2+y^6} & (x,y)\ne(0,0) \\
+                0 & (x,y)=(0,0)
+              \end{array}
+            \right.
+            $$
+        </p>
+        <p>
+            <ol>
+                <li>
+                    Calcula el límite de $f$ cuando $(x,y)\to (0,0)$, a lo largo de la recta $x=0$.
+                </li>
+                <li>
+                    Caclula el límite de $f$ cuando $(x,y)\to (0,0)$, a lo largo de la trayectoria $x=y^3$.
+                </li>
+                <li>
+                    Demuestra que el límite $\lim_{(x,y)\to (0,0)}f(x,y)$ no existe.
+                </li>
+               </ol>
+        
+        </p>
+    </div>
+
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+    <p>
+        Considera la función $f(x,y)=\frac{x-y}{x+y}$, para $(x,y)$ con $x+y \ne 0$.
+        <ol>
+            <li>
+                Demuestra que el límite $\lim_{(x,y)\to (0,0)}f(x,y)$ no existe.
+            </li>
+            <li>
+                Demuestra que
+                $$
+                \lim_{x\to 0} \left( \lim_{y\to 0} f(x,y) \right)=1
+                $$
+                
+                $$
+                \lim_{y \to 0} \left( \lim_{x \to 0} f(x,y) \right)=-1
+                $$
+            </li>
+            <li>
+                Encuentra todas las rectas  $L$ que pasa por el origen, tal que $f$ tiene limite a lo largo 
+                de $L$, cuando $(x,y) \to (0,0)$.
+            </li>
+        </ol>
+        
+    </p>
+</div>
+
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+    <p>
+        Usa coordenadas polares para calcular los siguientes límites
+            <ol>
+                <li>
+                    $\lim_{(x,y)\to (0,0)}\frac{\sen(x^2+y^2)}{3x^2+3y^2}$
+                </li>
+                <li>
+                    $\lim_{(x,y)\to (0,0)} \frac{\cos(x^2+y^2)-1}{x^2+y^2}$
+                </li>
+                <li>
+                    $\lim_{(x,y)\to (0,0)} (x^2+y^2)\log(x^2+y^2)$
+                </li>
+                <li>
+                    $\lim_{(x,y)\to (0,0)} \frac{e^{x^2+y^2}-1}{x^2+y^2}$
+                </li>
+                <li>
+                    $\lim_{(x,y)\to (0,0)} \frac{\log(x^2+y^2+1)}{x^2+y^2}$
+                </li>
+            </ol>
+    </p> 
+</div>
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+        <p>
+            Sea $f:\mathbb{R}^n \to \mathbb{R}$ una función lineal. Demuestra que, para todo $p_0\in \mathbb{R}^n$
+            $$\lim_{p\to p_0} f(p)=f(p_0)$$
+        </p>
+        <p>
+            Sugerencia: por el ejercicio, sabemos que exsite $q\in \mathbb{R}^n$ tal que $f(p)=\langle p, q \rangle$, para todo 
+            $p$. Después usa la desigualdad de Cacuchy-Schwartz para probar: $|f(p)-f(p_0)| \leq \|q\| \| p-p_0\|$.
+        </p>
+</div>
+
+
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+        <p>
+            Sea $F:\mathbb{R}^n \to \mathbb{R}^m$ una función lineal. Supongamos que
+            $$
+            \lim_{p\to 0} \frac{\|F(p)\|}{\|p\|}=0.
+            $$
+            Demuestra que $F$ es la función constante cero.
+        </p>
+        <p>
+            Sugerencia: considera límtes a lo largo de rectas por origen de la forma $p=te_i$, donde $t\in \mathbb{R}$
+            y $e_i$ es vector canónico.            
+        </p> 
+</div>
+
+
+
+<div class="definicion-box"> 
+    <h2 class="number-title">  Definición </h2>
+    <p>
+        Dada una matrix $A$ de $m\times n$,  la norma-2 de la matriz se define como
+        $$
+        \| A\|=\left( \sum_{i=1}^m  \sum_{j=1}^n A_{i,j}^2 \right)^{1/2}.
+        $$
+    </p>       
+</div> 
+
+
+
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title" id="Ejer:DesigualdadNormaAp"> Ejercicio </h2>   
+    <p>
+        Sea $A$ una matriz de $m\times n$. Demuestra que, para todo $p\in \mathbb{R}^n$: 
+        $$
+        \| A p \| \leq \|A\| \|p\|.
+        $$
+    </p>
+</div>
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+        <p>
+            Demuestra que, para todo $p_0\in \mathbb{R}$, $\lim_{p\to p_0}Ap=Ap_0$. 
+        </p> 
+        <p>
+            Sugerencia: usa el ejercicio \ref{Ejer:DesigualdadNormaAp}.
+        </p>
+</div>
+
+
+ </body>

@@ -1,0 +1,394 @@
+<!DOCTYPE html PUBLIC >
+
+<html lang="es">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
+
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1],
+            id: "\\operatorname{id}",
+          },
+          tags: "ams", /* this part is for numbered equations */
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+      };
+    </script>
+
+    <!-- This part is for using single $ for latex input, instead of \(\) -->
+    <!--<script>
+        MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>-->
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../style.css" />
+
+    <!-- This part restart counter of cards to start at n+1 -->
+    <style>
+        body.number-title{
+          counter-reset: sectionCounter 3 cardCounter ;
+        }
+        h1.number-title{
+          counter-reset: sectionCounter 3 cardCounter ;
+        }
+      </style>
+  
+    <!-- Top Menu  -->
+
+
+        <header class="main-header">
+          <h1> Cálculo DOS </h1>
+         <nav class="top-nav">
+           <ul>
+              <li> <a href="../Home.html"> Inicio  </a> </li>
+              <li> <a href="../InfoPrimerDia.html"> Información general </a> </li>
+              <li> <a href="../Secciones.html"> Secciones  </a> </li>
+              <li> <a href="../ExternalLinks.html"> Links </a> </li>
+              
+            </ul>
+          </nav>
+          <nav class="small-nav" align=right>
+            <button onclick="myFunction()">Claro/Obscuro 
+          </nav>
+        </header>
+
+      <!-- This part is for title in tab-->
+      <title> § 4 </title>
+    
+  </head>
+  <body class="fondo-body" >
+
+    <h1 class="number-title flexbox"> Geometría de funciones  </h1> 
+
+
+
+
+	<div class="definicion-box"> 
+        <h2 class="number-title"> Definición </h2>
+        <p>
+            Dada una función $f:D \to \mathbb{R}$, el conjunto de nivel, correspondiente 
+            al valor  $c\in \mathbb{R}$, es el conjunto
+            $$
+            N_c(f)=N_c=\{ p\in D: f(p)=c \}	
+            $$
+            Si $D\subseteq \mathbb{R}^2$ los conjuntos de nivel se llaman curvas de 
+            nivel y si $D\subseteq \mathbb{R}^3$ se llaman superficies de nivel.
+        </p>
+	
+	</div>
+	
+	<div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        <p>
+            Para las siguientes 	funciones, describe los conjuntos de nivel para los valores dados.
+        </p>
+	
+	<ol>
+        <li>
+            $f(x,y)=x^2+y^2$, $c=-1,0,1.$
+        </li>
+        <li>
+            $f(x,y)=2x^2+4y^2$, $c=-2,0,2$.
+        </li>
+        <li>
+            $f(x,y)=x^2-y^2$, $c=-3,0,3$.
+        </li>
+        <li>
+            $f(x,y)=5x+7y$, $c=-5,0,7$.
+        </li>
+        <li>
+            $f(x,y)=(x+y)^2$, $c=-4,0,4$.
+        </li>
+        <li>
+            $f(x,y)=(2x-y)^2$, $c=-1,0,2$.
+        </li>
+        <li>
+            $f(x,y)=y+\log(x^2)$, $c=-3,0,3$.
+        </li>
+        <li>
+            $f(x,y)=y+3e^x$, $c=-2,0,2$.
+        </li>
+        <li>
+            $f(x,y)=\min\{|x|,|y| \}$, $c=0,1,2$.
+        </li>
+</ol>
+</div>
+
+	
+	<div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        <p>
+            Para las siguientes funciones, describe los conjuntos de nivel para los valores dados.
+        </p>
+        <ol>
+            <li>
+                $f(x,y,z)=x^2+y^2$, $c=-1,0,1$.
+            </li>
+            <li>
+                $f(x,y,z)=x^2+y^2+z^2$, $c=-1,0,1$.
+            </li>
+            <li>
+                $f(x,y,z)=x^2+y^2-z^2$, $c=-2,0,2$.
+            </li>
+            <li>
+                $f(x,y,z)=xyz$, $c=-4,0,4$.
+            </li>
+            <li>
+                $f(x,y,z)=\log(x)+\log(y)+\log(z)$, $c=-4,0,4.$
+            </li>
+            <li>
+                $f(x,y,z)=e^{x^2}e^{y^3}e^{z^2}$, $c=-5,0,5$.
+            </li>
+            <li>
+                $f(x,y,z)=\max\{ |x|, |y|, |z| \}$, $c=-2,0,2$.
+            </li>
+            <li>
+                $f(x,y,z)=2x-y+3z$, $c=-1,0,1$.
+            </li>
+        </ol>
+ </div>
+
+	
+	<div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        <p>
+            Usa coordenadas polares para describir las curvas de nivel de la función dada por
+            $$
+            f(x,y)=\left\{
+            \begin{array}{cc}
+            \frac{2xy}{x^2+y^2} & (x,y)\ne (0,0)\\
+            0 & (x,y)=(0,0).
+            \end{array}
+            \right.
+            $$
+        </p>
+	</div>
+
+	
+	<div class="ejercicio-box">
+         <h2 class="number-title"> Ejercicio </h2> 
+         <p>
+            Construye una función $f(x,y)$, tal que el conjunto de nivel para $c=1$ consiste en dos partes. 
+         </p>
+    </div>
+	
+
+	<div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        <p>
+            Construye una función $f(x,y)$, tal que el conjunto de nivel para $c=0$ consiste 
+            en una cantidad infinita de partes.
+        </p>
+	</div>
+
+	
+	<div class="definicion-box"> 
+        <h2 class="number-title"> Definición </h2>
+        <p>
+            Una función $f: \mathbb{R}^n \to \mathbb{R}$ se llama convexa si 
+            $$f( tp+(1-t)q ) \leq  tf(p)+(1-t)f(q),$$ 
+            para todos $p,q \in \mathbb{R}^n$ y todo $t \in [0,1]$.            
+        </p>
+        <p>
+            Por ejemplo, en cálculo uno-dimensional, se prueba que si 
+            $f: I \to \mathbb{R}$ (donde $I$ es un intervalo)
+            es diferenciable y $f''(x)>0$ para todo $x\in I$, entonces $f$ es convexa.           
+        </p>
+        <p>
+            Una curvas $C\subset \mathbb{R}^n$ se llama convexa si, para todos $p,q\in C$, el segmento que une
+            $p$ con $q$ queda por arriba del segmento de  $C$ que va de $p$ a $q$.
+        </p>	
+	</div>
+
+
+	
+	
+	
+	<div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        <p>
+            Una función de producción tipo Cobb-Douglas, en dos dimensiones, es una función
+            de la forma $f(x,y)=x^\alpha y^\beta$, donde $x,y \geq 0$ y $0<\alpha, \beta$.
+            
+            Para $c>0$ considera la curva de nivel
+            $$
+            C=\{ (x,y)\in \mathbb{R}^2: x, y > 0, x^\alpha y^\beta =c\}.
+            $$
+        </p>
+        <p>
+            Este ejercicio demuestra que $C$ es una curva convexa. 
+            <ol>
+                <li>
+                    Demuestra que, para todo $(x,y)\in C$, $y=\frac{c^{1/\beta}}{x^{\alpha/\beta}}$.
+                </li>
+                <li>
+                    Demuestra que la función $g(s)=\frac{1}{s^{\alpha / \beta}}$, $s >0$, es convexa. 
+                </li>
+                <li>
+                    Demuestra  que $C$ es una curva convexa.
+                    <p>
+                        Sugerencia: Toma $(x_1,y_1), (x_2,y_2)\in C$ y sin pérdida de generalidad podemos suponer $x_1 < x_2$. Toma
+                        $(x,y)\in C$ un punto entre $(x_1,y_1)$ y $(x_2,y_2)$ (por lo tanto $x_1 < x < x_2$). Si $t\in [0,1]$
+                        es tal que $x=(1-t)x_1+tx_2$, usando $y=g(x)$ y el ejercicio anterior, demuestra que  $y\leq (1-t)y_1+ty_2$.               
+                    </p>
+                </li>
+            </ol>
+            
+        </p>
+	</div>
+
+	
+	
+	
+	
+	
+		<div class="ejercicio-box"> <h2 class="number-title"> Ejercicio </h2>
+            <p>
+                Sea $g:\mathbb{R} \to \mathbb{R}$ una función convexa. Por $C$ denotamos su gráfica,
+                es decir
+                $$
+                    C=\{(x,y)\in \mathbb{R}^2: y=g(x)\}.
+                $$
+                
+                Demuestra que si $g$ es una función convexa entonces $C$ es una curva convexa.
+                
+            </p> 
+        </div>
+
+
+	<div class="definicion-box"> 
+        <h2 class="number-title"> Definición </h2>
+        <p>
+            Una trayectoria es una función $\gamma:I \to \mathbb{R}$, donde $I \subseteq \mathbb{R}$ es un intervalo. 
+            Dada una trayectoria $\gamma$, se define su traza como
+            $$
+            \{ \gamma(t): t\in I\} \subseteq \mathbb{R}^n.
+            $$        
+        </p>
+	
+	</div>	
+		
+	<div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        <p>
+            Para cada una de las siguientes trayectorias, da un bosquejo de su traza.
+            <ol>
+                <li>
+                    $\gamma(t)=(\cos(t), \sen(t))$, $t\in \mathbb{R}$.
+                </li>
+                <li>
+                    $\gamma(t)=(\cos(t), \sen(t), t)$, $t\in \mathbb{R}$.
+                </li>
+                <li>
+                    $\gamma(t)=(t,t^2)$, $t\in \mathbb{R}$.
+                </li>
+                <li>
+                    $\gamma(t)=(\cos(t), \sen(t), e^t)$, $t\in \mathbb{R}$.
+                </li>
+                <li>
+                    $\gamma(t)=2(\sen(\pi/4)\cos(t), \sen(\pi/4)\sen(t), \cos(\pi/4))$, $t\in \mathbb{R}$.
+                </li>
+            </ol>
+        </p>
+	</div>
+
+
+<div class="definicion-box"> 
+    <h2 class="number-title"> Definición </h2>
+    <p>
+        Un campo vectorial en $\mathbb{R}^n$ es una función $F:D \subseteq \mathbb{R}^n \to \mathbb{R}^n$. 
+        Para visualizar un campo vectorial se dibuja, para  $p\in D$, el  vector $F(p)$ anclado en $p$.
+    </p>
+
+</div>
+	
+	
+	<div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        <p>
+            Dibuja cada uno de los siguientes campos vectoriales.
+        </p>
+	
+	<ol>
+        <li>
+            $F(x,y)=(x,y)$, $(x,y)\in \mathbb{R}^2$,
+        </li>
+        <li>
+            $F(x,y)=\frac{1}{\|(x,y)\|}(x,y)$, $(x,y) \ne (0,0)$.
+        </li>
+        <li>
+            $F(x,y)=(-y,x)$, $(x,y)\in \mathbb{R}^2$.
+        </li>
+        <li>
+            $F(x,y,z)=\frac{-1}{\|(x,y,z)\|^3}(x,y,z)$, $(x,y,z)\ne (0,0,0)$.
+        </li>
+	</ol>
+    </div>
+		
+	
+	<div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        <p>
+            La fuerza de gravedad sobre una particula $p\in \mathbb{R}^3$, ejercida por una masa en el origen, es un multiplo  negativo del campo vectorial
+            $$
+            G(p)=\frac{1}{\|p\|^3}p, \quad p\ne 0.	
+            $$
+            
+            Fija un punto $p_0\ne 0$ y considera puntos cercano a $p_0$,  los cuales expresamos de la forma
+            $p=p_0+u$, donde $u$ se piensa como un vector de norma pequena. Para dichos puntos consideramos
+            dos aproximaciones de $G$
+                $$
+                G_1(p)=G(p_0+u)=G(p_0)+L_1(u)
+                $$
+         
+                con $L_1(u)=\frac{1}{\|p_0\|^3}u $ y 
+                $$ 
+                G_2(p)=G(p_0+u)=G(p_0)+ L_2(u)
+                $$	
+                con $L_2(u)=\frac{1}{\|p_0\|^2}u-\frac{3}{\|p_0\|^5} \langle p_0,u \rangle p_0$.
+        </p>
+        <p>
+            <ol>
+                <li>
+                    Demuestra que $L_1$ y $L_2$ son funciones lineales.
+                </li>
+                <li>
+                    Toma $p_0=(1,0,0)$ y $u=(\varepsilon,0,0)$, para $\varepsilon >0$. Muestra que los errores relativos son 
+                    $$
+                    \frac{\|G(p)-G_1(p)\| }{\| G(p)\|} = 3\varepsilon^2+3\varepsilon+\varepsilon^3, \quad 	\frac{\|G(p)-G_2(p)\| }{\| G(p)\|} =\varepsilon^3
+                    $$
+                </li>
+            </ol>
+            
+            
+        </p>
+    </div>
+
+
+ </body>   
+
+
+
+  

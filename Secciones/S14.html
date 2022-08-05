@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC >
+
+<html lang="es">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
+
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1],
+            id: "\\operatorname{id}",
+          },
+          tags: "ams", /* this part is for numbered equations */
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+      };
+    </script>
+
+    <!-- This part is for using single $ for latex input, instead of \(\) -->
+    <!--<script>
+        MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>-->
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../style.css" />
+
+    <!-- This part restart counter of cards to start at n+1 -->
+    <style>
+        body.number-title{
+          counter-reset: sectionCounter 13 cardCounter ;
+        }
+        h1.number-title{
+          counter-reset: sectionCounter 13 cardCounter ;
+        }
+      </style>
+  
+    <!-- Top Menu  -->
+
+
+        <header class="main-header">
+          <h1> Cálculo DOS </h1>
+         <nav class="top-nav">
+           <ul>
+              <li> <a href="../Home.html"> Inicio  </a> </li>
+              <li> <a href="../InfoPrimerDia.html"> Información general </a> </li>
+              <li> <a href="../Secciones.html"> Secciones  </a> </li>
+              <li> <a href="../ExternalLinks.html"> Links </a> </li>
+              
+            </ul>
+          </nav>
+          <nav class="small-nav" align=right>
+            <button onclick="myFunction()">Claro/Obscuro 
+          </nav>
+        </header>
+
+      <!-- This part is for title in tab-->
+      <title> § 14 </title>
+    
+  </head>
+  <body class="fondo-body" >
+
+    <h1 class="number-title flexbox"> Puntos extremos  </h1> 
+
+
+ </body>
