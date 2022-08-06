@@ -1,10 +1,10 @@
 
 \documentclass{article}
 \usepackage{amssymb, latexsym, amsmath, amsthm, amsfonts, amsbsy, enumerate, tabularx, graphicx}
-\newtheorem{definicion}{Definici\'on}
+\newtheorem{definicion}{Definición}
 
 \newtheorem{teorema}{Teorema}
-\newtheorem{prop}{Proposici\'on}
+\newtheorem{prop}{Proposición}
 \newtheorem{coro}{Corolario}
 \newtheorem{lema}{Lema}
 \theoremstyle{definition}
@@ -12,8 +12,8 @@
 \newtheorem{notas}{Notas}
 \newtheorem{ejemplo}{Ejemplo}
 \newtheorem{ejemplos}{Ejemplos}
-%\newtheorem{definicion}{Definici\'on}
-\newtheorem{notacion}{Notaci\'on}
+%\newtheorem{definicion}{Definición}
+\newtheorem{notacion}{Notación}
 \newcommand{\sen}{\operatorname{sen}}
 \newcommand{\senh}{\operatorname{senh}}
 \newcommand{\csch}{\operatorname{csch}}
@@ -28,30 +28,30 @@
 
   \section*{T6 }
 
-  \begin{enumerate}
+  <ol>
 
        \item Para cada una de las siguientes funciones encuentra la derivada parcial en los puntos indicados.
-       \begin{enumerate}
+       <ol>
        \item $f(x,y)=xy+x^2$ en $(1,0)$ y en $(0,1)$.
        \item $f(x,y)=\log(\sqrt{1+x^2y^2})$ en $(1,0)$ y en $(1,1)$.
        \item $f(x,y)=(x^2+y^2)e^{x^2+y^2}$ en $(1,1)$ y en $(2,2)$.
        \item $f(x,y)=xy\cos(2x+y)$ en $(\frac{\pi}{2},0)$ y en $(0,\frac{\pi}{2})$.
-       \end{enumerate}
+       </ol>
        
 
-     \item Para cada una de las siguientes funciones $f(x,y)$, encuentra el dominio de definici\'on
+     \item Para cada una de las siguientes funciones $f(x,y)$, encuentra el dominio de definición
        de las funciones $\partial_xf(x,y)$ y $\partial_yf(x,y)$.
 
-       \begin{enumerate}
+       <ol>
        \item $f(x,y)=\log(x^2+y^2+1)$.
        \item $f(x,y)=\frac{1}{\sqrt{x^2+y^2}}$.
        \item $f(x,y)=y\sqrt{1-x^2-y^2}$.
          \item $f(x,y)=\frac{x}{y}$.
-       \end{enumerate}
+       </ol>
 
 
        
-     \item Sea $D:\mathbb{R}\to \mathbb{R}$ la funci\'on de Dirichlet
+     \item Sea $D:\mathbb{R}\to \mathbb{R}$ la función de Dirichlet
 		$$
 		D(x)=\left\{
 		\begin{array}{cc}
@@ -60,43 +60,43 @@
 		\end{array}
 		\right.	
 		$$
-       Define la funci\'on $f:\mathbb{R}^2 \to \mathbb{R}$ dada por $f(x,y)=y^2D(x)$.
+       Define la función $f:\mathbb{R}^2 \to \mathbb{R}$ dada por $f(x,y)=y^2D(x)$.
        
-       \begin{enumerate}
+       <ol>
        \item Demuestra que, para todo puntos $(x_0,y_0)$, $\partial_yf(x_0,y_0)$ siempre existe y calcula su valor.
-       \item Adem\'as, prueba que si $y_0\ne 0$, $\partial_xf(x_0,y_0)$ no existe y que para todo
+       \item Además, prueba que si $y_0\ne 0$, $\partial_xf(x_0,y_0)$ no existe y que para todo
        $x_0$, $\partial_yf(x_0,0)=0$. 
-       \end{enumerate}
+       </ol>
 
        
 
-     \item Considera la funci\'on $f(x,y)=|x+y|-|x-y|$.
-       \begin{enumerate}
+     \item Considera la función $f(x,y)=|x+y|-|x-y|$.
+       <ol>
        \item Demuestra que, para todos $x_0,y_0\in \mathbb{R}$
          $$
          \partial_xf(x_0,0)=0, \quad \partial_yf(0,y_0)=0.
          $$
        \item Demuestra que $\partial_xf(1,1)$ no existe.
          
-       \end{enumerate}
+       </ol>
 
 
               
-     \item Para cada una de las siguientes funciones calcula $\partial_x\left( \int_0^x f(s,y)ds \right)$. \textquestiondown Encuentras alg\'un patron?:
-       \begin{enumerate}
+     \item Para cada una de las siguientes funciones calcula $\partial_x\left( \int_0^x f(s,y)ds \right)$. ¿ Encuentras algún patron?:
+       <ol>
        \item $f(x,y)=x^2+xy+y^2$,
        \item $f(x,y)=e^{xy}$,
        \item $f(x,y)=\cos(x+2y)$.
-       \end{enumerate}
+       </ol>
        
      \item\label{Ejer:TFCyParciales} Para cada una de las siguientes funciones calcula,  $\int_0^x(\partial_x f(x,y))dx$.
-      \textquestiondown Encuentras alg\'un patron?
+      ¿ Encuentras algún patron?
 
-       \begin{enumerate}
+       <ol>
        \item $f(x,y)=x^3y^2+xy+x^2y$
        \item $f(x,y)=e^{x^2+y}$
        \item $f(x,y)=\sen(xy)$
-       \end{enumerate}
+       </ol>
 
        
       
@@ -107,7 +107,7 @@
        
 
    
-     \item Considera la funci\'on
+     \item Considera la función
        $$
        f(x,y)=\left\{
          \begin{array}{cc}
@@ -116,27 +116,27 @@
          \end{array}
          \right.
          $$
-         \begin{enumerate}
+         <ol>
          \item Calcula $\partial_xf(0,0)$ y $\partial_yf(0,0)$.
          \item Considera la g\'rfica 2-dimensional que se obtiene al cortar
-           la gr\'afica de $f$ con el plano $y=0$. Para \'esta gr\'afica encuentra
+           la gráfica de $f$ con el plano $y=0$. Para ésta gráfica encuentra
            los puntos $(x,z)$,  para los cuales la recta tangente en dicho punto es horizontal.
-         \end{enumerate}    
+         </ol>    
    
 
 
          \item Para cada una de las siguientes funciones encuentra la derivada parcial con respecto a la variable indicada.
-                \begin{enumerate}
+                <ol>
                 \item $f(p)=\sum_{i=1}^n p_i^2$. Calcular $\partial_{p_j}f(p)$.
                 \item $f(x)=\langle x, y \rangle$, donde $x=(x_1,\dots, x_n)$ y $y=(y_1,\dots, y_n)$
                   es un vector fijo. Calcular
-                  $\partial_{x_j}f(x)$. \textquestiondown La notaci\'on $\partial_{y_j}f(x)$ tiene sentido en este ejemplo?
+                  $\partial_{x_j}f(x)$. ¿ La notación $\partial_{y_j}f(x)$ tiene sentido en este ejemplo?
                 \item $f(z)=\left( \sum_{i=1}^n \log(z_i^2+1) \right)^2$,
                   donde $z=(z_1,\dots, z_n)$. Calcular $\partial_{z_j}f(z)$.
                 \item $f(x,y,z)=100x^{1/2}y^{1/4}z^{1/5}$.
                   Calcular $\partial_xf(x,y,z), \partial_yf(x,y,z)$ y $\partial_zf(x,y,z)$.
-                \end{enumerate}
+                </ol>
        
-                \end{enumerate}
+                </ol>
    
        \end{document}

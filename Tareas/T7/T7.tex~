@@ -1,10 +1,10 @@
 
 \documentclass{article}
 \usepackage{amssymb, latexsym, amsmath, amsthm, amsfonts, amsbsy, enumerate, tabularx, graphicx}
-\newtheorem{definicion}{Definici\'on}
+\newtheorem{definicion}{Definición}
 
 \newtheorem{teorema}{Teorema}
-\newtheorem{prop}{Proposici\'on}
+\newtheorem{prop}{Proposición}
 \newtheorem{coro}{Corolario}
 \newtheorem{lema}{Lema}
 \theoremstyle{definition}
@@ -12,8 +12,8 @@
 \newtheorem{notas}{Notas}
 \newtheorem{ejemplo}{Ejemplo}
 \newtheorem{ejemplos}{Ejemplos}
-%\newtheorem{definicion}{Definici\'on}
-\newtheorem{notacion}{Notaci\'on}
+%\newtheorem{definicion}{Definición}
+\newtheorem{notacion}{Notación}
 \newcommand{\sen}{\operatorname{sen}}
 \newcommand{\senh}{\operatorname{senh}}
 \newcommand{\csch}{\operatorname{csch}}
@@ -28,13 +28,13 @@
 
 \section*{T7}
 
-\begin{enumerate}
-\item Considera la funci\'on $f(x,y)=xy$. Usando solamente la definici\'on, prueba
+<ol>
+\item Considera la función $f(x,y)=xy$. Usando solamente la definición, prueba
   que para todo punto  $(x_0,y_0)$, $f$ es diferenciable en $(x_0,y_0)$
 
 
 
-  Hint: para la parte de la definici\'on que involucra  l\'imite,
+  Hint: para la parte de la definición que involucra  límite,
   primero prueba
         $$
         f(x,y)-f(x_0,y_0)- (\partial_xf(x_0,y_0))(x-x_0)-(\partial_yf(x_0,y_0))
@@ -44,58 +44,58 @@
 
 
       \item Para cada una de las siguientes funciones calcula el gradiente.
-        \begin{enumerate}
+        <ol>
         \item $f(x,y)=\frac{xy}{(x^2+y^2)^{1/2}}$
         \item $f(x,y)=\log(x^2+y^2)$
           \item $f(x,y)=\frac{x}{y}+\frac{y}{x}$
-        \end{enumerate}
+        </ol>
 
 
         
       \item Para cada una de las siguientes superficies encuentra la
-        ecuaci\'on del plano tangente en el punto indicado.
-        \begin{enumerate}
+        ecuación del plano tangente en el punto indicado.
+        <ol>
         \item $z=x^2+y^3$ en $(1,2,9)$.
         \item $z=e^{x^2+xy}$ en $(0,1,1)$.
         \item $x^2+y^2+z^2=1$ en $(1/\sqrt{3}, 1/\sqrt{3}), 1/\sqrt{3})$.
           \item $x^2+y^2-z^2=1$ en $(1,2,-2)$.
-        \end{enumerate}
+        </ol>
 
 
                 
-      \item Usando la notaci\'on  $p=(x,y)$ y  $p_0=(x_0,y_0)$, prueba que el
-        l\'imite de la definici\'on de derivada  es equivalente a
+      \item Usando la notación  $p=(x,y)$ y  $p_0=(x_0,y_0)$, prueba que el
+        límite de la definición de derivada  es equivalente a
         $$
         \lim_{p\to p_0}\frac{f(p)-f(p_0)-T(p-p_0) }{\|p-p_0\|}=0.
         $$
-        donde $T$ es la funci\'on lineal asociada al vector
+        donde $T$ es la función lineal asociada al vector
         $(\partial_xf(x_0,y_0), \partial_yf(x_0,y_0))$.
 
 
         
 
-                \begin{definicion}
-          Sea $U$ un abierto de $\mathbb{R}^n$ y $F:U \to \mathbb{R}^m$ una funci\'on.
+                <div class="definicion-box"><h2 class="number-title">  Definición</h2>
+          Sea $U$ un abierto de $\mathbb{R}^n$ y $F:U \to \mathbb{R}^m$ una función.
           Escribe las funciones coordenadas de $F$ como $F(p)=(f_1(p), \dots, f_m(p))$,
-          donde cada $f_i$ es una funci\'on que toma valores en $\mathbb{R}$. Supon que
+          donde cada $f_i$ es una función que toma valores en $\mathbb{R}$. Supon que
           todas las derivadas parciales de todas la $f_i$ existen. La matriz de derivadas
           parciales es la matriz de $m\times n$ cuya entrada $(i,j)$ es $\partial_{p_j}f_i$.
-        \end{definicion}
+        </div>
 
       \item Para cada una de las siguientes funciones encuentra la matriz de derivadas
         parciales
 
-        \begin{enumerate}
+        <ol>
         \item $F(x,y)=(xe^y, ye^x)$
         \item $F(x,y)=(xy\cos(x), xy\sen(y))$
         \item $F(x,y)=(xy+x^2,x^2+y^2, x^3+xy+y^3)$
         \item $F(x,y,z)=(xyz, x^2y^2z^2)$
-        \end{enumerate}
+        </ol>
 
 
         
-      \item Supongamos que  $F:\mathbb{R}^n \to \mathbb{R}^m$ es una funci\'on lineal.
-        Usando la definici\'on demuestra que, para todo $p_0\in \mathbb{R}^n$, $F$ es
+      \item Supongamos que  $F:\mathbb{R}^n \to \mathbb{R}^m$ es una función lineal.
+        Usando la definición demuestra que, para todo $p_0\in \mathbb{R}^n$, $F$ es
         diferenciable en $p_0$ y $D_{p_0}F=F$.
 
 
@@ -109,14 +109,14 @@
 
 
           \item Sea $U$ un abierto de $\mathbb{R}^2$, $p_0\in U$
-            y $F:U \to \mathbb{R}^2$ una funci\'on. Escribamos
+            y $F:U \to \mathbb{R}^2$ una función. Escribamos
             las funciones coordenadas
             $$
             F(x,y)=(f_1(x,y), f_2(x,y)).
             $$
             Supon que las derivadas parciales de  $f_1$ y
             $f_2$ existen en $(x_0,y_0)$.
-            \begin{enumerate}
+            <ol>
             \item Demuestra que, para $i=1,2$
               \begin{eqnarray*}
                 & & \frac{|f_i(x,y)-f_i(x_0,y_0)-(\partial_xf_i(x_0,y_0))(x-x_0)+
@@ -157,18 +157,18 @@
 
             \item Usando el inciso anterior prueba que, si
           suponemos que $f_1$ y $f_2$ son diferenciables
-          en $p_0$, entonces $F$ tambi\'en es diferenciable
+          en $p_0$, entonces $F$ también es diferenciable
           en $p_0$.
 
 
-          Nota: este ejercicio prueba que una funci\'on,
-          con valores vectoriales, es diferenciable si y s\'olo si,
+          Nota: este ejercicio prueba que una función,
+          con valores vectoriales, es diferenciable si y sólo si,
           todas sus funciones coordenadas son diferenciables.
          
-          \end{enumerate}
+          </ol>
 
         
-\end{enumerate}
+</ol>
 
 
   

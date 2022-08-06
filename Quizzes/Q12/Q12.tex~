@@ -12,7 +12,7 @@
 \begin{document}
 
 \noindent{\sc {\bf{\large Quiz 12 }}
-           \hfill C\'alculo 3, semestre 2020-2}
+           \hfill Cálculo 3, semestre 2020-2}
 \bigskip
 
 \noindent {\sc{
@@ -23,13 +23,13 @@
 \bigskip
 
 
-Considera la funci\'on $f(x,y)=(x-y)(xy-1)$.
+Considera la función $f(x,y)=(x-y)(xy-1)$.
 
 
 
-\begin{enumerate}
+<ol>
 
-\item (3pts) Determina la f\'ormula de Taylor para $f$
+\item (3pts) Determina la fórmula de Taylor para $f$
   en el punto $(\sqrt{3},1)$.
 
 
@@ -39,7 +39,7 @@ Considera la funci\'on $f(x,y)=(x-y)(xy-1)$.
 
   
 
-\end{enumerate}
+</ol>
  
 
 

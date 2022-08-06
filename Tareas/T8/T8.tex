@@ -1,10 +1,10 @@
 
 \documentclass{article}
 \usepackage{amssymb, latexsym, amsmath, amsthm, amsfonts, amsbsy, enumerate, tabularx, graphicx}
-\newtheorem{definicion}{Definici\'on}
+\newtheorem{definicion}{Definición}
 
 \newtheorem{teorema}{Teorema}
-\newtheorem{prop}{Proposici\'on}
+\newtheorem{prop}{Proposición}
 \newtheorem{coro}{Corolario}
 \newtheorem{lema}{Lema}
 \theoremstyle{definition}
@@ -12,8 +12,8 @@
 \newtheorem{notas}{Notas}
 \newtheorem{ejemplo}{Ejemplo}
 \newtheorem{ejemplos}{Ejemplos}
-%\newtheorem{definicion}{Definici\'on}
-\newtheorem{notacion}{Notaci\'on}
+%\newtheorem{definicion}{Definición}
+\newtheorem{notacion}{Notación}
 \newcommand{\sen}{\operatorname{sen}}
 \newcommand{\senh}{\operatorname{senh}}
 \newcommand{\csch}{\operatorname{csch}}
@@ -28,45 +28,45 @@
 
 \section*{T8 }
 
-\begin{enumerate}
+<ol>
 \item  Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$, $p_0\in U$, $f,g :U \to \mathbb{R}$
   funciones diferenciables en $p_0$ y  $c\in \mathbb{R}$.
 
-  Usando la proposici\'on 2 de las notas,  demuestra que $cf+g$ es diferenciable
+  Usando la proposición 2 de las notas,  demuestra que $cf+g$ es diferenciable
   en $p_0$ y que:
   $$
   \nabla_{p_0}(cf+g)=c\nabla_{p_0} f+ \nabla_{p_0}g.
   $$
 
 \item Sea $f:\mathbb{R}^n\to \mathbb{R}$
-  una funci\'on diferenciable en todo punto de $\mathbb{R}^n$ \textquestiondown  Tiene sentido la f\'ormula
+  una función diferenciable en todo punto de $\mathbb{R}^n$ ¿  Tiene sentido la fórmula
   $$
   \nabla_{p_0+p_0'}f=\nabla_{p_0}f+\nabla_{p_0'}f ?
   $$
 
   Demuestra o da un contraejemplo.
 
-\item Encuentra la aproximaci\'on lineal de la funci\'on indicada, alrededor de un punto adecuado
+\item Encuentra la aproximación lineal de la función indicada, alrededor de un punto adecuado
   para estimar  las siguientes cantidades
-  \begin{enumerate}
+  <ol>
   \item $\sqrt{(9.1)(15.9)}$,
   \item $\sqrt{(4.1)^2+(3.95)^2+(2.01)^2}$,
   \item $(2.01)^3+(1.99)^3-5(2.01)(1.99)$.
-  \end{enumerate}
+  </ol>
 
   
           \item\label{Ejer:DifPolinomios}
             Este ejercicio muestra que todo polinomio en dos variables es diferenciable en todo
             punto de $\mathbb{R}^2$.
 
-            \begin{enumerate}
-            \item Dados naturales $n,m\geq 0$ considera la funci\'on $f:\mathbb{R}^2\to \mathbb{R}$
-              dada por $f(x,y)=x^ny^m$. Demuestra que $f$ es diferenciable en todo punto de $\mathbb{R}^2$.  Sugerencia: usa el ejercicio 2 de aproximaci\'on
+            <ol>
+            \item Dados naturales $n,m\geq 0$ considera la función $f:\mathbb{R}^2\to \mathbb{R}$
+              dada por $f(x,y)=x^ny^m$. Demuestra que $f$ es diferenciable en todo punto de $\mathbb{R}^2$.  Sugerencia: usa el ejercicio 2 de aproximación
               lineal (el del video). 
 
              
 
-            \item Un polinomio en dos variables en una funci\'on de la forma
+            \item Un polinomio en dos variables en una función de la forma
               $$
               p(x,y)= \sum_{i=1}^N \alpha_i x^{n_i}y^{m_i}
               $$
@@ -75,44 +75,44 @@
               Demuestra que $p$ es diferenciable en todo punto de $\mathbb{R}^2$.
 
               
-              Nota: tambi\'en se puede probar que todo polinomio en $n$-variables es diferenciable.
+              Nota: también se puede probar que todo polinomio en $n$-variables es diferenciable.
               
             \item Considera el polinomio en dos variables
               $$p(x,y)= a + bx+ cy + \sum_{i=1}^N x^{i}y^{i+1}$$
               donde $a,b,c\in \mathbb{R}$ y $N\geq 1$ es un natural.
               
-              Encuentra su aproximaci\'on lineal de $p$ cerca del $(0,0)$.
+              Encuentra su aproximación lineal de $p$ cerca del $(0,0)$.
 
               Sugerencia: primero prueba que, $\lim_{(x,y)\to (0,0)} \frac{|x^ny^m|}{\|(x,y)\|}=0$ si
-              $n,m\geq0$ son naturales con $n+m\geq 2$ y despu\'es usa la proposici\'on 2 de las notas.
-            \end{enumerate}
+              $n,m\geq0$ son naturales con $n+m\geq 2$ y después usa la proposición 2 de las notas.
+            </ol>
 
             
-             \item Considera  la funci\'on  $r:\mathbb{R}^3 \to \mathbb{R}$ dada por $r(x,y,z)=\|(x,y,z)\|$. Durante
+             \item Considera  la función  $r:\mathbb{R}^3 \to \mathbb{R}$ dada por $r(x,y,z)=\|(x,y,z)\|$. Durante
             este ejercicio vamos a suponer que $r$ es difeferenciable en todo punto $(x_0,y_0,z_0)\ne (0,0,0)$.
 
             Por simplicidad vamos a denotar: $p_0=(x_0,y_0,z_0)$.
-            \begin{enumerate}
-            \item Demuestra que $\nabla_{p_0}r$ es el  vector unitario, en la misma direcci\'on que
+            <ol>
+            \item Demuestra que $\nabla_{p_0}r$ es el  vector unitario, en la misma dirección que
               $p_0$.
             \item Demuestra que $\nabla_{p_0}(r^n)=[nr^{(n-2)}(x_0)]p_0$, donde $n \geq 1$ es un natural.
-            \item La f\'ormula del inciso anterio \textquestiondown es v\'alida si $n$ es un entero negativo?
-            \end{enumerate}
+            \item La fórmula del inciso anterio ¿ es válida si $n$ es un entero negativo?
+            </ol>
          
   
           \item Sea $q_0$ un vector fijo en $\mathbb{R}^n$ y define $f:\mathbb{R}^n \to \mathbb{R}$
             por $f(p)=\langle q_0, p \rangle$. Demuestra que $f$ es continua en todo punto $p \in \mathbb{R}^n$.
            \item\label{Ejer:AproxLinealReglaCadena} 
             Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$, $p_0\in U $ y $g:U \to \mathbb{R}$
-            una funci\'on diferenciable en $p_0$.
-            \begin{enumerate}
-            \item Demuestra que existe una bola $B_r(p_0)$, una funci\'on
+            una función diferenciable en $p_0$.
+            <ol>
+            \item Demuestra que existe una bola $B_r(p_0)$, una función
               $F:B_{r}(p_0) \to \mathbb{R}$ tal que
-              \begin{enumerate}
+              <ol>
               \item para toda $p\in B_r(p_0)$, $g(p)=g(p_0)+\langle \nabla_{p_0}g, p-p_0\rangle +\|p-p_0\|F(p)$,
               \item $\lim_{p\to p_0}F(p)=0$,
-              \end{enumerate}
-              Sugerencia: si $E$ es la funci\'on error de la aproximaci\'on de $g$ en $p_0$ define:
+              </ol>
+              Sugerencia: si $E$ es la función error de la aproximación de $g$ en $p_0$ define:
               $$
               F(p)=\left\{
                 \begin{array}{cc}
@@ -125,7 +125,7 @@
             \item Demuestra que existe una bola $B_s(p_0)$ tal que para toda $p\in B_s(p_0)$,
               $\|F(p)\|\leq 1/2$.
 
-              Sugerencia: en la definici\'on $\varepsilon,\delta$ del l\'imite $\lim_{p\to p_0}F(p)=0$
+              Sugerencia: en la definición $\varepsilon,\delta$ del límite $\lim_{p\to p_0}F(p)=0$
               toma $\varepsilon =1/2$.
               
             \item Demuestra que  para toda $p\in B_s(p_0)$
@@ -135,11 +135,11 @@
 
               Sugerencia: usa el inciso anterior y la desigualdad de Cacuchy-Schwartz.
               
-            \end{enumerate}
+            </ol>
 
-            \item  Considera la funci\'on  $t\mapsto 1/t$, definida para $t\in \mathbb{R}, t\ne 0$.
+            \item  Considera la función  $t\mapsto 1/t$, definida para $t\in \mathbb{R}, t\ne 0$.
 
-              \begin{enumerate}
+              <ol>
                 \item Prueba que,  dado $t_0\ne 0$ fijo y arbitrario, existe $s>0$ tal que para toda $t\in B_s(t_0)$  
               $$
               \frac{1}{t}=\frac{1}{t_0}-\frac{1}{t_0^2}(t-t_0)+|t-t_0|F_1(t)
@@ -147,20 +147,20 @@
               donde $\lim_{t\to t_0} |F_1(t)| =0$.
             \item Sean $a,b\in \{1,2,3,4,5,6,7,8,9\}$ tal que $a+b=10$. Usa el inciso anterior para
               probar que el inverso multiplicativo de $1.a$ es aproximadamente $0.b$.
-            \end{enumerate}
+            </ol>
             
           %\item Sea $U$ un abierto de $\mathbb{R}^n$  y $f,g:U\to \mathbb{R}$ dos funciones.
            % Sea $p_0 \in U$ un punto tal que tanto $f$ como $g$ son diferenciables en $p_0$.
             %Asume que $g(p_0)\ne 0$.
           
-           %Demuestra que la funci\'on $f/g$ es diferenciable en $p_0$ y que
+           %Demuestra que la función $f/g$ es diferenciable en $p_0$ y que
             %  $$
              % \nabla_{p_0}(f/g)=\frac{g(p_0)\nabla_{p_0}f - f(p_0)\nabla_{p_0}g}{g(p_0)^2}
               %$$
 
          
             
-\end{enumerate}
+</ol>
 
 
   

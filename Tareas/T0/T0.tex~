@@ -1,10 +1,10 @@
 
 \documentclass{article}
 \usepackage{amssymb, latexsym, amsmath, amsthm, amsfonts, amsbsy, enumerate, tabularx, graphicx}
-\newtheorem{definicion}{Definici\'on}
+\newtheorem{definicion}{Definición}
 
 \newtheorem{teorema}{Teorema}
-\newtheorem{prop}{Proposici\'on}
+\newtheorem{prop}{Proposición}
 \newtheorem{coro}{Corolario}
 \newtheorem{lema}{Lema}
 \theoremstyle{definition}
@@ -12,8 +12,8 @@
 \newtheorem{notas}{Notas}
 \newtheorem{ejemplo}{Ejemplo}
 \newtheorem{ejemplos}{Ejemplos}
-%\newtheorem{definicion}{Definici\'on}
-\newtheorem{notacion}{Notaci\'on}
+%\newtheorem{definicion}{Definición}
+\newtheorem{notacion}{Notación}
 \newcommand{\sen}{\operatorname{sen}}
 \newcommand{\senh}{\operatorname{senh}}
 \newcommand{\csch}{\operatorname{csch}}
@@ -22,7 +22,7 @@
 \newcommand{\arcsen}{\operatorname{arcsen}}
 \begin{document}
 
-\begin{enumerate}
+<ol>
 
 
   \section*{T1}
@@ -31,8 +31,8 @@
 
 
     
- \item Soluciona la siguiente ecuaci\'on para $x,y,z$.
-    \begin{enumerate}
+ \item Soluciona la siguiente ecuación para $x,y,z$.
+    <ol>
     \item
       $$
       x(1,2,3)+(y,3y,2)+(z,2,1)=(1,2,3).
@@ -41,26 +41,26 @@
       $$
      y(-1,3,2)+(x,-x,3)+(z,2,5)=(-1,0,3).
       $$
-    \end{enumerate}
+    </ol>
 
-  \item Encuentra todos los pares de n\'umeros reales $a,b$ que satisfacen
+  \item Encuentra todos los pares de números reales $a,b$ que satisfacen
     $$
     a(-1,1)+b(1,1)=0.
     $$
 
 
 
-  \item Encuentra las ecuaciones de la rectas con la informaci\'on dada
-    \begin{enumerate}
-    \item La recta que pasa por el punto $(1,2,3)$ con vector direcci\'on $v=(-1,2,-3)$.
+  \item Encuentra las ecuaciones de la rectas con la información dada
+    <ol>
+    \item La recta que pasa por el punto $(1,2,3)$ con vector dirección $v=(-1,2,-3)$.
     \item La recta que pasa por el punto $(5,10,15)$ y que es paralela al eje $x$.
       \item La recta que por el punto $(3,-2,-3)$ y que es perpendicular al plano $yz$.
-    \end{enumerate}
+    </ol>
     
-    \item Encuentra todos los puntos de intersecci\'on de la recta $x=2+5t,y=5-2t,z=6+3t$ con los planos coordenados.
+    \item Encuentra todos los puntos de intersección de la recta $x=2+5t,y=5-2t,z=6+3t$ con los planos coordenados.
 
       
-    \item Determina si las rectas con ecuaciones param\'atricas
+    \item Determina si las rectas con ecuaciones paramátricas
       $$
       x=1+6t, \quad y=3-3t, \quad z=3t-2, \quad t\in \mathbb{R}
       $$
@@ -71,18 +71,18 @@
       se intersectan o no.
  
 
-    \item Determina si los puntos dados est\'an  o no en une misma recta:
-      \begin{enumerate}
+    \item Determina si los puntos dados están  o no en une misma recta:
+      <ol>
       \item $(2,2,4)$, $(1,2,5)$, $(1,2-5)$.
       \item $(1,-1,-2)$, $(3,0,1)$, $(5,-1,0)$
-      \end{enumerate}
+      </ol>
           
        
        
        \section{Producto interior, norma}
 
 
-	\begin{definicion}
+	<div class="definicion-box"><h2 class="number-title">  Definición</h2>
 	En $\mathbb{R}^n$ se define la norma de un vector $p=(p_1,\dots, p_k)$ como
 	$$
 		\|p\|=\left( \sum_{k=1}^k p_k\right)^{1/2}
@@ -92,31 +92,31 @@
 	$$
 	\|p-q\|	
 	$$
-	\end{definicion}
+	</div>
        
        \item Describe el conjunto de puntos $p=(x,y)$ en el  plano que satisface
-         \begin{enumerate}
+         <ol>
          \item $\|p\|_2=3$
          \item $\|p-\hat{j}\|_2=6$
          \item $p\cdot \hat{i}=2$
          \item $p\cdot \hat{i} = \|p\|_2$
-         \end{enumerate}
+         </ol>
          Recuerda que $\hat{i}=(1,0)$ y $\hat{j}=(0,1)$.
 
 
 
-     \item Este ejercicio muestra que el \'area del tri\'angulo formado por los vectores $0, u=(u_1,u_2)$ y $v=(v_1,v_2)$
+     \item Este ejercicio muestra que el área del triángulo formado por los vectores $0, u=(u_1,u_2)$ y $v=(v_1,v_2)$
        es $\frac{1}{2}|u_1v_2-u_2v_1|$.
-       \begin{enumerate}
-       \item Prueba que el \'area del tri\'angulo es $\frac{1}{2}\|u\|(\|v\| \sen(\theta))$,
-         donde $\theta\in [0,\pi]$, es el \'angulo entre $v$ y $u$.
+       <ol>
+       \item Prueba que el área del triángulo es $\frac{1}{2}\|u\|(\|v\| \sen(\theta))$,
+         donde $\theta\in [0,\pi]$, es el ángulo entre $v$ y $u$.
        \item Prueba que $\sen(\theta)=\sqrt{1- \left( \frac{\langle u , v \rangle }{\|u\|\|v\|} \right)^2}$.
        Sugerencia: usa identidad $\langle p, q \rangle=\|p\|\|q\|\cos(\theta)$, demostrada en clase.
-       \item Prueba que el \'area es igual a $\frac{1}{2}\sqrt{\|u\|^2\|v\|^2-(\langle u,  v\rangle )^2}$.
+       \item Prueba que el área es igual a $\frac{1}{2}\sqrt{\|u\|^2\|v\|^2-(\langle u,  v\rangle )^2}$.
        \item Finalmente prueba que $\|u\|^2\|v\|^2-(\langle u,  v\rangle )^2=(u_1v_2-u_2v_1)^2$.
-       \end{enumerate}
+       </ol>
        
-         \item Encuentra el \'area del tri\'angulo con v\'ertices en los puntos $(1,1), (0,3)$ y $(4,5)$.
+         \item Encuentra el área del triángulo con vértices en los puntos $(1,1), (0,3)$ y $(4,5)$.
        
        \item Sean $v, w\in \mathbb{R}^n$.
        	Usando las propiedades del procuto interior, demostrar la siguiente identidad (llamada ley del paralelogramo)
@@ -130,19 +130,19 @@
 
         
 			\item Para un vector $p=(p_1\dots, p_n) $ demuestra
-			\begin{enumerate}
+			<ol>
 			\item $	\|p\| \leq \sum_{i=1}^n|p_i| $. 
 			\item para toda $i=1,\dots, n$, $|p_i| \leq \|p\|$
-			\end{enumerate}
+			</ol>
 
-              \item (La otra desigualdad del tri\'angulo)
+              \item (La otra desigualdad del triángulo)
 
                 Demuestra, para todos  los vectores $p,q$ en un espacio con producto interior:
                 $$
                 |\|p\| - \|q\|| \leq \|p-q\|.
                 $$
 
-                Sugerencia: empieza con $\|p\|$ suma  y resta $q$ y usa la desigualdad del tri\'angulo.
+                Sugerencia: empieza con $\|p\|$ suma  y resta $q$ y usa la desigualdad del triángulo.
                 
        \item Usar la dsigualdad de Cauchy-Schwarz para probar que, para cualesqueira tres
          reales $a,b,c$
@@ -153,7 +153,7 @@
 
        \item Sean $x_1,\dots, x_n, y_1,\dots, y_n \in \mathbb{R}.$
 
-         \begin{enumerate}
+         <ol>
            \item Demostrar la identidad de Lagrange:
         
          $$
@@ -161,47 +161,47 @@
          \sum_{i<j} (x_iy_j -x_jy_i)^2
          $$
 
-         Sugerencia: procede por inducci\'on desarrollando ambos lados directamente.
+         Sugerencia: procede por inducción desarrollando ambos lados directamente.
 
-       \item Con el inciso anterior da otra demostraci\'on de la desigualdad de Cauchy-Schwartz, es decir:
+       \item Con el inciso anterior da otra demostración de la desigualdad de Cauchy-Schwartz, es decir:
          $$
         \left| \sum_{i=i}^n x_iy_i \right| \leq \left( \sum_{i=1}^n x_i^2 \right)^{1/2}\left( \sum_{i=1}^n y_i^2 \right)^{1/2} 
          $$
-       \end{enumerate}
+       </ol>
 
 
         \item Este ejercicio da otra prueba de la desigualdad de Cauchy-Schwartz, en espacios con producto interior.
 
          Sea $v$ un vector arbitrario y $u$ un vector unitario, en un espacio con producto interior.
-         \begin{enumerate}
+         <ol>
          \item Usando las propiedades del producto interior demuestra que
            $$
            0\leq \| v- \langle u,v \rangle u\|^2=\|v\|^2-(\langle u , v \rangle )^2.
            $$
-           \item Con el inciso anterior da otra demostraci\'on de la desigualdad de Cauchy-Schwartz.
+           \item Con el inciso anterior da otra demostración de la desigualdad de Cauchy-Schwartz.
          \item Demuestra que si $|\langle u,  v \rangle |=\|u\|\|v\|$ entonces $v=\langle u, v \rangle  u$.
          \item Usando el ejercicio anterior muestra que la igualdad en la desigualdad de Cauchy-Schwartz
-           se da si y s\'olo si uno de los vectores es m\'ultiplo escalar del otro (es decir, si son linealmente dependientes).
-         \end{enumerate}
+           se da si y sólo si uno de los vectores es múltiplo escalar del otro (es decir, si son linealmente dependientes).
+         </ol>
          
 
         
        
-       \begin{definicion}
-         Dado un vector $w\ne 0$, la proyecci\'on sobre $w$ est\'a dada por
+       <div class="definicion-box"><h2 class="number-title">  Definición</h2>
+         Dado un vector $w\ne 0$, la proyección sobre $w$ está dada por
          $$
          Proy_w(v)=\frac{\langle v, w \rangle }{\langle w,w \rangle}w.
          $$
-       \end{definicion}
+       </div>
 
      \item Demuestra que:
-       \begin{enumerate}
-       \item $Proy_w$ es una funci\'on lineal.
+       <ol>
+       \item $Proy_w$ es una función lineal.
        \item $Proy_w(w)=w$.
-       \item M\'as en general, para todo escalar $\lambda \in \mathbb{R}$, $Proy_w(\lambda w)=\lambda w$.
-       \end{enumerate}
+       \item Más en general, para todo escalar $\lambda \in \mathbb{R}$, $Proy_w(\lambda w)=\lambda w$.
+       </ol>
 
-       \end{enumerate}
+       </ol>
 
 
   

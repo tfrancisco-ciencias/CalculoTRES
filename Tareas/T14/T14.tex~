@@ -1,10 +1,10 @@
 
 \documentclass{article}
 \usepackage{amssymb, latexsym, amsmath, amsthm, amsfonts, amsbsy, enumerate, tabularx, graphicx}
-\newtheorem{definicion}{Definici\'on}
+\newtheorem{definicion}{Definición}
 
 \newtheorem{teorema}{Teorema}
-\newtheorem{prop}{Proposici\'on}
+\newtheorem{prop}{Proposición}
 \newtheorem{coro}{Corolario}
 \newtheorem{lema}{Lema}
 \theoremstyle{definition}
@@ -12,8 +12,8 @@
 \newtheorem{notas}{Notas}
 \newtheorem{ejemplo}{Ejemplo}
 \newtheorem{ejemplos}{Ejemplos}
-%\newtheorem{definicion}{Definici\'on}
-\newtheorem{notacion}{Notaci\'on}
+%\newtheorem{definicion}{Definición}
+\newtheorem{notacion}{Notación}
 \newcommand{\sen}{\operatorname{sen}}
 \newcommand{\senh}{\operatorname{senh}}
 \newcommand{\csch}{\operatorname{csch}}
@@ -28,54 +28,54 @@
 
   \section*{T14 }
 
-	\begin{enumerate}
-	\item Para las funciones dadas, encuentra los puntos cr\'iticos y determina si son 
-			 m\'aximos locales, m\'inimos locales o puntos silla.
+	<ol>
+	\item Para las funciones dadas, encuentra los puntos críticos y determina si son 
+			 máximos locales, mínimos locales o puntos silla.
 			 
-			 \begin{enumerate}
+			 <ol>
 			 \item $f(x,y)=y+x\sen(y)$,
 			 \item $f(x,y)=x^2+(y-1)^2$,
 			 \item $f(x,y)=x^3+y^3-3xy$.
-			\end{enumerate}			 	
+			</ol>			 	
 
 
-	\item Hallar el punto en el plano $2x-y+2z=20$ m\'as cercano al origen.
+	\item Hallar el punto en el plano $2x-y+2z=20$ más cercano al origen.
 	
-	\item Hallar los valores m\'aximos y m\'inimos absolutos de la funci\'on $f(x,y)=ax^2+by^2-1$,
+	\item Hallar los valores máximos y mínimos absolutos de la función $f(x,y)=ax^2+by^2-1$,
 	definida en $ax^2+by^2 \leq 1$, (donde $a$ y $b$ son constantes positivas).
 	
-      \item Considera la funci\'on $f(x,y)=3x^4-4x^2y+y^2$.
-        \begin{enumerate}
-        \item Prueba que, para cada l\'inea por el origen $y=mx$, la funci\'on
-          alcanza un m\'inimo sobre dicha l\'inea.
-        \item Prueba que no existe un m\'inimo local en $(0,0)$.
+      \item Considera la función $f(x,y)=3x^4-4x^2y+y^2$.
+        <ol>
+        \item Prueba que, para cada línea por el origen $y=mx$, la función
+          alcanza un mínimo sobre dicha línea.
+        \item Prueba que no existe un mínimo local en $(0,0)$.
         \item Haz un bosquejo de los puntos $(x,y)$ en el plano para los cuales
           $f(x,y)>0$ y para los cuales $f(x,y)<0$.
-        \end{enumerate}
+        </ol>
 
 
-      \item Determina los m\'aximos, m\'inimos relativos y absolutos, as\'i como los
-        puntos silla de la funci\'on $f(x,y)=xy(1-x^2-y^2)$ en el cuadrado $0\leq x \leq 1$,
+      \item Determina los máximos, mínimos relativos y absolutos, así como los
+        puntos silla de la función $f(x,y)=xy(1-x^2-y^2)$ en el cuadrado $0\leq x \leq 1$,
         $0 \leq y \leq 1$.
 
-      \item (M\'etodo de m\'inimos cuadrados)
+      \item (Método de mínimos cuadrados)
 
-        Dados $n$ n\'umeros distintos, $x_1,\dots, x_n$ y otros $n$ n\'umeros $y_1,\dots y_n$
-        (no necesariamente distintos), por lo general no es posible encontrar una funci\'on de la
+        Dados $n$ números distintos, $x_1,\dots, x_n$ y otros $n$ números $y_1,\dots y_n$
+        (no necesariamente distintos), por lo general no es posible encontrar una función de la
         forma $f(x)=ax+b$, que satisfaga $f(x_i)=y_i$, para toda $i$. Sin embargo se puede
-        tratar de encontrar una funci\'on que minimize el error cuadrado
+        tratar de encontrar una función que minimize el error cuadrado
         $$
         E(a,b)=\sum_{i=1}^n (f(x_i)-y_i)^2
         $$
 
         Determinar los valores de $a$ y $b$ que hagan esto.
 
-      \item Encuentra $c>0$ tal que la funci\'on $f(x,y)=x^2+xy+cy^2$ tiene un
+      \item Encuentra $c>0$ tal que la función $f(x,y)=x^2+xy+cy^2$ tiene un
         punto silla en $(0,0)$.
 
         
         
-	\end{enumerate}	
+	</ol>	
 	
   
        \end{document}

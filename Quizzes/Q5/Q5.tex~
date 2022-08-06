@@ -12,7 +12,7 @@
 \begin{document}
 
 \noindent{\sc {\bf{\large Quiz 5 }}
-           \hfill C\'alculo 3, semestre 2020-2}
+           \hfill Cálculo 3, semestre 2020-2}
 \bigskip
 
 \noindent {\sc{
@@ -23,25 +23,25 @@
 \bigskip
 
 
-\begin{enumerate}
+<ol>
 
 \item (2 pts) Calcula las siguientes derivadas parciales
   en los puntos indicados.
 
-  \begin{enumerate}
+  <ol>
   \item(0.5 pts) $f(x,y)=e^{2x^2+y^3}$. Calcular $\partial_xf(1,2)$.
   \item (0.5 pts) $f(r,\theta)=re^{\sen(\theta)}$.
       Calcular $\partial_\theta f(1,\pi)$.
     \item (0.5 pts) $f(x,y,z)=3x^{2}y^{3}z^{5}$. Calcular $\partial_zf(2,1,6)$.
     \item (0.5 pts) $f(a,b,c)=\sen(a)\sen(a+b)\sen(a+b+c)$.
       Calcular $\partial_cf(\pi/4,\pi/4, \pi/4)$.
-    \end{enumerate}
+    </ol>
     
     
   
 \vspace{4cm}  
   
-\item (3 pts) Considera la funci\'on
+\item (3 pts) Considera la función
 
   \begin{equation*}
     f(x,y)=\left\{
@@ -51,12 +51,12 @@
       \end{array}
     \right.
     \end{equation*}
-    Usando la definici\'on de derivadas parciales usando l\'imites,
+    Usando la definición de derivadas parciales usando límites,
     prueba que $\partial_xf(0,0)$ existe y calcula su valor.
 
 
 
-  \end{enumerate}
+  </ol>
 
 
   

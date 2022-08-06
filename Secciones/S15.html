@@ -83,4 +83,241 @@
     <h1 class="number-title flexbox"> Multiplicadores de Lagrange </h1> 
 
 
+    \begin{teorema}[Teorema de Lagrange, una restricción]
+
+      Sean $U\subseteq \mathbb{R}^n$ un abierto y $f,g:U \to \mathbb{R}$
+      funciones clase $C^1$ en $U$. Supongamos que $p_0\in U$ satisface
+      $$
+      f(p) \leq f(p_0) \quad o \quad f(p) \geq f(p_0),
+      $$
+      para toda $p$ en una vecindad de $p_0$ que además satisfacen
+      la restricción $g(p)=0$.
+      
+      Si $\nabla_{p_0}g \ne 0$ entonces existe $\lambda \in \mathbb{R}$ tal
+      que
+      $$
+      \nabla_{p_0}f =\lambda \nabla_{p_0}g.
+      $$
+    \end{teorema}
+
+  \item Este ejercicio da una demostración para el Teorema de
+    multiplicadores de Lagrange, para dimensión 3.
+
+    Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^3$ y
+    dos funciones clase $C^1$, $f,g:U\to \mathbb{R}$. Considera
+    la superficie de nivel
+    $$
+    S=\{p\in S: f(p)=0 \}
+    $$
+
+    Recuerda que, dado pun punto $p_0\in S$, el plano
+    tangente a $S$ en $p_0$ se define como
+    $$
+    \{p\in \mathbb{R}^3: \langle \nabla_{p_0}g, p-p_0 \rangle=0\}.
+    $$
+
+    <ol>
+    \item Sea $I$ un intervalo abierto de $\mathbb{R}$ y
+      se $\gamma:I \to \mathbb{R}^3$ una curva
+      diferenciable con la propiedad de que $\gamma(I)\subset S$.
+      Supongamos que
+      $\gamma(t_0)=p_0$. Demuestra que $\gamma'(t_0)$
+      y $\nabla_{p_0}g$ son ortogonales.
+
+      
+    \item Supongamos que $p_0\in S$ es un máximo
+      local para $f$ en $S$. Demuestra que, para
+      toda curva diferenciable $\gamma:I \to \mathbb{R}^3$,
+      tal que $\gamma(t)\subset S$ y $\gamma(t_0)=p_0$,
+      $ \nabla_{p_0}f$ y  $\gamma'(t_0)$ son ortogonales.
+
+      Sugerencia: nota que la función de una variable
+      $f\circ \gamma(t)$ tiene un máximo en $t_0$ y usa
+      la regla de la cadena.
+
+    \item Si $\nabla_{p_0}g\ne 0$ prueba que
+      existe un escalar $\lambda $ tal que
+      $\nabla_{p_0}f=\lambda \nabla_{p_0}g$.
+    </ol>
+    
+    
+  \item Encuentra el mínimo de $f(x,y)=xy$ sujeto a la
+    restricción $x+y=1$. ¿ Con las
+    mismas condiciones, existe el máximo ? Explica.
+    
+  \item Encuentra los máximos y mínimos de la función
+    $f(x,y,z)=x-2y+2z$ sobre la esfera $x^2+y^2+z^2=1$.
+    
+    
+  \item Encuentra las distancias máximas y mínimas 
+    desde el origen a la curva $5x^2+6xy+5y^2=8$.
+    
+    Sugerencia: es más sencillo minimizar la distancias al cuadrado.
+    
+
+       
+  \item Un canal de riego tiene lados y fondo de concreto con
+    sección transversal trapezoidal de área $A=y(x+y\tan(\theta))$
+    y perímetro húmedo $P=x+\frac{2y}{\cos(\theta)}$, donde
+    $x$ es el ancho del fondo, $y$ la profundidad del agua y
+    $\theta$ la inclinación lateral, medida a partir de la
+    vertical. El mejor dise\~no para una inclinación
+    fija $\theta$ se halla resolviendo $P=$ mínimo
+    sujeto a la condición $A=$ constante. Mostrar que
+    $y^2=\frac{A\cos(\theta)}{2-\cos(\theta)}$.
+    
+  \item Considera la función $f(x,y)=x^2+xy+y^2$,
+    en el disco unitario $D=\{(x,y): x^2+y^2 \leq 1\}$. Usa
+    multiplicadores de Lagrange para maximizar $f$ en
+    el circulo unitario  $\partial D=\{(x,y): x^2+y^2=1\}$. Usa
+    lo anterior para encontrar los máximos y mínimos absolutos
+    de $f$ en $D$.
+ 
+    
+\begin{teorema}[Lagrange, varias restricciones]
+
+
+  Sean $U\subseteq \mathbb{R}^n$ un abierto y
+  $f,g_1,\dots, g_m:U \to \mathbb{R}$
+  funciones clase $C^1$ en $U$. Supongamos que $p_0\in U$ satisface
+  $$
+  f(p) \leq f(p_0) \quad o \quad f(p) \geq f(p_0),
+  $$
+  para toda $p$ en una vecindad de $p_0$ que además satisfacen
+  la restricciones $g_1(p)=0, \cdots ,  g_m(p)=0$.
+
+  Si $\{\nabla_{p_0}g_1,\dots, \nabla_{p_0}g_m \}$
+  es un conjunto linealmente independiente entonces
+  existen $\lambda_1,\dots, \lambda_m  \in \mathbb{R}$ tal
+  que
+  $$
+  \nabla_{p_0}f =\lambda_1\nabla_{p_0}g_1+\cdots
+  + \lambda_m \nabla_{p_0}g_m.
+  $$
+
+  La demostración de este teorema se verá más adeltante, en la
+  sección del Teorema de la Función implícita.
+\end{teorema}
+
+
+
+    
+    
+  \item Encuentra el mínimo de $f(x,y,z)=x^2+2y^2+z^2$ con
+    la restricción $x+y+z=0$ y $x-z=1$.
+    
+
+
+\begin{teorema}[Teorema de Lagrange, una desigualdad]
+
+  Sean $U\subseteq \mathbb{R}^n$ un abierto y $f,g:U \to \mathbb{R}$
+  funciones clase $C^1$ en $U$. Supongamos que $p_0\in U$ satisface
+  $$
+  f(p) \leq f(p_0) \quad o \quad f(p) \geq f(p_0),
+  $$
+  para toda $p$ en una vecindad de $p_0$ que además satisfacen
+  la restricción $g(p) \geq 0$.
+
+  Si $\nabla_{p_0}g \ne 0$ entonces existe $\lambda \geq 0$ tal
+  que
+  $$
+  \nabla_{p_0}f =\lambda \nabla_{p_0}g.
+  $$
+
+  Nota: si la condición se cambia a $g \leq 0$ entonces 
+  $\lambda \leq 0$.
+
+  
+\end{teorema}
+
+El teorema anterior se puede generalizar a varias desigualdades.
+
+
+\begin{teorema}[Lagrange, varias restricciones]
+
+
+  Sean $U\subseteq \mathbb{R}^n$ un abierto y funciones 
+  $f,g_1,\dots, g_m, h_1,\dots, h_k:U \to \mathbb{R}$
+   clase $C^1$ en $U$. Supongamos que $p_0\in U$ satisface
+  $$
+  f(p) \leq f(p_0) \quad o \quad f(p) \geq f(p_0),
+  $$
+  para toda $p$ en una vecindad de $p_0$ que además satisfacen
+  la restricciones
+  \begin{eqnarray*}
+    g_1(p) \geq 0, \cdots g_m(p) \geq 0, \\
+    h_1(p)\leq 0 , \cdots, h_k(p) \leq 0.
+  \end{eqnarray*}
+  
+
+  Si $\{\nabla_{p_0}g_1,\dots, \nabla_{p_0}g_m, \nabla_{p_0}h_1,\cdots,
+  \nabla_{p_0}h_k\}$
+  es un conjunto linealmente independiente entonces
+  existen $\lambda_1 \geq 0, \dots, \lambda_m \geq 0$,
+  $\mu_1\leq 0 , \dots, \mu_k \leq 0$ tal
+  que
+  $$
+  \nabla_{p_0}f =\sum_{i=1}^m\lambda_i\nabla_{p_0}g_i+
+  \sum_{j=1}^k \mu_j\nabla_{p_0}h_j.
+  $$
+
+  
+\end{teorema}
+
+    
+
+    
+    
+  \item Minimiza la función $f(x,y)=x^2+xy+y^2$ con
+    la restricción $x+y \geq 4$.
+    
+  \item Minimiza la función $f(x,y)=x+y^2$ con la restricción
+    $1\leq x+y$.
+    
+    
+  \item 
+    <ol>
+    \item Encuentra máximo de la función
+      $f(x_1,\dots, x_n)=(x_1\cdots x_n)^2$, sujeta a la
+      restricción $x_1^2+\cdots +x_n^2=1$.
+    \item Usando el inciso anterior demuestra la
+      desigualdad aritmético geométrica, es decir,
+      para escalares mayores o iguales a cero, $a_1,\dots, a_n$,
+      se cumple
+      $$
+      \sqrt[n]{a_1\cdots a_n} \leq \frac{a_1+\cdots +a_n}{n}
+      $$
+      
+      Sugerencia: considera
+      $x_i=\frac{\sqrt{a_i}}{\sqrt{a_1+\cdots +a_n}}$, $i=1,\dots,n$.
+    </ol>
+    
+  \item
+    <ol>
+    \item Sean $p>1, q>1$ tal que $\frac{1}{p}+\frac{1}{q}=1$. Demuestra
+      que el mínimo de la función
+      $$
+      f(x,y)=\frac{x^p}{p}+\frac{y^q}{q}
+      $$
+      sujeta a la restricción $xy=1$ es 1.
+      
+    \item Usando el inciso anterior, prueba que si $a$ y $b$ son
+      reales mayores o iguales a cero, entonces
+      $$
+      ab \leq \frac{a^p}{p}+\frac{b^q}{q}
+      $$
+    \item Sean $a_1,\dots, a_n$, $b_1,\dots, b_n$, numeros
+      reales mayores o iguales a cero, demuestra la desigualdad
+      $$
+      \sum_{j=1}^n a_jb_j \leq \left( \sum_{j=1}^n a_j^p \right)^{1/p}
+      \left( \sum_{j=1}^n b_j^q \right)^{1/q}
+      $$
+      
+      Sugerencia: sean $A=\left( \sum_{j=1}^n a_j^p \right)^{1/p}$,
+      $B=\left( \sum_{j=1}^n b_j^q \right)^{1/q}$, aplica
+      la desigualdad del inciso anterior a $a=a_j/A$, $b=b_j/B$.
+      
+    </ol>
+
+
  </body>

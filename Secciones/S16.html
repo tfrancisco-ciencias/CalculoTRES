@@ -82,5 +82,261 @@
 
     <h1 class="number-title flexbox"> Teorema de la función implícita </h1> 
 
+    
+
+
+    Antes de enunciar el teorema usamos la siguiente convención: usamos
+letras negritas $\mathbf{x}, \mathbf{z}$ para denotar vectores
+y letras normales, $x,z$ para denotar escalares.
+
+\begin{teorema}
+  Sea $U$ un abierto de $\mathbb{R}^n\times \mathbb{R}^m$ que contenga
+  al punto $(\mathbf{x}_0,\mathbf{z}_0)$ y sea $F:U \to \mathbb{R}^m$
+  una función de clase $C^1$ en $U$. Nota: a los puntos
+  de primer  $\mathbb{R}^n$ los vamos a denotar $\mathbf{x}$ y a los
+  puntos del segundo $\mathbf{R}^m$ los vamos a denotar $\mathbf{z}$.
+
+  Supongamos que $F(\mathbf{x}_0,\mathbf{z}_0)=0$
+  y que la función lineal dada por
+  $$
+  L(\mathbf{z})=D_{(\mathbf{x}_0, \mathbf{z}_0)}F(0,\mathbf{z}),
+  \mathbf{z} \in \mathbb{R}^m
+  $$
+
+  es una función inyectiva, de $\mathbb{R}^m$ a $\mathbb{R}^m$.
+
+
+  Entonces existe una vecindad de $\mathbf{x}_0$ en $\mathbb{R}^n$, denotada $W$
+  y una función de clase $C^1$, $G:W \to\mathbb{R}^m$ tal que
+  $G(\mathbf{x}_0)=\mathbf{z}_0$ y, para toda $\mathbf{x}\in W$,
+  $F(\mathbf{x},G(\mathbf{x}))=0$.
+
+  
+\end{teorema}
+
+
+{\bf Notas}
+
+<ol>
+
+%\item Este enunciado generaliza el Teorema del Marsden. En el caso
+ % del Marsden  $m=1$ en para este caso la función $L$ es simplemente
+ % multiplicar por $\partial_zF(\mathbf{x}_0,z_0)$, la cual es inyectiva
+ % si $\partial_zF(\mathbf{x}_0,z_0) \ne 0$.
+
+\item La condición de que la transformación lineal
+  $L(\mathbf{z})=D_{(\mathbf{x}_0, \mathbf{z}_0)}F(0,\mathbf{z})$
+  sea inyectiva se puede reescribir usando un determinante,
+  pero se necesita algo de notación. 
+
+  Para $\mathbf{x}\in \mathbf{R}^n$ escribimos
+  $\mathbf{x}=(x_1,\dots, x_n)$
+  y a los puntos $\mathbf{z}\in \mathbf{R}^m$ los escribimos
+  $\mathbf{z}=(z_1,\dots, z_m)$. A las funciones
+  coordenadas de $F$ las escribimos $F=(f_1,\dots, f_m)$,
+  así que cada función $f_i$ se valua en
+  $f_i(x_1,\dots, x_n, z_1,\dots, z_m)$.
+
+  La condición de que $L$ sea inyectiva es equivalente a pedir que
+  el determinante de la siguiente matriz sea distinto de cero
+
+  $$
+ \left[ \begin{array}{ccc}
+    \partial_{z_1}f_1(\mathbf{x}_0,\mathbf{z}_0) & \cdots
+    & \partial_{z_m}f_1(\mathbf{x}_0, \mathbf{z}_0) \\
+    \vdots & \ddots & \vdots \\
+     \partial_{z_1}f_m(\mathbf{x}_0,\mathbf{z}_0) & \cdots
+    & \partial_{z_m}f_m(\mathbf{x}_0, \mathbf{z}_0)
+        \end{array}
+        \right]
+  $$
+
+\item El teorema de la función implícita se puede
+  leer de la siguiente forma. Sean $f_1,\cdots, f_m$
+  funciones clase $C^1$, definidas en un abierto de
+  $\mathbb{R}^n\times \mathbb{R}^m$ y supongamos que
+  tenemos escalares $x_1^{(0)}, \dots, x_{n}^{(0)}, z_1^{(0)}, \dots, z_m^{(0)}$
+  que satisfacen el siguiente sistema de ecuaciones:
+  \begin{eqnarray*}
+    f_1(x_1^{(0)}, \dots, x_{n}^{(0)}, z_1^{(0)}, \dots, z_m^{(0)})&=&0\\
+    f_2(x_1^{(0)}, \dots, x_{n}^{(0)}, z_1^{(0)}, \dots, z_m^{(0)})&=&0\\
+    &\vdots& \\
+    f_m(x_1^{(0)}, \dots, x_{n}^{(0)}, z_1^{(0)}, \dots, z_m^{(0)})&=&0
+  \end{eqnarray*}
+
+  Denotemos $\mathbf{x}_0=(x_1^{(0)}, \dots, x_{n}^{(0)})$
+  y $\mathbf{z}_0=(z_1^{(0)}, \dots, z_m^{(0)})$. Entonces,
+  si
+
+   $$
+\det \left[ \begin{array}{ccc}
+    \partial_{z_1}f_1(\mathbf{x}_0,\mathbf{z}_0) & \cdots
+    & \partial_{z_m}f_1(\mathbf{x}_0, \mathbf{z}_0) \\
+    \vdots & \ddots & \vdots \\
+     \partial_{z_1}f_m(\mathbf{x}_0,\mathbf{z}_0) & \cdots
+    & \partial_{z_m}f_m(\mathbf{x}_0, \mathbf{z}_0)
+        \end{array}
+        \right]\ne 0
+  $$
+
+  entonces podemos resolver el siguiente sistema, de manera única,
+  para las $z's$ en términos de las $x's$:
+
+   \begin{eqnarray*}
+    f_1(x_1, \dots, x_n, z_1, \dots, z_m)&=&0\\
+    f_2(x_1, \dots, x_{n}, z_1, \dots, z_m)&=&0\\
+    &\vdots& \\
+    f_m(x_1, \dots, x_{n}, z_1, \dots, z_m)&=&0
+  \end{eqnarray*}
+
+  para cuando las $(x_1,\dots, x_n)$ están cerca de $\mathbf{x}_0$.
+</ol>
+
+
+    
+  \item Mostrar que $xy+z+3xz^5=4$ es soluble para $z$ como
+    función de $x,y$ cerca de $(1,0,1)$. Además:
+    <ol>
+    \item calcular $\partial_xz(1,0)$ y $\partial_yz(1,0)$.
+    \item usando una aproximación lineal, estimar el valor de $z$
+      cuando $x=1.1$ y $y=0.5$.
+    </ol>
+    
+  \item Considera la superficie en $\mathbb{R}^3$ dada por
+    $$
+    2y^2z^2-2x=0
+    $$
+    
+    <ol>
+            
+    \item Encuentra dos simetrias de la superficie.
+      
+    \item Usar el teorema de la función implícita para verificar
+      que, para cualquier punto en la curva,
+      podemos despejar $x$ en terminos de $y$ y $z$ y usando
+      también el teorema de la función implícita
+      calcula $\partial_y x$ y $\partial_z x$
+    \item de manera directa despeja $x$ y usa este despeja para calcular
+      $\partial_y x$ y $\partial_z x$.
+
+      
+    \item Usando el teorema de la función
+      implícita, prueba que cerca de los punto $(1,1,1)$ y $(1,-1,1)$ podemos
+      despejar a  $y$, en términos de las otras dos variables. Además
+      calcula $\partial_xy(1,1)$, $\partial_z y (1,1)$. Nota:
+      las parciales dependen si estás en el punto $(1,1,1)$ o $(1,-1,1)$.
+      
+    \item Trata de despejar de manera directa $y$ en $2y^2z^2-2x=0$
+      para encontrar una fórmula para $y$ cerca de $(1,1,1)$
+      y para $y$ cerca de $(1,-1,1)$.
+      
+      
+    </ol>
+    
+
+  \item Analiza la solubilidad del sistema
+    \begin{eqnarray*}
+      3x+2y+z^2+u+v^2&=&0\\
+      4x+3y+z+u^2+v+w+2&=&0\\
+      x+z+w+u^2+2&=&0\\
+    \end{eqnarray*}
+    para $u$, $v$ y $w$ en términos de $x,y$ y $z$ cerca de $x=y=z=0$,
+    $u=v=0$ y $w=-2$.
+    
+  \item Investiga si el siguiente sistema
+    
+    \begin{eqnarray*}
+      u(x,y,z)&=&x+yxz \\
+      v(z,y,z)&=&y+xy\\
+      w(x,y,z)&=&z+2x+3z^2
+    \end{eqnarray*}
+    
+    puede resolverse para $x,y,z$ (despejar $x,y$ y $z$) en términos
+    de $u,v$ y $w$, cerca del punto $(x,y,z)=(0,0,0)$.
+    
+    
+
+  \item Este ejercicio da una demostración del Teorema
+    de Lagrange con una restricción.
+
+    Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$ y $f,g:U\to \mathbb{R}$
+    dos funciones de clase $C^1$. Considera la superficie de nivel
+    $$
+    S=\{\mathbf{x} \in \mathbb{R}^n: f(\mathbf{x})=0\}.
+    $$
+
+    Supongamos que $\mathbf{x}_0\in S$ es un máximo  local para $f$ en $S$ y
+    supon que $\partial_{x_n}g(\mathbf{x}_0) \ne 0$. Denotemos
+    $\mathbf{x}_0=(x_1^0, \dots, x_n^0)$.
+
+    <ol>
+    \item Demuestra que existe una función de clase $C^1$,
+      $\phi(x_1,\dots, x_{n-1})$, definida en
+      una vecindad de $(x^0_1,\dots, x^0_{n-1})$
+      en $\mathbb{R}^{n-1}$, tal que
+      $\phi(x^0_1,\dots, x^0_{n-1})=x^0_n$ y
+      $g(x_1,\dots, x_{n-1}, \phi(x_1,\dots, x_{n-1}))=0$.
+
+      Para simplificar notación, si $\mathbf{x}=(x_1,\dots, x_{n})$ denotamos
+      $\hat{\mathbf{x}}=(x_1,\dots, x_{n-1})$. Con esta notación
+      $g(\hat{\mathbf{x}}, \phi(\hat{\mathbf{x}}))=0$, para toda $\mathbf{x}$
+      suficientemente cercana a $\mathbf{x}_0$.
+
+      Sugerencia: usa el teorema de la funciín implícita.
+      
+    \item Considera la función
+      $$
+      h(x_1,\dots, x_{n-1})=f(x_1,\dots, x_{n-1},\phi(x_1,\dots, x_{n-1}))
+      $$
+      con la notación del inciso anterior podemos escribir
+      $h(\hat{\mathbf{x}})=f(\hat{\mathbf{x}}, \phi(\hat{\mathbf{x}}))$.
+
+      Demuestra que, para $i=1,\dots, n-1$:
+      $$
+      \partial_{x_i}h(\hat{\mathbf{x}})=
+      \partial_{x_i}f(\hat{\mathbf{x}},\phi(\hat{\mathbf{x}}))+
+      \partial_{x_n}f(\hat{\mathbf{x}})
+      \partial_{x_i}\phi(\hat{\mathbf{x}})
+      $$
+
+      Sugerencia: usa la regla de la cadena.
+      
+    \item Demuestra que, para $i=1,\dots, n-1$:
+      \begin{eqnarray*}
+        \partial_{x_i}f(\mathbf{x}_0)+
+        \partial_{x_n}f(\mathbf{x}_0)\partial_{x_i}\phi(\hat{\mathbf{x}}_0)=0
+      \end{eqnarray*}
+
+      Sugerencia: $h$ tiene un máximo local en $\hat{\mathbf{x}}_0$.
+      
+    \item Demuestra que, para toda $i=1,\dots, n-1$:
+      $$
+      \partial_{x_i}g(\hat{\mathbf{x}},\phi(\hat{\mathbf{x}}))
+      + \partial_{x_n}g(\hat{\mathbf{x}},\phi(\hat{\mathbf{x}}))
+      \partial_{x_i}\phi(\hat{\mathbf{x}})=0.
+      $$
+
+      Sugerencia: para toda $\mathbf{x}$, $g(\hat{\mathbf{x}},
+      \phi(\hat{\mathbf{x}}))=0$. 
+    \item Demuestra que, para toda $i=1,\dots, n-1$:
+      $$
+      \partial_{x_i}\phi(\hat{\mathbf{x}}_0)=
+      -\frac{\partial_{x_i}g(\mathbf{x}_0)}{\partial_{x_n}g(\mathbf{x}_0)}
+      $$
+
+      Sugerencia: usa el inciso anterior.
+      
+    \item Denota $\lambda=\frac{\partial_{x_n}f(\mathbf{x}_0)}
+      {\partial_{x_n}g(\mathbf{x}_0)}$. Demuestra que,
+      para toda $i=1,\dots, n-1$:
+      $$
+      \partial_{x_i}f(\mathbf{x}_0)=\lambda \partial_{x_i}g(\mathbf{x}_0)
+      $$
+
+      Además, $\partial_{x_n}f(\mathbf{x}_0)
+      =\lambda \partial_{x_n}g(\mathbf{x}_0)$
+      \item Concluye que $\nabla_{\mathbf{x}_0}f=\lambda \nabla_{\mathbf{x}_0}g$.
+    </ol>
+
 
  </body>

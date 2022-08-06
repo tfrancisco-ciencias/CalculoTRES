@@ -83,4 +83,670 @@
     <h1 class="number-title flexbox"> Gradiente y derivada direccional </h1> 
 
 
+    <div class="definicion-box"><h2 class="number-title">  Definición</h2>
+    Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$ y $f:U \to \mathbb{R}$.
+    Decimos que la función $f$ es continua en un punto $q \in U$ si
+    $$
+    \lim_{p\to q} f(p)=f(q).
+    $$
+  </div>
+
+
+  
+\item\label{Ejer:ContinuidadFunLipschitz}
+  Sea $U\ne \emptyset$ un abierto de $\mathbb{R^n}$ y  $f:U \to \mathbb{R}$.
+  Supón que $p_0\in U$ satisface que existe una bola $B_r(p_0)\subset U$ y una constante $k>0$
+  tal que $|f(p)-f(p_0)|\leq k \|p-p_0 \|$, para toda $p\in B_r(p_0)$.
+
+  Demuestra que $f$ es continua en $p_0$.
+
+\item Sea $q_0$ un vector fijo en $\mathbb{R}^n$ y define $f:\mathbb{R}^n \to \mathbb{R}$
+  por $f(p)=\langle q_0, p \rangle$. Demuestra que $f$ es continua en todo punto $p \in \mathbb{R}$.
+
+  Sugerencia: usa el ejercicio \ref{Ejer:ContinuidadFunLipschitz} y la desigualdad de Cauchy-Schwartz.
+\item Sea $U\ne \emptyset$ un conjunto abierto en $\mathbb{R}^n$, $p_0\in U$
+  y $f: U \to \mathbb{R}$.
+
+  Demuestra que si $f$ es diferenciable en $p_0$ entonces
+  $f$ es continua en $p_0$. Nota en particular que todo polinomio en varias variables
+  es continuo en todo punto de su dominio.
+
+  Sugerencia: considera la aproximación lineal de $f$ cerca de $p_0$:
+  $$
+  f(p)=f(p_0)+\langle \nabla_{p_0}f, p-p_0 \rangle +E(p). 
+  $$
+  Demuestra que  $\lim_{p\to p_0} \langle \nabla_{p_0}f, p-p_0\rangle=0$ y $\lim_{p\to p_0}E(p)=0$.
+
+
+
+
+
+  \section*{Derivadas parciales y continuidad}
+
+
+  \subsection*{Funciones clase C1}
+
+  <div class="definicion-box"><h2 class="number-title">  Definición</h2>
+    Sea $U\ne \emptyset$ un subconjunto abierto de $\mathbb{R}^n$
+    y $f:U\to \mathbb{R}$. Decimos que $f$ es de clase
+    $C^1$ en $U$, si todas las derivadas parciales existen y son
+    continuas en todo punto de $U$.
+    
+  </div>
+
+\item Considera la función de una variable
+  $$
+  f(x)=\left\{\begin{array}{cc}
+                x^2\sen(1/x) & x\ne 0 \\
+                0 & x=0
+              \end{array}
+            \right.
+            $$
+            
+  Demuestra
+  que para todo $x$, $f'(x)$ existe pero la función $f'(x)$ no es continua. Por
+  lo tanto, ésta función es un ejemplo de una función diferenciable, que no
+  es clase $C^1$.
+
+
+  
+\item\label{Ejer:C1ImplicaDif} Este ejercicio muestra que toda función de dos variables, clase $C^1$ es diferenciable.
+  Sea $U\ne \emptyset$ un subconjunto abierto de $\mathbb{R}^2$ y $f:U \to \mathbb{R}$
+  una función clase $C^1$ en $U$. Fija $p_0(x_0,y_0)\in U$ y sea $r>0$ tal que
+  $B_r(x_0,y_0)\subset U$. Denotamos $h=(h_1,h_2)$ un vector cualquiera con $\|h\|<r$.
+  <ol>
+  \item Sean $(x_1,y_2), (x_2,y_2)\in B_r(p_0)$. Demuestra que existen
+    puntos $\overline{x}$, entre $x_1$ y $x_2$ y $\overline{y}$, entre $y_1$ y $y_2$ tales que: 
+    
+    \begin{eqnarray*}
+      f(x_1,y_1)-f(x_2,y_1)&=&\partial_xf(\overline{x},y_1)(x_1-x_2)\\
+      f(x_1,y_1)-f(x_1,y_2)&=&\partial_yf(x_1,\overline{y})(y_1-y_2)
+    \end{eqnarray*}
+
+    Sugerencia: utiliza el teorema del valor medio.
+  \item Prueba que
+    \begin{eqnarray*}
+      f(x_0+h_1,y_0+h_2)-f(x_0,y_0)&=&f(x_0+h_1, y_0+h_2)-f(x_0+h_1, y_0) \\
+                                   &+& f(x_0+h_1, y_0)-f(x_0,y_0)
+    \end{eqnarray*}
+    Nota que esta ecuación se puede interpretar como:
+
+  \item Demuestra que existen puntos
+    $$
+    f(x_0+h_1,y_0+h_2)-f(x_0,y_0)=\partial_yf(x_0+h_1,\overline{y})h_2+ \partial_xf(\overline{x},y_0)h_1
+    $$
+
+  \item Demuetra que
+    \begin{eqnarray*}
+      & \frac{|f(x_0+h_1,y_0+h_2)-f(x_0,y_0)- \partial_xf(x_0,y_0)h_1-\partial_yf(x_0,y_0)h_2|}{\|h\|} \\
+      &\leq
+    |\partial_xf(\overline{x}, y_0)-\partial_xf(x_0,y_0)|+ |\partial_yf(x_0+h_1,\overline{y})-\partial_yf(x_0,y_0)|
+    \end{eqnarray*}
+
+    Sugerencia: usa el inciso anterior.
+
+    \item Demuestra que $f$ es diferenciable en $p_0$. 
+  </ol>
+
+\item Generaliza la prueba del ejercicio \ref{Ejer:C1ImplicaDif} para probar que $U\ne \emptyset$
+es un conjunto abierto de $\mathbb{R}^n$ y
+  $f:U\to \mathbb{R}$, de clase $C^1$ en $U$, entonces $f$ es diferenciable en $U$.
+
+
+
+
+    \item Para las siguientes funciones, usa el criterio
+de las derivadas parciales para encontrar  un dominio
+para el cual la función sea diferencible en
+todo punto del dominio.
+<ol>
+\item $f(x,y)=e^{\sqrt{x^2+y^2}}$,  $(x,y)\in \mathbb{R}^2$,
+\item $f(x,y)=\log(e^{\sqrt[4]{(x-1)^2+(y-2)^2}}+e^{\sqrt{(x-5)^2+(y-6)^2}})$,
+$(x,y)\in \mathbb{R}^2$,
+\item $f(x,y)=\log(1+\sqrt{(x-1)^2+(y+1)^2})$, $(x,y)\in \mathbb{R}^2$.
+</ol>
+
+
+      \subsection*{Derivadas parciales mixtas}
+
+
+<div class="definicion-box"><h2 class="number-title">  Definición</h2> 
+Supongamos que $f:U\subseteq \mathbb{R}^2\to \mathbb{R}$
+admite derivadas parciales $\partial_xf$ y $\partial_y f$, 
+en todo punto de $U$. Las derivadas parciales de segundo orden se definen como
+\begin{eqnarray*}
+\partial_x^2f(x_0,y_0)=\lim_{h\to 0} \frac{\partial_xf(x_0+h,y_0)}{h}\\
+\partial_y^2f(x_0,y_0)=\lim_{k\to 0} \frac{\partial_yf(x_0,y_0+k)}{k}\\
+\partial_x\partial_y f(x_0,y_0)=\lim_{h\to 0} \frac{\partial_y f(x_0+h,y_0)}{h}\\
+\partial_y\partial_x f(x_0,y_0)=\lim_{k\to 0} \frac{\partial_x f(x_0,y_0+k)}{k}
+\end{eqnarray*}
+siempre y cuando existan.
+
+En general, si $U$ es un abierto de $\mathbb{R}^n$, la derivada parcial
+$\partial+_{p_ip_j}f$ valuada en $p_0$ se define como
+$$
+\lim_{h\to 0} \frac{\partial_{p_j}f(p_0+he_i)}{h}
+$$
+siempre y cuando $\partial_{p_i}f$ existe en una bola abierta alrededor de $p_0$.
+
+</div>
+
+
+\item Para las siguientes funciones encuntras las derivadas parciales hasta orden 2.
+
+<ol>
+\item $f(x,y)=d+a_1x+b_1y+cxy+a_2x^2+b_2y^2$, donde $a_i,b_i,c,d$ son constantes.
+\item $f(x,y,z)=\sqrt{x^2+y^2+z^2}$.
+\item $f(p)=\langle q, p \rangle$, donde $q\in \mathbb{R}^n$ es un vector fijo.  
+\item $f(p)=\sum_{i=1}^n p_i^2$.
+</ol>
+
+
+
+\item Dado un polinomio en dos variables $p(x,y)=\sum_{i=0}^N\sum_{j=0}^N a_{(i,j)}x^iy^j$,
+encuentra $\partial_x^2 p, \partial_y^2 p, \partial_{xy} p$ y $\partial_{yx} p$.
+
+\item Para cada una de las siguientes funciones
+calcula $\partial_{x}\partial_yf(x,y)$ y $\partial_y\partial_xf(x,y)$.
+¿ Qué notas ?
+<ol>
+\item $f(x,y)=x^2+xy^2+y^3$
+\item $f(x,y)=\log(x^2+y^4)$
+\item $f(x,y)=e^{3x+2xy+y^2}$                 
+</ol>
+
+
+<div class="definicion-box"><h2 class="number-title">  Definición</h2>
+Sea $U$ un abierto de $\mathbb{R}^n$. Una función  $f:U \to \mathbb{R}$ se llama clase
+$C^2$ si las derivadas parciales  desde orden 1 hasta orden dos existen y son continuas en todo $U$.
+
+De manear similar, es de clase $C^n$ si todas las derivadas pariacles desde orden 1 hasta orden $n$ existen
+y son continuas en $U$.
+</div>
+
+\item Este ejercicio muestra que toda función $f:U\subseteq \mathbb{R}^2\to \mathbb{R}$,
+de clase $C^2$ es $U$,  satisface que $\partial_{xy}f=\partial_{yx}f$. Fija $(x_0,y_0)\in U$.
+
+<ol>
+\item Considera las funciones
+$$
+S(h_1,h_2)=f(x_0+h_1,y_0+h_2)-f(x_0+h_1),y_0)-f(x_0,y_0+h_2)+f(x_0,y_0)
+$$
+y
+$$
+g(x)=f(x,y_0+h_1)-f(x,y_0), \quad h(y)=f(x_0+h_1,y)-f(x_0,y)
+$$
+Prueba que
+$$
+S(h_1,h_2)=g(x_0+h_1)-g(x_0)=h(y_0+h_2)-h(y_0)
+$$
+
+\item Demuestra que existe un punto $\overline{x}$, entre $x_0$ y $x_0+h_1$
+y un punto $\overline{y}$, entre $y_0$y $y_0+h_2$, tales que:
+$$g(x_0+h_1)-g(x_0)=g'(\overline{x})h_1, h(y_0+h_2)-h(y_0)=h'(\overline{y})h_2$$
+Sugerencia: utiliza el teorema del valor medio.
+
+\item Prueba que
+\begin{eqnarray*}
+S(h_1,h_2)&=&\left( \partial_xf(\overline{x}, y_0+h_2)-\partial_xf(\overline{x}, y_0)  \right) h_1 \\
+&=&\left(\partial_yf(x_0+h_1,\overline{y})-\partial_yf(x_0, \overline{y}) \right)h_2
+\end{eqnarray*}
+
+
+\item Demostrar que existen puntos $\overline{\overline{y}}$, entre $y_0$ y $y_0+h_2$ y
+$\overline{\overline{x}}$, entre $x_0$ y $x_0+h_1$ tales que
+$$
+S(h_1,h_2)=\partial_{yx}f(\overline{x}, \overline{\overline{y}})h_1h_2=\partial_{yx}f(\overline{\overline{x}}, \overline{y})h_1h_2
+$$
+Sugerencia: utiliza el teorema del valor medio.
+\item Tomando límites, cuando $(h_1,h_2)\to (0,0)$, concluye que
+$$
+\partial_{xy}f(x_0,y_0)=\lim_{(h_1,h_2)\to (0,0)} \frac{S(h_1,h_2)}{h_1h_2}=\partial_{yx}f(x_0,y_0).
+$$
+
+</ol>
+
+<div class="definicion-box"><h2 class="number-title">  Definición</h2>
+Una función $f:U\to \mathbb{R}$, definida en un abierto, se llama armónica en $U$ si las
+derivadas parciales de segundo orden $\partial_x^2 f$ y $\partial_y^2 f$, existen y son continuas
+en todo punto de $U$ (es decir, clase $C^1$ en $U$) y
+$$
+\partial_x^2f(x,y)+\partial_y^2f(x,y)=0
+$$ 
+para todo $(x,y)\in U$. 
+</div>
+
+\item Para las siguientes funciones, determina cuales son armónicas.
+
+<ol>
+\item $f(x,y)=x^2-y^2$
+\item $f(x,y)=e^y\cos(x)$
+\item $f(x,y)=e^y\sen(x)$
+\item $f(x,y)=\log(x^2+y^2)$
+\item $f(x,y)=x^3-3x^2y-3yx^3+y^3$
+</ol>		       
+
+\item Demuestra que toda función lineal $f:\mathbb{R}^2\to \mathbb{R}$ satisface
+la ecuación $\partial_x^2f(x,y)+\partial_y^2f(x,y)=0$, para todo $(x,y)$.
+
+\item Considera la función $f(x,y)=ax^2+by^2+cxy$, donde $a,b,c\in \mathbb{R}$ son
+parámetros. Encuentra
+los valores de $a$, $b$ y $c$ para los cuales
+<ol>
+\item $\partial_x^2 f(x,y)+\partial_y^2f(x,y) >0$, para todo $(x,y)$,
+\item $\partial_x^2f(x,y)+\partial_y^2f(x,y)=0$, para todo $(x,y)$,
+\item $\partial_x^2f(x,y)+\partial_y^2f(x,y)<0$, para todo $(x,y)$.
+</ol>
+        
+
+
+
+\item Usa el teorema de la igualdad de derivadas parciales mixtas
+para dos variables para probar que si $f:\mathbb{R}^3\to \mathbb{R}$
+es de clase $C^3$, entonces
+$$
+\partial^{3}_{xyz}f=\partial_{yzx}^3 f
+$$
+
+
+
+
+\item Considera  la función $g(x,t)=2+e^{-t}\sen(x)$,
+$(t,x)\in \mathbb{R}^2$.
+
+<ol>
+\item Demuestra que $g$ satiface la
+ecuación del calor:
+$$
+\partial_t g= \partial_x^2g.
+$$
+Aquí $g(x,t)$, representa la temperatura de una varilla de metal
+en la posición $x$ al tiempo $t$.
+\item Esbozar la gráfica de $g$, para $t\geq 0$.
+\item ¿ Qué sucede con $g(x,t)$ cuando $t\to \infty$ ?
+Interpreta éste límite en términos del comportamiento del calor
+en la varilla.
+
+</ol>
+
+
+\item (Bartle) Considera la función
+$$
+f(x,y)=\left\{
+\begin{array}{cc}
+ \frac{xy(x^2-y^2)}{x^2+y^2} & (x,y)\ne (0,0)\\
+ 0 & (x,y)=(0,0)
+\end{array}
+\right.
+$$
+      
+\item (Vogel) Considera la función
+$$
+f(x,y)=\left\{
+\begin{array}{cc}
+ \frac{xy^3-x^3y}{x^2+y^2} & (x,y)\ne (0,0)\\
+ 0 & (x,y)=(0,0)
+\end{array}
+\right.
+$$
+Prueba
+<ol>
+\item
+$$
+\partial_xf(x,y)=\left\{
+ \begin{array}{cc}
+   \frac{3x^2-y^3}{x^2+y^2}- \frac{2x(x^3y-xy^3)}{(x^2+y^2)^2} & (x,y)\ne (0,0)\\
+   0 & (x,y)=(0,0)
+ \end{array}
+\right.
+$$
+\item
+$$
+\partial_y f(x,y)=\left\{
+ \begin{array}{cc}
+   \frac{x^3-3xy^2}{x^2+y^2}- \frac{2y(x^3y-xy^3)}{(x^2+y^2)^2} & (x,y)\ne (0,0)\\
+   0 & (x,y)=(0,0)
+ \end{array}
+\right.
+$$
+
+\item $\partial_x \partial_yf(0,0)=-1$ y $\partial_y\partial_xf(0,0)=1$
+</ol>
+      
+           
+<div class="definicion-box"><h2 class="number-title">  Definición</h2>\label{Def:DerivadaGeneral}
+Sea $U\ne \emptyset$ un subconjunto abierto de $\mathbb{R}^n$ y $F:U \to \mathbb{R}^m$
+una función. Escribamos las funciones coordenadas de $F$ como
+$F(p)=(f_1(p),\cdots, f_m(p) )$. La función $F$ es diferenciable en
+$p_0$ si y sólo si todas las funciones escalares $f_i$, $i=1,\dots, m$, son diferenciables
+en $p_0$. Note que cada $f_i$ es una función de $n$-variables.
+
+Recordemos que si $f_i$ es diferenciable en $p_0$ entonces todas sus derivadas parciales en $p_0$
+existen. Asi pues, si $F=(f_1,\dots, f_m)$ es diferenciable en $p_0$  podemos formar la matriz de derivadas 
+parciales, denotada $D_{p_0}F$, es decir
+$$
+D_{p_0}F=[\partial_{p_j}f_i(p_0)]_{1\leq i \leq  m,  1 \leq j \leq n}
+$$
+
+Note que el  renglón-$i$ de $D_{p_0}F$ es simplemente $\nabla_{p_0}f_i$.
+</div>
+
+
+
+
+\item Para cada una de las siguientes funciones encuentra la matriz de derivadas
+parciales
+
+<ol>
+\item $F(x,y)=(xe^y, ye^x)$
+\item $F(x,y)=(xy\cos(x), xy\sen(y))$
+\item $F(x,y)=(xy+x^2,x^2+y^2, x^3+xy+y^3)$
+\item $F(x,y,z)=(xyz, x^2y^2z^2)$
+</ol>
+
+
+
+
+\item\label{Ejer:LimiteEquivalenteDefDif} Usando el cambio de variable $p=(x,y)$ y denotando $p_0=(x_0,y_0)$, prueba que el
+límite de la Definición
+\ref{Def:DerivadaR2} es equivalente a
+$$
+\lim_{p\to p_0}\frac{|f(p)-f(p_0)-\partial_xf(p_0)(x-x_0) - \partial_yf(p_0)(y-y_0) |}{\|p-p_0\|}=0.
+$$
+donde $f:U\subset \mathbb{R}^2 \to \mathbb{R}$ es diferenciable en $p_0$.
+
+\item\label{Ejer:LimiteDefDifRn} Este ejercicio es análogo al ejercicio \ref{Ejer:LimiteEquivalenteDefDif}, pero
+para funciones de $\mathbb{R}^2$ a $\mathbb{R}^2$.
+
+
+Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^2$, $(x_0,y_0)\in $ y 
+$F:U \to \mathbb{R}^2 $ una función diferenciable en $(x_0,y_0)$.
+
+Escribamos las funciones coordenadas de $F$ como $F=(f_1,f_2)$. Por simplicidad
+denotamos $A$ la matriz (de 2 por 2) de derivadas parciales $D_{(x_0,y_0)}F$.
+
+<ol>
+\item Demuestra que, si $(x,y)\ne (x_0,y_0)$:
+\begin{eqnarray*}
+  & & \frac{\|F(x,y)-F(x_0,y_0)-A(x-x_0,y-y_0) \|}{\|(x-x_0,y-y_0)\|} \\
+  &\leq &
+          \frac{|f_1(x,y)-f_1(x_0,y_0)-
+          \partial_xf_1(x_0,y_0)(x-x_0)-
+          \partial_yf_1(x_0,y_0)(y-y_0)|}
+          {\| (x-x_0,y-y_0)\|} \\
+  &+&  \frac{|f_2(x,y)-f_2(x_0,y_0)-
+      \partial_xf_2(x_0,y_0)(x-x_0)-
+      \partial_yf_2(x_0,y_0)(y-y_0)|}
+      {\| (x-x_0,y-y_0)\|}
+\end{eqnarray*}
+
+Hint: primero prueba que, para todo vector $(a,b)$
+$$
+\| (a,b) \| \leq |a| + |b|.
+$$
+
+
+
+\item Usando el inciso anterior y el ejercicio \ref{Ejer:LimiteEquivalenteDefDif}
+demuestra que
+$$
+\lim_{(x,y)\to (x_0,y_0)}	\frac{\|F(x,y)-F(x_0,y_0)-A(x-x_0,y-y_0) \|}{\|(x-x_0,y-y_0)\|} =0.
+$$
+</ol>		 
+
+
+\item\label{Ejer:EquivDefDif} Este ejercicio se puede pensar como el regreso del ejercicio \ref{Ejer:LimiteDefDifRn}.
+
+Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^2$,  $p_0=(x_0,y_0)\in U$
+y $F:U\to \mathbb{R}^2$. Supongamos que existe una matriz, de 2 por 2, $A$, tal que
+\begin{equation}\label{Eqn:GenLimiteEquivalenteDefDif}
+\lim_{(x,y)\to (x_0,y_0)} \frac{\| F(x,y)-F(x_0,y_0)-A(x-x_0,y-y_0) \|}{\| (x-x_0, y-y_0)  \|}=0.	
+\end{equation}
+Denotemos
+$$
+A=\left[
+\begin{array}{cc}
+  a_{1,1} & a_{1,2} \\
+  a_{2,1} & a_{2,2}
+\end{array}
+\right]	
+$$
+Demuestra que 
+<ol>
+\item Demuestra que, para $i=1,2$
+\begin{eqnarray*}
+  & & \frac{|f_i(x,y)-f_i(x_0,y_0)-a_{i,1}(x-x_0)-
+      a_{i,2}(y-y_0)|}{\|(x-x_0,y-y_0)\|} \\
+  &\leq &
+          \frac{\|F(x,y)-F(x_0,y_0)-A(x-x_0,y-y_0) \|}{\|(x-x_0,y-y_0)\|}
+\end{eqnarray*}
+
+
+Hint: primero prueba  que, para todo vector $(a,b)$
+$$
+|a|\leq \| (a,b)\|, \quad |b|\leq \|(a,b) \|
+$$
+
+\item Usando la hipótesis \eqref{Eqn:GenLimiteEquivalenteDefDif} y la definición
+\ref{Def:DerivadaR2} concluye que tanto $f_1$
+como $f_2$ son diferenciables en $p_0$ y por lo tanto $F$ es diferenciable en $p_0$.
+
+</ol>
+
+
+\item\label{Ejer:EquivDefDifR2} Usando los dos ejercicios \ref{Ejer:LimiteDefDifRn} y \ref{Ejer:EquivDefDif} prueba:
+
+Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^2$, $(x_0,y_0)\in U$ y $F:U\to \mathbb{R}^2$. 
+Entonces $F$ es diferenciable (en el sentido de la definición \ref{Def:DerivadaGeneral}) si y sólo si 
+existe una matriz $A$, de 2 por 2, tal que 
+$$
+lim_{(x,y)\to (x_0,y_0)}   \frac{\|F(x,y)-F(x_0,y_0)-A(x-x_0,y-y_0) \|}{\|(x-x_0,y-y_0)\|}=0
+$$
+
+
+\item\label{Ejer:EquivDefDifGeneral} Generaliza el ejercicio  \ref{Ejer:EquivDefDifR2} 
+para varias dimensiones, es decir, prueba lo siguiente. 
+
+
+Sea $U$ un subconjunto abierto de $\mathbb{R}^n$ y $F:U\to \mathbb{R}^m$. Sea
+$p_0\in U$. Prueba que  $F$ es diferenciable en $p_0$ si y sólo si  existe una matriz $A$,
+de $m$ por $n$, tal que
+$$
+\lim_{p\to p_0}\frac{\|F(p)-F(p_0)-T(p-p_0)) \|}{\|p-p_0\|}=0.
+$$
+
+En tal caso, $A=D_{p_0}F$.
+
+Sugerencia: copia los pasos de los ejercicios \ref{Ejer:LimiteDefDifRn} y \ref{Ejer:EquivDefDif}
+pero ahora utiliza las desigualdades
+
+
+$$
+\|(a_1,\dots, a_n)\| \leq |a_1|+\cdots +|a_n|
+$$
+y 
+$$
+|a_i| \leq \| (a_1,\dots, a_n)\|, \quad \textrm{para toda $i=1,\dots, n$}.
+$$
+
+
+\item Supongamos que  $F:\mathbb{R}^n \to \mathbb{R}^m$ es una función lineal.
+Demuestra que, para todo $p_0\in \mathbb{R}^n$, $F$ es
+diferenciable en $p_0$ y $D_{p_0}F=F$.
+
+Sugerencia: usa el ejercicio \ref{Ejer:EquivDefDifGeneral}.
+
+
+
+
+\item Sea $U$ un abierto de $\mathbb{R}^n$  y $F,G:U\to \mathbb{R}^m$ dos funciones.
+Sea $p_0 \in U$ un punto tal que tanto $F$ como $G$ son diferenciables en $p_0$.
+Sea $\alpha\in \mathbb{R}$ un escalar. Demuestra que la función
+$\alpha F+G$ es diferenciable en $p_0$ y
+$$
+D_{p_0}(\alpha F+G)=\alpha D_{p_0}F+D_{p_0}G.
+$$
+
+Sugerencia: define la función $H:=\alpha F+G$ y la matriz $A=\alpha D_{p_0}F+D_{p_0}G$. Primero
+muestra que, para $p\ne p_0$
+\begin{eqnarray*}
+\| H(p)- H(p_0)-A(p-p))   \|  &\leq  & |\alpha| \|F(p)-F(p_0)-D_{p_0}F(p-p_0)  \| \\
+                              &+& \|G(p)-G(p_0)-D_{p_0}G(p-p_0) \|
+\end{eqnarray*}
+
+Después, usa el ejercicio \ref{Ejer:EquivDefDifGeneral} para concluir que $H$ es diferenciable
+en $p_0$ con $D_{p_0}H=A$.
+
+
+\item Así como las funciones diferenciables con valores reales admiten una aproximación lineal,
+ver ejercicio \ref{Ejer:AproxLineal}, también
+las funciones con valores vectoriales.
+
+Sea $U\ne \emptyset $ un abierto de $\mathbb{R}^n$, $p_0\in U$ y $F:U\to \mathbb{R}^m$ una función
+diferenciable en $p_0$. Demuestra que existe una función con valores vectoriales, definida en
+una bola centrada en $p_0$, $E:B_r(p_0) \to \mathbb{R}^m$ tal que
+<ol>
+\item para todo $p\in B_r(p_0)$, $F(p)=F(p_0)+D_{p_0}F(p-p_0)+E(p)$,
+\item $\lim_{p\to p_0}\frac{\|  E(p)\|}{\| p-p_0 \|}=0$.
+</ol>
+
+Sugerencia: define $E(p)=F(p)-F(p_0)-D_{p_0}(p-p_0)$ y prueba que el límite que se pide
+es cero.
+
+
+\item Este ejercicio es el análogo al \ref{Ejer:CaracterizacionAproxLineal} , pero para funciones que toman valores vectoriales.
+
+Sea $U\ne \emptyset $ un abierto de $\mathbb{R}^n$, $p_0\in U$ y $F:U\to \mathbb{R}^m$ una función.
+
+
+
+Supongamos que existe una bola abierta $B_r(p_0)\subseteq U$,
+una función $\tilde{E}:B_r(p_0) \to \mathbb{R}^m$
+y una matriz $A$ de $m\times n$  que satisfacen
+
+<ol>[(i)]
+
+\item\label{Hip:1} para $p\in B_r(p_0)$, $F(p)=F(p_0)+A(p-p_0)+\tilde{E}(p)$
+\item\label{Hip:2}
+$$
+\lim_{p \to p_0} \frac{\|\tilde{E}(p)\|}{\|p-p_0\|}=0
+$$
+</ol>
+Entonces $F$ es diferenciable en $p_0$ y la matriz de derivadas
+parciales, valuadas en $p_0$,  es $A$.
+
+Sugerencia: si $\tilde{E}(p)=(\tilde{E}_1(p), \dots, \tilde{E}_m(p))$, primero
+prueba que las funciones $\tilde{E}_j$ satisfacen las condiciones del ejercicio
+\ref{Ejer:CaracterizacionAproxLineal} y de éste ejercicio concluye que
+cada función coordenada de $F$ es diferenciable en $p_0$.
+
+Si en la definición  \ref{Def:DerivadaGeneral} tomamos la dimensión del dominio igual a uno, 
+es decir $n=1$, tenemos la siguiente definición.
+
+
+<div class="definicion-box"><h2 class="number-title">  Definición</h2>
+  Sea $I\ne \emptyset$ un intervalo abierto en $\mathbb{R}$, $t_0\in I$ y $\gamma:I \to \mathbb{R}^m$.
+  Decimos que $\gamma$ es diferenciable en $t_0$ si, cuando escribmos las funciones coordendas
+  de $\gamma=(\gamma_1, \dots, \gamma_m)$, se cunple que para toda $j=1,\dots, m$, $\gamma_j$
+  es diferenciable en $t_0$. Note que cada $\gamma_j$ es una función de una variable que 
+  toma valores escalares, así que $\gamma_j$ es del tipo de  funciones estudidas  en cálculo 
+  uno dimensional.
+
+  
+</div>
+
+\item\label{Ejer:DefTraza} Sea  $\gamma:I\to \mathbb{R}^m$ una curva diferenciable. Al subconjunto
+de $\mathbb{R}^m$ definido por $\{\gamma(t):t\in I\}$
+se le conoce como la traza de $\gamma$.
+
+Para las siguientes curvas, haz ub bosquejo de su traza.
+
+<ol>
+\item $\gamma(t)=(R\cos(t), R\sen(t))$, $t\in \mathbb{R}$, donde $R>0$ es un número fijo.
+\item $\gamma(t)=(t,t^2)$, $t\in \mathbb{R}$.
+\item $\gamma(t)=(\cosh(t), \senh(t))$, $t\in \mathbb{R}$.
+\item $\gamma(t)=(\cos(t), \sen(t), t)$, $t \in (0,2\pi) $.
+</ol>
+  
+
+<div class="definicion-box"><h2 class="number-title">  Definición</h2>
+  Si $\gamma: I \to \mathbb{R}^m$ es diferenciable en todo punto de $I$, decimos que
+  $\gamma$ es una curva parametrizada diferenciable o por brevedad
+  una curva diferenciable. Si escribimos las funciones
+  coordenadas de $\gamma=(\gamma_1,\cdots, \gamma_m)$, notamos que el cociente
+  diferencial de $\gamma$, en $t_0$, es el vector $m$-dimensional
+  $$
+  \frac{\gamma(t)-\gamma(t_0)}{t-t_0}=\left(\frac{\gamma_1(t)-\gamma_1(t_0)}{t-t_0}, \dots, \frac{\gamma_m(t)-\gamma_m(t_0)}{t-t_0} \right)
+  $$
+
+  Por lo tanto, tomando el límite cuanto $t\to t_0$ y usando que cada $\gamma_j$ es diferenciable en
+  $t_0$ obtenemos
+  $$
+  \lim_{t\to t_0}\frac{\gamma(t)-\gamma(t_0)}{t-t_0}=( \gamma_1'(t_0), \dots, \gamma_m'(t_0))
+  $$
+
+  el cual se llama el vector derivada o vector tangente a $\gamma$ en $t_0$ y se denota
+  $$
+  \gamma'(t_0)=( \gamma_1'(t_0), \dots, \gamma_m'(t_0)).
+  $$
+
+  
+</div>
+
+\item\label{Ejer:ParametrizacionPorLongitudArco} Una curva diferenciable
+$\gamma: I \to \mathbb{R}$ se llama parametrizada por longitud de arco si
+para toda $t\in I$, $\|\gamma'(t)\|=1$.
+
+Para las siguientes curvas, encuentra cuales están
+parametrizadas por longitud de arco.
+
+<ol>
+\item $\gamma(t)=(\cos(t), \sen(t))$, $t\in \mathbb{R}$.
+\item $\gamma(t)=(\cosh(t), \senh(t))$, $t\in \mathbb{R}$.
+\item $\gamma(t)=(\cos(t), \sen(t), t)$, $t\in \mathbb{R}$.
+</ol>
+
+
+\item Sean $v, p \in \mathbb{R}^m$ vectores fijos y arbitrarios.
+Considera la curva $\gamma:\mathbb{R} \to \mathbb{R}^m$ dada por
+$\gamma(t)=p+ tv$. Demuestra:
+<ol>
+\item $\gamma$ es diferenciable en todo $\mathbb{R}$
+  y para todo $t\in \mathbb{R}$, $\gamma'(t)=v$.
+\item $\gamma$ está parametrizada por longitud
+  de arco si y sólo si $\|v\|=1$.
+</ol>
+
+     
+\item\label{Ejer:DerivadaProductoPunto} Supon que $I\subset \mathbb{R}$ es un intervalo abierto
+y que $\gamma,\beta :I\to \mathbb{R}^2$  son curvas diferenciables.
+<ol>
+\item Demuestra
+$$
+\frac{d}{dt} \langle \beta(t), \gamma(t) \rangle
+=\langle \beta(t), \gamma'(t) \rangle
++ \langle \beta'(t) , \gamma(t) \rangle
+$$
+\item Ahora supon que la imagen de $\gamma$ está contenida
+en una esfera centrada en el origen. Usa el inciso anterior
+para demostrar que, para toda $t$,
+$\langle \gamma(t), \gamma'(t)\rangle=0$, es decir
+el vector posición y el vector velocidad son ortogonales.
+
+</ol>
+
+
+\item Sea $\gamma: I \to \mathbb{R}$ una curva clase $C^2$ (lo cual
+significa que todas sus funciones coordenadas son clase $C^2$) que
+además está parametrizada por longitud de arco. Demuestra
+que, para todo $t\in I$, $\gamma'(t)$ y $\gamma''(t)$ son ortogonales.
+
+Sugerencia: primero nota que $\langle \gamma'(t), \gamma'(t)\rangle =1$,
+para toda $t\in I$, después  toma la derivada de la función
+$$
+t \mapsto \langle \gamma'(t), \gamma'(t)\rangle
+$$
+usando el ejercicio \ref{Ejer:DerivadaProductoPunto}
+
+
  </body>

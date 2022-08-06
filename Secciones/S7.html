@@ -83,4 +83,356 @@
     <h1 class="number-title flexbox"> Diferenciabilidad </h1> 
 
 
- </body>
+ 
+    <div class="definicion-box"> 
+        <h2 class="number-title" id="Def:DerivadaR2"> Definición </h2>
+        <p>
+            Sea $U\subseteq\mathbb{R}^2$ un abierto y $f:U\to \mathbb{R}$ una función.
+        </p>
+        <p>
+            Dado un punto $(x_0,y_0)\in U$, decimos que $f$ es diferenciable en $(x_0,y_0)$ si,
+            existe una función lineal $T:\mathbb{R}^2 \to \mathbb{R}$, tal que
+            $$
+            \lim_{(x,y)\to (x_0,y_0)} \frac{|f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0))  |}{\|(x-x_0,y-y_0)\|}=0
+            $$
+            
+            Si es así, la función lineal $T$ se llama la derivada de $f$ en $(x_0,y_0)$ y la vamos
+            a denotar $D_{(x_0,y_0)}f$.
+        </p>
+        <p>
+            Nota: lo más importante que uno debe darse cuenta es que, ahora, la derivada
+            valuada en un punto dado es una función, no un número. 
+        </p>
+   </div>
+
+  
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+    <p>
+        Demuestra que toda función constante $f:\mathbb{R}^2 \to \mathbb{R}$
+        es diferenciable en todo punto $(x_0,y_0)$. Es más, demuestra que $D_{(x_0,y_0)}f$
+        es la función constante cero.
+    </p>
+</div>
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+    <p>
+        Sea $f:\mathbb{R}^2 \to \mathbb{R}$ una función lineal. Demuestra
+        que $f$ es diferenciable en todo punto $(x_0,y_0)$. Es más, demuestra
+        que $D_{(x_0,y_0)}f=f$.
+    </p>
+</div>
+
+
+<div class="nota-box">
+    <h2 class="number-title"> Nota</h2>
+    <ol>
+        <li>
+            Cuando escribimos  $D_{(x_0,y_0)}f$ es importante notar que se representa
+            a una función lineal, la cual puede ser evaluada en un punto $(x,y)$, lo cual
+            se denota $(D_{(x,_0,y_0)}f)(x,y)$.
+        </li>
+        <li>
+            ya que $D_{(x_0,y_0)}f$ es una función lineal que va de $\mathbb{R}^2$ a $\mathbb{R}$,
+            sabemos (ver ejercicio \ref{Ejer:TeoRiesz}) que existe
+            un vector $(a,b)$ tal que
+            $$
+            (D_{(x_0,y_0)}f)(x,y)=\langle (a,b), (x,y)\rangle=ax+by. 
+            $$
+            Por esto, el vector renglón $[a,b]$ es la matriz que
+            representa a $D_{(x_0,y_0)}f$. Aveces se identifica la
+            transformación lineal  con su matriz y se escribe
+            $D_{(x_0,y_0)}f=[a,b]$.
+        </li>
+        <li>
+            También se pueden encontrar con  la notación $Df(x_0,y_0)$, para
+            indicar la defivada de $f$ en el punto $(x_0,y_0)$. Con esta notación,
+            el evaluar la derivda en el punto $(x,y)$ se denota $Df(x_0,y_0)(x,y)$.
+        </li>
+  </ol>
+</div>  
+  
+  
+
+          
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2>  
+    <p>
+        Considera la función, $f(x,y)=x^2+y^2$.
+    </p>
+    <p>
+        Fija un punto $(x_0,y_0)$ en $\mathbb{R}^2$ y considera la transformación lineal
+        $T:\mathbb{R}^2 \to \mathbb{R}$ dada por $T(x,y)=2x_0x+2y_0y$.      
+    </p>
+    <p>
+        Prueba que
+        $$
+        \lim_{(x,y)\to (x_0,y_0)} \frac{|f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)|}{\| (x-x_0,y-y_0)\|}=0
+        $$      
+        Concluye que $f$ es diferenciable en $(x_0,y_0)$ con $D_{(x_0,y_0)}f=T$ y
+        la matriz renglón $[2x_0 2y_0]$ representa a $D_{(x_0,y_0)}f$.
+    </p>
+</div>
+
+  
+  
+  
+  
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+    <p>
+        Considera la función $f(x,y)=xy$. Fija $(x_0,y_0)\in \mathbb{R}^2$ y considera la función lineal $T:\mathbb{R}^2 \to \mathbb{R}$
+        dada por $T(x,y)=y_0x+x_0y$.
+    </p>
+    <p>
+        Prueba que
+        $$
+        \lim_{(x,y)\to (x_0,y_0)} \frac{|f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)|}{\| (x-x_0,y-y_0)\|}=0
+        $$
+        
+        Hint: primero prueba
+        $$
+        f(x,y)-f(x_0,y_0)- T(x-x_0,y-y_0) = (x-x_0)(y-y_0)
+        $$
+      
+        Concluye que $f$ es diferenciable en todo punto $(x_0,y_0)$, $D_{(x_0,y_0)}f=T$ y la
+        matriz renglón $[y0 x_0]$ representa a $D_{(x_0,y_0)}f$.      
+    </p>
+</div>
+
+  
+
+  
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title" id="Ejer:ParcialesYDerivada"> Ejercicio </h2> 
+    <p>
+        Sea $U$ un abierto en $\mathbb{R}^2$ y $f:U\to \mathbb{R}$. Considera un punto
+        $(x_0,y_0)\in U$. Supon que $f$ es diferenciable en $(x_0,y_0)$. Sea $T:\mathbb{R}^2 \to \mathbb{R}$
+        la función lineal tal que
+        \begin{equation}\label{Eqn:LimiteDerivadaEjer}
+        \lim_{(x,y)\to (x_0,y_0)}\frac{|f(x,y)-f(x_0,y_0)-T(x-x_0, y-y_0)|}{\| (x-x_0,y-y_0) \|}=0.
+        \end{equation}      
+    </p>
+    <p>
+        Como $T$ es lineal sabemos que existen $a,b$ tales que $T(x,y)=ax+by$.
+        <ol>
+          <li>
+              Tomando puntos de la forma $p=(x_0+s,y_0)$, $s\ne 0$, demuestra
+              que el límite \eqref{Eqn:LimiteDerivadaEjer}
+              implica que $\partial_xf(x_0,y_0)$ existe y $\partial_xf(x_0,y_0)=a$.
+          </li>
+          <li>
+              Tomando puntos de la forma $p=(x_0,y_0+t)$, $t\ne 0$, demuestra
+              que el límite \eqref{Eqn:LimiteDerivadaEjer}
+              implica que $\partial_yf(x_0,y_0)$ existe y $\partial_yf(x_0,y_0)=b$.
+          </li>
+        </ol>
+        
+        
+        En otras palabras, la representación de $D_{(x_0,y_0)}f$ como matriz, es la matriz renglón dada por:
+        $$
+        [\partial_xf(x_0,y_0) \partial_yf(x_0,y_0)].
+        $$
+      
+    </p>
+</div>
+
+
+  <div class="definicion-box"> 
+    <h2 class="number-title"> Definición </h2>
+    <p>
+        Dada una función $f:U\to \mathbb{R}$ y un punto $(x_0,y_0)\in U$, el gradiente de
+        $f$ en $(x_0,y_0)$,
+        denotado $\nabla_{(x_0,y_0)}f$ se define como el vector formado por todas las derivadas parciales.
+        $$
+        \nabla_{(x_0,y_0)}f= (\partial_xf(x_0,y_0), \partial_yf(x_0,y_0)  )
+        $$
+        siempre y cuando las parciales existan.
+    </p>
+    <p>
+        En otras palabras, si $f$ es diferenciable en $(x_0,y_0)$ tenemos que:
+        $$(D_{(x_0,y_0)}f)(x,y)= \langle \nabla_{(x_0,y_0)}f, (x,y) \rangle, \quad \forall (x,y)\in \mathbb{R}^2 $$    
+    </p>
+    <p>
+        Sin embargo, puede pasar que todas las derivadas parciales existan pero la función no sea
+        diferenciable (ver ejercicio  \ref{Ejer:ExistenParcialesPeroNoDif}).
+    </p>
+  </div>
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+    <p>
+        Para cada una de las siguientes funciones calcula el gradiente.
+        <ol>
+          <li>
+              $f(x,y)=\frac{xy}{(x^2+y^2)^{1/2}}$
+          </li>
+          <li>
+              $f(x,y)=\log(x^2+y^2)$
+          </li>
+          <li>
+              $f(x,y)=\frac{x}{y}+\frac{y}{x}$
+          </li>
+        </ol>
+    </p>
+</div>
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title" id="Ejer:ExistenParcialesPeroNoDif"> Ejercicio </h2> 
+    <p>
+        El ejercicio \ref{Ejer:ParcialesYDerivada} muestra que las derivadas parciales y la derivada
+        están muy relacionadas, pero éste ejercicio muestra que no son equivalentes. Es decir,
+        una función puede admitir derivadas parciales sin ser diferenciable.      
+    </p>
+    <p>
+        Considera la función
+        $$
+        f(x,y)=\left\{
+          \begin{array}{cc}
+            \frac{xy^2}{x^2+y^2} & (x,y)\ne (0,0) \\
+            0 & (x,y)=(0,0)
+          \end{array}
+        \right.
+          $$
+                <ol>
+                  <li>
+                      Demuestra, usando la definición de límite de las derivas parciales,
+                      que $\partial_xf(0,0)=0=\partial_yf(0,0)$.
+                  </li>
+                  <li>
+                      Demuestra que $f$ no es diferenciable en $(0,0)$.
+                  </li>
+                </ol>
+    </p>
+  </div>        
+
+  <div class="definicion-box"> 
+    <h2 class="number-title"> Definición </h2>
+    <p>
+        Sea $U$ un abierto de $\mathbb{R}^2$, $(x_0,y_0)\in U$ y $f:U\to \mathbb{R}$ una función
+        diferenciable en $p_0$. El plano tangente a la gráfica de $f$ en el punto $(x_0,y_0)$ se define como
+        como
+        $$
+        z=f(x_0,y_0)+[\partial_xf(x_0,y_0)](x-x_0)+[\partial_yf(x_0,y_0)]
+        (y-y_0)
+        $$
+        Nota, de la ecuación, de que el vector normal al plano tangente es
+        $$N=(\partial_xf(x_0,y_0), \partial_yf(x_0,y_0), -1)$$
+    </p>
+  </div>
+  
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+    <p>
+        Para cada una de las siguientes superficies encuentra la
+        ecuación del plano tangente en el punto indicado.
+        <ol>
+          <li>
+              $z=x^2+y^3$ en $(1,2,9)$.
+          </li>
+          <li>
+              $z=e^{x^2+xy}$ en $(0,1,1)$.
+          </li>
+          <li>
+              $x^2+y^2+z^2=1$ en $(1/\sqrt{3}, 1/\sqrt{3}), 1/\sqrt{3})$.
+          </li>
+          <li>
+              $x^2+y^2-z^2=1$ en $(1,2,-2)$.
+          </li>
+        </ol>
+    </p>
+</div>
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+    <p>
+        ¿ En dónde cruza al eje $z$
+          el plano tangente a $z=2e^{x-y}$ en $(1,1,2)$ ?       
+    </p>
+</div>
+
+
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+    <p>
+        Considera la superficie $z^2-x^2-y^2=0$ y sea $(x_0,y_0,z_0)\ne(0,0,0)$ un 
+        punto en la superficie. Demuestra que el plano tangente a la superficie
+        que pasa por $(x_0,y_0,z_0)$ pasa por el origen y forma un ángulo de $45$
+        con el eje $z$.
+    </p>
+  </div>
+
+
+    
+    <div class="definicion-box"> 
+        <h2 class="number-title" id="Def:DerivadaRn"> Definición </h2>
+        <p>
+            Esta definición generaliza la definicion \ref{Def:DerivadaR2}
+        </p>
+        <p>
+            Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$,  $f:U \to \mathbb{R}$ una
+            función y $p_0\in U$. Decimos que $f$ es diferenciable en $p_0$ si 
+            existe una transformación lineal $T:\mathbb{R}^n \to \mathbb{R}$ tal que
+            $$
+            \lim_{p\to p_0} \frac{|f(p)-f(p_0)+T(p-p_0)|}{\|p-p_0\|}=0.
+            $$
+            A la transformación lineal $T$ se le llama la derivada de $f$ en $p_0$
+            y se le denota $D_{p_0}f$.
+        </p>
+    </div>
+
+
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+    <p>
+        Este ejercicio muestra que si $f$ es diferenciable en $p_0$, todas
+        las derivdas parciales en $p_0$ existen.
+    </p>
+    <p>
+        Sea $U\neq \emptyset $ un abierto de $\mathbb{R}^n$, $p_0\in U$ y $f:U\to \mathbb{R}$.
+    </p>
+    <p>
+        Supon que $f$ es diferenciable en $p_0$ y sea $T:\mathbb{R}^n \to \mathbb{R}$
+        la derivada de $f$ en $p_0$, es decir, $T$ satisface
+        $$
+        \lim_{p\to p_0} \frac{|f(p)-f(p_0)-T(p-p_0)|}{\|p-p_0\|}=0.
+        $$
+    
+        Recuerda que al ser $T$ lineal, existe un vector  $a=(a_1,\dots, a_n )\in \mathbb{R}^n$ tal que
+        $$
+        T(p)=\langle a, p \rangle, \quad  \forall p\in \mathbb{R}^n.
+        $$
+    
+        Tomando $p$ de la forma $p=p_0+se_j$, $s\ne 0$ (con $j$ fijo) prueba que $\partial_{p_j}f(p_0)$ existe
+        y $a_j=\partial_{p_j}f(p_0)$.
+    
+    </p>
+    <p>
+        Por lo tanto, usando la notación de la derivda como $T=D_{p_0}f$, resulta que
+        la derivada es la transformación lineal inducida  por el gradiente en $p_0$, es decir
+        $$
+        (D_{p_0}f)(p)=\langle \nabla_{p_0}f, p \rangle, \quad \forall p\in \mathbb{R}^n.
+        $$
+    </p>
+</div>
+
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+    <p>
+        Sea$f:\mathbb{R}^n\to \mathbb{R}$
+        una función diferenciable en todo punto de $\mathbb{R}^n$.¿  Tiene sentido la fórmula
+        $$
+        \nabla_{p_0+p_0'}f=\nabla_{p_0}f+\nabla_{p_0'}f ?
+        $$  
+    </p> 
+  </div>
+ 
+</body>

@@ -1,10 +1,10 @@
 
 \documentclass{article}
 \usepackage{amssymb, latexsym, amsmath, amsthm, amsfonts, amsbsy, enumerate, tabularx, graphicx}
-\newtheorem{definicion}{Definici\'on}
+\newtheorem{definicion}{Definición}
 
 \newtheorem{teorema}{Teorema}
-\newtheorem{prop}{Proposici\'on}
+\newtheorem{prop}{Proposición}
 \newtheorem{coro}{Corolario}
 \newtheorem{lema}{Lema}
 \theoremstyle{definition}
@@ -12,8 +12,8 @@
 \newtheorem{notas}{Notas}
 \newtheorem{ejemplo}{Ejemplo}
 \newtheorem{ejemplos}{Ejemplos}
-%\newtheorem{definicion}{Definici\'on}
-\newtheorem{notacion}{Notaci\'on}
+%\newtheorem{definicion}{Definición}
+\newtheorem{notacion}{Notación}
 \newcommand{\sen}{\operatorname{sen}}
 \newcommand{\senh}{\operatorname{senh}}
 \newcommand{\csch}{\operatorname{csch}}
@@ -29,49 +29,49 @@ $$
 \lim_{h \to 0} \frac{f(p+hu)-f(p)}{h}
 $$
 Se denota $\partial_uf(p)$ o, en las notas en pdf que
-se subieron como  $D_uf(p)$. La f\'ormula para calcularlo es
+se subieron como  $D_uf(p)$. La fórmula para calcularlo es
 $$
 \partial_uf(p)= \langle \nabla_pf, u \rangle 
 $$
 
 \section*{T10 }
 
-\begin{enumerate}
+<ol>
 \item Para las funciones dadas, calcula: (1o) $\nabla_{(x,y)}f$;
   (2o) $\langle \nabla_{(x,y)} f, u \rangle$;
   (3o) $\partial_{u}f(p)$.
 
-  \begin{enumerate}
+  <ol>
   \item $f(x,y)=x^2-y^2$, $u=(\sqrt{3}/2,1/2)$, $p=(1,0)$.
   \item $f(x,y)=e^x\cos(y)$, $u=(0,1)$, $p=(0,\pi/2)$.
   \item $f(x,y)=y^{10}$, $u=(0,-1)$, $p=(1,-1)$.
     \item $f(x,y)=$ distancia de $(x,y)$ a $(0,3)$, $u=(1,0)$, $p=(1,1)$.
-  \end{enumerate}
+  </ol>
 
-\item Para las siguientes funciones calcula $\nabla_{(x,y,z)}f$ y adem\'as haz un bosquejo
+\item Para las siguientes funciones calcula $\nabla_{(x,y,z)}f$ y además haz un bosquejo
   del campo vectorial $(x,y,z)\mapsto \nabla_{(x,y,z)}f$.
-  \begin{enumerate}
+  <ol>
   \item $f(x,y,z)=\frac{1}{\sqrt{x^2+y^2+z^2}}$, (fuente saliendo del origen).
   \item $f(x,y,z)=\log(x^2+y^2)$, (fuente axial sobre el eje z).
   \item $f(x,y,z)=\frac{1}{\sqrt{(x-1)^2+y^2+z^2}}-\frac{1}{\sqrt{(x+1)^2+y^2+z^2}}$, (dipolo). 
-  \end{enumerate}
+  </ol>
 
-\item Para $f(x,y)=3x^2+2y^2$, encuentra la direcci\'on (vector unitario) en la cual la gr\'afica
-  de la funci\'on est\'a m\'as empinada  y en la cual se mantiene nivelada, si estas parada
+\item Para $f(x,y)=3x^2+2y^2$, encuentra la dirección (vector unitario) en la cual la gráfica
+  de la función está más empinada  y en la cual se mantiene nivelada, si estas parada
   en el punto $(1,2)$.
   
-\item \textquestiondown Cual es el gradiente de $f$,
-  una funci\'on de una variable?
-  \textquestiondown Cu\'al son las dos posibles direcciones de $u$ al calcular
+\item ¿ Cual es el gradiente de $f$,
+  una función de una variable?
+  ¿ Cuál son las dos posibles direcciones de $u$ al calcular
   la derivada direccional de $f$ a lo largo de $u$ ?
 
-\item Encuentra la direcci\'on $u$ ($\|u\|=1$) para la cual $f$ crece m\'as r\'apidamente
-  si est\'as parado en $(1,2)$.
-  \begin{enumerate}
+\item Encuentra la dirección $u$ ($\|u\|=1$) para la cual $f$ crece más rápidamente
+  si estás parado en $(1,2)$.
+  <ol>
   \item $f(x,y)=e^{x-y}$,
   \item $f(x,y)=\sqrt{5-x^2-y^2}$ (cuidado!!!) ,
   \item $f(x,y)=ax+by$.
-  \end{enumerate}
+  </ol>
 
 
 \item Asume que $f(x,y)$ y $g(x,y)$ son   funciones, clase $C^1$, tal que
@@ -83,33 +83,33 @@ $$
 \item Si $f(0,1)=0, f(1,0)=1$ y $f(2,1)=2$, encuentra
   $\nabla_{(x,y)}f$ suponiendo que $f(x,y)=Ax+By+C$.
 
-\item \textquestiondown Qu\'e funciones tienen los siguientes
+\item ¿ Qué funciones tienen los siguientes
   gradientes?
-  \begin{enumerate}
+  <ol>
   \item $(2x+y,x)$,
   \item $(e^{x-y},-e^{x-y})$,
   \item $(y,-x)$.
     
-  \end{enumerate}
+  </ol>
   
 
 
-         \item Una funci\'on $f:\mathbb{R}^n \to \mathbb{R}$ se llama par si
+         \item Una función $f:\mathbb{R}^n \to \mathbb{R}$ se llama par si
            $f(-p)=f(p)$, para toda $p\in \mathbb{R}^n$.
 
-           \begin{enumerate}
+           <ol>
          
-           \item Sea $f:\mathbb{R} \to \mathbb{R}$ una funci\'on par, de una variable
+           \item Sea $f:\mathbb{R} \to \mathbb{R}$ una función par, de una variable
              y diferenciable en el origen. Demuestra que $f'(0)=0$. 
 
 
-           \item Sea $f:\mathbb{R}^n \to \mathbb{R}$ una funci\'on par,
+           \item Sea $f:\mathbb{R}^n \to \mathbb{R}$ una función par,
              diferenciable en el origen. Demuestra que $\nabla_{0}f=0$.
 
              Sugerencia: usa el inciso anterior.
              
-           \item Sea $g:\mathbb{R}^2\to \mathbb{R}$ una funci\'on diferenciable en
-             el origen. Sup\'on que existen dos vectores ortonormales (es decir,
+           \item Sea $g:\mathbb{R}^2\to \mathbb{R}$ una función diferenciable en
+             el origen. Supón que existen dos vectores ortonormales (es decir,
              unitarios y ortogonales) $u$,$v$, tales que
              \begin{eqnarray*}
                g(tu)=g(-tu), \quad g(tv)=g(-tv),\quad \forall t\in \mathbb{R}. 
@@ -119,10 +119,10 @@ $$
              
              Sugerencia: comienza probando que   $\partial_ug(0,0)=0$ y $\partial_{v}g(0,0)=0$. 
 
-           \end{enumerate}
+           </ol>
 
   
-  \end{enumerate}
+  </ol>
 
 
 v  

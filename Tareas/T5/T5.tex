@@ -1,10 +1,10 @@
 
 \documentclass{article}
 \usepackage{amssymb, latexsym, amsmath, amsthm, amsfonts, amsbsy, enumerate, tabularx, graphicx}
-\newtheorem{definicion}{Definici\'on}
+\newtheorem{definicion}{Definición}
 
 \newtheorem{teorema}{Teorema}
-\newtheorem{prop}{Proposici\'on}
+\newtheorem{prop}{Proposición}
 \newtheorem{coro}{Corolario}
 \newtheorem{lema}{Lema}
 \theoremstyle{definition}
@@ -12,8 +12,8 @@
 \newtheorem{notas}{Notas}
 \newtheorem{ejemplo}{Ejemplo}
 \newtheorem{ejemplos}{Ejemplos}
-%\newtheorem{definicion}{Definici\'on}
-\newtheorem{notacion}{Notaci\'on}
+%\newtheorem{definicion}{Definición}
+\newtheorem{notacion}{Notación}
 \newcommand{\sen}{\operatorname{sen}}
 \newcommand{\senh}{\operatorname{senh}}
 \newcommand{\csch}{\operatorname{csch}}
@@ -28,28 +28,28 @@
 
   
 
-	\begin{definicion}
-	Una funci\'on $f: \mathbb{R}^n \to \mathbb{R}$ se llama convexa si 
+	<div class="definicion-box"><h2 class="number-title">  Definición</h2>
+	Una función $f: \mathbb{R}^n \to \mathbb{R}$ se llama convexa si 
 	$$f( tp+(1-t)q ) \leq  tf(p)+(1-t)f(q),$$ 
 	para todos $p,q \in \mathbb{R}^n$ y todo $t \in [0,1]$. 
 	
-	Por ejemplo, en c\'alculo uno-dimensional, se prueba que si $f: I \to \mathbb{R}$ (donde $I$ es un intervalo)
+	Por ejemplo, en cálculo uno-dimensional, se prueba que si $f: I \to \mathbb{R}$ (donde $I$ es un intervalo)
 	es diferenciable y $f''(x)>0$ para todo $x\in I$, entonces $f$ es convexa.
 	
 	Una curvas $C\subset \mathbb{R}^n$ se llama convexa si, para todos $p,q\in C$, el segmento que une
 	$p$ con $q$ queda por arriba del segmento de  $C$ que va de $p$ a $q$.
 	
-	\end{definicion}
+	</div>
 
 
         \section*{T5}
   
-  \begin{enumerate}
+  <ol>
 
-\item Ecuaci\'on del plano, forma normal. 
+\item Ecuación del plano, forma normal. 
 
-Sean $u\ne 0, v\ne 0$, dos vectores en $\mathbb{R}^3$, linealmente independientes. Considera la ecuaci\'on 
-param\'etrica
+Sean $u\ne 0, v\ne 0$, dos vectores en $\mathbb{R}^3$, linealmente independientes. Considera la ecuación 
+paramétrica
 $$
 p=p_0+tu+sv
 $$	
@@ -74,10 +74,10 @@ Al vector $(A,B,C)$ se le llama un  vector normal al plano.
       \item Sean $u,v\in \mathbb{R}^3$. Demuestra que : $\|u\times v \|^2+ (\langle u,v \rangle)^2=\|u\|^2\|v\|^2$.
 
     \item Dados dos vectores no cero, $p,q\in \mathbb{R}^n$, prueba que el vector $v=\|p\|q+\|q\|p$ bisecta a el
-    \'angulo entre $p$ y $q$.
+    ángulo entre $p$ y $q$.
     
 	
-	\item Una funci\'on de producci\'on tipo Cobb-Douglas, en dos dimensiones, es una funci\'on
+	\item Una función de producción tipo Cobb-Douglas, en dos dimensiones, es una función
 	de la forma $f(x,y)=x^\alpha y^\beta$, donde $x,y \geq 0$ y $0<\alpha, \beta$.
 	
 	Para $c>0$ considera la curva de nivel
@@ -89,42 +89,42 @@ Al vector $(A,B,C)$ se le llama un  vector normal al plano.
 	
 	
 	Este ejercicio demuestra que $C$ es una curva convexa. 
-	\begin{enumerate}
+	<ol>
 	\item Demuestra que, para todo $(x,y)\in C$, $y=\frac{c^{1/\beta}}{x^{\alpha/\beta}}$.
-	\item Demuestra que la funci\'on $g(s)=\frac{1}{s^{\alpha / \beta}}$, $s >0$, es convexa. 
+	\item Demuestra que la función $g(s)=\frac{1}{s^{\alpha / \beta}}$, $s >0$, es convexa. 
 	\item Demuestra  que $C$ es una curva convexa.
 	
-	Sugerencia: Toma $(x_1,y_1), (x_2,y_2)\in C$ y sin p\'erdida de generalidad podemos suponer $x_1<x_2$. Toma
+	Sugerencia: Toma $(x_1,y_1), (x_2,y_2)\in C$ y sin pérdida de generalidad podemos suponer $x_1<x_2$. Toma
 	$(x,y)\in C$ un punto entre $(x_1,y_1)$ y $(x_2,y_2)$ (por lo tanto $x_1<x<x_2$). Si $t\in [0,1]$
 	es tal que $x=(1-t)x_1+tx_2$, usando $y=g(x)$ y el ejercicio anterior, demuestra que  $y\leq (1-t)y_1+ty_2$.
 	
-	\end{enumerate}
+	</ol>
 
 
 
-      \item Para los siguientes l\'imites, calcula si existe y si no prueba que no existe.
-        \begin{enumerate}
+      \item Para los siguientes límites, calcula si existe y si no prueba que no existe.
+        <ol>
         \item $\lim_{(x,y,z)\to (0,0,0)} \frac{2x^2y\cos(z)}{x^2+y^2}$
           \item $\lim_{(x,y)\to (0,0)} \frac{\cos(x)-1-(x^2/2)}{x^4+y^4}$
-        \end{enumerate}
+        </ol>
     
-  \item Sea $F:\mathbb{R}^n \to \mathbb{R}^m$ una funci\'on lineal tal que
+  \item Sea $F:\mathbb{R}^n \to \mathbb{R}^m$ una función lineal tal que
     $$
     \lim_{p\to 0} \frac{\|F(p)\|}{\|p\|}=0.
     $$
 
-    Demuestra que $F$ es la funci\'on constante cero.
+    Demuestra que $F$ es la función constante cero.
 
   \item Prueba que los siguientes conjuntos son abiertos:
-    \begin{enumerate}
+    <ol>
     \item $A=\{(x,y): -1< x <1, -1<y <1  \}$.
   \item $B=\{(x,y): x< 0  \}$.
     \item $C=\{ (x,y): |x|>2  \}$.
-    \end{enumerate}
+    </ol>
     
 
 
-  \end{enumerate}
+  </ol>
   
   
        \end{document}
