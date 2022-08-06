@@ -153,40 +153,46 @@
 \item\label{Ejer:C1ImplicaDif} Este ejercicio muestra que toda función de dos variables, clase $C^1$ es diferenciable.
   Sea $U\ne \emptyset$ un subconjunto abierto de $\mathbb{R}^2$ y $f:U \to \mathbb{R}$
   una función clase $C^1$ en $U$. Fija $p_0(x_0,y_0)\in U$ y sea $r>0$ tal que
-  $B_r(x_0,y_0)\subset U$. Denotamos $h=(h_1,h_2)$ un vector cualquiera con $\|h\|<r$.
+  $B_r(x_0,y_0)\subset U$. Denotamos $h=(h_1,h_2)$ un vector cualquiera con $\|h\| < r$.
   <ol>
-  \item Sean $(x_1,y_2), (x_2,y_2)\in B_r(p_0)$. Demuestra que existen
-    puntos $\overline{x}$, entre $x_1$ y $x_2$ y $\overline{y}$, entre $y_1$ y $y_2$ tales que: 
+    <li>
+        Sean $(x_1,y_2), (x_2,y_2)\in B_r(p_0)$. Demuestra que existen
+        puntos $\overline{x}$, entre $x_1$ y $x_2$ y $\overline{y}$, entre $y_1$ y $y_2$ tales que: 
+        
+        \begin{eqnarray*}
+          f(x_1,y_1)-f(x_2,y_1)&=&\partial_xf(\overline{x},y_1)(x_1-x_2)\\
+          f(x_1,y_1)-f(x_1,y_2)&=&\partial_yf(x_1,\overline{y})(y_1-y_2)
+        \end{eqnarray*}    
+        Sugerencia: utiliza el teorema del valor medio.
+    </li>
+    <li>
+        Prueba que
+        \begin{eqnarray*}
+          f(x_0+h_1,y_0+h_2)-f(x_0,y_0)&=&f(x_0+h_1, y_0+h_2)-f(x_0+h_1, y_0) \\
+                                       &+& f(x_0+h_1, y_0)-f(x_0,y_0)
+        \end{eqnarray*}
+        Nota que esta ecuación se puede interpretar como:    
+    </li>
+    <li>
+        Demuestra que existen puntos
+        $$
+        f(x_0+h_1,y_0+h_2)-f(x_0,y_0)=\partial_yf(x_0+h_1,\overline{y})h_2+ \partial_xf(\overline{x},y_0)h_1
+        $$
+    </li>
+    <li>
+        Demuetra que
+        \begin{eqnarray*}
+          & \frac{|f(x_0+h_1,y_0+h_2)-f(x_0,y_0)- \partial_xf(x_0,y_0)h_1-\partial_yf(x_0,y_0)h_2|}{\|h\|} \\
+          &\leq
+        |\partial_xf(\overline{x}, y_0)-\partial_xf(x_0,y_0)|+ |\partial_yf(x_0+h_1,\overline{y})-\partial_yf(x_0,y_0)|
+        \end{eqnarray*}
     
-    \begin{eqnarray*}
-      f(x_1,y_1)-f(x_2,y_1)&=&\partial_xf(\overline{x},y_1)(x_1-x_2)\\
-      f(x_1,y_1)-f(x_1,y_2)&=&\partial_yf(x_1,\overline{y})(y_1-y_2)
-    \end{eqnarray*}
-
-    Sugerencia: utiliza el teorema del valor medio.
-  \item Prueba que
-    \begin{eqnarray*}
-      f(x_0+h_1,y_0+h_2)-f(x_0,y_0)&=&f(x_0+h_1, y_0+h_2)-f(x_0+h_1, y_0) \\
-                                   &+& f(x_0+h_1, y_0)-f(x_0,y_0)
-    \end{eqnarray*}
-    Nota que esta ecuación se puede interpretar como:
-
-  \item Demuestra que existen puntos
-    $$
-    f(x_0+h_1,y_0+h_2)-f(x_0,y_0)=\partial_yf(x_0+h_1,\overline{y})h_2+ \partial_xf(\overline{x},y_0)h_1
-    $$
-
-  \item Demuetra que
-    \begin{eqnarray*}
-      & \frac{|f(x_0+h_1,y_0+h_2)-f(x_0,y_0)- \partial_xf(x_0,y_0)h_1-\partial_yf(x_0,y_0)h_2|}{\|h\|} \\
-      &\leq
-    |\partial_xf(\overline{x}, y_0)-\partial_xf(x_0,y_0)|+ |\partial_yf(x_0+h_1,\overline{y})-\partial_yf(x_0,y_0)|
-    \end{eqnarray*}
-
-    Sugerencia: usa el inciso anterior.
-
-    \item Demuestra que $f$ es diferenciable en $p_0$. 
-  </ol>
+        Sugerencia: usa el inciso anterior.
+    </li>
+    <li>
+        Demuestra que $f$ es diferenciable en $p_0$. 
+    </li>
+    </ol>
 
 \item Generaliza la prueba del ejercicio \ref{Ejer:C1ImplicaDif} para probar que $U\ne \emptyset$
 es un conjunto abierto de $\mathbb{R}^n$ y
@@ -200,10 +206,16 @@ de las derivadas parciales para encontrar  un dominio
 para el cual la función sea diferencible en
 todo punto del dominio.
 <ol>
-\item $f(x,y)=e^{\sqrt{x^2+y^2}}$,  $(x,y)\in \mathbb{R}^2$,
-\item $f(x,y)=\log(e^{\sqrt[4]{(x-1)^2+(y-2)^2}}+e^{\sqrt{(x-5)^2+(y-6)^2}})$,
-$(x,y)\in \mathbb{R}^2$,
-\item $f(x,y)=\log(1+\sqrt{(x-1)^2+(y+1)^2})$, $(x,y)\in \mathbb{R}^2$.
+    <li>
+        $f(x,y)=e^{\sqrt{x^2+y^2}}$,  $(x,y)\in \mathbb{R}^2$,
+    </li>
+    <li>
+        $f(x,y)=\log(e^{\sqrt[4]{(x-1)^2+(y-2)^2}}+e^{\sqrt{(x-5)^2+(y-6)^2}})$,
+        $(x,y)\in \mathbb{R}^2$,
+    </li>
+    <li>
+        $f(x,y)=\log(1+\sqrt{(x-1)^2+(y+1)^2})$, $(x,y)\in \mathbb{R}^2$.
+    </li>
 </ol>
 
 
@@ -235,10 +247,18 @@ siempre y cuando $\partial_{p_i}f$ existe en una bola abierta alrededor de $p_0$
 \item Para las siguientes funciones encuntras las derivadas parciales hasta orden 2.
 
 <ol>
-\item $f(x,y)=d+a_1x+b_1y+cxy+a_2x^2+b_2y^2$, donde $a_i,b_i,c,d$ son constantes.
-\item $f(x,y,z)=\sqrt{x^2+y^2+z^2}$.
-\item $f(p)=\langle q, p \rangle$, donde $q\in \mathbb{R}^n$ es un vector fijo.  
-\item $f(p)=\sum_{i=1}^n p_i^2$.
+    <li>
+        $f(x,y)=d+a_1x+b_1y+cxy+a_2x^2+b_2y^2$, donde $a_i,b_i,c,d$ son constantes.
+    </li>
+    <li>
+        $f(x,y,z)=\sqrt{x^2+y^2+z^2}$.
+    </li>
+    <li>
+        $f(p)=\langle q, p \rangle$, donde $q\in \mathbb{R}^n$ es un vector fijo.  
+    </li>
+    <li>
+        $f(p)=\sum_{i=1}^n p_i^2$.
+    </li>
 </ol>
 
 
@@ -250,9 +270,15 @@ encuentra $\partial_x^2 p, \partial_y^2 p, \partial_{xy} p$ y $\partial_{yx} p$.
 calcula $\partial_{x}\partial_yf(x,y)$ y $\partial_y\partial_xf(x,y)$.
 ¿ Qué notas ?
 <ol>
-\item $f(x,y)=x^2+xy^2+y^3$
-\item $f(x,y)=\log(x^2+y^4)$
-\item $f(x,y)=e^{3x+2xy+y^2}$                 
+    <li>
+        $f(x,y)=x^2+xy^2+y^3$
+    </li>
+    <li>
+        $f(x,y)=\log(x^2+y^4)$
+    </li>
+    <li>
+        $f(x,y)=e^{3x+2xy+y^2}$
+    </li>
 </ol>
 
 
@@ -268,42 +294,47 @@ y son continuas en $U$.
 de clase $C^2$ es $U$,  satisface que $\partial_{xy}f=\partial_{yx}f$. Fija $(x_0,y_0)\in U$.
 
 <ol>
-\item Considera las funciones
-$$
-S(h_1,h_2)=f(x_0+h_1,y_0+h_2)-f(x_0+h_1),y_0)-f(x_0,y_0+h_2)+f(x_0,y_0)
-$$
-y
-$$
-g(x)=f(x,y_0+h_1)-f(x,y_0), \quad h(y)=f(x_0+h_1,y)-f(x_0,y)
-$$
-Prueba que
-$$
-S(h_1,h_2)=g(x_0+h_1)-g(x_0)=h(y_0+h_2)-h(y_0)
-$$
-
-\item Demuestra que existe un punto $\overline{x}$, entre $x_0$ y $x_0+h_1$
-y un punto $\overline{y}$, entre $y_0$y $y_0+h_2$, tales que:
-$$g(x_0+h_1)-g(x_0)=g'(\overline{x})h_1, h(y_0+h_2)-h(y_0)=h'(\overline{y})h_2$$
-Sugerencia: utiliza el teorema del valor medio.
-
-\item Prueba que
-\begin{eqnarray*}
-S(h_1,h_2)&=&\left( \partial_xf(\overline{x}, y_0+h_2)-\partial_xf(\overline{x}, y_0)  \right) h_1 \\
-&=&\left(\partial_yf(x_0+h_1,\overline{y})-\partial_yf(x_0, \overline{y}) \right)h_2
-\end{eqnarray*}
-
-
-\item Demostrar que existen puntos $\overline{\overline{y}}$, entre $y_0$ y $y_0+h_2$ y
-$\overline{\overline{x}}$, entre $x_0$ y $x_0+h_1$ tales que
-$$
-S(h_1,h_2)=\partial_{yx}f(\overline{x}, \overline{\overline{y}})h_1h_2=\partial_{yx}f(\overline{\overline{x}}, \overline{y})h_1h_2
-$$
-Sugerencia: utiliza el teorema del valor medio.
-\item Tomando límites, cuando $(h_1,h_2)\to (0,0)$, concluye que
-$$
-\partial_{xy}f(x_0,y_0)=\lim_{(h_1,h_2)\to (0,0)} \frac{S(h_1,h_2)}{h_1h_2}=\partial_{yx}f(x_0,y_0).
-$$
-
+    <li>
+        Considera las funciones
+        $$
+        S(h_1,h_2)=f(x_0+h_1,y_0+h_2)-f(x_0+h_1),y_0)-f(x_0,y_0+h_2)+f(x_0,y_0)
+        $$
+        y
+        $$
+        g(x)=f(x,y_0+h_1)-f(x,y_0), \quad h(y)=f(x_0+h_1,y)-f(x_0,y)
+        $$
+        Prueba que
+        $$
+        S(h_1,h_2)=g(x_0+h_1)-g(x_0)=h(y_0+h_2)-h(y_0)
+        $$
+    </li>
+    <li>
+        Demuestra que existe un punto $\overline{x}$, entre $x_0$ y $x_0+h_1$
+        y un punto $\overline{y}$, entre $y_0$y $y_0+h_2$, tales que:
+        $$g(x_0+h_1)-g(x_0)=g'(\overline{x})h_1, h(y_0+h_2)-h(y_0)=h'(\overline{y})h_2$$
+        Sugerencia: utiliza el teorema del valor medio.
+    </li>
+    <li>
+        Prueba que
+        \begin{eqnarray*}
+        S(h_1,h_2)&=&\left( \partial_xf(\overline{x}, y_0+h_2)-\partial_xf(\overline{x}, y_0)  \right) h_1 \\
+        &=&\left(\partial_yf(x_0+h_1,\overline{y})-\partial_yf(x_0, \overline{y}) \right)h_2
+        \end{eqnarray*}        
+    </li>
+    <li>
+        Demostrar que existen puntos $\overline{\overline{y}}$, entre $y_0$ y $y_0+h_2$ y
+        $\overline{\overline{x}}$, entre $x_0$ y $x_0+h_1$ tales que
+        $$
+        S(h_1,h_2)=\partial_{yx}f(\overline{x}, \overline{\overline{y}})h_1h_2=\partial_{yx}f(\overline{\overline{x}}, \overline{y})h_1h_2
+        $$
+        Sugerencia: utiliza el teorema del valor medio.
+    </li>
+    <li>
+        Tomando límites, cuando $(h_1,h_2)\to (0,0)$, concluye que
+        $$
+        \partial_{xy}f(x_0,y_0)=\lim_{(h_1,h_2)\to (0,0)} \frac{S(h_1,h_2)}{h_1h_2}=\partial_{yx}f(x_0,y_0).
+        $$
+    </li>
 </ol>
 
 <div class="definicion-box"><h2 class="number-title">  Definición</h2>
@@ -319,11 +350,21 @@ para todo $(x,y)\in U$.
 \item Para las siguientes funciones, determina cuales son armónicas.
 
 <ol>
-\item $f(x,y)=x^2-y^2$
-\item $f(x,y)=e^y\cos(x)$
-\item $f(x,y)=e^y\sen(x)$
-\item $f(x,y)=\log(x^2+y^2)$
-\item $f(x,y)=x^3-3x^2y-3yx^3+y^3$
+    <li>
+        $f(x,y)=x^2-y^2$
+    </li>
+    <li>
+        $f(x,y)=e^y\cos(x)$
+    </li>
+    <li>
+        $f(x,y)=e^y\sen(x)$
+    </li>
+    <li>
+        $f(x,y)=\log(x^2+y^2)$
+    </li>
+    <li>
+        $f(x,y)=x^3-3x^2y-3yx^3+y^3$
+    </li>
 </ol>		       
 
 \item Demuestra que toda función lineal $f:\mathbb{R}^2\to \mathbb{R}$ satisface
@@ -333,9 +374,15 @@ la ecuación $\partial_x^2f(x,y)+\partial_y^2f(x,y)=0$, para todo $(x,y)$.
 parámetros. Encuentra
 los valores de $a$, $b$ y $c$ para los cuales
 <ol>
-\item $\partial_x^2 f(x,y)+\partial_y^2f(x,y) >0$, para todo $(x,y)$,
-\item $\partial_x^2f(x,y)+\partial_y^2f(x,y)=0$, para todo $(x,y)$,
-\item $\partial_x^2f(x,y)+\partial_y^2f(x,y)<0$, para todo $(x,y)$.
+    <li>
+        $\partial_x^2 f(x,y)+\partial_y^2f(x,y) >0$, para todo $(x,y)$,
+    </li>
+    <li>
+        $\partial_x^2f(x,y)+\partial_y^2f(x,y)=0$, para todo $(x,y)$,
+    </li>
+    <li>
+        $\partial_x^2f(x,y)+\partial_y^2f(x,y)< 0$, para todo $(x,y)$.
+    </li>
 </ol>
         
 
@@ -355,18 +402,23 @@ $$
 $(t,x)\in \mathbb{R}^2$.
 
 <ol>
-\item Demuestra que $g$ satiface la
-ecuación del calor:
-$$
-\partial_t g= \partial_x^2g.
-$$
-Aquí $g(x,t)$, representa la temperatura de una varilla de metal
-en la posición $x$ al tiempo $t$.
-\item Esbozar la gráfica de $g$, para $t\geq 0$.
-\item ¿ Qué sucede con $g(x,t)$ cuando $t\to \infty$ ?
-Interpreta éste límite en términos del comportamiento del calor
-en la varilla.
-
+    <li>
+        Demuestra que $g$ satiface la
+        ecuación del calor:
+        $$
+        \partial_t g= \partial_x^2g.
+        $$
+        Aquí $g(x,t)$, representa la temperatura de una varilla de metal
+        en la posición $x$ al tiempo $t$.
+    </li>
+    <li>
+        Esbozar la gráfica de $g$, para $t\geq 0$.
+    </li>
+    <li>
+        ¿ Qué sucede con $g(x,t)$ cuando $t\to \infty$ ?
+        Interpreta éste límite en términos del comportamiento del calor
+        en la varilla.
+    </li>
 </ol>
 
 
@@ -391,26 +443,29 @@ f(x,y)=\left\{
 $$
 Prueba
 <ol>
-\item
-$$
-\partial_xf(x,y)=\left\{
- \begin{array}{cc}
-   \frac{3x^2-y^3}{x^2+y^2}- \frac{2x(x^3y-xy^3)}{(x^2+y^2)^2} & (x,y)\ne (0,0)\\
-   0 & (x,y)=(0,0)
- \end{array}
-\right.
-$$
-\item
-$$
-\partial_y f(x,y)=\left\{
- \begin{array}{cc}
-   \frac{x^3-3xy^2}{x^2+y^2}- \frac{2y(x^3y-xy^3)}{(x^2+y^2)^2} & (x,y)\ne (0,0)\\
-   0 & (x,y)=(0,0)
- \end{array}
-\right.
-$$
-
-\item $\partial_x \partial_yf(0,0)=-1$ y $\partial_y\partial_xf(0,0)=1$
+    <li>
+        $$
+        \partial_xf(x,y)=\left\{
+         \begin{array}{cc}
+           \frac{3x^2-y^3}{x^2+y^2}- \frac{2x(x^3y-xy^3)}{(x^2+y^2)^2} & (x,y)\ne (0,0)\\
+           0 & (x,y)=(0,0)
+         \end{array}
+        \right.
+        $$
+    </li>
+    <li>
+        $$
+        \partial_y f(x,y)=\left\{
+         \begin{array}{cc}
+           \frac{x^3-3xy^2}{x^2+y^2}- \frac{2y(x^3y-xy^3)}{(x^2+y^2)^2} & (x,y)\ne (0,0)\\
+           0 & (x,y)=(0,0)
+         \end{array}
+        \right.
+        $$        
+    </li>
+    <li>
+        $\partial_x \partial_yf(0,0)=-1$ y $\partial_y\partial_xf(0,0)=1$
+    </li>
 </ol>
       
            
@@ -438,10 +493,18 @@ Note que el  renglón-$i$ de $D_{p_0}F$ es simplemente $\nabla_{p_0}f_i$.
 parciales
 
 <ol>
-\item $F(x,y)=(xe^y, ye^x)$
-\item $F(x,y)=(xy\cos(x), xy\sen(y))$
-\item $F(x,y)=(xy+x^2,x^2+y^2, x^3+xy+y^3)$
-\item $F(x,y,z)=(xyz, x^2y^2z^2)$
+    <li>
+        $F(x,y)=(xe^y, ye^x)$
+    </li>
+    <li>
+        $F(x,y)=(xy\cos(x), xy\sen(y))$
+    </li>
+    <li>
+        $F(x,y)=(xy+x^2,x^2+y^2, x^3+xy+y^3)$
+    </li>
+    <li>
+        $F(x,y,z)=(xyz, x^2y^2z^2)$
+    </li>
 </ol>
 
 
@@ -466,32 +529,33 @@ Escribamos las funciones coordenadas de $F$ como $F=(f_1,f_2)$. Por simplicidad
 denotamos $A$ la matriz (de 2 por 2) de derivadas parciales $D_{(x_0,y_0)}F$.
 
 <ol>
-\item Demuestra que, si $(x,y)\ne (x_0,y_0)$:
-\begin{eqnarray*}
-  & & \frac{\|F(x,y)-F(x_0,y_0)-A(x-x_0,y-y_0) \|}{\|(x-x_0,y-y_0)\|} \\
-  &\leq &
-          \frac{|f_1(x,y)-f_1(x_0,y_0)-
-          \partial_xf_1(x_0,y_0)(x-x_0)-
-          \partial_yf_1(x_0,y_0)(y-y_0)|}
-          {\| (x-x_0,y-y_0)\|} \\
-  &+&  \frac{|f_2(x,y)-f_2(x_0,y_0)-
-      \partial_xf_2(x_0,y_0)(x-x_0)-
-      \partial_yf_2(x_0,y_0)(y-y_0)|}
-      {\| (x-x_0,y-y_0)\|}
-\end{eqnarray*}
-
-Hint: primero prueba que, para todo vector $(a,b)$
-$$
-\| (a,b) \| \leq |a| + |b|.
-$$
-
-
-
-\item Usando el inciso anterior y el ejercicio \ref{Ejer:LimiteEquivalenteDefDif}
-demuestra que
-$$
-\lim_{(x,y)\to (x_0,y_0)}	\frac{\|F(x,y)-F(x_0,y_0)-A(x-x_0,y-y_0) \|}{\|(x-x_0,y-y_0)\|} =0.
-$$
+    <li>
+        Demuestra que, si $(x,y)\ne (x_0,y_0)$:
+        \begin{eqnarray*}
+          & & \frac{\|F(x,y)-F(x_0,y_0)-A(x-x_0,y-y_0) \|}{\|(x-x_0,y-y_0)\|} \\
+          &\leq &
+                  \frac{|f_1(x,y)-f_1(x_0,y_0)-
+                  \partial_xf_1(x_0,y_0)(x-x_0)-
+                  \partial_yf_1(x_0,y_0)(y-y_0)|}
+                  {\| (x-x_0,y-y_0)\|} \\
+          &+&  \frac{|f_2(x,y)-f_2(x_0,y_0)-
+              \partial_xf_2(x_0,y_0)(x-x_0)-
+              \partial_yf_2(x_0,y_0)(y-y_0)|}
+              {\| (x-x_0,y-y_0)\|}
+        \end{eqnarray*}
+        
+        Hint: primero prueba que, para todo vector $(a,b)$
+        $$
+        \| (a,b) \| \leq |a| + |b|.
+        $$
+    </li>
+    <li>
+        Usando el inciso anterior y el ejercicio \ref{Ejer:LimiteEquivalenteDefDif}
+        demuestra que
+        $$
+        \lim_{(x,y)\to (x_0,y_0)}	\frac{\|F(x,y)-F(x_0,y_0)-A(x-x_0,y-y_0) \|}{\|(x-x_0,y-y_0)\|} =0.
+        $$
+    </li>
 </ol>		 
 
 
@@ -513,24 +577,24 @@ A=\left[
 $$
 Demuestra que 
 <ol>
-\item Demuestra que, para $i=1,2$
-\begin{eqnarray*}
-  & & \frac{|f_i(x,y)-f_i(x_0,y_0)-a_{i,1}(x-x_0)-
-      a_{i,2}(y-y_0)|}{\|(x-x_0,y-y_0)\|} \\
-  &\leq &
-          \frac{\|F(x,y)-F(x_0,y_0)-A(x-x_0,y-y_0) \|}{\|(x-x_0,y-y_0)\|}
-\end{eqnarray*}
-
-
-Hint: primero prueba  que, para todo vector $(a,b)$
-$$
-|a|\leq \| (a,b)\|, \quad |b|\leq \|(a,b) \|
-$$
-
-\item Usando la hipótesis \eqref{Eqn:GenLimiteEquivalenteDefDif} y la definición
-\ref{Def:DerivadaR2} concluye que tanto $f_1$
-como $f_2$ son diferenciables en $p_0$ y por lo tanto $F$ es diferenciable en $p_0$.
-
+    <li>
+        Demuestra que, para $i=1,2$
+        \begin{eqnarray*}
+          & & \frac{|f_i(x,y)-f_i(x_0,y_0)-a_{i,1}(x-x_0)-
+              a_{i,2}(y-y_0)|}{\|(x-x_0,y-y_0)\|} \\
+          &\leq &
+                  \frac{\|F(x,y)-F(x_0,y_0)-A(x-x_0,y-y_0) \|}{\|(x-x_0,y-y_0)\|}
+        \end{eqnarray*}
+        Hint: primero prueba  que, para todo vector $(a,b)$
+        $$
+        |a|\leq \| (a,b)\|, \quad |b|\leq \|(a,b) \|
+        $$
+    </li>
+    <li>
+        Usando la hipótesis \eqref{Eqn:GenLimiteEquivalenteDefDif} y la definición
+        \ref{Def:DerivadaR2} concluye que tanto $f_1$
+        como $f_2$ son diferenciables en $p_0$ y por lo tanto $F$ es diferenciable en $p_0$.          
+    </li>
 </ol>
 
 
@@ -606,12 +670,18 @@ Sea $U\ne \emptyset $ un abierto de $\mathbb{R}^n$, $p_0\in U$ y $F:U\to \mathbb
 diferenciable en $p_0$. Demuestra que existe una función con valores vectoriales, definida en
 una bola centrada en $p_0$, $E:B_r(p_0) \to \mathbb{R}^m$ tal que
 <ol>
-\item para todo $p\in B_r(p_0)$, $F(p)=F(p_0)+D_{p_0}F(p-p_0)+E(p)$,
-\item $\lim_{p\to p_0}\frac{\|  E(p)\|}{\| p-p_0 \|}=0$.
+    <li>
+        para todo $p\in B_r(p_0)$, $F(p)=F(p_0)+D_{p_0}F(p-p_0)+E(p)$,
+    </li>
+    <li>
+        $\lim_{p\to p_0}\frac{\|  E(p)\|}{\| p-p_0 \|}=0$.
+        <p>
+            Sugerencia: define $E(p)=F(p)-F(p_0)-D_{p_0}(p-p_0)$ y prueba que el límite que se pide
+            es cero.            
+        </p>
+    </li>
 </ol>
 
-Sugerencia: define $E(p)=F(p)-F(p_0)-D_{p_0}(p-p_0)$ y prueba que el límite que se pide
-es cero.
 
 
 \item Este ejercicio es el análogo al \ref{Ejer:CaracterizacionAproxLineal} , pero para funciones que toman valores vectoriales.
@@ -624,13 +694,15 @@ Supongamos que existe una bola abierta $B_r(p_0)\subseteq U$,
 una función $\tilde{E}:B_r(p_0) \to \mathbb{R}^m$
 y una matriz $A$ de $m\times n$  que satisfacen
 
-<ol>[(i)]
-
-\item\label{Hip:1} para $p\in B_r(p_0)$, $F(p)=F(p_0)+A(p-p_0)+\tilde{E}(p)$
-\item\label{Hip:2}
-$$
-\lim_{p \to p_0} \frac{\|\tilde{E}(p)\|}{\|p-p_0\|}=0
-$$
+<ol>
+    <li id="Hip:1">
+        para $p\in B_r(p_0)$, $F(p)=F(p_0)+A(p-p_0)+\tilde{E}(p)$
+    </li>
+    <li id="Hip:2">
+        $$
+        \lim_{p \to p_0} \frac{\|\tilde{E}(p)\|}{\|p-p_0\|}=0
+        $$
+    </li>
 </ol>
 Entonces $F$ es diferenciable en $p_0$ y la matriz de derivadas
 parciales, valuadas en $p_0$,  es $A$.
@@ -662,10 +734,18 @@ se le conoce como la traza de $\gamma$.
 Para las siguientes curvas, haz ub bosquejo de su traza.
 
 <ol>
-\item $\gamma(t)=(R\cos(t), R\sen(t))$, $t\in \mathbb{R}$, donde $R>0$ es un número fijo.
-\item $\gamma(t)=(t,t^2)$, $t\in \mathbb{R}$.
-\item $\gamma(t)=(\cosh(t), \senh(t))$, $t\in \mathbb{R}$.
-\item $\gamma(t)=(\cos(t), \sen(t), t)$, $t \in (0,2\pi) $.
+    <li>
+        $\gamma(t)=(R\cos(t), R\sen(t))$, $t\in \mathbb{R}$, donde $R>0$ es un número fijo.
+    </li>
+    <li>
+        $\gamma(t)=(t,t^2)$, $t\in \mathbb{R}$.
+    </li>
+    <li>
+        $\gamma(t)=(\cosh(t), \senh(t))$, $t\in \mathbb{R}$.
+    </li>
+    <li>
+        $\gamma(t)=(\cos(t), \sen(t), t)$, $t \in (0,2\pi) $.
+    </li>
 </ol>
   
 
@@ -701,9 +781,15 @@ Para las siguientes curvas, encuentra cuales están
 parametrizadas por longitud de arco.
 
 <ol>
-\item $\gamma(t)=(\cos(t), \sen(t))$, $t\in \mathbb{R}$.
-\item $\gamma(t)=(\cosh(t), \senh(t))$, $t\in \mathbb{R}$.
-\item $\gamma(t)=(\cos(t), \sen(t), t)$, $t\in \mathbb{R}$.
+    <li>
+        $\gamma(t)=(\cos(t), \sen(t))$, $t\in \mathbb{R}$.
+    </li>
+    <li>
+        $\gamma(t)=(\cosh(t), \senh(t))$, $t\in \mathbb{R}$.
+    </li>
+    <li>
+        $\gamma(t)=(\cos(t), \sen(t), t)$, $t\in \mathbb{R}$.
+    </li>
 </ol>
 
 
@@ -711,28 +797,35 @@ parametrizadas por longitud de arco.
 Considera la curva $\gamma:\mathbb{R} \to \mathbb{R}^m$ dada por
 $\gamma(t)=p+ tv$. Demuestra:
 <ol>
-\item $\gamma$ es diferenciable en todo $\mathbb{R}$
-  y para todo $t\in \mathbb{R}$, $\gamma'(t)=v$.
-\item $\gamma$ está parametrizada por longitud
-  de arco si y sólo si $\|v\|=1$.
+    <li>
+        $\gamma$ es diferenciable en todo $\mathbb{R}$
+        y para todo $t\in \mathbb{R}$, $\gamma'(t)=v$.
+    </li>
+    <li>
+        $\gamma$ está parametrizada por longitud
+        de arco si y sólo si $\|v\|=1$.
+    </li>
 </ol>
 
      
 \item\label{Ejer:DerivadaProductoPunto} Supon que $I\subset \mathbb{R}$ es un intervalo abierto
 y que $\gamma,\beta :I\to \mathbb{R}^2$  son curvas diferenciables.
 <ol>
-\item Demuestra
-$$
-\frac{d}{dt} \langle \beta(t), \gamma(t) \rangle
-=\langle \beta(t), \gamma'(t) \rangle
-+ \langle \beta'(t) , \gamma(t) \rangle
-$$
-\item Ahora supon que la imagen de $\gamma$ está contenida
-en una esfera centrada en el origen. Usa el inciso anterior
-para demostrar que, para toda $t$,
-$\langle \gamma(t), \gamma'(t)\rangle=0$, es decir
-el vector posición y el vector velocidad son ortogonales.
-
+    <li>
+        Demuestra
+        $$
+        \frac{d}{dt} \langle \beta(t), \gamma(t) \rangle
+        =\langle \beta(t), \gamma'(t) \rangle
+        + \langle \beta'(t) , \gamma(t) \rangle
+        $$
+    </li>
+    <li>
+        Ahora supon que la imagen de $\gamma$ está contenida
+        en una esfera centrada en el origen. Usa el inciso anterior
+        para demostrar que, para toda $t$,
+        $\langle \gamma(t), \gamma'(t)\rangle=0$, es decir
+        el vector posición y el vector velocidad son ortogonales.        
+    </li>
 </ol>
 
 
