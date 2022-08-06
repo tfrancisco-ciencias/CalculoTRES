@@ -2,7 +2,6 @@ $(document).ready(function() {
     $("button.respButton").click(function() {
          $(this).next("div.resp-box").toggle();
     });
-    setInterval(randomColor,1000)
   });
   
     function myFunction() {
@@ -44,25 +43,5 @@ $(document).ready(function() {
     };
 
     /// following part is for date current date
-    
-    function randomColor(){
-      const dateTitle=document.getElementById("date")
-      r = Math.floor(Math.floor(Math.random()*225))
-      g = Math.floor(Math.floor(Math.random()*225))
-      b = Math.floor(Math.floor(Math.random()*225))
-      stringC=["rgb(",r,",",g,",",b,")"].join("")    
-  
-  
-      const date= new Date()
-      const ano= date.getFullYear()
-      const mes=  ("0" + (date.getMonth()+1)).slice(-2) //slice help  for double digits//
-      const dia= ("0"+date.getDate()).slice(-2) 
-      
-      dateTitle.textContent =`${ano}-${mes}-${dia}`
-      dateTitle.style.color=stringC
-      
-      return  ["rgb(",r,",",g,",",b,")"].join("")
-  }
-  
   
   

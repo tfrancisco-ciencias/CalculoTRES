@@ -114,7 +114,30 @@ deben ser apagados o silenciados antes de empezar.
 Los mensajes de texto durante clase son una distracción para ustedes
 y los demás, así que NO están permitidos.</p>-->
 
+<script>
+  function randomColor(){
+      const dateTitle=document.getElementById("date")
+      r = Math.floor(Math.floor(Math.random()*225))
+      g = Math.floor(Math.floor(Math.random()*225))
+      b = Math.floor(Math.floor(Math.random()*225))
+      stringC=["rgb(",r,",",g,",",b,")"].join("")    
+  
+  
+      const date= new Date()
+      const ano= date.getFullYear()
+      const mes=  ("0" + (date.getMonth()+1)).slice(-2) //slice help  for double digits//
+      const dia= ("0"+date.getDate()).slice(-2) 
+      
+      dateTitle.textContent =`${ano}-${mes}-${dia}`
+      dateTitle.style.color=stringC
+      
+      return  ["rgb(",r,",",g,",",b,")"].join("")
+  }
 
+  $(document).ready(function() {
+    setInterval(randomColor,1000)
+  });
+</script>
 
       </div>
 
