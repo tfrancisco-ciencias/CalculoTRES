@@ -29,20 +29,20 @@
   
 
   
-\item (3 pts) Usa aproximaciones lineales para estimar las siguientes cantidades. En cada caso
+<div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> (3 pts) Usa aproximaciones lineales para estimar las siguientes cantidades. En cada caso
   recuerda escribir la función que te ayuda  a estimar, el punto alrededor del cual
   se calcula la aproximación lineal y la aproximación lineal.
 
   <ol>
-  \item(1.5 pts) $\sqrt[3]{(8.1)(26.9)}$.
-    \item (1.5 pts) $\sen^2((\pi/2+\pi/10)(\pi/4+\pi/20))$.
+  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2>(1.5 pts) $\sqrt[3]{(8.1)(26.9)}$.
+    <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> (1.5 pts) $\sen^2((\pi/2+\pi/10)(\pi/4+\pi/20))$.
   </ol>
 
 
 
   \vspace{4cm}
 
-\item (2 pts) Considera la función $f(x,y,z)=\sen(xy)\cos(yz)$. Dado un punto cualquiera
+<div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> (2 pts) Considera la función $f(x,y,z)=\sen(xy)\cos(yz)$. Dado un punto cualquiera
   $(x_0,y_0,z_0)$ encuentra la fórmula de la aproximación lineal de $f$ (en la notas
   denotada $L(x,y,z)$) alrededor de $(x_0,y_0,z_0)$.
   

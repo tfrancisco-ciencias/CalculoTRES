@@ -32,11 +32,11 @@
   
 	<ol>
 
-        \item Mostrar que $xy+z+3xz^5=4$ es soluble para $z$ como
+        <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Mostrar que $xy+z+3xz^5=4$ es soluble para $z$ como
           función de $x,y$ cerca de $(1,0,1)$. Además 
           calcular $\partial_xz(1,0)$ y $\partial_yz(1,0)$.
 
-          \item 
+          <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> 
           
             
           </ol>

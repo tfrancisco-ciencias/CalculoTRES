@@ -37,78 +37,78 @@ $$
 \section*{T10 }
 
 <ol>
-\item Para las funciones dadas, calcula: (1o) $\nabla_{(x,y)}f$;
+<div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Para las funciones dadas, calcula: (1o) $\nabla_{(x,y)}f$;
   (2o) $\langle \nabla_{(x,y)} f, u \rangle$;
   (3o) $\partial_{u}f(p)$.
 
   <ol>
-  \item $f(x,y)=x^2-y^2$, $u=(\sqrt{3}/2,1/2)$, $p=(1,0)$.
-  \item $f(x,y)=e^x\cos(y)$, $u=(0,1)$, $p=(0,\pi/2)$.
-  \item $f(x,y)=y^{10}$, $u=(0,-1)$, $p=(1,-1)$.
-    \item $f(x,y)=$ distancia de $(x,y)$ a $(0,3)$, $u=(1,0)$, $p=(1,1)$.
+  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> $f(x,y)=x^2-y^2$, $u=(\sqrt{3}/2,1/2)$, $p=(1,0)$.
+  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> $f(x,y)=e^x\cos(y)$, $u=(0,1)$, $p=(0,\pi/2)$.
+  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> $f(x,y)=y^{10}$, $u=(0,-1)$, $p=(1,-1)$.
+    <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> $f(x,y)=$ distancia de $(x,y)$ a $(0,3)$, $u=(1,0)$, $p=(1,1)$.
   </ol>
 
-\item Para las siguientes funciones calcula $\nabla_{(x,y,z)}f$ y además haz un bosquejo
+<div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Para las siguientes funciones calcula $\nabla_{(x,y,z)}f$ y además haz un bosquejo
   del campo vectorial $(x,y,z)\mapsto \nabla_{(x,y,z)}f$.
   <ol>
-  \item $f(x,y,z)=\frac{1}{\sqrt{x^2+y^2+z^2}}$, (fuente saliendo del origen).
-  \item $f(x,y,z)=\log(x^2+y^2)$, (fuente axial sobre el eje z).
-  \item $f(x,y,z)=\frac{1}{\sqrt{(x-1)^2+y^2+z^2}}-\frac{1}{\sqrt{(x+1)^2+y^2+z^2}}$, (dipolo). 
+  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> $f(x,y,z)=\frac{1}{\sqrt{x^2+y^2+z^2}}$, (fuente saliendo del origen).
+  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> $f(x,y,z)=\log(x^2+y^2)$, (fuente axial sobre el eje z).
+  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> $f(x,y,z)=\frac{1}{\sqrt{(x-1)^2+y^2+z^2}}-\frac{1}{\sqrt{(x+1)^2+y^2+z^2}}$, (dipolo). 
   </ol>
 
-\item Para $f(x,y)=3x^2+2y^2$, encuentra la dirección (vector unitario) en la cual la gráfica
+<div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Para $f(x,y)=3x^2+2y^2$, encuentra la dirección (vector unitario) en la cual la gráfica
   de la función está más empinada  y en la cual se mantiene nivelada, si estas parada
   en el punto $(1,2)$.
   
-\item ¿ Cual es el gradiente de $f$,
+<div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> ¿ Cual es el gradiente de $f$,
   una función de una variable?
   ¿ Cuál son las dos posibles direcciones de $u$ al calcular
   la derivada direccional de $f$ a lo largo de $u$ ?
 
-\item Encuentra la dirección $u$ ($\|u\|=1$) para la cual $f$ crece más rápidamente
+<div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Encuentra la dirección $u$ ($\|u\|=1$) para la cual $f$ crece más rápidamente
   si estás parado en $(1,2)$.
   <ol>
-  \item $f(x,y)=e^{x-y}$,
-  \item $f(x,y)=\sqrt{5-x^2-y^2}$,
-  \item $f(x,y)=ax+by$.
+  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> $f(x,y)=e^{x-y}$,
+  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> $f(x,y)=\sqrt{5-x^2-y^2}$,
+  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> $f(x,y)=ax+by$.
   </ol>
 
 
-\item Asume que $f(x,y)$ y $g(x,y)$ son   funciones, clase $C^1$, tal que
+<div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Asume que $f(x,y)$ y $g(x,y)$ son   funciones, clase $C^1$, tal que
   $\nabla_{(x,y)} f$ es perpendicular a $(3,2)$ con su longitud
   igual a 1 y $\nabla_{(x,y)}g$ es paralelo a $(3,2)$
   con su longitud igual a $5$. Encuentra $\nabla_{(x,y)}f$,
   $\nabla_{(x,y)}g$, $f$ y $g$.
 
-\item Si $f(0,1)=0, f(1,0)=1$ y $f(2,1)=2$, encuentra
+<div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Si $f(0,1)=0, f(1,0)=1$ y $f(2,1)=2$, encuentra
   $\nabla_{(x,y)}f$ suponiendo que $f(x,y)=Ax+By+C$.
 
-\item ¿ Qué funciones tienen los siguientes
+<div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> ¿ Qué funciones tienen los siguientes
   gradientes?
   <ol>
-  \item $(2x+y,x)$,
-  \item $(e^{x-y},-e^{x-y})$,
-  \item $(y,-x)$.
+  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> $(2x+y,x)$,
+  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> $(e^{x-y},-e^{x-y})$,
+  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> $(y,-x)$.
     
   </ol>
   
 
 
-         \item Una función $f:\mathbb{R}^n \to \mathbb{R}$ se llama par si
+         <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Una función $f:\mathbb{R}^n \to \mathbb{R}$ se llama par si
            $f(-p)=f(p)$, para toda $p\in \mathbb{R}^n$.
 
            <ol>
          
-           \item Sea $f:\mathbb{R} \to \mathbb{R}$ una función par, de una variable
+           <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Sea $f:\mathbb{R} \to \mathbb{R}$ una función par, de una variable
              y diferenciable en el origen. Demuestra que $f'(0)=0$. 
 
 
-           \item Sea $f:\mathbb{R}^n \to \mathbb{R}$ una función par,
+           <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Sea $f:\mathbb{R}^n \to \mathbb{R}$ una función par,
              diferenciable en el origen. Demuestra que $\nabla_{0}f=0$.
 
              Sugerencia: usa el inciso anterior.
              
-           \item Sea $g:\mathbb{R}^2\to \mathbb{R}$ una función diferenciable en
+           <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Sea $g:\mathbb{R}^2\to \mathbb{R}$ una función diferenciable en
              el origen. Supón que existen dos vectores ortonormales (es decir,
              unitarios y ortogonales) $u$,$v$, tales que
              \begin{eqnarray*}

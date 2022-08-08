@@ -29,14 +29,14 @@
 
 <ol>
 
-\item (2 pts) Encuentra el máximo y mínimo de la función $f(x,y)=x$, restringida a la superficie
+<div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> (2 pts) Encuentra el máximo y mínimo de la función $f(x,y)=x$, restringida a la superficie
 $x^2+2y^2=3$.
 
 
   \vspace{8cm}
 
 
-\item (3 pts) Encuentra el máximo y mínimo de la función $f(x,y)=x+y+z$, restringida
+<div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> (3 pts) Encuentra el máximo y mínimo de la función $f(x,y)=x+y+z$, restringida
 a las dos condiciones $x^2+y^2=1$ y $2x+z=1$.
   
 

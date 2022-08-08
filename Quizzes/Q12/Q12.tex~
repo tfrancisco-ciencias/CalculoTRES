@@ -29,11 +29,11 @@ Considera la función $f(x,y)=(x-y)(xy-1)$.
 
 <ol>
 
-\item (3pts) Determina la fórmula de Taylor para $f$
+<div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> (3pts) Determina la fórmula de Taylor para $f$
   en el punto $(\sqrt{3},1)$.
 
 
-\item (2pts) Determina si el Hessiano de $f$ en $(\sqrt{3},1)$ es
+<div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> (2pts) Determina si el Hessiano de $f$ en $(\sqrt{3},1)$ es
   definitivamente positivo, definitivamente negativo o ninguno.
 
 
