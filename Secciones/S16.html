@@ -115,91 +115,104 @@ y letras normales, $x,z$ para denotar escalares.
 \end{teorema}
 
 
-{\bf Notas}
-
+<div class="nota-box">
+    <h2 class="number-title"> Nota</h2>
 <ol>
 
-%\item Este enunciado generaliza el Teorema del Marsden. En el caso
+
+<!--%\item Este enunciado generaliza el Teorema del Marsden. En el caso
  % del Marsden  $m=1$ en para este caso la función $L$ es simplemente
  % multiplicar por $\partial_zF(\mathbf{x}_0,z_0)$, la cual es inyectiva
- % si $\partial_zF(\mathbf{x}_0,z_0) \ne 0$.
+ % si $\partial_zF(\mathbf{x}_0,z_0) \ne 0$.-->
 
-\item La condición de que la transformación lineal
-  $L(\mathbf{z})=D_{(\mathbf{x}_0, \mathbf{z}_0)}F(0,\mathbf{z})$
-  sea inyectiva se puede reescribir usando un determinante,
-  pero se necesita algo de notación. 
+  <li>
+    La condición de que la transformación lineal
+    $L(\mathbf{z})=D_{(\mathbf{x}_0, \mathbf{z}_0)}F(0,\mathbf{z})$
+    sea inyectiva se puede reescribir usando un determinante,
+    pero se necesita algo de notación. 
+    <p>
+        Para $\mathbf{x}\in \mathbf{R}^n$ escribimos
+        $\mathbf{x}=(x_1,\dots, x_n)$
+        y a los puntos $\mathbf{z}\in \mathbf{R}^m$ los escribimos
+        $\mathbf{z}=(z_1,\dots, z_m)$. A las funciones
+        coordenadas de $F$ las escribimos $F=(f_1,\dots, f_m)$,
+        así que cada función $f_i$ se valua en
+        $f_i(x_1,\dots, x_n, z_1,\dots, z_m)$.
+      
+    </p>
+    <p>
+        La condición de que $L$ sea inyectiva es equivalente a pedir que
+        el determinante de la siguiente matriz sea distinto de cero
+        $$
+        \left[ \begin{array}{ccc}
+           \partial_{z_1}f_1(\mathbf{x}_0,\mathbf{z}_0) & \cdots
+           & \partial_{z_m}f_1(\mathbf{x}_0, \mathbf{z}_0) \\
+           \vdots & \ddots & \vdots \\
+            \partial_{z_1}f_m(\mathbf{x}_0,\mathbf{z}_0) & \cdots
+           & \partial_{z_m}f_m(\mathbf{x}_0, \mathbf{z}_0)
+               \end{array}
+               \right]
+         $$
+    </p>
+  </li>
+  
+  
 
-  Para $\mathbf{x}\in \mathbf{R}^n$ escribimos
-  $\mathbf{x}=(x_1,\dots, x_n)$
-  y a los puntos $\mathbf{z}\in \mathbf{R}^m$ los escribimos
-  $\mathbf{z}=(z_1,\dots, z_m)$. A las funciones
-  coordenadas de $F$ las escribimos $F=(f_1,\dots, f_m)$,
-  así que cada función $f_i$ se valua en
-  $f_i(x_1,\dots, x_n, z_1,\dots, z_m)$.
-
-  La condición de que $L$ sea inyectiva es equivalente a pedir que
-  el determinante de la siguiente matriz sea distinto de cero
-
-  $$
- \left[ \begin{array}{ccc}
-    \partial_{z_1}f_1(\mathbf{x}_0,\mathbf{z}_0) & \cdots
-    & \partial_{z_m}f_1(\mathbf{x}_0, \mathbf{z}_0) \\
-    \vdots & \ddots & \vdots \\
-     \partial_{z_1}f_m(\mathbf{x}_0,\mathbf{z}_0) & \cdots
-    & \partial_{z_m}f_m(\mathbf{x}_0, \mathbf{z}_0)
-        \end{array}
-        \right]
-  $$
-
-\item El teorema de la función implícita se puede
-  leer de la siguiente forma. Sean $f_1,\cdots, f_m$
-  funciones clase $C^1$, definidas en un abierto de
-  $\mathbb{R}^n\times \mathbb{R}^m$ y supongamos que
-  tenemos escalares $x_1^{(0)}, \dots, x_{n}^{(0)}, z_1^{(0)}, \dots, z_m^{(0)}$
-  que satisfacen el siguiente sistema de ecuaciones:
-  \begin{eqnarray*}
-    f_1(x_1^{(0)}, \dots, x_{n}^{(0)}, z_1^{(0)}, \dots, z_m^{(0)})&=&0\\
-    f_2(x_1^{(0)}, \dots, x_{n}^{(0)}, z_1^{(0)}, \dots, z_m^{(0)})&=&0\\
-    &\vdots& \\
-    f_m(x_1^{(0)}, \dots, x_{n}^{(0)}, z_1^{(0)}, \dots, z_m^{(0)})&=&0
-  \end{eqnarray*}
-
-  Denotemos $\mathbf{x}_0=(x_1^{(0)}, \dots, x_{n}^{(0)})$
-  y $\mathbf{z}_0=(z_1^{(0)}, \dots, z_m^{(0)})$. Entonces,
-  si
-
-   $$
-\det \left[ \begin{array}{ccc}
-    \partial_{z_1}f_1(\mathbf{x}_0,\mathbf{z}_0) & \cdots
-    & \partial_{z_m}f_1(\mathbf{x}_0, \mathbf{z}_0) \\
-    \vdots & \ddots & \vdots \\
-     \partial_{z_1}f_m(\mathbf{x}_0,\mathbf{z}_0) & \cdots
-    & \partial_{z_m}f_m(\mathbf{x}_0, \mathbf{z}_0)
-        \end{array}
-        \right]\ne 0
-  $$
-
-  entonces podemos resolver el siguiente sistema, de manera única,
-  para las $z's$ en términos de las $x's$:
-
-   \begin{eqnarray*}
-    f_1(x_1, \dots, x_n, z_1, \dots, z_m)&=&0\\
-    f_2(x_1, \dots, x_{n}, z_1, \dots, z_m)&=&0\\
-    &\vdots& \\
-    f_m(x_1, \dots, x_{n}, z_1, \dots, z_m)&=&0
-  \end{eqnarray*}
-
-  para cuando las $(x_1,\dots, x_n)$ están cerca de $\mathbf{x}_0$.
+ <li>
+    El teorema de la función implícita se puede
+    leer de la siguiente forma. Sean $f_1,\cdots, f_m$
+    funciones clase $C^1$, definidas en un abierto de
+    $\mathbb{R}^n\times \mathbb{R}^m$ y supongamos que
+    tenemos escalares $x_1^{(0)}, \dots, x_{n}^{(0)}, z_1^{(0)}, \dots, z_m^{(0)}$
+    que satisfacen el siguiente sistema de ecuaciones:
+    \begin{eqnarray*}
+      f_1(x_1^{(0)}, \dots, x_{n}^{(0)}, z_1^{(0)}, \dots, z_m^{(0)})&=&0\\
+      f_2(x_1^{(0)}, \dots, x_{n}^{(0)}, z_1^{(0)}, \dots, z_m^{(0)})&=&0\\
+      &\vdots& \\
+      f_m(x_1^{(0)}, \dots, x_{n}^{(0)}, z_1^{(0)}, \dots, z_m^{(0)})&=&0
+    \end{eqnarray*}
+  
+    Denotemos $\mathbf{x}_0=(x_1^{(0)}, \dots, x_{n}^{(0)})$
+    y $\mathbf{z}_0=(z_1^{(0)}, \dots, z_m^{(0)})$. Entonces,
+    si
+  
+     $$
+  \det \left[ \begin{array}{ccc}
+      \partial_{z_1}f_1(\mathbf{x}_0,\mathbf{z}_0) & \cdots
+      & \partial_{z_m}f_1(\mathbf{x}_0, \mathbf{z}_0) \\
+      \vdots & \ddots & \vdots \\
+       \partial_{z_1}f_m(\mathbf{x}_0,\mathbf{z}_0) & \cdots
+      & \partial_{z_m}f_m(\mathbf{x}_0, \mathbf{z}_0)
+          \end{array}
+          \right]\ne 0
+    $$
+  
+    entonces podemos resolver el siguiente sistema, de manera única,
+    para las $z's$ en términos de las $x's$:
+  
+     \begin{eqnarray*}
+      f_1(x_1, \dots, x_n, z_1, \dots, z_m)&=&0\\
+      f_2(x_1, \dots, x_{n}, z_1, \dots, z_m)&=&0\\
+      &\vdots& \\
+      f_m(x_1, \dots, x_{n}, z_1, \dots, z_m)&=&0
+    \end{eqnarray*}
+  
+    para cuando las $(x_1,\dots, x_n)$ están cerca de $\mathbf{x}_0$.
+</li> 
 </ol>
-
+</div>
 
     
   \item Mostrar que $xy+z+3xz^5=4$ es soluble para $z$ como
     función de $x,y$ cerca de $(1,0,1)$. Además:
     <ol>
-    \item calcular $\partial_xz(1,0)$ y $\partial_yz(1,0)$.
-    \item usando una aproximación lineal, estimar el valor de $z$
-      cuando $x=1.1$ y $y=0.5$.
+        <li>
+            calcular $\partial_xz(1,0)$ y $\partial_yz(1,0)$.
+        </li>
+        <li>
+            usando una aproximación lineal, estimar el valor de $z$
+            cuando $x=1.1$ y $y=0.5$.
+        </li>
     </ol>
     
   \item Considera la superficie en $\mathbb{R}^3$ dada por
@@ -208,29 +221,32 @@ y letras normales, $x,z$ para denotar escalares.
     $$
     
     <ol>
-            
-    \item Encuentra dos simetrias de la superficie.
-      
-    \item Usar el teorema de la función implícita para verificar
-      que, para cualquier punto en la curva,
-      podemos despejar $x$ en terminos de $y$ y $z$ y usando
-      también el teorema de la función implícita
-      calcula $\partial_y x$ y $\partial_z x$
-    \item de manera directa despeja $x$ y usa este despeja para calcular
-      $\partial_y x$ y $\partial_z x$.
-
-      
-    \item Usando el teorema de la función
-      implícita, prueba que cerca de los punto $(1,1,1)$ y $(1,-1,1)$ podemos
-      despejar a  $y$, en términos de las otras dos variables. Además
-      calcula $\partial_xy(1,1)$, $\partial_z y (1,1)$. Nota:
-      las parciales dependen si estás en el punto $(1,1,1)$ o $(1,-1,1)$.
-      
-    \item Trata de despejar de manera directa $y$ en $2y^2z^2-2x=0$
-      para encontrar una fórmula para $y$ cerca de $(1,1,1)$
-      y para $y$ cerca de $(1,-1,1)$.
-      
-      
+        <li>
+            Encuentra dos simetrias de la superficie.
+        </li>
+        <li>
+            Usar el teorema de la función implícita para verificar
+            que, para cualquier punto en la curva,
+            podemos despejar $x$ en terminos de $y$ y $z$ y usando
+            también el teorema de la función implícita
+            calcula $\partial_y x$ y $\partial_z x$
+        </li>
+        <li>
+            de manera directa despeja $x$ y usa este despeja para calcular
+            $\partial_y x$ y $\partial_z x$.
+        </li>
+        <li>
+            Usando el teorema de la función
+            implícita, prueba que cerca de los punto $(1,1,1)$ y $(1,-1,1)$ podemos
+            despejar a  $y$, en términos de las otras dos variables. Además
+            calcula $\partial_xy(1,1)$, $\partial_z y (1,1)$. Nota:
+            las parciales dependen si estás en el punto $(1,1,1)$ o $(1,-1,1)$.
+        </li>
+        <li>
+            Trata de despejar de manera directa $y$ en $2y^2z^2-2x=0$
+            para encontrar una fórmula para $y$ cerca de $(1,1,1)$
+            y para $y$ cerca de $(1,-1,1)$.
+        </li>  
     </ol>
     
 
@@ -270,72 +286,95 @@ y letras normales, $x,z$ para denotar escalares.
     $\mathbf{x}_0=(x_1^0, \dots, x_n^0)$.
 
     <ol>
-    \item Demuestra que existe una función de clase $C^1$,
-      $\phi(x_1,\dots, x_{n-1})$, definida en
-      una vecindad de $(x^0_1,\dots, x^0_{n-1})$
-      en $\mathbb{R}^{n-1}$, tal que
-      $\phi(x^0_1,\dots, x^0_{n-1})=x^0_n$ y
-      $g(x_1,\dots, x_{n-1}, \phi(x_1,\dots, x_{n-1}))=0$.
-
-      Para simplificar notación, si $\mathbf{x}=(x_1,\dots, x_{n})$ denotamos
-      $\hat{\mathbf{x}}=(x_1,\dots, x_{n-1})$. Con esta notación
-      $g(\hat{\mathbf{x}}, \phi(\hat{\mathbf{x}}))=0$, para toda $\mathbf{x}$
-      suficientemente cercana a $\mathbf{x}_0$.
-
-      Sugerencia: usa el teorema de la funciín implícita.
+        <li>
+            <p>
+                Demuestra que existe una función de clase $C^1$,
+                $\phi(x_1,\dots, x_{n-1})$, definida en
+                una vecindad de $(x^0_1,\dots, x^0_{n-1})$
+                en $\mathbb{R}^{n-1}$, tal que
+                $\phi(x^0_1,\dots, x^0_{n-1})=x^0_n$ y
+                $g(x_1,\dots, x_{n-1}, \phi(x_1,\dots, x_{n-1}))=0$.
+            </p>
+            
+            <p>
+                Para simplificar notación, si $\mathbf{x}=(x_1,\dots, x_{n})$ denotamos
+                $\hat{\mathbf{x}}=(x_1,\dots, x_{n-1})$. Con esta notación
+                $g(\hat{\mathbf{x}}, \phi(\hat{\mathbf{x}}))=0$, para toda $\mathbf{x}$
+                suficientemente cercana a $\mathbf{x}_0$.
+          
+            </p>
+            <p>
+                Sugerencia: usa el teorema de la funciín implícita.
+            </p>
+            
+            
+        </li>
+        <li>
+            Considera la función
+            $$
+            h(x_1,\dots, x_{n-1})=f(x_1,\dots, x_{n-1},\phi(x_1,\dots, x_{n-1}))
+            $$
+            con la notación del inciso anterior podemos escribir
+            $h(\hat{\mathbf{x}})=f(\hat{\mathbf{x}}, \phi(\hat{\mathbf{x}}))$.
       
-    \item Considera la función
-      $$
-      h(x_1,\dots, x_{n-1})=f(x_1,\dots, x_{n-1},\phi(x_1,\dots, x_{n-1}))
-      $$
-      con la notación del inciso anterior podemos escribir
-      $h(\hat{\mathbf{x}})=f(\hat{\mathbf{x}}, \phi(\hat{\mathbf{x}}))$.
+            Demuestra que, para $i=1,\dots, n-1$:
+            $$
+            \partial_{x_i}h(\hat{\mathbf{x}})=
+            \partial_{x_i}f(\hat{\mathbf{x}},\phi(\hat{\mathbf{x}}))+
+            \partial_{x_n}f(\hat{\mathbf{x}})
+            \partial_{x_i}\phi(\hat{\mathbf{x}})
+            $$
+            <p>
+                Sugerencia: usa la regla de la cadena.
+            </p>
+            
+        </li>
+        <li>
+            Demuestra que, para $i=1,\dots, n-1$:
+            \begin{eqnarray*}
+              \partial_{x_i}f(\mathbf{x}_0)+
+              \partial_{x_n}f(\mathbf{x}_0)\partial_{x_i}\phi(\hat{\mathbf{x}}_0)=0
+            \end{eqnarray*}
+            <p>
+                Sugerencia: $h$ tiene un máximo local en $\hat{\mathbf{x}}_0$.
+            </p>
+        </li>
+        <li>
+            Demuestra que, para toda $i=1,\dots, n-1$:
+            $$
+            \partial_{x_i}g(\hat{\mathbf{x}},\phi(\hat{\mathbf{x}}))
+            + \partial_{x_n}g(\hat{\mathbf{x}},\phi(\hat{\mathbf{x}}))
+            \partial_{x_i}\phi(\hat{\mathbf{x}})=0.
+            $$
+            <p>
+                Sugerencia: para toda $\mathbf{x}$, $g(\hat{\mathbf{x}},
+                \phi(\hat{\mathbf{x}}))=0$. 
+            </p>
 
-      Demuestra que, para $i=1,\dots, n-1$:
-      $$
-      \partial_{x_i}h(\hat{\mathbf{x}})=
-      \partial_{x_i}f(\hat{\mathbf{x}},\phi(\hat{\mathbf{x}}))+
-      \partial_{x_n}f(\hat{\mathbf{x}})
-      \partial_{x_i}\phi(\hat{\mathbf{x}})
-      $$
-
-      Sugerencia: usa la regla de la cadena.
-      
-    \item Demuestra que, para $i=1,\dots, n-1$:
-      \begin{eqnarray*}
-        \partial_{x_i}f(\mathbf{x}_0)+
-        \partial_{x_n}f(\mathbf{x}_0)\partial_{x_i}\phi(\hat{\mathbf{x}}_0)=0
-      \end{eqnarray*}
-
-      Sugerencia: $h$ tiene un máximo local en $\hat{\mathbf{x}}_0$.
-      
-    \item Demuestra que, para toda $i=1,\dots, n-1$:
-      $$
-      \partial_{x_i}g(\hat{\mathbf{x}},\phi(\hat{\mathbf{x}}))
-      + \partial_{x_n}g(\hat{\mathbf{x}},\phi(\hat{\mathbf{x}}))
-      \partial_{x_i}\phi(\hat{\mathbf{x}})=0.
-      $$
-
-      Sugerencia: para toda $\mathbf{x}$, $g(\hat{\mathbf{x}},
-      \phi(\hat{\mathbf{x}}))=0$. 
-    \item Demuestra que, para toda $i=1,\dots, n-1$:
-      $$
-      \partial_{x_i}\phi(\hat{\mathbf{x}}_0)=
-      -\frac{\partial_{x_i}g(\mathbf{x}_0)}{\partial_{x_n}g(\mathbf{x}_0)}
-      $$
-
-      Sugerencia: usa el inciso anterior.
-      
-    \item Denota $\lambda=\frac{\partial_{x_n}f(\mathbf{x}_0)}
-      {\partial_{x_n}g(\mathbf{x}_0)}$. Demuestra que,
-      para toda $i=1,\dots, n-1$:
-      $$
-      \partial_{x_i}f(\mathbf{x}_0)=\lambda \partial_{x_i}g(\mathbf{x}_0)
-      $$
-
-      Además, $\partial_{x_n}f(\mathbf{x}_0)
-      =\lambda \partial_{x_n}g(\mathbf{x}_0)$
-      \item Concluye que $\nabla_{\mathbf{x}_0}f=\lambda \nabla_{\mathbf{x}_0}g$.
+        </li>
+        <li>
+            Demuestra que, para toda $i=1,\dots, n-1$:
+            $$
+            \partial_{x_i}\phi(\hat{\mathbf{x}}_0)=
+            -\frac{\partial_{x_i}g(\mathbf{x}_0)}{\partial_{x_n}g(\mathbf{x}_0)}
+            $$
+            <p>
+                Sugerencia: usa el inciso anterior.
+            </p>
+        </li>
+        <li>
+            Denota $\lambda=\frac{\partial_{x_n}f(\mathbf{x}_0)}
+            {\partial_{x_n}g(\mathbf{x}_0)}$. Demuestra que,
+            para toda $i=1,\dots, n-1$:
+            $$
+            \partial_{x_i}f(\mathbf{x}_0)=\lambda \partial_{x_i}g(\mathbf{x}_0)
+            $$
+            <p>
+                Además, $\partial_{x_n}f(\mathbf{x}_0)
+                =\lambda \partial_{x_n}g(\mathbf{x}_0)$
+                \item Concluye que $\nabla_{\mathbf{x}_0}f=\lambda \nabla_{\mathbf{x}_0}g$.
+            </p>
+        </li>
     </ol>
 
 

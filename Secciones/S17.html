@@ -101,39 +101,53 @@ inyectiva y supreyectiva).
 Entonces existe $W$, una vecindad de $\mathbf{p}_0$, tal que $F(W)$ es una
 vecindad de $F(\mathbf{p}_0)$ donde se cunple:
 <ol>
-\item denotando $V:=F(W)$, $F$ es una biyección de $W$ a $V$
-  (es decir, inyectiva en $W$ y
-  suprayectiva a $V$);
-\item $G:V \to W$, la  función inversa de $F$,  es continua en $V$;
-\item además, $G$ es de clase $C^1$ en $V$ y si $\mathbf{q}\in V$ y
-  $\mathbf{p}=G(\mathbf{q})$
-  entonces $D_{\mathbf{q}}G$ es la inversa de $D_{\mathbf{p}}F$.
+    <li>
+        denotando $V:=F(W)$, $F$ es una biyección de $W$ a $V$
+        (es decir, inyectiva en $W$ y
+        suprayectiva a $V$);
+    </li>
+    <li>
+        $G:V \to W$, la  función inversa de $F$,  es continua en $V$;
+    </li>
+    <li>
+        además, $G$ es de clase $C^1$ en $V$ y si $\mathbf{q}\in V$ y
+        $\mathbf{p}=G(\mathbf{q})$
+        entonces $D_{\mathbf{q}}G$ es la inversa de $D_{\mathbf{p}}F$.
+    </li>
 </ol>
 \end{teorema}
 
 
-{\bf Notas}
-
+<div>
   <ol>
-  \item una vecindad de un punto $\mathbf{p}$ es
-    simplemente un abierto que contiene
-    a $p$.
-  \item recuerda que $D_{\mathbf{p}_0}F$ es una transformación lineal cuya
-    matriz asociada en la base canónica, es la matrix de derivadas parciales
-    $\partial_{p_i}f_j(\mathbf{p}_0)$, donde $F=(f_1,\dots f_n)$.
-  \item $D_{\mathbf{p}_0}F$ es inyectiva sii, vista como matriz,
-    $\det(D_{\mathbf{p}_0}F)\ne 0$.
-  \item $D_{\mathbf{p}_0}F$ es suprayectiva sii su rango es $n$.
-
-  \item Existe un teorema de álgebra lineal que dice que,
-    dada una matriz de $n\times n$, la transformación lineal
-    (que va de $\mathbb{R}^n$ a $\mathbb{R}^n$)
-    inducida por la matriz es inyectiva si y sólo si es suprayectiva. Por
-    lo tanto, para aplicar el Teorema de la Función Inversa, es suficiente
-    checar que $\det(D_{\mathbf{p}_0}F)\ne 0$.
-    
+    <li>
+        una vecindad de un punto $\mathbf{p}$ es
+        simplemente un abierto que contiene
+        a $p$.
+    </li>
+    <li>
+        recuerda que $D_{\mathbf{p}_0}F$ es una transformación lineal cuya
+        matriz asociada en la base canónica, es la matrix de derivadas parciales
+        $\partial_{p_i}f_j(\mathbf{p}_0)$, donde $F=(f_1,\dots f_n)$.
+    </li>
+    <li>
+        $D_{\mathbf{p}_0}F$ es inyectiva sii, vista como matriz,
+        $\det(D_{\mathbf{p}_0}F)\ne 0$.
+    </li>
+    <li>
+        $D_{\mathbf{p}_0}F$ es suprayectiva sii su rango es $n$.
+    </li>
+    <li>
+        Existe un teorema de álgebra lineal que dice que,
+        dada una matriz de $n\times n$, la transformación lineal
+        (que va de $\mathbb{R}^n$ a $\mathbb{R}^n$)
+        inducida por la matriz es inyectiva si y sólo si es suprayectiva. Por
+        lo tanto, para aplicar el Teorema de la Función Inversa, es suficiente
+        checar que $\det(D_{\mathbf{p}_0}F)\ne 0$.
+        
+    </li>
   </ol>
-  
+</div>  
 
 
 
@@ -151,39 +165,44 @@ vecindad de $F(\mathbf{p}_0)$ donde se cunple:
     $$
     
     <ol>
-    \item Fija una constante $\alpha\in \mathbb{R}$. Encuentra
-      las imagines inversas de las
-      curvas $u=\alpha$ y $v=\alpha$. Es decir, describe
-      los siguientes conjuntos:
-      $$
-      f^{-1}(\{(u,v)\in \mathbb{R}^2:u=\alpha \}),
-      f^{-1}(\{(u,v)\in \mathbb{R}^2: v=\alpha\}).
-      $$
-      A los puntos en el dominio de $f$ los vamos a denotar
-      como $(u,v)$ y  a los puntos en con
-      contradominio de $f$ los vamos a denotar $(u,v)$.
-      
-    \item Fija una constante $\alpha \in \mathbb{R}$. Encuentra
-      las imagines directas de las
-      curvas $x=\alpha$ y $y=\alpha$. Es decir, describe los conjuntos: 
-      $$
-      f(\{(x,y)\in \mathbb{R}^2: x=\alpha \}),
-      f(\{(x,y)\in \mathbb{R}^2: y=\alpha\}).
-      $$
-      
-    \item Encuentra en cuál región se transforma el 
-      rectángulo $\{(x,y):0\leq x \leq 1, 0\leq y \leq 1\}$ al aplicar $f$.
-      
-    \item Encuentra la región tal que, al aplicar $f$,
-      se obtiene el  rectángulo
-      $\{(u,v): 0\leq u \leq 1,0\leq v \leq 1\}$.
-      
-    \item Demuestra que, para todo $(x,y)$, existe una vecindad
-      del punto tal que $f$ restringida a
-      dicha vecindad es inyectiva, excepto para el punto $(0,0)$.
-      Además prueba que $f$ no es inyectiva en
-      todo $\mathbb{R}^2$.
-      
+        <li>
+            Fija una constante $\alpha\in \mathbb{R}$. Encuentra
+            las imagines inversas de las
+            curvas $u=\alpha$ y $v=\alpha$. Es decir, describe
+            los siguientes conjuntos:
+            $$
+            f^{-1}(\{(u,v)\in \mathbb{R}^2:u=\alpha \}),
+            f^{-1}(\{(u,v)\in \mathbb{R}^2: v=\alpha\}).
+            $$
+            A los puntos en el dominio de $f$ los vamos a denotar
+            como $(u,v)$ y  a los puntos en con
+            contradominio de $f$ los vamos a denotar $(u,v)$.
+        </li>
+        <li>
+            Fija una constante $\alpha \in \mathbb{R}$. Encuentra
+            las imagines directas de las
+            curvas $x=\alpha$ y $y=\alpha$. Es decir, describe los conjuntos: 
+            $$
+            f(\{(x,y)\in \mathbb{R}^2: x=\alpha \}),
+            f(\{(x,y)\in \mathbb{R}^2: y=\alpha\}).
+            $$
+        </li>
+        <li>
+            Encuentra en cuál región se transforma el 
+            rectángulo $\{(x,y):0\leq x \leq 1, 0\leq y \leq 1\}$ al aplicar $f$.      
+        </li>
+        <li>
+            Encuentra la región tal que, al aplicar $f$,
+            se obtiene el  rectángulo
+            $\{(u,v): 0\leq u \leq 1,0\leq v \leq 1\}$.
+        </li>
+        <li>
+            Demuestra que, para todo $(x,y)$, existe una vecindad
+            del punto tal que $f$ restringida a
+            dicha vecindad es inyectiva, excepto para el punto $(0,0)$.
+            Además prueba que $f$ no es inyectiva en
+            todo $\mathbb{R}^2$.
+        </li>  
     </ol>
     
     
@@ -233,12 +252,18 @@ vecindad de $F(\mathbf{p}_0)$ donde se cunple:
     \end{eqnarray*}
     
     <ol>
-    \item Muestra que para $(u,v)=(0,1)$, una solución es $(x,y)=(2,1)$.
-    \item Encuentra $D_{(x,y)}F$, para todo punto $(x,y)$.
-    \item Prueba que $D_{(2,1)}F$ es invertible, por lo tanto $F$
-      es invertible en una vecindad de $(2,1)$.
-    \item Usa una aproximación lineal para estimar
-      $F^{\langle -1 \rangle }(2.2,1.01)$.
+        <li>
+            Muestra que para $(u,v)=(0,1)$, una solución es $(x,y)=(2,1)$.
+        </li>
+        <li>
+            Encuentra $D_{(x,y)}F$, para todo punto $(x,y)$.
+        </li>
+        <li>
+            Prueba que $D_{(2,1)}F$ es invertible, por lo tanto $F$
+            es invertible en una vecindad de $(2,1)$.
+          \item Usa una aproximación lineal para estimar
+            $F^{\langle -1 \rangle }(2.2,1.01)$.
+        </li>
     </ol>
     
   </ol>

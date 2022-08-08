@@ -119,41 +119,46 @@
   
   Define $H:\mathbb{R}^3 \to \mathbb{R}^2$ por $H(x,y,z)=F(G(x,y,z))$.
   <ol>
-
-  \item Calcula  $\partial_x g_i, \partial_yg_i, \partial_z g_i$, $i=1,2,3$,
-    $\partial_u f_j.\partial_v f_j$, $j=1,2$.
-  \item Escribe las funciones coordenadas de $H$ como
-    $$H(x,y,z)=(h_1(x,y,z), h_2(x,y,z))$$
-
-    Calculando directamente
-    la composición, encuentra las fórmulas
-    para $h_1$ y $h_2$.
-
-  \item Calcula las parciales
-    $\partial_x h_i,\partial_y h_i, \partial_z h_i$, $i=1,2$.
-  \item Usando los incisos anteriores prueba que, para $i=1,2$:
-    \begin{eqnarray*}
-    \partial_x h_i(x,y,z)&=&
-    \partial_u f_i(g_1(x,y,z),g_2(x,y,z))
-                             \partial_x g_1(x,y,z) \\
-                         &+&
-    \partial_v f_i(g_1(x,y,z),g_2(x,y,z))
-    \partial_x g_2(x,y,z)
-    \end{eqnarray*}
-
-    Si hacemos abuso de notación y
-    pensamos a las variables $u$ y $v$ como dependientes
-    de $x,y$ y $z$ de la siguiente forma:
-    $u(x,y,z)=g_1(x,y,z), v(x,y,z)=g_2(x,y,z)$, lo
-    anterior también se escribe:
-    \begin{eqnarray*}
-      \frac{\partial h_i}{\partial x}&=&
-                                         \frac{\partial f_i}{\partial u}
-                                         \frac{\partial u}{\partial x} 
-                                     + \frac{\partial f_i}{\partial v}
-                                         \frac{\partial v}{\partial x}
-    \end{eqnarray*}
+    <li>
+        Calcula  $\partial_x g_i, \partial_yg_i, \partial_z g_i$, $i=1,2,3$,
+        $\partial_u f_j.\partial_v f_j$, $j=1,2$.
+    </li>
+    <li>
+        Escribe las funciones coordenadas de $H$ como
+        $$H(x,y,z)=(h_1(x,y,z), h_2(x,y,z))$$
     
+        Calculando directamente
+        la composición, encuentra las fórmulas
+        para $h_1$ y $h_2$.
+    </li>
+    <li>
+        Calcula las parciales
+        $\partial_x h_i,\partial_y h_i, \partial_z h_i$, $i=1,2$.
+    </li>
+    <li>
+        Usando los incisos anteriores prueba que, para $i=1,2$:
+        \begin{eqnarray*}
+        \partial_x h_i(x,y,z)&=&
+        \partial_u f_i(g_1(x,y,z),g_2(x,y,z))
+                                 \partial_x g_1(x,y,z) \\
+                             &+&
+        \partial_v f_i(g_1(x,y,z),g_2(x,y,z))
+        \partial_x g_2(x,y,z)
+        \end{eqnarray*}
+    
+        Si hacemos abuso de notación y
+        pensamos a las variables $u$ y $v$ como dependientes
+        de $x,y$ y $z$ de la siguiente forma:
+        $u(x,y,z)=g_1(x,y,z), v(x,y,z)=g_2(x,y,z)$, lo
+        anterior también se escribe:
+        \begin{eqnarray*}
+          \frac{\partial h_i}{\partial x}&=&
+                                             \frac{\partial f_i}{\partial u}
+                                             \frac{\partial u}{\partial x} 
+                                         + \frac{\partial f_i}{\partial v}
+                                             \frac{\partial v}{\partial x}
+        \end{eqnarray*}    
+    </li>
   </ol>
 
 
@@ -164,25 +169,28 @@
   y $F:\mathbb{R}^2 \to \mathbb{R}^2$ y $H=F \circ G$.
 
   <ol>
-  \item Escribe las funciones coordenadas de las funciones como
-    \begin{eqnarray*}
-      G(x,y,z)&=&(g_1(x,y,z),g_2(x,y,z))\\
-      F(u,v)&=&(f_1(u,v), f_2(u,v))\\
-      H(x,y,z)&=&(h_1(x,y,z), h_2(x,y,z))
-    \end{eqnarray*}
-
-    Prueba que
-    $$
-    h_i(x,y,z)=f_i(g_1(x,y,z), g_2(x,y,z))
-    $$
-
-  \item Dejando las coordenadas $y$ y $z$ fija y usando
-    el primer caso de la regla de la cadena, prueba que
-    $$
-    \partial_x h_i =\partial_u f_i \partial_x g_1+
-    \partial_v f_i \partial_yg_2
-    $$
-  </ol>
+    <li>
+        Escribe las funciones coordenadas de las funciones como
+        \begin{eqnarray*}
+          G(x,y,z)&=&(g_1(x,y,z),g_2(x,y,z))\\
+          F(u,v)&=&(f_1(u,v), f_2(u,v))\\
+          H(x,y,z)&=&(h_1(x,y,z), h_2(x,y,z))
+        \end{eqnarray*}
+    
+        Prueba que
+        $$
+        h_i(x,y,z)=f_i(g_1(x,y,z), g_2(x,y,z))
+        $$
+    </li>
+    <li>
+        Dejando las coordenadas $y$ y $z$ fija y usando
+        el primer caso de la regla de la cadena, prueba que
+        $$
+        \partial_x h_i =\partial_u f_i \partial_x g_1+
+        \partial_v f_i \partial_yg_2
+        $$
+    </li>
+</ol>
   
 
   
@@ -192,45 +200,49 @@
   clase $C^1$ en sus respectivos dominios.
 
   <ol>
-  \item Escribe las funciones coordendas de $F$ y $G$ como:
-    $$
-    F(p)=(f_1(p), \dots, f_k(p)), \, p\in U \subset \mathbb{R}^n,
-    $$
-
-    $$
-    G(q)=(g_1(q), \dots, q_n(q)), \, q\in V\subset \mathbb{R}^m.
-    $$
-
-    Denotemos $H=F\circ G$. Entonces tenemos, para $q\in V$
-    $$
-    H(q)=(f_1(g_1(q), \dots, g_n(q)), \dots,f_k(g_1(q), \dots, g_n(q)) )
-    $$
-    Fija una función coordenada de $H$, digamos
-    $$
-    h_{i_0}(q):=f_{i_0}(g_1(q), \dots, g_n(q))
-    $$
+    <li>
+        Escribe las funciones coordendas de $F$ y $G$ como:
+        $$
+        F(p)=(f_1(p), \dots, f_k(p)), \, p\in U \subset \mathbb{R}^n,
+        $$
     
-    Denotemos las entradas de $q$ como $q=(q_1,\dots, q_m)$ y las
-    de $p$ como $p=(p_1,\dots, p_n)$.
-
-    Fija $j_0\in \{1,\dots, m\}$ y considera la función que se
-    obtiene de $h_{i_0}$ dejando todas las coordenadas $q_1,\dots, q_m$
-    fijas, excepto la $q_{j_0}$. Usa el primer caso de la regla
-    de la cadena para probar
-    $$
-    \partial_{q_{j_0}}h_{i_0}(q)= \sum_{i=1}^n \partial_{p_i}f_{i_0}(
-    g_1(q), \dots, g_n(q))
-    \partial_{q_{j_0}}g_i(q)
-    $$
+        $$
+        G(q)=(g_1(q), \dots, q_n(q)), \, q\in V\subset \mathbb{R}^m.
+        $$
     
-  \item Usando el ejercicio anterior y la definición de
-    producto de matrices, prueba que
-    $$
-    D_{q}H=(D_{g(q)}F)(D_qG)
-    $$
-
-    \item Concluye que $H$ es una función de clase $C^1$.
-  </ol>
+        Denotemos $H=F\circ G$. Entonces tenemos, para $q\in V$
+        $$
+        H(q)=(f_1(g_1(q), \dots, g_n(q)), \dots,f_k(g_1(q), \dots, g_n(q)) )
+        $$
+        Fija una función coordenada de $H$, digamos
+        $$
+        h_{i_0}(q):=f_{i_0}(g_1(q), \dots, g_n(q))
+        $$
+        
+        Denotemos las entradas de $q$ como $q=(q_1,\dots, q_m)$ y las
+        de $p$ como $p=(p_1,\dots, p_n)$.
+    
+        Fija $j_0\in \{1,\dots, m\}$ y considera la función que se
+        obtiene de $h_{i_0}$ dejando todas las coordenadas $q_1,\dots, q_m$
+        fijas, excepto la $q_{j_0}$. Usa el primer caso de la regla
+        de la cadena para probar
+        $$
+        \partial_{q_{j_0}}h_{i_0}(q)= \sum_{i=1}^n \partial_{p_i}f_{i_0}(
+        g_1(q), \dots, g_n(q))
+        \partial_{q_{j_0}}g_i(q)
+        $$
+    </li>
+    <li>
+        Usando el ejercicio anterior y la definición de
+        producto de matrices, prueba que
+        $$
+        D_{q}H=(D_{g(q)}F)(D_qG)
+        $$    
+    </li>
+    <li>
+        Concluye que $H$ es una función de clase $C^1$.
+    </li>
+ </ol>
 
 
 
@@ -241,72 +253,78 @@
              
              
      <ol>
-     \item Denota $p_0=G(q_0)$.
-       Usando que $F$ es diferenciable en $p_0$,
-       prueba que podemos escribir, para $p$ cercano a $p_0$:
-       $$
-       F(p)=F(p_0)+ D_{p_0} F(p-p_0) + E(p)
-       $$
-       con $E(p)$ una función continua con
-       $\lim_{p\to p_0}\|E(p)\|/\|p-p_0\|=0$ y $E(p_0)=0$.
-                  
-     \item Modifica el inciso anterior para probar que,
-       para $p$ cercano a $p_0$
-       $$
-       F(p)=F(p_0)+ D_{p_0}F (p-p_0) +\|p-p_0\| F(p)
-       $$
-       donde $F$ es una función continua con $F(p_0)=0$.
-
-       Sugerencia: simplemente define
-       $$
-       F(p)=\left\{
-         \begin{array}{cc}
-           \frac{E(p)}{\|p-p_0\|} & p\ne p_0 \\
-           0 & p=p_0
-         \end{array}
-       \right.
-       $$
-       
-     \item Ahora prueba que, para $q$ cercano a $q_0$:
-       $$
-       F(G(q))= F (G (q_0))+
-       (D_{p_0}F)( G(q)-G(q_0))
-       + \|G(q)-G(q_0)\| F(G(q))
-       $$
-
-     \item Usando que $G$ es diferenciable en $q_0$ prueba
-       que, para $q$ cercano a $q_0$
-       $$
-       G(p)-G(q_0)=(D_{q_0})G(q-q_0)+ \| q-q_0\|\tilde{F}(q)
-       $$
-       donde $\tilde{F}$ es una función continua
-       con $\tilde{F}(q_0)=0$.
-       
-                  
-     \item\label{Ejer:AuxReglaCadenaGeneral}
-       Concluye que, para $q \ne q_0$ y cerca de $q_0$  
-       \begin{eqnarray*}
-       \frac{\|F(G(q))-F(G(q_0))- (D_{p_0}F)(D_{q_0}G)(q-q_0) \|}{\|q-q_0 \|}
-       &\leq &  \| (D_{p_0}F)(\tilde{F}(q))\| \\
-      &+& \frac{\| G(q)-G(q_0)\|}{\|q-q_0\|}\| F(G(q))\|
-       \end{eqnarray*}
-                  
-     \item Prueba que 
-       $$\lim_{q \to q_0}
-       \left| \frac{\| G(q)-G(q_0)\|}{\|q-q_0\|} F(G(q))\right|=0
-       $$
-       y
-
-       $$
-       \lim_{q\to q_0} \|(D_{p_0}F)(\tilde{F}(q) \|=0.
-       $$
-
-     \item Usando el ejercicio \ref{Ejer:EquivDefDifGeneral}, concluye
-       que $F\circ G$ es diferenciable en $q_0$ y
-       $$
-       D_{q_0}F\circ G= (D_{G(q_0)}F)(D_{q_0}G)
-       $$
-     </ol>							
+        <li>
+            Denota $p_0=G(q_0)$.
+            Usando que $F$ es diferenciable en $p_0$,
+            prueba que podemos escribir, para $p$ cercano a $p_0$:
+            $$
+            F(p)=F(p_0)+ D_{p_0} F(p-p_0) + E(p)
+            $$
+            con $E(p)$ una función continua con
+            $\lim_{p\to p_0}\|E(p)\|/\|p-p_0\|=0$ y $E(p_0)=0$.
+        </li>
+        <li>
+            Modifica el inciso anterior para probar que,
+            para $p$ cercano a $p_0$
+            $$
+            F(p)=F(p_0)+ D_{p_0}F (p-p_0) +\|p-p_0\| F(p)
+            $$
+            donde $F$ es una función continua con $F(p_0)=0$.
+     
+            Sugerencia: simplemente define
+            $$
+            F(p)=\left\{
+              \begin{array}{cc}
+                \frac{E(p)}{\|p-p_0\|} & p\ne p_0 \\
+                0 & p=p_0
+              \end{array}
+            \right.
+            $$
+        </li>
+        <li>
+            Ahora prueba que, para $q$ cercano a $q_0$:
+            $$
+            F(G(q))= F (G (q_0))+
+            (D_{p_0}F)( G(q)-G(q_0))
+            + \|G(q)-G(q_0)\| F(G(q))
+            $$
+        </li>
+        <li>
+            Usando que $G$ es diferenciable en $q_0$ prueba
+            que, para $q$ cercano a $q_0$
+            $$
+            G(p)-G(q_0)=(D_{q_0})G(q-q_0)+ \| q-q_0\|\tilde{F}(q)
+            $$
+            donde $\tilde{F}$ es una función continua
+            con $\tilde{F}(q_0)=0$.
+        </li>
+        <li id="Ejer:AuxReglaCadenaGeneral">
+            Concluye que, para $q \ne q_0$ y cerca de $q_0$  
+            \begin{eqnarray*}
+            \frac{\|F(G(q))-F(G(q_0))- (D_{p_0}F)(D_{q_0}G)(q-q_0) \|}{\|q-q_0 \|}
+            &\leq &  \| (D_{p_0}F)(\tilde{F}(q))\| \\
+           &+& \frac{\| G(q)-G(q_0)\|}{\|q-q_0\|}\| F(G(q))\|
+            \end{eqnarray*}
+        </li>
+        <li>
+            Prueba que 
+            $$\lim_{q \to q_0}
+            \left| \frac{\| G(q)-G(q_0)\|}{\|q-q_0\|} F(G(q))\right|=0
+            $$
+            y
+     
+            $$
+            \lim_{q\to q_0} \|(D_{p_0}F)(\tilde{F}(q) \|=0.
+            $$
+        </li>
+        <li>
+            Usando el ejercicio \ref{Ejer:EquivDefDifGeneral}, concluye
+            que $F\circ G$ es diferenciable en $q_0$ y
+            $$
+            D_{q_0}F\circ G= (D_{G(q_0)}F)(D_{q_0}G)
+            $$
+        </li>
+    </ol>							
                 
 
   
@@ -317,11 +335,15 @@
   F(x,y,z)=(x^2+y+z, 2x+y+z^2), \quad G(u,v,w)=(2uv^2w^2,w^2\sen(v),u^2e^v)
   $$
   <ol>
-  \item Encuentra la matriz de derivadas parciales
-    $D_{(x,y,z)}F$ y $D_{(u,v,w)}G$.
-  \item Define $H=F\circ G$. Usa la regla de la
-    cadena para calcular la matriz derivada
-    parciales $D_{(u,0,w)}H$.
+    <li>
+        Encuentra la matriz de derivadas parciales
+        $D_{(x,y,z)}F$ y $D_{(u,v,w)}G$.
+    </li>
+    <li>
+        Define $H=F\circ G$. Usa la regla de la
+        cadena para calcular la matriz derivada
+        parciales $D_{(u,0,w)}H$.
+    </li>
   </ol>
 
 
@@ -331,64 +353,72 @@
   G(x,y)=(x+y,2x-y )
   $$
   <ol>
-  \item Encuentra una función lineal,  $f:\mathbb{R}^2 \to \mathbb{R}$
-    tal que, si  $h=f\circ G$, entonces
-    $$
-    \partial_x h(x,y)=2, \quad \partial_y h(x,y)=1 
-    $$
-  \item Encuentra una función clase $C^1$, $f:\mathbb{R}^2 \to \mathbb{R}$
-    tal que, si $h=f\circ G$, entonces
-    $$
-    \partial_x h(x,y)=2x+y, \quad \partial_y h(x,y)=x-y
-    $$
+    <li>
+        Encuentra una función lineal,  $f:\mathbb{R}^2 \to \mathbb{R}$
+        tal que, si  $h=f\circ G$, entonces
+        $$
+        \partial_x h(x,y)=2, \quad \partial_y h(x,y)=1 
+        $$
+    </li>
+    <li>
+        Encuentra una función clase $C^1$, $f:\mathbb{R}^2 \to \mathbb{R}$
+        tal que, si $h=f\circ G$, entonces
+        $$
+        \partial_x h(x,y)=2x+y, \quad \partial_y h(x,y)=x-y
+        $$
+    </li>
   </ol>
 
 
   
     \item
       <ol>
-      \item Considera la función $I:\mathbb{R}^3\to \mathbb{R}^3$
-        dada por $I(x,y,z)=(x,y,z)$.
-        Demuestra que
-        $$
-        D_{(x,y,z)}I=\left[
-          \begin{array}{ccc}
-            1 & 0 & 0 \\
-            0 & 1 & 0 \\
-            0 & 0 & 1
-          \end{array}
-        \right]
-        $$
-      \item Encuentra todas las funciones diferenciables en $\mathbb{R}^3$,
-        $F:\mathbb{R}^3 \to \mathbb{R}^3$, para las cuales
-        
-        $$
-        D_{(x,y,z)}F=\left[
-          \begin{array}{ccc}
-            x & 0 & 0 \\
-            0 & y & 0 \\
-            0 & 0 & x
-          \end{array}
-        \right]
-        $$
-
-      \item Sean $p,q,r:\mathbb{R}\to \mathbb{R}$ funciones
-        continuas en todo $\mathbb{R}$. Encuentra
-        todas la funciones diferenciables en $\mathbb{R}^3$,
-        $G:\mathbb{R}^3 \to \mathbb{R}^3$, para
-        las cuales
-
-        $$
-        D_{(x,y,z)}G=\left[
-          \begin{array}{ccc}
-            p(x) & 0 & 0 \\
-            0 & q(y) & 0 \\
-            0 & 0 & r(z)
-          \end{array}
-        \right]
-        $$
+        <li>
+            Considera la función $I:\mathbb{R}^3\to \mathbb{R}^3$
+            dada por $I(x,y,z)=(x,y,z)$.
+            Demuestra que
+            $$
+            D_{(x,y,z)}I=\left[
+              \begin{array}{ccc}
+                1 & 0 & 0 \\
+                0 & 1 & 0 \\
+                0 & 0 & 1
+              \end{array}
+            \right]
+            $$
+        </li>
+        <li>
+            Encuentra todas las funciones diferenciables en $\mathbb{R}^3$,
+            $F:\mathbb{R}^3 \to \mathbb{R}^3$, para las cuales
+            
+            $$
+            D_{(x,y,z)}F=\left[
+              \begin{array}{ccc}
+                x & 0 & 0 \\
+                0 & y & 0 \\
+                0 & 0 & x
+              \end{array}
+            \right]
+            $$
+        </li>
+        <li>
+            Sean $p,q,r:\mathbb{R}\to \mathbb{R}$ funciones
+            continuas en todo $\mathbb{R}$. Encuentra
+            todas la funciones diferenciables en $\mathbb{R}^3$,
+            $G:\mathbb{R}^3 \to \mathbb{R}^3$, para
+            las cuales
     
-      </ol>
+            $$
+            D_{(x,y,z)}G=\left[
+              \begin{array}{ccc}
+                p(x) & 0 & 0 \\
+                0 & q(y) & 0 \\
+                0 & 0 & r(z)
+              \end{array}
+            \right]
+            $$
+        </li>
+    </ol>
 
 
       
@@ -448,26 +478,35 @@
         y $p_0=(x_0,y_0,z_0)\in S$.
 
         <ol>
-        \item Prueba que la ecuación del
-        plano tangente a $S$ en $p_0$ está dada por
-        $$
-        \partial_xg(p_0)(x-x_0)+\partial_yg(p_0)(y-y_0)+\partial_zg(p_0)(z-z_0)
-        =0
-        $$
-      \item Sea $\gamma:I \to \mathbb{R}^3$ una curva diferenciable  tal que
-        $\gamma(I)\subset S$  y
-        $\gamma(t_0)=p_0$. Demuestra que $p_0+\gamma'(t_0)$ es un punto
-        en el plano tengente a $S$ que pasa por $p_0$.
-
+            <li>
+                Prueba que la ecuación del
+                plano tangente a $S$ en $p_0$ está dada por
+                $$
+                \partial_xg(p_0)(x-x_0)+\partial_yg(p_0)(y-y_0)+\partial_zg(p_0)(z-z_0)
+                =0
+                $$
+            </li>
+            <li>
+                Sea $\gamma:I \to \mathbb{R}^3$ una curva diferenciable  tal que
+                $\gamma(I)\subset S$  y
+                $\gamma(t_0)=p_0$. Demuestra que $p_0+\gamma'(t_0)$ es un punto
+                en el plano tengente a $S$ que pasa por $p_0$.
+            </li>
         </ol>
         
 
     \item Hallar la ecuación del plano tangente a las superficies
     dadas en los puntos indicados.
     <ol>
-    \item $x^2+2y^2+3xz=10$ en $(1,2,1/3)$,
-    \item $y^2-x^2=3$ en $(1,2,8)$,
-    \item $xyz=1$ en $(1,1,1)$.
+        <li>
+            $x^2+2y^2+3xz=10$ en $(1,2,1/3)$,
+        </li>
+        <li>
+            $y^2-x^2=3$ en $(1,2,8)$,
+        </li>
+        <li>
+            $xyz=1$ en $(1,1,1)$.
+        </li>
     </ol>
 
 
@@ -504,18 +543,22 @@
     Para las siguientes superficies calcula $N,U$ y $L$
     para un punto general de la superficie.
     <ol>
-    \item $S$ es la gráfica de la función $g(x,y)=1-x-y$ (un plano).
-    \item $S$ es la superficie dada por la ecuación $x^2+y^2-z^2=0$
-      (un cono). En este ejemplo
-      se evita el vértica, pues el plano tangente en ese punto
-      no está bien definido.
+        <li>
+            $S$ es la gráfica de la función $g(x,y)=1-x-y$ (un plano).
+        </li>
+        <li>
+            $S$ es la superficie dada por la ecuación $x^2+y^2-z^2=0$
+            (un cono). En este ejemplo
+            se evita el vértica, pues el plano tangente en ese punto
+            no está bien definido.
+        </li>
     </ol>
 
 
     
   \item Considera la función
     $f(x,y)=-(1-x^2-y^2)^{1/2}$, definida para los puntos $(x,y)$
-    con $x^2+y^2<1$. Prueba que el plano tangente a la gráfica
+    con $x^2+y^2 < 1$. Prueba que el plano tangente a la gráfica
     de $f$, en el punto $(x_0,y_0,f(x_0,y_0))$
     es ortogonal al vector $(x_0,y_0,f(x_0,y_0))$.
 

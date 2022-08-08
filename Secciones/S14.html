@@ -88,35 +88,51 @@
       $f:U\to \mathbb{R}$ una función y $p_0\in U$.
 
       <ol>
-      \item Decimos que $p_0$ es un mínimo local para
-        $f$ si existe $r>0$ tal que, para toda $p\in B_r(p_0)$
-        $$
-        f(p_0) \leq f(p)
-        $$
-
-        \item Decimos que $p_0$ es un máximo local para
-        $f$ si existe $r>0$ tal que, para toda $p\in B_r(p_0)$
-        $$
-        f(p) \leq f(p_0)
-        $$
-
-        \item Decimos que $p_0$ es un punto silla  para
-          $f$ si para todo  $r>0$, tal que $B_r(p_0) \subset U$,
-          existen puntos $p\in B_r(p_0)$ para los cuales
-          $f(p)< f(p_0)$ y existen otros puntos $q\in B_r(p_0)$
-          para los cuales $f(p_0)< f(p)$
+        <li>
+            Decimos que $p_0$ es un mínimo local para
+            $f$ si existe $r>0$ tal que, para toda $p\in B_r(p_0)$
+            $$
+            f(p_0) \leq f(p)
+            $$
+        </li>
+        <li>
+            Decimos que $p_0$ es un máximo local para
+            $f$ si existe $r>0$ tal que, para toda $p\in B_r(p_0)$
+            $$
+            f(p) \leq f(p_0)
+            $$
+        </li>
+        <li>
+            Decimos que $p_0$ es un punto silla  para
+            $f$ si para todo  $r>0$, tal que $B_r(p_0) \subset U$,
+            existen puntos $p\in B_r(p_0)$ para los cuales
+            $f(p) < f(p_0)$ y existen otros puntos $q\in B_r(p_0)$
+            para los cuales $f(p_0) < f(p)$
+        </li>
       </ol>
-       Nota: Si $p_0$ es un máximo o mínimo local
-          para $f$, se dice que $p_0$ es un punto extremo de $f$.
-        </div>
+
+      <p>
+        Nota: Si $p_0$ es un máximo o mínimo local
+        para $f$, se dice que $p_0$ es un punto extremo de $f$.
+      </p>
+       
+    </div>
+
     \item Demuestra que
       <ol>
-      \item para la función $f(x,y)=x^2+y^2+1$, $p_0=(0,0)$
-        es un mínimo local.
-      \item para la función $f(x,y)=2-(x-1)^2-y^2$, $p_0=(1,0)$
-        es un máximo local.
-      \item para la función $f(x,y)=xy$, $p_0=(0,0)$ es un
-        punto silla.
+        <li>
+            para la función $f(x,y)=x^2+y^2+1$, $p_0=(0,0)$
+            es un mínimo local.
+        </li>
+        <li>
+            para la función $f(x,y)=2-(x-1)^2-y^2$, $p_0=(1,0)$
+            es un máximo local.
+        </li>
+        <li>
+            para la función $f(x,y)=xy$, $p_0=(0,0)$ es un
+            punto silla.
+        </li>
+    
       </ol>
       
 
@@ -126,14 +142,18 @@
       $f:U\to \mathbb{R}$ y $p_0\in U$.
 
       <ol>
-        \item Demuestra que si
-          $p_0$ es un punto extremo de $f$ y $f_0$ es diferenciable
-          en $p_0$, entonces $\nabla_{p_0}f=0$, es decir, todas
-          las derivadas parciales de $f$ es anulan en $p_0$.
-        \item Da un ejemplo de una $f$ y un $p_0$, tal que
-          $f$ tenga un punto extremo en $p_0$, pero $f$
-          no sea diferenciable en $p_0$
-        </ol>
+        <li>
+            Demuestra que si
+            $p_0$ es un punto extremo de $f$ y $f_0$ es diferenciable
+            en $p_0$, entonces $\nabla_{p_0}f=0$, es decir, todas
+            las derivadas parciales de $f$ es anulan en $p_0$.
+        </li>
+        <li>
+            Da un ejemplo de una $f$ y un $p_0$, tal que
+            $f$ tenga un punto extremo en $p_0$, pero $f$
+            no sea diferenciable en $p_0$
+        </li>
+      </ol>
 
         Nota: a un punto donde todas las derivadas parciales
         se anulan se llama punto crítico.
@@ -144,12 +164,15 @@
         y $p_0\in U$ un punto crítico de $f$.
 
         <ol>
-        \item Demuestra que si $H_{p_0}f$ es definitivamente
-          positivo entonces $p_0$ es un mínimo local
-          para $f$.
-
-        \item Demuestra que si $H_{p_0}f$ es definitivamente
-          negativo entonces $p_0$ es un máximo local para $f$.
+            <li>
+                Demuestra que si $H_{p_0}f$ es definitivamente
+                positivo entonces $p_0$ es un mínimo local
+                para $f$.
+            </li>
+            <li>
+                Demuestra que si $H_{p_0}f$ es definitivamente
+                negativo entonces $p_0$ es un máximo local para $f$.
+            </li>
         </ol>
 
         Sugerencia: usa el ejercicio \ref{Ejer:LemaCriterioHessiano}.
@@ -166,19 +189,31 @@
         máximos locales, mínimos locales o puntos silla.
         
         <ol>
-        \item $f(x,y)=y+x\sen(y)$,
-        \item $f(x,y)=x^2+(y-1)^2$,
-        \item $f(x,y)=x^3+y^3-3xy$.
+            <li>
+                $f(x,y)=y+x\sen(y)$,
+            </li>
+            <li>
+                $f(x,y)=x^2+(y-1)^2$,
+            </li>
+            <li>
+                $f(x,y)=x^3+y^3-3xy$.
+            </li>
         </ol>			 	
 
         
       \item Considera la función $f(x,y)=3x^4-4x^2y+y^2$.
         <ol>
-        \item Prueba que, para cada línea por el origen $y=mx$, la función
-          alcanza un mínimo sobre dicha línea.
-        \item Prueba que no existe un mínimo local en $(0,0)$.
-        \item Haz un bosquejo de los puntos $(x,y)$ en el plano para los cuales
-          $f(x,y)>0$ y para los cuales $f(x,y)<0$.
+            <li>
+                Prueba que, para cada línea por el origen $y=mx$, la función
+                alcanza un mínimo sobre dicha línea.
+            </li>
+            <li>
+                Prueba que no existe un mínimo local en $(0,0)$.
+            </li>
+            <li>
+                Haz un bosquejo de los puntos $(x,y)$ en el plano para los cuales
+                $f(x,y)>0$ y para los cuales $f(x,y) < 0$.
+            </li>
         </ol>
 
     
@@ -190,16 +225,20 @@
           una función (no necesariamente diferenciable).
 
           <ol>
-          \item Decimos que $f$ alcanza su máximo absoluto en
-            un punto $p_0\in D$ si, para todo $p\in D$,
-            $$
-            f(p)\leq f(p_0).
-            $$
-          \item Decimos que $f$ alcanza su mínimo absoluto en
-            un punto $p_0\in D$ si, para todo $p\in D$,
-            $$
-            f(p_0)\leq f(p).
-            $$
+            <li>
+                Decimos que $f$ alcanza su máximo absoluto en
+                un punto $p_0\in D$ si, para todo $p\in D$,
+                $$
+                f(p)\leq f(p_0).
+                $$
+            </li>
+            <li>
+                Decimos que $f$ alcanza su mínimo absoluto en
+                un punto $p_0\in D$ si, para todo $p\in D$,
+                $$
+                f(p_0)\leq f(p).
+                $$
+            </li>
           </ol>
           
         </div>
@@ -488,17 +527,20 @@
     
     \begin{notas}
       <ol>
-      \item Las mismas proposiciones se valen en dimensión $n \geq 2$.
-        
-      \item Encontrar el máximo de $u$ en $\partial U$ en
-        general es más sencillo
-        que encontrar el máximo de $u$ en $\overline{U}$,
-        pues usualmente $\partial U$ tiene una
-        dimensión menos que la de $U$.
-
-      \item Los corolarios siguen siendo válidos si se reemplaza
-        máxmo por mínimo.
-        
+        <li>
+            Las mismas proposiciones se valen en dimensión $n \geq 2$.
+        </li>
+        <li>
+            Encontrar el máximo de $u$ en $\partial U$ en
+            general es más sencillo
+            que encontrar el máximo de $u$ en $\overline{U}$,
+            pues usualmente $\partial U$ tiene una
+            dimensión menos que la de $U$.
+        </li>
+        <li>
+            Los corolarios siguen siendo válidos si se reemplaza
+            máxmo por mínimo.
+        </li>
       </ol>
       
     \end{notas}
@@ -514,15 +556,18 @@
     el máximo y mínimo absolutos sobre la región dada.
     
     <ol>
-      
-    \item $f(x,y)=\log(x^2+y^2)$, sobre el anillo
-      $S=\{(x,y)\in \mathbb{R}^2:  1\leq  x^2+y^2\leq 4\}$.
-    \item $f(x,y)=e^y\cos(x)$, sobre el triángulo (relleno)
-      con vértices $(0,\log(5))$, $(-\pi,0)$, $(\pi,0)$.
-      
-    \item $f(x,y,z)=x^2-y^2+z$, sobre la esfera
-      $S=\{(x,y)\in \mathbb{R}^2: x^2+y^2+z^2=1\}$.
-      
+        <li>
+            $f(x,y)=\log(x^2+y^2)$, sobre el anillo
+            $S=\{(x,y)\in \mathbb{R}^2:  1\leq  x^2+y^2\leq 4\}$.
+        </li>
+        <li>
+            $f(x,y)=e^y\cos(x)$, sobre el triángulo (relleno)
+            con vértices $(0,\log(5))$, $(-\pi,0)$, $(\pi,0)$.
+        </li>
+        <li>
+            $f(x,y,z)=x^2-y^2+z$, sobre la esfera
+            $S=\{(x,y)\in \mathbb{R}^2: x^2+y^2+z^2=1\}$.
+        </li>
     </ol>
 
     
