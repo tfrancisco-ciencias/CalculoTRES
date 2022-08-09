@@ -83,41 +83,50 @@
     <h1 class="number-title flexbox"> Regla de la cadena y aplicaciones </h1> 
 
 
-    \begin{teorema}
-    Sean $U \subset \mathbb{R}^n$ y $V\subseteq \mathbb{R}^m$ subconjuntos
-    abiertos y $G:V \to \mathbb{R}^n$, $F:U \to \mathbb{R}^k$ tal que
-    $G(V)\subseteq U$ (para que $F\circ G$ esté bien definida).
-    Supongamos que $q_0\in V$,  $G$ es
-    diferenciable en $q_0$ y $F$ es diferenciable en $G(q_0)$.
+    <div class="teorema-box">
+      <h2 class="number-title"> Teorema </h2>
+      <p>
+        Sean $U \subset \mathbb{R}^n$ y $V\subseteq \mathbb{R}^m$ subconjuntos
+        abiertos y $G:V \to \mathbb{R}^n$, $F:U \to \mathbb{R}^k$ tal que
+        $G(V)\subseteq U$ (para que $F\circ G$ esté bien definida).
+        Supongamos que $q_0\in V$,  $G$ es
+        diferenciable en $q_0$ y $F$ es diferenciable en $G(q_0)$.
+      </p>
+      <p>
+        Entonces
+        $F\circ G$ es diferenciable en $q_0$ y
+        $$
+        D_{q_0}(F\circ G)=(D_{G(q_0)}F)(D_{q_0}G)
+        $$
+        donde en la última igualdad se tiene multiplicación
+        de matrices.
+      </p>
+  </div>
 
-    Entonces
-    $F\circ G$ es diferenciable en $q_0$ y
-    $$
-    D_{q_0}(F\circ G)=(D_{G(q_0)}F)(D_{q_0}G)
-    $$
-    donde en la última igualdad se tiene multiplicación
-    de matrices.
-  \end{teorema}
 
-
-<div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Este ejercicio es una preparación para dar una prueba de
-  la regla de la cadena.
-
-  Considera las funciones $G: \mathbb{R}^3 \to \mathbb{R}^2$,
-  $F:\mathbb{R}^2 \to \mathbb{R}^2$ dadas por
-  \begin{eqnarray*}
-    G(x,y,z)&=&(g_1(x,y,z),g_2(x,y,z)), \\
-    F(u,v)&=&(f_1(u,v), f_2(u,v) )
-  \end{eqnarray*}
-  donde
-  \begin{eqnarray*}
-    g_1(x,y,z)&=&xy,\\
-    g_2(x,y,z)&=&yz, \\
-    f_1(u,v)&=&u^2-v^2,\\
-    f_2(u,v)&=&u+v. 
-  \end{eqnarray*}
-  
-  Define $H:\mathbb{R}^3 \to \mathbb{R}^2$ por $H(x,y,z)=F(G(x,y,z))$.
+<div class="ejercicio-box"> 
+  <h2 class="number-title"> Ejercicio</h2> 
+  <p>
+    Este ejercicio es una preparación para dar una prueba de
+    la regla de la cadena.
+  </p>
+  <p>
+    Considera las funciones $G: \mathbb{R}^3 \to \mathbb{R}^2$,
+    $F:\mathbb{R}^2 \to \mathbb{R}^2$ dadas por
+    \begin{eqnarray*}
+      G(x,y,z)&=&(g_1(x,y,z),g_2(x,y,z)), \\
+      F(u,v)&=&(f_1(u,v), f_2(u,v) )
+    \end{eqnarray*}
+    donde
+    \begin{eqnarray*}
+      g_1(x,y,z)&=&xy,\\
+      g_2(x,y,z)&=&yz, \\
+      f_1(u,v)&=&u^2-v^2,\\
+      f_2(u,v)&=&u+v. 
+    \end{eqnarray*}
+    
+    Define $H:\mathbb{R}^3 \to \mathbb{R}^2$ por $H(x,y,z)=F(G(x,y,z))$.
+  </p>
   <ol>
     <li>
         Calcula  $\partial_x g_i, \partial_yg_i, \partial_z g_i$, $i=1,2,3$,
@@ -160,14 +169,19 @@
         \end{eqnarray*}    
     </li>
   </ol>
+</div>
 
 
-<div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Este ejercicio generaliza el anterior, observando que
-  las fórmulas para $F$ y $G$ no son absolutamente necesarias.
-
-  Considera funciones clase $C^!$, $G:\mathbb{R}^3 \to \mathbb{R}^2$
-  y $F:\mathbb{R}^2 \to \mathbb{R}^2$ y $H=F \circ G$.
-
+<div class="ejercicio-box"> 
+  <h2 class="number-title"> Ejercicio</h2> 
+  <p>
+    Este ejercicio generaliza el anterior, observando que
+    las fórmulas para $F$ y $G$ no son absolutamente necesarias.
+  </p>
+  <p>
+    Considera funciones clase $C^!$, $G:\mathbb{R}^3 \to \mathbb{R}^2$
+    y $F:\mathbb{R}^2 \to \mathbb{R}^2$ y $H=F \circ G$.
+  </p>
   <ol>
     <li>
         Escribe las funciones coordenadas de las funciones como
@@ -191,13 +205,19 @@
         $$
     </li>
 </ol>
+</div>
+
   
 
   
   
-<div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Este ejercicio prueba el caso general de la regla de la cadena,
-  con la hipótesis extra de que tanto $F$ como $G$ son funciones
-  clase $C^1$ en sus respectivos dominios.
+<div class="ejercicio-box"> 
+  <h2 class="number-title"> Ejercicio</h2> 
+  <p>
+    Este ejercicio prueba el caso general de la regla de la cadena,
+    con la hipótesis extra de que tanto $F$ como $G$ son funciones
+    clase $C^1$ en sus respectivos dominios.
+  </p>
 
   <ol>
     <li>
@@ -244,14 +264,16 @@
     </li>
  </ol>
 
+</div>
 
 
 
-<div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Este ejercicio prueba  la regla de la cadena, en el caso
-             más general.
-
-             
-             
+<div class="ejercicio-box"> 
+  <h2 class="number-title"> Ejercicio</h2> 
+  <p>
+    Este ejercicio prueba  la regla de la cadena, en el caso
+    más general.
+  </p>
      <ol>
         <li>
             Denota $p_0=G(q_0)$.
@@ -325,15 +347,20 @@
             $$
         </li>
     </ol>							
-                
+</div>
+
 
   
-<div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Considera las funciones
-  $F:\mathbb{R}^3\to \mathbb{R}^2$
-  y $G:\mathbb{R}^3\to \mathbb{R}^3$ dadas  por
-  $$
-  F(x,y,z)=(x^2+y+z, 2x+y+z^2), \quad G(u,v,w)=(2uv^2w^2,w^2\sen(v),u^2e^v)
-  $$
+<div class="ejercicio-box"> 
+  <h2 class="number-title"> Ejercicio</h2> 
+  <p> 
+    Considera las funciones
+    $F:\mathbb{R}^3\to \mathbb{R}^2$
+    y $G:\mathbb{R}^3\to \mathbb{R}^3$ dadas  por
+    $$
+    F(x,y,z)=(x^2+y+z, 2x+y+z^2), \quad G(u,v,w)=(2uv^2w^2,w^2\sen(v),u^2e^v)
+    $$
+  </p>
   <ol>
     <li>
         Encuentra la matriz de derivadas parciales
@@ -345,13 +372,18 @@
         parciales $D_{(u,0,w)}H$.
     </li>
   </ol>
+</div>
 
 
-<div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Considera la función $G:\mathbb{R}^2 \to \mathbb{R}^2$
-  dada por
-  $$
-  G(x,y)=(x+y,2x-y )
-  $$
+<div class="ejercicio-box"> 
+  <h2 class="number-title"> Ejercicio</h2> 
+  <p>
+    Considera la función $G:\mathbb{R}^2 \to \mathbb{R}^2$
+    dada por
+    $$
+    G(x,y)=(x+y,2x-y )
+    $$
+  </p>
   <ol>
     <li>
         Encuentra una función lineal,  $f:\mathbb{R}^2 \to \mathbb{R}$
@@ -368,6 +400,7 @@
         $$
     </li>
   </ol>
+</div>
 
 
   
@@ -419,18 +452,28 @@
             $$
         </li>
     </ol>
+ </div>
 
 
       
-  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Usa la regla de la cadena para probar que,
-    si $g:U\to \mathbb{R}$ es de clase
-      $C^1$ en $U$, con $U$ un abierto de $\mathbb{R}^n$, entonces
-      $$
-      \nabla_{p}(1/g)=-\frac{1}{g(p)^2}\nabla_p g
-      $$    
-      donde suponemos que $g(p)\ne 0$, para toda $p\in U$.
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Usa la regla de la cadena para probar que,
+      si $g:U\to \mathbb{R}$ es de clase
+        $C^1$ en $U$, con $U$ un abierto de $\mathbb{R}^n$, entonces
+        $$
+        \nabla_{p}(1/g)=-\frac{1}{g(p)^2}\nabla_p g
+        $$    
+        donde suponemos que $g(p)\ne 0$, para toda $p\in U$.
+    </p>
     
-    <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Sean $G:\mathbb{R}^m \to \mathbb{R}^n$,
+   </div>
+
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Sean $G:\mathbb{R}^m \to \mathbb{R}^n$,
       una función de clase $C^1$ en $\mathbb{R}^m$, con funciones
       coordenadas $G(q)=(g_1(q),\dots, g_n(q))$
       y sea $f:\mathbb{R}^n \to \mathbb{R}$ una función
@@ -443,39 +486,46 @@
       $$
       nota que $\partial_{p_k}f(g(q_0))$ es escalar
       y $\nabla_{q_0}g_k$ es vector.
+    </p>
 
-      \subsection*{Aplicaciones a geometría}
       
-      <div class="definicion-box"><h2 class="number-title">  Definición</h2>\label{Def:PlanoTangenteSupNivel}
-
-        Sea $U\ne \emptyset$ un conjunto abierto de $\mathbb{R}^3$
-        y $g:U \to \mathbb{R}$ una función de clase $C^1$. Considera
-        la superficie de nivel
-        $$
-        S=\{(x,y,z): g(x,y,z)=0\}
-        $$
-
-        Si $p_0=(x_0,y_0,z_0)\in S$ y
-        $\nabla_{p_0}g \ne 0$, el plano tangente a $S$, que pasa
-        por $p_0$ se define como
-        $$
-        \{ (x,y,z): \langle
-        \nabla_{p_0}g, (x-x_0, y-y_0, z-z_0)
-        \rangle =0
-        \}
-        $$
-        es decir, los puntos $(x,y,z)$ para los cuales
-        $(x,y,z)-(x_0,y_0,z_0)$ es ortogonal a $\nabla_{p_0}g$.
+      <div class="definicion-box">
+        <h2 class="number-title" id="Def:PlanoTangenteSupNivel">  Definición</h2>
+        <p>
+          Sea $U\ne \emptyset$ un conjunto abierto de $\mathbb{R}^3$
+          y $g:U \to \mathbb{R}$ una función de clase $C^1$. Considera
+          la superficie de nivel
+          $$
+          S=\{(x,y,z): g(x,y,z)=0\}
+          $$
+        </p>
+        <p>
+          Si $p_0=(x_0,y_0,z_0)\in S$ y
+          $\nabla_{p_0}g \ne 0$, el plano tangente a $S$, que pasa
+          por $p_0$ se define como
+          $$
+          \{ (x,y,z): \langle
+          \nabla_{p_0}g, (x-x_0, y-y_0, z-z_0)
+          \rangle =0
+          \}
+          $$
+          es decir, los puntos $(x,y,z)$ para los cuales
+          $(x,y,z)-(x_0,y_0,z_0)$ es ortogonal a $\nabla_{p_0}g$.
+        </p>
       </div>
 
-      <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> 
-        Sea $U\ne \emptyset$ un conjunto abierto de $\mathbb{R}^3$
-        y $g:U \to \mathbb{R}$ una función de clase $C^1$. Considera
-        la superficie de nivel
-        $$
-        S=\{(x,y,z): g(x,y,z)=0\}
-        $$
-        y $p_0=(x_0,y_0,z_0)\in S$.
+      <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio</h2> 
+        <p>
+          Sea $U\ne \emptyset$ un conjunto abierto de $\mathbb{R}^3$
+          y $g:U \to \mathbb{R}$ una función de clase $C^1$. Considera
+          la superficie de nivel
+          $$
+          S=\{(x,y,z): g(x,y,z)=0\}
+          $$
+          y $p_0=(x_0,y_0,z_0)\in S$.
+        </p>
+        
 
         <ol>
             <li>
@@ -493,10 +543,15 @@
                 en el plano tengente a $S$ que pasa por $p_0$.
             </li>
         </ol>
-        
+     </div>
 
-    <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Hallar la ecuación del plano tangente a las superficies
-    dadas en los puntos indicados.
+
+    <div class="ejercicio-box"> 
+      <h2 class="number-title"> Ejercicio</h2> 
+      <p>
+        Hallar la ecuación del plano tangente a las superficies
+        dadas en los puntos indicados.
+      </p>
     <ol>
         <li>
             $x^2+2y^2+3xz=10$ en $(1,2,1/3)$,
@@ -508,40 +563,59 @@
             $xyz=1$ en $(1,1,1)$.
         </li>
     </ol>
+    </div>
 
 
     
-  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Recuerda que, para una superficie de nivel
-    $S \subset \mathbb{R}^3$, de la función $g(x,y,z)$,
-    la ecuación del plano tangente es
-    $$
-    \langle \nabla_{(x_0,y_0,z_0)}g, (x-x_0,y-y_0,z-z_0) \rangle =0
-    $$
-    donde $(x_0,y_0z_0)$ es un punto en la superficie $S$.
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Recuerda que, para una superficie de nivel
+      $S \subset \mathbb{R}^3$, de la función $g(x,y,z)$,
+      la ecuación del plano tangente es
+      $$
+      \langle \nabla_{(x_0,y_0,z_0)}g, (x-x_0,y-y_0,z-z_0) \rangle =0
+      $$
+      donde $(x_0,y_0z_0)$ es un punto en la superficie $S$.
+    </p>
+    <p>
+      Demuestra que, como caso especial, la fórmula del plano tangente
+      a la gráfica de la función
+      $f(x,y)$, clase $C^1$,  se puede obtener de la ecuación anterior si
+      se considera a la gráfica
+      como una superficie de nivel de $g(x,y,z)=f(x,y)-z$.
+    </p>
+  </div>
 
-    Demuestra que, como caso especial, la fórmula del plano tangente
-    a la gráfica de la función
-    $f(x,y)$, clase $C^1$,  se puede obtener de la ecuación anterior si
-    se considera a la gráfica
-    como una superficie de nivel de $g(x,y,z)=f(x,y)-z$.
+    
  
 
-  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Dada una superficie $S$ en $\mathbb{R}^3$
+  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+    Dada una superficie $S$ en $\mathbb{R}^3$
     y un punto $p_0$ en la superficie, vamos a
     denotar $N,U,L$, a tres vectores unitarios
     con las características de que:
+    </p>
+    <p>
+      $N$  es el vector normal al plano tangente a $S$
+      que pasa por $p_0$; $U$ es vector que indica
+      la dirección donde la razón de crecimiento, en $p_0$, es máxima;
+      $L$ es el  vector donde la razón de crecimiento, en $p_0$, es cero.  
+    </p>  
+    <p>
+      Nota:  en general hay dos elecciones para dichos vectores,
+      pues podemos tomar su negativo
+      (por ejemplo $-N$ o $N$).
+  
+    </p>
 
-    $N$  es el vector normal al plano tangente a $S$
-    que pasa por $p_0$; $U$ es vector que indica
-    la dirección donde la razón de crecimiento, en $p_0$, es máxima;
-    $L$ es el  vector donde la razón de crecimiento, en $p_0$, es cero.
-
-    Nota:  en general hay dos elecciones para dichos vectores,
-    pues podemos tomar su negativo
-    (por ejemplo $-N$ o $N$).
-
-    Para las siguientes superficies calcula $N,U$ y $L$
-    para un punto general de la superficie.
+    <p>
+      Para las siguientes superficies calcula $N,U$ y $L$
+      para un punto general de la superficie.
+    </p>    
+    
+    
     <ol>
         <li>
             $S$ es la gráfica de la función $g(x,y)=1-x-y$ (un plano).
@@ -553,30 +627,40 @@
             no está bien definido.
         </li>
     </ol>
+</div>
 
 
     
-  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Considera la función
-    $f(x,y)=-(1-x^2-y^2)^{1/2}$, definida para los puntos $(x,y)$
-    con $x^2+y^2 < 1$. Prueba que el plano tangente a la gráfica
-    de $f$, en el punto $(x_0,y_0,f(x_0,y_0))$
-    es ortogonal al vector $(x_0,y_0,f(x_0,y_0))$.
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Considera la función
+      $f(x,y)=-(1-x^2-y^2)^{1/2}$, definida para los puntos $(x,y)$
+      con $x^2+y^2 < 1$. Prueba que el plano tangente a la gráfica
+      de $f$, en el punto $(x_0,y_0,f(x_0,y_0))$
+      es ortogonal al vector $(x_0,y_0,f(x_0,y_0))$.
+  
+    </p>
+  </div>
 
 
-    <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Encuentra el conjunto de puntos $(a,b,c)$
-      en $\mathbb{R}^3$, para los cuales las
-      dos esferas: $(x-a)^2+(y-b)^2+(z-c)^2=1$ y $x^2+y^2+z^2=1$,
-      se intersectan ortogonalmente.
-
-
-      Nota: Dos superficies se intersectan ortogonalmente si,
-      para todo punto en su intersección,
-      los planos tangentes son ortogonales. 
-
-      Sugerencia: ve las esferas como superficies de nivel y
-      utiliza gradientes. 
-
-    
-
+    <div class="ejercicio-box"> 
+      <h2 class="number-title"> Ejercicio</h2> 
+      <p>
+        Encuentra el conjunto de puntos $(a,b,c)$
+        en $\mathbb{R}^3$, para los cuales las
+        dos esferas: $(x-a)^2+(y-b)^2+(z-c)^2=1$ y $x^2+y^2+z^2=1$,
+        se intersectan ortogonalmente.  
+      </p>
+      <p>
+        Nota: Dos superficies se intersectan ortogonalmente si,
+        para todo punto en su intersección,
+        los planos tangentes son ortogonales. 
+      </p>
+      <p>
+        Sugerencia: ve las esferas como superficies de nivel y
+        utiliza gradientes. 
+      </p>
+    </div>
 
  </body>

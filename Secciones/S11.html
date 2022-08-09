@@ -86,131 +86,145 @@
            
                 
            
-    \begin{teorema}
+    <div class="teorema-box">
+        <h2 class="number-title"> Teorema </h2>
+        <p>
+            Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$ y $f: U \to \mathbb{R}$ una
+            función diferenciable en $p_0\in U$. Sea $I$ un intervalo abierto de 
+            $\mathbb{R}$, $\gamma: I \to \mathbb{R}^n$
+            una función con tal que $\gamma(t_0)=p_0$ y $\gamma$ diferenciable en $t_0$.
+        </p>
+        <p>
+            Entonces $f \circ \gamma$ es diferenciable en $t_0$ y 
+            $$
+            \frac{d f\circ \gamma (t_0)}{dt}=\langle \nabla_{p_0}f, \gamma'(t_0) \rangle	
+            $$
+            es decir
+            $$
+            (f \circ \gamma)'(t_0)=\sum_{i=1}^n \partial_{p_i} f(p_0)\gamma_i'(t_0)	
+            $$
+            donde $\gamma(t)=(\gamma_1(t), \dots, \gamma_n(t))$.
+        </p>
+
+    </div>
              
-    Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$ y $f: U \to \mathbb{R}$ una
-    función diferenciable en $p_0\in U$. Sea $I$ un intervalo abierto de 
-    $\mathbb{R}$, $\gamma: I \to \mathbb{R}^n$
-    una función con tal que $\gamma(t_0)=p_0$ y $\gamma$ diferenciable en $t_0$.
-    
-    Entonces $f \circ \gamma$ es diferenciable en $t_0$ y 
-    $$
-    \frac{d f\circ \gamma (t_0)}{dt}=\langle \nabla_{p_0}f, \gamma'(t_0) \rangle	
-    $$
-    es decir
-    $$
-    (f \circ \gamma)'(t_0)=\sum_{i=1}^n \partial_{p_i} f(p_0)\gamma_i'(t_0)	
-    $$
-    donde $\gamma(t)=(\gamma_1(t), \dots, \gamma_n(t))$.
-    
-  \end{teorema}
 
-<div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Este ejercicio da una prueba del primer caso
-  de la regla de la cadena, en dimensión 3 y con la
-  hipótesis adicional de que las funciones sean
-  clase $C^1$.
-
-  
-  
-  Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^3$
-  y $f: U \to \mathbb{R}$ una
-  función clase $C^1$ en $ U$. Sea $I$ un intervalo abierto de 
-  $\mathbb{R}$, $\gamma: I \to \mathbb{R}^3$
-  una función clase $C^1$ con $\gamma(I)\subset U$ (para que
-  $f\circ \gamma$ esta bien definida).
-
-
-  <ol>
-    <li>
-        Denotemos $\gamma(t)=(x(t),y(t),z(t))$ y
-        sea $t_0\in I$, fijo y arbitrario y
-        denota $\gamma(t_0)=p_0=(x(t_0),y(t_0),z(t_0))\in U$.
-    </li>
-    <li>
-        Ya que $U$ es abierto, existe $r>0$ con $B_r(p_0)\subset U$.
-        Demuestra que si $t$ está suficientemente cerca de
-        $t_0$ entonces los puntos 
-        \begin{eqnarray*}
-          p_1(t)&:=&p_0+(x(t)-x(t_0))e_1,\\
-          p_2(t)&:=&p_1(t)+(y(t)-y(t_0))e_2,\\
-          p_3(t)&:=&(z(t)-z(t_0))e_3
-        \end{eqnarray*}
-        están todos en $U$, donde $\{e_1,e_2,e_3\}$ es la
-        base canónica de $\mathbb{R}^3$ y además $p_3(t)=\gamma(t)$.
-    </li>
-    <li>
-        Define $h(t)=f(\gamma(t))$. Si $t\ne t_0$ y $t$ está
-        suficientemente cerca de $t_0$ demuestra que
-        \begin{eqnarray*}
-          \frac{h(t)-h(t_0)}{t-t_0}&=& \frac{f(p_1(t))-f(p_0)}{t-t_0} \\
-                                   &+& \frac{f(p_2(t))-f(p_1(t))}{t-t_0}\\
-                                   &+&\frac{f(p_3(t))-f(p_2(t))}{t-t_0}
-        \end{eqnarray*}
-    </li>
-    <li>
-        Usando el Teorema del Valor Medio, para funciones
-        de una variable, demuestra que existen $c_x,c_y,c_z$ con:
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p> 
+        Este ejercicio da una prueba del primer caso
+        de la regla de la cadena, en dimensión 3 y con la
+        hipótesis adicional de que las funciones sean
+        clase $C^1$.      
+    </p>
+    <p>
+        Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^3$
+        y $f: U \to \mathbb{R}$ una
+        función clase $C^1$ en $ U$. Sea $I$ un intervalo abierto de 
+        $\mathbb{R}$, $\gamma: I \to \mathbb{R}^3$
+        una función clase $C^1$ con $\gamma(I)\subset U$ (para que
+        $f\circ \gamma$ esta bien definida).      
+    </p>
+    <ol>
+        <li>
+            Denotemos $\gamma(t)=(x(t),y(t),z(t))$ y
+            sea $t_0\in I$, fijo y arbitrario y
+            denota $\gamma(t_0)=p_0=(x(t_0),y(t_0),z(t_0))\in U$.
+        </li>
+        <li>
+            Ya que $U$ es abierto, existe $r>0$ con $B_r(p_0)\subset U$.
+            Demuestra que si $t$ está suficientemente cerca de
+            $t_0$ entonces los puntos 
+            \begin{eqnarray*}
+              p_1(t)&:=&p_0+(x(t)-x(t_0))e_1,\\
+              p_2(t)&:=&p_1(t)+(y(t)-y(t_0))e_2,\\
+              p_3(t)&:=&(z(t)-z(t_0))e_3
+            \end{eqnarray*}
+            están todos en $U$, donde $\{e_1,e_2,e_3\}$ es la
+            base canónica de $\mathbb{R}^3$ y además $p_3(t)=\gamma(t)$.
+        </li>
+        <li>
+            Define $h(t)=f(\gamma(t))$. Si $t\ne t_0$ y $t$ está
+            suficientemente cerca de $t_0$ demuestra que
+            \begin{eqnarray*}
+              \frac{h(t)-h(t_0)}{t-t_0}&=& \frac{f(p_1(t))-f(p_0)}{t-t_0} \\
+                                       &+& \frac{f(p_2(t))-f(p_1(t))}{t-t_0}\\
+                                       &+&\frac{f(p_3(t))-f(p_2(t))}{t-t_0}
+            \end{eqnarray*}
+        </li>
+        <li>
+            Usando el Teorema del Valor Medio, para funciones
+            de una variable, demuestra que existen $c_x,c_y,c_z$ con:
+            
+            $$
+            f((x,y(t_0),z(t_0)))-f((x(t_0),y(t_0),z(t_0)))
+            =\partial_xf(c_x,y(t_0),z(t_0))(x-x(t_0))
+            $$
+            donde $c_x$ está entre $x(t_0)$ y $x$,
         
-        $$
-        f((x,y(t_0),z(t_0)))-f((x(t_0),y(t_0),z(t_0)))
-        =\partial_xf(c_x,y(t_0),z(t_0))(x-x(t_0))
-        $$
-        donde $c_x$ está entre $x(t_0)$ y $x$,
-    
-        $$
-        f((x,y,z(t_0)))-f((x,y(t_0),z(t_0)))
-        =\partial_yf(x,c_y,z(t_0))(y-y_0)
-        $$
-        donde $c_y$ está entre $y(t_0)$ y $y$,
-    
-        $$
-        f((x,y,z))-f((x,y,z(t_0)))
-        =\partial_zf(x,y,c_z)(z-z_0)
-        $$
-        donde $c_z$ está entre $z$ y $z(t_0)$.
-    
-    </li>
-    <li>
-        Usando el inciso anterior prueba que existen
-        $c_{x}$, entre $x(t)$ y $x_0$, $c_y$, entre $y(t)$ y $y_0$
-        y $c_z$, entre $z(t)$ y $z_0$ tal que
-       
-         \begin{eqnarray*}
-           \frac{h(t)-h(t_0)}{t-t_0}&=& \partial_xf(c_x,x(t_0),y(t_0))
-                                        \frac{x(t)-x(t_0)}{t-t_0} \\
-                                    &+& \partial_yf(x(t),c_y,z(t_0))
-                                        \frac{y(t)-y(t_0)}{t-t_0}\\
-                                    &+&\partial_zf(x(t),y(t),c_z)
-                                        \frac{z(t)-z(t_0)}{t-t_0}
-        \end{eqnarray*}
-    
-    </li>
-    <li>
-        Tomando límite en la expresión del inciso anterior
-        para el cociente diferencial de $h$ y usando la
-        continuidad de las derivadas parciales, concluye que
-        \begin{eqnarray*}
-          h'(t_0)&=&\partial_xf(x(t_0), y(t_0), z(t_0))x'(t_0)\\
-                 &+& \partial_yf(x(t_0), y(t_0), z(t_0))y'(t_0)\\
-                 &+&\partial_zf(x(t_0), y(t_0), z(t_0))z'(t_0)
-        \end{eqnarray*}
-        y por lo tanto, ya que $t_0$ es arbitrario, $h$ es clase $C^1$.
-    </li>
-</ol>
+            $$
+            f((x,y,z(t_0)))-f((x,y(t_0),z(t_0)))
+            =\partial_yf(x,c_y,z(t_0))(y-y_0)
+            $$
+            donde $c_y$ está entre $y(t_0)$ y $y$,
+        
+            $$
+            f((x,y,z))-f((x,y,z(t_0)))
+            =\partial_zf(x,y,c_z)(z-z_0)
+            $$
+            donde $c_z$ está entre $z$ y $z(t_0)$.
+        
+        </li>
+        <li>
+            Usando el inciso anterior prueba que existen
+            $c_{x}$, entre $x(t)$ y $x_0$, $c_y$, entre $y(t)$ y $y_0$
+            y $c_z$, entre $z(t)$ y $z_0$ tal que
+           
+             \begin{eqnarray*}
+               \frac{h(t)-h(t_0)}{t-t_0}&=& \partial_xf(c_x,x(t_0),y(t_0))
+                                            \frac{x(t)-x(t_0)}{t-t_0} \\
+                                        &+& \partial_yf(x(t),c_y,z(t_0))
+                                            \frac{y(t)-y(t_0)}{t-t_0}\\
+                                        &+&\partial_zf(x(t),y(t),c_z)
+                                            \frac{z(t)-z(t_0)}{t-t_0}
+            \end{eqnarray*}
+        
+        </li>
+        <li>
+            Tomando límite en la expresión del inciso anterior
+            para el cociente diferencial de $h$ y usando la
+            continuidad de las derivadas parciales, concluye que
+            \begin{eqnarray*}
+              h'(t_0)&=&\partial_xf(x(t_0), y(t_0), z(t_0))x'(t_0)\\
+                     &+& \partial_yf(x(t_0), y(t_0), z(t_0))y'(t_0)\\
+                     &+&\partial_zf(x(t_0), y(t_0), z(t_0))z'(t_0)
+            \end{eqnarray*}
+            y por lo tanto, ya que $t_0$ es arbitrario, $h$ es clase $C^1$.
+        </li>
+    </ol>
+  
+</div>    
+  
+  
   
 
   
-<div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Este ejercicio prueba el primer caso de la regla de la cadena, con
-  la hipótesis extra de que la función sea clase $C^1$ y es una
-  generalización del ejercicio anterior.
 
   
-   Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$ y $f: U \to \mathbb{R}$ una
-    función clase $C^1$ en $ U$. Sea $I$ un intervalo abierto de 
-    $\mathbb{R}$, $\gamma: I \to \mathbb{R}^n$
-    una función clase $C^1$ con $\gamma(I)\subset U$ (para que
-    $f\circ \gamma$ esta bien definida).
-    
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Este ejercicio prueba el primer caso de la regla de la cadena, con
+        la hipótesis extra de que la función sea clase $C^1$ y es una
+        generalización del ejercicio anterior.      
+    </p>
+    <p>
+        Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$ y $f: U \to \mathbb{R}$ una
+        función clase $C^1$ en $ U$. Sea $I$ un intervalo abierto de 
+        $\mathbb{R}$, $\gamma: I \to \mathbb{R}^n$
+        una función clase $C^1$ con $\gamma(I)\subset U$ (para que
+        $f\circ \gamma$ esta bien definida).
+    </p>  
     <ol>
         <li>
             Toma $p\in U$ un punto arbitrario y $r>0$
@@ -274,6 +288,7 @@
             y que la función  $f \circ \gamma$ es clase $C^1$ en $I$. 
         </li>
 </ol>
+</div>
 
   
 
@@ -283,17 +298,18 @@
     
 
   
-  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Este ejercicio prueba el primer caso de la regla de la cadena, en el caso
-    más general.
-
-    
-                         
-    Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$ y $f: U \to \mathbb{R}$ una
-    función diferenciable en $p_0\in U$. Sea $I$ un intervalo abierto de 
-    $\mathbb{R}$, $\gamma: I \to \mathbb{R}^n$
-    una función con tal que $\gamma(t_0)=p_0$ y $\gamma$ diferenciable en $t_0$.
-       
-       
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Este ejercicio prueba el primer caso de la regla de la cadena, en el caso
+        más general.
+    </p>
+    <p>
+        Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$ y $f: U \to \mathbb{R}$ una
+        función diferenciable en $p_0\in U$. Sea $I$ un intervalo abierto de 
+        $\mathbb{R}$, $\gamma: I \to \mathbb{R}^n$
+        una función con tal que $\gamma(t_0)=p_0$ y $\gamma$ diferenciable en $t_0$.
+    </p>   
        <ol>
             <li>
                 Usando que $f$ es diferenciable en
@@ -352,159 +368,199 @@
                 $$
             </li>
 
-</ol>							
-       
+    </ol>							
+  </div>   
 
 
 
-<div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Usa la regla de la cadena para escribir las derivadas 
-parciales que se piden en las siguientes funciones:
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Usa la regla de la cadena para escribir las derivadas 
+        parciales que se piden en las siguientes funciones:
+    </p>
 
-<ol>
-    <li>
-        $\frac{\partial f}{\partial y}(A(x,y),B(x,y),C(x,y))$,
-    </li>
-    <li>
-        $\frac{\partial f}{\partial x_2}(p_1(x_1,x_2,x_3),p_2(x_1,x_2,x_3))$
-    </li>
-    <li>
-        $\frac{\partial f}{\partial x_5}
-        (X_1(x_1, \dots, x_{10}), \dots, X_{7}(x_1,\dots, x_{10}))$
-    </li>
-</ol>
-
-<div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Sea $U\ne \emptyset$ un abierto de
-$\mathbb{R}^2$, $g:U\to \mathbb{R}$ una función de clase $C^1$
-y $x,y:I\to \mathbb{R}$ funciones  de clase $C^1$
-(con $I$ un intervalo abierto).
-Encuentra $h'(t)$, la derivada de
-$h$ (función de una variable), para las siguientes funciones:
-<ol>
-    <li>
-        $h(t)=(g(x(t), y(t)))^2$,
-    </li>
-    <li>
-        $h(t)=e^{g(x(t),y(t))}$,
-    </li>
-    <li>
-        $h(t)=\sen(g(x(t),y(t)))$.
-    </li>
-</ol>
+            <ol>
+                <li>
+                    $\frac{\partial f}{\partial y}(A(x,y),B(x,y),C(x,y))$,
+                </li>
+                <li>
+                    $\frac{\partial f}{\partial x_2}(p_1(x_1,x_2,x_3),p_2(x_1,x_2,x_3))$
+                </li>
+                <li>
+                    $\frac{\partial f}{\partial x_5}
+                    (X_1(x_1, \dots, x_{10}), \dots, X_{7}(x_1,\dots, x_{10}))$
+                </li>
+            </ol>
+</div>
 
 
-<div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Se dice que una función $f$ tiene rendimientos de escala constante,
-o que es homogenea de grado 1, si satisface
-\begin{equation}\label{Eqn:RendimientoEscala}
-f(cx,cy)=cf(x,y)
-\end{equation}
-para toda $c>0$. El nombre viene porque, por ejemplo,
-si se duplica $x$ y $y$, también se duplica $f$.
 
-<ol>
-    <li>
-        Prueba que $f(x,y)=\sqrt{x^2+y^2}$ y  $f(x,y)=\sqrt{xy}$, $x,y>0$,
-        tienen rendimientos de escala constante.
-    </li>
-    <li>
-        Demuestra que si $f$ es clase $C^1$ y tiene rendimientos
-        de escala constante entonces $f$ satisface:
-        \begin{equation}\label{Eqn:RendimientoEscala2}
-        x \partial_x f(x,y) + y \partial_y f(x,y)=f(x,y)
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Sea $U\ne \emptyset$ un abierto de
+        $\mathbb{R}^2$, $g:U\to \mathbb{R}$ una función de clase $C^1$
+        y $x,y:I\to \mathbb{R}$ funciones  de clase $C^1$
+        (con $I$ un intervalo abierto).
+        Encuentra $h'(t)$, la derivada de
+        $h$ (función de una variable), para las siguientes funciones:
+    </p>
+        <ol>
+            <li>
+                $h(t)=(g(x(t), y(t)))^2$,
+            </li>
+            <li>
+                $h(t)=e^{g(x(t),y(t))}$,
+            </li>
+            <li>
+                $h(t)=\sen(g(x(t),y(t)))$.
+            </li>
+        </ol>
+</div>
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Se dice que una función $f$ tiene rendimientos de escala constante,
+        o que es homogenea de grado 1, si satisface
+        \begin{equation}\label{Eqn:RendimientoEscala}
+        f(cx,cy)=cf(x,y)
         \end{equation}
+        para toda $c>0$. El nombre viene porque, por ejemplo,
+        si se duplica $x$ y $y$, también se duplica $f$.
         
-        Sugerencia: usa la regla de la cadena para
-        diferenciar la ecuación \eqref{Eqn:RendimientoEscala}
-        con respecto a $c$ y luego evalua en $c=1$.
-    </li>
-    <li>
-        Demuestra directamente que $f(x,y)=\sqrt{x^2+y^2}$ y $f(x,y)=\sqrt{xy}$
-        satisfacen la ecuacion \eqref{Eqn:RendimientoEscala2}.
-    </li>
-    <li>
-        Encuentra un ejemplo de una función de rendimiento de escala
-        constante diferente a las dadas en el ejercicio.
-    </li>
-</ol>
-
-<div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Un alambre tiene forma circular, de radio $r$ y supongamos que está
-colocado con su centro en el origen. Supongamos que
-$T:\mathbb{R}^2 \to \mathbb{R}$ es la función que da la temperatura en
-el punto $(x,y)$ del plano. Para las siguientes funciones
-temperatura, encuentra las temperaturas máximas y mínimas
-que sufre el alambre.
-
-<ol>
-    <li>
-        $T(x,y)=2x+3y$,
-    </li>
-    <li>
-        $T(x,y)=2xy$,
-    </li>
-    <li>
-        $T(x,y)=x^2+y^2$.
-    </li>
-</ol>
-
-Sugerencia: empieza dando $\gamma$, una parametrización del alambre,
-luego encuentra el máximo y el mínimo de $T\circ \gamma$.
+    </p>
+            <ol>
+                <li>
+                    Prueba que $f(x,y)=\sqrt{x^2+y^2}$ y  $f(x,y)=\sqrt{xy}$, $x,y>0$,
+                    tienen rendimientos de escala constante.
+                </li>
+                <li>
+                    Demuestra que si $f$ es clase $C^1$ y tiene rendimientos
+                    de escala constante entonces $f$ satisface:
+                    \begin{equation}\label{Eqn:RendimientoEscala2}
+                    x \partial_x f(x,y) + y \partial_y f(x,y)=f(x,y)
+                    \end{equation}
+                    
+                    Sugerencia: usa la regla de la cadena para
+                    diferenciar la ecuación \eqref{Eqn:RendimientoEscala}
+                    con respecto a $c$ y luego evalua en $c=1$.
+                </li>
+                <li>
+                    Demuestra directamente que $f(x,y)=\sqrt{x^2+y^2}$ y $f(x,y)=\sqrt{xy}$
+                    satisfacen la ecuacion \eqref{Eqn:RendimientoEscala2}.
+                </li>
+                <li>
+                    Encuentra un ejemplo de una función de rendimiento de escala
+                    constante diferente a las dadas en el ejercicio.
+                </li>
+            </ol>
+</div>
 
 
-<div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Una función $f:\mathbb{R}^n \to \mathbb{R}$ se llama par si
-satisface $f(-p)=f(p)$, para todo punto  $p$. Supon que $f$ es clase
-$C^1$ y demuestra que  $\nabla_{(0,\dots, 0)}f=(0,\dots, 0)$.
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Un alambre tiene forma circular, de radio $r$ y supongamos que está
+        colocado con su centro en el origen. Supongamos que
+        $T:\mathbb{R}^2 \to \mathbb{R}$ es la función que da la temperatura en
+        el punto $(x,y)$ del plano. Para las siguientes funciones
+        temperatura, encuentra las temperaturas máximas y mínimas
+        que sufre el alambre.
+    </p>
 
-Sugerencia: aplica la regla de la cadena a $f(p)=f(-p)$. 
+            <ol>
+                <li>
+                    $T(x,y)=2x+3y$,
+                </li>
+                <li>
+                    $T(x,y)=2xy$,
+                </li>
+                <li>
+                    $T(x,y)=x^2+y^2$.
+                </li>
+            </ol>
+     <p>
+        Sugerencia: empieza dando $\gamma$, una parametrización del alambre,
+        luego encuentra el máximo y el mínimo de $T\circ \gamma$.
+     </p>       
+</div>
 
 
 
-<div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Sea $y(x)$ una función definida implícitamente por $G(x,y(x))=0$,
-donde $G$ es una función de clase $C^1$ definida en $\mathbb{R}^2$.
-Prueba que si $y$ es de clase
-$C^1$  y  $\frac{\partial G}{\partial y}\ne 0$ entonces
-$$
-\frac{dy}{dx}=-\frac{ \partial G/ \partial x}{\partial G/\partial y}, 
-$$
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Una función $f:\mathbb{R}^n \to \mathbb{R}$ se llama par si
+        satisface $f(-p)=f(p)$, para todo punto  $p$. Supon que $f$ es clase
+        $C^1$ y demuestra que  $\nabla_{(0,\dots, 0)}f=(0,\dots, 0)$.        
+    </p>
+    <p>
+        Sugerencia: aplica la regla de la cadena a $f(p)=f(-p)$. 
+    </p>
+</div>
 
 
 
-<div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Prueba los siguientes pasos para demostrar la  fórmula:
-\begin{equation}\label{Eqn:FormulaDerivadaInt}
-\frac{d}{dt} \int_{y_1(t)}^{y_2(t)}g(x,t)dx=
-\int_{y_1(t)}^{y_2(t)}\frac{\partial g(x,t)}{\partial t}dx+ g(y_2(t),t)y_2'(t)
--g(y_1(t),t)y_1'(t)
-\end{equation}
 
-donde $g(x,t)$ es una función clase $C^1$ en un abierto $U$
-y $y_1,y_2$ funciones de clase $C^1$ de una variable.
-
-<ol>
-    <li>
-        Define $f(u,v,w)=\int_u^v g(x,w)dx$. Usa el Teorema fundamental
-        del cálculo para probar que
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Sea $y(x)$ una función definida implícitamente por $G(x,y(x))=0$,
+        donde $G$ es una función de clase $C^1$ definida en $\mathbb{R}^2$.
+        Prueba que si $y$ es de clase
+        $C^1$  y  $\frac{\partial G}{\partial y}\ne 0$ entonces
         $$
-        \frac{\partial f}{\partial u}(u,v,w)=-g(u,w),
-        \quad \frac{\partial f}{\partial v}(u,v,w)=g(v,w).
-        $$        
-    </li>
-    <li>
-        Usa la regla de la cadena para probar
+        \frac{dy}{dx}=-\frac{ \partial G/ \partial x}{\partial G/\partial y}, 
         $$
-        \frac{d}{dt} f(y_1(t),y_2(t),t)= \frac{\partial f}{\partial u}
-        y_1'(t)+ \frac{\partial f}{\partial v}y_2'(t)
-        +\frac{\partial f}{\partial w}
-        $$
-    </li>
-    <li>
-        Se puede probar, no lo demuestres, que se puede diferencial
-        dentro  de la integral para obtener:
-        $$
-        \frac{\partial f}{\partial w}=\int_{u}^v
-        \frac{\partial g}{\partial w}(x,w)dx.
-        $$
-        Finalmente, usa ésta fórmula y los incisos anteriores
-        para demostrar la ecuación \eqref{Eqn:FormulaDerivadaInt}. 
-    </li>
-</ol>
+    </p>
+</div>
 
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Prueba los siguientes pasos para demostrar la  fórmula:
+        \begin{equation}\label{Eqn:FormulaDerivadaInt}
+        \frac{d}{dt} \int_{y_1(t)}^{y_2(t)}g(x,t)dx=
+        \int_{y_1(t)}^{y_2(t)}\frac{\partial g(x,t)}{\partial t}dx+ g(y_2(t),t)y_2'(t)
+        -g(y_1(t),t)y_1'(t)
+        \end{equation}        
+        donde $g(x,t)$ es una función clase $C^1$ en un abierto $U$
+        y $y_1,y_2$ funciones de clase $C^1$ de una variable.
+    </p>
+            <ol>
+                <li>
+                    Define $f(u,v,w)=\int_u^v g(x,w)dx$. Usa el Teorema fundamental
+                    del cálculo para probar que
+                    $$
+                    \frac{\partial f}{\partial u}(u,v,w)=-g(u,w),
+                    \quad \frac{\partial f}{\partial v}(u,v,w)=g(v,w).
+                    $$        
+                </li>
+                <li>
+                    Usa la regla de la cadena para probar
+                    $$
+                    \frac{d}{dt} f(y_1(t),y_2(t),t)= \frac{\partial f}{\partial u}
+                    y_1'(t)+ \frac{\partial f}{\partial v}y_2'(t)
+                    +\frac{\partial f}{\partial w}
+                    $$
+                </li>
+                <li>
+                    Se puede probar, no lo demuestres, que se puede diferencial
+                    dentro  de la integral para obtener:
+                    $$
+                    \frac{\partial f}{\partial w}=\int_{u}^v
+                    \frac{\partial g}{\partial w}(x,w)dx.
+                    $$
+                    Finalmente, usa ésta fórmula y los incisos anteriores
+                    para demostrar la ecuación \eqref{Eqn:FormulaDerivadaInt}. 
+                </li>
+            </ol>
+     </div>
+            
 
  </body>

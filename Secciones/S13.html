@@ -83,43 +83,59 @@
     <h1 class="number-title flexbox"> Teorema de Taylor y Hessianos </h1> 
 
     <div class="definicion-box"><h2 class="number-title">  Definición</h2>
-    Una forma cuadrática, en $n$ variables, es una función
-    de la forma
-    $$
-    Q(x_1,\dots, x_n)=\sum_{i,j=1}^n a_{i,j}x_ix_j
-    $$
-  
-    Por ejemplo, en dos variables $x$ y $y$, una forma cuadrática
-    se ve
-    $$
-    Q(x,y)=a_{1,1}x^2+a_{1,2}xy+a_{2,1}yx+a_{2,2}y^2
-    $$
-  
-    la cual se puede reescribir
-    $$
-    Q(x,y)=a_{1,1}x^2+(a_{1,2}+a_{2,1})xy+a_{2,2}y^2
-    $$
-  
-    Las formás cuadráticas siguen en complejidad, a las funciones constantes
-    y las lineales.
-  
-    A la matriz $A=[a_{i,j}]$, se le llama la matriz asociada a $Q$.
+      <p>
+        Una forma cuadrática, en $n$ variables, es una función
+        de la forma
+        $$
+        Q(x_1,\dots, x_n)=\sum_{i,j=1}^n a_{i,j}x_ix_j
+        $$
+      
+        Por ejemplo, en dos variables $x$ y $y$, una forma cuadrática
+        se ve
+        $$
+        Q(x,y)=a_{1,1}x^2+a_{1,2}xy+a_{2,1}yx+a_{2,2}y^2
+        $$
+      
+        la cual se puede reescribir
+        $$
+        Q(x,y)=a_{1,1}x^2+(a_{1,2}+a_{2,1})xy+a_{2,2}y^2
+        $$
+      
+      </p>
+      <p>
+        Las formás cuadráticas siguen en complejidad, a las funciones constantes
+        y las lineales.
+      </p>
+      <p>
+        A la matriz $A=[a_{i,j}]$, se le llama la matriz asociada a $Q$.
+      </p>
   </div>
   
-  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Este ejercicio da la razón del nombre de forma cuadrática.
-  
-    Demuestra que si $Q$ es una forma cuadrática entonces, para toda
-    $\lambda\in \mathbb{R}$
-    $$
-    Q(\lambda x_1,\dots, \lambda x_n)=\lambda^2Q(x_1,\dots x_n)
-    $$
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Este ejercicio da la razón del nombre de forma cuadrática.
+    </p>
+    <p>
+      Demuestra que si $Q$ es una forma cuadrática entonces, para toda
+      $\lambda\in \mathbb{R}$
+      $$
+      Q(\lambda x_1,\dots, \lambda x_n)=\lambda^2Q(x_1,\dots x_n)
+      $$
+    </p>
+  </div>
   
     
   
-  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Considera  la forma cuadrática
-    $$
-    Q(x_1,\dots, x_n)=\sum_{i,j=1}^n a_{i,j}x_ix_j
-    $$
+    
+  
+  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Considera  la forma cuadrática
+      $$
+      Q(x_1,\dots, x_n)=\sum_{i,j=1}^n a_{i,j}x_ix_j
+      $$
+    </p>
   
     <ol>
         <li>
@@ -168,20 +184,25 @@
             \right]
              $$
         </li>
-  </ol>
-  
+    </ol>
+  </div>
   
   
   <div class="definicion-box"><h2 class="number-title">  Definición</h2>
-  
-      Una matriz cuadrada de $n\times n$, $A=[a_{i,j}]$, se llama simétrica
-      si $a_{i,j}=a_{j,i}$, para todas $i,j=1,\dots, n$. 
-  
+      <p>
+        Una matriz cuadrada de $n\times n$, $A=[a_{i,j}]$, se llama simétrica
+        si $a_{i,j}=a_{j,i}$, para todas $i,j=1,\dots, n$. 
+      </p>
   </div>
   
-  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Considera una matriz de $n\times n$,  $A$ y define
-    la matriz $B=\frac{1}{2}(A+A^t)$, donde $A^t$ denota
-    la matriz transpuesta.
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Considera una matriz de $n\times n$,  $A$ y define
+      la matriz $B=\frac{1}{2}(A+A^t)$, donde $A^t$ denota
+      la matriz transpuesta.
+    </p>
+      
     <ol>
         <li>
             Demuestra que $B$ es una matriz simétrica.
@@ -197,91 +218,146 @@
             a la matriz asociada a una forma cuadrática.
         </li>  
     </ol>
+  </div>
+
+
+
+  <div class="ejercicio-box"> 
+    <h2 class="number-title" id="Ejer:MatrizSimetrica"> Ejercicio</h2>
+    <p>
+      Considera la matriz de $n\times n$,
+      $A=[a_{i,j}]$. Demuestra que $A$ es simétrica
+      si y sólo si $\langle Ax,x \rangle=\langle x,Ax\rangle$, para toda
+      $x=(x_1,\dots, x_n)\in \mathbb{R}^n$.
     
-  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2>\label{Ejer:MatrizSimetrica}
-    Considera la matriz de $n\times n$,
-    $A=[a_{i,j}]$. Demuestra que $A$ es simétrica
-    si y sólo si $\langle Ax,x \rangle=\langle x,Ax\rangle$, para toda
-    $x=(x_1,\dots, x_n)\in \mathbb{R}^n$.
+    </p>
+  </div>
   
-  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Considera la forma cuadrática
-    $$
-    Q(x_1,\dots, x_n)=\sum_{i,j=1}^n a_{i,j}x_ix_j
-    $$
   
-    Demuestra
-    $$
-    \langle \nabla_{(x_1,\dots x_n)}Q, (x_1,\dots, x_n) \rangle=
-    2Q(x_1,\dots, x_n) 
-    $$
-  
-    <div class="definicion-box"><h2 class="number-title">  Definición</h2>
-      Una forma cuadrática
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Considera la forma cuadrática
       $$
       Q(x_1,\dots, x_n)=\sum_{i,j=1}^n a_{i,j}x_ix_j
       $$
-      se llama definitivamente positiva sii:
-      <ol>
-        <li>
-            para toda $(x_1,\dots, x_n)\in \mathbb{R}^n$,
-            $Q(x_1,\dots, x_n) \geq 0$.
-        </li>
-        <li>
-            si $Q(x_1,\dots, x_n)=0$ entonces
-            $x_1=\dots =x_n=0$.
-        </li>
-       </ol>
+    
+      Demuestra
+      $$
+      \langle \nabla_{(x_1,\dots x_n)}Q, (x_1,\dots, x_n) \rangle=
+      2Q(x_1,\dots, x_n) 
+      $$
+    </p>
+   </div>
+
   
-        La forma cuadrática $Q$ se llama definitivamente
-        negativa si $-Q$ es definitivamente positiva.
-  
-      </div>
+    <div class="definicion-box">
+      <h2 class="number-title">  Definición</h2>
+      <p>
+        Una forma cuadrática
+        $$
+        Q(x_1,\dots, x_n)=\sum_{i,j=1}^n a_{i,j}x_ix_j
+        $$
+        se llama definitivamente positiva sii:
+        <ol>
+          <li>
+              para toda $(x_1,\dots, x_n)\in \mathbb{R}^n$,
+              $Q(x_1,\dots, x_n) \geq 0$.
+          </li>
+          <li>
+              si $Q(x_1,\dots, x_n)=0$ entonces
+              $x_1=\dots =x_n=0$.
+          </li>
+         </ol>
+    
+          La forma cuadrática $Q$ se llama definitivamente
+          negativa si $-Q$ es definitivamente positiva.
+    
+      </p>    
+    </div>
+
+
         
-        <div class="definicion-box"><h2 class="number-title">  Definición</h2>
-        De manera similar, decimos que la matriz cuadrada $A=[a_{i,j}]$,
-        es definitivamente positiva sii la forma cuadrática asociada,
-        $$Q(x_1,\dots, x_n)=\sum_{i,j=1}^na_{i,j}x_ix_j$$
-        es definitivamente positiva.
+        <div class="definicion-box">
+          <h2 class="number-title">  Definición</h2>
+          <p>
+            De manera similar, decimos que la matriz cuadrada $A=[a_{i,j}]$,
+            es definitivamente positiva sii la forma cuadrática asociada,
+            $$Q(x_1,\dots, x_n)=\sum_{i,j=1}^na_{i,j}x_ix_j$$
+            es definitivamente positiva.
+          </p>
         </div>
   
-  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Considera $D$, una matriz diagonal, cuyas entradas en la diagonalc son
-    $\lambda_1,\dots, \lambda_n$.
-  
-    Demuestra que $D$ es definitivamente
-    positiva si y sólo si $\lambda_i >0$, para toda $i$.
-  
-    Demuestra que $D$ es definitivamente
-    negativa si y sólo si $\lambda_i <0$, para toda $i$.
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Considera $D$, una matriz diagonal, cuyas entradas en la diagonalc son
+      $\lambda_1,\dots, \lambda_n$.  
+    </p>
+    <p>
+      Demuestra que $D$ es definitivamente
+      positiva si y sólo si $\lambda_i >0$, para toda $i$.
+    </p>
+    <p>
+      Demuestra que $D$ es definitivamente
+      negativa si y sólo si $\lambda_i < 0$, para toda $i$.
+    </p>
+    </div>
+
   
     
-  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Demuestra que si las matrices cuadradas $A$ y $B$ son
-    definitivamente positivas y $a>0$, entonces la matriz
-    $aA+B$ también es definitivamente positiva.
   
-  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Da un ejemplo de una matriz de $2\times 2$ que no es
-    ni definitivamente negativa ni definitivamente positiva.
-  
+    
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Demuestra que si las matrices cuadradas $A$ y $B$ son
+      definitivamente positivas y $a>0$, entonces la matriz
+      $aA+B$ también es definitivamente positiva.
+    </p>
+  </div>
+
+
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Da un ejemplo de una matriz de $2\times 2$ que no es
+      ni definitivamente negativa ni definitivamente positiva.
+    </p>
+  </div>
+
    
-  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2>\label{Ejer:LemaCriterioHessiano}
-    Sea $Q$ una forma cuadrática definitivamente
-    positiva. Demuestra que existe una constante $k>0$ tal que
-    $$
-    Q(x_1,\dots, x_n) \geq k \|(x_1,\dots x_n)\|^2
-    $$
-    para todo $(x_1,\dots, x_n)\in \mathbb{R}^n$.
+  <div class="ejercicio-box"> 
+    <h2 class="number-title" id="Ejer:LemaCriterioHessiano"> Ejercicio</h2>
+    <p>
+      Sea $Q$ una forma cuadrática definitivamente
+      positiva. Demuestra que existe una constante $k>0$ tal que
+      $$
+      Q(x_1,\dots, x_n) \geq k \|(x_1,\dots x_n)\|^2
+      $$
+      para todo $(x_1,\dots, x_n)\in \mathbb{R}^n$.
+    </p>
+    <p>
+      Sugerencia: toma  $k$ como el mínimo de $Q$ sobre
+      la esfera unitaria de $\mathbb{R}^n$.
+    </p>
+  </div>
   
-    Sugerencia: toma  $k$ como el mínimo de $Q$ sobre
-    la esfera unitaria de $\mathbb{R}^n$.
     
-  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Considera la matriz de $2\times 2$
-    $$
-    B=\left[
-      \begin{array}{cc}
-        a& b \\
-        b & c
-        \end{array}
-    \right]
-    $$
+    
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Considera la matriz de $2\times 2$
+      $$
+      B=\left[
+        \begin{array}{cc}
+          a& b \\
+          b & c
+          \end{array}
+      \right]
+      $$
+    </p>
     <ol>
         <li>
             Demuestra que $B$ es definitivamente positiva si y sólo si
@@ -292,41 +368,63 @@
             $a < 0$ y $ ac-b^2=\det(B) < 0$
         </li>
     </ol>
-  
+    </div>
+
     
     
-    \subsection*{Hessiano}
   
-    <div class="definicion-box"><h2 class="number-title">  Definición</h2>
-      Sea $f:U \to \mathbb{R}$ una función clase $C^2$, definida
-      en un abierto $U$ de $\mathbb{R}^n$. El Hessiano de $f$,
-      en el punto $p_0\in U$, denotado $H_{p_0}f$, es la
-      función cuadrática en $n$ variables definida por
-      $$
-      H_{p_0}f(x_1,\dots, x_n)=\frac{1}{2}\sum_{i,j=1}^n
-      \partial^2_{i,j}f(p_0) x_ix_j
-      $$
-      Es decir, es la forma cuadrática asociada
-      a la matriz de segundas derivadas parciales, multiplicada
-      por un factor de $1/2$, es decir 
-      $A=(1/2)[\partial_{i,j}^2f(p_0)]_{i,j=1}^n$, evaluadas en $p_0$.
+  
+    <div class="definicion-box">
+      <h2 class="number-title">  Definición</h2>
+      <p>
+        Sea $f:U \to \mathbb{R}$ una función clase $C^2$, definida
+        en un abierto $U$ de $\mathbb{R}^n$. El Hessiano de $f$,
+        en el punto $p_0\in U$, denotado $H_{p_0}f$, es la
+        función cuadrática en $n$ variables definida por
+        $$
+        H_{p_0}f(x_1,\dots, x_n)=\frac{1}{2}\sum_{i,j=1}^n
+        \partial^2_{i,j}f(p_0) x_ix_j
+        $$
+        Es decir, es la forma cuadrática asociada
+        a la matriz de segundas derivadas parciales, multiplicada
+        por un factor de $1/2$, es decir 
+        $A=(1/2)[\partial_{i,j}^2f(p_0)]_{i,j=1}^n$, evaluadas en $p_0$.
+      </p>
     </div>
   
   
-  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Demuestra que para toda $f:\mathbb{R}^n \to \mathbb{R}$, función
-    lineal y $p_0\in \mathbb{R}^n$, $H_{p_0}f$ es la función
-    idénticamente cero.
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Demuestra que para toda $f:\mathbb{R}^n \to \mathbb{R}$, función
+      lineal y $p_0\in \mathbb{R}^n$, $H_{p_0}f$ es la función
+      idénticamente cero.
+    </p>
+  </div>
+
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Sea $A=[a_{i,j}]$ una matriz simétrica, de $n\times n$, y
+      considera $Q$, la forma cuadrática asociada a $A$. Sea $p_0$
+      cualquier punto en $\mathbb{R}^n$. Demuestra que las funciones
+      $H_{p_0}Q$ y $Q$ son iguales.
+    </p>
+    <p>
+      Nota: en este ejercicio se ve la razón de poner el $1/2$ en
+      la definición de Hessiano.
+    </p>
+      
+  </div>
+
+    
   
-  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Sea $A=[a_{i,j}]$ una matriz simétrica, de $n\times n$, y
-    considera $Q$, la forma cuadrática asociada a $A$. Sea $p_0$
-    cualquier punto en $\mathbb{R}^n$. Demuestra que las funciones
-    $H_{p_0}Q$ y $Q$ son iguales.
-  
-    Nota: en este ejercicio se ve la razón de poner el $1/2$ en
-    la definición de Hessiano.
-  
-  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Para las siguientes funciones encuantra $H_{p_0}f$ en el punto
-    dado.
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Para las siguientes funciones encuantra $H_{p_0}f$ en el punto
+      dado.
+    </p>
   
     <ol>
         <li>
@@ -339,25 +437,34 @@
             $f(x,y)=\log(x^2+y^2)$,  $p_0=(1,1)$.
         </li>
     </ol>
+    </div>
+
     
-    
-  \begin{teorema}
-    Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$ y $f:U \to \mathbb{R}$
-    una función de clase $C^2$.
+  <div class="teorema-box">
+    <h2 class="number-title"> Teorema </h2>
+    <p>
+      Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$ y $f:U \to \mathbb{R}$
+      una función de clase $C^2$.
+    </p>
+    <p>
+      Fija $p_0\in U$ arbitrario y $r>0$ tal que $B_r(p_0)\subset U$. Para
+      toda $h=(h_1,\dots, h_n)$ con $\|h\| < r$,
+      $$
+      f(p_0+h)=f(p_0)+\sum_{i=1}^n \partial_{p_i}f(p_0)h_i +
+      \frac{1}{2}\sum_{i,j=1}^n \partial_{p_i,p_j}^2f(p_0)h_ih_j
+      +E_{p_0}(h)
+      $$
+      donde $E_{p_0}$ satisface $\lim_{h\to 0} \frac{\|E_{p_0}(h)\|}{\|h\|^2}=0$.
+    </p>
+  </div>
   
-    Fija $p_0\in U$ arbitrario y $r>0$ tal que $B_r(p_0)\subset U$. Para
-    toda $h=(h_1,\dots, h_n)$ con $\|h\| < r$,
-    $$
-    f(p_0+h)=f(p_0)+\sum_{i=1}^n \partial_{p_i}f(p_0)h_i +
-    \frac{1}{2}\sum_{i,j=1}^n \partial_{p_i,p_j}^2f(p_0)h_ih_j
-    +E_{p_0}(h)
-    $$
-    donde $E_{p_0}$ satisface $\lim_{h\to 0} \frac{\|E_{p_0}(h)\|}{\|h\|^2}=0$.
-  \end{teorema}
   
-  
-    <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Para las siguientes funciones, determinar la fórmula
-      de Taylor de segundo orden en los puntos dados.
+    <div class="ejercicio-box"> 
+      <h2 class="number-title"> Ejercicio</h2> 
+      <p>
+        Para las siguientes funciones, determinar la fórmula
+        de Taylor de segundo orden en los puntos dados.
+      </p>
       <ol>
         <li>
             $f(x,y)=(x+2y)^2$, en $x_0=0$, $y_0=0$.
@@ -369,21 +476,27 @@
             $f(x,y)=e^{(x-1)^2}\cos(y)$, en  $x_0=1$, $y_0=0$.
         </li>
       </ol>
+    </div>
+
   
-      <div class="definicion-box"><h2 class="number-title">  Definición</h2>
-        Sea $f:U  \to \mathbb{R}$,
-        una función diferenciable en el abierto $U\subseteq \mathbb{R}^n$.
-        Decimos
-        que un $p_0\in U$ es un punto crítico
-        o estacionario de $f$ si $\nabla_{p_0}f=0$. Es decir, si todas
-        las derivadas parciales de $f$ se anulan en $p_0$.
+      <div class="definicion-box">
+        <h2 class="number-title">  Definición</h2>
+        <p>
+          Sea $f:U  \to \mathbb{R}$,
+          una función diferenciable en el abierto $U\subseteq \mathbb{R}^n$.
+          Decimos
+          que un $p_0\in U$ es un punto crítico
+          o estacionario de $f$ si $\nabla_{p_0}f=0$. Es decir, si todas
+          las derivadas parciales de $f$ se anulan en $p_0$.
+        </p>
       </div>
       
       
-    <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2>\label{Ejer:PtsCriticos}
-      Para las siguientes funciones  encuentra sus puntos críticos.
-    
-   
+    <div class="ejercicio-box"> 
+      <h2 class="number-title" id="Ejer:PtsCriticos"> Ejercicio</h2>
+      <p>
+        Para las siguientes funciones  encuentra sus puntos críticos.
+      </p>
       <ol>
         <li>
             $f(x,y)=x^2-y^2+xy$,
@@ -401,14 +514,26 @@
             $f(x,y)=xy+\frac{1}{x}+\frac{1}{y}$.
         </li>
       </ol>
+      </div>
+
       
   
-    <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Para cada una de las funciones del ejercicio  \ref{Ejer:PtsCriticos}
-      encuentra el Hessiano en los puntos críticos y determina si es
-      definitivamente positivo, negativo o ninguno.
+    <div class="ejercicio-box"> 
+      <h2 class="number-title"> Ejercicio</h2> 
+      <p>
+        Para cada una de las funciones del ejercicio  \ref{Ejer:PtsCriticos}
+        encuentra el Hessiano en los puntos críticos y determina si es
+        definitivamente positivo, negativo o ninguno.
+      </p>
+      </div>
+
   
-    <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Sea $n\geq 2$ un entero y define $f(x,y)=ax^n+cy^n$, donde
-      $a$ y $c$ satisfacen $ac\ne 0$.
+    <div class="ejercicio-box"> 
+      <h2 class="number-title"> Ejercicio</h2> 
+      <p>
+        Sea $n\geq 2$ un entero y define $f(x,y)=ax^n+cy^n$, donde
+        $a$ y $c$ satisfacen $ac\ne 0$.
+      </p>
       <ol>
         <li>
             prueba que $f$ tiene un único punto crítico;
@@ -419,14 +544,20 @@
             negativo o ninguno.
         </li>
       </ol>
-  
-    <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Encuentra los puntos críticos de
-      $$
-      f(x,y,z)=x^2+y^2+z^2+xy
-      $$
-  
-      Después calcula el Hessiano en dichos puntos y determina si es
-      definitivamente positivo, definitivamente negativo o ninguno.
-  
+    </div>
+
+    <div class="ejercicio-box"> 
+      <h2 class="number-title"> Ejercicio</h2> 
+      <p>
+        Encuentra los puntos críticos de
+        $$
+        f(x,y,z)=x^2+y^2+z^2+xy
+        $$
+    
+        Después calcula el Hessiano en dichos puntos y determina si es
+        definitivamente positivo, definitivamente negativo o ninguno.
+      </p>
+    </div>
+
 
  </body>
