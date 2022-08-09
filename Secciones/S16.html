@@ -22,6 +22,7 @@
             sen: "\\operatorname{sen}",
             seg: ["\\overrightarrow{#1}", 1],
             id: "\\operatorname{id}",
+            senh:"\\operatorname{senh}"
           },
           tags: "ams", /* this part is for numbered equations */
           inlineMath: [['$', '$'], ['\\(', '\\)']]
@@ -85,35 +86,39 @@
     
 
 
-    Antes de enunciar el teorema usamos la siguiente convención: usamos
-letras negritas $\mathbf{x}, \mathbf{z}$ para denotar vectores
-y letras normales, $x,z$ para denotar escalares.
+   <div class="teorema-box">
+    <h2 class="number-title"> Teorema </h2>
+    <p>
+      Antes de enunciar el teorema usamos la siguiente convención: usamos
+      letras negritas $\mathbf{x}, \mathbf{z}$ para denotar vectores
+      y letras normales, $x,z$ para denotar escalares.
+    </p>
+    <p>
+      Sea $U$ un abierto de $\mathbb{R}^n\times \mathbb{R}^m$ que contenga
+      al punto $(\mathbf{x}_0,\mathbf{z}_0)$ y sea $F:U \to \mathbb{R}^m$
+      una función de clase $C^1$ en $U$. Nota: a los puntos
+      de primer  $\mathbb{R}^n$ los vamos a denotar $\mathbf{x}$ y a los
+      puntos del segundo $\mathbf{R}^m$ los vamos a denotar $\mathbf{z}$.
+    
+    </p>
+    <p>
+      Supongamos que $F(\mathbf{x}_0,\mathbf{z}_0)=0$
+      y que la función lineal dada por
+      $$
+      L(\mathbf{z})=D_{(\mathbf{x}_0, \mathbf{z}_0)}F(0,\mathbf{z}),
+      \mathbf{z} \in \mathbb{R}^m
+      $$
+    
+      es una función inyectiva, de $\mathbb{R}^m$ a $\mathbb{R}^m$.    
+    </p>
+    <p>
+      Entonces existe una vecindad de $\mathbf{x}_0$ en $\mathbb{R}^n$, denotada $W$
+      y una función de clase $C^1$, $G:W \to\mathbb{R}^m$ tal que
+      $G(\mathbf{x}_0)=\mathbf{z}_0$ y, para toda $\mathbf{x}\in W$,
+      $F(\mathbf{x},G(\mathbf{x}))=0$.    
+    </p>
 
-\begin{teorema}
-  Sea $U$ un abierto de $\mathbb{R}^n\times \mathbb{R}^m$ que contenga
-  al punto $(\mathbf{x}_0,\mathbf{z}_0)$ y sea $F:U \to \mathbb{R}^m$
-  una función de clase $C^1$ en $U$. Nota: a los puntos
-  de primer  $\mathbb{R}^n$ los vamos a denotar $\mathbf{x}$ y a los
-  puntos del segundo $\mathbf{R}^m$ los vamos a denotar $\mathbf{z}$.
-
-  Supongamos que $F(\mathbf{x}_0,\mathbf{z}_0)=0$
-  y que la función lineal dada por
-  $$
-  L(\mathbf{z})=D_{(\mathbf{x}_0, \mathbf{z}_0)}F(0,\mathbf{z}),
-  \mathbf{z} \in \mathbb{R}^m
-  $$
-
-  es una función inyectiva, de $\mathbb{R}^m$ a $\mathbb{R}^m$.
-
-
-  Entonces existe una vecindad de $\mathbf{x}_0$ en $\mathbb{R}^n$, denotada $W$
-  y una función de clase $C^1$, $G:W \to\mathbb{R}^m$ tal que
-  $G(\mathbf{x}_0)=\mathbf{z}_0$ y, para toda $\mathbf{x}\in W$,
-  $F(\mathbf{x},G(\mathbf{x}))=0$.
-
-  
-\end{teorema}
-
+   </div> 
 
 <div class="nota-box">
     <h2 class="number-title"> Nota</h2>
@@ -203,22 +208,33 @@ y letras normales, $x,z$ para denotar escalares.
 </div>
 
     
-  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Mostrar que $xy+z+3xz^5=4$ es soluble para $z$ como
-    función de $x,y$ cerca de $(1,0,1)$. Además:
-    <ol>
-        <li>
-            calcular $\partial_xz(1,0)$ y $\partial_yz(1,0)$.
-        </li>
-        <li>
-            usando una aproximación lineal, estimar el valor de $z$
-            cuando $x=1.1$ y $y=0.5$.
-        </li>
-    </ol>
-    
-  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Considera la superficie en $\mathbb{R}^3$ dada por
-    $$
-    2y^2z^2-2x=0
-    $$
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Mostrar que $xy+z+3xz^5=4$ es soluble para $z$ como
+      función de $x,y$ cerca de $(1,0,1)$. Además:
+      <ol>
+          <li>
+              calcular $\partial_xz(1,0)$ y $\partial_yz(1,0)$.
+          </li>
+          <li>
+              usando una aproximación lineal, estimar el valor de $z$
+              cuando $x=1.1$ y $y=0.5$.
+          </li>
+      </ol>
+    </p>
+  </div>
+
+
+
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> C
+    <p>
+      Considera la superficie en $\mathbb{R}^3$ dada por
+      $$
+      2y^2z^2-2x=0
+      $$
+    </p>
     
     <ol>
         <li>
@@ -249,42 +265,60 @@ y letras normales, $x,z$ para denotar escalares.
         </li>  
     </ol>
     
+</div>
 
-  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Analiza la solubilidad del sistema
-    \begin{eqnarray*}
-      3x+2y+z^2+u+v^2&=&0\\
-      4x+3y+z+u^2+v+w+2&=&0\\
-      x+z+w+u^2+2&=&0\\
-    \end{eqnarray*}
-    para $u$, $v$ y $w$ en términos de $x,y$ y $z$ cerca de $x=y=z=0$,
-    $u=v=0$ y $w=-2$.
-    
-  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Investiga si el siguiente sistema
-    
-    \begin{eqnarray*}
-      u(x,y,z)&=&x+yxz \\
-      v(z,y,z)&=&y+xy\\
-      w(x,y,z)&=&z+2x+3z^2
-    \end{eqnarray*}
-    
-    puede resolverse para $x,y,z$ (despejar $x,y$ y $z$) en términos
-    de $u,v$ y $w$, cerca del punto $(x,y,z)=(0,0,0)$.
-    
-    
 
-  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Este ejercicio da una demostración del Teorema
-    de Lagrange con una restricción.
+  <div class="ejercicio-box">
+     <h2 class="number-title"> Ejercicio</h2> 
+     <p>  
+      Analiza la solubilidad del sistema
+      \begin{eqnarray*}
+        3x+2y+z^2+u+v^2&=&0\\
+        4x+3y+z+u^2+v+w+2&=&0\\
+        x+z+w+u^2+2&=&0\\
+      \end{eqnarray*}
+      para $u$, $v$ y $w$ en términos de $x,y$ y $z$ cerca de $x=y=z=0$,
+      $u=v=0$ y $w=-2$.
+     </p>
+  </div>
 
-    Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$ y $f,g:U\to \mathbb{R}$
-    dos funciones de clase $C^1$. Considera la superficie de nivel
-    $$
-    S=\{\mathbf{x} \in \mathbb{R}^n: f(\mathbf{x})=0\}.
-    $$
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2>
+    <p>
+      Investiga si el siguiente sistema
+    
+      \begin{eqnarray*}
+        u(x,y,z)&=&x+yxz \\
+        v(z,y,z)&=&y+xy\\
+        w(x,y,z)&=&z+2x+3z^2
+      \end{eqnarray*}
+      
+      puede resolverse para $x,y,z$ (despejar $x,y$ y $z$) en términos
+      de $u,v$ y $w$, cerca del punto $(x,y,z)=(0,0,0)$.
+      
+    </p> 
+  </div>
 
-    Supongamos que $\mathbf{x}_0\in S$ es un máximo  local para $f$ en $S$ y
-    supon que $\partial_{x_n}g(\mathbf{x}_0) \ne 0$. Denotemos
-    $\mathbf{x}_0=(x_1^0, \dots, x_n^0)$.
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Este ejercicio da una demostración del Teorema
+      de Lagrange con una restricción.
+    </p>
+    <p>
+      Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$ y $f,g:U\to \mathbb{R}$
+      dos funciones de clase $C^1$. Considera la superficie de nivel
+      $$
+      S=\{\mathbf{x} \in \mathbb{R}^n: f(\mathbf{x})=0\}.
+      $$
+  
+      Supongamos que $\mathbf{x}_0\in S$ es un máximo  local para $f$ en $S$ y
+      supon que $\partial_{x_n}g(\mathbf{x}_0) \ne 0$. Denotemos
+      $\mathbf{x}_0=(x_1^0, \dots, x_n^0)$.
+  
+    </p>
 
+    
     <ol>
         <li>
             <p>
@@ -372,10 +406,11 @@ y letras normales, $x,z$ para denotar escalares.
             <p>
                 Además, $\partial_{x_n}f(\mathbf{x}_0)
                 =\lambda \partial_{x_n}g(\mathbf{x}_0)$
-                <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Concluye que $\nabla_{\mathbf{x}_0}f=\lambda \nabla_{\mathbf{x}_0}g$.
+                 Concluye que $\nabla_{\mathbf{x}_0}f=\lambda \nabla_{\mathbf{x}_0}g$.
             </p>
         </li>
     </ol>
+</div>
 
 
  </body>
