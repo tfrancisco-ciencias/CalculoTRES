@@ -13,6 +13,7 @@ $(document).ready(function() {
     var elementResp=document.querySelectorAll("div.resp-box");
     var elementProp=document.querySelectorAll("div.prop-box");
     var elementQuiz=document.querySelectorAll("div.quiz-box");
+    var elementCoro=document.querySelectorAll("div.coro-box");
     document.body.classList.toggle("fondo-body-dark");
     document.querySelector("nav.top-nav").classList.toggle("top-nav-dark");
     var i;
@@ -39,6 +40,9 @@ $(document).ready(function() {
     };
     for (i=0;i < elementQuiz.length;i++){
       elementQuiz[i].classList.toggle("quiz-box-dark");
+    };
+    for (i=0;i < elementCoro.length;i++){
+      elementCoro[i].classList.toggle("coro-box-dark");
     };
     };
 

@@ -357,6 +357,33 @@ h2.number-title:before{
 }
 
 
+.coro-box{
+  background:  rgb( 255, 249, 205 );
+  border-radius: 25px;
+  padding: 20px;
+  border: 10px solid rgba(255, 102, 102, 0.5);
+  margin: auto;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  font-size: 20px;
+  width: 70%;
+  box-shadow: 10px 10px 15px  rgb( 112, 123, 124 );
+}
+
+.coro-box-dark{
+  background:  rgb(  33, 47, 60  );
+  color:  rgb( 165, 105, 189 );
+  border-radius: 25px;
+  padding: 20px;
+  border: 10px solid rgba(255,102,160,0.5);
+  margin: auto;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  font-size: 20px;
+  width: 70%;
+  box-shadow: 10px 10px 15px  rgb( 112, 123, 124 );
+}
+
 
 .quiz-box{
     background:  rgb( 255, 249, 205 );
