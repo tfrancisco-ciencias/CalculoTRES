@@ -47,10 +47,10 @@
     <!-- This part restart counter of cards to start at n+1 -->
     <style>
         body.number-title{
-          counter-reset: sectionCounter 2 cardCounter ;
+          counter-reset: sectionCounter 0 cardCounter ;
         }
         h1.number-title{
-          counter-reset: sectionCounter 2 cardCounter ;
+          counter-reset: sectionCounter 0 cardCounter ;
         }
       </style>
   
@@ -140,8 +140,8 @@
             Fija un intervalo $[a,b]$ y $P=\{a=x_0 < \cdots < x_n=b \}$
             una partición.
         
-            Prueba que el conjunto de funciones escalonadas, con soporte
-            en $P$ es isomorfo a $\mathbb{R}^n$.
+            Prueba que el conjunto de funciones escalonadas con dominio \([a,b)\), escalones 
+            en $P$ y y continuas por la derecha es isomorfo a $\mathbb{R}^n$.
         
         </li> 
         <li>
@@ -151,6 +151,32 @@
             Prueba que $M_n$ es isomorfo a $\mathbb{R}^{n^2}$.
         </li> 
   </ol>
+  <div class="resp-box">
+    <p>
+        Las funciones escalonadas con dominio \([a,b)\) y con escalones en \(P_n=\{a=x_0<\cdots < x_n=b  \}\)
+        son las funciones \(s:[a,b) \to \mathbb{R}\) que cumplen la condición de que  \(s\) es constante 
+        en cada un de los intervalos \((x_{i-1},x_i)\), \(i=1,\dots, n\).
+    </p>
+    <p>
+        Denotemos por \(V\) al conjunto de funciones escalonadas con escalones en \(P\). 
+    </p>
+    <p>
+        Dadas dos funciones escalonadas \(s,t:[a,b]\to \mathbb{R}\) en \(V\) y un escalar \(\alpha \in \mathbb{R}\)
+        vamos a probar que \(\alpha s + t \in V\). Pero 
+        esto es cierto pues si \(s\) es igual a la constante \(s_i\) y \(t\) es igual a la constante 
+        \(t_i\) en el intervalo  \((x_{i-1}, x_i)\) entonces 
+        \(\alpha s+t\) es igual a \(\alpha s_i+t_i\) en el intervalo \((x_{i-1},x_i)\). Teniendo 
+        en cuenta de que la función cero es escalonada junto con lo anterior tenemos que 
+        \(V\) es un espacio vectorial. 
+    </p>
+    <p>
+        Para probar que \(V\) es isomorfo a \(\mathbb{R}^n\) debemos de asegurar la existencia de 
+        una función \(\Phi: V \to \mathbb{R}^n \), inyectiva, suprayectiva, que abra sumas y saque 
+        escalares. Definimos 
+    </p>
+    
+
+  </div>
 </div>
 
   
@@ -219,6 +245,53 @@
         <li>La recta que pasa por el punto $(5,10,15)$ y que es paralela al eje $x$.</li> 
         <li>La recta que por el punto $(3,-2,-3)$ y que es perpendicular al plano $yz$.</li> 
     </ol>
+    <div>
+        <p>
+            Inciso 1.
+        </p>
+        <p>
+            En este caso la ecuación paramétrica es 
+            \[
+            p=t(-1,2,-3)+(1,2,3)=(-t+1,2t+2,-3t+3)
+            \]
+            en otras palabras 
+            \[
+            x=-t+1, y=2t+2, -3t+3
+            \]
+        </p>
+        <p>
+            Inciso 2.
+        </p>
+        <p>
+            Primero encontramos el vector dirección \(v=(-1,0,1)-(5,-7,1)=(-6,7,0)\). Ya que la
+            recta debe de pasar por \((-1,0,1)\) y \((5,-7,1)\) podemos tomar  
+            cualesquiera de los puntos dados para determinar la ecuación paramétrica. Tomando 
+            \((-1,0,1)\) obtenemos 
+            \[
+            p=t(-6,7,0)+(-1,0,1)=(-6t-1,7t,1)
+            \]
+            es decir 
+            \[
+            x=-6t-1, y=7t, z=1
+            \]
+        </p>
+        <p>
+            Inciso 3.
+        </p>
+        <p>
+            Ya que la recta debe ser perpendicular al plano \(yz\) el vector director 
+            debe ser perpendicular a dicho plano. Tomando el vector más sencillo perpendicular 
+            al plano \(yz\) obtenemos \(v=(1,0,0)\). Entonces la ecuación paramétrica es 
+            \[
+            p=t(1,0,0)+(3,-2,-3)=(t+3,-2,-3)
+            \]
+            o que es lo mismo que 
+            \[
+                x=t+3,y=-2,z=-3
+            \]
+        </p>
+
+    </div>
   </div>
   
   
@@ -238,6 +311,24 @@
             x=x_0+t(x_1-x_0), \quad y=y_0+t(y_1-y_0), \quad z=z_0+t(z_1-z_0).
             $$
         </p>
+
+        <div>
+            <p>
+              Primero encontramos el vector dirección. Como la recta debe de pasar por 
+              \((x_0,y_0,z_0)\) y \((x_1,y_1,z_1)\) podemos tomar dicho vector como 
+              \[
+              v=(x_1,y_1,z_1)-(x_0,y_0,z_0)=(x_1-x_0, y_1-y_0,z_1-z_0)
+              \]  
+              entonces la forma paramétrica de la recta es 
+              \[
+              p=(x_0,y_0,z_0)+ t(x_1-x_0,y_1-y_0, z_1-z_0), t\in \mathbb{R}
+              \]
+              que es equivalente a 
+              \[
+              x=x_0+t(x_1-x_0), y=y_0+t(y_1-y_0), z=z_0+t(z_1-z_0).
+              \]
+            </p>
+        </div>
     </div>
  
       
@@ -276,6 +367,35 @@
             $p_0=(x_0,y_0,z_0)$ y $v=(v_1,v_2,v_3)$ con $v_i \ne 0$, $i=1,2,3$. Prueba que un punto $(x,y,z)$ pertenece a $L$
             sii $\frac{x-x_0}{v_1}=\frac{y-y_0}{v_2}=\frac{z-z_0}{v_3}$.      
         </p>
+        <div >
+            <p>
+                \(\Rightarrow ]\) Supongamos que el punto \((x,y,z)\) pertenece a \(L\). Entonces el punto 
+                debe poder escribirse de la forma \((x,y,z)=p_0+t_0v\) para algún \(t_0\) en particular. Igualando 
+                coordenada a coordenada debemos de tener el siguinte sistema de ecuaciones 
+                \[
+                x=x_0+t_0v_1, y=y_0+t_0v_2, z=z_0+tv_3
+                \]
+                Despejando \(t_0\) de las ecuaciones obtenemos 
+                \[
+                \frac{x-x_0}{v_1}=\frac{y-y_0}{v_2}=\frac{z-z_0}{v3}=t_0
+                \]
+            </p>
+            <p>
+                \(\Leftarrow ]\) Suponemos que se cumplen las igualdades 
+                \[
+                \frac{x-x_0}{v_1}=\frac{y-y_0}{v_2}=\frac{z-z_0}{v3}
+                \]
+                definiento 
+                \[
+                t_0=\frac{x-x_0}{v_1}=\frac{y-y_0}{v_2}=\frac{z-z_0}{v3}
+                \]
+                es directo comprobar que 
+                \[
+                x=x_0+t_0v_1, y=y_0+t_0v_2, z=z_0+tv_3
+                \]
+                lo cual implica que \((x,y,z)\) pertenece a \(L\).
+            </p>
+        </div>
     </div>
     
     
@@ -303,6 +423,43 @@
             dirección y el punto en la recta que tomamos. Por lo tanto $t$ depende de $p_0$ y $v$,  $s$ depende de $p_1$ y $u$. La relación
             entre $t$ y $s$ se puede pensar como una fórmula de  cambio de coordenadas. 
         </p>
+
+        <div>
+            <p>
+                Inciso 1.
+            </p>
+            <p>
+                Resolviendo para \(t_0\) obtenemos: 
+                \[
+                (2,3)=(0,1)+t_0(1,1) \Leftrightarrow 2=t_0, 3=1t_0+t1 \Leftrightarrow 2=t_0 
+                \]
+            </p>
+            <p>
+                Inciso 2.
+            </p>
+            <p>
+                Resolviendo para \(s_0\) obtenemos:
+                \begin{eqnarray*}
+                (0,1)&= & p_1+s_0u=(2,3)+s_0(4,4)=(2+4s_0,3+4s_0) \\
+                & \Leftrightarrow & 0=2+4s_0,1=3+4s_0 \\
+                & \Leftrightarrow & -1/2=s_0
+                \end{eqnarray*}
+            </p>
+            <p>
+                Inciso 3.
+            </p>
+            <p>
+                En este caso debemos de resolver
+                \[
+                (t,t+1)=p_1+su=(2,3)+s(4,4)=(2+4s,3+4s)
+                \]
+                tratando \(t\) como dato y \(s\) como incógnita. Resolviendo tenemos
+                \begin{eqnarray*} 
+                    t=2+4s, t+1=3+4s \\
+                    \Leftrightarrow \frac{t-2}{4}=s. 
+                \end{eqnarray*}
+            </p>
+        </div>
     </div> 
 
 <div class="definicion-box">
