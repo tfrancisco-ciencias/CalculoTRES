@@ -485,7 +485,7 @@
             Si el plano está en $\mathbb{R}^3$, y $p_0=(x_0,y_0,z_0)$, $u=(u_1,u_2,u_3), v=(v_1,v_2,v_3)$ 
             podemos escribir las ecuaciones como
             $$
-            x=x_0+tu_1+sv_1+, \quad y= y_0+tu_2+sv_2, \quad z=z_0+tu_3+sv_3.
+            x=x_0+tu_1+sv_1, \quad y= y_0+tu_2+sv_2, \quad z=z_0+tu_3+sv_3.
             $$
         </p>         
        </div>
@@ -499,6 +499,25 @@
             $u=(1,0,1), v=(-1,-1,0)$. Después demuestra que todos los puntos de dicho plano satisfacen la relación
             $x-y-z+1=0$.
         </p>
+        <div>
+            <p>
+                Tomando la forma paramétrica del plano tenemos que los puntos \(p=(x,y,z)\) del plano son de la forma 
+                \begin{eqnarray*}
+                p&=&p_0+tu+sv \\
+                &=&(1,1,1)+t(1,0,1)+s(-1,-1,0)\\
+                &=&(1+t-s,1-s,1+t) 
+                \end{eqnarray*}
+                que es equivalente a 
+                \[
+                x=1+t-s,y=1-s,z=1+t
+                \]
+                Finalmente substituyendo las expresiones anteriores en la ecuación 
+                \(x-y-z+1\) llegamos 
+                \[
+                x-y-z+1=(1+t-s)-(1-s)-(1+t)+1=0
+                \]
+            </p>
+        </div>
     </div>
     
     <div class="definicion-box">
@@ -520,7 +539,29 @@
 
      <div class="ejercicio-box"> 
         <h2 class="number-title""> Ejercicio </h2> 
-        Demuestra que el conjunto $\{(1,-1,0),(0,1,0), (0,1,-1) \}$ es linealmente independiente.
+        <p>
+            Demuestra que el conjunto $\{(1,-1,0),(0,1,0), (0,1,-1) \}$ es linealmente independiente.
+        </p>
+        <div>
+            <p>
+                Tomamos una combinación lineal igual a cero 
+                \[
+                a(1,-1,0)+b(0,1,0)+c(0,1,-1)=0,
+                \]
+                debemos de probar que los escalares, \(a,b\) y \(c\) son todos iguales a cero.
+            </p>
+            <p>
+                Escribiendo la identidad anterior como un sistema de ecuaciones 
+                llegamos a 
+                \begin{eqnarray*}
+                    a=0\\
+                    -a+b-c=0\\
+                    -c=0
+                \end{eqnarray*}
+                en el cual se ve directamente que \(a=b=c=0\).
+                
+            </p>
+        </div>
      </div>
 
    
@@ -551,15 +592,42 @@
         </li> 	
 	 
 	</ol>
+        <div>
+            <p>
+                Inciso 1.
+            </p>
+            <p>
+                \begin{eqnarray*}
+                    \|\alpha p\|&=& \left( \sum_{i=1}^n (\alpha x_i)^2 \right)^{1/2} \\
+                    &=& \left( \alpha^2 \left( \sum_{i=1}^n  x_i^2\right) \right)^{1/2} \\
+                    &=& (\alpha^2)^{1/2}\left( \sum_{i=1}^n  x_i^2 \right)^{1/2} \\
+                    &=& |\alpha|\|p\|
+                \end{eqnarray*}
+            </p>
+            <p>
+                Inciso 2.
+            </p>
+            <p>
+                \begin{eqnarray*}
+                \|p\|=0 \Leftrightarrow \\
+                \sum_{i=1}^n x_i^2=0 \Leftrightarrow \\
+                x_i^2=0, \forall i \Leftrightarrow \\
+                x_i=0, \forall i
+                \end{eqnarray*}
+            </p>
+        </div>
     </div>
 
 
        <div class="definicion-box">
         <h2 class="number-title""> Definición </h2>
-         En $\mathbb{R}^n$ el producto interior usual es el producto punto
-         $$
-        \langle  p,  q \rangle=p\cdot q= \sum_{j=1}^n p_jq_j.
-         $$
+        <p>
+            En $\mathbb{R}^n$ el producto interior usual es el producto punto
+            $$
+           \langle  p,  q \rangle=p\cdot q= \sum_{j=1}^n p_jq_j.
+            $$
+        </p>
+         
        </div>
        
    
@@ -602,12 +670,35 @@
 
 		<div class="ejercicio-box"> 
             <h2 class="number-title"> Ejercicio </h2> 
-            Da un ejemplo que muestra que $\|p+q\|\ne \|p\|+\|q\|$.	
+            <p>
+                Da un ejemplo que muestra que $\|p+q\|\ne \|p\|+\|q\|$.	
+            </p>
+            <div>
+                <p>
+                    Primero vamos a ver algunas condiciones para las cuales 
+                    se tiene la igualdad. Si la igualdad se da entonces 
+                    \begin{eqnarray*}
+                    \|p+q\|^2&=&(\|p\|+\|q\|)^2  \\
+                    \Leftrightarrow \langle p+q, p+q \rangle &=& \|p\|^2 +2\|p\|\|q\|+\|q\|^2 \\
+                    \Leftrightarrow \langle p,p\rangle + \langle q,p\rangle+ \langle p,q\rangle + \langle q,q \rangle &=&\|p\|^2+2\|p\|\|q\|+\|q\|^2 \\
+                    \Leftrightarrow \|p\|^2+2\langle p,q\rangle +\|q\|^2 &=& \|p\|^2+2\langle p,q\rangle +\|q\|^2 \\
+                    \Leftrightarrow \langle p,q \rangle &=&\|p\|\|q\|
+                    \end{eqnarray*}
+                </p>
+                <p>
+                    Entonces la condición \( langle p,q \rangle =\|p\|\|q\| \) es equivalente a 
+                    \(\|p+q\|=\|p\|+\|q\|\). Entonces para terminar el ejercicio buscamos 
+                    \(p\) y \(q\) que no cumplan  \(\langle p,q \rangle =\|p\|\|q\|\), por ejemplo 
+                    dos vectores perpendiculares distintos de cero. Tomamos  \(p=(1,0)\) y \(q=(0,1)\).
+                    Entonces \(\|p+q\|=\sqrt{2}\) y \(\|p\|+\|q\|=2\).
+                </p>
+            </div>
+            
         </div>
 
        <div class="ejercicio-box"> 
         <h2 class="number-title"> Ejercicio </h2> 
-        (Desigualdad de Cauchy-Schwartz en $\mathbb{R}^n$)
+        <h3> Desigualdad de Cauchy-Schwartz en $\mathbb{R}^n$ </h3>
 
          Sean $p,q\in \mathbb{R}^n$.
          <ol>
@@ -634,6 +725,51 @@
                 conocida como la desigualdad de Cauchy-Schwartz.
             </li> 
          </ol>
+         <div>
+            <p>
+                Inciso 1.
+            </p>
+            <p>
+                Como la identidad involucra sólo los puntos \(p\) y \(q\)
+                podemos considerar el plano generado por \(p,q\) y el origen 
+                y pensar la identidad vista en este plano, es decir, no podemos 
+                restringir a \(\mathbb{R}^2\) y ahí aplicar la ley de los cosenos.
+            </p>
+            <p>
+                Aplicando a la ley de los cosenos al triángulo con vértices el origen, \(p\)
+                y \(q\) obtenemos 
+                \[
+                \|p-q\|^2 = \|p\|^2+\|q\|^2-2\|p\|\|q\|\cos(\theta)
+                \]
+            </p>
+            <p>
+                Inciso 2.
+            </p>
+            <p>
+                Escribiendo \(\|p-q\|^2=\langle p-q, p-q\rangle\) y desarrolando el lado derecho obtenemos 
+                \[
+                \|p-q\|^2=\|p\|^2-2\langle p,q\rangle +\|q\|^2.
+                \]
+                Igualando con la ley de los cosenos llegamos a 
+                \[
+                \|p\|^2-2\langle p,q\rangle +\|q\|^2=\|p\|^2+\|q\|^2-2\|p\|\|q\|\cos(\theta)
+                \]
+                por lo que concluimos
+                \[
+                \langle p,q\rangle = \|p\|\|q\|\cos(\theta).
+                \]
+            </p>
+            <p>
+                Inciso 3.
+            </p>
+            <p>
+                Utilizando que, para todo ángulo \(\theta\), \(|\cos(\theta)|\leq 1\) se sigue 
+                directamente que 
+                \[
+                |\langle p, q \rangle |\leq \|p\| \|q\|
+                \]
+            </p>
+         </div>
         </div>
      
 
@@ -657,6 +793,12 @@
                 Finalmente prueba que $\|u\|^2\|v\|^2-(\langle u,  v\rangle )^2=(u_1v_2-u_2v_1)^2$.
             </li>
        </ol>
+       <div >
+        <p>
+            Inciso 1.
+        </p>
+
+       </div>
      </div>
 
 
