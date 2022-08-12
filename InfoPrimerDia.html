@@ -69,6 +69,7 @@
       El curso será en modo presencial (salvo indicaciones de la Facultad de Ciencias). Nota: el la página de la 
       Facultad puede aparecer que el curso es en línea pero hasta el momento (<span id="date">  </span>), es presencial.
     </p>
+   
     <p>
       En la medida de lo posible se grabarán las clases y subirán los videos en el google classroom.
     </p>
@@ -76,6 +77,17 @@
     <p>
       Para la evaluación se presentarán tres exámenes parciales y quizzes semanales. Se dejarán 
       tareas las cuales no se califican pero sirven de práctica para los exámenes.
+    </p>
+    <h2> Horario </h2>
+    <p>
+      <span id="horario"> 
+        
+          Clases: lunes, martes, miércoles, 11.30-13.00.
+        
+      
+          Ayudantías: jueves, viernes, 11-12.30.
+        
+        </span>
     </p>
   <h2> Plataformas </h2>
     <ul>
@@ -117,6 +129,7 @@ y los demás, así que NO están permitidos.</p>-->
 <script>
   function randomColor(){
       const dateTitle=document.getElementById("date")
+      const timeTitle=document.getElementById("horario")
       r = Math.floor(Math.floor(Math.random()*225))
       g = Math.floor(Math.floor(Math.random()*225))
       b = Math.floor(Math.floor(Math.random()*225))
@@ -130,7 +143,7 @@ y los demás, así que NO están permitidos.</p>-->
       
       dateTitle.textContent =`${ano}-${mes}-${dia}`
       dateTitle.style.color=stringC
-      
+      timeTitle.style.color=stringC
       return  ["rgb(",r,",",g,",",b,")"].join("")
   }
 
