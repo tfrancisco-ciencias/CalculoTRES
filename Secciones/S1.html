@@ -151,28 +151,64 @@
             Prueba que $M_n$ es isomorfo a $\mathbb{R}^{n^2}$.
         </li> 
   </ol>
+  <button class="respButton hvr-grow "> Solución  inciso 2</button>
   <div class="resp-box">
     <p>
         Las funciones escalonadas con dominio \([a,b)\) y con escalones en \(P_n=\{a=x_0<\cdots < x_n=b  \}\)
         son las funciones \(s:[a,b) \to \mathbb{R}\) que cumplen la condición de que  \(s\) es constante 
-        en cada un de los intervalos \((x_{i-1},x_i)\), \(i=1,\dots, n\).
-    </p>
-    <p>
-        Denotemos por \(V\) al conjunto de funciones escalonadas con escalones en \(P\). 
+        en cada un de los intervalos \((x_{i-1},x_i)\), \(i=1,\dots, n\). Que además sean continuas por la 
+        derecha simplemente quiere decir que 
+        \[
+            \lim_{x\to x_0^+} s(x)=s(x_0)
+        \]
+        para todo \(x_0\in [a,b)\). Denotamos por \(V\) a dicho conjunto.
     </p>
     <p>
         Dadas dos funciones escalonadas \(s,t:[a,b]\to \mathbb{R}\) en \(V\) y un escalar \(\alpha \in \mathbb{R}\)
         vamos a probar que \(\alpha s + t \in V\). Pero 
         esto es cierto pues si \(s\) es igual a la constante \(s_i\) y \(t\) es igual a la constante 
         \(t_i\) en el intervalo  \((x_{i-1}, x_i)\) entonces 
-        \(\alpha s+t\) es igual a \(\alpha s_i+t_i\) en el intervalo \((x_{i-1},x_i)\). Teniendo 
+        \(\alpha s+t\) es igual a \(\alpha s_i+t_i\) en el intervalo \((x_{i-1},x_i)\). Además 
+        por las leyes de los límites 
+        \[
+        \lim_{x\to x_0^+} (\alpha s +t)(x)=\alpha \lim_{x\to x_0^+}s(x)+\lim_{x\to x_0^+}t(x)=\alpha s(x_0)+t(x_0).
+        \]
+        Teniendo 
         en cuenta de que la función cero es escalonada junto con lo anterior tenemos que 
         \(V\) es un espacio vectorial. 
     </p>
     <p>
         Para probar que \(V\) es isomorfo a \(\mathbb{R}^n\) debemos de asegurar la existencia de 
         una función \(\Phi: V \to \mathbb{R}^n \), inyectiva, suprayectiva, que abra sumas y saque 
-        escalares. Definimos 
+        escalares. La idea es que ésta función debe de capturar toda la información de la función y ya que 
+        los valores de la función están ligados a los escalones definimos 
+        \[
+        \Phi: V \to \mathbb{R}^n
+        \]
+        por \(\Phi(s)=(s_1,\dots, s_n)\), donde \(s\) toma el valor de \(s_i\)
+        en el escalón \((x_{i-1},x_i)\), \(i=1,\dots, n\). Por el argumento que dimos al momento de 
+        probar que \(V\) es espacio vectorial obtenemos que \(\Phi(\alpha s+t)=\alpha \Phi(s)+\Phi(t)\).
+    </p>
+    <p>
+        Para probar que es inyectiva es equivalente probar que si \(Phi(s)=0\) entonces 
+        \(s\) es la función constante cero. Pero, \(\Phi(s)=0\) significa que para todo 
+        \(i=1,\dots, n\), \(s_i=0\), es decir, \(s\) restringida a \((x_{i-1},x_i)\) es 
+        a función cero. Aunado a que \(s\) es conitnua por la derecha tenemos 
+        \[
+        0=\lim_{x\to x_i^+} s(x)=s(x_i)
+        \]
+        por lo tanto \(s=0\) en el intervalo \([x_{i-1},x_i)\). Juntando todos  los intervalos 
+        \([x_{i-1},x_i)\), \(i=1,\dots, n\), concluimos que \(s=0\) en todo \([a,b)\), es decir 
+        es la función cero.
+    </p>
+    <p>
+        Para probar la suprayectividad dado \((r_1,\dots, r_n)\in \mathbb{R}^n\) definimos 
+        \(s:[a,b)\to \mathbb{R}\) tal que 
+        \begin{eqnarray*} 
+                s(x)=r_i, x\in [x_{i-1},x_i)
+        \end{eqnarray*}
+        Entonces \(s\) es continua por la derecha, escalonada con escalones en \(P\) 
+        y (\Phi(s)=(r_1,\dots, r_n)\).
     </p>
     
 
@@ -243,9 +279,10 @@
         <li>La recta que pasa por el punto $(1,2,3)$ con vector dirección $v=(-1,2,-3)$.</li> 
         <li>La recta que pasa por los puntos $(5,-7,1)$ y $(-1,0,1)$.</li> 
         <li>La recta que pasa por el punto $(5,10,15)$ y que es paralela al eje $x$.</li> 
-        <li>La recta que por el punto $(3,-2,-3)$ y que es perpendicular al plano $yz$.</li> 
+        <li>La recta que pasa por el punto $(3,-2,-3)$ y que es perpendicular al plano $yz$.</li> 
     </ol>
-    <div>
+    <button class="respButton hvr-grow "> Solución incisos 1,2,4. </button>
+    <div class="resp-box">
         <p>
             Inciso 1.
         </p>
@@ -276,7 +313,7 @@
             \]
         </p>
         <p>
-            Inciso 3.
+            Inciso 4.
         </p>
         <p>
             Ya que la recta debe ser perpendicular al plano \(yz\) el vector director 
@@ -312,7 +349,8 @@
             $$
         </p>
 
-        <div>
+        <button class="respButton hvr-grow "> Solución </button>
+        <div class="resp-box">
             <p>
               Primero encontramos el vector dirección. Como la recta debe de pasar por 
               \((x_0,y_0,z_0)\) y \((x_1,y_1,z_1)\) podemos tomar dicho vector como 
@@ -367,7 +405,8 @@
             $p_0=(x_0,y_0,z_0)$ y $v=(v_1,v_2,v_3)$ con $v_i \ne 0$, $i=1,2,3$. Prueba que un punto $(x,y,z)$ pertenece a $L$
             sii $\frac{x-x_0}{v_1}=\frac{y-y_0}{v_2}=\frac{z-z_0}{v_3}$.      
         </p>
-        <div >
+        <button class="respButton hvr-grow "> Solución  </button>
+        <div class="resp-box">
             <p>
                 \(\Rightarrow ]\) Supongamos que el punto \((x,y,z)\) pertenece a \(L\). Entonces el punto 
                 debe poder escribirse de la forma \((x,y,z)=p_0+t_0v\) para algún \(t_0\) en particular. Igualando 
@@ -424,7 +463,8 @@
             entre $t$ y $s$ se puede pensar como una fórmula de  cambio de coordenadas. 
         </p>
 
-        <div>
+        <button class="respButton hvr-grow "> Solución</button>
+        <div class="resp-box">  
             <p>
                 Inciso 1.
             </p>
@@ -499,7 +539,8 @@
             $u=(1,0,1), v=(-1,-1,0)$. Después demuestra que todos los puntos de dicho plano satisfacen la relación
             $x-y-z+1=0$.
         </p>
-        <div>
+        <button class="respButton hvr-grow "> Solución  </button>
+        <div class="resp-box">
             <p>
                 Tomando la forma paramétrica del plano tenemos que los puntos \(p=(x,y,z)\) del plano son de la forma 
                 \begin{eqnarray*}
@@ -592,7 +633,8 @@
         </li> 	
 	 
 	</ol>
-        <div>
+    <button class="respButton hvr-grow "> Solución </button>
+    <div class="resp-box">
             <p>
                 Inciso 1.
             </p>
@@ -673,7 +715,8 @@
             <p>
                 Da un ejemplo que muestra que $\|p+q\|\ne \|p\|+\|q\|$.	
             </p>
-            <div>
+            <button class="respButton hvr-grow "> Solución</button>
+            <div class="resp-box">
                 <p>
                     Primero vamos a ver algunas condiciones para las cuales 
                     se tiene la igualdad. Si la igualdad se da entonces 
@@ -725,7 +768,8 @@
                 conocida como la desigualdad de Cauchy-Schwartz.
             </li> 
          </ol>
-         <div>
+         <button class="respButton hvr-grow "> Solución</button>
+         <div class="resp-box">
             <p>
                 Inciso 1.
             </p>
