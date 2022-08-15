@@ -125,7 +125,7 @@
                 $$
                 a_0+a_1x+\cdots +a_n x^{n+1}
                 $$
-                donde $a_0,\dots, a_{n+1}\in \mathbb{R}^n$.
+                donde $a_0,\dots, a_{n+1}\in \mathbb{R}^{n+1}$.
         
             </p>
             <p>
@@ -190,17 +190,23 @@
         probar que \(V\) es espacio vectorial obtenemos que \(\Phi(\alpha s+t)=\alpha \Phi(s)+\Phi(t)\).
     </p>
     <p>
-        Para probar que es inyectiva es equivalente probar que si \(Phi(s)=0\) entonces 
-        \(s\) es la función constante cero. Pero, \(\Phi(s)=0\) significa que para todo 
-        \(i=1,\dots, n\), \(s_i=0\), es decir, \(s\) restringida a \((x_{i-1},x_i)\) es 
-        a función cero. Aunado a que \(s\) es conitnua por la derecha tenemos 
+        Para probar que es inyectiva es equivalente probar que si \(\Phi(s)=\Phi()t\) entonces 
+        \(s=t\). Pero, \(\Phi(s)=\Phi(t)\) significa que para todo 
+        \(i=1,\dots, n\) \(s\) restringida a \((x_{i-1},x_i)\) es 
+        igual a la función \(t\) restringida a \((x_{i-1},x_i)\) es decir  \(s(x)=t(x)\) para todo punto \(x\in (x_{i-1},x_i)\). Para terminar resta probar que son iguales en los 
+        puntos \(x_i\), \(i=1,\dots, n\). Para terminar la prueba de que las funciones son iguales
+        resta probar que \(s(x_i)=t(x_i)\), para todo \(i=1,\dots, n-1\). Pero al ser ambas continuas por la derecha tenemos 
         \[
-        0=\lim_{x\to x_i^+} s(x)=s(x_i)
+        s(x_i)=\lim_{x\to x_i^+}s(x)\quad t(x_i)=\lim_{x\to x_i^+}t(x)
         \]
-        por lo tanto \(s=0\) en el intervalo \([x_{i-1},x_i)\). Juntando todos  los intervalos 
-        \([x_{i-1},x_i)\), \(i=1,\dots, n\), concluimos que \(s=0\) en todo \([a,b)\), es decir 
-        es la función cero.
+        y por lo visto anteriormente \(s(x)=t(x)\) para todo \(x\in (x_{i-1},x_i)\), lo cual implica 
+        \[
+        \lim_{x\to x_i^+}s(x)=\lim_{x\to x_i^+}t(x)
+        \]
+        por lo tanto se sigue que \(s(x_i)=t(x_i)\). 
     </p>
+    
+
     <p>
         Para probar la suprayectividad dado \((r_1,\dots, r_n)\in \mathbb{R}^n\) definimos 
         \(s:[a,b)\to \mathbb{R}\) tal que 
@@ -208,7 +214,7 @@
                 s(x)=r_i, x\in [x_{i-1},x_i)
         \end{eqnarray*}
         Entonces \(s\) es continua por la derecha, escalonada con escalones en \(P\) 
-        y (\Phi(s)=(r_1,\dots, r_n)\).
+        y \(\Phi(s)=(r_1,\dots, r_n)\).
     </p>
     
 
