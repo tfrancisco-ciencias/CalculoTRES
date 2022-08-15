@@ -583,7 +583,11 @@
         <p>
             Demuestra que el conjunto $\{(1,-1,0),(0,1,0), (0,1,-1) \}$ es linealmente independiente.
         </p>
-        <div>
+
+
+        <button class="respButton hvr-grow "> Solución </button>
+            <div class="resp-box">
+            
             <p>
                 Tomamos una combinación lineal igual a cero 
                 \[
@@ -611,7 +615,7 @@
         <h2 class="number-title""> Definición </h2>
 	En $\mathbb{R}^n$ se define la norma de un vector $p=(p_1,\dots, p_k)$ como
 	$$
-		\|p\|=\left( \sum_{k=1}^k p_k\right)^{1/2}
+		\|p\|=\left( \sum_{k=1}^k p_k^2\right)^{1/2}
 	$$
 	
 	La distancia entre dos puntos $p,q \in \mathbb{R}^n$ se define como
@@ -705,6 +709,9 @@
            </li>
 		   <li>
             $\langle p, \alpha q +v \rangle = \alpha \langle p,q \rangle + \langle p,v \rangle$.
+           </li>
+           <li>
+            \( \langle p, p \rangle =\|p\|^2  \)
            </li> 
 		</ol>
         </div>
