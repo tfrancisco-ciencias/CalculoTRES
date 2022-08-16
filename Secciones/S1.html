@@ -706,7 +706,7 @@
 
 
 		<div class="ejercicio-box"> 
-            <h2 class="number-title""> Ejercicio </h2> 
+            <h2 class="number-title" id="Ejer:PropiedadesProdInt"> Ejercicio </h2> 
             Dados $p,q,v\in \mathbb{R}^n$ y $\alpha \in \mathbb{R}$, demuestra las siguientes propiedades.
 		
         <ol>
@@ -911,11 +911,14 @@
 
     <div class="ejercicio-box"> 
         <h2 class="number-title"> Ejercicio </h2> 
-        Sean $v, w\in \mathbb{R}^n$.
-       	Usando las propiedades del procuto interior, demostrar la siguiente identidad (llamada ley del paralelogramo)
-         $$
-         \|v+w\|^2+\|v-w\|^2=2(\|v\|^2+\|w\|^2)
-         $$
+        <h3> Identidad del paralelogramo</h3>
+        <p>
+            Sean $v, w\in \mathbb{R}^n$.
+            Usando las propiedades del procuto interior, demostrar la siguiente identidad
+            $$
+            \|v+w\|^2+\|v-w\|^2=2(\|v\|^2+\|w\|^2)
+            $$
+        </p>
     </div>
 
     <div class="definicion-box"><h2 class="number-title"> Definición </h2>
@@ -927,9 +930,36 @@
         <h2 class="number-title"> Ejercicio </h2> 
         <h3>Teorema de Pitágoras</h3>
 
-         Par dos vectores $p, q \in \mathbb{R}^n$, demuestra:
+         <p>
+            Par dos vectores $p, q \in \mathbb{R}^n$, demuestra:
+         </p>
+         <p>
+            $\|p+q\|^2=\|p\|^2+\|q\|^2$ si y sólo si los vectores son prependiculares.
+         </p>
 
-         $\|p+q\|^2=\|p\|^2+\|q\|^2$ si y sólo si los vectores son prependiculares.
+         <button class="respButton hvr-grow "> Solución</button>
+         <div class="resp-box">
+            <p>
+                Usando que \(\|p\|^2=\langle p, p\rangle\) para todo punto \(p\in \mathbb{R}^n\)
+                podemos reescribir: 
+                \begin{eqnarray*}
+                    \|p+q\|^2&=&\|p\|^2+\|q\|^2 \\
+                    &\Leftrightarrow & \\
+                    \langle p+q,p+q \rangle & = & \langle p, p \rangle + \langle q,q \rangle \\
+                    & \Leftrightarrow & \\
+                    \langle p,p \rangle + 2 \langle p,q \rangle + \langle q,q\rangle & = & \langle p, p \rangle + \langle q,q \rangle
+                \end{eqnarray*}
+                donde en la última implicación usamos las propiedades del producto interior mencionadas en 
+                <a href="#Ejer:PropiedadesProdInt"> Ejercicio 1.22</a>.
+            </p>
+            <p>
+                Cancelando los términos iguales en la última identidad concluimos 
+                \[
+                \|p+q\|^2=\|p\|^2+\|q\|^2 \Leftrightarrow \langle p, q\rangle =0.
+                \]
+            </p>
+
+         </div>
     </div>
 
     <div class="ejercicio-box"> 
@@ -956,7 +986,7 @@
              </li> 
              <li>
                 Es un hecho, no lo demuestres, que un conjunto de tres vectores en $\mathbb{R}^3$, linealmente
-                independientes, genera $\mathbb{R}^3$, decir para todo $p\in \mathbb{R}^3$,
+                independientes, genera $\mathbb{R}^3$, es decir para todo $p\in \mathbb{R}^3$,
                 existen escalares $\alpha,\beta,\gamma$ tales que $p=\alpha u+ \beta v +\gamma w$.
                 Usando lo anterior demuestra que, para todo $p\in \mathbb{R}^3$
                 $$
@@ -966,27 +996,104 @@
              </li>
          
            </ol>
+           <button class="respButton hvr-grow "> Solución</button>
+          <div class="resp-box">
+            <p>
+                Inciso 1.
+            </p>
+            <p>
+                Tomemos una combinación lineal igualada a cero:
+                \[
+                au+bv+cw=0
+                \]
+                Debemos de probar que \(a=b=c=0\). Pero haciendo producto interior con 
+                el vector \(u\) obtenemos 
+                \begin{eqnarray*}
+                \langle au+bv+cw , u \rangle = \langle 0, u \rangle \\
+                \Leftrightarrow \\
+                a \langle u,u \rangle + b \langle v, u \rangle + c \langle w,u \rangle =0  \\
+                \Leftrightarrow \\
+                a\|u\|^2 =0  
+                \end{eqnarray*}
+                donde en la última implicación usamos que los vectores son ortogonales dos a dos. Ya que 
+                \(u\ne 0\) de la identidad anterior concluimos \(a=0\).
+            </p>
+            <p>
+                Haciendo un argumento similar, ahora tomando producto interior  con \(v\) y \(w\) respectivamente, 
+                obtenemos que \(b=0\) y \(c=0\).
+            </p>
+            <p>
+                Insico 2.
+            </p>
+            <p>
+                Supongamos que dado \(p\in \mathbb{R}^3\) lo expresamos 
+                \[
+                p=\alpha u + \beta v +\gamma w
+                \]
+                Haciendo producto interior con el vector \(u\) llegamos a 
+                \[
+                \langle p, u \rangle = \alpha \langle u,u\rangle + \beta \langle v,u\rangle +
+                \gamma \langle w, u \rangle=\alpha \|u\|^2
+                \]
+                despejando \(\alpha\) llegamos a que \(\alpha = \frac{\langle p, u\rangle }{\|u\|^2}\).
+            </p>
+            <p>
+                Con la misma técnica se puede ver que 
+                \[
+                \beta= \frac{\langle p, v\rangle }{\|v\|^2},\quad \gamma= \frac{\langle p, w\rangle }{\|w\|^2} 
+                \]
+            </p>
+           </div>
     </div>
 
     <div class="ejercicio-box"> 
         <h2 class="number-title"> Ejercicio </h2> 
         <h3>Otra demostración de la desigualdad de Cauchy-Schwartz </h3>
-       
-         Sean $p$ y $q$ dos vectores en $\mathbb{R}^n$. Entonces
-         $$
-         |\langle p,q \rangle| \leq \|p\|\|q\|.
-         $$
+         <p>
+            Sean $p$ y $q$ dos vectores en $\mathbb{R}^n$. Entonces
+            $$
+            |\langle p,q \rangle| \leq \|p\|\|q\|.
+            $$
+         </p> 
+         <p>
+            Sugerencia: considera la función $f(t)=\|p+tq\|^2$, $t\in \mathbb{R}$. Prueba que $f$ es una
+            cuadrática cuya gráfica
+            siempre está por arriba del eje horizontal y finalmente  encuentra su discriminante.
+         </p>  
 
-         Sugerencia: considera la función $f(t)=\|p+tq\|^2$, $t\in \mathbb{R}$. Prueba que $f$ es una
-         cuadrática cuya gráfica
-         siempre está por arriba del eje horizontal y finalmente  encuentra su discriminante.
+         <button class="respButton hvr-grow "> Solución</button>
+         <div class="resp-box">
+            <p>
+                Usando las propiedades del producto interior (<a href="#Ejer:PropiedadesProdInt">Ejercicio 1.22</a>)
+                obtenemos 
+                \begin{eqnarray*}
+                f(t)&=&\langle p+tq , p+tq \rangle \\
+                &=& \langle p,p \rangle + 2 \langle p, t q\rangle + \langle tq,tq \rangle \\
+                &=& \|p\|^2+2t \langle p,q \rangle+ t^2\|p\|^2 
+                \end{eqnarray*}
+                Como función de la variable \(t\) la cuenta anterior prueba que \(f(t)\) es una parábola. Por otro 
+                lado como \(f(t)=\|p+tq\|^2\) y las normas son no negativas la gráfica de la parábola \(f(t)\) 
+                siempre está por del eje \(x\) por lo que su determinante es menor o igual a cero. Calculando 
+                directamente el determinante llegamos 
+                \[
+                 B^2-4AC=(2\langle p,q\rangle)^2-4\|p\|^2\|q\|^2 .
+                \]
+                Simplificando el determinante y usando que es menor o igual a cero tenemos 
+                \[
+                4 (\langle p,q \rangle)^2-4\|p\|^2\|q\|^2 \leq 0 \Leftrightarrow |\langle p,q\rangle| \leq \|p\|\|q\|
+                \]
+            </p>
+         </div>
+         
     </div>
 
     <div class="ejercicio-box"> 
         <h2 class="number-title"> Ejercicio </h2> 
-        Este ejercicio da otra prueba de la desigualdad de Cauchy-Schwartz, en espacios con producto interior.
-
-         Sea $v$ un vector arbitrario y $u$ un vector unitario, en un espacio con producto interior.
+        <h3> Aún otra demostración de Cauchy-Schwartz</h3>
+        <p>
+            Sea $v$ un vector arbitrario y $u$ un vector unitario, en un espacio con producto interior.
+        </p>
+         
          <ol>
             <li>
                 Usando las propiedades del producto interior demuestra que
