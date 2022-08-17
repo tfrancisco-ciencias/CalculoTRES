@@ -80,7 +80,7 @@
 
   <body class="fondo-body" >
 
-   <h1 class="number-title flexbox"> Algebra lineal (repaso)</h1> 
+   <h1 class="number-title flexbox"> Matrices y determinantes</h1> 
 
 
 
@@ -207,6 +207,8 @@
     </p>
 </div>
 
+
+
 <div class="ejercicio-box"> 
     <h2 class="number-title"> Ejercicio</h2> 
     <p>
@@ -234,6 +236,66 @@
         $$        
     </p>
 </div>
+
+
+<div class="nota-box">
+    <h2 class="number-title"> Nota</h2>
+    <p>
+        Las propiedades anteriores se pueden resumir de la siguiente forma.
+    </p>
+    <p>
+        Vamos a pensar al determinante como una función de las columnas de la matriz. 
+        Es decir, dados vectores \(w_1,\dots, w_n\in \mathbb{R}^n\) 
+        \[
+        \det(w_1,\dots, w_n)
+        \]
+        denota el determinante de la matriz que se obtiene al tomar los vectores
+        \(w_i\) como columnas de la matriz.
+    </p>
+    <p>
+        Con ésta notación los ejercicios previos prueban que 
+        \begin{eqnarray*} 
+        \det(w_1+\alpha v,w_2)&=&\alpha \det(w_1,v)+\det(v,w_2) \\
+        \det(w_1,\beta u +w_2)&=& \beta \det(w_1,u)+\det(w_1,w_2)\\
+        \det(w_1,w_2)&=&-\det(w_2,w_1)
+        \end{eqnarray*}
+        donde \(u,v\in \mathbb{R}^n\) y \(\alpha,\beta \in \mathbb{R}\).
+        
+    </p>
+    <p>
+        Las primeras dos condiciones se abrevian diciendo que el determinante, en las 
+        matrices de \(2\times 2\) es bilineal. La tercera condición se llama alternante.
+    </p>
+    <p>
+        En general el determinante, en las matrices de \(n\times n\), puede definirse como la función 
+        \(\det:M_n(\mathbb{R})\to \mathbb{R}\) que satisface
+    </p>
+    <ol>
+        <li>
+            es multilineal
+            \begin{eqnarray*}
+            \det(w_1,\dots, w_i+\alpha v,\dots,  w_n)&=&\alpha \det(w_1,\dots, v, \dots, w_n)\\
+            &+& \det(w_1,\dots, w_i,\dots, w_n)
+            \end{eqnarray*}
+        </li>
+        <li>
+            es alternante 
+            \begin{eqnarray*}
+            \det(w_1,\dots, w_{i-1},w_i,\dots, w_n)=-\det(w_1,\dots, w_i,w_{i-1},\dots,w_n)
+            \end{eqnarray*}
+            para cualesquiera vectores adyacentes \(w_{i-1}, w_i\).
+        </li>
+        <li>
+            el determinante de la matriz identidad es 1.
+        </li>
+    </ol>
+    <p>
+
+    </p>
+
+</div>
+
+
 
 <div class="ejercicio-box"> 
     <h2 class="number-title" id="Ejer:DeterRenglonesRepetidos"> Ejercicio</h2> 
