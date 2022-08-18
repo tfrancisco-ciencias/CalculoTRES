@@ -301,8 +301,10 @@
     <h2 class="number-title" id="Ejer:DeterRenglonesRepetidos"> Ejercicio</h2> 
     <p>
         Sea $A$ una matriz de $3 \times 3$. Supongamos que dos renglones de $A$ son iguales. Demuestra
-        que $\det(A)=0$. Sugerencia: utiliza la propiedad alternante del determinante.
-        
+        que $\det(A)=0$. 
+    </p>
+    <p>
+        Sugerencia: utiliza la propiedad alternante del determinante.
     </p>
 </div>
 
@@ -332,15 +334,16 @@
     <h2 class="number-title"> Definición </h2>
         En $\mathbb{R}^3$ existe un producto que toma dos vectores y como resultado arroja un nuevo vector. Se llama producto curz
        y se define como
-       $$
-       p\times q=( p_2q_3-p_3q_2, -(p_1q_3-p_3q_1), p_1q_2-p_2q_1 )  =  \det\left[
+       \begin{eqnarray*}
+       p\times q&=&( p_2q_3-p_3q_2, -(p_1q_3-p_3q_1), p_1q_2-p_2q_1 )  \\
+       &=&  \det\left[
         \begin{array}{ccc}
         \hat{i} & \hat{j} & \hat{k} \\
         p_1 & p_2 & p_3 \\
         q_1 & q_2 & q_3
         \end{array}
         \right]
-        $$
+        \end{eqnarray*}
         donde \(\hat{i}=(1,0,0)\, \hat{j}=(0,1,0), \hat{k}=(0,0,1)\).
 </div>
 
@@ -374,12 +377,81 @@
                 $p\times (\beta v+u)=\beta p\times v+ p\times u $.
             </li>
          </ol>
+         <button class="respButton hvr-grow "> Solución</button>
+         <div class="resp-box">
+            <p>
+                Inciso 1.
+            </p>
+            <p>
+                Calculando directamente 
+                \begin{eqnarray*}
+                p\times q&= & \det\left[
+                \begin{array}{ccc}
+                \hat{i} & \hat{j} & \hat{k} \\
+                p_1 & p_2 & p_3 \\
+                q_1 & q_2 & q_3
+                \end{array}
+                \right] \\
+                &=& ( p_2q_3-p_3q_2, -(p_1q_3-p_3q_1), p_1q_2-p_2q_1 ) \\
+                q\times p&=&
+                \det\left[
+                \begin{array}{ccc}
+                \hat{i} & \hat{j} & \hat{k} \\
+                q_1 & q_2 & q_3 \\
+                p_1 & p_2 & p_3
+                \end{array}
+                \right] \\
+                &=&( q_2p_3-q_3p_2, -(q_1p_3-q_3p_1), q_1p_2-q_2p_1 ) 
+                \end{eqnarray*}
+                y comparando las dos ecuaciones anteriores se obtiene \(p\times q= -q\times p\).
+            </p>
+            <p>
+                Inciso 2.
+            </p>
+            <p>
+                \begin{eqnarray*}
+                p\times p &= & \det\left[
+                \begin{array}{ccc}
+                \hat{i} & \hat{j} & \hat{k} \\
+                p_1 & p_2 & p_3 \\
+                p_1 & p_2 & p_3
+                \end{array}
+                \right] \\
+                &=& (p_2p_3-p_3p_2,-(p_1p_3-p_3p_1),p_1p_2-p_2p_1)\\
+                &=&0
+                \end{eqnarray*}
+            </p>
+            <p>
+                Inciso 3.
+            </p>
+            <p>
+                Directamente 
+                \begin{eqnarray*}
+                    p\times (\beta v+ u)&= & \det\left[
+                    \begin{array}{ccc}
+                    \hat{i} & \hat{j} & \hat{k} \\
+                    p_1 & p_2 & p_3 \\
+                    \beta v_1+u_1 & \beta v_2+ u_2 &\beta v_3+ u_3
+                    \end{array}
+                    \right] \\
+                    &=&( p_2(\beta v_3+u_3)-p_3(\beta v_2+u_2)) \hat{i} \\
+                     &-&  (p_1(\beta v_3+u_3)-p_3(\beta v_1+u_1)) \hat{j} \\
+                     &+&  (p_1(\beta v_2+u_2)-p_2(\beta v_1+u_1))  \hat{k} \\
+                     &=&  \beta( p_2v_3-p_3v_2 )\hat{i}+ (p_2u_3-p_3u_2)\hat{i} \\
+                     &-&  \beta (p_1v_3-p_3v_1)\hat{j}- (p_1u_3-p_3u_1)\hat{j} \\
+                     &+& \beta(p_1v_2-p_2v_1)\hat{k}+ (p_1u_2-p_2u_1)\hat{k} \\
+                     &=&  \beta (p\times v)+ p\times u
+                \end{eqnarray*}
+            </p>
+
+         </div>
     </div>
 
 
          
        <div class="ejercicio-box"> 
         <h2 class="number-title" id="Ejer:TripleProducto"> Ejercicio</h2>
+        <h3> Triple producto </h3>
         <p>     
             Demuetra la siguiente indentidad
             $$
@@ -393,13 +465,55 @@
             $$
    
         </p> 
+        <button class="respButton hvr-grow "> Solución</button>
+         <div class="resp-box">
+
+            <p>
+                Directamente 
+                \begin{eqnarray*}
+                    (u\times v)\cdot w&=& (u_2v_3-u_3v_2,-(u_1v_3-u_3v_1),u_1v_2-u_2v_1 )\cdot (w_1,w_2,w_3) \\
+                    &=& (u_2v_3 - u_3v_2)w_1-(u_1v_3-u_3v_1)w_2+(u_1v_2 - u_2v_1)w_3  
+                \end{eqnarray*}
+            </p>
+            <p>
+                Expandiendo el determinante por el tercer renglón
+                \begin{eqnarray*}
+                \det \left[\begin{array}{ccc}
+                u_1 & u_2 & u_3 \\
+                v_1 & v_2 & v_3 \\
+                w_1 & w_2 & w_3
+              \end{array}
+            \right]&=& w_1 
+            \det \left[
+            \begin{array}{cc}
+                u_2 & u_3 \\
+                v_2 & v_3 
+            \end{array}
+            \right] \\
+            &-& w_2
+            \det \left[
+            \begin{array}{cc}
+                u_1 & u_3 \\
+                v_1 & v_3 
+            \end{array}
+            \right] \\
+            &+& w_3 
+            \det \left[
+            \begin{array}{cc}
+                u_1 & u_2 \\
+                v_1 & v_2 
+            \end{array}
+            \right]\\
+            &=& w_1(u_2v_3-u_3v_2)-w_2(u_1v_3-u_3v_1)+w_3(u_1v_2-u_2v_1)
+                \end{eqnarray*}
+            </p>
+         </div>   
         </div>
 
        <div class="ejercicio-box"> 
         <h2 class="number-title"> Ejercicio</h2> 
         <p>
-            Usando los <a href="#Ejer:TripleProducto">Ejercicio 3.13</a> y  
-            <a href="#Ejer:DeterRenglonesRepetidos"> Ejercicio 3.8</a>, 
+            Usando el  <a href="#Ejer:TripleProducto">Ejercicio 2.14</a> 
             prueba que $u\times v$ es perpendicular tanto
              a $u$ como a $v$.
         </p>
@@ -430,6 +544,56 @@
             </li> 
            
           </ol>
+          <button class="respButton hvr-grow "> Solución</button>
+          <div class="resp-box">
+            <p>
+                Inciso 1.
+            </p>
+            <p>
+                Calculando directamente 
+                \begin{eqnarray*} 
+                \|p\times q\|^2&=&(p_2q_3-p_3q_2)^2 \\
+                &+&(p_1q_3-p_3q_1)^2 \\
+                &+&(p_1q_2-p_2q_1)^2 \\
+                &=& p_2^2q_3^2-2p_2p_3q_2q_3+ p_3^2q_2^2 \\
+                &+& p_1^2q_3^2-2p_1p_3q_1q_3 + p_3^2q_1^2 \\
+                &+& p_1^2q_2^2-2p_1p_2q_1q_2+p_2^2q_1^2
+                \end{eqnarray*}
+            </p>
+            <p>
+                \begin{eqnarray*}
+                \|p\|^2\|q\|^2&=& (p_1^2+p_2^2+p_3^2)(q_1^2+q_2^2+q_3^2)\\
+                &=& p_1^2q_1^2+p_2^2q_1^2+p_3^2q_1^2 \\
+                &+& p_1^2q_2^2+p_2^2q_2^2+p_3^2q_2^2 \\
+                &+&p_1^2q_3^2+p_2^2q_3^2+p_3^2q_3^2 
+                \end{eqnarray*}
+            </p>
+            <p>
+                \begin{eqnarray*}
+                -(p\cdot q)^2&=&-(p_1q_1+p_2q_2+p_3q_3)^2 \\
+                &=& -p_1^2q_1^2-p_2^2p_2^2-p_3^2q_3^2 \\
+                &-& 2p_1p_2q_1q_2-2p_1p_3q_1q_3-p_2p_3q_2q_3
+                \end{eqnarray*}
+            </p>
+            <p>
+                Inciso 2.
+            </p>
+            <p>
+                Por el inciso 1 y usando \(p\cdot q= \|p\|\|q\|\cos(\theta)\)
+                \begin{eqnarray*}
+                \|p\times q\|^2&=& \|p\|^2\|q\|^2- (p\cdot q)^2 \\
+                &=&\|p\|^2\|q\|^2- \|p\|^2\|q\|^2\cos^2(\theta) \\
+                &=& \|p\|^2\|q\|^2(1-\cos^2(\theta)) \\
+                &=& \|p\|^2\|q\|^2\sen^2(\theta)  
+                \end{eqnarray*}
+                sacando raíz cuadrada obtenemos 
+                \[
+                \|p\times q\| = \|p\|\|q\| |\sen(\theta)|
+                \]
+            </p>
+
+
+          </div>
 	 </div>
 
 	<div class="definicion-box">
@@ -445,8 +609,11 @@
         <h2 class="number-title"> Ejercicio</h2> 
         <p> 
             Demuestra que $p \times q =0$ sii $p$ o $q$ son iguales a cero o $p$ y $q$ son linealmente
-            dependientes. Sugerencia: usa ecuación \eqref{Eqn:NormaProductoCruz}.
+            dependientes. 
         </p>        
+        <p>
+            Sugerencia: usa ecuación \eqref{Eqn:NormaProductoCruz}.
+        </p>
 	</div>
 
 	
@@ -535,12 +702,12 @@
                 $$
                 u\times (v\times w)=   (u \cdot w )v -(u \cdot v ) w	
                 $$
-                <p>
+                <!--<p>
                     Sugerencia: empieza probando, directamente, la primera identidad para los casos $w=\hat{i},\hat{j}, \hat{k}$;
                     después usa las propiedades del producto cruz y producto interior para probar la igualdad para cualquier
                     $w$ en general. Sigue el mismo método para la segunda identidad.
             
-                </p>
+                </p>-->
             </li> 
             <li>
                 Usando las identidades anteriores demuestra la identidad de Jacobi, que dice
