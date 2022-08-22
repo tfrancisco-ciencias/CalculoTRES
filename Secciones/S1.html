@@ -925,6 +925,27 @@
             \|v+w\|^2+\|v-w\|^2=2(\|v\|^2+\|w\|^2)
             $$
         </p>
+
+        <button class="respButton hvr-grow "> Solución</button>
+         <div class="resp-box">
+             <p>
+                 Recordemos que $\|v\|^2 = \langle v, v \rangle$, así
+                 \begin{align*}
+                 \|v + w\|^2 =& \langle v + w, v + w\rangle, \\
+                 =& \langle v, v+w \rangle + \langle w, v + w \rangle , \\
+                 =& \langle v, v \rangle + \langle v,w \rangle + \langle w , v \rangle + \langle w, w \rangle, \\
+                 \| v - w\|^2 =& \langle v-w , v-w \rangle, \\
+                 =& \langle v, v - w \rangle - \langle w , v - w \rangle ,\\
+                 =& \langle v,v \rangle - \langle v , w \rangle - \langle w, v \rangle + \langle w , w \rangle.
+                 \end{align*}
+
+                 Al sumar las dos expresiones anteriores notamos que los términos cruzados se cancelan y obtenemos
+                 \begin{equation*}
+                 \|v + w\|^2 +  \|v  w\|^2 = 2\langle v,v \rangle + 2\langle w,w \rangle = 2(\|v\|^2+\|w\|^2).
+                 \end{equation*}
+            </p>
+
+         </div>
     </div>
 
     <div class="definicion-box"><h2 class="number-title"> Definición </h2>
