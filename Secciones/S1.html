@@ -992,6 +992,19 @@
     <div class="ejercicio-box"> 
         <h2 class="number-title"> Ejercicio </h2> 
         Encuentra los valores de $x$ para los cuales los vectores $(x,2x,1)$ y $(4x,-1,x)$ son ortogonles.
+        <button class="respButton hvr-grow "> Solución</button>
+        <div class="resp-box">
+            <p>
+                Los vectores son ortogonales si y sólo si $\langle (x,2x,1) ,(4x,-1,x) \rangle = 0$, al
+                desarrollar esta expresión se obtiene que
+                \begin{equation*}
+                \langle (x,2x,1) ,(4x,-1,x) \rangle = 4x^2 - x = 0,
+                \end{equation*}
+
+                ésta se puede factorizar como $x(4x -1)$ de donde concluimos que los valores de $x$ para
+                los cuales los vectores son ortogonales son exactamente $x=0$ y $x=1/4$.
+            </p>
+        </div>
     </div>
 
 
@@ -1152,7 +1165,7 @@
 		Usa la desigualdad de Cauchy-Schwartz para probar que, para todos los vectores $p,q$
 		$$
 		\| p+q\| \leq \|p\|+\|q\|.	
-		$$ 	
+		$$
     </div>
 
 	<div class="ejercicio-box"> 
@@ -1179,6 +1192,23 @@
                 $$
 
                 Sugerencia: empieza con $\|p\|$ suma  y resta $q$ y usa la desigualdad del triángulo.
+        <button class="respButton hvr-grow "> Solución</button>
+        <div class="resp-box">
+            <p>
+                Se tiene que demostrar que $-\|p-q\| \leq \|p\| - \|q\| \leq \|p-q\|$, para ello
+                comenzamos con $\|p\|$ y aplicamos la desigualdad del triángulo:
+                \begin{equation*}
+                \|p\| = \|p-q + q\| \leq \|p - q\| + \|q\|,
+                \end{equation*}
+                y al despejar uno de los términos se obtiene que $ \|p\| - \|q\| \leq \|p - q\|$, que
+                es justamente la desigualdad del lado derecho.
+            </p>
+            <p>
+                Si ahora realizamos el mismo proceso comenzando por $\|q\|$ entonces obtenemos que
+                $\|q\| \leq \|q-p\| + \|p\|$ y $\|q\| - \|p\| \leq \|p - q\|$. Al multiplicar ambos
+                lados de la desigualdad por $-1$ obtenemos la desigualdad faltante, $-\|p-q\| \leq \|p\| - \|q\|$.
+            </p>
+        </div>
     </div>
 
     <div class="ejercicio-box"> 
