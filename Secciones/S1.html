@@ -925,6 +925,27 @@
             \|v+w\|^2+\|v-w\|^2=2(\|v\|^2+\|w\|^2)
             $$
         </p>
+
+        <button class="respButton hvr-grow "> Solución</button>
+         <div class="resp-box">
+             <p>
+                 Recordemos que $\|v\|^2 = \langle v, v \rangle$, así
+                 \begin{align*}
+                 \|v + w\|^2 =& \langle v + w, v + w\rangle, \\
+                 =& \langle v, v+w \rangle + \langle w, v + w \rangle , \\
+                 =& \langle v, v \rangle + \langle v,w \rangle + \langle w , v \rangle + \langle w, w \rangle, \\
+                 \| v - w\|^2 =& \langle v-w , v-w \rangle, \\
+                 =& \langle v, v - w \rangle - \langle w , v - w \rangle ,\\
+                 =& \langle v,v \rangle - \langle v , w \rangle - \langle w, v \rangle + \langle w , w \rangle.
+                 \end{align*}
+
+                 Al sumar las dos expresiones anteriores notamos que los términos cruzados se cancelan y obtenemos
+                 \begin{equation*}
+                 \|v + w\|^2 +  \|v  w\|^2 = 2\langle v,v \rangle + 2\langle w,w \rangle = 2(\|v\|^2+\|w\|^2).
+                 \end{equation*}
+            </p>
+
+         </div>
     </div>
 
     <div class="definicion-box"><h2 class="number-title"> Definición </h2>
@@ -940,7 +961,7 @@
             Par dos vectores $p, q \in \mathbb{R}^n$, demuestra:
          </p>
          <p>
-            $\|p+q\|^2=\|p\|^2+\|q\|^2$ si y sólo si los vectores son prependiculares.
+            $\|p+q\|^2=\|p\|^2+\|q\|^2$ si y sólo si los vectores son perpendiculares.
          </p>
 
          <button class="respButton hvr-grow "> Solución</button>
@@ -970,7 +991,20 @@
 
     <div class="ejercicio-box"> 
         <h2 class="number-title"> Ejercicio </h2> 
-        Encuentra los valoes de $x$ para los cuales los vectores $(x,2x,1)$ y $(4x,-1,x)$ son ortogonles.
+        Encuentra los valores de $x$ para los cuales los vectores $(x,2x,1)$ y $(4x,-1,x)$ son ortogonales.
+        <button class="respButton hvr-grow "> Solución</button>
+        <div class="resp-box">
+            <p>
+                Los vectores son ortogonales si y sólo si $\langle (x,2x,1) ,(4x,-1,x) \rangle = 0$, al
+                desarrollar esta expresión se obtiene que
+                \begin{equation*}
+                \langle (x,2x,1) ,(4x,-1,x) \rangle = 4x^2 - x = 0,
+                \end{equation*}
+
+                ésta se puede factorizar como $x(4x -1)$ de donde concluimos que los valores de $x$ para
+                los cuales los vectores son ortogonales son exactamente $x=0$ y $x=1/4$.
+            </p>
+        </div>
     </div>
 
 
@@ -1131,7 +1165,7 @@
 		Usa la desigualdad de Cauchy-Schwartz para probar que, para todos los vectores $p,q$
 		$$
 		\| p+q\| \leq \|p\|+\|q\|.	
-		$$ 	
+		$$
     </div>
 
 	<div class="ejercicio-box"> 
@@ -1158,6 +1192,23 @@
                 $$
 
                 Sugerencia: empieza con $\|p\|$ suma  y resta $q$ y usa la desigualdad del triángulo.
+        <button class="respButton hvr-grow "> Solución</button>
+        <div class="resp-box">
+            <p>
+                Se tiene que demostrar que $-\|p-q\| \leq \|p\| - \|q\| \leq \|p-q\|$, para ello
+                comenzamos con $\|p\|$ y aplicamos la desigualdad del triángulo:
+                \begin{equation*}
+                \|p\| = \|p-q + q\| \leq \|p - q\| + \|q\|,
+                \end{equation*}
+                y al despejar uno de los términos se obtiene que $ \|p\| - \|q\| \leq \|p - q\|$, que
+                es justamente la desigualdad del lado derecho.
+            </p>
+            <p>
+                Si ahora realizamos el mismo proceso comenzando por $\|q\|$ entonces obtenemos que
+                $\|q\| \leq \|q-p\| + \|p\|$ y $\|q\| - \|p\| \leq \|p - q\|$. Al multiplicar ambos
+                lados de la desigualdad por $-1$ obtenemos la desigualdad faltante, $-\|p-q\| \leq \|p\| - \|q\|$.
+            </p>
+        </div>
     </div>
 
     <div class="ejercicio-box"> 
@@ -1196,6 +1247,36 @@
             </li> 
 
        </ol>
+
+       <button class="respButton hvr-grow "> Solución</button>
+       <div class="resp-box">
+           <p>
+               Comenzaremos la prueba de la identidad de Lagrange desarrollando el término $\sum_{i < j} (x_iy_j -x_jy_i)^2$.
+               \begin{align*}
+               \sum_{i < j} (x_iy_j -x_jy_i)^2 =& \sum_{i < j} (x_iy_j -x_jy_i)(x_iy_j -x_jy_i),\\
+               =& \sum_{i < j} (x_i y_j x_i y_j + x_j y_i x_j y_i) - \sum_{i < j} (x_i y_j x_j y_i + x_j y_i x_i y_j),\\
+               =& \sum_{i < j} (x_i y_j x_i y_j + x_j y_i x_j y_i) + \sum_{i=1}^n x_i x_i y_i y_i \\
+               &- \sum_{i < j} (x_i y_j x_j y_i + x_j y_i x_i y_j) - \sum_{i=1}^n x_i y_i x_i y_i, \\
+               =& \sum_{i < j} (x_i^2 y_j^2 + x_j^2y_i^2) + \sum_{i=1}^n x_i^2 y_i^2 \\
+               &- 2 \sum_{i < j} (x_i y_i)(x_j y_j) - \sum_{i=1}^n (x_i y_i)(x_i y_i),\\
+               =& \sum_{i=1}^n \sum_{j=1}^n x_i^2 y_i^2 - \sum_{i=1}^n \sum_{j=1}^n (x_i y_i)(x_j y_j),\\
+               =& \bigg( \sum_{i=1}^n x_i^2 \bigg)\bigg( \sum_{i=1}^n y_i^2 \bigg) - \bigg( \sum_{i=1}^n x_iy_i \bigg)^2
+               \end{align*}
+               Al despejar el primer y el último término se obtiene la identidad buscada.
+           </p>
+           <p>
+               La desigualdad de Cauchy-Schwartz se obtiene directamente de la identidad anterior, para ello basta notar que
+               $\sum_{i < j} (x_iy_j -x_jy_i)^2 \geq 0$, por lo tanto
+               \begin{equation*}
+               \bigg( \sum_{i=1}^n x_iy_i \bigg)^2=\bigg( \sum_{i=1}^n x_i^2 \bigg)\bigg( \sum_{i=1}^n y_i^2 \bigg)-
+               \sum_{i < j} (x_iy_j -x_jy_i)^2 \leq \bigg( \sum_{i=1}^n x_i^2 \bigg)\bigg( \sum_{i=1}^n y_i^2 \bigg),
+               \end{equation*}
+               de modo que al tomar la raíz cuadrada de ambos lados de la igualdad se obtiene
+               \begin{equation*}
+               \left| \sum_{i=i}^n x_iy_i \right| \leq \left( \sum_{i=1}^n x_i^2 \right)^{1/2}\left( \sum_{i=1}^n y_i^2 \right)^{1/2}
+               \end{equation*}
+           </p>
+       </div>
     </div>
 
 
