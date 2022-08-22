@@ -1247,6 +1247,36 @@
             </li> 
 
        </ol>
+
+       <button class="respButton hvr-grow "> Solución</button>
+       <div class="resp-box">
+           <p>
+               Comenzaremos la prueba de la identidad de Lagrange desarrollando el término $\sum_{i < j} (x_iy_j -x_jy_i)^2$.
+               \begin{align*}
+               \sum_{i < j} (x_iy_j -x_jy_i)^2 =& \sum_{i < j} (x_iy_j -x_jy_i)(x_iy_j -x_jy_i),\\
+               =& \sum_{i < j} (x_i y_j x_i y_j + x_j y_i x_j y_i) - \sum_{i < j} (x_i y_j x_j y_i + x_j y_i x_i y_j),\\
+               =& \sum_{i < j} (x_i y_j x_i y_j + x_j y_i x_j y_i) + \sum_{i=1}^n x_i x_i y_i y_i \\
+               &- \sum_{i < j} (x_i y_j x_j y_i + x_j y_i x_i y_j) - \sum_{i=1}^n x_i y_i x_i y_i, \\
+               =& \sum_{i < j} (x_i^2 y_j^2 + x_j^2y_i^2) + \sum_{i=1}^n x_i^2 y_i^2 \\
+               &- 2 \sum_{i < j} (x_i y_i)(x_j y_j) - \sum_{i=1}^n (x_i y_i)(x_i y_i),\\
+               =& \sum_{i=1}^n \sum_{j=1}^n x_i^2 y_i^2 - \sum_{i=1}^n \sum_{j=1}^n (x_i y_i)(x_j y_j),\\
+               =& \bigg( \sum_{i=1}^n x_i^2 \bigg)\bigg( \sum_{i=1}^n y_i^2 \bigg) - \bigg( \sum_{i=1}^n x_iy_i \bigg)^2
+               \end{align*}
+               Al despejar el primer y el último término se obtiene la identidad buscada.
+           </p>
+           <p>
+               La desigualdad de Cauchy-Schwartz se obtiene directamente de la identidad anterior, para ello basta notar que
+               $\sum_{i < j} (x_iy_j -x_jy_i)^2 \geq 0$, por lo tanto
+               \begin{equation*}
+               \bigg( \sum_{i=1}^n x_iy_i \bigg)^2=\bigg( \sum_{i=1}^n x_i^2 \bigg)\bigg( \sum_{i=1}^n y_i^2 \bigg)-
+               \sum_{i < j} (x_iy_j -x_jy_i)^2 \leq \bigg( \sum_{i=1}^n x_i^2 \bigg)\bigg( \sum_{i=1}^n y_i^2 \bigg),
+               \end{equation*}
+               de modo que al tomar la raíz cuadrada de ambos lados de la igualdad se obtiene
+               \begin{equation*}
+               \left| \sum_{i=i}^n x_iy_i \right| \leq \left( \sum_{i=1}^n x_i^2 \right)^{1/2}\left( \sum_{i=1}^n y_i^2 \right)^{1/2}
+               \end{equation*}
+           </p>
+       </div>
     </div>
 
 
