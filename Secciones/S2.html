@@ -511,7 +511,7 @@
         </div>
 
        <div class="ejercicio-box"> 
-        <h2 class="number-title"> Ejercicio</h2> 
+        <h2 class="number-title" id="Ejer:PrependicularidadProdCruz"> Ejercicio</h2> 
         <p>
             Usando el  <a href="#Ejer:TripleProducto">Ejercicio 2.14</a> 
             prueba que $u\times v$ es perpendicular tanto
@@ -606,7 +606,7 @@
 	</div>
 
 	<div class="ejercicio-box"> 
-        <h2 class="number-title"> Ejercicio</h2> 
+        <h2 class="number-title" id="Ejer:CaracProdCruzCero"> Ejercicio</h2> 
         <p> 
             Demuestra que $p \times q =0$ sii $p$ o $q$ son iguales a cero o $p$ y $q$ son linealmente
             dependientes. 
@@ -668,6 +668,30 @@
             Al vector $(A,B,C)$ se le llama un  vector normal al plano.
             
         </p>
+        <button class="respButton hvr-grow "> Solución</button>
+        <div class="resp-box">
+            <p>
+                Tomamos \(p=(x,y,z)\) un punto cualquiera en el plano. Por lo tanto existen escalares 
+                \(a,b\in \mathbb{R}\) tal que 
+                \[
+                p=p_0+bu+av
+                \]
+                Restando \(p_0\) en ambos aldos llegamos a \(p-p_0=bu+av\) y por las propiedades del producto cruz obtenemos 
+                \begin{eqnarray*}
+                \langle p-p_0, u\times v \rangle &=& \langle bu+av, u\times v\rangle \\
+                &=& b \langle u, u\times v \rangle 
+                + a \langle v , u\times v\rangle \\
+                &=& 0
+                \end{eqnarray*}
+                Finalmente escribiendo la ecuación \(\langle p-p_0, u\times v \rangle =0 \)
+                en términos de sus coordenadas llegamos a 
+                \begin{eqnarray*}
+                0&=&(x-x_0,y-y_0,z-z_0)\cdot (A,B,C)\\
+                &=& A(x-x_0)+B(y-y_0)+C(z-z_0).
+                \end{eqnarray*}
+            </p>
+
+        </div>
     </div>
 
     <div class="ejercicio-box"> 
@@ -687,6 +711,61 @@
                 $s,t\in \mathbb{R}$ tales que $p=su+tv$ (es decir, $p$ está en el plano generado por $u$ y $v$).
             </li>
         </ol>
+        <button class="respButton hvr-grow "> Solución</button>
+
+        <div class="resp-box">
+            <p>
+                Inciso 1.
+            </p>
+            <p>
+                Tomamos escalares \(a,b,c\in \mathbb{R}\) con la propiedad de que 
+                \[
+                au+bv+c(u\times v) =0.
+                \]
+                Debemos de probar que \(a=b=c=0\). 
+            </p>
+            <p>
+                Al tomar producto interior de la expresión anterior 
+                con  el vector \(u\times v\) y usando la perpendicularidad con \(u\) y \(v\)
+                (<a href="#Ejer:PrependicularidadProdCruz">Ejercicio 2.15</a>) obtenemos 
+                \[
+                0=\langle au+bv+c(u\times v), u\times v\langle= c \|u\times v \|^2
+                \]
+                por lo que \(c=0\) ó \(\|u\times v\| =0\).
+                Pero \(u\times v \ne 0\) (al ser \(\{u,v\}\) linealmente independientes
+                <a href="#Ejer:CaracProdCruzCero">Ejercicio 2.18</a>). Por lo tanto 
+                \(c=0\).
+            </p>
+            <p>
+                Ya que \(c=0\) podemos reescribir 
+                \[
+                0=au+bv+c(u\times v)=au+bv.
+                \]
+                Esta ecuación y el hecho de que \(\{u,v\}\) es lineamente independiente implica que 
+                \(a=b=0\).
+            </p>
+            <p>
+                Inciso 2.
+            </p>
+            <p>
+                Ya que el conjunto \(\{u,v,u\times v\}\) es linealmente independiente dado 
+                \(p\in \mathbb{R}^3\) existen escalares \(r,s,t \in \mathbb{R}\) tal que 
+                \[
+                p=r(u\times v)+ su+tv 
+                \]
+                En ésta igualdad tomamos producto interior con \(u\times v\) para obtener 
+                \[
+                \langle p, u\times v\rangle = r \|u\times v\|^2
+                \]
+                pero si \(p\) es perpendicular a \(u\times v\) tenemos que 
+                \(\langle p, u\times v\rangle =0\) lo que implica \(0=r \|u\times v\|^2\)
+                pero \(u\times v \ne 0\) por lo que \(r=0\). Por lo tanto 
+                \[
+                p=r(u\times v)+ su+tv = su+tv.
+                \]
+            </p>
+
+        </div>
     </div>
     
     <div class="ejercicio-box"> 

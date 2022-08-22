@@ -107,15 +107,34 @@
     </p>
    <ol>
     <li>
-        $f(0,5)$,
+        $f(1,5)$,
     </li>
     <li>
-        $f(2,2)$,
+        $f(2,3)$,
     </li>
     <li>
         $f(-1,0)$.
     </li>
    </ol>
+   <button class="respButton hvr-grow "> Solución inciso 1</button>
+   <div class="resp-box">
+    <p>
+        La idea es escrbir \((1,5)\) como una suma de la forma 
+        \[
+        (1,5)=a(0,1)+b(1,1)
+        \]
+        Resolviendo el sistema anterior tenemos 
+        \begin{eqnarray*}
+            1=b \\
+            5=a+b
+        \end{eqnarray*}
+        por lo tanto \(b=1\) y \(a=4\). Con esta información y usando la linealidad de \(f\) obtenemos 
+        \[
+        f(1,5)=f(a(0,1)+b(1,1))=af(0,1)+b(1,1)=4(3)+ 1(-1)=11.
+        \]
+    </p>
+
+   </div>
    </div>
 
 
@@ -124,6 +143,16 @@
     <p>
         Demuestra que si $F$ es una función lineal, $F(0)=0$.
     </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            Usando que \(F\) abre sumas: 
+            \[
+            F(0)=F(0+0)=F(0)+F(0) \Rightarrow 0=F(0).
+            \]
+        </p>
+
+    </div>
 </div>
 
 <div class="ejercicio-box"> 
@@ -134,34 +163,45 @@
     </p>
 </div>
 
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2> 
-    <p>
-        Sea $v\in \mathbb{R}^3$ un vector fijo y arbitrario. Define $f:\mathbb{R}^3\to \mathbb{R}$  por
-        $f(p)=\langle v,p\rangle.$ Demuestra que $f$ es una función lineal.        
-    </p>
-</div>
 
 
 <div class="ejercicio-box"> 
     <h2 class="number-title" id="Ejer:RieszR3"> Ejercicio </h2> 
     <p>
-        Sea $f:\mathbb{R}^3 \to \mathbb{R}$ una función lineal.
+        El <a href="./S1.html#Ejer:PropiedadesProdInt"> Ejercicio 1.22</a> prueba que, dado un vector fijo \(v\in \mathbb{R}^3\), 
+        la función \(f:\mathbb{R}^3 \to \mathbb{R}\) dada por 
+        \[
+        f(p)=\langle v.p\rangle
+        \]
+        es lineal. Este ejercicio prueba que toda función lineal de \(\mathbb{R}^3 \) a \(\mathbb{R}\)
+        se puede escribir de esta forma.
+    </p>
+    <p>
+        Sea $f:\mathbb{R}^3 \to \mathbb{R}$ una función lineal. Demuestra que existe un vector
+        $v\in \mathbb{R}^3$ tal que $f(p)=\langle v, p \rangle$, para toda $p\in \mathbb{R}^3$.
+    </p>
+    <p>
+        Sugerencia: $v=(f(\hat{i}), f(\hat{j}), f(\hat{k}))$. 
+    </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+    <p>
+        Para \(p=(p_1,p_2,p_3)\in \mathbb{R}\) arbitrario escribimos
+        \[
+        p=p_1\hat{i}+p_2\hat{k}+p_3\hat{k}
+        \]
+        Usando la linealidad de \(f\) obtenemos 
+        \[
+            f(p)=p_1f(\hat{i})+p_2f(\hat{j})+p_3f(\hat{k})
+        \]
+        Finalmente notamos que la última expresión se puede escribir como un producto interior 
+        \[
+        p_1f(\hat{i})+p_2f(\hat{j})+p_3f(\hat{k})=\langle (p_1,p_2,p_3), (f(\hat{i}),f(\hat{j}),f(\hat{k}))
+        \]
+        por lo que \(f(p)=\langle p, v \rangle\), con \(v=(f(\hat{i}),f(\hat{j}),f(\hat{k})\).
     </p>
 
-<ol>
-    <li>
-        Demuestra que existe un vector
-        $v\in \mathbb{R}^3$ tal que $f(p)=\langle v, p \rangle$, para toda $p\in \mathbb{R}^3$.
-        <p>
-            Sugerencia: $v=(f(\hat{i}), f(\hat{j}), f(\hat{k}))$. 
-        </p>        
-    </li>
-    <li>
-        Más en general, si $\{u,v,w\}$ es un conjunto de vectores distintos de cero y ortogonales dos a dos,
-        prueba que $f(p)=\langle p, v\rangle $, donde $v=(f(u), f(v), f(w))$.
-    </li>
-</ol>
+</div>
 </div>
 
 
@@ -170,32 +210,76 @@
     <p>
         Sean $u,v\in \mathbb{R}^3$ dos vectores con la pripiedad de que $\langle v,p \rangle = \langle u,p \rangle$
         para toda $p\in \mathbb{R}^3$. Demuestra que $u=v$.  
-    </p>  
-</div>
-
-
-
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2>
-    <p>
-        Sea $f:\mathbb{R}^3\to \mathbb{R}$ una función lineal.
-        Demuestra que existe un único
-        vector $v\in \mathbb{R}^3$ tal que $f(p)=\langle v,p\rangle$, para todo $p$.        
-    </p> 
-    <p>
-        Sugerencia: usa ejercicios \ref{Ejer:RieszR3} y \ref{Ejer:UnicidadRieszR3}.
     </p>
+    <p>
+        Nota: dada una función lineal, \(f:\mathbb{R}^3\to \mathbb{R}\), el <a href="#Ejer:RieszR3">Ejercicio 3.5</a>
+        asegura que existe \(v\in \mathbb{R}\) tal que \(f(p)=\langle p, v\rangle\). Como consecuencia de 
+        éste ejercicio obtenemos que dicho vector \(v\) es único.
+    </p>  
+
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            Supongamos que \(\langle v,p\rangle = \langle u,p\rangle \) para todo punto \(p\in \mathbb{R}\). 
+            Usando las propiedades del producto interior lo anterior es equivalente a 
+            \(\langle v-u, p \rangle =0\) para todo \(p\). En particular, tomando \(p=v-u\) llegamos a 
+            \[
+            0=\langle v-u , v-u \rangle =\|v-u\|^2
+            \]
+            y por las propiedades de la norma conclimos que \(u=v\).
+        </p>
+    </div>
+    
 </div>
 
 
-<div class="ejercicio-box"> 
-    <h2 class="number-title" id="Ejer:TeoRiesz"> Ejercicio </h2> 
+
+
+<div class="teorema-box"> 
+    <h2 class="number-title" id="Ejer:TeoRiesz"> Teorema </h2> 
     <h3> Teorema de Riesz en $\mathbb{R}^n$ </h3>
     <p> 
-        Generaliza el ejericio anterior.
+        Este Teorema generaliza  el ejericio anterior.
         Es decir, demuestra que para toda función lineal  $f:\mathbb{R}^n \to \mathbb{R}$
         existe un único vector $v\in \mathbb{R}^n$ tal que $f(p)=\langle v, p \rangle$, para todo $p$.        
     </p> 
+    <button class="respButton hvr-grow ">Demostración </button>
+    <div class="resp-box"> 
+        <p>
+            Existencia.
+        </p>
+        <p>
+            Por \(\{ \mathbb{e}_i \}_{i=1}^n\) denotamos la base canónica de \(\mathbb{R}^n\). Escribiendo 
+            \(p\) como combinación lineal de los \(\{\mathbb{e}\}_{i=1}^n\) tenemos 
+            \[
+            p=\sum_{i=1}^n p_i \mathbb{e}_i
+            \]
+            Aplicando \(f\) en ambos lados y suando la linealidad obtenemos
+            \begin{eqnarray*} 
+                f(p)=\sum_{i=1}^n p_i f(\mathbb{e}_i)
+            \end{eqnarray*}
+            la cual se puede escribir como un producto interior 
+            \[
+            \langle p, v\rangle 
+            \]
+            si tomamos \(v=(f(\mathbb{e}_1), f(\mathbb{e}_2),\dots, f(\mathbb{e}_n)\).
+        </p>
+        <p>
+            Unicidad.
+        </p>
+        <p>
+            Supongamos que existe un \(u\in \mathbb{R}^n\) tal que 
+            \[
+            f(p)=\langle v, p \rangle = \langle u, p \rangle
+            \]
+            para todo \(p\in \mathbb{R}^n\). Lo anterior se puede escribir como 
+            \[
+            \langle v-u,p\rangle=0, 
+            \]
+             para todo \(p\). Finalmente tomando \(p=v-u\) obtenemos \(\|v-u\|=0\), 
+             por lo tanto \(u=v\).
+        </p>
+    </div>
 </div>
 
 <div class="ejercicio-box"> 
@@ -205,6 +289,22 @@
         lineales tales que $F(\hat{i})=G(\hat{i})$,
         $F(\hat{j})=G(\hat{j})$ y $F(\hat{k})=G(\hat{k})$. Demuestra que $F=G$.        
     </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            Para probar la igualdad de las funciones debemos de probar que para todo 
+            punto \(p\in \mathbb{R}^3\), \(F(p)=G(p)\). Para probarlo escribirmos a 
+            \(p\) como  un combinación lineal de los vectores \(\{\hat{i},\hat{j},\hat{k} \}\)
+            y aplicamos \(F\) y \(G\) (recordando que ambas son lineales)
+            \begin{eqnarray*}
+            p=p_1\hat{i}+p_2\hat{j}+p_3\hat{k} & \Rightarrow & F(p)=p_1F(\hat{i})+p_2F(\hat{j})+p_3F(\hat{k})\\
+             & \Rightarrow & G(p)=p_1G(\hat{i})+p_2G(\hat{j})+p_3G(\hat{k})
+            \end{eqnarray*}
+            Finalmente usando \(F(\hat{i})=G(\hat{i}), F(\hat{j})=G(\hat{j})\) y 
+            \(F(\hat{k})=G(\hat{k})\) concluimos \(F(p)=G(p)\).
+        </p>
+
+    </div>
 </div>
 
 
@@ -236,15 +336,18 @@
 <div class="ejercicio-box"> 
     <h2 class="number-title"> Ejercicio </h2>
     <p>
-        Este ejercicio generaliza el ejercicio \ref{Ejer:CoincidenciaLinealesEnBase}
+        Este ejercicio generaliza el ejercicio <a href="#Ejer:CoincidenciaLinealesEnBase"> Ejercicio 3.8</a>
+    </p>
+    <p>
         Sea $F,G:\mathbb{R}^n \to \mathbb{R}^m$, dos funciones lineales y sea
-        $\{\mathbf{v}_i\}_{i=1}^l \subset \mathbb{R}^n$ un conjunto generador. Si $F(\mathbf{v}_i)=G(\mathbf{v}_i)$,
+        $\{\mathbf{v}_i\}_{i=1}^l \subset \mathbb{R}^n$ un conjunto generador. 
+        Si $F(\mathbf{v}_i)=G(\mathbf{v}_i)$,
         para todo $i=1,\dots, l$, entonces $F=G$.        
     </p> 
 </div>
 
- <div class="ejercicio-box"> 
-    <h2 class="number-title" id="Ejer:PrelimMatrixFormLinearFunct"> Ejercicio </h2> 
+    <div class="lema-box"> 
+    <h2 class="number-title" id="Ejer:PrelimMatrixFormLinearFunct"> Lema </h2> 
     <p>
         Sea $F:\mathbb{R}^n\to \mathbb{R}^m$ una función lineal. Demuestra que existen vectores
         $\mathbf{v}_1,\dots,\mathbf{v}_n\in \mathbb{R}^n$ tales que, para todo $\mathbf{p}\in \mathbb{R}^n$
@@ -253,6 +356,24 @@
         $$
      
     </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            Escribiendo \(\mathbf{p}\) como combinación lineal de los vectores canónicos 
+            \[
+            \mathbf{p}=p_1\mathbf{e}_1+\cdots + p_n \mathbf{e}_n
+            \]
+            y aplicando \(F\) obtenemos (usando la linealidad) que 
+            \[
+            F(\mathbf{p})=p_1F(\mathbf{e}_1)+\cdots + p_n F(\mathbf{e}_n).
+            \]
+            Tomando los vectores \(\mathbf{v}_i:=F(\mathbf{e}_i)\) concluimos 
+            \[
+            F(\mathbf{p})=p_1\mathbf{v}_1+\cdots + p_n \mathbf{v}_n.
+            \]
+        </p>
+
+    </div>
 </div>
 
    
@@ -345,6 +466,42 @@
            con $p\in\mathbb{R}^3$.
     </li>
    </ol>
+   <button class="respButton hvr-grow "> Solución inciso 1</button>
+
+   <div class="resp-box">
+    
+    <p>
+        En el primer renglón, \(p_1+p_2\), \(p_1\) contribuye 1 y \(p_2\) también. Por lo tanto el primer 
+        renglón de \(A\) debe ser \((1,1)\). El segundo renglón es \(p_1-p_2\) por lo que \(p_1\) contribuye 1
+        y \(p_2\) un -1, por lo que el segundo renglón de \(A\) debe ser \((1,-1)\). 
+    </p>
+    <p>
+        Un cálculo directo prueba que 
+        \[
+        \left[
+        \begin{array}{cc}
+        1  & 1 \\
+        1& -1
+        \end{array}
+        \right]  
+        \left[ 
+        \begin{array}{cc}
+        p_1 \\
+        p_2
+        \end{array}
+        \right]
+        =
+        \left[
+        \begin{array}{cc}
+        p_1+p_2 \\
+        p_1-p_2
+        \end{array}
+        \right]	
+        \]
+        para todo \(p\in \mathbb{R}^2\).
+    </p>
+
+   </div>
 </div>
 
 <div class="ejercicio-box"> 
@@ -356,11 +513,33 @@
         $$        
         Por lo tanto, la multiplicación de una matriz por un vector induce una función lineal.
     </p> 
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            Para probar la identidad \(M(\alpha \mathbf{p}+\mathbf{q})=\alpha M\mathbf{p}	+ M\mathbf{q}\)
+            debemos probarla entrada por entrada, pues son vectores.
+        </p>
+        <p>
+            La entrada \(i\) de \(M(\alpha \mathbf{p}+\mathbf{q}) \) es 
+            \[
+                \sum_{r=1}^m M_{i,r}(\alpha p_i+ q_i )=\alpha \left(\sum_{r=1}^n M_{i,r} p_i  \right)+
+                \sum_{r=1}^n M_{i,r}q_i.
+            \]
+        </p>
+        <p>
+            Por otro lado, la entrada \(i\) de \(\alpha M\mathbf{p}	+ M\mathbf{q}\) es 
+            \[
+            \alpha \left( \sum_{r=1}^n M_{i,r} p_i\right)	+ \sum_{r=1}^n M_{i,r}q_i.
+            \]
+            Comparando éstas dos últimas ecuaciones obtenemos el resultado.
+        </p>
+
+    </div>
 </div>
 
 
 <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2>
+    <h2 class="number-title" id="Ejer:UnicidadMatrizFunLineal"> Ejercicio </h2>
     <p>
         Sean $A,B$ dos matrices de $m \times n$. Demuestra que si $A\mathbf{p}=B\mathbf{p}$,
         para todo $\mathbf{p}\in \mathbb{R}^n$, entonces $A=B$.         
@@ -368,18 +547,70 @@
     <p>
         Sugerencia: ve tomando $\mathbf{p}=\mathbf{e}_i$, $i=1,\dots, n$.
     </p>
+
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            Fijamos indices \(i,j\). Ya que $A\mathbf{p}=B\mathbf{p}$ se vale para todo \(\mathbf{p}\), tomando 
+            \(\mathbf{p}=\mathbf{e}_j\) llegamos a la entrada \(i\) del vector \(A\mathbf{e}_j\) es
+            \[
+            \sum_{r=1}^n A_{i,r}(\mathbf{e}_{j})_r
+            \]
+            donde \((\mathbf{e}_j)_r\) denota la entrada \(r\) del vector \(\mathbf{e}_j\).
+            Por lo tanto \((\mathbf{e}_j)_r=0\) para todo \(r\ne j\) y \((\mathbf{e}_j)_j=1\). Se sigue que  
+            \[
+            \sum_{r=1}^n A_{i,r}(\mathbf{e}_{j})_r=A_{i,j}
+            \]
+            Finalmente ya que \(A\mathbf{e}_j=B\mathbf{e}_j\) para toda \(j\) obtenemos que 
+            \(A_{i,j}=B_{i,j}\) y por lo tanto \(A=B\).
+
+        </p>
+
+    </div>
 </div>
 
 
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2> 
+<div class="teorema-box"> 
+    <h2 class="number-title"> Teorema </h2> 
     <p>
-        Con ayuda del ejercicio \ref{Ejer:PrelimMatrixFormLinearFunct}, demuestra que si 
+        Si 
         $F:\mathbb{R}^n \to \mathbb{R}^m$ es lineal, entonces existe una única matriz $M$, de $m\times n$, 
         tal que 
         $$F(\mathbf{p})=M\mathbf{p},$$ 
         para todo $\mathbf{p}\in \mathbb{R}^n$.        
     </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            Por el <a href="#Ejer:PrelimMatrixFormLinearFunct">Lema 3.12</a> existen 
+            vectores \(\mathbf{v},\dots, \mathbf{v}_n \in \mathbb{R}^m\) tales que 
+            \[
+            F(\mathbf{p})=\sum_{r=1}^n p_r \mathbf{v}_r
+            \]
+            Si escribimos las entrdas de \(\mathbf{v}_r\) como 
+            \[
+            \mathbf{v}_r=(v_{1,r}, v_{2,r},\dots, v_{n,r})
+            \]
+            tenemos que la entrada \(i\) del vector \(F(\mathbf{p})\) es 
+            \begin{equation}\label{Eqn:Aux1MatrixFunLineal}
+            \textrm{entrada \(i\)}\left(\sum_{r=1}^n p_r \mathbf{v}_r \right)= 
+            \sum_{r=1}^n p_r v_{i,r}
+            \end{equation}
+            Si formamos la matrix \(M\) cuya entrada \(i,j\) es \(v_{i,j}\) obtenemos que 
+            la entrada  \(i\) de \(M\mathbf{p}\) es 
+            \begin{equation}\label{Eqn:Aux2MatrixFunLineal}
+            \sum_{r=1}^n M_{i,r}p_r=\sum_{r=1}^n v_{i,r}p_r
+            \end{equation}
+            Comparando las ecuaciones \eqref{Eqn:Aux1MatrixFunLineal}
+            y \eqref{Eqn:Aux2MatrixFunLineal} obtenemos que todas las 
+            entradas de \(F(\mathbf{p})\) y \(M\mathbf{p}\) son iguales por lo 
+            tanto \(F(\mathbf{p})=M\mathbf{p}\) para toda \(\mathbf{p}\in \mathbb{R}^n\).
+        </p>
+        <p>
+            La unicidad se sigue directamente del <a href="#Ejer:UnicidadMatrizFunLineal">Ejercicio 3.16</a>.
+        </p>
+    </div>
+    
 </div>
 
 
