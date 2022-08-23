@@ -614,6 +614,76 @@
 </div>
 
 
+<div class="definicion-box">
+    <h2 class="number-title"> Definición </h2>    
+    <p>
+        Un vector \(\mathbb{p}\in \mathbb{R}^n\) es combinación lineal de 
+        los vectores \(\{\mathbf{v}_1,\dots, \mathbf{v}_k \}\) si existen 
+        escalares \(a_1,\dots, a_k\in \mathbb{R}^n\) tales que 
+        \[
+        \mathbf{p}=\sum_{i=1}^k a_i \mathbf{v}_i.
+        \]
+    </p>
+</div>
+
+
+</div>
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+        Denotemos
+        \begin{eqnarray*}
+        \mathbf{v}_1=(1,1,-2,1),
+        \mathbf{v}_2=(3,0,4,-1),
+        \mathbf{v}_3=(-1,2,5,2)
+        \end{eqnarray*}
+        y
+        \begin{eqnarray*}
+        \alpha=(4,-5,9,-7), \gamma=(3,1,-4,4). 
+        \end{eqnarray*}
+    </p>
+    <p>
+        ¿Cuál de los vectores \(\alpha, \beta\) son combinación lineal de los vectores \(\mathbf{v}_1,
+        \mathbf{v}_2, \mathbf{v}_3\) ?
+    </p>
+
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2>
+    <ol>
+        <li>
+            ¿Existe una función lineal \(F:\mathbb{R}^3\to \mathbb{R}^2\) que satisface 
+            \(F(1,-1,1)=(1,0), F(1,1,1)=(0,1)\) ?
+        </li>
+        <li>
+            Si 
+            \begin{eqnarray*}
+            \mathbf{v}_1=(1,-1), \mathbf{u}_1=(1,0)\\
+            \mathbf{v}_2=(2,-1), \mathbf{u}_2=(0,1)\\
+            \mathbf{v}_3=(-3,2), \mathbf{u}_3=(1,1)
+            \end{eqnarray*}
+            ¿existe una función lineal \(F:\mathbb{R}^2 \to \mathbb{R}^2\)
+            tal que \(F(\mathbf{v}_i)=\mathbf{u}_i\), i=1,2 ?
+        </li>
+    </ol>
+
+</div>
+
+
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+        Prueba que si \(\{\mathbf{u},\mathbf{v}, \mathbf{w}\} \subset \mathbb{R}^n\) es un 
+        conjunto linealmente independiente entonces el conjunto 
+        \(\{\mathbf{u}+\mathbf{v}+\mathbf{w},\mathbf{u}-\mathbf{v},-\mathbf{u}-\mathbf{v}-2\mathbf{w}\}\)
+        también es linealmente independiente.
+    </p>
+
+ </div>   
+
 <div class="ejercicio-box"> 
     <h2 class="number-title"> Ejercicio </h2>
     <p>
@@ -655,12 +725,77 @@
     <li>
         Dado cualquier vector $u\in \mathbb{R}^2$, usa coordenadas polares para escribir 
         $u=(r\cos(\varphi), r\sen(\varphi))$, con $r\geq 0$ y $\varphi\in [0,2\pi)$. 
-        Demuestra que si $Mu=0$ entonces $u=0$.
+        Demuestra que si $Mu=u$ entonces $u=0$.
     </li>
 </ol>
 </div>
 
 
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+        Sean $u,v, w \in \mathbb{R}^2$ tres
+        puntos en el circulo unitario tal que lo dividen en tres arcos de circunferencia cada uno de la misma longitud.
+        <ol>
+         <li>
+             Prueba que la transformación que rota a el plano un ángulo $2\pi/3$ (en cualquier dirección)
+             deja al vector $u+v+w$ fijo. De lo anterior concluye que $u+v+w=0$.
+         </li>
+         <li>
+             Usando el inciso anterior prueba que, para todo ángulo $\theta$
+             \begin{eqnarray*}
+             \sen(\theta)+\sen(\theta+2\pi/3)+\sen(\theta+4\pi/3)&=&0, \\
+             \cos(\theta)+\cos(\theta+2\pi/3)+\cos(\theta+4\pi/3)&=&0 .
+             \end{eqnarray*}   
+         </li>
+         <li>
+             Generaliza el inciso anterior para demostrar
+             \begin{eqnarray*}
+             \sum_{k=1}^n \cos(\theta+ 2\pi k/n)=0, \quad  \sum_{k=1}^n \sen(\theta +2\pi k /n)=0.
+             \end{eqnarray*}
+         </li>
+        </ol>
+     
+    </p> 
+</div>
+
+
+
+
+<div class="definicion-box">
+    <h2 class="number-title"> Definición </h2> 
+     Dado un vector $w\ne 0$, la proyección sobre $w$,  está dada por
+     $$
+     P_w(v)=\frac{\langle v, w \rangle }{\|w\|^2}w.
+     $$
+   </div>
+
+ <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio </h2>
+    <p>
+        Demuestra que:
+    </p> 
+   <ol>
+    <li>
+        $P_w$ es una función lineal.
+    </li>
+    <li>
+        $P_w(w)=w$.
+    </li>
+    <li>
+        Considera las proyecciones  $P_w:\mathbb{R}^2 \to \mathbb{R}^2$, con
+        $w=(1,0)$ y $w=(0,1)$. Encuentra  las matrices de $2\times 2$ asociadas a estas funciones lineales.
+    </li>
+    <li>
+        Demuestra que, para todo $v$, $P_w(v)$ es ortogonal a $v-P_w(v)$.
+    </li>
+    <li>
+        Demuestra que el mínimo de $\| tw - v  \|$, variando $t\in \mathbb{R}$, se alcanza precisamente
+        cuando $t=\frac{\langle v, w \rangle }{\|w\|^2}$. Lo cual se interpreta como que la proyección ortogonal
+        de $v$ en $w$ es el punto más cercano a $v$ que cae dentro de la recta generada por $w$.
+    </li>
+   </ol>
+</div>
 
 <div class="ejercicio-box"> 
     <h2 class="number-title"> Ejercicio </h2>
@@ -853,71 +988,10 @@
 </div>
 
 
- <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2>
-    <p>
-        Sean $u,v, w \in \mathbb{R}^2$ tres
-        puntos en el circulo unitario tal que lo dividen en tres arcos de circunferencia cada uno de la misma longitud.
-        <ol>
-         <li>
-             Prueba que la transformación que rota a el plano un ángulo $2\pi/3$ (en cualquier dirección)
-             deja al vector $u+v+w$ fijo. De lo anterior concluye que $u+v+w=0$.
-         </li>
-         <li>
-             Usando el inciso anterior prueba que, para todo ángulo $\theta$
-             \begin{eqnarray*}
-             \sen(\theta)+\sen(\theta+2\pi/3)+\sen(\theta+4\pi/3)&=&0, \\
-             \cos(\theta)+\cos(\theta+2\pi/3)+\cos(\theta+4\pi/3)&=&0 .
-             \end{eqnarray*}   
-         </li>
-         <li>
-             Generaliza el inciso anterior para demostrar
-             \begin{eqnarray*}
-             \sum_{k=1}^n \cos(\theta+ 2\pi k/n)=0, \quad  \sum_{k=1}^n \sen(\theta +2\pi k /n)=0.
-             \end{eqnarray*}
-         </li>
-        </ol>
-     
-    </p> 
-</div>
 
 
 
 
-
-<div class="definicion-box">
-    <h2 class="number-title"> Definición </h2> 
-     Dado un vector $w\ne 0$, la proyección sobre $w$,  está dada por
-     $$
-     P_w(v)=\frac{\langle v, w \rangle }{\|w\|^2}w.
-     $$
-   </div>
-
- <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio </h2>
-    <p>
-        Demuestra que:
-    </p> 
-   <ol>
-    <li>
-        $P_w$ es una función lineal.
-    </li>
-    <li>
-        $P_w(w)=w$.
-    </li>
-    <li>
-        Considera las proyecciones  $P_w:\mathbb{R}^2 \to \mathbb{R}^2$, con
-        $w=(1,0)$ y $w=(0,1)$. Encuentra  las matrices de $2\times 2$ asociadas a estas funciones lineales.
-    </li>
-    <li>
-        Demuestra que, para todo $v$, $P_w(v)$ es ortogonal a $v-P_w(v)$.
-    </li>
-    <li>
-        Demuestra que el mínimo de $\| tw - v  \|$, variando $t\in \mathbb{R}$, se alcanza precisamente
-        cuando $t=\frac{\langle v, w \rangle }{\|w\|^2}$. Lo cual se interpreta como que la proyección ortogonal
-        de $v$ en $w$ es el punto más cercano a $v$ que cae dentro de la recta generada por $w$.
-    </li>
-   </ol>
-</div>
    
 
 <div class="definicion-box">
