@@ -765,10 +765,11 @@
 
 <div class="definicion-box">
     <h2 class="number-title"> Definición </h2> 
-     Dado un vector $w\ne 0$, la proyección sobre $w$,  está dada por
+     Dado un vector $w\ne 0$, la proyección sobre la recta generada por $w$,  está dada por
      $$
      P_w(v)=\frac{\langle v, w \rangle }{\|w\|^2}w.
      $$
+     También se llama la proyección ortogonal  a la recta generada por \(w\).
    </div>
 
  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio </h2>
@@ -790,11 +791,85 @@
         Demuestra que, para todo $v$, $P_w(v)$ es ortogonal a $v-P_w(v)$.
     </li>
     <li>
+        Denotemos \(L\) la recta generada por \(w\) y fijemos \(q\in L\). Por \(L'\) denotamos 
+        la recta que pasa por \(q\) y que es perpendicular a \(L\). Prueba que para toda 
+        \(p\in L'\), \(P_w(p)=q\).
+    </li>
+    <li>
         Demuestra que el mínimo de $\| tw - v  \|$, variando $t\in \mathbb{R}$, se alcanza precisamente
-        cuando $t=\frac{\langle v, w \rangle }{\|w\|^2}$. Lo cual se interpreta como que la proyección ortogonal
-        de $v$ en $w$ es el punto más cercano a $v$ que cae dentro de la recta generada por $w$.
+        cuando $t=\frac{\langle v, w \rangle }{\|w\|^2}$. 
+        <p>
+            Lo anterior se puede interpretar diciendo que  la proyección ortogonal
+            de $v$ en $w$ es el punto más cercano a $v$ que cae dentro de la recta generada por $w$.
+        </p>
     </li>
    </ol>
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+        Denotemos 
+        \[
+        V=\{f:\mathbb{R}^n\to \mathbb{R}: f \textrm{ es lineal} \}
+        \]
+    </p>
+    <ol>
+        <li>
+            Prueba que \(V\) es un espacio vectorial.
+        </li>
+        <li>
+            Prueba que \(V\) es isomorfo a \(\mathbb{R}^n\). Es decir, 
+            existe una biyección \(\Phi: V \to \mathbb{R}^n\) que es lineal.
+        </li>
+    </ol>
+
+</div>
+
+<div class="definicion-box">
+    <h2 class="number-title"> Definición </h2>
+    <p>
+        Para un vector \(w \ne 0\) definimos la reflexión con respecto a la recta generada por 
+        \(w\) como 
+        \[
+        R_w(v)= 2P_w(v)-v
+        \]
+        
+    </p>
+    </div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2>
+    <p>
+        <ol>
+            <li>
+                \(R_w\) es una función lineal.
+            </li>
+            <li>
+                para todo \(p\) en la recta generada por \(w\), \(R_w(p)=p\).
+            </li>
+            <li>
+                para todo \(v\), \(\|R_w(v)\|=\|v\|\).
+            </li>
+            <li>
+                para todo \(v\), \(\langle R_w(v),w\rangle = \langle v,w \rangle  \). 
+                <p>
+                    Usando 
+                    la fórmula \(\langle p,q \rangle = \|p\|\|q\|\cos(\theta)\) lo anterior
+                    se interpreta como que el ángulo entre \(R_w(v)\) y \(w\) 
+                    y \(v\) y \(w\) son iguales. Por lo tanto \(R_w(v)\) es la reflexión con 
+                    respecto a la recta generada por \(w\).
+                </p>
+            </li>
+            <li>
+                Para \(w=(1,1,1)\in \mathbb{R}^3\) encuentra la matriz asociada a 
+                \(R_w\). 
+            </li>
+    
+        </ol>
+    
+    </p>
+
 </div>
 
 <div class="ejercicio-box"> 
