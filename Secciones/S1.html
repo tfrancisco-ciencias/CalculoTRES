@@ -71,16 +71,19 @@
           <nav class="small-nav" align=right>
             <button onclick="myFunction()">Claro/Obscuro 
           </nav>
+          
         </header>
 
       <!-- This part is for title in tab-->
-      <title> § 1 </title>
+      <title id="Sec"> § 1 </title>
     
   </head>
 
   <body class="fondo-body" >
 
     <h1 class="number-title flexbox"> El espacio Euclideano </h1>     
+
+    <input type="button" value="siguiente sección" onclick="nextS()" id="secBtn">
 
 
 
@@ -339,14 +342,14 @@
   
   
     <div class="ejercicio-box">
-        <h2 class="number-title""> Ejercicio</h2> 
+        <h2 class="number-title"> Ejercicio</h2> 
         <p>
             Encuentra todos los puntos de intersección de la recta $x=2+5t,y=5-2t,z=6+3t$ con los planos coordenados.
         </p>
     </div>
 
     <div class="ejercicio-box">
-        <h2 class="number-title""> Ejercicio</h2> 
+        <h2 class="number-title"> Ejercicio</h2> 
         <p>
             Demuestra que las ecuaciones paramétricas de la linea recta que une los puntos $(x_0,y_0,z_0)$ y $(x_1,y_1,z_1)$
             son
@@ -377,7 +380,7 @@
  
       
     <div class="ejercicio-box">
-        <h2 class="number-title""> Ejercicio</h2> 
+        <h2 class="number-title"> Ejercicio</h2> 
         <p>
             Determina si las rectas con ecuaciones paramátricas
             $$
@@ -393,7 +396,7 @@
 
 
     <div class="ejercicio-box">
-        <h2 class="number-title""> Ejercicio</h2> 
+        <h2 class="number-title"> Ejercicio</h2> 
         <p>
             Determina si los puntos dados están  o no en une misma recta:
         </p>
@@ -405,7 +408,7 @@
 
       
     <div class="ejercicio-box">
-        <h2 class="number-title""> Ejercicio</h2> 
+        <h2 class="number-title"> Ejercicio</h2> 
         <p>
             Supon que $L\subset \mathbb{R}^3$ es la linea recta con ecuación paramétrica $p=p_0+tv$, donde
             $p_0=(x_0,y_0,z_0)$ y $v=(v_1,v_2,v_3)$ con $v_i \ne 0$, $i=1,2,3$. Prueba que un punto $(x,y,z)$ pertenece a $L$
@@ -446,7 +449,7 @@
     
     
     <div class="ejercicio-box">
-        <h2 class="number-title""> Ejercicio</h2> 
+        <h2 class="number-title"> Ejercicio</h2> 
         <p>
             Considera la linea recta en $\mathbb{R}^2$ con ecuación paramétrica
             $$p=(0,1)+t(1,1)=(t,t+1).$$
@@ -509,7 +512,7 @@
     </div> 
 
 <div class="definicion-box">
-    <h2 class="number-title""> Definición </h2>
+    <h2 class="number-title"> Definición </h2>
     <p>
         Decimos que dos vectores distintos de cero, $u$ y $v$, son 
         linealmente independientes si uno no es multiplo escalar del otro.
@@ -517,7 +520,7 @@
 </div>
 
 
-       <div class="definicion-box"><h2 class="number-title""> Definición </h2>
+       <div class="definicion-box"><h2 class="number-title"> Definición </h2>
         <p>
             Sean $u\ne 0$, $v\ne 0$, vectores linealmente independientes.  
             La ecuación paramétrica del plano que pasa por el punto $p_0$ 
@@ -539,7 +542,7 @@
 
        
      <div class="ejercicio-box">
-        <h2 class="number-title""> Ejercicio</h2> 
+        <h2 class="number-title"> Ejercicio</h2> 
         <p>
             Encuentras las ecuaciones paramétricas del plano que paso por $p_0=(1,1,1)$, generado por los vectores
             $u=(1,0,1), v=(-1,-1,0)$. Después demuestra que todos los puntos de dicho plano satisfacen la relación
@@ -568,7 +571,7 @@
     </div>
     
     <div class="definicion-box">
-        <h2 class="number-title""> Definición </h2>
+        <h2 class="number-title"> Definición </h2>
          <p>
             Un conjunto de vectores $\{\mathbf{v}_1, \dots , \mathbf{v}_k\}$, todos distintos de cero,
             se llama linealmente
@@ -585,7 +588,7 @@
 
 
      <div class="ejercicio-box"> 
-        <h2 class="number-title""> Ejercicio </h2> 
+        <h2 class="number-title"> Ejercicio </h2> 
         <p>
             Demuestra que el conjunto $\{(1,-1,0),(0,1,0), (0,1,-1) \}$ es linealmente independiente.
         </p>
@@ -618,7 +621,7 @@
    
 
 	<div class="definicion-box">
-        <h2 class="number-title""> Definición </h2>
+        <h2 class="number-title"> Definición </h2>
 	En $\mathbb{R}^n$ se define la norma de un vector $p=(p_1,\dots, p_k)$ como
 	$$
 		\|p\|=\left( \sum_{k=1}^k p_k^2\right)^{1/2}
@@ -632,7 +635,7 @@
 
 	
 	<div class="ejercicio-box"> 
-        <h2 class="number-title""> Ejercicio </h2> 
+        <h2 class="number-title"> Ejercicio </h2> 
         Demuestra las siguientes propiedades de la norma:
 	<ol>
 	    <li>
@@ -672,7 +675,7 @@
 
 
        <div class="definicion-box">
-        <h2 class="number-title""> Definición </h2>
+        <h2 class="number-title"> Definición </h2>
         <p>
             En $\mathbb{R}^n$ el producto interior usual es el producto punto
             $$
@@ -685,7 +688,7 @@
    
        
        <div class="ejercicio-box"> 
-        <h2 class="number-title""> Ejercicio </h2> 
+        <h2 class="number-title"> Ejercicio </h2> 
         Describe el conjunto de puntos $p=(x,y)$ en el  plano que satisface
          <ol>
             <li>

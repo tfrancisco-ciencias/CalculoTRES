@@ -541,3 +541,21 @@ tr:nth-child(even) {
   margin-right: auto;
   margin-left: auto;
 }
+
+/* fixed button */
+
+.fixed-btn-l {
+  position: fixed;
+  width: 10%;
+  bottom: 0.5rem;
+  left: 0.5rem;
+}
+
+
+.fixed-btn-r {
+  position: fixed;
+  width: 10%;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  
+}

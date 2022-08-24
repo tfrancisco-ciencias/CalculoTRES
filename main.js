@@ -46,6 +46,24 @@ $(document).ready(function() {
     };
     };
 
-    /// following part is for date current date
+    /// 
+    
+    function nextS() {
+      var secString = document.getElementById("Sec");
+      var secNum= parseInt(secString.innerText[3]);
+        var secNumNext=secNum+1
+        var secNextString=secNumNext.toString()
+        var addressNext= `./S${secNextString}.html`
+        window.location.assign(addressNext)
+      }
+      
+      function prevS() {
+        var secString = document.getElementById("Sec");
+        var secNum= parseInt(secString.innerText[3]);
+          var secNumPrev=secNum-1
+          var secPrevString=secNumPrev.toString()
+          var addressPrev= `./S${secPrevString}.html`
+          window.location.assign(addressPrev)
+        }
   
   
