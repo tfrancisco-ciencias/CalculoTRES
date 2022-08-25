@@ -68,9 +68,10 @@
               
             </ul>
           </nav>
-          <nav class="small-nav" align=right>
-            <button onclick="myFunction()">Claro/Obscuro 
-          </nav>
+          <label class="switch">
+            <input type="checkbox" onclick="myFunction()">
+            <span class="slider"></span>
+          </label>
         </header>
 
       <!-- This part is for title in tab-->
@@ -81,9 +82,9 @@
   <body class="fondo-body" >
 
    <h1 class="number-title flexbox"> Matrices y determinantes</h1> 
-   <input type="button" class="fixed-btn-r flexbox" value="siguiente sección" onclick="nextS()">
-   <input type="button" class="fixed-btn-l flexbox" value="previa sección" onclick="prevS()">
-
+   <button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>
+   <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
+   
 
 
 <div class="definicion-box">

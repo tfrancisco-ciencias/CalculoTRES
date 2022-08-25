@@ -69,19 +69,22 @@
               
             </ul>
           </nav>
-          <nav class="small-nav" align=right>
-            <button onclick="myFunction()">Claro/Obscuro 
-          </nav>
+          <label class="switch">
+            <input type="checkbox" onclick="myFunction()">
+            <span class="slider"></span>
+          </label>
         </header>
 
       <!-- This part is for title in tab-->
-      <title> § 3 </title>
+      <title id="Sec"> § 3 </title>
     
   </head>
 
  <body class="fondo-body" >
 
    <h1 class="number-title flexbox"> Funciones Lineales </h1> 
+   <!--<button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>-->
+   <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
 
    <div class="definicion-box">
     <h2 class="number-title">Definición  </h2>
