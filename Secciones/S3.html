@@ -881,6 +881,17 @@
         Sean $F:\mathbb{R}^n \to \mathbb{R}^m$ y $G:\mathbb{R}^m \to \mathbb{R}^k$ dos funciones lineales,
         demuestra que la composición $G\circ F$  también es lineal.        
     </p> 
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+    <p>
+        Directamente de la definición 
+        \begin{eqnarray*}
+        (G\circ F)(\alpha \mathbf{p}+\mathbf{q})&=& G(F(\alpha \mathbf{p}+\mathbf{q})) \\
+        &=& G(\alpha F(\mathbf{p})+F(\mathbf{q})) \\
+        &=& \alpha G(F(\mathbf{p}))+ G(F(\mathbf{q}))
+        \end{eqnarray*}
+    </p>
+    </div>
 
 </div>
 
@@ -893,6 +904,26 @@
         (BA)_{i,j}=\sum_{l=1}^m B_{il}A_{lj}
         $$
         
+    </p>
+    <p>
+        Por ejemplo 
+        \[
+        \left[ \begin{array}{cc} 
+        b_{1,1} & b_{1,2}  \\
+        b_{2,1} & b_{2,2} \\
+        b_{3,1} & b_{3,2} 
+         \end{array}\right]
+         \left[\begin{array}{cc}
+        a_{1,2} & a_{1,2} \\
+        a_{2,1} & a_{2,2}
+         \end{array}\right]
+         =
+         \left[ \begin{array}{cc}
+        b_{1,1}a_{1,2}+b_{1,2}a_{2,1} & b_{1,1}a_{1,2}+b_{1,2}a_{2,2} \\
+        b_{2,1}a_{1,2}        + b_{2,2}a_{2,1} &  b_{2,1}a_{1,2} +  b_{2,2}a_{2,2} \\
+        b_{3,1}a_{1,2}        + b_{3,2}a_{2,1} &  b_{3,1}a_{1,2} +  b_{3,2}a_{2,2} \\
+         \end{array}\right]
+        \]
     </p>
 </div>
 
@@ -908,12 +939,114 @@
         Encuentra matrices $A, B$, tal que $F(p)=Ap, G(p)=Bp$, para toda $p\in \mathbb{R}^2$.
     </li> 
     <li>
-        Caclula $G\circ F$. Encuentra $C$,matriz tal que $G\circ F(p)=Cp$, para toda $p \in \mathbb{R}^2$.
+        Encuentra la regla de correspondencia de $G\circ F$. Encuentra $C$, la matriz tal que $G\circ F(p)=Cp$, para toda $p \in \mathbb{R}^2$.
     </li>
     <li>
-        Muestra que $C=AB$.
+        Muestra que $C=BA$.
     </li>
 </ol>
+<button class="respButton hvr-grow "> Solución</button>
+<div class="resp-box">
+<p>
+    Inciso 1.
+</p>
+<p>
+    Calculamos \(F(\mathbf{e}_i)\), \(i=1,2\) y los colocamos como columas.
+    \begin{eqnarray*}
+        F(\mathbf{e}_1)&=&(2,1)\\
+        F(\mathbf{e}_2)&=&(-1,1)
+    \end{eqnarray*}
+    por lo tanto 
+    \[
+    A=\left[
+        \begin{array}{cc}
+        2 & -1 \\
+        1 & 1
+        \end{array}
+    \right]
+    \]
+    es la matriz asociada a \(F\) respecto a la base canónica.
+</p>
+<p>
+    De  manera similar 
+    \begin{eqnarray*}
+        G(\mathbf{e}_1)&=&(1,7)\\
+        G(\mathbf{e}_2)&=&(-1,-3)
+    \end{eqnarray*}
+    por lo tanto 
+    \[
+    B=\left[
+        \begin{array}{cc}
+        1 & -1 \\
+        7 & -3
+        \end{array}
+    \right]
+    \]
+</p>
+<p>
+    Inciso 2.
+</p>
+<p>
+    Haciendo la composición directamente obtenemos 
+    \begin{eqnarray*}
+    (G\circ F)(x,y,z)&=&G(F(x,y,z)) \\
+    &=& =G(2x-y,x+y)\\
+    &=&((2x-y)-(x+y),7(2x-y)-3(x+y))\\
+    &=& (x-2y,11x-10y)
+    \end{eqnarray*}
+    evaluando en los vectores canónicos 
+    \begin{eqnarray*}
+        (G\circ F)(\mathbf{e}_1)&=&(1,11) \\
+        (G\circ F)(\mathbf{e}_2)&=&(-2,-10)
+    \end{eqnarray*}
+    por lo tanto 
+    \[
+    C=\left[ 
+    \begin{array}{cc}
+    1 & -2 \\
+    11 & -10
+    \end{array}
+    \right]
+    \]
+    
+</p>
+<p>
+    Inciso 3.
+</p>
+<p>
+    Multiplicando las matrices obtenemos 
+    \begin{eqnarray*}
+        BA&=& 
+        \left[
+        \begin{array}{cc}
+        1 & -1 \\
+        7 & -3
+        \end{array}
+        \right]
+        \left[
+        \begin{array}{cc} 
+        2 & -1 \\
+        1 & 1
+        \end{array}
+        \right] \\ 
+        &=&\left[
+        \begin{array}{cc}
+        2-1 & -1-1 \\
+         14-3 & -7-3 & 
+        \end{array}
+        \right]\\
+        &=&
+        \left[ 
+        \begin{array}{cc}
+        1 & -2 \\
+        11 & -10
+        \end{array}
+        \right]\\
+        &=&C
+    \end{eqnarray*}
+</p>
+</div>
+
 </div>
 
 
@@ -927,21 +1060,25 @@
         que $(G\circ F)(\mathbf{p})=(AB)\mathbf{p}$, para toda $\mathbf{p}$. 
     
     </p>
-    
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
     <div>
-        Denotar $q=Ap \in \mathbb{R}^m$. Entonces $G\circ F(p)=G(F(p))=B(Ap)=B(q)$. 
-    
-        Para $i=1,\dots, k$, fijo
-        \begin{eqnarray*}
-        (Bq)_i&=&\sum_{s=1}^m B_{i,s}q_s \\
-        &=& \sum_{s=1}^m B_{i,s}\left( \sum_{r=1}^n A_{s,r}p_r \right)\\
-        &=&\sum_{s=1}^k\sum_{r=1}^m B_{i,s}A_{s,r}p_r\\
-        &=&\sum_{r=1}^m \left( \sum_{s=1}^k B_{i,s}A_{s,r}  \right)p_r \\
-        &=&\sum_{r=1}^m (BA)_{i,r}p_r \\
-        &=& (BA p)_i
-        \end{eqnarray*}
+        <p>
+            Denotar $q=Ap \in \mathbb{R}^m$. Entonces $G\circ F(p)=G(F(p))=B(Ap)=B(q)$. 
+        </p>
+        <p>
+            Para $i=1,\dots, k$, fijo
+            \begin{eqnarray*}
+            (Bq)_i&=&\sum_{s=1}^m B_{i,s}q_s \\
+            &=& \sum_{s=1}^m B_{i,s}\left( \sum_{r=1}^n A_{s,r}p_r \right)\\
+            &=&\sum_{s=1}^k\sum_{r=1}^m B_{i,s}A_{s,r}p_r\\
+            &=&\sum_{r=1}^m \left( \sum_{s=1}^k B_{i,s}A_{s,r}  \right)p_r \\
+            &=&\sum_{r=1}^m (BA)_{i,r}p_r \\
+            &=& (BA p)_i
+            \end{eqnarray*}
+        </p>
     </div>    
-     
+    </div>
 </div>
 
 
@@ -949,10 +1086,22 @@
     <h2 class="number-title"> Definición </h2> 
     <p>
         Una función lineal $F:\mathbb{R}^n \to \mathbb{R}^n$ se llama invertible si es inyectiva
-        y suprayectiva. Es decir,  si existe una función,
+        y suprayectiva, es decir, una biyección. 
+    </p>
+    <p>
+        Como consecuencia existe una función,
         que vamos a denotar $F^{\langle -1 \rangle }:\mathbb{R}^n \to \mathbb{R}^n$,
         que satisface $F\circ F^{\langle -1 \rangle }(\mathbf{q})=\mathbf{q}$, 
-        $F^{\langle -1 \rangle }\circ F(\mathbf{p})=\mathbf{p}$,para todas $\mathbf{p}$, $\mathbf{q}$.
+        $F^{\langle -1 \rangle }\circ F(\mathbf{p})=\mathbf{p}$, para todas $\mathbf{p}$, $\mathbf{q}$.
+    </p>
+    <p>
+        Nota: para encontrar la regla de correspondencia de \(F^{\langle -1 \rangle }\)
+        se plantea la ecuación 
+        \[
+        F(\mathbf{p})=\mathbf{q}
+        \]
+        y se revuelve para  las coordenadas de \(\mathbf{p}\) en términos de las 
+        coordenadas de \(\mathbf{q}\).
     </p>
 
 </div>
@@ -961,18 +1110,58 @@
 <div class="ejercicio-box"> 
     <h2 class="number-title"> Ejercicio </h2>
     <p>
-        Considera la función $F:\mathbb{R}^3\to  \mathbb{R}^3$ dada por
-        $F(x,y,z)=(x+y+z, 2y-z, 5z)$. Resuelve el sistema de ecuaciones, para $x,y,z$
-        $$
-        \begin{array}{c}
-        u=x+y+z \\
-        v=2y-z\\
-        w=5z
-        \end{array}
-        $$
-        para encontrar la función inversa de $F$.
-        
-    </p> 
+        Todas las siguientes funciones, \(F:\mathbb{R}^3 \to \mathbb{R}^3\),  son lineales e invertibles.
+        Resuelve el sistema de ecuaciones 
+        \[
+        (u,v,w)=F(x,y,z)
+        \]
+        para \(x,y,z\) (es decir, \(u,v,w\) son los datos y 
+        \(x,y,z\) las incógnitas) y así encuentra la regla de correspondencia de la inversa de \(F\)
+    </p>
+    
+    <ol>
+        <li>
+            $F(x,y,z)=(x+y+z, 2y-z, 5z)$. 
+        </li> 
+        <li>
+            $F(x,y,z)=(x + z, 2 x - y, y)$.
+        </li>
+        <li>
+            $F(x,y,z)=(2 x - y + z, -3 y + 4 z, 5 x - y)$.
+        </li>
+    </ol>
+    <p>
+        Observación: la función inversa de una función lineal también es lineal. Lo anterior 
+        se probará más adelante.
+    </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+    <p>
+        Inciso 1.
+    </p>
+    <p>
+        Planteamos el sistema de ecuaciones, \((u,v,w)=F(x,y,z)\) ,  y los resolvemos 
+        \begin{eqnarray*}
+             x+y+z&=& u \\
+             2y-z  &=& v \\
+             5z &=& w  \\
+            &\Rightarrow & \\
+              x &=& u-y-z \\
+             y  &=& \frac{v}{2}+\frac{z}{2}   \\
+             z&=&\frac{w}{5} \\
+             & \Rightarrow & \\
+             x &=& u-\frac{v}{2}-\frac{(w/5)}{2}-\frac{w}{5}= u-\frac{v}{2}-\frac{3w}{10} \\
+             y &=& \frac{v}{2}+\frac{(w/5)}{2} = \frac{v}{2}+ \frac{w}{10}\\
+             z&=&\frac{w}{5}
+        \end{eqnarray*}
+        Por lo tanto 
+        \begin{eqnarray*}
+            F^{\langle -1 \rangle}(u,v,w)&=& (x,y,z) \\
+            &=& (u-\frac{v}{2}-\frac{3w}{10}, \frac{v}{2}+ \frac{w}{10} , \frac{w}{5})
+        \end{eqnarray*}
+    </p>
+    </div>
+
 </div>
 
 
@@ -990,6 +1179,47 @@
         que $AB=BA=I_n$.
     </li>
 </ol>
+        <button class="respButton hvr-grow "> Solución</button>
+        <div class="resp-box">  
+        <p>
+            Inciso 1.
+        </p>
+        <p>
+            Debemos de probar 
+            \[
+            F^{\langle -1 \rangle }(\beta \mathbf{q}_1+\mathbf{q}_2) =
+            \beta F^{\langle -1 \rangle }(\mathbf{q}_1)+F^{\langle -1 \rangle}(\mathbf{q}_2)
+            \]
+            Denotamos \(F^{\langle -1 \rangle}(\mathbf{q}_i)=\mathbf{p}_i\), \(i=1,2\). 
+            Por definición \(\mathbf{p}_i\) es el 
+            único punto que satisface 
+            \(F(\mathbf{p}_i)=\mathbf{q}_i\). De lo anterior y 
+            de la linealidad de \(F\) se sigue que 
+            \begin{eqnarray*}
+            F(\beta \mathbf{p}_1+\mathbf{p}_2)=\beta F(\mathbf{p}_1)+ F(\mathbf{p}_2)=\beta \mathbf{q}_1+\mathbf{q}_2
+            \end{eqnarray*}
+            Por lo tanto, por la definición de \(F^{\langle -1 \rangle}\), llegamos a 
+            \begin{eqnarray*}
+            F^{\langle -1 \rangle}(\beta \mathbf{q}_1+\mathbf{q}_2)&=& \beta \mathbf{p}_1+\mathbf{p}_2 \\
+            &=& \beta F^{\langle -1 \rangle }(\mathbf{q}_1)+F^{\langle -1 \rangle}(\mathbf{q}_2)
+            \end{eqnarray*}
+        </p>
+        <p>
+            Inciso 2.
+        </p>
+        <p>
+           Sabemos que 
+           \begin{eqnarray*}
+           (F^{\langle -1 \rangle }\circ F)(\mathbf{p})&=&  ( F\circ F^{\langle -1 \rangle })(\mathbf{p}) \\
+           &=&\mathbf{p}\\
+           &=&Id(\mathbf{p}) \\
+           \end{eqnarray*}
+           para todo \(\mathbf{p}\in \mathbb{R}^n\), donde \(Id\) es la función identidad. Por el
+           Ejercicio 3.33 y la unicidad de la representación de funciones lineales como 
+           multiplicación como matriz  concluimos \(AB=BA=I_n\), donde \(I_n\) es la matriz identidad.
+        </p>
+        </div>
+
 </div>
 
 
@@ -1095,7 +1325,6 @@
     <h2 class="number-title"> Ejercicio </h2>
     <p>
         En este ejercicio vamos a considerar a  la proyección ortogonal como el punto que minimiza la distancia.
-        y vamos a dar una fórmula para plano que pasan por el origen.
     </p> 
     <p>
         Sea $M \subset \mathbb{R}^3$ un plano que pasa por el origen y sean $u,v \in M$ dos vectores distintos 
