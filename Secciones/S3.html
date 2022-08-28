@@ -1327,47 +1327,37 @@
         En este ejercicio vamos a considerar a  la proyección ortogonal como el punto que minimiza la distancia.
     </p> 
     <p>
-        Sea $M \subset \mathbb{R}^3$ un plano que pasa por el origen y sean $u,v \in M$ dos vectores distintos 
-        de cero  linealmente independientes. Asi pues, los puntos en el plano $M$ se pueden escribir
+        Sea $M \subset \mathbb{R}^3$ un plano que pasa por el origen y sean $\mathbf{u},\mathbf{v} \in M$ dos vectores distintos 
+        de cero y ortogonales. Asi pues, los puntos en el plano $M$ se pueden escribir
         $$
-        su+tv, \quad s,t \in \mathbb{R}.
+        s\mathbf{u}+t\mathbf{v}, \quad s,t \in \mathbb{R}.
         $$
         
      </p>
    
 <ol>
     <li>
-        Sea $p\in \mathbb{R}^3$, arbitrario. Demuestra que: 
-        $$
-        \| su+tv - p\|^2= s^2\|u\|^2+t^2\|v\|^2+2st \langle u,v \rangle- 2s \langle u,p \rangle - 
-        2t \langle v,p \rangle+\|p\|^2
-        $$
-    </li>
-    <li>
-        Si además suponemos que $u$ y $v$ son ortogonales demuestra que
-        $$
-        \| su+tv - p\|^2= \left( s \|u\| - \frac{\langle u,p \rangle}{\|u\|}  \right)^2 +\left( t \|v\| - \frac{\langle v,p \rangle}{\|v\|}  \right)^2 + \|p\|^2-\frac{\langle u,p \rangle^2}{\|u\|^2}-\frac{\langle v,p \rangle^2}{\|v\|^2}
-        $$
-        Sugerencia: completa cuadrados.        
-    </li>
-    <li>
-        Concluye que
-        $$
-        \min_{s,t \in \mathbb{R}}\| su+tv - p\|^2=\|p\|^2-\frac{\langle u,p \rangle^2}{\|u\|^2}-\frac{\langle v,p \rangle^2}{\|v\|^2}
-        $$
+        Prueba que 
+        \begin{eqnarray*}
+        \min_{s,t \in \mathbb{R}} \| s\mathbf{u} + t\mathbf{v}-\mathbf{p}\|^2=
+        \|\mathbf{p}\|^2-\frac{\langle \mathbf{u},\mathbf{p} \rangle^2}{\|\mathbf{u}\|^2}
+        -\frac{\langle \mathbf{v},\mathbf{p} \rangle^2}{\|v\|^2}
+        \end{eqnarray*}
         y el mínimo se alcanza en un único punto $(s_0,t_0)$, con  
-        $$s_0=\frac{\langle u,p \rangle }{\|u\|^2}, \quad t_0=\frac{\langle v,p\rangle}{\|v\|^2}$$	
-        
-        Sugerencia: nota que la ecuación obtenida en el inciso anterior es una cuadrática cuya gráfica es un paraboliode
-        que abre hacia arriba.
-        
+        $$
+        s_0=\frac{\langle \mathbf{u},\mathbf{p} \rangle }{\|\mathbf{u}\|^2}, 
+        \quad 
+        t_0=\frac{\langle \mathbf{v},\mathbf{p}\rangle}{\|\mathbf{v}\|^2}
+        $$	
     </li>
     <li>
-        Dado $p\in \mathbb{R}^3$ denota $P(p)$ al punto de $M$ más cercano a $p$. Usando el inciso anterior
-        concluye que la fórmula para obtener $P(p)$ es:
+        Dado $\mathbf{p}\in \mathbb{R}^3$ denota $P(\mathbf{p})$ al punto de $M$ más cercano a $\mathbf{p}$. 
+        Usando el inciso anterior
+        concluye que la fórmula para obtener $P(\mathbf{p})$ es:
                     
                \begin{equation}\label{Eqn:FormulaProyOrt}
-               P(p)=\frac{\langle u, p \rangle}{\|u\|^2}u +\frac{\langle v,p \rangle}{\|v\|^2}v
+               P(\mathbf{p})=\frac{\langle \mathbf{u}, \mathbf{p} \rangle}
+               {\|\mathbf{u}\|^2}\mathbf{u} +\frac{\langle \mathbf{v},\mathbf{p} \rangle}{\|\mathbf{v}\|^2}\mathbf{v}
                \end{equation}
             
     </li>
@@ -1375,7 +1365,8 @@
         Demuestra que $P$ es una transformación lineal.
     </li>
     <li>
-        Demuestra que $p-P(p)$ es perpendicular a todo punto del plano generado por $u$ y $v$.
+        Demuestra que $\mathbf{p}-P(\mathbf{p})$ es perpendicular a todo punto del plano generado 
+        por $\mathbf{u}$ y $\mathbf{v}$.
         <p>
             Nota que este inciso muestra que las definiciones geométrica y analítica de 
             la proyección otogonal 
@@ -1383,11 +1374,171 @@
         </p>
     </li>
     <li>
-        Si se toman $u=(1,0,0), v=(0,1,0)\in \mathbb{R}^3$, prueba que la proyección sobre 
-        el plano generado por $u$ y $v$ 	está dada por $P(x,y,z)=(x,y,0)$ y encuentra la matriz asociada a 
+        Si se toman $\mathbf{u}=(1,0,0), \mathbf{v}=(0,1,0)\in \mathbb{R}^3$, prueba que la proyección sobre 
+        el plano generado por $\mathbf{u}$ y $\mathbf{v}$ 	está dada por $P(x,y,z)=(x,y,0)$ y encuentra la matriz asociada a 
         ésta.
     </li>
 </ol>
+<button class="respButton hvr-grow "> Solución inciso 1</button>
+<div class="resp-box">
+<p>
+    Inciso 1.
+</p>
+<p>
+    Sea $p\in \mathbb{R}^3$ arbitrario. Usando las propiedades del producto interior tenemos  
+    \begin{eqnarray*}
+    \| s\mathbf{u}+t\mathbf{v} - \mathbf{p}\|^2 &=& 
+    \langle s\mathbf{u}+t\mathbf{v}-\mathbf{p},
+     s\mathbf{u}+t\mathbf{v}-\mathbf{p} \rangle \\
+    &=& s^2\|\mathbf{u}\|^2+t^2\|\mathbf{v}\|^2+ \|\mathbf{p} \|^2 \\
+    &+& 2st \langle \mathbf{u},\mathbf{v} \rangle- 2s \langle \mathbf{u},\mathbf{p} \rangle - 
+    2t \langle \mathbf{v},\mathbf{p} \rangle \\
+    &=& s^2\|\mathbf{u}\|^2+t^2\|\mathbf{v}\|^2+ \|\mathbf{p} \|^2 \\
+    &-& 2s \langle \mathbf{u},\mathbf{p} \rangle - 
+    2t \langle \mathbf{v},\mathbf{p} \rangle
+    \end{eqnarray*}
+</p>
+<p>
+    Completando el cuadrado en \(s\) y \(t\) obtenemos 
+    \begin{eqnarray*}
+    \| s\mathbf{u}+t\mathbf{v} - \mathbf{p}\|^2 &=&  
+    \left( s \|\mathbf{u}\| - \frac{\langle \mathbf{u},\mathbf{p} \rangle}{\|\mathbf{u}\|}  \right)^2 \\
+    &+&\left( t \|\mathbf{v}\| - \frac{\langle \mathbf{v},\mathbf{p} \rangle}{\|\mathbf{v}\|}  \right)^2  \\
+    &+&  \|\mathbf{p}\|^2-\frac{\langle \mathbf{u},\mathbf{p} \rangle^2}{\|\mathbf{u}\|^2}
+    -\frac{\langle \mathbf{v},\mathbf{p} \rangle^2}{\|\mathbf{v}\|^2}
+    \end{eqnarray*}
+</p>
+<p>
+    Para terminar la prueba de 
+    $$
+        \min_{s,t \in \mathbb{R}}\| su+tv - p\|^2=\|p\|^2-\frac{\langle u,p \rangle^2}{\|u\|^2}-\frac{\langle v,p \rangle^2}{\|v\|^2}
+    $$
+    podemos usar dos argumentos.
+</p>
+<p>
+    El geométrico.
+</p>
+<p>
+    Por la ecuación anterior la gráfica de la función \(f(s,t)=\|s\mathbf{u}+t\mathbf{v}-\mathbf{p}\|^2\)
+    es un paraboloide con vértica en el punto \((s_0,t_0)\) donde se satisfacen 
+    \begin{eqnarray*}
+    s_0\|\mathbf{u}\|-\frac{\langle \mathbf{u}, \mathbf{p} \rangle}{\|\mathbf{u}\|^2} =0 \\
+    t_0\|\mathbf{v}\|-\frac{\langle \mathbf{v}, \mathbf{p} \rangle }{\|\mathbf{v}\|^2} =0
+    \end{eqnarray*}
+    es decir 
+    \begin{eqnarray*}
+    s_0=\frac{\langle \mathbf{u}, \mathbf{p} \rangle }{\|\mathbf{u}\|^2} \\
+    t_0=\frac{\langle \mathbf{v}, \mathbf{p} \rangle }{\|\mathbf{v}\|^2}
+    \end{eqnarray*}
+    y por lo tanto el mínimo se alcanza únicamente en el punto  \((s_0,t_0)\) y el mínimo es el 
+    término constante del paraboloide, es decir 
+    $$
+        \min_{s,t \in \mathbb{R}}\| su+tv - p\|^2=\|p\|^2-\frac{\langle u,p \rangle^2}{\|u\|^2}-\frac{\langle v,p \rangle^2}{\|v\|^2}
+    $$
+</p>
+<p>
+    El analítico.
+</p>
+<p>
+    En la ecuación 
+    \begin{eqnarray*}
+    \| s\mathbf{u}+t\mathbf{v} - \mathbf{p}\|^2 &=&  
+    \left( s \|\mathbf{u}\| - \frac{\langle \mathbf{u},\mathbf{p} \rangle}{\|\mathbf{u}\|}  \right)^2 \\
+    &+&\left( t \|\mathbf{v}\| - \frac{\langle \mathbf{v},\mathbf{p} \rangle}{\|\mathbf{v}\|}  \right)^2  \\
+    &+&  \|\mathbf{p}\|^2-\frac{\langle \mathbf{u},\mathbf{p} \rangle^2}{\|\mathbf{u}\|^2}
+    -\frac{\langle \mathbf{v},\mathbf{p} \rangle^2}{\|\mathbf{v}\|^2}
+    \end{eqnarray*}
+    los dos primeros términos son no negativos  por lo tanto 
+    \begin{eqnarray*}
+    \| s\mathbf{u}+t\mathbf{v} - \mathbf{p}\|^2 &\geq  &  
+    &+&  \|\mathbf{p}\|^2-\frac{\langle \mathbf{u},\mathbf{p} \rangle^2}{\|\mathbf{u}\|^2}
+    -\frac{\langle \mathbf{v},\mathbf{p} \rangle^2}{\|\mathbf{v}\|^2}
+    \end{eqnarray*}
+    con igualdad si y sólo si 
+    \begin{eqnarray*} 
+    \left( s \|\mathbf{u}\| - \frac{\langle \mathbf{u},\mathbf{p} \rangle}{\|\mathbf{u}\|}  \right)^2 =0 \\
+    \left( t \|\mathbf{v}\| - \frac{\langle \mathbf{v},\mathbf{p} \rangle}{\|\mathbf{v}\|}  \right)^2 =0
+    \end{eqnarray*}
+    es decir si y sólo si 
+    \begin{eqnarray*}
+    s=\frac{\langle \mathbf{u}, \mathbf{p} \rangle }{\|\mathbf{u}\|^2} \\
+    t=\frac{\langle \mathbf{v}, \mathbf{p} \rangle }{\|\mathbf{v}\|^2}
+    \end{eqnarray*}
+    Por lo tanto 
+    $$
+        \min_{s,t \in \mathbb{R}}\| su+tv - p\|^2=\|p\|^2-\frac{\langle u,p \rangle^2}{\|u\|^2}-\frac{\langle v,p \rangle^2}{\|v\|^2}
+    $$
+    y se alcanza únicamente en el punto 
+    \begin{eqnarray*}
+    s_0=\frac{\langle \mathbf{u}, \mathbf{p} \rangle }{\|\mathbf{u}\|^2} \\
+    t_0=\frac{\langle \mathbf{v}, \mathbf{p} \rangle }{\|\mathbf{v}\|^2}
+    \end{eqnarray*}
+</p>
+</div>
+<button class="respButton hvr-grow "> Solución inciso 2</button>
+<div class="resp-box">
+<p>
+    Inciso 2.
+</p>
+<p>
+    Por definición \(P(\mathbf{p})\) es precisamente el punto en el plano tal que 
+    \[
+    \min_{s,t\in \mathbb{R}}\|s\mathbf{u}+t\mathbf{v} - \mathbf{p}\|=\|P(\mathbf{p})-\mathbf{p} \|
+    \]
+    ya que el mínimo se alcanza en un único punto debemos de tener 
+    \[
+    P(\mathbf{p})=\frac{\langle \mathbf{u}, \mathbf{p} \rangle }{\|\mathbf{u}\|^2} \mathbf{u}+
+    \frac{\langle \mathbf{v}, \mathbf{p} \rangle }{\|\mathbf{v}\|^2} \mathbf{u}
+    \]
+</p>
+</div>
+<button class="respButton hvr-grow "> Solución inciso 3</button>
+<div class="resp-box">
+<p>
+    Inciso 3.
+</p>
+<p>
+    Sabemos que las proyecciones sobre las rectas por el origen 
+    \begin{eqnarray*}
+        P_u(\mathbf{p})=\frac{\langle \mathbf{u}, \mathbf{p}\rangle }{\|\mathbf{u}\|^2} u \\
+        P_v(\mathbf{p})=\frac{\langle \mathbf{v}, \mathbf{p}\rangle }{\|\mathbf{v}\|^2} u \\
+    \end{eqnarray*}
+    son lineales y como \(P=P_u+P_v\) obtenemos que \(P\) es lineal.
+</p>
+</div>
+<button class="respButton hvr-grow "> Solución inciso 4</button>
+<div class="resp-box">
+<p>
+    Inciso 4.
+</p>
+<p>
+    Tomamos un punto arbitrario en el plano y tenemos que probar que el producto punto con 
+    con \(\mathbf{p}-P(\mathbf{p})\) es cero.
+    \begin{eqnarray*}
+    \langle s\mathbf{u}+t\mathbf{v} , \mathbf{p}-P(\mathbf{p}) \rangle &=& 
+    s\langle \mathbf{u}, \mathbf{p} \rangle 
+    +t \langle \mathbf{v}, \mathbf{p}\rangle \\
+    &-&s\langle \mathbf{u}, P(\mathbf{p}) \rangle \\
+    &-&t \langle \mathbf{v}, P(\mathbf{p}) \rangle \\
+    &=&s\langle \mathbf{u}, \mathbf{p} \rangle 
+    +t \langle \mathbf{v}, \mathbf{p}\rangle \\ 
+    &-& s\langle \mathbf{u}, 
+    \frac{\langle \mathbf{u},\mathbf{p}\rangle }{\|\mathbf{u}\|^2}\mathbf{u} 
+    +\frac{\langle \mathbf{v},\mathbf{p}\rangle }{\|\mathbf{v}\|^2}\mathbf{v} \rangle \\
+    &-&t \langle \mathbf{v},
+    \frac{\langle \mathbf{u},\mathbf{p}\rangle }{\|\mathbf{u}\|^2}\mathbf{u} 
+    +\frac{\langle \mathbf{v},\mathbf{p}\rangle }{\|\mathbf{v}\|^2}\mathbf{v} \rangle
+     \rangle \\
+     &=&s\langle \mathbf{u}, \mathbf{p} \rangle 
+    +t \langle \mathbf{v}, \mathbf{p}\rangle \\
+    &-& s\langle \mathbf{u}, \mathbf{p} \rangle 
+    -t \langle \mathbf{v}, \mathbf{p}\rangle \\ 
+    &=&0
+    \end{eqnarray*}
+    donde en la pernúltima igualdad usamos que 
+    \(\mathbf{u}\) y \(\mathbf{v}\) son ortogonales.
+</p>
+</div>
 </div>
 
 
