@@ -1370,7 +1370,42 @@
     <p>
         Más adelante, en el Teorema del mapeo abierto veremos que este ejercicio se generaliza.
     </p>
-
+    <button class="respButton hvr-grow "> Solución</button>
+         <div class="resp-box">
+    <p>
+        Afirmamos que para \(r=\frac{1}{2\|A^{-1}\|_2}\) satisface lo que pide el ejercicio
+        (donde \(A\) es la matriz que representa a \(F\)). Acontinuación explicamos ésta elección.
+    </p>
+    <p>
+        Para probar la contención \(B_r(0)\subseteq F(B_1(0))\) primero notamos que al ser 
+        \(F\) invertible, para todo \(\mathbf{q}\in B_1(0)\) existe un 
+        \(\mathbf{p}\) tal que \(\mathbf{q}=F(\mathbf{p})\). Lo que debemos de asegurar es que 
+        dicho \(\mathbf{p}\) debe de tener \(\|\mathbf{p}\| < 1\).
+    </p>
+    <p>
+        Sea \(A\) la matriz que representa a \(F\). Ya que \(F(\mathbf{p})=\mathbf{q}\)
+        y al ser \(A\) invertible tenemos que \(\mathbf{p} =A^{-1}\mathbf{q}\). Por lo que 
+        la condición \(\|\mathbf{p}\|< 1\) se puede escribir 
+        \[
+        \|A^{-1}\mathbf{q}\| < 1
+        \]
+        Entonces si podemos encontrar una  \(r > 0\) que satisfaga:
+        \[
+        \|\mathbf{q}\| < r \Rightarrow \| A^{-1}\mathbf{q}\| < 1
+        \]
+        habremos terminado.
+    </p>
+    <p>
+        Pero 
+        \[
+        \| A^{-1}\mathbf{p}\| \leq \|A^{-1}\|_2 \|\mathbf{q}\| 
+        \]
+        y si tomamos \(r=\frac{1}{ 2 \|A^{-1}\|_2 }\) obtenemos 
+        \[
+        \| A^{-1}\mathbf{p}\| \leq \|A^{-1}\|_2 \|\mathbf{q}\|  < \|A^{-1}\|_2 r= \frac{1}{2} < 1
+        \]
+    </p>
+</div>
 </div>
 
 <div class="ejercicio-box">
