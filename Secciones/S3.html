@@ -1240,7 +1240,7 @@
         \(F(\mathbf{p})=A\mathbf{p}\), para todo \(\mathbf{p}\in \mathbb{R}^n\).
     </p>
     <p>
-        La función \(F\) es invertible sii \(det(A)\ne 0\).
+        La función \(F\) es invertible sii \(\det(A)\ne 0\).
     </p>
 
 </div>   
@@ -1311,8 +1311,142 @@
 
 
 
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+        Dada una matriz \(A=[A_{i,j}]\) de \(n\times n\) definimos 
+        \[
+        \|A\|_2 = \left( \sum_{i,j=1}^n A_{i,j}^2 \right)^{1/2}
+        \]
+        Prueba que para todo \(\mathbf{p}\in \mathbb{R}^n\)
+        \[
+        \|A\mathbf{p}\|\leq \|A\|_2 \|\mathbf{p}\|.
+        \]
+    </p>
+    <button class="respButton hvr-grow "> Solución</button>
+         <div class="resp-box">
 
+    <p>
+        La entrada \(i\) del vector  \(A\mathbf{p}\) está dada por 
+        \[
+        \sum_{r=1}^n A_{i,r}p_r
+        \]
+        y por Cauchy-Schwartz tenemos 
+        \begin{eqnarray*}
+        \left( \sum_{r=1}^n A_{i,r}p_r  \right)^2 & \leq & \left( \sum_{r=1}^n A_{i,r}^2\right)\left(\sum_{r=1}^n p_r^2 \right) \\
+        &=&\left( \sum_{r=1}^n A_{i,r}^2\right)\|\mathbf{p}\|^2
+        \end{eqnarray*}
+        Por lo tanto 
+        \begin{eqnarray*}
+            \left\| A\mathbf{p} \right\|^2&=& \sum_{i=1}^n \left( \sum_{r=1}^n A_{i,r}p_r  \right)^2  \\
+            &\leq & \sum_{i=1}^n \left( \sum_{r=1}^n A_{i,r}^2 \right)\|\mathbf{p}\|^2 \\
+            &=& \left( \sum_{i=1}^n\sum_{r=1}^n A_{i,r}^2 \right)\|\mathbf{p}\|^2 \\
+            &=& \|A\|_2^2\|\mathbf{p}\|^2
+        \end{eqnarray*}
+        sacando raíz en ambos lados llegamos a 
+        \[
+        \|A\mathbf{p}\| \leq \|A\|_2 \|\mathbf{p}\|.
+        \]
+    </p>
+    </div>
+</div>
 
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+        Sea \(F:\mathbb{R}^n \to \mathbb{R}^n\) una función lineal a invertible.
+    </p>
+    <p>
+        Por \(B_r(0)\) denotamos la bola con centro en \(0\) y radio \(r\). 
+    </p>
+    <p>
+        Prueba que exsite un \(r>0\) tal que 
+        \[
+        B_r(0)\subseteq F(B_1(0)).
+        \]
+        Notación: \(F(B_1(0)):=\{ F(\mathbf{p}): \mathbf{p}\in B_1(0) \}\), es decir, la imagen directa
+        de \(B_1(0)\) bajo \(F\).
+    </p>
+    <p>
+        Más adelante, en el Teorema del mapeo abierto veremos que este ejercicio se generaliza.
+    </p>
+
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+        Una matriz \(U\) de \(n\times n\) se llama ortogonal si 
+        \[
+        UU^t=I=U^tU
+        \]
+    </p>
+    <p>
+        Sea \(U\) una matriz ortogonal de \(2\times 2\) y define 
+        \(F:\mathbb{R}^2 \to \mathbb{R}^2\) dada por \( F(\mathbf{p})=U\mathbf{p}\).
+    </p>
+    <p>
+        Prueba que 
+        \[
+        F(B_1(0))=B_1(0)
+        \]
+    </p>
+
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+        Sea \(f:\mathbb{R}^3 \to \mathbb{R}\) lineal. Escribamos la función como 
+        \[
+        f(x,y,z)=ax+by+cz
+        \]
+        Si \(c\ne 0\) existe una función \(g:\mathbb{R}^2 \to \mathbb{R}\) tal que 
+        \[
+        f(x,y,g(x,y))=0
+        \]
+        para todo \((x,y,z)\).
+    </p>
+    <p>
+        Lo anterior se puede describir como que el conjunto 
+        \(\{(x,y,z): f(x,y,z)=0\}\) es la gráfica de la función \(g\).
+    </p>
+
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2>
+    <p>
+        Sean \(f_1,f_2, \dots, f_m: \mathbb{R}^{2+m} \to \mathbb{R}\) funciones lineales.
+        Vamos a denotar los puntos de \(\mathbb{R}^{2+m}\) como \((x_1,x_2,y_1,\dots, y_m)\).
+    </p>
+    <p>
+        Escribamos 
+        \[
+        f_i(x_1,x_2,y_1,\dots, y_m)=a_{i,1}x_1+a_{i,2}x_2+b_{i,1}y_1+\cdots+b_{i,m}y_m 
+        \]
+        Denotemos \(B=[b_{i,j}]\), una  matriz de \(m\times m\).
+    </p>
+    <p>
+        Si \(\det(B)\ne 0\) entonces existen funciones 
+        \[
+        g_i:\mathbb{R}^2 \to \mathbb{R}^m
+        \]
+        \(i=1,2,\dots, m\), tales que 
+        \[
+        f_i(x_1,x_2,g_1(x_1,x_2), \dots, g_m(x_1,x_2))=0
+        \]
+        para todo \((x_1,x_2)\) y para toda \(i=1,\dots, m\).
+    </p>
+    <p>
+        En otras palabras la intersección
+        \[
+        \cap_{i=1}^n \{ (x_1,x_2,y_1,\dots, y_m): f_i(x_1,x_2,y_1,\dots, y_m)=0 \}
+        \]
+        es la gráfica de \(G(x_1,x_2)=(g_1(x_1,x_2),\dots, g_m(x_1,x_2))\).
+    </p>
+
+</div>
    
 
 <div class="definicion-box">
