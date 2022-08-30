@@ -1235,6 +1235,7 @@
 
 <div class="teorema-box">
     <h2 class="number-title"> Teorema </h2>
+    <h3> Función inversa (para funciones lineales)</h3>
     <p>
         Sea \(F:\mathbb{R}^n \to \mathbb{R}^n\) una función lineal y \(A\) la matriz tal que 
         \(F(\mathbf{p})=A\mathbf{p}\), para todo \(\mathbf{p}\in \mathbb{R}^n\).
@@ -1446,42 +1447,56 @@
         para todo \((x,y,z)\).
     </p>
     <p>
-        Lo anterior se puede describir como que el conjunto 
-        \(\{(x,y,z): f(x,y,z)=0\}\) es la gráfica de la función \(g\).
+        Si denotamos 
+        \[
+        N(f)=\{(x,y,z)\in \mathbb{R}^3: f(x,y,z)=0\}
+        \]
+        lo anterior se puede escribir como 
+        \[
+        \textrm{Gráfica}(g)\subseteq N(f).
+        \]
     </p>
 
 </div>
 
-<div class="ejercicio-box">
-    <h2 class="number-title"> Ejercicio</h2>
+<div class="teorema-box">
+    <h2 class="number-title"> Teorema </h2>
+    <h3> Función implícita (para funciones lineales)</h3>
     <p>
-        Sean \(f_1,f_2, \dots, f_m: \mathbb{R}^{2+m} \to \mathbb{R}\) funciones lineales.
-        Vamos a denotar los puntos de \(\mathbb{R}^{2+m}\) como \((x_1,x_2,y_1,\dots, y_m)\).
+        Sean \(f_1,f_2, \dots, f_m: \mathbb{R}^{k+m} \to \mathbb{R}\) funciones lineales.
+        Vamos a denotar los puntos de \(\mathbb{R}^{k+m}\) como \((\mathbf{x},\mathbf{y})\)
+        con \(\mathbf{x}=(x_1,\dots, x_k), \mathbf{y}=(y_1,\dots, y_m)\).
     </p>
     <p>
-        Escribamos 
+        Por el Teorema de representación de Riesz, para toda función \(f_i\) podemos escribir 
         \[
-        f_i(x_1,x_2,y_1,\dots, y_m)=a_{i,1}x_1+a_{i,2}x_2+b_{i,1}y_1+\cdots+b_{i,m}y_m 
+        f_i(x_1,\dots, x_k,y_1,\dots, y_m)=\sum_{r=1}^k a_{i,r}x_r+ \sum_{s=1}^m b_{i,s}y_s
         \]
         Denotemos \(B=[b_{i,j}]\), una  matriz de \(m\times m\).
     </p>
     <p>
         Si \(\det(B)\ne 0\) entonces existen funciones 
         \[
-        g_i:\mathbb{R}^2 \to \mathbb{R}^m
+        g_i:\mathbb{R}^k \to \mathbb{R}^m
         \]
         \(i=1,2,\dots, m\), tales que 
         \[
-        f_i(x_1,x_2,g_1(x_1,x_2), \dots, g_m(x_1,x_2))=0
+        f_i(\mathbf{x},g_1(\mathbf{x}), \dots, g_m(\mathbf{x}))=0
         \]
-        para todo \((x_1,x_2)\) y para toda \(i=1,\dots, m\).
+        para todo \(\mathbf{x}\) y para toda \(i=1,\dots, m\).
     </p>
     <p>
         En otras palabras la intersección
         \[
-        \cap_{i=1}^n \{ (x_1,x_2,y_1,\dots, y_m): f_i(x_1,x_2,y_1,\dots, y_m)=0 \}
+        \textrm{Gráfica}(G)\subseteq \cap_{i=1}^ N(f_i)
         \]
-        es la gráfica de \(G(x_1,x_2)=(g_1(x_1,x_2),\dots, g_m(x_1,x_2))\).
+        donde \(G(\mathbf{x})=(g_1(\mathbf{x}),\dots, g_m(\mathbf{x}))\).
+    </p>
+    <p>
+        Recordar
+        \[
+        N(f)=\{(\mathbf{x},\mathbf{y}): f(\mathbf{x},\mathbf{y})=0 \}
+        \]
     </p>
 
 </div>
