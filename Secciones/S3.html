@@ -1756,46 +1756,44 @@
  
 <ol>
     <li>
-        Sean $u,v\in M$ dos vectores ortogonales y unitarios. Denota $w=u\times v$
-        y sea $P_w:\mathbb{R}^3 \to \mathbb{R}^3$ la proyección ortogonal a la línea recta generada por
-        $w$. Demuestra que $p-P_w(p)$ está en $M$.
-        <p>
+        Sean $\mathbf{u},\mathbf{v}\in M$ dos vectores ortogonales y unitarios. Denota $\mathbf{w}=
+        \mathbf{u}\times \mathbf{v}$
+        y sea $P_\mathbf{w}:\mathbb{R}^3 \to \mathbb{R}^3$ la proyección ortogonal a la línea recta generada por
+        $\mathbf{w}$. Demuestra que $\mathbf{p}-P_\mathbf{w}(\mathbf{p})$ está en $M$.
+        <!--<p>
             Sugerencia: primera demuestra que $p-P_w(p)$ es ortogonal a $u\times v$ y después usa el ejercicio 
             \ref{Ejer:BaseConProductoCruz} para concluir que $p-P_w(p)$ está en $M$.
-        </p>        
+        </p> -->
         
         
     </li>
     <li>
-        Demuestra que el vector que une $p$ con $p-P_w(p)$  es ortogonal a todo punto del plano $M$. Por lo 
-        tanto, usando la definición geométrica de la proyección ortogonal, $p-P_w(p)$ es 
-        la proyección ortogonal de $p$ en  $M$. 
+        Demuestra que el vector que une $\mathbf{p}$ con $\mathbf{p}-P_w(\mathbf{p})$  es ortogonal a todo punto del plano $M$. Por lo 
+        tanto, usando la definición geométrica de la proyección ortogonal, $\mathbf{p}-P_w(\mathbf{p})$ es 
+        la proyección ortogonal de $\mathbf{p}$ en  $M$. 
     </li>
     <li>
-        Denota $P(p)=p-P_w(p)$. Demuestra que $P:\mathbb{R}^3 \to \mathbb{R}^3$ es una función lineal.
+        Define $P(\mathbf{p})=\mathbf{p}-P_w(\mathbf{p})$. Demuestra que $P:\mathbb{R}^3 \to \mathbb{R}^3$ es una función lineal.
     </li>
     <li>
-        Demuestra que $P(p)$ es el punto del plano $M$ más cerca a $p$, es decir, 
+        Demuestra que $P(\mathbf{p})$ es el punto del plano $M$ más cerca a $p$, es decir, 
         $$
-        \| p-P(p)\| \ \leq \| p-q\|
+        \| \mathbf{p}-P(\mathbf{p})\| \ \leq \| \mathbf{p}-\mathbf{q}\|
         $$ 
-        para todo punto $q \in M$.
+        para todo punto $\mathbf{q} \in M$.
         
         <p>
-            Sugerencia: nota que $p-P(p)$ y $P(p)-q$ son ortogonales y después usa el Teorema de Pitágoras.
+            Sugerencia: nota que $\mathbf{p}-P(\mathbf{p})$ y $P(\mathbf{p})-\mathbf{q}$ son ortogonales y después usa el Teorema de Pitágoras.
         </p>        
         
     </li>
+    
     <li>
-        Nota que este ejercicio muestra que las definiciones geométrica y anal'itica de la 
-        proyección ortogonal coinciden.
-    </li>
-    <li>
-        Concluye, usando la fórmula \eqref{Eqn:FormulaProyOrt}, que  si $u$ y $v$ son vectores 
-        unitarios y ortogonales y si $w=u\times v$, entonces para todo
-        $p\in \mathbb{R}^3$ se cumple
+        Concluye, usando la fórmula \eqref{Eqn:FormulaProyOrt}, que  si $\mathbf{u}$ y $\mathbf{v}$ son vectores 
+        unitarios, ortogonales en \(M\) y si $\mathbf{w}=\mathbf{u}\times \mathbf{v}$, entonces para todo
+        $\mathbf{p}\in \mathbb{R}^3$ se cumple
         $$
-        p=\langle p, u \rangle u + \langle p, v \rangle v + \langle p, w \rangle w.
+        \mathbf{p}=\langle \mathbf{p}, \mathbf{u} \rangle \mathbf{u} + \langle \mathbf{p}, \mathbf{v} \rangle \mathbf{v} + \langle \mathbf{p}, \mathbf{w} \rangle \mathbf{w}.
         $$	
     </li>
 </ol>
