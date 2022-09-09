@@ -109,10 +109,10 @@
     <p>
         Sea $f$ una función definida en una bola perforada alrededor de $p_0$. Decimos que
         $$
-        \lim_{p\to p_0} f(p)=q
+        \lim_{p\to p_0} f(p)=L
         $$
         si, para toda $\varepsilon >0$, existe $\delta >0$, tal que:
-         $$ \|p-p_0\| <\delta \Rightarrow \|f(p)-f(p_0)\| <\varepsilon$$
+         $$ 0< \|p-p_0\| <\delta \Rightarrow \|f(p)-L\| <\varepsilon$$
     </p>
 </div> 
 
@@ -125,6 +125,17 @@
     <p>
         Sugerencia: usa la desigualdad aritmético geométrica. 
     </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+    <p>
+        Aplicando directamente la desigualdad aritmético geométrica para 
+        \(x^2, y^2\) se obtiene 
+        \[
+            \sqrt{x^2y^2}\leq \frac{x^2+y^2}{2}
+        \]
+        Para terminar notamos que \(\sqrt{x^2y^2}=\sqrt{(xy)^2}=|xy|\).
+    </p>
+    </div>
 </div>
 
 
@@ -132,13 +143,13 @@
 <div class="ejercicio-box"> 
     <h2 class="number-title" id="Ejer:PrimerEjemploLimite"> Ejercicio </h2>   
     <p>
-        Denota $f(x,y)=\frac{|xy|}{\sqrt{x^2+y^2}}$, $(x,y)\ne (0,0)$.
+        Denota $f(x,y)=\frac{xy}{\sqrt{x^2+y^2}}$, $(x,y)\ne (0,0)$.
 
         <ol> 
             <li>
                 Demuestra que $|f(x,y)| \leq \frac{1}{2} \| (x,y)\|$.
                 <p>
-                    Sugerencia: usa el ejercicio \ref{Ejer:DesigualdadProductoNorma2}.
+                    Sugerencia: usa el ejercicio <a href="Ejer:DesigualdadProductoNorma2">Ejercicio 5.3</a>.
                 </p>
             </li> 
             <li>
@@ -146,6 +157,54 @@
             </li>
         </ol>
     </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+    <p>
+        Inciso 1. 
+    </p>
+    <p>
+        Aplicando directamente el <a>Ejercicio 5.3</a> obtenemos 
+        \begin{eqnarray*} 
+            |f(x,y)|=\frac{|xy|}{\sqrt{x^2+y^2}} & \leq & \frac{\frac{x^2+y^2}{2}}{\sqrt{x^2+y^2}} \\
+            & = & \frac{1}{2}\frac{x^2+y^2}{\sqrt{x^2+y^2}} \\
+            &=& \frac{1}{2} \sqrt{x^2+y^2} \\
+            &=& \frac{1}{2}\|(x,y)\|
+        \end{eqnarray*}
+    </p>
+    <p>
+        Inciso 2.
+    </p>
+    <p>
+        Vamos usar la definición \(\varepsilon-\delta\) para probar el límite. Primero 
+        hacemos estimaciones para encontrar la \(\delta\) y después lo escribimos de manera formal.
+    </p>
+    <p>
+        El objetivo es \(|f(x,y)|<\varepsilon \) siempre y cuando \(\|(x,y)\| < \delta \). En vez de 
+        \(|f(x,y)|<\varepsilon \) es más fácil pedir  \(\frac{1}{2}\|(x,y)\| < \epsilon\)
+        (nota que se substituye la \(|f(x,y)|\) por la desigualdad del inciso 1). Despejando de ésta 
+        última la norma llegamos \(\|(x,y)\|< 2\varepsilon\). Finalmente tomamos \(\delta=2\varepsilon\).
+    </p>
+    <p>
+        Ahora lo hacemos de manera formal. Dada \(\varepsilon >0\) proponemos 
+        \(\delta= 2\varepsilon\). Tomamos el punto \((x,y)\) en la bola perforada centrada en cero y de radio 
+        \(\delta\), es decir \(0< \| (x,y)\| < \delta\). Debemos de probar que 
+        \(|f(x,y)-f(0,0)|< \delta\), pero como \(f(0,0)=0\) sólo hay que checar \(|f(x,y)|< \varepsilon\). 
+        Para ésto último tenemos que por el inciso anterior
+        \begin{eqnarray*}
+            |f(x,y)|\leq \frac{1}{2}\|(x,y)\|
+        \end{eqnarray*}
+        y usando que  el punto \((x,y)\) satisface \(\|(x,y)\|< \delta=2\varepsilon \) llegamos 
+        \begin{eqnarray*}
+            |f(x,y)|&\leq & \frac{1}{2}\|(x,y)\| \\
+            &< & \frac{1}{2}\delta \\
+            &=&\frac{1}{2} 2 \varepsilon= \varepsilon.
+        \end{eqnarray*}
+        Conclusión 
+        \[
+        \lim_{(x,y)\to (0,0)}f(x,y)=0.
+        \]
+    </p>
+    </div>
 </div>
 
 
@@ -169,7 +228,7 @@
 <div class="ejercicio-box"> 
     <h2 class="number-title"> Ejercicio </h2> 
     <p>
-        Este ejercicio generaliza las técnicas del ejercicio \ref{Ejer:PrimerEjemploLimite}. 
+        Este ejercicio generaliza las técnicas del ejercicio <a href="#Ejer:PrimerEjemploLimite"> Ejercicio 5.3</a>. 
 
         Sea $f$ una función, que toma valores reales,  definida en una bola perforada alrededor de $p_0$. 
         
@@ -178,66 +237,101 @@
 
         <ol>
             <li>
-                $\lim_{t\to 0}\phi(t)=0$.
+                $\lim_{t\to 0^+}\phi(t)=0$.
             </li>
             <li>
-                existe un número $L$  que satisface $|f(p)-L| \leq \phi(\|p-p_0\|)$, para $p$ en una bola
+                existe un número $l$  que satisface $|f(p)-L| \leq \phi(\|p-p_0\|)$, para $p$ en una bola
                 perforada alrededor de $p_0$.
             </li>
         </ol>
         Demuestra que $\lim_{p\to p_0}f(p)=L$.        
     </p> 
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+    <p>
+        Vamos a usar la definición \(\varepsilon-\delta\) para probar el ejercicio pero la idea 
+        es la siguiente.
+    </p>
+    <p>
+        Queremos probar que \(|f(p)-L|\) es pequeño cuando el punto \(p\) está "suficientemente"
+        cercano a \(p_0\). Ya que por suposición  \(|f(p)-L|\leq \phi(\|p-p_0\|)\) es más fácil probar 
+        que \(\phi(\|p-p_0\|\) es cercano a cero, pues \(\phi\) es una función de una variable. Esto último
+        es lo que se va a probar. 
+    </p>
+    <p>
+        Sea \(\varepsilon >0\). Ya que \(\lim_{t\to 0^+}\phi(t)=0\) existe una \(\delta >0 \)
+        tal que si un punto satisface \(0< t< \delta \) entonces \(\phi(t) < \varepsilon\). Si tomamos 
+        el punto \(p\) en la bola perforada de radio \(\delta\) centrada en cero, es decir 
+        \(0< \|p-p_0\| < \delta \) y si tomamos \(t=\| p-p_0\|\) del límite para \(\phi\) obtenemos 
+        \(\phi(\|p-p_0\|)< \varepsilon\).
+    </p>
+    <p>
+        En resumen si \(0< \| p-p_0\| < \delta\) entonces 
+        \[
+        \| f(p)- L \| \leq \phi(\|p-p_0\|)< \varepsilon.
+        \]
+        concluyendo \(\lim_{p\to p_0} f(p)=L\).
+    </p>
+    </div>
 </div>
 
 
 <div class="ejercicio-box"> 
     <h2 class="number-title"> Ejercicio </h2>  
     <p>
-        Si modificamos un poco el límite del ejercicio \ref{Ejer:PrimerEjemploLimite}, la convergencia desaparece. Este ejercicio prueba que el límite $\lim_{(x,y) \to (0,0)} \frac{xy}{x^2+y^2}$ no existe. Denotemos $f(x,y)=\frac{xy}{x^2+y^2}$.
-
-        Supongamos que sí existe, y denotemoslo por $L$. Entonces, para  $\varepsilon=\frac{1}{10^n}$ (donde
+        Si modificamos un poco el límite del <a href="#Ejer:PrimerEjemploLimite">Ejercicio 5.4</a>, 
+        la convergencia desaparece. Este ejercicio prueba que el límite $\lim_{(x,y) \to (0,0)} \frac{xy}{x^2+y^2}$ no existe. 
+        Denotemos $f(x,y)=\frac{xy}{x^2+y^2}$, para \((x,y)\ne (0,0)\).
+    </p>
+    <p>
+        Prueba que \(\lim_{(x,y)\to (0,0)} f(x,y)\) no existe.
+    </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+    <p>
+        Supongamos que sí existe, y denotemoslo por $l$. Entonces, para  $\varepsilon=\frac{1}{10^n}$ (donde
         $n\geq 1$ es un natural), existe $\delta >0$ (que depende de $n$) tal que
         $$
         0< \| (x,y) \| <\delta \Rightarrow |f(x,y)-L| <\frac{1}{10^n}
         $$
+        Ahora tomamos un punto de la forma  $(x,0)$, donde $x$ satisface $0<|x|<\delta$. Se sigue 
+        que $f(x,0)=0$ y que \(\|(x,0)\|=|x|< \delta \) por lo que 
+        $$
+        |L|=|f(x,0)-L| <\frac{1}{10^n}
+        $$
+        Como $n$ es arbitrario,  $L=0$.   
     </p>
     <p>
-        <ol>
-            <li>
-                Tomando puntos de la forma  $(x,0)$, donde $x$ satisface $0<|x|<\delta$, se tiene que $f(x,0)=0$ 
-                y se concluye que
-                $$
-                |L| <\frac{1}{10^n}.
-                $$
-                Como $n$ es arbitrario,  $L=0$.        
-            </li>
-            <li>
-                Por otro lado, tomando puntos de la forma $(x,x)$, donde   
-                $x$ satisface $0<|x|<\delta/\sqrt{2}$, $f(x,x)=1/2$ y concluye que
-                $$
-                | \frac{1}{2}-L |<\frac{1}{10^n}
-                $$
-                Como $n$ es arbitrario, $L=1/2$.        
-            </li>
-            <li>
-                De los incisos anteriores se concluye que el límite $\lim_{(x,y)\to (0,0)}f(x,y)$, no existe.
-            </li>
-        </ol>        
+        Por otro lado, tomando puntos de la forma $(x,x)$, donde   
+        $x$ satisface $0<|x|<\delta/\sqrt{2}$. Se sigue que 
+        \[
+        f(x,x)=\frac{xx}{x^2+x^2}=\frac{x^2}{2x^2}=\frac{1}{2}
+        \]
+        y  \(\|(x,x)\|=\sqrt{x^2+x^2}=\sqrt{2}|x|< \sqrt{2}\frac{\delta}{\sqrt{2}}=\delta \). 
+        Por lo tanto 
+        $$
+        \left|\frac{1}{2}-L\right|=|f(x,0)-L| <\frac{1}{10^n}.
+        $$
+        Como \(n\) es arbitrario concluimos \(L=\frac{1}{2}\), contradiciendo que probamos 
+        \(L=0\).
     </p>
+    </div>
+
 </div>
 
 
 		<div class="definicion-box"> <h2 class="number-title">  Definición </h2> 
-		Sea $f$ una función   definida en una bola perforada alrededor de $p_0$. 
-		 Cosidera la recta $L$, que pasa por $p_0$ con parametrización $p_0+tu$,  $t\in \mathbb{R}$. 
-		 
-		 Decimos que
-		 $f$ tiene límite, cuando $p\to p_0$, sobre la recta $L$, si el siguiente límite existe
-		 $$
-		 \lim_{t\to 0} f(p_0+tu).
-		 $$ 	 
-		 Si $\lim_{t\to 0^+} f(p_0+tu)$ y $\lim_{t\to 0^-} f(p_0+tu)$ existen, también se dice que 
-		 $f$ tiene limites radiales a lo largo de $L$.
+		<p>
+            Sea $f$ una función   definida en una bola perforada alrededor de $p_0$. 
+            Cosidera la recta $l$, que pasa por $p_0$ con parametrización $p_0+tu$,  $t\in \mathbb{R}$. 
+        </p>
+        <p>
+            Decimos que
+            $f$ tiene límite, cuando $p\to p_0$, sobre la recta $l$, si el siguiente límite existe
+            $$
+            \lim_{t\to 0} f(p_0+tu).
+            $$ 
+        </p>	 
 		 </div> 
 		 
 <div class="ejercicio-box"> 
@@ -248,16 +342,14 @@
     </p> 
     <p>
         Considera la función $f(x,y)=\frac{xy}{x^2+y^2}$.		 
-		 
-        <ol>
-            <li>
-                Demuestra que, para cualquier recta $L$ que pasa por el origen,  
-                el límite $f(x,y)$, cuando $(x,y)\to (0,0)$, existe a lo largo de $L$.
-            </li>
-            <li>
-                Sin embargo, demuestra que $\lim_{(x,y)\to (0,0)} f(x,y)$ no existe. 
-            </li>
-        </ol>
+    </p>
+    <p>
+        Demuestra que, para cualquier recta $l$ que pasa por el origen,  
+        el límite $f(x,y)$, cuando $(x,y)\to (0,0)$, existe a lo largo de $l$.
+    </p>
+    <p>
+        Nota: por el  <a>Ejercicio 5.7</a> el límite \(\lim_{(x,y)\to (0,0)}f(x,y)\)
+        no existe.
     </p>
 </div>
 
@@ -267,9 +359,46 @@
     <p>
         Sea $f$ una función que toma valores reales y que está definida en una bola perforada alrededor de  $p_0$. 
 
-        Demuestra que si $\lim_{p \to p_0}f(p)$ existe  entonces, para toda recta $L$ que pasa por $p_0$, 
-        $f$ tiene límite, cuando $p\to p_0$,  a lo largo de $L$.
+        Demuestra que si $\lim_{p \to p_0}f(p)$ existe y es igual a \(L\)  entonces, para toda recta $l$ que pasa por $p_0$, 
+        $f$ tiene límite, cuando $p\to p_0$,  a lo largo de $l$ y el límite también es \(L\).
+    </p>
+    <p>
+        El  <a>Ejercicio 5.9</a> da un ejemplo de que el regreso de éste ejercicio no es cierto.
+    </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+    <p>
+        En resumen, queremos probar que si \(t\) es "cercano" a \(0\) entonces \(f(p_0+tu)\) es "cercano" a \(L\).
+        Usando las \(\varepsilon\) y \(\delta\) vamos a cuantificar que tan cercano es "cercano".
+    </p>
+    <p>
+        Supongamos que \(\lim_{p\to p_0} f(p)=L\). Sea \(l\) cualquier recta que pase por 
+        \(p_0\) y escribámos los puntos de \(l\) en forma paramétrica como \(p_0+tu\), donde
+        \(u\ne 0\) es el vector director. Debemos de probar que 
+        \[
+        \lim_{t\to 0}  f(p_0+tu)= L
+        \]
+        lo cual hacemos usando la definición \(\varepsilon-\delta\).
     </p> 
+    <p>
+        Sea \(\varepsilon >0\). Ya que \(\lim_{p\to p_0} f(p)=L\) existe una 
+        \(\delta' > 0\) tal que para los puntos que satisfagan \(0< \| p-p_0\| < \delta' \)
+        se cumple \(|f(p)-L|< \varepsilon\). 
+    </p>
+    <p>
+        Si en las expresiones anterirores 
+        escribimos el punto \(p\) como un punto en la recta obtenemos 
+        \[0<\| p-p_0\|=\|p_0+tu -p_0\|= |t|\|u\| < \delta' \]
+        despejando \(|t|\) llegamos a \(0< |t|< \frac{\delta'}{\|u\|}\). Proponemos 
+        \(\delta= \frac{\delta'}{\|u\|}\).
+    </p>
+    <p>
+        Si \(0< |t| < \delta \) de la cuenta anterior se sigue que  \(0< \|p_0+tu-p_0\| < \delta'\)
+        y por lo tanto \(|f(p_0+tu)-L|< \varepsilon\), probando que 
+        \(\lim_{t\to 0} f(p_0+tu)=L\).
+    </p>
+    </div>
+    
 </div>
 
 
@@ -320,7 +449,27 @@
             </ol>
         </p> 
 	</div>
+
+    <div class="definicion-box">
+        <h2 class="number-title"> Definición  </h2>
+        <p>
+            Sea \(f\) una función definida en una vecindad perforada de \(p_0\)
+            y sea \(\gamma\) una trayectoria parametricada tal que \(\gamma(t_0)=p_0\).
+            Se define el límite de \(f\) a lo largo de \(\gamma\), cuando \(p\to p_0\), 
+            como el límite 
+            \[
+            \lim_{t\to t_0} f(\gamma(t))
+            \]
+            siempre y cuando dicho límite exista.
+        </p>
+        <p>
+            Nota: la <a>Definición 5.8</a> es un caso particular cuando la 
+            trayectoria \(\gamma\) es una línea recta.
+        </p>
+
+    </div>
     
+
 		
      <div class="ejercicio-box"> 
         <h2 class="number-title"> Ejercicio </h2> 
@@ -353,34 +502,119 @@
     </div>
 
 
+    <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+            Sea \(f\) una función definida en una vecindad perforada de \(p_0\) y supongamos que 
+            \[
+                \lim_{p\to p_0} f(p)=L
+            \]
+            Prueba que para toda trayectoria parametrizada \(\gamma\), con \(\lim_{t\to t_0}\gamma(t)=p_0\),
+            se cumple 
+            \[
+            \lim_{t\to t_0}f(\gamma(t))=L
+            \]
+        </p>
+        <button class="respButton hvr-grow "> Solución</button>
+         <div class="resp-box">
+        <p>
+            Sea \(\varepsilon >0\). Debemos de probar que existe \(\delta >0\) tal que si 
+            \(0< |t-t_0|< \delta\) entonces \(|f(\gamma(t))-L|<  \varepsilon\).
+        </p>
+        <p>
+            Por suposición, \(\lim_{p\to p_0} f(p)=L\), por lo tanto existe una \(\delta' >0\) tal que 
+            \begin{equation}\label{Eqn:Aux1EjeFunYTray} 
+            \|p-p_0\| < \delta' \Rightarrow |f(p)-L|<\varepsilon
+            \end{equation}
+        </p>
+        <p>
+            También sabemos que \(\lim_{t\to t_0}\gamma(t)=p_0\) por lo tanto para \(\delta' > 0\)
+            existe \(\delta >0\) tal que 
+            \begin{equation}\label{Eqn:Aux2EjeFunYTray}  
+            0< |t-t_0|< \delta \Rightarrow \|\gamma(t)-p_0\| < \delta'
+            \end{equation}
+        </p>
+        <p>
+            Combinando las ecuaciones \eqref{Eqn:Aux1EjeFunYTray}  y \eqref{Eqn:Aux2EjeFunYTray}
+            concluimos que si \(0<|t-t_0|<\delta\) entonces \(|f(\gamma(t))-L|<\varepsilon\).
+        </p>
+    </div>
+    </div>
 
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2> 
-    <p>
-        Considera la función $f(x,y)=\frac{x-y}{x+y}$, para $(x,y)$ con $x+y \ne 0$.
-        <ol>
-            <li>
-                Demuestra que el límite $\lim_{(x,y)\to (0,0)}f(x,y)$ no existe.
-            </li>
-            <li>
-                Demuestra que
-                $$
-                \lim_{x\to 0} \left( \lim_{y\to 0} f(x,y) \right)=1
-                $$
-                
-                $$
-                \lim_{y \to 0} \left( \lim_{x \to 0} f(x,y) \right)=-1
-                $$
-            </li>
-            <li>
-                Encuentra todas las rectas  $L$ que pasa por el origen, tal que $f$ tiene limite a lo largo 
-                de $L$, cuando $(x,y) \to (0,0)$.
-            </li>
-        </ol>
-        
-    </p>
-</div>
 
+    <div class="teorema-box">
+        <h2 class="number-title">
+            Teorema
+        </h2>
+        <p>
+            Sea \(f\) una función definida en una vecindad de \(p_0\). Entonces 
+            \[
+            \lim_{p\to p_0} f(p)=L
+            \]
+            si y sólo sí, para toda trayectoria parametrizada \(\gamma\) con 
+            \(\lim_{t \to t_0} \gamma(t)=p_0\) se cumple 
+            \[
+            \lim_{t\to t_0} f(\gamma(t))=L.
+            \]
+        </p>
+        <button class="respButton hvr-grow "> Solución</button>
+         <div class="resp-box">
+        <p>
+            \(\Rightarrow ]\) Esta implicación es precisamente el <a>Ejercicio 5.15</a>
+        </p>
+        <p>
+            \(\Leftarrow ]\) Lo haremos por contrapositiva. Supongamos que 
+            \(\lim_{p\to p_0}f(p) \ne L\). Negando la definición del límite se obtiene que 
+            existe una  \(\varepsilon_0 >0\) la cual satisface que para toda \(\delta >0\)
+            existe un punto "cercano a \(p_0\)", es decir \(\|p_\delta-p_0\| < \delta \)
+            pero \(|f(p_\delta)-L| \geq \varepsilon_0\). 
+        </p>
+        <p>
+            Haciendo que \(\delta\) tome los 
+            valores \(1,1/2,\dots, 1/n,\dots \), obtenemos una sucesión de puntos 
+            \((p_n)_{n=1}^\infty\) tales que \(\|p_n-p_0\| < 1/n\) y \(|f(p_n)-L|\geq \varepsilon_0\).
+        </p>
+        <p>
+            Definamos la trayectoria \(\gamma\) tal que inicia en \(p_1\) y va uniendo los puntos 
+            \(p_n\) mediante un segemento de recta. En concreto podemos definir \(\gamma:[0,1]\to \mathbb{R}^n\) 
+            por 
+            \[
+            \gamma:\left[\frac{1}{n+1},\frac{1}{n}\right] \to \mathbb{R}^n
+            \] 
+            dada por \(\gamma(t)=n(n+1)(p_{n+1}-p_n)\left(\frac{1}{n}-t \right)+ p_n\) y 
+            \(\gamma(0)=p_0\).
+        </p>
+        <p>
+            Vamos a probar que \(\lim_{t\to 0}\gamma(t)=p_0\).
+        </p>
+        <p>
+            En efecto, dada \(\varepsilon >0\) tomamos \(N\) tal que \(\frac{1}{N} < \frac{\varepsilon}{3}\). 
+            Si \(0< t < \frac{1}{N} \) encontramos el \(n> N\) para el cual 
+            \(t\in [1/(n+1), 1/n]\) entonces 
+            \begin{eqnarray*}
+            \| \gamma(t)-p_0\|&=& \left\|n(n+1)(p_{n+1}-p_n)\left(\frac{1}{n}-t \right)+ p_n - p_0 \right\| \\
+            &\leq & n(n+1)\left| \frac{1}{n}-t \right|\|p_{n+1}-p_n\|+ \|p_n-p_0\| \\
+            &\leq & n(n+1)\left| \frac{1}{n}-\frac{1}{n+1} \right|\|p_{n+1}-p_n\|+\|p_n-p_0\|\\
+            &\leq &\|p_{n+1}-p_n\|+\|p_n-p_0\|\\
+            &\leq & \|p_{n+1}-p_0\| +\|p_0-p_n\| + \|p_n-p_0\| \\
+            &\leq & \frac{1}{n+1}+\frac{1}{n}+\frac{1}{n} \\
+            & \leq & \frac{3}{N} < 3 \frac{\varepsilon}{3}=\varepsilon
+            \end{eqnarray*}
+        </p>
+        <p>
+            Para concluir notamos que 
+            \[
+            |f(\gamma(1/n))-L| = |f(p_n)-L| \geq \varepsilon_0
+            \]
+             
+            para toda \(n \geq 0\)
+            por lo que \(\lim_{t\to 0} f(\gamma(t))\ne L\).
+        </p>
+    </div>
+    </div>
+
+
+    
 
 
 <div class="ejercicio-box"> 
@@ -440,29 +674,7 @@
 
 
 
-<div class="definicion-box"> 
-    <h2 class="number-title">  Definición </h2>
-    <p>
-        Dada una matrix $A$ de $m\times n$,  la norma-2 de la matriz se define como
-        $$
-        \| A\|=\left( \sum_{i=1}^m  \sum_{j=1}^n A_{i,j}^2 \right)^{1/2}.
-        $$
-    </p>       
-</div> 
 
-
-
-
-
-<div class="ejercicio-box"> 
-    <h2 class="number-title" id="Ejer:DesigualdadNormaAp"> Ejercicio </h2>   
-    <p>
-        Sea $A$ una matriz de $m\times n$. Demuestra que, para todo $p\in \mathbb{R}^n$: 
-        $$
-        \| A p \| \leq \|A\| \|p\|.
-        $$
-    </p>
-</div>
 
 
 <div class="ejercicio-box"> 
@@ -471,9 +683,384 @@
             Demuestra que, para todo $p_0\in \mathbb{R}$, $\lim_{p\to p_0}Ap=Ap_0$. 
         </p> 
         <p>
-            Sugerencia: usa el ejercicio \ref{Ejer:DesigualdadNormaAp}.
+            Sugerencia: usa  que \(\|Ap\| \leq \|A\|_2\|p\|\) para todo 
+            \(p\in \mathbb{R}^n\) (ver <a href="./S3.html#Ejer:NormaMatriz">Ejercicio 3.41</a>).
         </p>
 </div>
 
+<div class="prop-box">
+    <h2 class="number-title"> Proposición  </h2>
+    <p>
+        Sea \(F:\hat{B}_r(\mathbf{p}_0) \to \mathbb{R}^m \) una función. Escribimos las  funciones 
+        coordenadas de \(\mathbf{F}\) como \(\mathbf{F}=(f_1,\dots, f_m)\). 
+    </p>
+    <p>
+        Entonces 
+        \[
+        \lim_{\mathbf{p}\to \mathbf{p}_0}F(\mathbf{p})=\mathbf{L}
+        \]
+        si y sólo si  
+        \[
+        \lim_{\mathbf{p}\to \mathbf{p}_0}f_i(\mathbf{p})=l_i, \, \textrm{para todo \(i=1,\dots,m\)} 
+        \]
+        donde escribimos \(\mathbf{L}=(l_1,\dots. l_m)\).
+    </p>
+    <p>
+        Es decir, el límite existe si y sólo existe coordenada a coordenada.
+    </p>
+    <button class="respButton hvr-grow "> Demostración</button>
+    <div class="resp-box">
+    <p>
+        Por el <a href="./S1.html#Ejer:CotasNormaEntradas">Ejercicio 1.36</a> 
+        tenemos que para todo \(\mathbf{q}=(q_1,\dots, q_m)\in \mathbf{R}^m\)
+        se cumple 
+        \begin{eqnarray*}
+        \|\mathbf{q}\|& \leq & \sum_{i=1}^m |q_i| \\
+        |q_i| & \leq & \|\mathbf{q}\|, i=1,\dots, m.
+        \end{eqnarray*}
+        Aplicando lo anterior al punto \(\mathbf{q}=\mathbf{F}(\mathbf{p})-\mathbf{L}\) obtenemos 
+        \begin{eqnarray*}
+        \|\mathbf{F}(\mathbf{p})-\mathbf{L}\|& \leq & \sum_{i=1}^m |f_i(\mathbf{p})-l_i| \\
+        |f_i(\mathbf{p})-l_i| & \leq & \|\mathbf{F}(\mathbf{p})-\mathbf{L}\|, i=1,\dots, m.
+        \end{eqnarray*}
+        Usaremos estas desigualdades más adelante.
+    </p>
+    <p>
+        Para probar la proposición usaremos la definición \(\varepsilon-\delta\) del límite.
+    </p>
+    <p>
+        \(\Rightarrow ]\) Supongamos \(\lim_{\mathbf{p}\to \mathbf{p}_0}\mathbf{F}(\mathbf{p})=\mathbf{L}\) y 
+        sea \(\varepsilon>0\). Entonces existe \(\delta >0\) tal que si el punto 
+        \(\mathbf{p}\) satisface \(\|p-p_0\| < \delta \) entonces \(\|\mathbf{F}(\mathbf{p})-\mathbf{L} \|< \varepsilon\).
+        Se sigue que para toda \(i=1,\dots, m\)
+        \[
+        |f_i(\mathbf{p})-l_i|\leq \|\mathbf{F}(\mathbf{p})-\mathbf{L}\|< \varepsilon
+        \] 
+        siempre y cuando \(\|\mathbf{p}-\mathbf{p}_0\| < \delta \). De lo anterior concluimos 
+        \(\lim_{\mathbf{p}\to \mathbf{p}_0}f_i(\mathbf{p})=\mathbf{p}_0\).
+    </p>    
+    <p>
+        \(\Leftarrow ]\) Supongamos que para todo \(i=1,\dots, m\) se cumple 
+        \[
+        \lim_{\mathbf{p}\to \mathbf{p}_0 }f_i(\mathbf{p})=l_i
+        \]
+        y sea \(\varepsilon >0\). 
+    </p>
+    <p>
+        Para cada una de las funciones \(f_i\) existe un \(\delta_i > 0\) tal que si 
+        \(\|\mathbf{p} - \mathbf{p}_0\| < \delta_i\) entonces 
+        \(|f_i(\mathbf{p})-l_i| <\varepsilon/m\).
+    </p>
+    <p>
+        Tomamos  \(\delta = \min_{i=1,\dots, m}\{ \delta_i\}\). Nota que \(\delta >0\) y si 
+        \(\|\mathbf{p}-\mathbf{p}_0\| < \delta \) entonces 
+        \(\| \mathbf{p}-\mathbf{p}_0\|< \delta_i\) para toda \(i=1,\dots, m\) y por lo tanto 
+        \(
+        |f_i(\mathbf{p})-l_i|< \frac{\varepsilon}{m} 
+        \)
+        para toda \(i=1,\dots, m\).
+    </p>
+    <p>
+        Se sigue que si \(\| \mathbf{p}-\mathbf{p}_0\| < \delta \) entonces 
+        \[
+        \|\mathbf{F}(\mathbf{p})-\mathbf{L}\| \leq \sum_{i=1}^m |f_i(\mathbf{p})-l_i| < \sum_{i=1}^m \frac{\varepsilon}{m}=\varepsilon.
+        \]
+    </p>
+    <p>
+        De lo anterior concluimos que \(\lim_{\mathbf{p} \to \mathbf{p}_0}\mathbf{F}(\mathbf{p})=\mathbf{L}\).
+    </p>
+</div>
+
+</div>
+
+
+<div class="definicion-box">
+    <h2 class="number-title"> Definición </h2>
+    <p>
+        Sea \((\mathbf{p}_n)_{n=1}^\infty\) una sucesión de puntos en \(\mathbf{R}^n\). Decimos 
+        que el límite de la sucesión existe sii existe un punto \(\mathbf{L}\in \mathbf{R}^n\) que 
+        satisface: para toda \(\varepsilon >0\) existe un número natural \(N\) tal que:
+        \[
+        \|\mathbf{p}_n -\mathbf{L}\| < \varepsilon, \, \textrm{para toda 
+            \(n\geq N\).}
+        \]
+    </p>
+    <p>
+        Lo anterior se denota como \(\lim_{n\to \infty}\mathbf{p}_n=\mathbf{L}\).
+    </p>
+    <p>
+        Por ejemplo para la sucesión de puntos \(\mathbf{p}_n=(\frac{2}{n}, \frac{3}{n})\)
+        se tienen \(\lim_{n\to \infty }\mathbf{p}_n=(0,0)\) pues: dada \(\varepsilon >0\)
+        para que la condición 
+        \(\|\mathbf{p}_n\| < \varepsilon\) se satisfaga se necesita 
+        \[
+        \sqrt{\frac{4}{n^2}+\frac{9}{n^2}}=\frac{1}{n}\sqrt{4^2+3^2}=\frac{25}{n} < \varepsilon
+        \]
+        lo cual es equivalente a \(n \geq \frac{25}{\varepsilon}\). Asi para que se cumpla 
+        la definición de límite se propone \(N\) cualquier natural que 
+        cumpla \( N >  \frac{25}{\varepsilon} \).
+    </p>
+    <p>
+        La siguiente proposición ayuda a reducir límites de sucesiones en 
+        \(\mathbb{R}^n\) a suceciones en \(\mathbb{R}\) (las de cálculo 1).
+    </p>
+</div>
+
+
+
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"></h2>
+    <p>
+        Sean dos sucesiones \((\mathbf{p}_n)_{n=1}^\infty, (\mathbf{q}_n)_{n=1}^\infty\) en 
+        \(\mathbf{R}^d\) con límites 
+        \[
+        \lim_{n\to \infty}\mathbf{p}_n=\mathbf{L},\,\lim_{n\to \infty}\mathbf{q}_n=\mathbf{L}'.
+        \]
+        Prueba
+        <ol>
+            <li>
+                \[
+                \lim_{n\to \infty} \alpha \mathbf{p}_n+\mathbf{q}_n=\alpha \mathbf{L} + \mathbf{L}'
+                \]
+            </li>
+            <li>
+                \[
+                \lim_{n\to \infty} \langle \mathbf{p}_n, \mathbf{q}_n \rangle =\langle \mathbf{L}, \mathbf{L}'\rangle
+                \]
+            </li>
+            <li>
+                Si los puntos están en \(\mathbf{R}^3\) prueba 
+                \[
+                \lim_{n\to \infty} \mathbf{p}_n \times \mathbf{q}_n = \mathbf{L}\times \mathbf{L}'.
+                \]
+            </li>
+        </ol>
+    </p>
+
+</div>
+
+
+
+
+<div class="prop-box">
+    <h2 class="number-title"> Proposición </h2>
+    <p>
+        Notación: dado un vector \(\mathbf{p}\in \mathbf{R}^d\) por 
+        \(\mathbf{p}[i]\) denotamos su entrada \(i\), \(i=1,\dots, d\).
+    </p>
+    <p>
+        Sea \((\mathbf{p}_n)_{n=1}^\infty\) una sucesión de puntos en \(\mathbf{R}^d\). 
+    </p>
+    <p>
+        \(\lim_{n\to \infty}\mathbf{p}_n=\mathbf{L}\) si y sólo si, 
+        para toda entrada  \(i=1,\dots, d\), \(\lim_{n\to \infty} \mathbf{p}_n[i]=\mathbf{L}[i]\).
+    </p>
+
+</div>
+
+
+
+<div class="teorema-box"> 
+    <h2 class="number-title"> Teorema </h2>
+    <h3>Teorema de Bolzano-Weirestrass</h3>
+    <p>
+        Sea  $(\mathbf{p}_n)_{n=1}^\infty$ una sucesión de puntos en \(\mathbb{R}^d\) y supón que existe 
+        \(M>0\) tal que \(\|\mathbf{p}_n\| \leq M\) para toda \(n\). Entonces existe una 
+        subsucesión $(\mathbf{p}_{n_k})_{k\geq 1}$ y un punto \(\mathbf{L}\)    tal que 
+        $$
+        \lim_{k \to \infty}\mathbf{p}_{n_k}=\mathbf{L}.
+        $$
+    </p>
+
+</div>
+
+<div class="definicion-box">
+    <h2 class="number-title"> Definición </h2>
+    <p>
+        Dada una función  de dos variables \(f(x,y)\), definida en una vecindad perforada de 
+        \((x_0,y_0)\), un límite iterado es una expresión de la forma 
+        \[
+        \lim_{x\to x_0}(\lim_{y\to y_0}f(x,y)), \lim_{y\to y_0}(\lim_{x\to x_0} f(x,y))
+        \]
+        y se calcula de "adentro hacia afuera" siempre y cuando cada uno de los límites existan.
+    </p>
+    <button class="respButton hvr-grow "> Ejemplo 1</button>
+    <div class="resp-box">
+    <p>
+        Para la función 
+        \[
+        f(x,y)=\frac{x^2}{x^2+y^2}
+        \]
+        el cálculo \(\lim_{x\to 0}(\lim_{y\to 0} f(x,y))\) es el siguiente:
+        <p>
+            Paso 1. Se toma un punto \((x,y)\ne (0,0)\), se toma como 
+            \(x\) fija (constante) y se toma el límite sobre \(y\)
+            \[
+            \lim_{y\to 0}f(x,y)=\lim_{y\to 0}\frac{x^2}{x^2+y^2}
+            \]
+            Tenemos dos casos: \(x\ne 0\), \(x=0\). Nota que \(y\ne 0\) pues estamos 
+            tomando el límite cuando \(y\to 0\).
+        </p>
+        <p>
+            Caso \(x\ne 0\):
+            \[
+            \lim_{y\to 0}\frac{x^2}{x^2+y^2}=\frac{x^2}{x^2}=1.
+            \]
+            Caso \(x=0\):
+            \[
+            \lim_{y\to 0}\frac{x^2}{x^2+y^2}=\lim_{y\to 0}\frac{0}{y^2}=0
+            \]
+            nota: \(0/y^2=0\) pues \(y^2>0\) y el cociente anterior está bien definida.
+        </p>
+        <p>
+            En resumen \(\lim_{y\to 0}f(x,y)=g(x)\) donde 
+            \(g(x)=1\) si \(x\ne 0\) y \(g(x)=0\) si \(x=0\). 
+        </p>
+        <p>
+            Paso 2. Calculamos \(\lim_{x\to 0} (\lim_{y\to 0}f(x,y))\).
+        </p>
+        <p>
+            En el primer paso encontramos \(\lim_{y\to 0}f(x,y)=g(x)\) por lo tanto el límite 
+            iterado se reduce a 
+            \[
+            \lim_{x\to 0}(\lim_{y\to 0}f(x,y))=\lim_{x\to 0} g(x)=1
+            \]
+            nota que la última igualdad se vales pues cuando \(x\to 0\) suponemos que 
+            \(x\ne 0\) por lo que \(g(x)=1\).
+        </p>
+        <p>
+            Conclusión 
+            \[
+            \lim_{x\to 0}\left( \lim_{y\to 0} \frac{x^2}{x^2+y^2}\right)=1.
+            \]
+        </p>
+    </p>
+    </div>
+
+    <button class="respButton hvr-grow "> Ejemplo 2</button>
+    <div class="resp-box">
+    <p>
+        Calcular 
+        \[
+        \lim_{y\to 0}\left( \lim_{x\to 0}\frac{x^2}{x^2+y^2} \right)
+        \]
+    </p>
+    <p>
+        Paso 1. Para \((x,y)\ne (0,0)\) tomamos \(y\) constante  y calculamos 
+        \[
+        \lim_{x\to 0} \frac{x^2}{x^2+y^2} 
+        \]
+        Caso 1: \(y\ne 0\).
+        \[
+        \lim_{x\to 0} \frac{x^2}{x^2+y^2}=\frac{0}{0+y^2}=0.
+        \]
+        Caso 2: \(y=0\).
+        \[
+        \lim_{x\to 0} \frac{x^2}{x^2+y^2}=\lim_{x\to 0} \frac{x^2}{x^2}=1
+        \]
+        nota que como tomamos \(x\to 0\) se tiene que \(x\ne 0\) y se puede cancelar.
+    </p>
+    <p>
+        Por lo tanto \(\lim_{x\to 0} f(x,y)=h(y)\) donde 
+        \(h(y)=0\) si \(y\ne 0\) y \(h(y)=1\) si \(y=0\).
+    </p>
+    <p>
+        Paso 2.
+    </p>
+    <p>
+        Usando el paso 1
+        \[
+        \lim_{y\to 0}(\lim_{x\to 0})= \lim_{y\to 0} h(y)=0.
+        \]
+        Por lo tanto 
+        \[
+        \lim_{y\to 0}\left( \lim_{x\to 0}\frac{x^2}{x^2+y^2} \right)=0.
+        \]
+    </p>
+    </div>
+    <p>
+        Notas.
+    </p>
+    <ol>
+        <li>
+            Los ejemplos anteriores muestra que puede pasar:
+            \[
+            \lim_{x\to x_0}(\lim_{y\to y_0} f(x,y))\ne \lim_{y \to y_0 }(\lim_{x\to x_0}f(x,y))
+            \]
+        </li>
+        <li>
+            Para funciones de 3 o más variables se definen los límites iterados de manera similar. Por 
+            ejemplo para funciones de 3 variables se pueden considerar límites iterados de la forma 
+            \[
+            \lim_{x\to x_0}(\lim_{y\to y_0}(\lim_{z\to z_0}f(x,y,z)))
+            \]
+            junto con todas las posibles ordenaciones (seis casos).
+        </li>
+    </ol>
+    
+
+</div>
+
+<div class="ejercicio-box"> 
+<h2 class="number-title"> Ejercicio </h2> 
+<p>
+    Considera la función $f(x,y)=\frac{x-y}{x+y}$, para $(x,y)$ con $x+y \ne 0$.
+    <ol>
+        <li>
+            Demuestra que el límite $\lim_{(x,y)\to (0,0)}f(x,y)$ no existe.
+        </li>
+        <li>
+            Demuestra que
+            $$
+            \lim_{x\to 0} \left( \lim_{y\to 0} f(x,y) \right)=1
+            $$
+            
+            $$
+            \lim_{y \to 0} \left( \lim_{x \to 0} f(x,y) \right)=-1
+            $$
+        </li>
+        <li>
+            Encuentra todas las rectas  $l$ que pasa por el origen, tal que $f$ tiene limite a lo largo 
+            de $l$ cuando $(x,y) \to (0,0)$.
+        </li>
+    </ol>
+    
+</p>
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+        Definimos \(f:\mathbb{R}^2 \to \mathbb{R}\) mediante 
+        \[
+        f(x,y)=\left\{ 
+        \begin{array}{cc}
+         1, & (x,y)\in \mathbb{Q}\times \mathbb{Q} \\
+        0, & \textrm{en otro caso}
+        \end{array}
+        \right.
+        \]
+        Prueba que \(\lim_{(x,y)\to (0,0)}f(0,0)=0\) pero 
+        para todo \(x\neq 0\) fijo, \(\lim_{y\to 0} f(x,y)\) no existe.
+    </p>
+    <p>
+        Nota: este ejercicio muestra que a pesar de que el límite puede exisitr 
+        los límites iterados no existen.
+    </p>
+
+</div>
+
+<!--<div class="prop-box">
+    <h2 class="number-title"> Proposición </h2>
+    <p>
+        Sea \(f\) una función definida en una vecindad perforada de \((x_0,y_0)\). Supongamos que 
+        \(\lim_{(x,y)\to (x_0,y_0)} f(x,y)=L\). Entonces 
+        \[
+            \lim_{x\to x_0}(\lim_{y\to y_0}f(x,y))=\lim_{y\to y_0}(\lim_{x\to x_0}f(x,y))=L
+        \] 
+    </p>
+</div>-->
 
  </body>
