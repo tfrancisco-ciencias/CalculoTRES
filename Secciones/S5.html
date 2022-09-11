@@ -82,6 +82,9 @@
   <body class="fondo-body" >
 
     <h1 class="number-title flexbox"> Límites </h1> 
+       <!-- this part is for next and prev sections -->
+   <!--<button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>-->
+   <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
 
 
 
@@ -179,16 +182,22 @@
         hacemos estimaciones para encontrar la \(\delta\) y después lo escribimos de manera formal.
     </p>
     <p>
+        Estimaciones.
+    </p>
+    <p>
         El objetivo es \(|f(x,y)|<\varepsilon \) siempre y cuando \(\|(x,y)\| < \delta \). En vez de 
         \(|f(x,y)|<\varepsilon \) es más fácil pedir  \(\frac{1}{2}\|(x,y)\| < \epsilon\)
         (nota que se substituye la \(|f(x,y)|\) por la desigualdad del inciso 1). Despejando de ésta 
         última la norma llegamos \(\|(x,y)\|< 2\varepsilon\). Finalmente tomamos \(\delta=2\varepsilon\).
     </p>
     <p>
-        Ahora lo hacemos de manera formal. Dada \(\varepsilon >0\) proponemos 
+        Escritura formal.
+    </p>
+    <p>
+        Dada \(\varepsilon >0\) proponemos 
         \(\delta= 2\varepsilon\). Tomamos el punto \((x,y)\) en la bola perforada centrada en cero y de radio 
         \(\delta\), es decir \(0< \| (x,y)\| < \delta\). Debemos de probar que 
-        \(|f(x,y)-f(0,0)|< \delta\), pero como \(f(0,0)=0\) sólo hay que checar \(|f(x,y)|< \varepsilon\). 
+        \(|f(x,y)-f(0,0)|< \varepsilon\), pero como \(f(0,0)=0\) sólo hay que checar \(|f(x,y)|< \varepsilon\). 
         Para ésto último tenemos que por el inciso anterior
         \begin{eqnarray*}
             |f(x,y)|\leq \frac{1}{2}\|(x,y)\|
@@ -689,7 +698,7 @@
 </div>
 
 <div class="prop-box">
-    <h2 class="number-title"> Proposición  </h2>
+    <h2 class="number-title" id="Ejer:CaracterizacionLimitesVect"> Proposición  </h2>
     <p>
         Sea \(F:\hat{B}_r(\mathbf{p}_0) \to \mathbb{R}^m \) una función. Escribimos las  funciones 
         coordenadas de \(\mathbf{F}\) como \(\mathbf{F}=(f_1,\dots, f_m)\). 
@@ -786,7 +795,8 @@
         \]
     </p>
     <p>
-        Lo anterior se denota como \(\lim_{n\to \infty}\mathbf{p}_n=\mathbf{L}\).
+        Lo anterior se denota como \(\lim_{n\to \infty}\mathbf{p}_n=\mathbf{L}\). También 
+        se dice que la sucesión \((\mathbf{p}_n)_{n=1}^\infty\) es convergente.
     </p>
     <p>
         Por ejemplo para la sucesión de puntos \(\mathbf{p}_n=(\frac{2}{n}, \frac{3}{n})\)
@@ -808,7 +818,35 @@
 
 
 
-
+<div class="lema-box">
+    <h2 class="number-title" id="Lema:CotaSucConvergente"> Lema</h2>
+    <p>
+        Si \((\mathbf{p}_n)_{n=1}^\infty\) es una sucesión convergente entonces existe 
+        \(M>0\) tal que \(\|\mathbf{p}_n\| \leq M\), para toda \(n\in \mathbf{N}\).
+    </p>
+    <button class="respButton hvr-grow "> Demostración</button>
+    <div class="resp-box">
+    <p>
+        Para \(\varepsilon=1\) existe un número natural \(N\) tal que 
+        \(\|\mathbf{p}_n - \mathbf{L} \|< 1\), para toda \(n\geq N\). Por la 
+        otra desigualdad del triángulo se tiene
+        \begin{eqnarray*}
+        |\|\mathbf{p}_n\|-\|\mathbf{L}\||< 1 \Rightarrow \|\mathbf{p}_n\| < 1+\|\mathbf{L}\|.
+        \end{eqnarray*}
+        Si tomamos \(M=1+\|\mathbf{L}\|\) tenemos que 
+        \(\|\mathbf{p}_n\|\leq M\) para toda \(n\geq N\), pero nos faltan considerar  los 
+        puntos \(\mathbf{p}_1,\dots, \mathbf{p}_{N-1}\), asi que tomamos 
+        \[
+        M=1+\|\mathbf{L}\|+ M'
+        \]
+        donde 
+        \[
+        M'=\max\{\|\mathbf{p}_1,\cdots, \| \mathbf{p}_{N-1}\| \}.
+        \]
+        Con esta \(M\) aseguramos que \(\|\mathbf{p}_n\| \leq  M\) para toda \(n\).
+    </p>
+    </div>
+</div>
 
 <div class="ejercicio-box">
     <h2 class="number-title"></h2>
@@ -818,27 +856,112 @@
         \[
         \lim_{n\to \infty}\mathbf{p}_n=\mathbf{L},\,\lim_{n\to \infty}\mathbf{q}_n=\mathbf{L}'.
         \]
-        Prueba
+        
         <ol>
-            <li>
+            <li> Demuestra
                 \[
                 \lim_{n\to \infty} \alpha \mathbf{p}_n+\mathbf{q}_n=\alpha \mathbf{L} + \mathbf{L}'
                 \]
+                Sugerencia: primero prueba 
+                \[
+                \| (\alpha \mathbf{p}_n+\mathbf{q}_n)-(\alpha \mathbf{L} + \mathbf{L}')\| \leq
+                |\alpha|\| \mathbf{p}_n-\mathbf{L}\|+\|\mathbf{q}_n-\mathbf{L}' \| 
+                \]
             </li>
-            <li>
+            <li> Demuestra
                 \[
                 \lim_{n\to \infty} \langle \mathbf{p}_n, \mathbf{q}_n \rangle =\langle \mathbf{L}, \mathbf{L}'\rangle
                 \]
+                Sugerencia: primero prueba 
+                \begin{eqnarray*}
+                |\langle \mathbf{p}_n, \mathbf{q}_n \rangle - \langle \mathbf{L}, \mathbf{L}'\rangle| &\leq &
+                |\langle \mathbf{p}_n-\mathbf{L}, \mathbf{q}_n\rangle |+ |\langle \mathbf{L}, \mathbf{q}_n-\mathbf{L}'\rangle |  
+                \end{eqnarray*}
+                y después usa Cauchy-Schwartz.
             </li>
             <li>
                 Si los puntos están en \(\mathbf{R}^3\) prueba 
                 \[
                 \lim_{n\to \infty} \mathbf{p}_n \times \mathbf{q}_n = \mathbf{L}\times \mathbf{L}'.
                 \]
+                Sugerencia: primero prueba 
+                \begin{eqnarray*}
+                \|\mathbf{p}_n \times \mathbf{q}_n-\mathbf{L}\times \mathbf{L}' \| &\leq &
+                \| (\mathbf{p}_n-\mathbf{L})\times \mathbf{q}_n\| \\
+                &+& \|\mathbf{L}\times (\mathbf{q}_n-\mathbf{L}') \|
+                \end{eqnarray*}
+                y luego aplica el <a href="./S2.html#Ejer:NormaProdCruz">Ejercicio 2.16</a>
             </li>
         </ol>
     </p>
-
+    <button class="respButton hvr-grow "> Demostración inciso 2</button>
+    <div class="resp-box">
+    <p>
+        Queremos acotar \(|\langle \mathbf{p}_n, \mathbf{q}_n \rangle - \langle \mathbf{L}, \mathbf{L}'\rangle|\)
+        por arriba con expresiones que involucren \(\|\mathbf{p}_n-\mathbf{L}\|\) y 
+        \(\|\mathbf{q}_n-\mathbf{L}'\|\).
+    </p>
+    <p>
+        Escribiendo el "término cruzado"  y factorizando tenemos 
+        \begin{eqnarray*}
+                |\langle \mathbf{p}_n, \mathbf{q}_n \rangle - \langle \mathbf{L}, \mathbf{L}'\rangle| 
+                &= & |\langle \mathbf{p}_n, \mathbf{q}_n \rangle 
+                -\langle \mathbf{L},\mathbf{q}_n \rangle 
+                + \langle \mathbf{L}, \mathbf{q}_n\rangle 
+                - \langle \mathbf{L}, \mathbf{L}'\rangle| \\
+                &= & |\langle \mathbf{p}_n-\mathbf{L}, \mathbf{q}_n\rangle + \langle \mathbf{L}, \mathbf{q}_n-\mathbf{L}'\rangle |  
+        \end{eqnarray*}
+        Finalmente aplicando la desigualdad del triángulo obtenemos 
+        \begin{eqnarray}\label{Eqn:Aux1ProdInterContinuo}
+                |\langle \mathbf{p}_n, \mathbf{q}_n \rangle - \langle \mathbf{L}, \mathbf{L}'\rangle| &\leq &
+                |\langle \mathbf{p}_n-\mathbf{L}, \mathbf{q}_n\rangle |+ |\langle \mathbf{L}, \mathbf{q}_n-\mathbf{L}'\rangle |  
+        \end{eqnarray}
+    </p>
+    <p>
+        Continuando con la acotación por arriba, aplicamos la desigualdad de Cauchy-Schwartz para obtener
+        \begin{eqnarray*}
+        |\langle \mathbf{p}_n-\mathbf{L}, \mathbf{q}_n\rangle |+ |\langle \mathbf{L}, \mathbf{q}_n-\mathbf{L}'\rangle |  
+        &\leq & \| \mathbf{p}_n-\mathbf{L}\|\|\mathbf{q}_n\| + \|\mathbf{L}\| \|\mathbf{p}_n-\mathbf{L}' \| 
+        \end{eqnarray*}
+        Por el <a href="#Lema:CotaSucConvergente">Lema 5.23</a> existe \(M>0\) tal que 
+        \(\|\mathbf{q}_n\|\leq M\) para toda \(n\). Por lo tanto  de la 
+        desigualdad anterior se sigue que 
+        \begin{eqnarray}\label{Eqn:Aux2ProdInterContinuo}
+        |\langle \mathbf{p}_n-\mathbf{L}, \mathbf{q}_n\rangle |+ |\langle \mathbf{L}, \mathbf{q}_n-\mathbf{L}'\rangle |  
+        &\leq & \| \mathbf{p}_n-\mathbf{L}\|M + \|\mathbf{L}\| \|\mathbf{p}_n-\mathbf{L}' \| 
+        \end{eqnarray}
+    </p>
+    <p>
+        De las ecuaciones \eqref{Eqn:Aux1ProdInterContinuo} y \eqref{Eqn:Aux2ProdInterContinuo} llegamos a 
+        \begin{equation}\label{Eqn:Aux3ProdInterContinuo}
+        |\langle \mathbf{p}_n, \mathbf{q}_n\rangle  - \langle \mathbf{L}, \mathbf{L}'\rangle |  
+        \leq  \| \mathbf{p}_n-\mathbf{L}\|M + \|\mathbf{L}\| \|\mathbf{p}_n-\mathbf{L}' \| 
+        \end{equation}
+    </p>
+    <p>
+        Dada \(\varepsilon >0\), usamos \(\lim_{n\to \infty}\mathbf{p}_n=\mathbf{L}\)
+        para agurar la existencia de un  \(N_1\in \mathbf{N}\) tal que 
+        \[
+        \| \mathbf{p}_n- \mathbf{L}\|<  \frac{\varepsilon}{2M}, \, \textrm{para toda \(n\geq N_1\)}
+        \]
+        y usamos \(\lim_{n\to \infty}\mathbf{q}_n=\mathbf{L}'\)
+        para obtener un  \(N_2\in \mathbf{N}\) tal que 
+        \[
+        \| \mathbf{q}_n- \mathbf{L}'\|<  \frac{\varepsilon}{2(|\mathbf{L}\|+1)}, \textrm{para toda \(n\geq N_1\)}
+        \]
+        Nota: se usa  \(\|\mathbf{L}\|+1\) para tomar en consideración el caso \(\mathbf{L}=0\).
+    </p>
+    <p>
+        Si tomamos \(N=\max\{ N_1,N_2\}\) y \(n\geq N\) entonces de las desigualdades anteriores obtenemos que 
+        en \eqref{Eqn:Aux3ProdInterContinuo} podemos acotar:
+        \begin{eqnarray*}
+        |\langle \mathbf{p}_n, \mathbf{q}_n\rangle  - \langle \mathbf{L}, \mathbf{L}'\rangle |  
+        &\leq &  \| \mathbf{p}_n-\mathbf{L}\|M + \|\mathbf{L}\| \|\mathbf{p}_n-\mathbf{L}' \|  \\
+        & < &   \frac{\varepsilon}{2M}M + \|\mathbf{L}\| \frac{\varepsilon}{2(\|\mathbf{L}\|+1)}\\
+        & < & \varepsilon. 
+        \end{eqnarray*}
+    </p>
+</div>
 </div>
 
 
@@ -856,6 +979,9 @@
     <p>
         \(\lim_{n\to \infty}\mathbf{p}_n=\mathbf{L}\) si y sólo si, 
         para toda entrada  \(i=1,\dots, d\), \(\lim_{n\to \infty} \mathbf{p}_n[i]=\mathbf{L}[i]\).
+    </p>
+    <p>
+        Sugerencia: copia el método de la <a href="#Ejer:CaracterizacionLimitesVect">Proposición 5.21</a>
     </p>
 
 </div>
