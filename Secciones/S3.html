@@ -942,7 +942,7 @@
 </div>
 
 <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2> 
+    <h2 class="number-title" id="Ej:RotationFixedPoint"> Ejercicio </h2> 
     <p>
         Considera $\theta\in [0, 2\pi)$ y la matriz 
         $$
@@ -976,6 +976,79 @@
         Demuestra que si $Mu=u$ entonces $u=0$.
     </li>
 </ol>
+
+<button class="respButton hvr-grow "> Solución</button>
+<div class="resp-box">
+    <p>
+        Comenzaremos por recordar las identidades para suma de ángulos del seno y coseno:
+        \begin{align*}
+        \sen(\alpha + \beta) =& \sen (\alpha) \cos (\beta) + \cos (\alpha) \sen (\beta),\\
+        \cos(\alpha + \beta) =& \cos (\alpha) \cos (\beta) - \sen (\alpha) \sen (\beta) .
+        \end{align*}
+    </p>
+        <ol>
+            <li>
+                Usando las ecuaciones anteriores tenemos que
+                \begin{equation*}
+                Mu =
+                \begin{pmatrix}
+                \cos(\theta) & -\sen(\theta) \\
+                \sen(\theta) & \cos(\theta)
+                \end{pmatrix}
+                \begin{pmatrix}
+                \cos(\varphi)\\
+                \sen(\varphi)
+                \end{pmatrix} =
+                \begin{pmatrix}
+                \cos(\theta)\cos(\varphi) - \sen(\theta)\sen(\varphi)\\
+                \sen(\theta)\cos(\varphi) + \cos(\theta)\sen(\varphi)
+                \end{pmatrix}=
+                \begin{pmatrix}
+                \cos(\theta + \varphi)\\
+                \sen(\theta + \varphi)
+                \end{pmatrix}
+                \end{equation*}
+                Evidentemente la suma de un ángulo constante a la representación de un vector
+                en coordenadas polares significa una rotación por dicho ángulo. El hecho de que
+                la función se pueda escribir como el producto por una matriz asegura también
+                que es una transformación lineal.
+            </li>
+            <li>
+                Notemos que si $\theta=0$ entonces $M=I_n$ y $Mu = u$ para todo $u \in \mathbb{R}^2$,
+                para que el resultado sea el deseado es necesario restringir $0 < \theta < 2\pi$. Con
+                esta aclaración, si $u=(r \cos (\varphi), r \sen(\varphi))$ entonces
+                \begin{equation*}
+                Mu = \begin{pmatrix}
+                \cos(\theta) & -\sen(\theta) \\
+                \sen(\theta) & \cos(\theta)
+                \end{pmatrix}
+                \begin{pmatrix}
+                r\cos(\varphi)\\
+                r\sen(\varphi)
+                \end{pmatrix} =
+                \begin{pmatrix}
+                r\cos(\theta + \varphi)\\
+                r\sen(\theta + \varphi)
+                \end{pmatrix}
+                \end{equation*}
+                Si $u=0$ entonces claramente $Mu = 0$, por otro lado, si $u \neq 0$ entonces al
+                escribirlo en coordenadas polares necesariamente $r \neq 0$ y tenemos que
+                \begin{equation*}
+                \begin{pmatrix}
+                \cos(\varphi)\\
+                \sen(\varphi)
+                \end{pmatrix} =
+                \begin{pmatrix}
+                \cos(\theta + \varphi)\\
+                \sen(\theta + \varphi)
+                \end{pmatrix},
+                \end{equation*}
+                sin embargo, como el periodo de las funciones trigonométricas es $2\pi$  y $0 < \theta < 2\pi$
+                entonces la identidad anterior no puede satisfacerse, con lo que concluimos que
+                necesariamente $r=0$ y por lo tanto $u=0$.
+            </li>
+        </ol>
+</div>
 </div>
 
 
@@ -1004,8 +1077,68 @@
              \end{eqnarray*}
          </li>
         </ol>
-     
-    </p> 
+    </p>
+
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <ol>
+            <li>
+                <p>
+
+                    Si $u,v,w$ son tres puntos en la circunferencia unitaria que la dividen en tres arcos de la misma
+                    longitud entonces sin pérdida de generalidad podemos describirlos como
+                    \begin{align*}
+                    u =& (\cos (\varphi), \sen(\varphi)),\\
+                    v =& (\cos (\varphi + 2\pi/3), \sen(\varphi+2\pi/3)),\\
+                    w =& (\cos (\varphi + 4\pi/3), \sen(\varphi+4\pi/3)),\\
+                    \end{align*}
+                    para algún $\varphi \in [0,2\pi)$. Se trabajará con el caso de una rotación de $\theta = 2\pi/3$ en sentido
+                    levógiro, el caso opuesto, cuando se rota por el mismo ángulo en el sentido de las manecillas del
+                    reloj, se puede escribir como una rotación por $4\pi/3$ en el sentido opuesto a las manecillas del
+                    reloj y se verá que es completamente análogo.
+                </p>
+                <p>
+                    Sea
+                    $M=\begin{pmatrix}
+                    \cos(\theta) & -\sen(\theta) \\
+                    \sen(\theta) & \cos(\theta)
+                    \end{pmatrix}$
+                    la matriz asociada a la rotación por $\theta = 2\pi/3$, por ser una transformación lineal se tiene que
+                    \begin{align*}
+                    M(u+v+w) =& Mu + Mv + Mw\\
+                    =& (\cos (\varphi + 2\pi/3), \sen(\varphi+2\pi/3)) + (\cos (\varphi+4\pi/3), \sen(\varphi+4\pi/3)) + \\ &(\cos (\varphi+6\pi/3), \sen(\varphi+6\pi/3)),\\
+                    =& (\cos (\varphi + 2\pi/3), \sen(\varphi+2\pi/3)) + (\cos (\varphi+4\pi/3), \sen(\varphi+4\pi/3)) + \\ &(\cos (\varphi), \sen(\varphi)),\\
+                    =& v + w + u.
+                    \end{align*}
+                    Como $0 <\theta<2\pi$ entonces el <a href="#Ej:RotationFixedPoint">Ejercicio</a> garantiza que $u+v+w=0$.
+                </p>
+            </li>
+            <li>
+                Sustituyendo $\theta$ por $\varphi$ y recordando que el periodo de las funciones trigonométricas nos
+                permite trabajar en el dominio $[0,2\pi)$ basta notar que la primera ecuación es la segunda coordenada
+                del vector $u+v+w$ y la segunda ecuación corresponde a la primera entrada del mismo vector, como $u+v+w=0$
+                entonces cada una de sus entradas se anula.
+            </li>
+            <li>
+                El último inciso también se puede resolver por medio de un argumento geométrico. Dado $n \in \mathbb{N}$
+                empezamos por considerar $n$ puntos en la circunferencia unitaria que la dividan en arcos de la misma longitud.
+                Los denotaremos como $u_1, u_2, \ldots, u_n$ y sin pérdida de generalidad los podemos escribir en coordenadas
+                polares de la forma
+                \begin{align*}
+                u_1 =& (\cos(\varphi), \sen(\varphi)),\\
+                u_k =& (\cos(\varphi+ 2\pi(k-1)/n), \sen(\varphi+2\pi(k-1)/n)),\\
+                u_n =& (\cos(\varphi + 2\pi(n-1)/n), \sen(\varphi + 2\pi(n-1)/n)).
+                \end{align*}
+                Si ahora consideramos una rotación por $\theta = 2\pi/n$ y la denotamos por $M$ entonces de manera análoga
+                al primer inciso vamos a tener que
+                \begin{equation*}
+                M(u_1 + u_2 + \ldots + u_n) = u_1 + u_2 + \ldots + u_n,
+                \end{equation*}
+                así que nuevamente concluimos que $u_1 + \ldots + u_n=0$ y las sumas de senos  y cosenos presentadas en el
+                ejercicio no son sino la primera y segunda coordenada del vector $u_1 + \ldots + u_n$.
+            </li>
+        </ol>
+    </div>
 </div>
 
 
