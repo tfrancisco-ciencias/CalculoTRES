@@ -2180,6 +2180,94 @@
     </li>
 </ol>
 
+<button class="respButton hvr-grow "> Solución inciso 1</button>
+<div class="resp-box">
+    <p>
+        Usando la ecuación normal del plano tenemos que un punto $q$ pertenece a $M$ si y sólo si
+        $\langle n, q \rangle = 0$ con $n$ un vector normal al plano $M$. En este caso, como $M$ es generado
+        por los vectores $u, v$ y $w=u \times v$ entonces $w$ es un vector normal a $M$, asímismo es un vector
+        unitario, $\|u \times v\| = \|u\| \|v\| \sen(\theta)$, por lo que no será necesario dividir entre $\|w\|^2$
+        al calcular $P_w$.
+    </p>
+    <p>
+        Tenemos que
+        \begin{align*}
+        \langle p- P_w(p),w \rangle =& \langle p, w \rangle - \langle P_w(p), w \rangle,\\
+        =& \langle p, w \rangle - \langle \langle p,w \rangle w, w\rangle,\\
+        =& \langle p, w\rangle - \langle p,w  \rangle = 0,
+        \end{align*}
+        por lo tanto $p - P_w(p) \in M$.
+    </p>
+</div>
+
+<button class="respButton hvr-grow "> Solución inciso 2</button>
+<div class="resp-box">
+    <p>
+        El vector que une a $p$ con $p-P_w(p)$ es $p - (p-P_w(p)) = P_w(p) = \langle p, w\rangle w$. Dado que
+        todo punto en el plano $M$ es de la forma $tu + sv$ para algunos $t,s \in \mathbb{R}$ entonces
+        \begin{equation*}
+        \langle tu + sv, \langle p, w \rangle w\rangle = \langle p,w \rangle (t\langle u,w\rangle + s\langle v,w \rangle),
+        \end{equation*}
+        y como $w = u \times v$ entonces es ortogonal a ambos vectores y $\langle tu + sv, P_w(p)=0$, es decir,
+        es ortogonal a todo punto del plano $M$.
+    </p>
+</div>
+
+<button class="respButton hvr-grow "> Solución inciso 3</button>
+<div class="resp-box">
+    <p>
+        Como $P_w$ es una función lineal, entonces dados $p,q \in \mathbb{R}^3$
+        y $\alpha \in \mathbb{R}$ se tiene que
+        \begin{equation*}
+        P(\alpha p + q) = (\alpha p + q) - P_w(\alpha p + q) = \alpha (p - P_w(p)) + (q - P_w(q)) = \alpha P(p) + P(q).
+        \end{equation*}
+    </p>
+</div>
+
+<button class="respButton hvr-grow "> Solución inciso 4</button>
+<div class="resp-box">
+    <p>
+        Empezamos por desarrollar las expresiones $p - P(p)$ y $P(p)-q$:
+        \begin{align*}
+        p - P(p) =& P_w(p),\\
+        P(p) - q =& p - P_w(p) - q.
+        \end{align*}
+        Veamos ahora que éstos son ortogonales
+        \begin{align*}
+        \langle p- P(p), P(p) - q\rangle =& \langle P_w(p), p- P_w(p) - q \rangle,\\
+        =& \langle P_w(p), p \rangle - \langle P_w(p), P_w(p)\rangle - \langle P_w(p),q \rangle, \\
+        =& \langle \langle p,w \rangle w, p\rangle - \langle \langle p,w \rangle w, \langle p , w \rangle w \rangle - \langle \langle p,w \rangle w , q \rangle,\\
+        =& \langle p,w \rangle \langle w,p \rangle - \langle p,w\rangle \langle p,w \rangle \|w\|^2 - \langle p,w \rangle \langle w,q \rangle,\\
+        =& \langle p,w\rangle ^2 - \langle p,w\rangle ^2 - \langle p,w\rangle \langle w,q \rangle,\\
+        =& 0,
+        \end{align*}
+        pues por el segundo inciso $q$ y $w$ son ortogonales.
+    </p>
+    <p>
+        Por el Teorema de Pitágoras se tiene que
+        \begin{equation*}
+        \|p - P(p)\|^2 + \|P(p) - q\|^2 = \|p-q\|^2,
+        \end{equation*}
+        como $\|P(p) - q\|^2 \geq 0$ entonces
+        \begin{equation*}
+        \|p - P(p)\|^2 \leq \|p-q\|^2,
+        \end{equation*}
+        y la desigualdad deseada se obtiene al tomar la raíz cuadrada de ambos lados.
+    </p>
+</div>
+
+<button class="respButton hvr-grow "> Solución inciso 5</button>
+<div class="resp-box">
+    <p>
+        Nuevamente, como $u,v$ son unitarios entonces podemos ignorar las normas al cuadrado
+        en la la fórmula \eqref{Eqn:FormulaProyOrt} para $P(p)$. Como $P(p) = p-P_w(p)$ entonces
+        \begin{equation*}
+        \langle u, p \rangle u + \langle v, p \rangle v = p - \langle w, p \rangle w,
+        \end{equation*}
+        y basta despejar el término $\langle w , p \rangle w$ para obtener la expresión deseada.
+    </p>
+</div>
+
 </div>
 
 
