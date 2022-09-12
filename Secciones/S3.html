@@ -575,7 +575,7 @@
 
 
 <div class="teorema-box"> 
-    <h2 class="number-title"> Teorema </h2> 
+    <h2 class="number-title" id="Thm:MatrixRepresentation"> Teorema </h2> 
     <p>
         Si 
         $F:\mathbb{R}^n \to \mathbb{R}^m$ es lineal, entonces existe una única matriz $M$, de $m\times n$, 
@@ -651,6 +651,107 @@
         \mathbf{v}_2, \mathbf{v}_3\) ?
     </p>
 
+    <button class="respButton hvr-grow "> Solución inciso 1</button>
+    <div class="resp-box">
+        <p>
+            Se desarrollará el ejercicio únicamente para $\alpha$. $\alpha$ es combinación lineal
+            de $v_1,v_2, v_3$ si y sólo si existen $a,b,c \in \mathbb{R}$ tales que
+            \begin{equation*}
+            a(1,1,-2,1) + b(3,0,4,-1) + c(-1,2,5,2) = (4,-5,9,-7),
+            \end{equation*}
+            o equivalentemente, si el siguiente sistema de ecuaciones tiene solución $a,b,c \in \mathbb{R}$
+            \begin{align*}
+            a + 3b - c =& 4, \\
+            a + 2c =& -5,\\
+            -2a + 4b + 5c =& 9,\\
+            a - b + 2c =& -7.
+            \end{align*}
+        </p>
+        <p>
+            Empezaremos por considerar únicamente las primeras tres ecuaciones del sistema, y una vez que
+            se obtenga solución para $a,b,c$ se verificará que dicha solución sea compatible con la cuarta ecuación.
+            Note que las primeras tres ecuaciones pueden representarse por medio de la siguiente ecuación matricial:
+
+            \begin{equation*}
+            \begin{pmatrix}
+            1 & 3 & -1\\
+            1 & 0 & 2 \\
+            -2 & 4 & 5
+            \end{pmatrix}
+            \begin{pmatrix}
+            a\\ b \\ c
+            \end{pmatrix} = 
+            \begin{pmatrix}
+            4 \\ -5 \\ 9
+            \end{pmatrix}
+            \end{equation*}
+
+            y que nosotros representaremos por medio de una única matriz como
+
+            \begin{equation*}
+            \begin{pmatrix}
+            1 & 3 & -1 & 4\\
+            1 & 0 & 2 & -5\\
+            -2 & 4 & 5 & 9
+            \end{pmatrix}
+            \end{equation*}
+
+            Denotaremos por $l_1, l_2, l_3$ a las ecuaciones 1, 2 y 3, respectivamente, o en su defecto a la
+            fila correspondiente en la matriz anterior para denotar la suma, resta o multiplicación de éstas.
+            Comenzamos por sumar $l_1$ y $l_2$ a $l_3$ para obtener
+
+            \begin{equation*}
+            \begin{pmatrix}
+            1 & 3 & -1 & 4\\
+            1 & 0 & 2 & -5\\
+            0 & 7 & 6 & 8
+            \end{pmatrix},
+            \end{equation*}
+            ahora restamos $l_1$ a $l_2$
+            \begin{equation*}
+            \begin{pmatrix}
+            1 & 3 & -1 & 4\\
+            0 & -3 & 3 & -9\\
+            0 & 7 & 6 & 8
+            \end{pmatrix},
+            \end{equation*}
+
+            multiplicamos $l_2$ por $-1/3$
+
+            \begin{equation*}
+            \begin{pmatrix}
+            1 & 3 & -1 & 4\\
+            0 & 1 & -1 & 3\\
+            0 & 7 & 6 & 8
+            \end{pmatrix},
+            \end{equation*}
+
+            restamos $7l_2$ a $l_3$
+
+            \begin{equation*}
+            \begin{pmatrix}
+            1 & 3 & -1 & 4\\
+            0 & 1 & -1 & 3\\
+            0 & 0 & 13 & -13
+            \end{pmatrix},
+            \end{equation*}
+
+            multiplicamos $l_3$ por $1/13$ y obtenemos el siguiente sistema equivalente al original:
+
+            \begin{align*}
+            a + 3b - c =& 4\\
+            b - c =& 3\\
+            c =& -1
+            \end{align*}
+
+            De este sistema es fácil deducir que $c=-1, b=2, a = -3$ y finalmente verificamos que
+            \begin{equation*}
+            -3(1,1,-2,1) + 2(3,0,4,-1) + -1(-1,2,5,2) = (4,-5,9,-7),
+            \end{equation*}
+            por lo que $\alpha$ es combinación lineal de $v_1,v_2,v_3$.
+        </p>
+    </div>
+
 </div>
 
 <div class="ejercicio-box">
@@ -672,6 +773,88 @@
         </li>
     </ol>
 
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            Empezaremos con el primer inciso. Denotaremos $v_1 = (1,-1,1)$ y $v_2 = (1,1,1)$. Dado
+            que el producto por una matriz $A$ es una transformación lineal se construirá una matriz
+            $A$ que cumpla que $Av_1 = (1,0)$ y $Av_2=(0,1)$. Empezaremos por obtener un tercer vector
+            linealmente independiente de $v_1,v_2$. Sea $v_3 = 1/2 (v_1 \times v_2)=(-1,0,1)$, para
+            facilitar los cálculos $A$ se construirá de manera que $F(v_3) = Av_3 = 0$. Ahora buscamos las combinaciones
+            lineales requeridas para obtener a los vectores canónicos a partir de $v_1,v_2,v_3$, los sistemas
+            de ecuaciones por resolver son de la forma
+
+            \begin{equation*}
+            e_i = a(1,-1,1) + b(1,1,1) + c(-1,0,1).
+            \end{equation*}
+            Escribimos el primero como
+            \begin{align*}
+            1 =& a + b -c,\\
+            0 =& -a + b,\\
+            0 =& a + b + c
+            \end{align*}
+            De la segunda ecuación $a=b$. Sustituyendo en la primera tenemos que $c=2a - 1$ y sustituyendo
+            en la tercera se tiene que $a=1/4=b$ y $c=-1/2$. Usando esta información tenemos que
+            \begin{equation*}
+            F(e_1) = F(1/4v_1 + 1/4v_2 - 1/2 v_3) = 1/4F(v_1) + 1/4F(v_2) - 1/2F(v_3) = (1/4,1/4).
+            \end{equation*}
+
+            El segundo sistema se escribe como
+            \begin{align*}
+            0 =& a + b -c,\\
+            1 =& -a + b,\\
+            0 =& a + b + c
+            \end{align*}
+
+            Restando la primera y última ecuación se tiene que $c=0$, sustituyendo en la segunda $a+b = 0$ y
+            sustituyendo en la tercera $b = 1/2$ y $a=-1/2$. Por lo tanto
+            \begin{equation*}
+            F(e_2) = F( -1/2v_1 + 1/2 v_2) = (-1/2,1/2).
+            \end{equation*}
+
+            De manera similar construimos nuestro tercer sistema de la forma
+            \begin{align*}
+            0 =& a + b -c,\\
+            0 =& -a + b,\\
+            1 =& a + b + c
+            \end{align*}
+
+            De la segunda ecuación $a=b$, sustituyendo en la primera $c=2a$ y sustituyendo en la tercera
+            $a=1/4=b$ y $c=1/2$, así
+            \begin{equation*}
+            F(e_3) = 1/4 F(v_1) + 1/4F(v_2) + 1/2F(v_3) = (1/4,1/4).
+            \end{equation*}
+        </p>
+        <p>
+            Sabemos ahora que la matriz la podemos construir colocando en la i-ésima columna el vector
+            correspondiente a $F(e_i)$, por lo que la matriz buscada es
+            \begin{equation*}
+            A =
+            \begin{pmatrix}
+            1/4 & -1/2 & 1/4\\
+            1/4 & 1/2 & 1/4\\
+            \end{pmatrix}
+            \end{equation*}
+            y se verifica que $Av_1 = (1,0)$ y $Av_2= (0,1)$, por lo que la transformación lineal
+            $Tp = Ap$ cumple lo deseado.
+        </p>
+
+        <p>
+            Para el segundo inciso veremos que no existe tal transformación lineal. Notemos primero
+            que el vector $(-3,2)$ es combinación lineal de $(1,-1)$ y $(2,-1)$, para ello resolvemos
+            el sistema
+            \begin{align*}
+            a + 2b =& -3\\
+            -a -b =& 2,
+            \end{align*}
+            de la primera ecuación $a = -3 - 2b$ y sustituyendo en la segunda se concluye que $b=-1$ y
+            $a = -1$. Si existiera tal función fuera lineal entonces
+            \begin{equation*}
+            F((-3,2)) = F(-(1,-1) - (2,-1)) = -(1,0) - (0,1) = (-1,-1) \neq (1,1) = F((-3,2)).
+            \end{equation*}
+        </p>
+    </div>
+
 </div>
 
 
@@ -685,6 +868,29 @@
         \(\{\mathbf{u}+\mathbf{v}+\mathbf{w},\mathbf{u}-\mathbf{v},-\mathbf{u}-\mathbf{v}-2\mathbf{w}\}\)
         también es linealmente independiente.
     </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            Supongamos que $a_1,a_2,a_3 \in \mathbb{R}$ son tales que
+            \begin{equation*}
+            a_1(u + v + w) + a_2(u - v) + a_3(-u -v - 2w) = 0,
+            \end{equation*}
+            utilizando la asociatividad y distributividad de las operaciones obtenemos
+            la ecuación equivalente
+            \begin{equation*}
+            (a_1 + a_2 - a_3)u + (a_1 - a_2 - a_3)v + (a_1 - 2a_3)w = 0.
+            \end{equation*}
+            Por hipótesis los vectores $\{u,v,w\}$ son l.i., por lo que
+            \begin{align*}
+            a_1 + a_2 - a_3 =& 0,\\
+            a_1 - a_2 - a_3 =& 0,\\
+            a_1 - 2a_3 =& 0,
+            \end{align*}
+            y al resolver este sistema se encuentra que $a_1,a_2,a_3 = 0$. Dado que la única combinación
+            lineal por la que se obtiene el vector $0$ es la trivial, se concluye que el conjunto
+            $\{u+v + w, u-v,-u-v-2w\}$ es linealmente independiente.
+        </p>
+    </div>
 
  </div>   
 
@@ -695,6 +901,44 @@
         $\id(\mathbf{p})=\mathbf{p}$. Demuestra que la matriz asociada a $\id$ es la matriz 
         que consiste de $0$'s, excepto en la diagonal donde tiene $1$'s. A dicha matriz la denotamos $I_n$.
     </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            Para $id: \mathbb{R}^n \to \mathbb{R}^n$ y $p = \begin{pmatrix}
+            p_1 \\
+            p_2 \\
+            \vdots \\
+            p_n
+            \end{pmatrix} \in \mathbb{R}^n$. En primer lugar notamos que $id$ es una transformación lineal:
+            \begin{equation*}
+            id(\alpha p + q) = \alpha p + q = \alpha id(p) + id(q).
+            \end{equation*}
+            Seguido de ello calculamos
+            \begin{equation*}
+            I_n p =
+            \begin{pmatrix}
+            1 & 0 & ... & 0 \\
+            0 & 1 & ... & 0 \\
+            &   & \ddots & \\
+            0 & 0 & ... & 1
+            \end{pmatrix}
+            \begin{pmatrix}
+            p_1 \\
+            p_2 \\
+            \vdots \\
+            p_n
+            \end{pmatrix}
+            = \begin{pmatrix}
+            p_1 \\
+            p_2 \\
+            \vdots \\
+            p_n
+            \end{pmatrix} = id(p).
+            \end{equation*}
+            Por el <a href="#Thm:MatrixRepresentation">Teorema</a> $I_n$ es la (única) matriz asociada a la
+            transformación $id$.
+        </p>
+    </div>
 </div>
 
 <div class="ejercicio-box"> 
