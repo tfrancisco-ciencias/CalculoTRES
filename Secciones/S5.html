@@ -968,7 +968,7 @@
 
 
 <div class="prop-box">
-    <h2 class="number-title"> Proposición </h2>
+    <h2 class="number-title" id="Prop:EquivConvergenciaSuc"> Proposición </h2>
     <p>
         Notación: dado un vector \(\mathbf{p}\in \mathbf{R}^d\) por 
         \(\mathbf{p}[i]\) denotamos su entrada \(i\), \(i=1,\dots, d\).
@@ -994,12 +994,79 @@
     <p>
         Sea  $(\mathbf{p}_n)_{n=1}^\infty$ una sucesión de puntos en \(\mathbb{R}^d\) y supón que existe 
         \(M>0\) tal que \(\|\mathbf{p}_n\| \leq M\) para toda \(n\). Entonces existe una 
-        subsucesión $(\mathbf{p}_{n_k})_{k\geq 1}$ y un punto \(\mathbf{L}\)    tal que 
+        subsucesión $(\mathbf{p}_{n_s})_{s \geq 1}$ y un punto \(\mathbf{L}\)    tal que 
         $$
-        \lim_{k \to \infty}\mathbf{p}_{n_k}=\mathbf{L}.
+        \lim_{s \to \infty}\mathbf{p}_{n_k}=\mathbf{L}.
         $$
     </p>
-
+    <button class="respButton hvr-grow "> Demostración</button>
+    <div class="resp-box">
+    <p>
+        La demostración es por inducción en la dimensión del espacio, en la notación de arriba, \(d\).
+    </p>
+    <p>
+        Para \(d=1\) es el Teorema de Bolzano-Weirestrass que se ve en cálculo 1.
+    </p>
+    <p>
+        Supongamos que el resultado en cierto hasta dimensión \(d\) y probémoslo para \(d+1\).
+    </p>
+    <p>
+        Sea \((\mathbf{p}_n)_{n=1}^\infty\) una sucesión de puntos de \(\mathbb{R}^{d+1}\)
+        tal que \(\|\mathbf{p}_n\|\leq M\), para toda \(n\in \mathbb{N}\).
+    </p>
+    <p>
+        Del punto \(\mathbf{p}_n\) tomamos las primeras \(d\) corrdenadas para formar el 
+        vector \(\tilde{\mathbf{p}}_n\in \mathbf{R}^{d}\), es decir  
+        \[
+        \tilde{\mathbf{p}}_n=(\mathbf{p}_n[1], \dots, \mathbf{p}_n[d])
+        \]
+        donde \(\mathbf{p}[i]\) denota la coordenada del punto \(\mathbf{p}\in \mathbf{R}^{d+1}\). 
+        Una comparación directa se prueba que 
+        \[
+        \mathbf{p}_n[1]^2+\cdots + \mathbf{p}_n[d]^2 \leq 
+        \mathbf{p}_n[1]^2+\cdots + \mathbf{p}_n[d]^2+\mathbf{p}_n[d+1]^2
+        \]
+        Scando raíz cuadrada en ambos lados obtenemos que \(\|\tilde{\mathbf{p}}_n\| \leq \|\mathbf{p}_n\|\)
+        por lo tanto \(\|\tilde{\mathbf{p}}_n\| \leq M\) para toda \(n\). Por la hipótesis de inducción 
+        existe una subsucesión \((n_k)_{k=1}^\infty\) y un punto \(\mathbf{L}'\in \mathbf{R}^d\)
+        tal que 
+        \[
+        \lim_{k\to \infty}\tilde{\mathbf{p}}_{n_k}=\mathbf{L}'.
+        \]
+    </p>
+    <p>
+        Ahora volvemos a dimensión 1 considerando la subsucesión 
+        \((\mathbf{p}_{n_k}[d+1])_{k=1}^\infty\). Por el <a>Ejercicio </a>
+        \[
+        |\mathbf{p}_{n_k}[d+1]|\leq \|\mathbf{p_{n_k}}\| \leq M, \, \textrm{para toda \(k\)}
+        \]
+        por lo tanto podemos aplicar Bolzano-Weirestrass en dimensión 1 
+        a la sucesión \((\tilde{\mathbf{p}}_{n_{k}}[d+1])_{s=1}^\infty\)  para 
+        encontrar un \(l_{d+1}\in \mathbb{R}\) y una subsucesión 
+        \((\mathbf{p}_{n_{k_s}}[d+1])_{s=1}^\infty\) tal que 
+        \begin{equation}\label{Eqn:Aux1BW}
+        \lim_{s\to \infty} \mathbf{p}_{n_{k_s}}[d+1]= l_{d+1}
+        \end{equation}
+        Ya que las subsucesiones de sucesiones convergentes son convergentes 
+        también tenemos que 
+        \begin{equation}\label{Eqn:Aux2BW}
+        \lim_{s\to \infty} \mathbf{p}_{n_{k_s}}= \mathbf{L}'
+        \end{equation}
+        Definamos \(\mathbf{L}=(\mathbf{L}'[1], \dots, \mathbf{L}'[d], l_{d+1})\).
+        
+    </p>
+    <p>
+        De las ecuaciones \eqref{Eqn:Aux1BW} y \eqref{Eqn:Aux2BW} 
+        obtenemos que 
+        \[
+        \lim_{s\to \infty} \mathbf{p}_{n_{k_s}}[i]= \mathbf{L}[i], \, \textrm{para toda \(i=1,\dots, d, d+1\)}
+        \]
+        y por la <a href="#Prop:EquivConvergenciaSuc">Proposición  5.25</a> concluimos que 
+        \[
+        \lim_{s\to \infty}\mathbf{p}_{n_{k_s}}=\mathbf{L}.
+        \]
+    </p>
+    </div>
 </div>
 
 <div class="definicion-box">
