@@ -262,6 +262,48 @@
             </ol>
             
         </p>
+
+        <button class="respButton hvr-grow "> Solución</button>
+        <div class="resp-box">
+            <p>
+                <ol>
+                    <li>
+                        Sea $(x,y) \in C$, así $x^{\alpha}y^{\beta}=c$. Como $c >0$ entonces necesariamente $x>0$ y por hipótesis $\beta>0$, por
+                        lo que se puede despejar y tomar la $\beta$-ésima raíz para obtener $y=\frac{c^{1/\beta}}{x^{\alpha/\beta}}$.
+                    </li>
+
+                    <li>
+                        Para demostrar este inciso apelamos a los resultados de Cálculo I, evidentemente la función $g(s)$ es dos veces
+                        diferenciable en el dominio $s > 0$ y su segunda derivada es
+                        \begin{equation*}
+                        g''(s)=\frac{\alpha (\alpha + \beta) s^{-\alpha /\beta - 2}}  {\beta ^2},
+                        \end{equation*}
+                        el denominador es positivo, $s>0$ y tanto $\alpha$ como $(\alpha + \beta)$ son positivos, por lo que la segunda
+                        derivada es positiva en todo su dominio y por lo tanto $g(s)$ es convexa.
+                    </li>
+                    <li>
+                        Tomamos $(x_1,y_1),(x_2,y_2) \in C$ y podemos suponer SPG que $x_1 < x_2$ Tomemos un punto intermedio $(x,y) \in C$, de manera
+                        que $x_1 < x < x_2$ y $x$ se puede escribir como
+                        \begin{equation*}
+                        x = tx_1 + (1-t)x_2,
+                        \end{equation*}
+                        para algún $t \in [0,1]$. Por la convexidad de la función $g(s)$ se tiene que
+                        \begin{equation*}
+                        g(x) = g(tx_1 + (1-t)x_2) \leq tg(x_1) + (1-t)g(x_2),
+                        \end{equation*}
+                        dado que $c^{1/\beta}>0$ se preserva el orden al multiplicar las expresiones de ambos lados de la desigualdad
+                        \begin{equation*}
+                        c^{1/\beta}g(x) \leq t c^{1/\beta}g(x_1) + (1-t)c^{1/\beta}g(x_2),
+                        \end{equation*}
+                        que no es otra cosa que
+                        \begin{equation*}
+                        y \leq t y_1 + (1-t)y_2,
+                        \end{equation*}
+                        es decir, $C$ es una curva convexa.
+                    </li>
+                </ol>
+            </p>
+        </div>
 	</div>
 
 	
@@ -279,7 +321,20 @@
                 
                 Demuestra que si $g$ es una función convexa entonces $C$ es una curva convexa.
                 
-            </p> 
+            </p>
+            <button class="respButton hvr-grow "> Solución</button>
+            <div class="resp-box">
+                <p>
+                    Supongamos que $g$ es una función convexa. Tomemos $(x_1,y_1),(x_2,y_2) \in C$, supongamos
+                    sin pérdida de generalidad que $x_1 < x_2$ y consideremos un punto intermedio $(x,y) \in C$, es decir,
+                    $x_1 < x < x_2$ de manera que $x$ se puede escribir de la forma $x = tx_1 + (1-t)x_2$ para algún $t \in [0,1]$.
+                    Como $y = g(x)$ entonces por la convexidad de $g$ se tiene que
+                    \begin{equation*}
+                    y = g(x) \leq tg(x_1) + (1-t)g(x_2) = t y_1 + (1-t)y_2,
+                    \end{equation*}
+                    que era la desigualdad buscada.
+                </p>
+            </div>
         </div>
 
 
