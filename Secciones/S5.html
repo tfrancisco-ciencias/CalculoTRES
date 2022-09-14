@@ -702,6 +702,25 @@
             Sugerencia: por el ejercicio, sabemos que exsite $q\in \mathbb{R}^n$ tal que $f(p)=\langle p, q \rangle$, para todo 
             $p$. Después usa la desigualdad de Cacuchy-Schwartz para probar: $|f(p)-f(p_0)| \leq \|q\| \| p-p_0\|$.
         </p>
+        <button class="respButton hvr-grow "> Solución</button>
+        <div class="resp-box">
+            <p>
+                Sea $\epsilon >0$ y $q \in \mathbb{R}^n$ tal que $f(p) = \langle p, q\rangle$ para toda $p\in \mathbb{R}^n$.
+                Si $q=0$ entonces evidentemente $f$ es la función constante $0$ y $\|f(p)-f(p_0)\|=0$ sin importar la $\delta$
+                que se escoja.
+            </p>
+            <p>
+                Supongamos ahora que $\|q\|>0$, es decir, $q \neq 0$ y consideremos $\delta = \epsilon/ \|q\| > 0$, entonces
+                si $\|p-p_0\|<\delta$ se tiene que al aplicar la desigualdad de Cauchy-Schwartz
+                \begin{align*}
+                |f(p) - f(p_0)| =& |\langle p, q \rangle  - \langle p_0, q \rangle|,\\
+                =& |\langle p-p_0, q\rangle|,\\
+                \leq& \|p-p_0\| \|q\|,\\
+                <& \delta \|q\|,\\
+                =& \epsilon.
+                \end{align*}
+            </p>
+        </div>
 </div>
 
 
