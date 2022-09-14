@@ -1044,6 +1044,38 @@
         Sugerencia: copia el método de la <a href="#Ejer:CaracterizacionLimitesVect">Proposición 5.21</a>
     </p>
 
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            Comencemos por suponer que $\lim_{n \to \infty} p_n = L$. Recordemos que para cada $i \in
+            \{1,\ldots,d\}$ se tiene que $|p_n[i] - L[i]| \leq \|p - L\|$. Sea $\epsilon > 0$, por
+            hipótesis se tiene que existe $N \in \mathbb{N}$ tal que si $n \geq N$ entonces
+            $\|p_n - L\|<\epsilon$. Por lo tanto, usando dicha $N$ se tiene que si $n \geq N$
+            entonces
+            \begin{equation*}
+            |p_n[i] - L[i]| \leq \|p_n - L\| < \epsilon,
+            \end{equation*}
+            para cada $i \in \{1,\ldots,d\}$, por lo que para cada entrada $\lim_{n \to \infty}p_n[i]=L[i]$.
+        </p>
+
+        <p>
+            Supongamos ahora que para cada entradad $i=1,\ldots,d$ $\lim_{n \to \infty}p_n[i] = L[i]$, entonces
+            para $\epsilon/d >0$ existen $N_1,\ldots,N_d$ tales que si $n \geq N_i$ entonces $|p_n[i] - L[i]| <
+            \epsilon$. Recordemos ahora que
+            \begin{equation*}
+            \|p_n - L\| \leq \sum_{i=1}^d |p_n[i] - L[i]|.
+            \end{equation*}
+            Si definimos $N = \max \{N_1,\ldots,N_d\}\geq N_i$ entonces se tiene que para $n \geq N$
+            \begin{equation*}
+            \|p_n - L\| \leq \sum_{i=1}^d |p_n[i] - L[i]| < \sum_{i=1}^d \epsilon/d = \epsilon,
+            \end{equation*}
+            con lo que se concluye que
+            \begin{equation*}
+            \lim_{n \to \infty}p_n = L.
+            \end{equation*}
+        </p>
+    </div>
+
 </div>
 
 
