@@ -688,7 +688,45 @@
                     $\lim_{(x,y)\to (0,0)} \frac{\log(x^2+y^2+1)}{x^2+y^2}$
                 </li>
             </ol>
-    </p> 
+    </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            Se calcularán el segundo y cuarto límites.
+        </p>
+        <p>
+            Recordemos que en coordenadas polares $x=r\cos(\theta)$, $y=r \sen(\theta)$ y $r^2 = x^2 + y^2$. Asimismo,
+            $(x,y) \to (0,0)$ si y sólo si $r \to 0$, el teorema anterior nos dice que no importa la trayectoria de
+            aproximación al $(0,0)$ por lo que se puede ignorar la manera en que se comporta $\theta$ cerca de este
+            punto. Con ésto establecido podemos comenzar:
+        </p>
+        <p>
+            \begin{equation*}
+            \lim_{(x,y)\to (0,0)} \frac{\cos(x^2+y^2)-1}{x^2+y^2} = \lim_{r \to 0} \frac{\cos(r^2)}{r^2},
+            \end{equation*}
+            se tiene un cociente de funciones, ambas diferenciables alrededor del $0$ y tales que su límite cuando $r \to 0$
+            es $0$, con ello tenemos lo requerido para aplicar la regla de L'Hôpital,
+            \begin{align*}
+            \lim_{r \to 0} \frac{\cos(r^2)}{r^2} =& \lim_{r \to 0} \frac{-2r \sen(r^2)}{2r},\\
+            =& \lim_{r \to 0} -\sen(r^2),\\
+            =& 0.
+            \end{align*}
+        </p>
+        <p>
+            Para calcular
+            \begin{equation*}
+            \lim_{(x,y)\to (0,0)} \frac{e^{x^2+y^2}-1}{x^2+y^2}
+            \end{equation*}
+            se realiza un procedimiento similar, primero reescribimos el límite en coordenadas polares y luego aplicamos la
+            regla de L'Hôpital
+            \begin{align*}
+            \lim_{(x,y)\to (0,0)} \frac{e^{x^2+y^2}-1}{x^2+y^2} =& \lim_{r \to 0} \frac{e^{r^2} - 1}{r^2},\\
+            =& \lim_{r \to 0} \frac{2r e^{r^2}}{2r},\\
+            =& \lim_{r \to 0} e^{r^2},\\
+            =& 1.
+            \end{align*}
+        </p>
+    </div>
 </div>
 
 
