@@ -497,7 +497,62 @@
                     $\lim_{(x,y)\to (0,0)} \frac{5x^2y+x^2+y^2}{x^2+y^2}$.
                 </li>
             </ol>
-        </p> 
+        </p>
+        <button class="respButton hvr-grow "> Solución</button>
+        <div class="resp-box">
+            <p>
+                Se resolverán el segundo y cuarto inciso.
+            </p>
+            <p>
+                Comencemos considerando la siguiente expresión:
+                \begin{equation*}
+                \lim_{z \to 0} \frac{\cos(z) - 1}{z},
+                \end{equation*}
+                tanto el numerador como el denominandor son funciones diferenciables alrededor del $0$ y
+                ambos tienen como límite el $0$ cuando $z \to 0$, de manera que es un buen candidato para
+                aplicar la regla de L'Hôpital,
+                \begin{align*}
+                \lim_{z \to 0} \frac{\cos(z) - 1}{z} =& \lim_{z \to 0} -\sen(z),\\
+                =& 0,
+                \end{align*}
+                en otras palabras, si $\epsilon>0$ entonces existe $\delta >0$ tal que si $0<|z|<\delta$
+                entonces $|\frac{\cos(z) - 1}{z}| < \epsilon$.
+            </p>
+            <p>
+                Se afirma que
+                \begin{equation*}
+                \lim_{(x,y) \to (0,0)} \frac{\cos(x^4+y^4)-1}{x^4+y^4} = 0.
+                \end{equation*}
+                En efecto, sea $\epsilon>0$ y $\delta>0$ el número real usado en el caso de la función $\frac{\cos(z) - 1}{z}$,
+                como $|x|,|y| \leq \|(x,y)\|$ y $|x|^4=x^4$,$|y|^4=y^4$, entonces si
+                \begin{equation*}
+                0 < \|(x,y)\| < \left( \frac{\delta}{2}\right)^{1/4},
+                \end{equation*}
+                se tiene que $0 < x^4 + y^4 < \delta$ y
+                \begin{equation*}
+                \left|\frac{\cos(x^4+y^4)-1}{x^4+y^4}\right| < \epsilon,
+                \end{equation*}
+                y con ello concluye la prueba.
+            </p>
+
+            <p>
+                Sea afirma que
+                \begin{equation*}
+                \lim_{(x,y)\to (0,0)} \frac{x^2}{(x^2+y^2)^{1/4}} = 0.
+                \end{equation*}
+                Comencemos por notar que
+                \begin{align*}
+                0 \leq& \frac{x^2}{(x^2 + y^2)^{1/4}},\\
+                \leq& \frac{x^2}{(x^2)^{1/4}},\\
+                =& |x|^{3/2}.
+                \end{align*}
+                Dado $\epsilon > 0$ y $\delta= \epsilon^{2/3}$, si $0<\|(x,y)\|<\delta$ entonces se tiene que
+                \begin{equation*}
+                \left | \frac{x^2}{(x^2+y^2)^{1/4}} \right| \leq |x|^{3/2} < \delta^{3/2} = \epsilon,
+                \end{equation*}
+                que era lo que se buscaba.
+            </p>
+        </div>
 	</div>
 
     <div class="definicion-box">
@@ -688,7 +743,45 @@
                     $\lim_{(x,y)\to (0,0)} \frac{\log(x^2+y^2+1)}{x^2+y^2}$
                 </li>
             </ol>
-    </p> 
+    </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            Se calcularán el segundo y cuarto límites.
+        </p>
+        <p>
+            Recordemos que en coordenadas polares $x=r\cos(\theta)$, $y=r \sen(\theta)$ y $r^2 = x^2 + y^2$. Asimismo,
+            $(x,y) \to (0,0)$ si y sólo si $r \to 0$, el teorema anterior nos dice que no importa la trayectoria de
+            aproximación al $(0,0)$ por lo que se puede ignorar la manera en que se comporta $\theta$ cerca de este
+            punto. Con ésto establecido podemos comenzar:
+        </p>
+        <p>
+            \begin{equation*}
+            \lim_{(x,y)\to (0,0)} \frac{\cos(x^2+y^2)-1}{x^2+y^2} = \lim_{r \to 0} \frac{\cos(r^2)}{r^2},
+            \end{equation*}
+            se tiene un cociente de funciones, ambas diferenciables alrededor del $0$ y tales que su límite cuando $r \to 0$
+            es $0$, con ello tenemos lo requerido para aplicar la regla de L'Hôpital,
+            \begin{align*}
+            \lim_{r \to 0} \frac{\cos(r^2)}{r^2} =& \lim_{r \to 0} \frac{-2r \sen(r^2)}{2r},\\
+            =& \lim_{r \to 0} -\sen(r^2),\\
+            =& 0.
+            \end{align*}
+        </p>
+        <p>
+            Para calcular
+            \begin{equation*}
+            \lim_{(x,y)\to (0,0)} \frac{e^{x^2+y^2}-1}{x^2+y^2}
+            \end{equation*}
+            se realiza un procedimiento similar, primero reescribimos el límite en coordenadas polares y luego aplicamos la
+            regla de L'Hôpital
+            \begin{align*}
+            \lim_{(x,y)\to (0,0)} \frac{e^{x^2+y^2}-1}{x^2+y^2} =& \lim_{r \to 0} \frac{e^{r^2} - 1}{r^2},\\
+            =& \lim_{r \to 0} \frac{2r e^{r^2}}{2r},\\
+            =& \lim_{r \to 0} e^{r^2},\\
+            =& 1.
+            \end{align*}
+        </p>
+    </div>
 </div>
 
 
@@ -702,6 +795,25 @@
             Sugerencia: por el ejercicio, sabemos que exsite $q\in \mathbb{R}^n$ tal que $f(p)=\langle p, q \rangle$, para todo 
             $p$. Después usa la desigualdad de Cacuchy-Schwartz para probar: $|f(p)-f(p_0)| \leq \|q\| \| p-p_0\|$.
         </p>
+        <button class="respButton hvr-grow "> Solución</button>
+        <div class="resp-box">
+            <p>
+                Sea $\epsilon >0$ y $q \in \mathbb{R}^n$ tal que $f(p) = \langle p, q\rangle$ para toda $p\in \mathbb{R}^n$.
+                Si $q=0$ entonces evidentemente $f$ es la función constante $0$ y $\|f(p)-f(p_0)\|=0$ sin importar la $\delta$
+                que se escoja.
+            </p>
+            <p>
+                Supongamos ahora que $\|q\|>0$, es decir, $q \neq 0$ y consideremos $\delta = \epsilon/ \|q\| > 0$, entonces
+                si $\|p-p_0\|<\delta$ se tiene que al aplicar la desigualdad de Cauchy-Schwartz
+                \begin{align*}
+                |f(p) - f(p_0)| =& |\langle p, q \rangle  - \langle p_0, q \rangle|,\\
+                =& |\langle p-p_0, q\rangle|,\\
+                \leq& \|p-p_0\| \|q\|,\\
+                <& \delta \|q\|,\\
+                =& \epsilon.
+                \end{align*}
+            </p>
+        </div>
 </div>
 
 
@@ -1024,6 +1136,38 @@
     <p>
         Sugerencia: copia el método de la <a href="#Ejer:CaracterizacionLimitesVect">Proposición 5.21</a>
     </p>
+
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            Comencemos por suponer que $\lim_{n \to \infty} p_n = L$. Recordemos que para cada $i \in
+            \{1,\ldots,d\}$ se tiene que $|p_n[i] - L[i]| \leq \|p - L\|$. Sea $\epsilon > 0$, por
+            hipótesis se tiene que existe $N \in \mathbb{N}$ tal que si $n \geq N$ entonces
+            $\|p_n - L\|<\epsilon$. Por lo tanto, usando dicha $N$ se tiene que si $n \geq N$
+            entonces
+            \begin{equation*}
+            |p_n[i] - L[i]| \leq \|p_n - L\| < \epsilon,
+            \end{equation*}
+            para cada $i \in \{1,\ldots,d\}$, por lo que para cada entrada $\lim_{n \to \infty}p_n[i]=L[i]$.
+        </p>
+
+        <p>
+            Supongamos ahora que para cada entradad $i=1,\ldots,d$ $\lim_{n \to \infty}p_n[i] = L[i]$, entonces
+            para $\epsilon/d >0$ existen $N_1,\ldots,N_d$ tales que si $n \geq N_i$ entonces $|p_n[i] - L[i]| <
+            \epsilon$. Recordemos ahora que
+            \begin{equation*}
+            \|p_n - L\| \leq \sum_{i=1}^d |p_n[i] - L[i]|.
+            \end{equation*}
+            Si definimos $N = \max \{N_1,\ldots,N_d\}\geq N_i$ entonces se tiene que para $n \geq N$
+            \begin{equation*}
+            \|p_n - L\| \leq \sum_{i=1}^d |p_n[i] - L[i]| < \sum_{i=1}^d \epsilon/d = \epsilon,
+            \end{equation*}
+            con lo que se concluye que
+            \begin{equation*}
+            \lim_{n \to \infty}p_n = L.
+            \end{equation*}
+        </p>
+    </div>
 
 </div>
 
