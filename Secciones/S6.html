@@ -83,11 +83,16 @@
 
     <h1 class="number-title flexbox"> Derivadas parciales </h1> 
 
+       <!-- this part is for next and prev sections -->
+   <!--<button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>-->
+   <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
+
 
     <div class="definicion-box">
         <h2 class="number-title"> Definición </h2>
         <p>
-            Sea \(U\subseteq \mathbb{R}^n\). Decimos que \(U\) es un subconjunto abierto sii 
+            Sea \(U\subseteq \mathbb{R}^n\). Decimos que \(U\) es un subconjunto abierto de \(\mathbb{R}^n\) 
+            (o simplemente abierto) sii 
             para todo punto \(p_0\in U\) exsite \(r> 0\) tal que 
             \(B_r(p_0)\subseteq U\). 
         </p>
@@ -98,18 +103,75 @@
         </p>
 
     </div>
+    <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio</h2>
+        <p>
+            Todo intervalo abierto en \(\mathbb{R}\) es un subconjunto abierto de \(\mathbb{R}\).
+        </p>
+        <p>
+            El intervalo \([a,b]\) no es abierto en \(\mathbb{R}\).
+        </p>
 
+    </div>
 
     <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio </h2>
         <p>
-            En \(\mathbb{R}^n\) fijamos un \(i=1,\dots, n\) y para \(\varepsilon >0\) definimos 
+            En \(\mathbb{R}^d\) fijamos un \(i=1,\dots, n\) y para \(\varepsilon \in \mathbb{R}\) definimos 
             \[
-            U=\{ (x_1,\dots, x_n)\in \mathbf{R}^n: x_i > \varepsilon \}
+            U=\{ (x_1,\dots, x_d)\in \mathbf{R}^n: x_i > \varepsilon \}
             \]
             Entonces \(U\) es abierto. 
         </p>
-
+        <p>
+            Nota: de manera similar el conjunto \(\{(x_1,\dots, x_d)\in \mathbf{R}^n: x_i < \varepsilon \}\)
+            es abierto.
+        </p>
+        <p>
+            El conjunto 
+            \[
+            F=\{ (x_1,\dots, x_d)\in \mathbf{R}^n: x_i \geq  \varepsilon \}
+            \]
+            no es abierto.
+        </p>
+        <button class="respButton hvr-grow "> Solución</button>
+        <div class="resp-box">
+        <p>
+            Fijamos un punto \((a_1,\dots, a_d) \in U\). Por lo tanto \(a_i> \varepsilon\). Debemos 
+            de encontrar un \(r> 0\) tal que \(B_r(a_1,\dots, a_d) \subset U\).
+        </p>
+        <p>
+            Tomando como ejemplo en \(\mathbb{R}^2\) con \(i=1\), 
+            notamos que \(B_{r}(a_1,a_2) \subset U\) donde \(r=(a_1-\varepsilon)/2\). Vamos a probar 
+            que esto mismo pasa en más dimensiones.
+        </p>
+        <p>
+            Sea \(r=(a_i-\varepsilon)/2\). Afirmamos que \(B_{r}(a_1,\dots, a_d)\subset U\), lo cual se hace por 
+            contención de conjuntos.
+        </p>
+        <p>
+            Tomamos un \((x_1,\dots, x_d)\in B_{r}(a_1,\dots, a_d) \). Debemos de 
+            probar que \((x_1,\dots, x_d)\in U\) es decir, \(x_i> \varepsilon\). 
+        </p>
+        <p>
+            Ya que \((x_1,\dots, x_d)\in B_{\varepsilon/2}(a_1,\dots, a_d)\) se sigue que:
+            \[
+            |x_i-a_i|\leq \|(x_1-a_1,\dots,x_d-a_d) \| < r 
+            \]
+            por lo tanto 
+            \(
+            -r< x_i-a_i < r \Rightarrow a_i-r < x_i
+            \)
+            pero 
+            \begin{eqnarray*}
+            a_i-r &=&  a_i - \frac{a_i-\varepsilon}{2}\\ 
+            &=&\frac{2a_i-a_i+\varepsilon}{2}\\
+            &=&\frac{a_i+\varepsilon}{2} \\
+            &>& \frac{\varepsilon+\varepsilon}{2}=\varepsilon.
+            \end{eqnarray*}
+            por lo tanto \(x_i > \varepsilon\).
+        </p>
+        </div>
     </div>
 
 
@@ -121,6 +183,19 @@
             B_r(p_0)=\{p\in \mathbb{R}^n: \| p-p_0\| < r \}
             \]
             es un subconjunto abierto.
+        </p>
+
+    </div>
+
+
+    <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+            EL conjunto 
+            \[
+            B_r(p_0)=\{p\in \mathbb{R}^n: \| p-p_0\| > r \}
+            \]
+            es abierto.
         </p>
 
     </div>
@@ -139,6 +214,15 @@
 
     </div>
 
+    <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+            Da un ejemplo que muestre que la Intersección arbitraria de conjuntos abiertos 
+            no es necesariamente abierto.
+        </p>
+
+    </div>
+
     <div class="prop-box">
         <h2 class="number-title"> Proposición  </h2>
         <p>
@@ -148,6 +232,70 @@
 
     </div>
 
+    <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+            Un subconjunto \(F\subseteq \mathbb{R}^n\) se llama cerrado en \(\mathbb{R}^n\) (o simplemente 
+            cerrado) si su complemento es abierto.
+        </p>
+        <p>
+            Por ejemplo el conjunto vacío y el total \(\mathbb{R}^n\) son subconjuntos cerrados.
+        </p>
+
+    </div>
+
+    <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+            Prueba que los siguientes subconjuntos son cerrados.
+        </p>
+        <ol>
+            <li>
+                \([a,b]\).
+            </li>
+            <li>
+                \( \{ p\in \mathbb{R}^n: \| p-p_0\| \leq r\}\).
+            </li>
+            <li> 
+                Para \(a\in \mathbb{R}\) fijo, 
+                \(\{ (x,y,z)\in \mathbb{R}^3: x=a \}\).
+            </li>
+        </ol>
+
+    </div>
+
+    <div class="prop-box">
+        <h2 class="number-title"> Proposición </h2>
+        <ol>
+            <li>
+                Intersección arbitraria de conjuntos cerrados es cerrada.
+            </li>
+            <li>
+                Unión finita de conjuntos cerrados es cerrada.
+            </li>
+        </ol>
+
+    </div>
+
+    <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+            Da un ejemplo que muestre que la unión arbitraria de conjuntos cerrados
+            no es necesariamente cerrado.
+        </p>
+
+    </div>
+
+    <div class="prop-box">
+        <h2 class="number-title"> Proposición  </h2>
+        <p>
+            Sean \(F_1\subset \mathbb{R}^n, F_2\subset \mathbb{R}^m\) subconjuntos cerrados. Entonces 
+            \(F_1\times F_2 \subset \mathbb{R}^{n+m}\) es cerrado.
+        </p>
+    </div>
+
+
+<!-- 
     <div class="definicion-box">
         <h2 class="number-title"> Definición </h2> 
         <p>
@@ -572,5 +720,6 @@
    
             </p>    
         </div>
+-->
 
  </body>
