@@ -105,36 +105,79 @@
     </div>
     <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio</h2>
-        <p>
+        <ol>
+        <li>
             Todo intervalo abierto en \(\mathbb{R}\) es un subconjunto abierto de \(\mathbb{R}\).
+        </li>
+        <li>
+            El intervalo \([a,b]\) no es abierto en \(\mathbb{R}\).
+        </li>
+        </ol>
+        <button class="respButton hvr-grow "> Solución inciso 1</button>
+        <div class="resp-box">
+        <p>
+            Tomamos un punto arbitrario \(x\in (a,b)\). Por \(\rho(x)\) denotamos la mínima distancia entre
+            \(x\) y \(a\) y entre \(x\) y \(b\), es decir 
+            \(\rho(x)=\min=\{x-a, b-x\}\). 
         </p>
         <p>
-            El intervalo \([a,b]\) no es abierto en \(\mathbb{R}\).
+            Por ejemplo si \(x\) es el punto medio entre \(a\) y \(b\)
+            entonces \(\rho(x)=(b-a)/2\) y el intervalo centrado en \(x\) y de radio 
+            \((b-a)/2\) está  totalmente contenido en \((a,b)\). 
         </p>
-
+        <p>
+            En general, afirmamos que el intervalo centrado en \(x\) y radio \(\rho(x)\) está contendio 
+            en \((a,b)\), denotemos por \(I_x\) dicho intervalo es decir 
+            \(I_x=(x-\rho(x),x+\rho(x))\). Notamos
+            \begin{eqnarray*} 
+            x-\rho(x)  &\geq & x- (x-a)=a \\
+            x+\rho(x)  &\leq &  x + (b-x)=b 
+            \end{eqnarray*}
+            por lo que si \(t \in I_x\) entonces 
+            \begin{eqnarray*} 
+            a\leq x-\rho(x) < t < x+\rho(x)\leq b
+            \end{eqnarray*}
+            y por lo tanto \(a< t < b \) lo que prueba que \(I_x \subset (a,b)\).
+        </p>
+        </div>
+        <button class="respButton hvr-grow "> Solución inciso 2</button>
+        <div class="resp-box">
+        <p>
+            El intervalo \([a,b]\) no es abierto pues notamos que para los extremos cualquier 
+            invervalo abierto centrado en ellos siempre contiene puntos fuera del intervalo \([a,b]\). 
+            Escribiendo lo anterior de manera precisa dado \(I=(b-r,b+r)\), con \(r>0\),
+             siemre se tiene que \(b+r/2 \in I\) pero \(b+r/2\notin (a,b)\), por lo que 
+             \(I\) no está contenido en \((a,b)\).
+            
+        </p>
+        </div>
     </div>
 
     <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio </h2>
-        <p>
+        <ol>
+
+        
+        <li>
             En \(\mathbb{R}^d\) fijamos un \(i=1,\dots, n\) y para \(\varepsilon \in \mathbb{R}\) definimos 
             \[
             U=\{ (x_1,\dots, x_d)\in \mathbf{R}^n: x_i > \varepsilon \}
             \]
             Entonces \(U\) es abierto. 
-        </p>
+        </li>
         <p>
             Nota: de manera similar el conjunto \(\{(x_1,\dots, x_d)\in \mathbf{R}^n: x_i < \varepsilon \}\)
             es abierto.
         </p>
-        <p>
+        <li>
             El conjunto 
             \[
             F=\{ (x_1,\dots, x_d)\in \mathbf{R}^n: x_i \geq  \varepsilon \}
             \]
             no es abierto.
-        </p>
-        <button class="respButton hvr-grow "> Solución</button>
+        </li>
+        </ol>
+        <button class="respButton hvr-grow "> Solución inciso 1</button>
         <div class="resp-box">
         <p>
             Fijamos un punto \((a_1,\dots, a_d) \in U\). Por lo tanto \(a_i> \varepsilon\). Debemos 
@@ -184,7 +227,22 @@
             \]
             es un subconjunto abierto.
         </p>
-
+        <p>
+           La idea es encontrar la distancia entre un punto de la esfera y su "cáscara". Entre 
+           más cerca este un punto a la "cáscara" el radio que se necesita para que 
+           la bola se quede dentro será más pequeño. 
+           Para un punto \(p\in B_r(p_0)\) proponemos 
+           \(\rho(p)=r-\|p-p_0\|\). Notar que \(\rho(x)> 0\) pues \(\| p-p_0\| < r \).     
+        </p>
+        <p>
+            Vamos a probar que \(B_{\rho(x)}(p) \subseteq B_r(p_0)\). Dado \(q \in B_{\rho(x)}(p)\)
+            se tiene que \(\|q-p\| < \rho(x)\) y al estimar la distancia de \(q\) a \(p_0\) tenemos,
+            por la desigualdad del triángulo, que 
+            \begin{eqnarray*} 
+                \| p_0-q\| \leq \|p_0-p\| + \| p-q\| < \|p_0-p\| + \rho(x)=\|p_0-p\|+ r-\|p-p_0\| =r
+            \end{eqnarray*}
+             por lo tanto \(q\in B_{r}(p_0) \). Concluimos que \(B_{\rho(x)}(p)\subseteq B_r(p_0)\).   
+        </p>
     </div>
 
 
@@ -211,7 +269,21 @@
                 Unión arbitraria de conjuntos abiertos es abierta.
             </li>
         </ol>
-
+        <p>
+            Sean \(U_1,\dots, U_n \subseteq \mathbb{R}^d \) una familia de subconjuntos abiertos.
+            Para probar que \(\cap_{i=1}^n U_i\) es abierto debemos de probar que para todo 
+            \(p\in \cap_{i=1}^n U_i\) exsite \(r> 0\) tal que 
+            \(B_r(p)\subseteq \cap_{i=1}^n U_i\).
+        </p>
+        <p>
+            Al ser \(U_i\) abierto y tener que \(p\in U_i\) se sigue que existe un \(r_i>0\) tal que 
+            \(B_{r_i}(p) \subseteq U_i\). Si definimos \(r=\min_{i=1,\dots, n}\{r_i\}\) notamos que 
+            para toda \(i=1,\dots, n\):
+            \[
+            B_r(p)\subseteq B_{r_i}(p)\subseteq U_i
+            \]
+            por lo tanto \(B_r(p)\subseteq \cap_{i=1}^n U_i\).
+        </p>
     </div>
 
     <div class="ejercicio-box">
@@ -294,6 +366,42 @@
         </p>
     </div>
 
+    <div class="definicion-box">
+        <h2 class="number-title"> Definición</h2>
+        <p>
+            Sea \(A \subseteq \mathbb{R}^n\).
+        </p>
+        <ol>
+            <li>
+                Un punto \(p\in \mathbb{R}^n\) se llama punto 
+                interior de \(A\) si existe \(r> 0 \) tal que 
+                \(B_r(p)\subseteq A\).
+                Observación: si \(p\) es un punto interior de 
+                \(A\) entonces \(p\in A\).
+            </li>
+            <li>
+                Un punto \(p\in \mathbb{R}^n\) se llama se llama 
+                punto de acumulación de \(A\) si para todo \(r>0\)
+                existe un punto \(q \in B_r(p)\cap A\) con \(q\ne p\).
+            </li>
+        </ol>
+
+    </div>
+
+    <div class="teorema-box">
+        <h2 class="number-title"> Teorema </h2>
+        <p>
+            Un subconjunto \(U\subseteq \mathbb{R}^n\) 
+            es abierto si y sólo si 
+            todo punto de \(U\) es un punto interior de \(U\).
+        </p>
+        <p>
+            Un subconjunto \(F\subseteq \mathbb{R}^n\) es 
+            cerrado si y sólo si contiene a todos sus puntos 
+            de acumulación.
+        </p>
+
+    </div>
 
 <!-- 
     <div class="definicion-box">
