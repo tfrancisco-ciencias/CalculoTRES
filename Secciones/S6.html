@@ -377,6 +377,8 @@
                 \(\{ (x,y,z)\in \mathbb{R}^3: x=a \}\).
             </li>
         </ol>
+        <button class="respButton hvr-grow "> Soluciónes </button>
+        <div class="resp-box">
         <p>
             En cada uno de los casos se probará que el complemento es un conjunto abierto.
         </p>
@@ -409,6 +411,7 @@
             y por el <a href="#Ejer:HiperPlanosAbiertosSonAbiertos">Ejercicio 6.3</a>
             ambos conjuntos son abiertos por lo que su unión es abierto. 
         </p>
+        </div>
 
     </div>
 
@@ -447,30 +450,90 @@
         <p>
             Sea \(A \subseteq \mathbb{R}^n\).
         </p>
-        <ol>
-            <li>
+    
+            <p>
                 Un punto \(p\in \mathbb{R}^n\) se llama punto 
                 interior de \(A\) si existe \(r> 0 \) tal que 
                 \(B_r(p)\subseteq A\).
+                
+            </p>
+            <p>
                 Observación: si \(p\) es un punto interior de 
-                \(A\) entonces \(p\in A\).
+                \(A\) necesariamente se tiene que  \(p\in A\).
+            </p>
+            <p>
+                Al conjunto de puntos interiores del conjunto \(A\) se le llama 
+                el interior de \(A\) y se denota por \(\operatorname{int}(A)\) o \(A^o\). 
+                Nota: puede pasar que \(A^o=\emptyset\).
+            </p>
+
+
+    </div>
+
+    <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+            Encuentra el interior de los siguientes conjuntos.
+        </p>
+        <ol>
+            <li>
+                \(\{\frac{1}{n}: n\in \mathbb{N} \}\).
             </li>
             <li>
-                Un punto \(p\in \mathbb{R}^n\) se llama se llama 
-                punto de acumulación de \(A\) si para todo \(r>0\)
-                existe un punto \(q \in B_r(p)\cap A\) con \(q\ne p\).
+                \([a,b]\).
+            </li>
+            <li>
+                \(\{ (x,y)\in \mathbb{R}^2: y=0, x\in [a,b]\}\).
+            </li>
+            <li>
+                \(\{p\in \mathbb{R}^d: \| p-p_0\| \leq r\}\), donde
+                \(p_0\in \mathbb{R}^d\) y \(r>0\).
             </li>
         </ol>
 
     </div>
 
-    <div class="teorema-box">
-        <h2 class="number-title"> Teorema </h2>
+    <div class="prop-box">
+        <h2 class="number-title"> Proposición </h2>
         <p>
             Un subconjunto \(U\subseteq \mathbb{R}^n\) 
             es abierto si y sólo si 
             todo punto de \(U\) es un punto interior de \(U\).
         </p>
+
+    </div>
+
+    <div class="prop-box">
+        <h2 class="number-title"> Proposición </h2>
+        <p>
+            Sea \(A\subseteq \mathbb{R}^p\). Prueba que 
+            el interior de \(A\), \(A^o\) es un conjunto abierto.
+        </p>
+        <p>
+            Además prueba que 
+            es el conjunto abierto más grande contendio en \(A\), es decir, 
+            si \(U\) es abierto y \(U\subseteq A\) entonces \(U\subseteq A^o\).
+        </p>
+
+    </div>
+
+
+    <div class="definicion-box">
+        <h2 class="number-title"> Definición</h2>
+        <p>
+            Sea \(A \subseteq \mathbb{R}^n\).
+        </p>
+        <p>
+            Un punto \(p\in \mathbb{R}^n\) se llama se llama 
+            punto de acumulación de \(A\) si para todo \(r>0\)
+            existe un punto \(q \in B_r(p)\cap A\) con \(q\ne p\).
+        </p>
+    </div>
+
+
+
+    <div class="prop-box">
+        <h2 class="number-title"> Proposición </h2>
         <p>
             Un subconjunto \(F\subseteq \mathbb{R}^n\) es 
             cerrado si y sólo si contiene a todos sus puntos 
@@ -478,7 +541,6 @@
         </p>
 
     </div>
-
 <!-- 
     <div class="definicion-box">
         <h2 class="number-title"> Definición </h2> 
