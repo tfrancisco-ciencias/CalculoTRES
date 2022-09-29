@@ -97,6 +97,10 @@
             \(B_r(p_0)\subseteq U\). 
         </p>
         <p>
+           La idea sobre los conjuntos abiertos es que para todo punto de un abierto nos podemos 
+           aproximar al punto por cualquier dirección, permaneciendo siempre en el conjunto abierto. 
+        </p>
+        <p>
             Por ejemplo el vacío es abierto por vacuidad. Tambien el total, \(U=\mathbb{R}^n\),
             es abierto pues para todo punto \(p_0\in \mathbb{R}^n\) y toda bola tenemos 
             \(B_r(p_0)\subset \mathbb{R}^n\).
@@ -154,7 +158,7 @@
     </div>
 
     <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
+        <h2 class="number-title" id="Ejer:HiperPlanosAbiertosSonAbiertos"> Ejercicio </h2>
         <ol>
 
         
@@ -219,7 +223,7 @@
 
 
     <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
+        <h2 class="number-title" id="Ejer:BolasAbiertasSonAbiertas"> Ejercicio </h2>
         <p>
             Toda bola abierta 
             \[
@@ -227,6 +231,8 @@
             \]
             es un subconjunto abierto.
         </p>
+        <button class="respButton hvr-grow "> Solución </button>
+        <div class="resp-box">
         <p>
            La idea es encontrar la distancia entre un punto de la esfera y su "cáscara". Entre 
            más cerca este un punto a la "cáscara" el radio que se necesita para que 
@@ -239,15 +245,19 @@
             se tiene que \(\|q-p\| < \rho(x)\) y al estimar la distancia de \(q\) a \(p_0\) tenemos,
             por la desigualdad del triángulo, que 
             \begin{eqnarray*} 
-                \| p_0-q\| \leq \|p_0-p\| + \| p-q\| < \|p_0-p\| + \rho(x)=\|p_0-p\|+ r-\|p-p_0\| =r
+                \| p_0-q\| &\leq & \|p_0-p\| + \| p-q\| \\
+                 &<&  \|p_0-p\| + \rho(x)\\
+                &=& \|p_0-p\|+ r-\|p-p_0\| \\
+                &=&r
             \end{eqnarray*}
              por lo tanto \(q\in B_{r}(p_0) \). Concluimos que \(B_{\rho(x)}(p)\subseteq B_r(p_0)\).   
         </p>
     </div>
+    </div>
 
 
     <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
+        <h2 class="number-title" id="Ejer:ComplementoBolasSonAbiertos"> Ejercicio </h2>
         <p>
             EL conjunto 
             \[
@@ -269,6 +279,8 @@
                 Unión arbitraria de conjuntos abiertos es abierta.
             </li>
         </ol>
+        <button class="respButton hvr-grow "> Demostración inciso 1</button>
+        <div class="resp-box">
         <p>
             Sean \(U_1,\dots, U_n \subseteq \mathbb{R}^d \) una familia de subconjuntos abiertos.
             Para probar que \(\cap_{i=1}^n U_i\) es abierto debemos de probar que para todo 
@@ -284,6 +296,25 @@
             \]
             por lo tanto \(B_r(p)\subseteq \cap_{i=1}^n U_i\).
         </p>
+        </div>
+        <button class="respButton hvr-grow "> Demostración inciso 2</button>
+        <div class="resp-box">
+        <p>
+            Sea \(\{U_i\}_{i\in I}\) una familia arbitraria de abiertos (decimos arbitraria pues 
+            el conjunto de índices \(I\) puede ser  finito o infinito, por ejemplo 
+            \(I=\{1,\dots, n\}\) ó \(I=\mathbb{N}\)). Debemos de probar que 
+            \(\cup_{i\in I}U_i\) es abierto.
+        </p>
+        <p>
+            Fijamos \(p\in \cup_{i\in I}U_i\) arbitrario. Entonces existe almenos un \(i_0\) para el cual 
+            \(p\in U_{i_0}\). Al ser \(U_{i_0}\) abierto existe  un \(r>0\) para el cual 
+            \(B_r(p)\subseteq U_{i_0}\). Ya que \(U_{i_0}\subseteq \cup_{i\in I}U_i\) concluimos que 
+            \[
+            B_r(p)\subseteq \cup_{i\in I} U_i.
+            \]
+            Al ser \(p\) arbitrario concluimos que la unión es abierta.
+        </p>
+        </div>
     </div>
 
     <div class="ejercicio-box">
@@ -292,7 +323,20 @@
             Da un ejemplo que muestre que la Intersección arbitraria de conjuntos abiertos 
             no es necesariamente abierto.
         </p>
-
+        <button class="respButton hvr-grow "> Solución </button>
+        <div class="resp-box">
+        <p>
+            Para \(n\in \mathbb{N}\) definimos 
+            \[
+            U_n=(-\frac{1}{n}, 1+\frac{1}{n})
+            \]
+            Entonces cada \(U_n\) es abierto pero la intersección es 
+            \[
+            \cap_{n=1}^\infty U_n=[0,1]
+            \]
+            la cual no es abierto.
+        </p>
+        </div>
     </div>
 
     <div class="prop-box">
@@ -326,13 +370,45 @@
                 \([a,b]\).
             </li>
             <li>
-                \( \{ p\in \mathbb{R}^n: \| p-p_0\| \leq r\}\).
+                \( \{ p\in \mathbb{R}^d: \| p-p_0\| \leq r\}\).
             </li>
             <li> 
                 Para \(a\in \mathbb{R}\) fijo, 
                 \(\{ (x,y,z)\in \mathbb{R}^3: x=a \}\).
             </li>
         </ol>
+        <p>
+            En cada uno de los casos se probará que el complemento es un conjunto abierto.
+        </p>
+        <p>
+            El conjunto \([a,b]\) es cerrado pues su complemente es 
+            \[
+            [a,b]^c = (-\infty, a)\cup (b,\infty)
+            \]
+            y cada uno de los intervalos antriores es abierto pues se pueden escribir 
+            como unión de abiertos de la siguiente manera 
+            \begin{eqnarray*}
+            (-\infty,a)=\cup_{n\in \mathbb{N}: -n< a }(-n,a), \\
+            (b,+\infty)=\cup_{n\in \mathbb{N}: b<  n }(b,n).
+            \end{eqnarray*}
+        </p>
+        <p>
+            El conjunto \( \{ p\in \mathbb{R}^n: \| p-p_0\| \leq r\}\) es cerrado pues su complemento 
+            es 
+            \[
+            \{ p\in \mathbb{R}^d: \| p-p_0\| \leq r\}^c=\{p\in \mathbb{R}^d:\| p-p_0 \|> r \}
+            \]
+            el cual es abierto por el <a href="#Ejer:ComplementoBolasSonAbiertos">Ejercicio 6.5</a>
+        </p>
+        <p>
+            El complemento de \(\{ (x,y,z)\in \mathbb{R}^3: x=a \}\) se puede escribir como 
+            \[
+            \{ (x,y,z)\in \mathbb{R}^3: x=a \}^c=\{(x,y,z)\in \mathbb{R}^3: x< a \}\cup 
+            \{(x,y,z)\in \mathbb{R}^3: x > a \}
+            \]
+            y por el <a href="#Ejer:HiperPlanosAbiertosSonAbiertos">Ejercicio 6.3</a>
+            ambos conjuntos son abiertos por lo que su unión es abierto. 
+        </p>
 
     </div>
 
