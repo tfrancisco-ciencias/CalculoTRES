@@ -270,7 +270,7 @@
 
 
     <div class="prop-box">
-        <h2 class="number-title"> Proposición </h2>
+        <h2 class="number-title" id="Prop:UnionInterAbiertos"> Proposición </h2>
         <ol>
             <li>
                 Intersección finita de conjuntos abiertos es abierta.
@@ -425,7 +425,10 @@
                 Unión finita de conjuntos cerrados es cerrada.
             </li>
         </ol>
-
+        <p>
+            Nota: la demostración se obtiene directamente de la <a href="#Prop:UnionInterAbiertos">Proposición 6.6</a>
+            usando las leyes de De-Morgan.
+        </p>
     </div>
 
     <div class="ejercicio-box">
@@ -526,11 +529,61 @@
         <p>
             Un punto \(p\in \mathbb{R}^n\) se llama se llama 
             punto de acumulación de \(A\) si para todo \(r>0\)
-            existe un punto \(q \in B_r(p)\cap A\) con \(q\ne p\).
+            existe un punto \(q \in B_r(p)\cap A\) con \(q\ne p\). Es decir, toda bola centrada en
+            \(p\) contiene puntos de \(A\) distintos del centro.
+        </p>
+        <p>
+            En términos de bolas perforadas tenemos que para todo \(r>0\), \(\check{B}_r(p)\cap A \ne \emptyset \).
+        </p>
+        <p>
+            Por ejemplo el \(0\) es punto de acumulación del conjunto 
+            \(\{\frac{1}{n}\}_{n=1}^\infty\) pues para toda \(r>0\) existe un 
+            natural \(m\) con \(0 < \frac{1}{m} < r\).
+        </p>
+        <p>
+            Notas: 
+            <ol>
+                <li>
+                    Los puntos de acumulación de un conjunto puden o no pertenecer al conjunto. En 
+                    el ejemplo anterior \(0\), un punto de acumulación, no pertenecen al conjunto 
+                    \(\{\frac{1}{n}\}_{n=1}^\infty\).
+                </li>
+                <li>
+                    Un punto NO es punto de acumulación de \(A\) sii existe un radio \(r_0 >0\)
+                    tal que \(\check{B}_{r_0}(p)\cap A =\emptyset\) lo cual es equivalente a 
+                    que \(\check{B}_{r_0}(p)\subseteq A^c\).
+                </li>
+            </ol>
         </p>
     </div>
 
+    <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+            Encuentra los puntos de acumulación de los siguientes conjuntos. 
+        </p>
+        <ol>
+            <li>
+                \(\mathbb{N} \subseteq \mathbb{R}\).
+            </li>
+            <li>
+                \(\mathbb{Q}\subseteq \mathbb{R}\).
+            </li>
+            <li>
+                \(\{(x,y)\in \mathbb{R}^2: x=1, y\in \mathbb{Q}\}\).
+            </li>
+            <li>
+                \(B_r(p_0)=\{ p\in \mathbb{R}^d: \|p-p_0\| < r\}\).
+            </li>
+            <li>
+                Fijamos un punto \((a_1,\dots, a_d)\in \mathbb{R}^d\) y 
+                un número \(c\in \mathbb{R}\). Considera el conjunto 
+                \(\{ (x_1,\dots, x_d)\in \mathbb{R}^d: \sum_{i=1}^d x_ia_i < c \}\).
+            </li>
+        </ol>
+        </div>
 
+    
 
     <div class="prop-box">
         <h2 class="number-title"> Proposición </h2>
@@ -538,6 +591,80 @@
             Un subconjunto \(F\subseteq \mathbb{R}^n\) es 
             cerrado si y sólo si contiene a todos sus puntos 
             de acumulación.
+        </p>
+        <button class="respButton hvr-grow "> Demostración</button>
+        <div class="resp-box">
+        <p>
+            \(\Rightarrow] \) Supongamos que \(F\) es un conjunto cerrado pero existe un 
+            punto de acumulación, digamos \(q\), tal que \(q\notin F\).
+        </p>
+        <p>
+            Ya que \(F\) es cerrado su complemento es abierto y ya que \(q\notin F\) existe un 
+            \(r>0\) tal que \(B_r(q)\) está contenido en \(F^c\). Finalmente ya que 
+            \(q\) es punto de acumulación de \(F\) existe un \(p\in F\), \(p\ne q\) con 
+            \(p\in B_r(q)\) lo cual es una contradicción pues \(p\in B_r(q)\subseteq F^c\).
+        </p>
+        <p>
+            \(\Leftarrow]\) Supongamos que todos los puntos de acumulación de \(F\)
+            pertenecen a \(F\). Debemos de probar que \(F\) es cerrado es decir, 
+            su complemento es abierto. Así pues debemos de probar que para todo punto de 
+            \(F^c\) existe una bola centrada en el punto totalmente contenida en \(F^c\).
+        </p>
+        <p>
+            Tomamos \(q\in F^c\). Ya que todos los puntos de acumulación están en \(F\) 
+            \(q\) no puede ser punto de acumulación de \(F\) por lo que 
+            existe un \(r_0>0\) tal que \(\check{B}_{r_0}(q) \subseteq F^c \) pero 
+            tomando en cuenta de que \(q\notin F\) el centro de la bola 
+            también está en \(F^c\) y por lo tanto \(B_r(q)\subseteq F^c\). 
+        </p>
+        </div>
+
+    </div>
+
+    <div class="lema-box">
+        <h2 class="number-title"> Lema </h2>
+        <p>
+            Sea \(A\subseteq \mathbb{R}^d\). Un punto \(p\in \mathbb{R}^d\) es 
+            punto de acumulación de \(A\) si y sólo si para toda \(r> 0\)
+            el conjunto \(B_r(p)\cap A\) es infinito.  
+        </p>
+        <button class="respButton hvr-grow "> Demostración</button>
+        <div class="resp-box">
+        <p>
+            \(\Rightarrow ] \) Fijamos un \(r>0\). Al ser \(p\) un punto de acumulación de \(A\)
+            existe un punto \(p_0 \in B_r(p)\cap A\) con \(p_0 \ne p\). Definimos \(r_1=\|p-p_0 \|/2 >0 \)
+            (positivo pues \(p_0\ne p\)).
+        </p>
+        <p>
+            Utilizando de nuevo que \(p\) es punto de acumulación de \(A\), para 
+            \(r_1\) existe \(p_1\in B_{r_1}(p)\cap A\) con \(p\ne p_1\).
+            Nota que \(p_1\ne p_0\) pues \(\| p-p_1\|< \|p-p_0 \|\). Definimos 
+            \(r_2=\|p-p_1\|/2 > 0\). 
+        </p>
+        <p>
+            Continuando de esta mandera dados los puntos \(p_0,\dots, p_k\) con 
+            \(\|p-p_k\|< \| p-p_{k-1}\| < \cdots < \|p-p_0\|< r \), tomamos \(r_{k+1}=\|p-p_k\|/2 >0\)
+            y un punto \(p_{k+1}\in B_{r_{k+1}}(p)\cap A\) con \(p_{k+1}\ne p\). Con esta construcción todos los 
+            puntos \(\{p_0, \dots, p_{k+1}\}\) son distintos y están en \(B_r(p)\cap A\). Con 
+            ésta construcción obtenemos un conjunto infinito \(\{p_k\}_{k\in \mathbb{N}}\) contenido en 
+            \(B_r(p)\cal A\).
+        </p>
+        <p>
+            \(\Leftarrow ]\) Es directo que si suponemos que \(B_r(p)\cap A\) es infinito entonces 
+            existe \(q\in B_r(p)\cap A\) con \(q\ne p\).
+        </p>
+        </div>
+
+    </div>
+
+    <div class="coro-box">
+        <h2 class="number-title"> Corolario </h2>
+        <p>
+            Si \(p\) es un punto de acumulación de \(A\) entonces existe \((p_n)_{n=1}^\infty\)
+            una sucesión de puntos de \(A\) tal que 
+            \[
+                \lim_{n\to \infty}\| p_n-p\|=0.
+            \]
         </p>
 
     </div>
