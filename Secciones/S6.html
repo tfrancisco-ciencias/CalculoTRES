@@ -494,6 +494,83 @@
             </li>
         </ol>
 
+        <button class="respButton hvr-grow "> Solución inciso 1</button>
+        <div class="resp-box">
+            <p>
+                Se afirma que $int(A)=\emptyset$. En efecto, sea $x \in \mathbb{R}$ y $r>0$, se
+                mostrará que $B_r(x) \not\subseteq A=\{\frac{1}{n}: n \in \mathbb{N}\}$. Si $x \notin A$
+                entonces claramente $B_r(x) \not\subseteq A$, por lo que inmediatamente se concluye que
+                $x \notin int(A)$.
+                Supongamos ahora que $x \in A$. Recordemos que entre dos números reales siempre existe un
+                número irracional, es decir, existe $y \in \mathbb{R}\setminus\mathbb{Q}$ tal que
+                $y \in B_r(x)$. Como todos los elementos de $A$ son números racionales entonces $y \notin A$
+                y por lo tanto $B_r(x) \not\subseteq A$. Concluimos que $x \notin int(A)$.
+            </p>
+        </div>
+
+        <button class="respButton hvr-grow "> Solución inciso 2</button>
+        <div class="resp-box">
+            <p>
+                Se afirma que el interior del conjunto $A=[a,b]$ es el intervalo $(a,b)$. Sea $x \in (a,b)$,
+                entonces $0<|x-a|,|x-b|$ Sea $r=\min(|x-a|,|x-b|)$, entonces si $y \in B_r(x)$ se tiene que
+                $a < y < b$ y por lo tanto $B_r(x) \subseteq A$. Con ésto se observa que
+                \begin{equation*}
+                (a,b) \subseteq int([a,b]).
+                \end{equation*}
+                Considere ahora $x \notin (a,b)$ y $r>0$. El claro que si $x \notin [a,b]$ entonces
+                $B_r(x) \not\subseteq [a,b]$, por otro lado si $x=a$ o $x=b$ entonces ya se ha visto que
+                $a-r/2 \in B_r(a)$ pero $a-r/2 < a$ y que $b+r/2 \in B_r(b)$ pero $b+r/2 > b$ por lo que
+                $x \notin int([a,b])$ y con ello
+                \begin{equation*}
+                int([a,b]) = (a,b).
+                \end{equation*}
+            </p>
+        </div>
+
+        <button class="respButton hvr-grow "> Solución inciso 3</button>
+        <div class="resp-box">
+            <p>
+                Veamos que si $A=\{(x,y) \in \mathbb{R}^2:y=0,x \in [a,b]\}$ entonces $int(A)=\emptyset$.
+                Como ya hemos visto, si $(u,v) \notin A$ entonces $(u,v) \notin int(A)$ por lo que podemos
+                considerar $(u,v) \in A$ y con ello $(u,v)=(x,0)$ para algún $x \in [a,b]$. Sea $r>0$ y note
+                que $\|(x,r/2)-(x,0)\|=r/2 < r$, por lo que $(x,r/2) \in B_r((x,0))$, sin embargo $(x,r/2) \notin A$
+                por lo que $B_r((u,v)) \not\subseteq A$ y $(u,v) \notin int(A)$.
+            </p>
+        </div>
+
+        <button class="respButton hvr-grow "> Solución inciso 4</button>
+        <div class="resp-box">
+            <p>
+                Sea $A = \{p \in \mathbb{R}^d: \|p-p_0\| \leq r\}$. Se demostrará que $int(A) = B_r(p_0)$. Sea
+                $x \in B_r(p_0)$, entonces $\|x-p_0\|< r.$ Considere $s = r-\|x-p_0\| >0$ y $z \in B_s(x).$
+                \begin{equation*}
+                \|z - p_0\| \leq \|z - x\| + \|x - p_0\| < s + \|x-p_0\| = (r-\|x-p_0\|) + \|x-p_0\| = r,
+                \end{equation*}
+                por lo que $z \in B_r(p_0)$, como $z$ es un punto arbitrario de la bola
+                $B_s(x) \subseteq B_r(p_0) ) \subseteq A$ y
+                \begin{equation*}
+                B_r(p_0) \subseteq int(A).
+                \end{equation*}
+            </p>
+            <p>
+                Sea $s>0$. Como $B_r(p_0) \cup \{p \in \mathbb{R}^2: \|p-p_0\|=r\}$ y si $p \notin A$ entonces
+                $p \notin int(A)$ entonces bastará mostar que si $\|p-p_0\|=r$ entonces $p \notin int(A)$.
+                Observe que
+                \begin{equation*}
+                \left\|p - \left(p + \frac{s(p-p_0)}{2\|p - p_0\|}\right)\right\| =  \left\| \frac{s(p-p_0)}{2\|p - p_0\|}\right\| = \frac{s}{2} < s,
+                \end{equation*}
+                por lo que $p + \frac{s(p-p_0)}{2\|p - p_0\|} \in B_s(p)$. Por otro lado
+                \begin{equation*}
+                \left\| \left( p + \frac{s(p-p_0)}{2\|p - p_0\|} \right) - p_0\right\| = \left( 1 + \frac{s}{2\|p-p_0\|}\right)\|p-p_0\|= \left( 1 + \frac{s}{2\|p-p_0\|}\right)r > r,
+                \end{equation*}
+                y con ello concluimos que $p + \frac{s(p-p_0)}{2\|p - p_0\|} \notin B_r(p)$. Como $s>0$ fue arbitraria
+                podemos deducir que no existe $s>0$ tal que $B_s(p) \supseteq A$ y por lo tanto $p \notin int(A)$, así
+                \begin{equation*}
+                int(A) = B_r(p_0).
+                \end{equation*}
+            </p>
+        </div>
+
     </div>
 
     <div class="prop-box">
@@ -503,6 +580,18 @@
             es abierto si y sólo si 
             todo punto de \(U\) es un punto interior de \(U\).
         </p>
+
+        <button class="respButton hvr-grow "> Demostración</button>
+        <div class="resp-box">
+            <p>
+                Sea $U$ un conjunto abierto y $x \in U$. Por definición existe $r>0$ tal que $B_r(x) \subseteq U$
+                y por lo tanto $x$ es un punto interior de $U$.
+            </p>
+            <p>
+                Supongamos ahora que todo punto de $U$ es punto interior, en otras palabras, para cada $x \in U$
+                existe $r>0$ tal que $B_r(x) \subseteq U$, pero ésto no es más que la definición de ser abierto.
+            </p>
+        </div>
 
     </div>
 
@@ -514,9 +603,32 @@
         </p>
         <p>
             Además prueba que 
-            es el conjunto abierto más grande contendio en \(A\), es decir, 
+            es el conjunto abierto más grande contenido en \(A\), es decir, 
             si \(U\) es abierto y \(U\subseteq A\) entonces \(U\subseteq A^o\).
         </p>
+
+        <button class="respButton hvr-grow "> Demostración</button>
+        <div class="resp-box">
+            <p>
+                Si $int(A) = \emptyset$ entonces por por vacuidad es abierto. Si $int(A) \neq \emptyset$
+                podemos considerar $x \in int(A)$. Al ser punto interior de $A$ existe $r>0$ tal que
+                $B_r(x) \subseteq A$. Veremos que $B_r(x) \subseteq int(A)$. Sea $y \in B_r(x)$, es decir,
+                $\|y-x \| < r.$ Definimos $s = r - \|y-x\| > 0$, entonces si $z \in B_s(y)$ tenemos que
+                \begin{equation*}
+                \|z - x\| \leq \|z - y\| + \|y - x\| < s + \|y - x\| = (r -\|y - x\|) + \|y - x\| = r,
+                \end{equation*}
+                por lo que $z \in B_r(x) \subseteq A$ y por lo tanto $B_s(y) \subseteq A$, lo cual significa
+                que $y \in int(A)$ y más en general que $B_r(x) \subseteq int(A)$. Con ello concluye la prueba
+                de que $int(A)$ es un conjunto abierto.
+            </p>
+            <p>
+                Veamos ahora que $int(A)$ es el abierto más grande contenido en $A$. Sea $U \subseteq A$ abierto,
+                veremos que todos los puntos de $U$ son puntos interiores de $A$. Considere $x \in U$, dado que
+                $U$ es abierto existe $r>0$ tal que $B_r(x)\subseteq U$. Por hipótesis $U \subseteq A$ así
+                $B_r(x) \subseteq A$ y se concluye que $x \in int(A)$, es decir, $U \subseteq int(A)$ y
+                el conjunto de puntos interiores de $A$ es el abierto más grande contenido en $A$.
+            </p>
+        </div>
 
     </div>
 
