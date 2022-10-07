@@ -494,6 +494,7 @@
             </li>
         </ol>
 
+
         <button class="respButton hvr-grow "> Solución inciso 1</button>
         <div class="resp-box">
             <p>
@@ -570,7 +571,6 @@
                 \end{equation*}
             </p>
         </div>
-
     </div>
 
     <div class="prop-box">
@@ -592,7 +592,6 @@
                 existe $r>0$ tal que $B_r(x) \subseteq U$, pero ésto no es más que la definición de ser abierto.
             </p>
         </div>
-
     </div>
 
     <div class="prop-box">
@@ -606,7 +605,6 @@
             es el conjunto abierto más grande contenido en \(A\), es decir, 
             si \(U\) es abierto y \(U\subseteq A\) entonces \(U\subseteq A^o\).
         </p>
-
         <button class="respButton hvr-grow "> Demostración</button>
         <div class="resp-box">
             <p>
@@ -634,7 +632,7 @@
 
 
     <div class="definicion-box">
-        <h2 class="number-title"> Definición</h2>
+        <h2 class="number-title" id="Def:PtoAcumulacion"> Definición</h2>
         <p>
             Sea \(A \subseteq \mathbb{R}^n\).
         </p>
@@ -693,11 +691,170 @@
                 \(\{ (x_1,\dots, x_d)\in \mathbb{R}^d: \sum_{i=1}^d x_ia_i < c \}\).
             </li>
         </ol>
+        <p>
+            Nota: intuitivamente un punto de acumulación de un conjunto \(A\) es un punto 
+            donde a su alrededor siempre hay una infinidad de puntos de \(A\). 
+        </p>
+        <button class="respButton hvr-grow "> Inciso 1</button>
+        <div class="resp-box">
+        <p>
+            Ya que los naturales están "separados" entre si la idea es que no tiene puntos 
+            de acumulación, es decir, el conjunto de acumulación es vacío. 
+        </p>
+        <p>
+            Para escribir 
+            lo anterior formalmente recordamos (<a href="#Def:PtoAcumulacion">notas en la 
+            Definición 6.18</a>) que punto \(p \in \mathbb{R} \) no es punto de 
+            acumulación de \(\mathbb{N}\) si existe un \(r_0>0\) tal que 
+            la bola perforada satisface \(\check{B}_{r_0}(p) \subseteq \mathbb{N}^c\). 
+            Ahora consideramos dos casos.
+        </p>
+        <p>
+            Si \(p\in \mathbb{N}\) entonces es directo que \(\check{B}_{1/2}(p)\subseteq \mathbb{N}^n\)
+            pues 
+            \[
+            \check{B}_{1/2}(p)=(p-1/2,p)\cup (p,p1/2) \Rightarrow
+            [(p-1/2,p) \cup (p,p1/2) ]\cap \mathbb{N}=\emptyset
+            \] 
+        </p>
+        <p>
+            Si \(p\in \mathbb{R}\) pero \(p\notin \mathbb{N}\) sea \(n\) el mayor entero menor o igual a 
+            \(p\). Ya que \(p\) no es entero se tiene que \(n< p < n+1\). Definimos 
+            \(r_0=\frac{1}{2}\min \{p-n, n+1-p\}\) entonces 
+            \[B_{r_0}(p)\cap \mathbb{N}=(p-r_0,p+r_0)\cap \mathbb{N}=\emptyset\]
+
+        </p>
+        </div>
+        <button class="respButton hvr-grow "> Inciso 2</button>
+        <div class="resp-box">
+        <p>
+            Para \(\mathbb{Q}\subset \mathbb{R}\) sabemos intuitivamente que alrededor de cualquier real
+            siempre hay una infinidad de racionales por lo que esto nos dice, intuitivamente, que  todo real es un 
+            punto de acumulación de \(\mathbb{Q}\). Para escribirlo formalmente procedemos como sigue.
+        </p>
+        <p>
+            Fijamos un \(p\in \mathbb{R}\) arbitrario. Debemos de probar que para toda 
+            \(r>0\), \(\check{B}_r(p)\cap \mathbb{Q} \ne \emptyset\). Ahora, tenemos que 
+            \(\check{B}_r(p)=(p-r,p) \cup (p,p+r)\) y sabemos que entre cualesquiera dos reales 
+            existe un racional por lo tanto entre \(p\) y \(p+r\) existe \(q\in \mathbb{Q}\) 
+            por lo tanto \(q\in (p,p+r)\cap \mathbb{Q} \subseteq \check{B_r}(p)\cap \mathbb{Q}\),
+            lo que implica que \(\check{B_r}(p)\cap \mathbb{Q} \ne \emptyset\).
+        </p>
+        </div>
+        <button class="respButton hvr-grow "> Inciso 3</button>
+        <div class="resp-box">
+        <p>
+            Este inciso es parecido al anterior sólo que ahora el conjunto está en \(\mathbb{R}^2\). 
+            Denotamos 
+            \(A=\{(x,y)\in \mathbb{R}^2: x=1,y\in \mathbb{Q}\}\). Afirmamos que los puntos de acumulación 
+            son los puntos de la recta 
+            \[
+            L=\{ (x,y)\in \mathbb{R}: x=1\}.
+            \]
+            Fijemos \((1,y_0)\in L\). Debemos de probar que para todo \(r>0\)
+            \(\check{B}_r((1,y_0))\cap A \ne \emptyset\).
+            Notamos que 
+            \(B_r((x_0,y_0))\) contiene al segmento \(\{(1,y): y_0-r< y < y_0+r\} \).
+            Ahora tomamos un racional \(q\) tal que \(y_0 < q < y_0+r\). Entonces 
+            \[
+            (1,q)\in \{(1,y): y_0-r< y < y_0+r\}\cap A  \subset \check{B}_r((1,y_0))\cap A
+            \]
+            por lo que \(\check{B}_r((1,y_0))\cap A \ne \emptyset\).
+        </p>
+        <p>
+            Finalmente notamos que los puntos de \(L\) son los únicos puntos de acumulación de 
+            \(A\), pues si \((x_0,y_0)\notin L\) entonces \(x_0\ne 1\) y por lo tanto 
+            \(|1-x_0|>0\). Si tomamos \(r=|1-x_0|\) entonces \(B_{r}((x_0,y_0))\cap A =\emptyset\)
+            pues todos los puntos de \(B_{r}((x_0,y_0)\) tienen su primera coordenada distinta de \(1\).
+        </p>
+        </div>
+        <button class="respButton hvr-grow "> Inciso 4</button>
+        <div class="resp-box">
+        <p>
+            Por simplicidad vamos a denotar 
+            \[
+            A=B_r(p_0).
+            \]
+        </p>
+        <p>
+            Primero notamos que los puntos en el conjunto 
+            \[
+            \{q\in \mathbb{R}^d: \| q-p_0\| > r\}
+            \] 
+            NO son puntos de acumulación de \(A\) pues por el Ejercicio 6.5, dado el 
+            punto \(q\) con \(\|q-p_0\| > r\) existe un radio \(\rho_0 > 0\) tal que 
+            \(B_{\rho_0}(q)\subseteq \{q\in \mathbb{R}^d: \| q-p_0\| > r\} \)
+            por lo que \(\check{B}_{\rho_0}(q)\cap A=\emptyset\).
+        </p>
+        <p>
+            Por lo tanto, los posibles puntos de acumulación de \(A\) están contenidos en 
+            \[
+            B:=\{ q \in \mathbb{R}^d: \| q-p_0\|\leq  r\}
+            \]
+            Afirmamos que todos los puntos de \(B\) son puntos de acumulación. Fijamos 
+            \(q\in B\) y queremos probar que para toda \(s > 0\), la bola PERFORADA tienes 
+            puntos de \(A\), es decir 
+            \[
+            \check{B}_s(q)\cap A \ne \emptyset
+            \]
+            Notamos que al tomar \(q\in B\) tenemos dos casos: \(\|q-p_0\| < r, \|q-p_0\| =r\).
+        </p>
+        <p>
+            Caso 1: \(\|q-p_0\| < r \), es decir \(q\in A\). Como la bola \(A\) 
+            es abierta por el <a>Ejercicio 6.4</a> exsite un 
+            \(\rho_0 > 0\) tal que \(B_{\rho_0}(q)\subseteq A\) lo que implica 
+            que para toda \( 0< s \leq \rho_0\), \(\check{B}_s(q) \cap A=\check{B}_s(q)\). Por lo tanto 
+            para toda \(s> 0\), 
+            \[
+             \emptyset \ne \check{B}_{\min\{s,\rho_0\}}(q)\cap A \subseteq \check{B}_s(q)\cap A  
+             \]
+        </p>
+        <p>
+            Caso 2: \(\|q-p_0\|=r\). 
+            <div class="flexbox">
+                <img src="./Images/S6-Img1.png" alt="LeyCosenos-CS" width="40%" height="auto">
+              </div>
+            <p>
+                En este caso tomamos 
+            el vector dirección \(v=\frac{1}{r}(p_0-q)\). Notar que \(\|v\|=1\). 
+            Tomamos cualquier \(t>0\) con \(t< s, r\). Afirmamos que el vector \(q+ t v \in \check{B}_s(q)\cap A\).
+            </p>
+            <p>
+                P.D. \(q+ tv \in \check{B}_s(q)\). 
+            </p>
+            <p>
+                Primeramente, \(q+tv \ne q\) pues si fuese igual entonces \( tv=0\),
+                lo cual no es cierto. Al calcular la distancia de 
+                \(q+tv\) a \(q\) obtenemos 
+                \[
+                \|q+tv- q\|=t\|v\|= t < s
+                \]
+                por lo que \(q+ tv \in \check{B}_s(q)\).
+            </p>
+            <p>
+                P.D. \(q+t v \in A\)
+            </p>
+            <p>
+                Recordar que \(A=B_r(p_0)\). Al calcular la 
+                distancia de \(q+t v \) a \(p_0\) obtenemos 
+                \begin{eqnarray*}
+                \|q+ t v - p_0 \| &=& \| tv+(q-p_0) \| \\
+                &=& |\frac{t}{r}(p_0-q) + (q-p_0)\| \\
+                &=& \| (\frac{t}{r} -1)(p_0-q)\|\\
+                &=& \left|\frac{t}{r}-1 \right|\|p_0-q\| \\
+                &=& \left|\frac{t}{r}-1 \right|r \\ 
+                &=& \frac{|t-r|}{r}r\\
+                &=& r-t < r 
+                \end{eqnarray*}
+                por lo que \(q+tv \in B_r(p_0)=A\).
+            </p>
+        </p>
+        </div>
         </div>
 
-    
+        
 
-    <div class="prop-box">
+        <div class="prop-box">
         <h2 class="number-title"> Proposición </h2>
         <p>
             Un subconjunto \(F\subseteq \mathbb{R}^n\) es 
@@ -730,6 +887,8 @@
             también está en \(F^c\) y por lo tanto \(B_r(q)\subseteq F^c\). 
         </p>
         </div>
+        
+        
 
     </div>
 
@@ -777,6 +936,15 @@
             \[
                 \lim_{n\to \infty}\| p_n-p\|=0.
             \]
+        </p>
+
+    </div>
+
+
+    <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+            Da un ejemplo de un conjunto en \(\mathbb{R}^2\) 
         </p>
 
     </div>
