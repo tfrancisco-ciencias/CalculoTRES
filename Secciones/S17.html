@@ -82,241 +82,336 @@
   </head>
   <body class="fondo-body" >
 
-    <h1 class="number-title flexbox"> Teorema de la función inversa </h1> 
+    <h1 class="number-title flexbox"> Teorema de la función implícita </h1> 
 
     
 
 
+   <div class="teorema-box">
+    <h2 class="number-title"> Teorema </h2>
+    <p>
+      Antes de enunciar el teorema usamos la siguiente convención: usamos
+      letras negritas $\mathbf{x}, \mathbf{z}$ para denotar vectores
+      y letras normales, $x,z$ para denotar escalares.
+    </p>
+    <p>
+      Sea $U$ un abierto de $\mathbb{R}^n\times \mathbb{R}^m$ que contenga
+      al punto $(\mathbf{x}_0,\mathbf{z}_0)$ y sea $F:U \to \mathbb{R}^m$
+      una función de clase $C^1$ en $U$. Nota: a los puntos
+      de primer  $\mathbb{R}^n$ los vamos a denotar $\mathbf{x}$ y a los
+      puntos del segundo $\mathbf{R}^m$ los vamos a denotar $\mathbf{z}$.
+    
+    </p>
+    <p>
+      Supongamos que $F(\mathbf{x}_0,\mathbf{z}_0)=0$
+      y que la función lineal dada por
+      $$
+      L(\mathbf{z})=D_{(\mathbf{x}_0, \mathbf{z}_0)}F(0,\mathbf{z}),
+      \mathbf{z} \in \mathbb{R}^m
+      $$
+    
+      es una función inyectiva, de $\mathbb{R}^m$ a $\mathbb{R}^m$.    
+    </p>
+    <p>
+      Entonces existe una vecindad de $\mathbf{x}_0$ en $\mathbb{R}^n$, denotada $W$
+      y una función de clase $C^1$, $G:W \to\mathbb{R}^m$ tal que
+      $G(\mathbf{x}_0)=\mathbf{z}_0$ y, para toda $\mathbf{x}\in W$,
+      $F(\mathbf{x},G(\mathbf{x}))=0$.    
+    </p>
+
+   </div> 
+
+<div class="nota-box">
+    <h2 class="number-title"> Nota</h2>
+<ol>
+
+
+<!--%<div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Este enunciado generaliza el Teorema del Marsden. En el caso
+ % del Marsden  $m=1$ en para este caso la función $L$ es simplemente
+ % multiplicar por $\partial_zF(\mathbf{x}_0,z_0)$, la cual es inyectiva
+ % si $\partial_zF(\mathbf{x}_0,z_0) \ne 0$.-->
+
+  <li>
+    La condición de que la transformación lineal
+    $L(\mathbf{z})=D_{(\mathbf{x}_0, \mathbf{z}_0)}F(0,\mathbf{z})$
+    sea inyectiva se puede reescribir usando un determinante,
+    pero se necesita algo de notación. 
+    <p>
+        Para $\mathbf{x}\in \mathbf{R}^n$ escribimos
+        $\mathbf{x}=(x_1,\dots, x_n)$
+        y a los puntos $\mathbf{z}\in \mathbf{R}^m$ los escribimos
+        $\mathbf{z}=(z_1,\dots, z_m)$. A las funciones
+        coordenadas de $F$ las escribimos $F=(f_1,\dots, f_m)$,
+        así que cada función $f_i$ se valua en
+        $f_i(x_1,\dots, x_n, z_1,\dots, z_m)$.
+      
+    </p>
+    <p>
+        La condición de que $L$ sea inyectiva es equivalente a pedir que
+        el determinante de la siguiente matriz sea distinto de cero
+        $$
+        \left[ \begin{array}{ccc}
+           \partial_{z_1}f_1(\mathbf{x}_0,\mathbf{z}_0) & \cdots
+           & \partial_{z_m}f_1(\mathbf{x}_0, \mathbf{z}_0) \\
+           \vdots & \ddots & \vdots \\
+            \partial_{z_1}f_m(\mathbf{x}_0,\mathbf{z}_0) & \cdots
+           & \partial_{z_m}f_m(\mathbf{x}_0, \mathbf{z}_0)
+               \end{array}
+               \right]
+         $$
+    </p>
+  </li>
+  
+  
+
+ <li>
+    El teorema de la función implícita se puede
+    leer de la siguiente forma. Sean $f_1,\cdots, f_m$
+    funciones clase $C^1$, definidas en un abierto de
+    $\mathbb{R}^n\times \mathbb{R}^m$ y supongamos que
+    tenemos escalares $x_1^{(0)}, \dots, x_{n}^{(0)}, z_1^{(0)}, \dots, z_m^{(0)}$
+    que satisfacen el siguiente sistema de ecuaciones:
+    \begin{eqnarray*}
+      f_1(x_1^{(0)}, \dots, x_{n}^{(0)}, z_1^{(0)}, \dots, z_m^{(0)})&=&0\\
+      f_2(x_1^{(0)}, \dots, x_{n}^{(0)}, z_1^{(0)}, \dots, z_m^{(0)})&=&0\\
+      &\vdots& \\
+      f_m(x_1^{(0)}, \dots, x_{n}^{(0)}, z_1^{(0)}, \dots, z_m^{(0)})&=&0
+    \end{eqnarray*}
+  
+    Denotemos $\mathbf{x}_0=(x_1^{(0)}, \dots, x_{n}^{(0)})$
+    y $\mathbf{z}_0=(z_1^{(0)}, \dots, z_m^{(0)})$. Entonces,
+    si
+  
+     $$
+  \det \left[ \begin{array}{ccc}
+      \partial_{z_1}f_1(\mathbf{x}_0,\mathbf{z}_0) & \cdots
+      & \partial_{z_m}f_1(\mathbf{x}_0, \mathbf{z}_0) \\
+      \vdots & \ddots & \vdots \\
+       \partial_{z_1}f_m(\mathbf{x}_0,\mathbf{z}_0) & \cdots
+      & \partial_{z_m}f_m(\mathbf{x}_0, \mathbf{z}_0)
+          \end{array}
+          \right]\ne 0
+    $$
+  
+    entonces podemos resolver el siguiente sistema, de manera única,
+    para las $z's$ en términos de las $x's$:
+  
+     \begin{eqnarray*}
+      f_1(x_1, \dots, x_n, z_1, \dots, z_m)&=&0\\
+      f_2(x_1, \dots, x_{n}, z_1, \dots, z_m)&=&0\\
+      &\vdots& \\
+      f_m(x_1, \dots, x_{n}, z_1, \dots, z_m)&=&0
+    \end{eqnarray*}
+  
+    para cuando las $(x_1,\dots, x_n)$ están cerca de $\mathbf{x}_0$.
+</li> 
+</ol>
+</div>
+
+    
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Mostrar que $xy+z+3xz^5=4$ es soluble para $z$ como
+      función de $x,y$ cerca de $(1,0,1)$. Además:
+      <ol>
+          <li>
+              calcular $\partial_xz(1,0)$ y $\partial_yz(1,0)$.
+          </li>
+          <li>
+              usando una aproximación lineal, estimar el valor de $z$
+              cuando $x=1.1$ y $y=0.5$.
+          </li>
+      </ol>
+    </p>
+  </div>
 
 
 
-
-<div class="teorema-box">
-  <h2 class="number-title"> Teorema </h2>
-  <p>
-    Sea $U$ un abierto de $\mathbb{R}^n$ y $F:U\to \mathbb{R}^n$ una
-    función de clase $C^1$ en $U$ (también llamada un campo vectorial).    
-  </p>
-  <p>
-      Sea $\mathbf{p}_0\in U$  y supongamos que la derivada de $F$ en $\mathbf{p}_0$,
-      denotada $D_{\mathbf{p}_0}F$,
-      es una biyección de $\mathbb{R}^n$ a $\mathbb{R}^n$ (es decir,
-      inyectiva y supreyectiva).
-  </p>
-  <p>
-    Entonces existe $W$, una vecindad de $\mathbf{p}_0$, tal que $F(W)$ es una
-    vecindad de $F(\mathbf{p}_0)$ donde se cunple:
-  </p>
-
-  <ol>
-    <li>
-        denotando $V:=F(W)$, $F$ es una biyección de $W$ a $V$
-        (es decir, inyectiva en $W$ y
-        suprayectiva a $V$);
-    </li>
-    <li>
-        $G:V \to W$, la  función inversa de $F$,  es continua en $V$;
-    </li>
-    <li>
-        además, $G$ es de clase $C^1$ en $V$ y si $\mathbf{q}\in V$ y
-        $\mathbf{p}=G(\mathbf{q})$
-        entonces $D_{\mathbf{q}}G$ es la inversa de $D_{\mathbf{p}}F$.
-    </li>
-  </ol>
-
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> C
+    <p>
+      Considera la superficie en $\mathbb{R}^3$ dada por
+      $$
+      2y^2z^2-2x=0
+      $$
+    </p>
+    
+    <ol>
+        <li>
+            Encuentra dos simetrias de la superficie.
+        </li>
+        <li>
+            Usar el teorema de la función implícita para verificar
+            que, para cualquier punto en la curva,
+            podemos despejar $x$ en terminos de $y$ y $z$ y usando
+            también el teorema de la función implícita
+            calcula $\partial_y x$ y $\partial_z x$
+        </li>
+        <li>
+            de manera directa despeja $x$ y usa este despeja para calcular
+            $\partial_y x$ y $\partial_z x$.
+        </li>
+        <li>
+            Usando el teorema de la función
+            implícita, prueba que cerca de los punto $(1,1,1)$ y $(1,-1,1)$ podemos
+            despejar a  $y$, en términos de las otras dos variables. Además
+            calcula $\partial_xy(1,1)$, $\partial_z y (1,1)$. Nota:
+            las parciales dependen si estás en el punto $(1,1,1)$ o $(1,-1,1)$.
+        </li>
+        <li>
+            Trata de despejar de manera directa $y$ en $2y^2z^2-2x=0$
+            para encontrar una fórmula para $y$ cerca de $(1,1,1)$
+            y para $y$ cerca de $(1,-1,1)$.
+        </li>  
+    </ol>
+    
 </div>
 
 
-
-
-
-
-<div class="nota-box">
-  <h2 class="number-title"> Notas </h2>
-  <ol>
-    <li>
-        una vecindad de un punto $\mathbf{p}$ es
-        simplemente un abierto que contiene
-        a $p$.
-    </li>
-    <li>
-        recuerda que $D_{\mathbf{p}_0}F$ es una transformación lineal cuya
-        matriz asociada en la base canónica, es la matrix de derivadas parciales
-        $\partial_{p_i}f_j(\mathbf{p}_0)$, donde $F=(f_1,\dots f_n)$.
-    </li>
-    <li>
-        $D_{\mathbf{p}_0}F$ es inyectiva sii, vista como matriz,
-        $\det(D_{\mathbf{p}_0}F)\ne 0$.
-    </li>
-    <li>
-        $D_{\mathbf{p}_0}F$ es suprayectiva sii su rango es $n$.
-    </li>
-    <li>
-        Existe un teorema de álgebra lineal que dice que,
-        dada una matriz de $n\times n$, la transformación lineal
-        (que va de $\mathbb{R}^n$ a $\mathbb{R}^n$)
-        inducida por la matriz es inyectiva si y sólo si es suprayectiva. Por
-        lo tanto, para aplicar el Teorema de la Función Inversa, es suficiente
-        checar que $\det(D_{\mathbf{p}_0}F)\ne 0$.
-        
-    </li>
-  </ol>
-</div>  
-
-
-
-    
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2>
-    <p>
-      Considera la función
-      $f:\mathbb{R}^2\setminus\{(0,0)\} \to \mathbb{R}^2$ dada por
-      $$f(x,y)=\left(\frac{x^2-y^2}{x^2+y^2}, \frac{2xy}{x^2+y^2}  \right)$$
-      
-      ¿ Tiene $f$ una inversa local
-      cerca del punto $(0,r)$, con $r>0$ ?
-    </p> 
-  </div>
-
-
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-      Considera la función $f:\mathbb{R}^2 \to \mathbb{R}^2$ dada por
-      $$
-      f(x,y)=(x^2-y^2,2xy)
-      $$
-    </p>
-    
-    <ol>
-        <li>
-            Fija una constante $\alpha\in \mathbb{R}$. Encuentra
-            las imagines inversas de las
-            curvas $u=\alpha$ y $v=\alpha$. Es decir, describe
-            los siguientes conjuntos:
-            $$
-            f^{-1}(\{(u,v)\in \mathbb{R}^2:u=\alpha \}),
-            f^{-1}(\{(u,v)\in \mathbb{R}^2: v=\alpha\}).
-            $$
-            A los puntos en el dominio de $f$ los vamos a denotar
-            como $(u,v)$ y  a los puntos en con
-            contradominio de $f$ los vamos a denotar $(u,v)$.
-        </li>
-        <li>
-            Fija una constante $\alpha \in \mathbb{R}$. Encuentra
-            las imagines directas de las
-            curvas $x=\alpha$ y $y=\alpha$. Es decir, describe los conjuntos: 
-            $$
-            f(\{(x,y)\in \mathbb{R}^2: x=\alpha \}),
-            f(\{(x,y)\in \mathbb{R}^2: y=\alpha\}).
-            $$
-        </li>
-        <li>
-            Encuentra en cuál región se transforma el 
-            rectángulo $\{(x,y):0\leq x \leq 1, 0\leq y \leq 1\}$ al aplicar $f$.      
-        </li>
-        <li>
-            Encuentra la región tal que, al aplicar $f$,
-            se obtiene el  rectángulo
-            $\{(u,v): 0\leq u \leq 1,0\leq v \leq 1\}$.
-        </li>
-        <li>
-            Demuestra que, para todo $(x,y)$, existe una vecindad
-            del punto tal que $f$ restringida a
-            dicha vecindad es inyectiva, excepto para el punto $(0,0)$.
-            Además prueba que $f$ no es inyectiva en
-            todo $\mathbb{R}^2$.
-        </li>  
-    </ol>
-  </div>
-
-    
-    
-
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-      Sea $f:\mathbb{R}\to \mathbb{R}$ una función de
-      clase $C^1$. Define $F:\mathbb{R}^2 \to \mathbb{R}^2$
-      dada por $$F(x,y)=(f(x), xf(x)-y).$$
-    </p>
-    <p>
-      Si $f'(x_0)\ne 0$ demuestra que $F$ tiene una inversa local
-      cerca de $(x_0,y_0)$ (donde $y_0$ es arbitrario).
-      Además, prueba que ésta inversa está dada por
-      $$F^{-1}(u,v)=(f^{-1}(u),uf^{-1}(u)-v).$$
-    </p>
-  </div>
-
-
-
-
-    
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2>
-    <p>
-      Sea $f:\mathbb{R}^n \to \mathbb{R}^n$ una función.
-      ¿ Es cierto que si,
-      $f$ es diferenciable en $p_0$ y $f$ admite una inversa
-      diferenciable, entonces $D_cf$ es inyectiva?
-    </p> 
-  </div>
-  
-  
-     <div class="ejercicio-box"> 
-      <h2 class="number-title"> Ejercicio</h2> 
-      <p>
-        Considera la función $f:\mathbb{R}\to \mathbb{R}$ dada por
-        $$
-        f(x)=\left\{
-          \begin{array}{cc}
-            x+2x^2\sen(1/x) & x\ne 0 \\
-            0 & x=0
-            \end{array}
-          \right.
-        $$
-
-        En este caso recuerda que $D_0f$ es simplemente $f'(0)$ y que
-        la condición de que $D_0f$ sea inyectiva simplemente se traduce
-        a $f'(0)\ne0$.
-
-      </p>
-      <p>
-        Prueba que $f'(0)$ existe, es distinta de cero, pero sin embargo,
-        $f$ no es invertible cerca de $x=0$.
-      </p>
-      <p>
-        ¿ Contradice esto el teorema de la función inversa?
-      </p>
-          
-  </div>
-
-       
-
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-      Considera la función $F(x,y)=(x^4+2xy+3,y)$ y considera las ecuaciones
+  <div class="ejercicio-box">
+     <h2 class="number-title"> Ejercicio</h2> 
+     <p>  
+      Analiza la solubilidad del sistema
       \begin{eqnarray*}
-        x^4+2xy+3&=&u \\
-        y&=&v\\
+        3x+2y+z^2+u+v^2&=&0\\
+        4x+3y+z+u^2+v+w+2&=&0\\
+        x+z+w+u^2+2&=&0\\
+      \end{eqnarray*}
+      para $u$, $v$ y $w$ en términos de $x,y$ y $z$ cerca de $x=y=z=0$,
+      $u=v=0$ y $w=-2$.
+     </p>
+  </div>
+
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2>
+    <p>
+      Investiga si el siguiente sistema
+    
+      \begin{eqnarray*}
+        u(x,y,z)&=&x+yxz \\
+        v(z,y,z)&=&y+xy\\
+        w(x,y,z)&=&z+2x+3z^2
       \end{eqnarray*}
       
-    </p>
-    <ol>
-        <li>
-            Muestra que para $(u,v)=(0,1)$, una solución es $(x,y)=(2,1)$.
-        </li>
-        <li>
-            Encuentra $D_{(x,y)}F$, para todo punto $(x,y)$.
-        </li>
-        <li>
-            Prueba que $D_{(2,1)}F$ es invertible, por lo tanto $F$
-            es invertible en una vecindad de $(2,1)$.
-              Usa una aproximación lineal para estimar
-            $F^{\langle -1 \rangle }(2.2,1.01)$.
-        </li>
-    </ol>
+      puede resolverse para $x,y,z$ (despejar $x,y$ y $z$) en términos
+      de $u,v$ y $w$, cerca del punto $(x,y,z)=(0,0,0)$.
+      
+    </p> 
   </div>
 
-  </body>
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Este ejercicio da una demostración del Teorema
+      de Lagrange con una restricción.
+    </p>
+    <p>
+      Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$ y $f,g:U\to \mathbb{R}$
+      dos funciones de clase $C^1$. Considera la superficie de nivel
+      $$
+      S=\{\mathbf{x} \in \mathbb{R}^n: f(\mathbf{x})=0\}.
+      $$
+  
+      Supongamos que $\mathbf{x}_0\in S$ es un máximo  local para $f$ en $S$ y
+      supon que $\partial_{x_n}g(\mathbf{x}_0) \ne 0$. Denotemos
+      $\mathbf{x}_0=(x_1^0, \dots, x_n^0)$.
+  
+    </p>
+
+    
+    <ol>
+        <li>
+            <p>
+                Demuestra que existe una función de clase $C^1$,
+                $\phi(x_1,\dots, x_{n-1})$, definida en
+                una vecindad de $(x^0_1,\dots, x^0_{n-1})$
+                en $\mathbb{R}^{n-1}$, tal que
+                $\phi(x^0_1,\dots, x^0_{n-1})=x^0_n$ y
+                $g(x_1,\dots, x_{n-1}, \phi(x_1,\dots, x_{n-1}))=0$.
+            </p>
+            
+            <p>
+                Para simplificar notación, si $\mathbf{x}=(x_1,\dots, x_{n})$ denotamos
+                $\hat{\mathbf{x}}=(x_1,\dots, x_{n-1})$. Con esta notación
+                $g(\hat{\mathbf{x}}, \phi(\hat{\mathbf{x}}))=0$, para toda $\mathbf{x}$
+                suficientemente cercana a $\mathbf{x}_0$.
+          
+            </p>
+            <p>
+                Sugerencia: usa el teorema de la funciín implícita.
+            </p>
+            
+            
+        </li>
+        <li>
+            Considera la función
+            $$
+            h(x_1,\dots, x_{n-1})=f(x_1,\dots, x_{n-1},\phi(x_1,\dots, x_{n-1}))
+            $$
+            con la notación del inciso anterior podemos escribir
+            $h(\hat{\mathbf{x}})=f(\hat{\mathbf{x}}, \phi(\hat{\mathbf{x}}))$.
+      
+            Demuestra que, para $i=1,\dots, n-1$:
+            $$
+            \partial_{x_i}h(\hat{\mathbf{x}})=
+            \partial_{x_i}f(\hat{\mathbf{x}},\phi(\hat{\mathbf{x}}))+
+            \partial_{x_n}f(\hat{\mathbf{x}})
+            \partial_{x_i}\phi(\hat{\mathbf{x}})
+            $$
+            <p>
+                Sugerencia: usa la regla de la cadena.
+            </p>
+            
+        </li>
+        <li>
+            Demuestra que, para $i=1,\dots, n-1$:
+            \begin{eqnarray*}
+              \partial_{x_i}f(\mathbf{x}_0)+
+              \partial_{x_n}f(\mathbf{x}_0)\partial_{x_i}\phi(\hat{\mathbf{x}}_0)=0
+            \end{eqnarray*}
+            <p>
+                Sugerencia: $h$ tiene un máximo local en $\hat{\mathbf{x}}_0$.
+            </p>
+        </li>
+        <li>
+            Demuestra que, para toda $i=1,\dots, n-1$:
+            $$
+            \partial_{x_i}g(\hat{\mathbf{x}},\phi(\hat{\mathbf{x}}))
+            + \partial_{x_n}g(\hat{\mathbf{x}},\phi(\hat{\mathbf{x}}))
+            \partial_{x_i}\phi(\hat{\mathbf{x}})=0.
+            $$
+            <p>
+                Sugerencia: para toda $\mathbf{x}$, $g(\hat{\mathbf{x}},
+                \phi(\hat{\mathbf{x}}))=0$. 
+            </p>
+
+        </li>
+        <li>
+            Demuestra que, para toda $i=1,\dots, n-1$:
+            $$
+            \partial_{x_i}\phi(\hat{\mathbf{x}}_0)=
+            -\frac{\partial_{x_i}g(\mathbf{x}_0)}{\partial_{x_n}g(\mathbf{x}_0)}
+            $$
+            <p>
+                Sugerencia: usa el inciso anterior.
+            </p>
+        </li>
+        <li>
+            Denota $\lambda=\frac{\partial_{x_n}f(\mathbf{x}_0)}
+            {\partial_{x_n}g(\mathbf{x}_0)}$. Demuestra que,
+            para toda $i=1,\dots, n-1$:
+            $$
+            \partial_{x_i}f(\mathbf{x}_0)=\lambda \partial_{x_i}g(\mathbf{x}_0)
+            $$
+            <p>
+                Además, $\partial_{x_n}f(\mathbf{x}_0)
+                =\lambda \partial_{x_n}g(\mathbf{x}_0)$
+                 Concluye que $\nabla_{\mathbf{x}_0}f=\lambda \nabla_{\mathbf{x}_0}g$.
+            </p>
+        </li>
+    </ol>
+</div>
+
+
+ </body>

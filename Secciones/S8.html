@@ -81,526 +81,359 @@
   </head>
   <body class="fondo-body" >
 
-    <h1 class="number-title flexbox"> Aproximación lineal </h1> 
+    <h1 class="number-title flexbox"> Diferenciabilidad </h1> 
 
 
-          
-        
-              
-    <div class="ejercicio-box"> 
-        <h2 class="number-title" id="Ejer:AproxLineal"> Ejercicio </h2> 
+ 
+    <div class="definicion-box"> 
+        <h2 class="number-title" id="Def:DerivadaR2"> Definición </h2>
         <p>
-            Sea $U$ un abierto de $\mathbb{R}^n$,  $p_0\in U$ y $f:U\to \mathbb{R}$
-            una función diferenciable en $p_0$.
-            Demuestra que existe una función $E_{p_0}(p)$, definida en $B_r(p_0)$,  bola centrada en $p_0$,
-            que satisface
+            Sea $U\subseteq\mathbb{R}^2$ un abierto y $f:U\to \mathbb{R}$ una función.
         </p>
         <p>
-            <ol>
-                <li>
-                    para toda $p\in B_r(p_0)$, $f(p)=f(p_0)+\langle \nabla_{p_0}f, p-p_0 \rangle +E_{p_0}(p)$
-                </li>
-                <li>
-                    $\lim_{p\to p_0} \frac{|E_{p_0}(p)|}{\|p-p_0\|}=0$
-                </li>
-              </ol>
-        
-        </p>
-        <p>
-            Sugerencia: simplemente define $E_{p_0}(p):=f(p)-f(p_0)- \langle \nabla_{p_0}f, p-p_0 \rangle$
-            y prueba que el límite que se pide es cero.
-        </p>
-    </div>
-
-        
-        
-      <div class="definicion-box"><h2 class="number-title">  Definición</h2>
-        <p>
-            Sea $U\ne \emptyset $  un abierto de $\mathbb{R}^n$,
-            $p_0\in U$ y $f:U\to \mathbb{R}$ una función diferenciable en $p_0$.
-    
-            A la función
-            $$L_{p_0}(p)= f(p_0)+ \langle \nabla_{p_0}f, p-p_0 \rangle$$
-           
-            se le llama la aproximación
-            de orden 1 (o lineal) para $f$ alrededor de $p_0$.
-        </p>
-      </div>
-
-      
-      
-
-    <div class="ejercicio-box"> 
-        <h2 class="number-title" id="Ejer:CaracterizacionAproxLineal"> Ejercicio </h2>
-        <p>
-            Este ejercicio es importante pues da un criterio para que una función sea diferenciable. El criterio
-            dice que si una función admite una aproximación lineal entonces es diferenciable.	
-        </p>
-        <p>
-            Sea $U$ un abierto de $\mathbb{R}^n$, $p_0\in U$ y $f:U\to \mathbb{R}$ una función.
-        </p>
-        <p>
-            Supongamos que existe una bola abierta $B_r(p_0)\subseteq U$,
-            una función $\tilde{E}:B_r(p_0) \to \mathbb{R}$
-            y una función lineal $T:\mathbb{R}^n \to \mathbb{R}$ que satisfacen
-    
-            <ol>
-                <li id="Hip:1">
-                    para $p\in B_r(p_0)$, $f(p)=f(p_0)+T(p-p_0)+\tilde{E}(p)$
-                </li>
-                <li id="Hip:2">
-                    $$
-                    \lim_{p \to p_0} \frac{|\tilde{E}(p)|}{\|p-p_0\|}=0
-                    $$
-                </li>
-            </ol>
-            Entonces $f$ es diferenciable en $p_0$ y la matriz (renglón) de derivadas
-            parciales,  es la matriz que representa a la función lineal $T$.
-        </p>
-        
-    </div>
-
-      
-
-        
-      
-
-      <div class="ejercicio-box"> 
-        <h2 class="number-title"> Ejercicio </h2> 
-        <p>
-            Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$, $p_0\in U$ y $f,g :U \to \mathbb{R}$
-            funciones diferenciables en $p_0$. Usando aproximaciones
-            lineales (ejercicio \ref{Ejer:CaracterizacionAproxLineal}) demuestra
-            que $cf+g$ es diferenciable (donde  $c\in \mathbb{R}$)
-            en $p_0$ y
+            Dado un punto $(x_0,y_0)\in U$, decimos que $f$ es diferenciable en $(x_0,y_0)$ si,
+            existe una función lineal $T:\mathbb{R}^2 \to \mathbb{R}$, tal que
             $$
-            \nabla_{p_0}(cf+g)=c\nabla_{p_0} f+ \nabla_{p_0}g.
+            \lim_{(x,y)\to (x_0,y_0)} \frac{|f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0))  |}{\|(x-x_0,y-y_0)\|}=0
             $$
-    
+            
+            Si es así, la función lineal $T$ se llama la derivada de $f$ en $(x_0,y_0)$ y la vamos
+            a denotar $D_{(x_0,y_0)}f$.
         </p>
-      </div>
+        <p>
+            Nota: lo más importante que uno debe darse cuenta es que, ahora, la derivada
+            valuada en un punto dado es una función, no un número. 
+        </p>
+   </div>
 
-  <div class="ejercicio-box"> 
+  
+<div class="ejercicio-box"> 
     <h2 class="number-title"> Ejercicio </h2> 
     <p>
-        Considera la función $f:\mathbb{R}^2 \to \mathbb{R}$
-        dada por $f(p)=\sqrt{x^2+y^2}$. Durante este ejercicio vamos a suponer que $f$ es diferenciable
-        en todo punto $(x_0,y_0)\ne (0,0)$.
-    </p>
-    <p>
-        <ol>
-            <li>
-                Demuestra que la  aproximación lineal de $f(x,y)=\sqrt{x^2+y^2}$,
-                cerca del punto $(x_0,y_0)\ne (0,0)$ está dada por
-                $$
-                L(x,y)=\sqrt{x_0^2+y_0^2}+\frac{x_0}{r_0}(x-x_0)+\frac{y_0}{r_0}(y-y_0) 
-                $$
-                donde $r_0=\sqrt{x_0^2+y_0^2}$.
-            </li>
-            <li>
-                Lo anterior se puede escribir
-                $$
-                \sqrt{x^2+y^2}\approx \sqrt{x_0^2+y_0^2}+\frac{x-x_0}{r_0}+\frac{y-y_0}{r_0}
-                $$
-                donde $(x,y)$ es un punto cercano a $(x_0,y_0)$.
-            </li>
-            <li>
-                Usando lo anterior estima $\sqrt{(3.1)^2+(4.2)^2}$.
-            </li>
-        </ol>
-    </p>
-  </div>
-    
-    
-
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2> 
-    <p>
-        Usando el ejercicio \ref{Ejer:AproxLineal}, estima las siguientes cantidades
-    </p>
-    <ol>
-        <li>
-            $\sqrt{(9.1)(15.9)}$.
-        </li>
-        <li>
-            $\sqrt{(4.1)^2+(3.95)^2+(2.01)^2}$
-        </li>
-        <li>
-            $(2.01)^3+(1.99)^3-5(2.01)(1.99)$
-        </li>
-    </ol>
- </div>
-
-  <div class="ejercicio-box"> 
-    <h2 class="number-title" id="Ejer:DifProductoDos1D"> Ejercicio </h2> 
-    <p>
-        Sean $g,h:\mathbb{R} \to \mathbb{R}$ funciones diferenciables.
-    </p>
-    <p>
-        Fija
-        dos puntos $x_0,y_0\in \mathbb{R}$ y  considera las aproximaciones lineales
-        de $g$ y $h$ alrededor de $x_0$ y $y_0$ respectivamente, es decir
-        \begin{equation}\label{Eqn:Ejer1DAproxLinealg}
-          g(x)=g(x_0)+g'(x_0)(x-x_0)+E_1(x)
-        \end{equation}
-        done   $\lim_{x\to x_0} \frac{|E_1(x)|}{|x-x_0|}=0$;
-        \begin{equation}\label{Eqn:Ejer1DAproxLinealh}
-          h(y)=h(y_0)+h'(y_0)(y-y_0)+E_2(y)
-        \end{equation}
-        donde  $\lim_{y\to y_0}\frac{|E_2(y)|}{|y-y_0|}=0$.
-    </p>
-    <p>
-        Considera la función de dos variables $f:\mathbb{R}^2 \to \mathbb{R}$ dada por
-        $f(x,y)=g(x)h(y)$.
-        <ol>
-            <li>
-                Multiplica las ecuaciones \eqref{Eqn:Ejer1DAproxLinealg} y  \eqref{Eqn:Ejer1DAproxLinealg}
-                para probar que
-                $$
-                f(x,y)=f(x_0,y_0)+g'(x_0)h(y_0)(x-x_0)+g(x_0)h'(y_0)(y-y_0)+\tilde{E}(x,y)
-                $$
-                donde
-                \begin{eqnarray*}
-                \tilde{E}(x,y)&=&g'(x_0)h'(y_0)(x-x_0)(y-y_0)+E_1(x)E_2(y) \\
-                &+ & E_1(x)(h(y_0)+h'(y_0)(y-y_0))\\
-                 &+&E_2(y)(g(x_0)+g'(x_0)(x-x_0))
-                \end{eqnarray*}      
-            </li>
-            <li>
-                Demuestra que
-                $$
-                \lim_{(x,y)\to (x_0,y_0)}\frac{|\tilde{E}(x,y)|}{\|(x-x_0, y-y_0)\|}=0.
-                $$
-            </li>
-            <li>
-                Usando el ejercicio \ref{Ejer:CaracterizacionAproxLineal} concluye
-                que $f$ es diferenciable en $(x_0,y_0)$ y que
-                $$
-                \nabla_{(x_0,y_0)}f=( g'(x_0)h(y_0), g(x_0)h'(y_0)  )
-                $$
-            </li>
-            <li>
-                Usando el ejercicio anterior estima $\sen(\frac{\pi}{2}+\frac{\pi}{10})e^{0.1}$. 
-            </li>
-        </ol>
-    
+        Demuestra que toda función constante $f:\mathbb{R}^2 \to \mathbb{R}$
+        es diferenciable en todo punto $(x_0,y_0)$. Es más, demuestra que $D_{(x_0,y_0)}f$
+        es la función constante cero.
     </p>
 </div>
-    
-    
 
 
-  <div class="ejercicio-box"> 
-    <h2 class="number-title" id="Ejer:DifPolinomios"> Ejercicio </h2>
-    <p>
-        Este ejercicio muestra que todo polinomio en dos variables es diferenciable en todo
-        punto de $\mathbb{R}^2$.
-    </p>
-    <p>
-        <ol>
-            <li>
-                Dados naturales $n,m\geq 0$ considera la función $f:\mathbb{R}^2\to \mathbb{R}$
-                dada por $f(x,y)=x^ny^m$. Demuestra que $f$ es diferenciable en todo punto de $\mathbb{R}^2$.
-                <p>
-                    Sugerencia: usa el ejercicio \ref{Ejer:DifProductoDos1D}
-                </p>
-            </li>
-            <li>
-                Un polinomio en dos variables en una función de la forma
-                $$
-                p(x,y)= \sum_{i=1}^N \alpha_i x^{n_i}y^{m_i}
-                $$
-                donde, para $i=1,\dots, N$,  $\alpha_i\in \mathbb{R}$ y $n_i,m_i\geq 0$ son naturales.
-                <p>
-                    Demuestra que $p$ es diferenciable en todo punto de $\mathbb{R}^2$.
-                </p>
-                <p>
-                    Nota: también se puede probar que todo polinomio en $n$-variables es diferenciable.
-                </p>
-            </li>
-            <li>
-                Considera el polinomio en dos variables
-                $$p(x,y)= a + bx+ cy + \sum_{i=1}^N x^{i}y^{i+1}$$
-                donde $a,b,c\in \mathbb{R}$ y $N\geq 1$ es un natural.
-                <p>
-                    Encuentra su aproximación lineal de $p$ cerca del $(0,0)$.
-                </p>
-                <p>
-                    Sugerencia: primero prueba que, $\lim_{(x,y)\to (0,0)} \frac{|x^ny^m|}{\|(x,y)\|}=0$ si
-                    $n,m\geq0$ son naturales con $n+m\geq 2$ y después usa el ejercicio
-                    \ref{Ejer:CaracterizacionAproxLineal}.
-                </p>
-            </li>
-        </ol>
-    </p>
-  </div>
-
-    
-    
-
-  <div class="ejercicio-box"> 
+<div class="ejercicio-box"> 
     <h2 class="number-title"> Ejercicio </h2> 
     <p>
-        Sea $U$ un abierto de $\mathbb{R}^n$  y $g,h:U\to \mathbb{R}$ dos funciones.
-        Sea $p_0 \in U$ un punto tal que tanto $g$ como $h$ son diferenciables en $p_0$.
+        Sea $f:\mathbb{R}^2 \to \mathbb{R}$ una función lineal. Demuestra
+        que $f$ es diferenciable en todo punto $(x_0,y_0)$. Es más, demuestra
+        que $D_{(x_0,y_0)}f=f$.
     </p>
-    <p>
-        Considera las aproximaciones lineales de $g$ y $h$ en $p_0$, es decir
-        \begin{equation}\label{Eqn:EjerAproxLinealg}
-          g(p)=g(p_0)+ \langle \nabla_{p_0}g, p-p_0 \rangle  + E_1(p)
-        \end{equation}
-        con $\lim_{p\to p_0}\frac{|E_1(p)|}{\|p-p_0\|}=0$ y
-        \begin{equation}\label{Eqn:EjerAproxLinealh}
-          h(p)=h(p_0)+\langle  \nabla_{p_0}h, p_k -p_0 \rangle + E_2(p)
-        \end{equation}
-        con $\lim_{p\to p_0}\frac{|E_2(p)|}{\|p-p_0\|}=0$.
-    </p>
-    <p>
-        Define $f(p)=g(p)h(p)$.
-        <ol>
-            <li>
-                Multiplicando las ecuaciones \eqref{Eqn:EjerAproxLinealg} y \eqref{Eqn:EjerAproxLinealh}
-                demuestra que
-                $$
-                f(p)= f(x_0,y_0)+ \langle h(p_0)\nabla_{p_0}g+ g(p_0)\nabla_{p_0}h, p-p_0 \rangle +\tilde{E}(p)
-                $$
-                donde
-                \begin{eqnarray*}
-                \tilde{E}(p)&=& \langle \nabla_{p_0}g, p-p_0\rangle \langle \nabla_{p_0}h,p-p_0  \rangle +E_1(p)E_2(p) \\
-                &+ & E_1(p)(h(p_0)+ \langle \nabla_{p_0}h, p-p_0 \rangle )\\
-                 &+&E_2(y)(g(p_0) + \langle \nabla_{p_0}g, p-p_0 \rangle)
-               \end{eqnarray*}
+</div>
+
+
+<div class="nota-box">
+    <h2 class="number-title"> Nota</h2>
+    <ol>
+        <li>
+            Cuando escribimos  $D_{(x_0,y_0)}f$ es importante notar que se representa
+            a una función lineal, la cual puede ser evaluada en un punto $(x,y)$, lo cual
+            se denota $(D_{(x,_0,y_0)}f)(x,y)$.
+        </li>
+        <li>
+            ya que $D_{(x_0,y_0)}f$ es una función lineal que va de $\mathbb{R}^2$ a $\mathbb{R}$,
+            sabemos (ver ejercicio \ref{Ejer:TeoRiesz}) que existe
+            un vector $(a,b)$ tal que
+            $$
+            (D_{(x_0,y_0)}f)(x,y)=\langle (a,b), (x,y)\rangle=ax+by. 
+            $$
+            Por esto, el vector renglón $[a,b]$ es la matriz que
+            representa a $D_{(x_0,y_0)}f$. Aveces se identifica la
+            transformación lineal  con su matriz y se escribe
+            $D_{(x_0,y_0)}f=[a,b]$.
+        </li>
+        <li>
+            También se pueden encontrar con  la notación $Df(x_0,y_0)$, para
+            indicar la defivada de $f$ en el punto $(x_0,y_0)$. Con esta notación,
+            el evaluar la derivda en el punto $(x,y)$ se denota $Df(x_0,y_0)(x,y)$.
+        </li>
+  </ol>
+</div>  
+  
+  
+
           
-            </li>
-            <li>
-                Demuestra que $\lim_{p\to p_0} \frac{|\tilde{E}(p)|}{\|p-p_0 \|}=0$.
-            </li>
-            <li>
-                Usando el ejercicio \ref{Ejer:CaracterizacionAproxLineal} concluye que $f$ es diferenciable
-                en $p_0$ y que
-                $$
-                \nabla_{p_0}(gh)=g(p_0)\nabla_{p_0}h + h(p_0)\nabla_{p_0}g.
-                $$
-            </li>
-        </ol>
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2>  
+    <p>
+        Considera la función, $f(x,y)=x^2+y^2$.
     </p>
-  </div>
-    
+    <p>
+        Fija un punto $(x_0,y_0)$ en $\mathbb{R}^2$ y considera la transformación lineal
+        $T:\mathbb{R}^2 \to \mathbb{R}$ dada por $T(x,y)=2x_0x+2y_0y$.      
+    </p>
+    <p>
+        Prueba que
+        $$
+        \lim_{(x,y)\to (x_0,y_0)} \frac{|f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)|}{\| (x-x_0,y-y_0)\|}=0
+        $$      
+        Concluye que $f$ es diferenciable en $(x_0,y_0)$ con $D_{(x_0,y_0)}f=T$ y
+        la matriz renglón $[2x_0 2y_0]$ representa a $D_{(x_0,y_0)}f$.
+    </p>
+</div>
 
-    
-
-  <div class="ejercicio-box"> 
+  
+  
+  
+  
+<div class="ejercicio-box"> 
     <h2 class="number-title"> Ejercicio </h2> 
     <p>
-        Considera  la función  $r:\mathbb{R}^3 \to \mathbb{R}$ dada por $r(x,y,z)=\|(x,y,z)\|$. Durante
-        este ejercicio vamos a suponer que $r$ es difeferenciable en todo punto $(x_0,y_0,z_0)\ne (0,0,0)$.
+        Considera la función $f(x,y)=xy$. Fija $(x_0,y_0)\in \mathbb{R}^2$ y considera la función lineal $T:\mathbb{R}^2 \to \mathbb{R}$
+        dada por $T(x,y)=y_0x+x_0y$.
     </p>
     <p>
-        Por simplicidad vamos a denotar: $p_0=(x_0,y_0,z_0)$.
+        Prueba que
+        $$
+        \lim_{(x,y)\to (x_0,y_0)} \frac{|f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)|}{\| (x-x_0,y-y_0)\|}=0
+        $$
+        
+        Hint: primero prueba
+        $$
+        f(x,y)-f(x_0,y_0)- T(x-x_0,y-y_0) = (x-x_0)(y-y_0)
+        $$
+      
+        Concluye que $f$ es diferenciable en todo punto $(x_0,y_0)$, $D_{(x_0,y_0)}f=T$ y la
+        matriz renglón $[y0 x_0]$ representa a $D_{(x_0,y_0)}f$.      
+    </p>
+</div>
+
+  
+
+  
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title" id="Ejer:ParcialesYDerivada"> Ejercicio </h2> 
+    <p>
+        Sea $U$ un abierto en $\mathbb{R}^2$ y $f:U\to \mathbb{R}$. Considera un punto
+        $(x_0,y_0)\in U$. Supon que $f$ es diferenciable en $(x_0,y_0)$. Sea $T:\mathbb{R}^2 \to \mathbb{R}$
+        la función lineal tal que
+        \begin{equation}\label{Eqn:LimiteDerivadaEjer}
+        \lim_{(x,y)\to (x_0,y_0)}\frac{|f(x,y)-f(x_0,y_0)-T(x-x_0, y-y_0)|}{\| (x-x_0,y-y_0) \|}=0.
+        \end{equation}      
+    </p>
+    <p>
+        Como $T$ es lineal sabemos que existen $a,b$ tales que $T(x,y)=ax+by$.
         <ol>
-            <li>
-                Demuestra que $\nabla_{p_0}r$ es el  vector unitario, en la misma dirección que
-                $p_0$.
-            </li>
-            <li>
-                Demuestra que $\nabla_{p_0}(r^n)=[nr^{(n-2)}(x_0)]p_0$, donde $n \geq 1$ es un natural.
-            </li>
-            <li>
-                La fórmula del inciso anterio ¿ es válida si $n$ es un entero negativo?
-            </li>
+          <li>
+              Tomando puntos de la forma $p=(x_0+s,y_0)$, $s\ne 0$, demuestra
+              que el límite \eqref{Eqn:LimiteDerivadaEjer}
+              implica que $\partial_xf(x_0,y_0)$ existe y $\partial_xf(x_0,y_0)=a$.
+          </li>
+          <li>
+              Tomando puntos de la forma $p=(x_0,y_0+t)$, $t\ne 0$, demuestra
+              que el límite \eqref{Eqn:LimiteDerivadaEjer}
+              implica que $\partial_yf(x_0,y_0)$ existe y $\partial_yf(x_0,y_0)=b$.
+          </li>
+        </ol>
+        
+        
+        En otras palabras, la representación de $D_{(x_0,y_0)}f$ como matriz, es la matriz renglón dada por:
+        $$
+        [\partial_xf(x_0,y_0) \partial_yf(x_0,y_0)].
+        $$
+      
+    </p>
+</div>
+
+
+  <div class="definicion-box"> 
+    <h2 class="number-title"> Definición </h2>
+    <p>
+        Dada una función $f:U\to \mathbb{R}$ y un punto $(x_0,y_0)\in U$, el gradiente de
+        $f$ en $(x_0,y_0)$,
+        denotado $\nabla_{(x_0,y_0)}f$ se define como el vector formado por todas las derivadas parciales.
+        $$
+        \nabla_{(x_0,y_0)}f= (\partial_xf(x_0,y_0), \partial_yf(x_0,y_0)  )
+        $$
+        siempre y cuando las parciales existan.
+    </p>
+    <p>
+        En otras palabras, si $f$ es diferenciable en $(x_0,y_0)$ tenemos que:
+        $$(D_{(x_0,y_0)}f)(x,y)= \langle \nabla_{(x_0,y_0)}f, (x,y) \rangle, \quad \forall (x,y)\in \mathbb{R}^2 $$    
+    </p>
+    <p>
+        Sin embargo, puede pasar que todas las derivadas parciales existan pero la función no sea
+        diferenciable (ver ejercicio  \ref{Ejer:ExistenParcialesPeroNoDif}).
+    </p>
+  </div>
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+    <p>
+        Para cada una de las siguientes funciones calcula el gradiente.
+        <ol>
+          <li>
+              $f(x,y)=\frac{xy}{(x^2+y^2)^{1/2}}$
+          </li>
+          <li>
+              $f(x,y)=\log(x^2+y^2)$
+          </li>
+          <li>
+              $f(x,y)=\frac{x}{y}+\frac{y}{x}$
+          </li>
         </ol>
     </p>
-  </div>
-    
-    
-    
-    
-    
-        <div class="ejercicio-box"> 
-            <h2 class="number-title"> Ejercicio </h2> 
-            <p>
-                Sea $q_0$ un vector fijo en $\mathbb{R}^n$ y define $f:\mathbb{R}^n \to \mathbb{R}$
-                por $f(p)=\langle q_0, p \rangle$. Demuestra que $f$ es diferenciable en todo punto $p \in \mathbb{R}^n$
-                y encuentra $\nabla_p f$.
-            </p>
-        </div>
+</div>
 
-    
-   <div class="ejercicio-box"> 
-    <h2 class="number-title" id="Ejer:AproxLinealReglaCadena"> Ejercicio </h2> 
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title" id="Ejer:ExistenParcialesPeroNoDif"> Ejercicio </h2> 
     <p>
-        Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$, $p_0\in U $ y $g:U \to \mathbb{R}$
-        una función diferenciable en $p_0$.
-        <ol>
-            <li>
-                Demuestra que existe una bola $B_r(p_0)$, una función
-                $F:B_{r}(p_0) \to \mathbb{R}$ tal que
-            </li>    
-          <ol>
-            <li>
-                para toda $p\in B_r(p_0)$, $g(p)=g(p_0)+\langle \nabla_{p_0}g, p-p_0\rangle +\|p-p_0\|F(p)$,
-            </li>
-            <li>
-                $\lim_{p\to p_0}F(p)=0$,
-            </li>
-            <p>
-                Sugerencia: si $E$ es la función error de la aproximación lineal de $g$ en $p_0$ define:
-                $$
-                F(p)=\left\{
-                  \begin{array}{cc}
-                    \frac{E(p)}{\|p-p_0\|} & p\ne p_0 \\
-                    0 & p=p_0.
-                  \end{array}
-                \right.
-                $$
-            </p>
-          </ol>
-            <li>
-                Demuestra que existe una bola $B_s(p_0)$ tal que para toda $p\in B_s(p_0)$,
-                $\|F(p)\|\leq 1/2$.
-                <p>
-                    Sugerencia: en la definición $\varepsilon,\delta$ del límite $\lim_{p\to p_0}F(p)=0$
-                    toma $\varepsilon =1/2$.
-                </p>
-            </li>
-            <li>
-                Demuestra que  para toda $p\in B_s(p_0)$
-                $$
-                |g(p)-g(p_0)|\leq \|p-p_0\| (\|\nabla_{p_0}g\|+1/2).
-                $$
-                <p>
-                    Sugerencia: usa el inciso anterior y la desigualdad de Cacuchy-Schwartz.          
-                </p>
-            </li>
-        </ol>    
+        El ejercicio \ref{Ejer:ParcialesYDerivada} muestra que las derivadas parciales y la derivada
+        están muy relacionadas, pero éste ejercicio muestra que no son equivalentes. Es decir,
+        una función puede admitir derivadas parciales sin ser diferenciable.      
     </p>
-  </div>
-
-
-    <div class="ejercicio-box"> 
-        <h2 class="number-title"> Ejercicio </h2>  
-        <p>
-            Considera la función  $t\mapsto 1/t$, definida para $t\in \mathbb{R}, t\ne 0$.
-
-            <ol>
-              <li>
-                  Prueba que,  dado $t_0\ne 0$ fijo y arbitrario, existe $s>0$ tal que para toda $t\in B_s(t_0)$  
-                  $$
-                  \frac{1}{t}=\frac{1}{t_0}-\frac{1}{t_0^2}(t-t_0)+|t-t_0|F_1(t)
-                  $$
-                  donde $\lim_{t\to t_0} |F_1(t)| =0$.
-              </li>
-              <li>
-                  Sean $a,b\in \{1,2,3,4,5,6,7,8,9\}$ tal que $a+b=10$. Usa el inciso anterior para
-                  probar que el inverso multiplicativo de $1.a$ es aproximadamente $0.b$.
-              </li>
-          </ol>
-          
-        </p>
-    </div>
-
-
-        <div class="ejercicio-box"> 
-            <h2 class="number-title" id="Ejer:ReglaCadenaInversoMult"> Ejercicio </h2> 
-            <p>
-                Este ejercicio muestra que si $g$ es diferenciable, y distinta de cero, 	entonces
-                $1/g$ es diferenciable.            	
-            </p>
-            <p>
-                Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$ y $p_0\in U$.
+    <p>
+        Considera la función
+        $$
+        f(x,y)=\left\{
+          \begin{array}{cc}
+            \frac{xy^2}{x^2+y^2} & (x,y)\ne (0,0) \\
+            0 & (x,y)=(0,0)
+          \end{array}
+        \right.
+          $$
                 <ol>
-                   <li>
-                       Sea $g:U\to \mathbb{R}$, diferenciable en $p_0$ con $g(p_0)\ne 0$. Demuestra
-                       que existe una bola $B_r(p_0)$, tal que para toda
-                       $p\in B_r(p_0)$
-                       $$
-                       \frac{1}{g(p)}=\frac{1}{g(p_0)} -\frac{1}{g(p_0)^2}(g(p)-g(p_0))+ |g(p)-g(p_0)|F_1(g(p))
-                       $$
-                       donde $\lim_{t\to g(p_0)}|F_1(t)|=0$.
-                   </li>
-                   <li>
-                       Demuestra que, para todo $p\in B_r(p_0)$, $p\ne p_0$
-                       \begin{eqnarray*}
-                         \frac{1}{g(p)}=\frac{1}{g(p_0)}+ \langle \frac{-1}{g(p_0)^2}\nabla_{p_0}g, p-p_0\rangle 
-                                         +\|p-p_0\| \tilde{F}(p)
-                       \end{eqnarray*}
-                       donde
-                       $$
-                       \tilde{F}(p)=-\frac{1}{g(p_0)^2}F_2(p)+ \frac{|g(p)-g(p_0)|}{\|p-p_0\|}F_1(g(p)).
-                       $$
-                       y $F_2$ es una función que satisface $\lim_{p\to p_0}F_2(p)=0$.
-                       <p>
-                           Sugerencia: usa el inciso anterior y ejercicio \ref{Ejer:AproxLinealReglaCadena}
-                           para reescribir $g(p)-g(p_0)$.          
-                       </p>
-                   </li>
-                   <li>
-                       Demuestra que $\tilde{F}$, la función del inciso anterior satisface $\lim_{p\to p_0}\tilde{F}(p)=0$.
-                   </li>
-                   <li>
-                       Concluye, del ejercicio \ref{Ejer:CaracterizacionAproxLineal}, que la función $p\mapsto 1/g(p)$
-                       es diferenciable en $p_0$ con
-                       $$
-                       \nabla_{p_0}(1/g)= -\frac{1}{g(p_0)^2}\nabla_{p_0}g.
-                       $$
-                   </li>
-               </ol>
-            </p>
-         </div>    
+                  <li>
+                      Demuestra, usando la definición de límite de las derivas parciales,
+                      que $\partial_xf(0,0)=0=\partial_yf(0,0)$.
+                  </li>
+                  <li>
+                      Demuestra que $f$ no es diferenciable en $(0,0)$.
+                  </li>
+                </ol>
+    </p>
+  </div>        
 
-      
+  <div class="definicion-box"> 
+    <h2 class="number-title"> Definición </h2>
+    <p>
+        Sea $U$ un abierto de $\mathbb{R}^2$, $(x_0,y_0)\in U$ y $f:U\to \mathbb{R}$ una función
+        diferenciable en $p_0$. El plano tangente a la gráfica de $f$ en el punto $(x_0,y_0)$ se define como
+        como
+        $$
+        z=f(x_0,y_0)+[\partial_xf(x_0,y_0)](x-x_0)+[\partial_yf(x_0,y_0)]
+        (y-y_0)
+        $$
+        Nota, de la ecuación, de que el vector normal al plano tangente es
+        $$N=(\partial_xf(x_0,y_0), \partial_yf(x_0,y_0), -1)$$
+    </p>
+  </div>
+  
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+    <p>
+        Para cada una de las siguientes superficies encuentra la
+        ecuación del plano tangente en el punto indicado.
+        <ol>
+          <li>
+              $z=x^2+y^3$ en $(1,2,9)$.
+          </li>
+          <li>
+              $z=e^{x^2+xy}$ en $(0,1,1)$.
+          </li>
+          <li>
+              $x^2+y^2+z^2=1$ en $(1/\sqrt{3}, 1/\sqrt{3}), 1/\sqrt{3})$.
+          </li>
+          <li>
+              $x^2+y^2-z^2=1$ en $(1,2,-2)$.
+          </li>
+        </ol>
+    </p>
+</div>
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+    <p>
+        ¿ En dónde cruza al eje $z$
+          el plano tangente a $z=2e^{x-y}$ en $(1,1,2)$ ?       
+    </p>
+</div>
+
+
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+    <p>
+        Considera la superficie $z^2-x^2-y^2=0$ y sea $(x_0,y_0,z_0)\ne(0,0,0)$ un 
+        punto en la superficie. Demuestra que el plano tangente a la superficie
+        que pasa por $(x_0,y_0,z_0)$ pasa por el origen y forma un ángulo de $45$
+        con el eje $z$.
+    </p>
+  </div>
+
+
     
-    <div class="ejercicio-box"> 
-        <h2 class="number-title"> Ejercicio </h2> 
+    <div class="definicion-box"> 
+        <h2 class="number-title" id="Def:DerivadaRn"> Definición </h2>
         <p>
-            Este ejercicio generaliza el ejercicio \ref{Ejer:ReglaCadenaInversoMult}.
+            Esta definición generaliza la definicion \ref{Def:DerivadaR2}
         </p>
         <p>
-            Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$, $p_0\in U$ y
-            $g:U \to \mathbb{R}$ una función diferenciable.
-        </p>
-        <p>
-            Asume que $u:I \to \mathbb{R}$ es una función de una variable
-            definida y diferenciable en todo punto del  intervalo $I$ que satisface $g(U)\subset I$.
-      
-            <ol>
-              <li>
-                  Fija $t_0\in I$. Prueba que existe una bola  $B_s(t_0)$, tal que, para toda
-                  $t\in B_s(t_0)$
-                  $$
-                  u(t)=u(t_0)+u'(t_0)(t-t_0)+|t-t_0|F_1(t)
-                  $$
-                  donde $F_1$ es una función que satisface $\lim_{t\to t_0}|F_1(t)|=0$.
-              </li>
-              <li>
-                  Demuestra que existe una bola $B_r(p_0)$ tal que, para toda $p\in B_r(p_0)$
-                  $$
-                  u(g(p))=u(g(p_0))+ u'(g(p_0))(g(p)-g(p_0))+\|g(p)-g(p_0)\| F_1(g(p))
-                  $$
-                  donde $F$ es una función que satisface $\lim_{p\to p_0}F(g(p))=0$.
-              </li>
-              <li>
-                  Demuestra que, para toda $p\in B_r(p_0)$, $p\ne p_0$:
-                  $$
-                  u(g(p))=u(g(p_0))+ u'(g(p_0))\langle \nabla_{p_0}g, p-p_0\rangle+ \|p-p_0\|\tilde{F}(p)
-                  $$
-                  donde
-                  $$
-                  \tilde{F}(p)=u'(g(p_0))F_2(p)+\frac{|g(p)-g(p_0)|}{||p-p\|}F_1(g(p))
-                  $$
-                  y $F_2$ es una función que satisface $\lim_{p\to p_0}F_2(p)=0$.            
-              </li>
-              <li>
-                  Concluye que $u\circ g$ es diferenciable y $\nabla_{p_0} (u \circ g)= u'(g(p_0))\nabla_{p_0} g$.
-              </li>
-            </ol>
-      
+            Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$,  $f:U \to \mathbb{R}$ una
+            función y $p_0\in U$. Decimos que $f$ es diferenciable en $p_0$ si 
+            existe una transformación lineal $T:\mathbb{R}^n \to \mathbb{R}$ tal que
+            $$
+            \lim_{p\to p_0} \frac{|f(p)-f(p_0)+T(p-p_0)|}{\|p-p_0\|}=0.
+            $$
+            A la transformación lineal $T$ se le llama la derivada de $f$ en $p_0$
+            y se le denota $D_{p_0}f$.
         </p>
     </div>
-      
-            
 
+
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+    <p>
+        Este ejercicio muestra que si $f$ es diferenciable en $p_0$, todas
+        las derivdas parciales en $p_0$ existen.
+    </p>
+    <p>
+        Sea $U\neq \emptyset $ un abierto de $\mathbb{R}^n$, $p_0\in U$ y $f:U\to \mathbb{R}$.
+    </p>
+    <p>
+        Supon que $f$ es diferenciable en $p_0$ y sea $T:\mathbb{R}^n \to \mathbb{R}$
+        la derivada de $f$ en $p_0$, es decir, $T$ satisface
+        $$
+        \lim_{p\to p_0} \frac{|f(p)-f(p_0)-T(p-p_0)|}{\|p-p_0\|}=0.
+        $$
     
+        Recuerda que al ser $T$ lineal, existe un vector  $a=(a_1,\dots, a_n )\in \mathbb{R}^n$ tal que
+        $$
+        T(p)=\langle a, p \rangle, \quad  \forall p\in \mathbb{R}^n.
+        $$
+    
+        Tomando $p$ de la forma $p=p_0+se_j$, $s\ne 0$ (con $j$ fijo) prueba que $\partial_{p_j}f(p_0)$ existe
+        y $a_j=\partial_{p_j}f(p_0)$.
+    
+    </p>
+    <p>
+        Por lo tanto, usando la notación de la derivda como $T=D_{p_0}f$, resulta que
+        la derivada es la transformación lineal inducida  por el gradiente en $p_0$, es decir
+        $$
+        (D_{p_0}f)(p)=\langle \nabla_{p_0}f, p \rangle, \quad \forall p\in \mathbb{R}^n.
+        $$
+    </p>
+</div>
 
-
- </body>
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+    <p>
+        Sea$f:\mathbb{R}^n\to \mathbb{R}$
+        una función diferenciable en todo punto de $\mathbb{R}^n$.¿  Tiene sentido la fórmula
+        $$
+        \nabla_{p_0+p_0'}f=\nabla_{p_0}f+\nabla_{p_0'}f ?
+        $$  
+    </p> 
+  </div>
+ 
+</body>

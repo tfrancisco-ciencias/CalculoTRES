@@ -82,336 +82,333 @@
   </head>
   <body class="fondo-body" >
 
-    <h1 class="number-title flexbox"> Teorema de la función implícita </h1> 
+    <h1 class="number-title flexbox"> Multiplicadores de Lagrange </h1> 
+
 
     
-
-
-   <div class="teorema-box">
-    <h2 class="number-title"> Teorema </h2>
-    <p>
-      Antes de enunciar el teorema usamos la siguiente convención: usamos
-      letras negritas $\mathbf{x}, \mathbf{z}$ para denotar vectores
-      y letras normales, $x,z$ para denotar escalares.
-    </p>
-    <p>
-      Sea $U$ un abierto de $\mathbb{R}^n\times \mathbb{R}^m$ que contenga
-      al punto $(\mathbf{x}_0,\mathbf{z}_0)$ y sea $F:U \to \mathbb{R}^m$
-      una función de clase $C^1$ en $U$. Nota: a los puntos
-      de primer  $\mathbb{R}^n$ los vamos a denotar $\mathbf{x}$ y a los
-      puntos del segundo $\mathbf{R}^m$ los vamos a denotar $\mathbf{z}$.
-    
-    </p>
-    <p>
-      Supongamos que $F(\mathbf{x}_0,\mathbf{z}_0)=0$
-      y que la función lineal dada por
-      $$
-      L(\mathbf{z})=D_{(\mathbf{x}_0, \mathbf{z}_0)}F(0,\mathbf{z}),
-      \mathbf{z} \in \mathbb{R}^m
-      $$
-    
-      es una función inyectiva, de $\mathbb{R}^m$ a $\mathbb{R}^m$.    
-    </p>
-    <p>
-      Entonces existe una vecindad de $\mathbf{x}_0$ en $\mathbb{R}^n$, denotada $W$
-      y una función de clase $C^1$, $G:W \to\mathbb{R}^m$ tal que
-      $G(\mathbf{x}_0)=\mathbf{z}_0$ y, para toda $\mathbf{x}\in W$,
-      $F(\mathbf{x},G(\mathbf{x}))=0$.    
-    </p>
-
-   </div> 
-
-<div class="nota-box">
-    <h2 class="number-title"> Nota</h2>
-<ol>
-
-
-<!--%<div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Este enunciado generaliza el Teorema del Marsden. En el caso
- % del Marsden  $m=1$ en para este caso la función $L$ es simplemente
- % multiplicar por $\partial_zF(\mathbf{x}_0,z_0)$, la cual es inyectiva
- % si $\partial_zF(\mathbf{x}_0,z_0) \ne 0$.-->
-
-  <li>
-    La condición de que la transformación lineal
-    $L(\mathbf{z})=D_{(\mathbf{x}_0, \mathbf{z}_0)}F(0,\mathbf{z})$
-    sea inyectiva se puede reescribir usando un determinante,
-    pero se necesita algo de notación. 
-    <p>
-        Para $\mathbf{x}\in \mathbf{R}^n$ escribimos
-        $\mathbf{x}=(x_1,\dots, x_n)$
-        y a los puntos $\mathbf{z}\in \mathbf{R}^m$ los escribimos
-        $\mathbf{z}=(z_1,\dots, z_m)$. A las funciones
-        coordenadas de $F$ las escribimos $F=(f_1,\dots, f_m)$,
-        así que cada función $f_i$ se valua en
-        $f_i(x_1,\dots, x_n, z_1,\dots, z_m)$.
-      
-    </p>
-    <p>
-        La condición de que $L$ sea inyectiva es equivalente a pedir que
-        el determinante de la siguiente matriz sea distinto de cero
+    <div class="teorema-box">
+      <h2> Teorema </h2>
+      <h3> Teorema de Lagrange, una restricción </h3>
+      <p>
+        Sean $U\subseteq \mathbb{R}^n$ un abierto y $f,g:U \to \mathbb{R}$
+        funciones clase $C^1$ en $U$. Supongamos que $p_0\in U$ satisface
         $$
-        \left[ \begin{array}{ccc}
-           \partial_{z_1}f_1(\mathbf{x}_0,\mathbf{z}_0) & \cdots
-           & \partial_{z_m}f_1(\mathbf{x}_0, \mathbf{z}_0) \\
-           \vdots & \ddots & \vdots \\
-            \partial_{z_1}f_m(\mathbf{x}_0,\mathbf{z}_0) & \cdots
-           & \partial_{z_m}f_m(\mathbf{x}_0, \mathbf{z}_0)
-               \end{array}
-               \right]
-         $$
-    </p>
-  </li>
-  
+        f(p) \leq f(p_0) \quad o \quad f(p) \geq f(p_0),
+        $$
+        para toda $p$ en una vecindad de $p_0$ que además satisfacen
+        la restricción $g(p)=0$.
+      </p>
+      <p>
+        Si $\nabla_{p_0}g \ne 0$ entonces existe $\lambda \in \mathbb{R}$ tal
+        que
+        $$
+        \nabla_{p_0}f =\lambda \nabla_{p_0}g.
+        $$
+      </p>
+    </div>
+      
   
 
- <li>
-    El teorema de la función implícita se puede
-    leer de la siguiente forma. Sean $f_1,\cdots, f_m$
-    funciones clase $C^1$, definidas en un abierto de
-    $\mathbb{R}^n\times \mathbb{R}^m$ y supongamos que
-    tenemos escalares $x_1^{(0)}, \dots, x_{n}^{(0)}, z_1^{(0)}, \dots, z_m^{(0)}$
-    que satisfacen el siguiente sistema de ecuaciones:
-    \begin{eqnarray*}
-      f_1(x_1^{(0)}, \dots, x_{n}^{(0)}, z_1^{(0)}, \dots, z_m^{(0)})&=&0\\
-      f_2(x_1^{(0)}, \dots, x_{n}^{(0)}, z_1^{(0)}, \dots, z_m^{(0)})&=&0\\
-      &\vdots& \\
-      f_m(x_1^{(0)}, \dots, x_{n}^{(0)}, z_1^{(0)}, \dots, z_m^{(0)})&=&0
-    \end{eqnarray*}
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Este ejercicio da una demostración para el Teorema de
+      multiplicadores de Lagrange, para dimensión 3.
   
-    Denotemos $\mathbf{x}_0=(x_1^{(0)}, \dots, x_{n}^{(0)})$
-    y $\mathbf{z}_0=(z_1^{(0)}, \dots, z_m^{(0)})$. Entonces,
-    si
+    </p>
+    <p>
+      Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^3$ y
+      dos funciones clase $C^1$, $f,g:U\to \mathbb{R}$. Considera
+      la superficie de nivel
+      $$
+      S=\{p\in S: f(p)=0 \}
+      $$
   
-     $$
-  \det \left[ \begin{array}{ccc}
-      \partial_{z_1}f_1(\mathbf{x}_0,\mathbf{z}_0) & \cdots
-      & \partial_{z_m}f_1(\mathbf{x}_0, \mathbf{z}_0) \\
-      \vdots & \ddots & \vdots \\
-       \partial_{z_1}f_m(\mathbf{x}_0,\mathbf{z}_0) & \cdots
-      & \partial_{z_m}f_m(\mathbf{x}_0, \mathbf{z}_0)
-          \end{array}
-          \right]\ne 0
+    </p>
+    <p>
+      Recuerda que, dado pun punto $p_0\in S$, el plano
+      tangente a $S$ en $p_0$ se define como
+      $$
+      \{p\in \mathbb{R}^3: \langle \nabla_{p_0}g, p-p_0 \rangle=0\}.
+      $$
+  
+    </p>
+    
+    <ol>
+        <li>
+            Sea $I$ un intervalo abierto de $\mathbb{R}$ y
+            se $\gamma:I \to \mathbb{R}^3$ una curva
+            diferenciable con la propiedad de que $\gamma(I)\subset S$.
+            Supongamos que
+            $\gamma(t_0)=p_0$. Demuestra que $\gamma'(t_0)$
+            y $\nabla_{p_0}g$ son ortogonales.
+      
+        </li>
+        <li>
+            Supongamos que $p_0\in S$ es un máximo
+            local para $f$ en $S$. Demuestra que, para
+            toda curva diferenciable $\gamma:I \to \mathbb{R}^3$,
+            tal que $\gamma(t)\subset S$ y $\gamma(t_0)=p_0$,
+            $ \nabla_{p_0}f$ y  $\gamma'(t_0)$ son ortogonales.
+            <p>
+                Sugerencia: nota que la función de una variable
+                $f\circ \gamma(t)$ tiene un máximo en $t_0$ y usa
+                la regla de la cadena.
+            </p>
+        </li>
+        <li>
+            Si $\nabla_{p_0}g\ne 0$ prueba que
+            existe un escalar $\lambda $ tal que
+            $\nabla_{p_0}f=\lambda \nabla_{p_0}g$.
+        </li>
+    </ol>
+  </div>
+
+    
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Encuentra el mínimo de $f(x,y)=xy$ sujeto a la
+      restricción $x+y=1$. ¿ Con las
+      mismas condiciones, existe el máximo ? Explica.
+    </p>
+  </div>
+
+
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Encuentra los máximos y mínimos de la función
+      $f(x,y,z)=x-2y+2z$ sobre la esfera $x^2+y^2+z^2=1$.
+    </p>
+  </div>
+
+    
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Encuentra las distancias máximas y mínimas 
+      desde el origen a la curva $5x^2+6xy+5y^2=8$.
+    </p>
+    <p>
+      Sugerencia: es más sencillo minimizar la distancias al cuadrado.
+    </p>
+  </div>
+    
+
+       
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Un canal de riego tiene lados y fondo de concreto con
+      sección transversal trapezoidal de área $A=y(x+y\tan(\theta))$
+      y perímetro húmedo $P=x+\frac{2y}{\cos(\theta)}$, donde
+      $x$ es el ancho del fondo, $y$ la profundidad del agua y
+      $\theta$ la inclinación lateral, medida a partir de la
+      vertical. El mejor dise\~no para una inclinación
+      fija $\theta$ se halla resolviendo $P=$ mínimo
+      sujeto a la condición $A=$ constante. Mostrar que
+      $y^2=\frac{A\cos(\theta)}{2-\cos(\theta)}$.
+      
+    </p>
+
+   </div>
+   
+   
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Considera la función $f(x,y)=x^2+xy+y^2$,
+      en el disco unitario $D=\{(x,y): x^2+y^2 \leq 1\}$. Usa
+      multiplicadores de Lagrange para maximizar $f$ en
+      el circulo unitario  $\partial D=\{(x,y): x^2+y^2=1\}$. Usa
+      lo anterior para encontrar los máximos y mínimos absolutos
+      de $f$ en $D$.
+    </p>
+  </div>
+  
+  
+  <div class="teorema-box">
+    <h2 class="number-title"> Teorema </h2>
+    <h3>Lagrange, varias restricciones</h3> 
+    <p>
+      Sean $U\subseteq \mathbb{R}^n$ un abierto y
+      $f,g_1,\dots, g_m:U \to \mathbb{R}$
+      funciones clase $C^1$ en $U$. Supongamos que $p_0\in U$ satisface
+      $$
+      f(p) \leq f(p_0) \quad o \quad f(p) \geq f(p_0),
+      $$
+      para toda $p$ en una vecindad de $p_0$ que además satisfacen
+      la restricciones $g_1(p)=0, \cdots ,  g_m(p)=0$.
+    
+    </p>
+    <p>
+        Si $\{\nabla_{p_0}g_1,\dots, \nabla_{p_0}g_m \}$
+        es un conjunto linealmente independiente entonces
+        existen $\lambda_1,\dots, \lambda_m  \in \mathbb{R}$ tal
+        que
+        $$
+        \nabla_{p_0}f =\lambda_1\nabla_{p_0}g_1+\cdots
+        + \lambda_m \nabla_{p_0}g_m.
+        $$
+
+        La demostración de este teorema se verá más adeltante, en la
+        sección del Teorema de la Función implícita.
+    </p>
+
+  </div>
+
+
+
+    
+    
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Encuentra el mínimo de $f(x,y,z)=x^2+2y^2+z^2$ con
+      la restricción $x+y+z=0$ y $x-z=1$.
+    </p>
+  </div>
+    
+
+
+ <div class="teorema-box">
+  <h2 class="number-title"> Teorema </h2> 
+  <h3> Teorema de Lagrange, una desigualdad </h3>
+    <p>
+      Sean $U\subseteq \mathbb{R}^n$ un abierto y $f,g:U \to \mathbb{R}$
+      funciones clase $C^1$ en $U$. Supongamos que $p_0\in U$ satisface
+      $$
+      f(p) \leq f(p_0) \quad o \quad f(p) \geq f(p_0),
+      $$
+      para toda $p$ en una vecindad de $p_0$ que además satisfacen
+      la restricción $g(p) \geq 0$.
+    </p>
+    <p>
+      Si $\nabla_{p_0}g \ne 0$ entonces existe $\lambda \geq 0$ tal
+      que
+      $$
+      \nabla_{p_0}f =\lambda \nabla_{p_0}g.
+      $$
+    
+      Nota: si la condición se cambia a $g \leq 0$ entonces 
+      $\lambda \leq 0$.
+    
+    </p>
+ </div>
+
+
+
+<div class="teorema-box">
+  <h2 class="number-title"> Teorema </h2> 
+  <h3> Lagrange, varias restricciones </h3>
+  <p>
+    Sean $U\subseteq \mathbb{R}^n$ un abierto y funciones 
+    $f,g_1,\dots, g_m, h_1,\dots, h_k:U \to \mathbb{R}$
+     clase $C^1$ en $U$. Supongamos que $p_0\in U$ satisface
     $$
-  
-    entonces podemos resolver el siguiente sistema, de manera única,
-    para las $z's$ en términos de las $x's$:
-  
-     \begin{eqnarray*}
-      f_1(x_1, \dots, x_n, z_1, \dots, z_m)&=&0\\
-      f_2(x_1, \dots, x_{n}, z_1, \dots, z_m)&=&0\\
-      &\vdots& \\
-      f_m(x_1, \dots, x_{n}, z_1, \dots, z_m)&=&0
+    f(p) \leq f(p_0) \quad o \quad f(p) \geq f(p_0),
+    $$
+    para toda $p$ en una vecindad de $p_0$ que además satisfacen
+    la restricciones
+    \begin{eqnarray*}
+      g_1(p) \geq 0, \cdots g_m(p) \geq 0, \\
+      h_1(p)\leq 0 , \cdots, h_k(p) \leq 0.
     \end{eqnarray*}
-  
-    para cuando las $(x_1,\dots, x_n)$ están cerca de $\mathbf{x}_0$.
-</li> 
-</ol>
-</div>
+    
+  </p>
+  <p>
+    Si $\{\nabla_{p_0}g_1,\dots, \nabla_{p_0}g_m, \nabla_{p_0}h_1,\cdots,
+    \nabla_{p_0}h_k\}$
+    es un conjunto linealmente independiente entonces
+    existen $\lambda_1 \geq 0, \dots, \lambda_m \geq 0$,
+    $\mu_1\leq 0 , \dots, \mu_k \leq 0$ tal
+    que
+    $$
+    \nabla_{p_0}f =\sum_{i=1}^m\lambda_i\nabla_{p_0}g_i+
+    \sum_{j=1}^k \mu_j\nabla_{p_0}h_j.
+    $$
+  </p>
+ </div>
 
+    
     
   <div class="ejercicio-box"> 
     <h2 class="number-title"> Ejercicio</h2> 
     <p>
-      Mostrar que $xy+z+3xz^5=4$ es soluble para $z$ como
-      función de $x,y$ cerca de $(1,0,1)$. Además:
-      <ol>
-          <li>
-              calcular $\partial_xz(1,0)$ y $\partial_yz(1,0)$.
-          </li>
-          <li>
-              usando una aproximación lineal, estimar el valor de $z$
-              cuando $x=1.1$ y $y=0.5$.
-          </li>
-      </ol>
+      Minimiza la función $f(x,y)=x^2+xy+y^2$ con
+      la restricción $x+y \geq 4$.  
     </p>
   </div>
 
-
-
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> C
-    <p>
-      Considera la superficie en $\mathbb{R}^3$ dada por
-      $$
-      2y^2z^2-2x=0
-      $$
-    </p>
-    
-    <ol>
-        <li>
-            Encuentra dos simetrias de la superficie.
-        </li>
-        <li>
-            Usar el teorema de la función implícita para verificar
-            que, para cualquier punto en la curva,
-            podemos despejar $x$ en terminos de $y$ y $z$ y usando
-            también el teorema de la función implícita
-            calcula $\partial_y x$ y $\partial_z x$
-        </li>
-        <li>
-            de manera directa despeja $x$ y usa este despeja para calcular
-            $\partial_y x$ y $\partial_z x$.
-        </li>
-        <li>
-            Usando el teorema de la función
-            implícita, prueba que cerca de los punto $(1,1,1)$ y $(1,-1,1)$ podemos
-            despejar a  $y$, en términos de las otras dos variables. Además
-            calcula $\partial_xy(1,1)$, $\partial_z y (1,1)$. Nota:
-            las parciales dependen si estás en el punto $(1,1,1)$ o $(1,-1,1)$.
-        </li>
-        <li>
-            Trata de despejar de manera directa $y$ en $2y^2z^2-2x=0$
-            para encontrar una fórmula para $y$ cerca de $(1,1,1)$
-            y para $y$ cerca de $(1,-1,1)$.
-        </li>  
-    </ol>
-    
-</div>
-
-
-  <div class="ejercicio-box">
-     <h2 class="number-title"> Ejercicio</h2> 
-     <p>  
-      Analiza la solubilidad del sistema
-      \begin{eqnarray*}
-        3x+2y+z^2+u+v^2&=&0\\
-        4x+3y+z+u^2+v+w+2&=&0\\
-        x+z+w+u^2+2&=&0\\
-      \end{eqnarray*}
-      para $u$, $v$ y $w$ en términos de $x,y$ y $z$ cerca de $x=y=z=0$,
-      $u=v=0$ y $w=-2$.
-     </p>
-  </div>
-
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2>
-    <p>
-      Investiga si el siguiente sistema
-    
-      \begin{eqnarray*}
-        u(x,y,z)&=&x+yxz \\
-        v(z,y,z)&=&y+xy\\
-        w(x,y,z)&=&z+2x+3z^2
-      \end{eqnarray*}
-      
-      puede resolverse para $x,y,z$ (despejar $x,y$ y $z$) en términos
-      de $u,v$ y $w$, cerca del punto $(x,y,z)=(0,0,0)$.
-      
-    </p> 
-  </div>
 
   <div class="ejercicio-box"> 
     <h2 class="number-title"> Ejercicio</h2> 
     <p>
-      Este ejercicio da una demostración del Teorema
-      de Lagrange con una restricción.
+      Minimiza la función $f(x,y)=x+y^2$ con la restricción
+      $1\leq x+y$.
     </p>
-    <p>
-      Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$ y $f,g:U\to \mathbb{R}$
-      dos funciones de clase $C^1$. Considera la superficie de nivel
-      $$
-      S=\{\mathbf{x} \in \mathbb{R}^n: f(\mathbf{x})=0\}.
-      $$
-  
-      Supongamos que $\mathbf{x}_0\in S$ es un máximo  local para $f$ en $S$ y
-      supon que $\partial_{x_n}g(\mathbf{x}_0) \ne 0$. Denotemos
-      $\mathbf{x}_0=(x_1^0, \dots, x_n^0)$.
-  
-    </p>
+  </div>
 
     
+  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> 
     <ol>
         <li>
-            <p>
-                Demuestra que existe una función de clase $C^1$,
-                $\phi(x_1,\dots, x_{n-1})$, definida en
-                una vecindad de $(x^0_1,\dots, x^0_{n-1})$
-                en $\mathbb{R}^{n-1}$, tal que
-                $\phi(x^0_1,\dots, x^0_{n-1})=x^0_n$ y
-                $g(x_1,\dots, x_{n-1}, \phi(x_1,\dots, x_{n-1}))=0$.
-            </p>
-            
-            <p>
-                Para simplificar notación, si $\mathbf{x}=(x_1,\dots, x_{n})$ denotamos
-                $\hat{\mathbf{x}}=(x_1,\dots, x_{n-1})$. Con esta notación
-                $g(\hat{\mathbf{x}}, \phi(\hat{\mathbf{x}}))=0$, para toda $\mathbf{x}$
-                suficientemente cercana a $\mathbf{x}_0$.
-          
-            </p>
-            <p>
-                Sugerencia: usa el teorema de la funciín implícita.
-            </p>
-            
-            
+            Encuentra máximo de la función
+            $f(x_1,\dots, x_n)=(x_1\cdots x_n)^2$, sujeta a la
+            restricción $x_1^2+\cdots +x_n^2=1$.
         </li>
         <li>
-            Considera la función
+            Usando el inciso anterior demuestra la
+            desigualdad aritmético geométrica, es decir,
+            para escalares mayores o iguales a cero, $a_1,\dots, a_n$,
+            se cumple
             $$
-            h(x_1,\dots, x_{n-1})=f(x_1,\dots, x_{n-1},\phi(x_1,\dots, x_{n-1}))
-            $$
-            con la notación del inciso anterior podemos escribir
-            $h(\hat{\mathbf{x}})=f(\hat{\mathbf{x}}, \phi(\hat{\mathbf{x}}))$.
-      
-            Demuestra que, para $i=1,\dots, n-1$:
-            $$
-            \partial_{x_i}h(\hat{\mathbf{x}})=
-            \partial_{x_i}f(\hat{\mathbf{x}},\phi(\hat{\mathbf{x}}))+
-            \partial_{x_n}f(\hat{\mathbf{x}})
-            \partial_{x_i}\phi(\hat{\mathbf{x}})
+            \sqrt[n]{a_1\cdots a_n} \leq \frac{a_1+\cdots +a_n}{n}
             $$
             <p>
-                Sugerencia: usa la regla de la cadena.
-            </p>
-            
-        </li>
-        <li>
-            Demuestra que, para $i=1,\dots, n-1$:
-            \begin{eqnarray*}
-              \partial_{x_i}f(\mathbf{x}_0)+
-              \partial_{x_n}f(\mathbf{x}_0)\partial_{x_i}\phi(\hat{\mathbf{x}}_0)=0
-            \end{eqnarray*}
-            <p>
-                Sugerencia: $h$ tiene un máximo local en $\hat{\mathbf{x}}_0$.
-            </p>
-        </li>
-        <li>
-            Demuestra que, para toda $i=1,\dots, n-1$:
-            $$
-            \partial_{x_i}g(\hat{\mathbf{x}},\phi(\hat{\mathbf{x}}))
-            + \partial_{x_n}g(\hat{\mathbf{x}},\phi(\hat{\mathbf{x}}))
-            \partial_{x_i}\phi(\hat{\mathbf{x}})=0.
-            $$
-            <p>
-                Sugerencia: para toda $\mathbf{x}$, $g(\hat{\mathbf{x}},
-                \phi(\hat{\mathbf{x}}))=0$. 
-            </p>
-
-        </li>
-        <li>
-            Demuestra que, para toda $i=1,\dots, n-1$:
-            $$
-            \partial_{x_i}\phi(\hat{\mathbf{x}}_0)=
-            -\frac{\partial_{x_i}g(\mathbf{x}_0)}{\partial_{x_n}g(\mathbf{x}_0)}
-            $$
-            <p>
-                Sugerencia: usa el inciso anterior.
-            </p>
-        </li>
-        <li>
-            Denota $\lambda=\frac{\partial_{x_n}f(\mathbf{x}_0)}
-            {\partial_{x_n}g(\mathbf{x}_0)}$. Demuestra que,
-            para toda $i=1,\dots, n-1$:
-            $$
-            \partial_{x_i}f(\mathbf{x}_0)=\lambda \partial_{x_i}g(\mathbf{x}_0)
-            $$
-            <p>
-                Además, $\partial_{x_n}f(\mathbf{x}_0)
-                =\lambda \partial_{x_n}g(\mathbf{x}_0)$
-                 Concluye que $\nabla_{\mathbf{x}_0}f=\lambda \nabla_{\mathbf{x}_0}g$.
+                Sugerencia: considera
+                $x_i=\frac{\sqrt{a_i}}{\sqrt{a_1+\cdots +a_n}}$, $i=1,\dots,n$.
             </p>
         </li>
     </ol>
-</div>
+  </div>
+  
+  
+  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2>
+    <ol>
+        <li>
+            Sean $p>1, q>1$ tal que $\frac{1}{p}+\frac{1}{q}=1$. Demuestra
+            que el mínimo de la función
+            $$
+            f(x,y)=\frac{x^p}{p}+\frac{y^q}{q}
+            $$
+            sujeta a la restricción $xy=1$ es 1.
+            
+        </li>
+        <li>
+            Usando el inciso anterior, prueba que si $a$ y $b$ son
+            reales mayores o iguales a cero, entonces
+            $$
+            ab \leq \frac{a^p}{p}+\frac{b^q}{q}
+            $$
+        </li>
+        <li>
+            Sean $a_1,\dots, a_n$, $b_1,\dots, b_n$, numeros
+            reales mayores o iguales a cero, demuestra la desigualdad
+            $$
+            \sum_{j=1}^n a_jb_j \leq \left( \sum_{j=1}^n a_j^p \right)^{1/p}
+            \left( \sum_{j=1}^n b_j^q \right)^{1/q}
+            $$
+            <p>
+                Sugerencia: sean $A=\left( \sum_{j=1}^n a_j^p \right)^{1/p}$,
+                $B=\left( \sum_{j=1}^n b_j^q \right)^{1/q}$, aplica
+                la desigualdad del inciso anterior a $a=a_j/A$, $b=b_j/B$.
+               
+            </p>
+        </li>   
+    </ol>
+  </div>
 
 
  </body>

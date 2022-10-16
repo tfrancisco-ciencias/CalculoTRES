@@ -76,364 +76,441 @@
         </header>
 
       <!-- This part is for title in tab-->
-      <title id="Sec"> § 7 </title>
+      <title id="Sec"> § 7</title>
     
   </head>
   <body class="fondo-body" >
 
-    <h1 class="number-title flexbox"> Diferenciabilidad </h1> 
+    <h1 class="number-title flexbox"> Derivadas parciales </h1> 
+
+       <!-- this part is for next and prev sections -->
+   <!--<button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>-->
+   <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
 
 
- 
-    <div class="definicion-box"> 
-        <h2 class="number-title" id="Def:DerivadaR2"> Definición </h2>
-        <p>
-            Sea $U\subseteq\mathbb{R}^2$ un abierto y $f:U\to \mathbb{R}$ una función.
-        </p>
-        <p>
-            Dado un punto $(x_0,y_0)\in U$, decimos que $f$ es diferenciable en $(x_0,y_0)$ si,
-            existe una función lineal $T:\mathbb{R}^2 \to \mathbb{R}$, tal que
-            $$
-            \lim_{(x,y)\to (x_0,y_0)} \frac{|f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0))  |}{\|(x-x_0,y-y_0)\|}=0
-            $$
-            
-            Si es así, la función lineal $T$ se llama la derivada de $f$ en $(x_0,y_0)$ y la vamos
-            a denotar $D_{(x_0,y_0)}f$.
-        </p>
-        <p>
-            Nota: lo más importante que uno debe darse cuenta es que, ahora, la derivada
-            valuada en un punto dado es una función, no un número. 
-        </p>
-   </div>
 
-  
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2> 
+<div class="definicion-box">
+    <h2 class="number-title"> Definición </h2> 
     <p>
-        Demuestra que toda función constante $f:\mathbb{R}^2 \to \mathbb{R}$
-        es diferenciable en todo punto $(x_0,y_0)$. Es más, demuestra que $D_{(x_0,y_0)}f$
-        es la función constante cero.
-    </p>
-</div>
-
-
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2> 
-    <p>
-        Sea $f:\mathbb{R}^2 \to \mathbb{R}$ una función lineal. Demuestra
-        que $f$ es diferenciable en todo punto $(x_0,y_0)$. Es más, demuestra
-        que $D_{(x_0,y_0)}f=f$.
-    </p>
-</div>
-
-
-<div class="nota-box">
-    <h2 class="number-title"> Nota</h2>
-    <ol>
-        <li>
-            Cuando escribimos  $D_{(x_0,y_0)}f$ es importante notar que se representa
-            a una función lineal, la cual puede ser evaluada en un punto $(x,y)$, lo cual
-            se denota $(D_{(x,_0,y_0)}f)(x,y)$.
-        </li>
-        <li>
-            ya que $D_{(x_0,y_0)}f$ es una función lineal que va de $\mathbb{R}^2$ a $\mathbb{R}$,
-            sabemos (ver ejercicio \ref{Ejer:TeoRiesz}) que existe
-            un vector $(a,b)$ tal que
-            $$
-            (D_{(x_0,y_0)}f)(x,y)=\langle (a,b), (x,y)\rangle=ax+by. 
-            $$
-            Por esto, el vector renglón $[a,b]$ es la matriz que
-            representa a $D_{(x_0,y_0)}f$. Aveces se identifica la
-            transformación lineal  con su matriz y se escribe
-            $D_{(x_0,y_0)}f=[a,b]$.
-        </li>
-        <li>
-            También se pueden encontrar con  la notación $Df(x_0,y_0)$, para
-            indicar la defivada de $f$ en el punto $(x_0,y_0)$. Con esta notación,
-            el evaluar la derivda en el punto $(x,y)$ se denota $Df(x_0,y_0)(x,y)$.
-        </li>
-  </ol>
-</div>  
-  
-  
-
-          
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2>  
-    <p>
-        Considera la función, $f(x,y)=x^2+y^2$.
-    </p>
-    <p>
-        Fija un punto $(x_0,y_0)$ en $\mathbb{R}^2$ y considera la transformación lineal
-        $T:\mathbb{R}^2 \to \mathbb{R}$ dada por $T(x,y)=2x_0x+2y_0y$.      
-    </p>
-    <p>
-        Prueba que
-        $$
-        \lim_{(x,y)\to (x_0,y_0)} \frac{|f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)|}{\| (x-x_0,y-y_0)\|}=0
-        $$      
-        Concluye que $f$ es diferenciable en $(x_0,y_0)$ con $D_{(x_0,y_0)}f=T$ y
-        la matriz renglón $[2x_0 2y_0]$ representa a $D_{(x_0,y_0)}f$.
-    </p>
-</div>
-
-  
-  
-  
-  
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2> 
-    <p>
-        Considera la función $f(x,y)=xy$. Fija $(x_0,y_0)\in \mathbb{R}^2$ y considera la función lineal $T:\mathbb{R}^2 \to \mathbb{R}$
-        dada por $T(x,y)=y_0x+x_0y$.
-    </p>
-    <p>
-        Prueba que
-        $$
-        \lim_{(x,y)\to (x_0,y_0)} \frac{|f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)|}{\| (x-x_0,y-y_0)\|}=0
-        $$
-        
-        Hint: primero prueba
-        $$
-        f(x,y)-f(x_0,y_0)- T(x-x_0,y-y_0) = (x-x_0)(y-y_0)
-        $$
-      
-        Concluye que $f$ es diferenciable en todo punto $(x_0,y_0)$, $D_{(x_0,y_0)}f=T$ y la
-        matriz renglón $[y0 x_0]$ representa a $D_{(x_0,y_0)}f$.      
-    </p>
-</div>
-
-  
-
-  
-
-<div class="ejercicio-box"> 
-    <h2 class="number-title" id="Ejer:ParcialesYDerivada"> Ejercicio </h2> 
-    <p>
-        Sea $U$ un abierto en $\mathbb{R}^2$ y $f:U\to \mathbb{R}$. Considera un punto
-        $(x_0,y_0)\in U$. Supon que $f$ es diferenciable en $(x_0,y_0)$. Sea $T:\mathbb{R}^2 \to \mathbb{R}$
-        la función lineal tal que
-        \begin{equation}\label{Eqn:LimiteDerivadaEjer}
-        \lim_{(x,y)\to (x_0,y_0)}\frac{|f(x,y)-f(x_0,y_0)-T(x-x_0, y-y_0)|}{\| (x-x_0,y-y_0) \|}=0.
-        \end{equation}      
-    </p>
-    <p>
-        Como $T$ es lineal sabemos que existen $a,b$ tales que $T(x,y)=ax+by$.
+        Sea $U\subseteq \mathbb{R}^2$ un conjunto abierto y $f:U\to \mathbb{R}$ una función y 
+        $(x_0, y_0)\in U$ un punto fijo. Las derivadas parciales de $f$, en punto $(x_0,y_0)$, se definen
+        como:
         <ol>
-          <li>
-              Tomando puntos de la forma $p=(x_0+s,y_0)$, $s\ne 0$, demuestra
-              que el límite \eqref{Eqn:LimiteDerivadaEjer}
-              implica que $\partial_xf(x_0,y_0)$ existe y $\partial_xf(x_0,y_0)=a$.
-          </li>
-          <li>
-              Tomando puntos de la forma $p=(x_0,y_0+t)$, $t\ne 0$, demuestra
-              que el límite \eqref{Eqn:LimiteDerivadaEjer}
-              implica que $\partial_yf(x_0,y_0)$ existe y $\partial_yf(x_0,y_0)=b$.
-          </li>
-        </ol>
-        
-        
-        En otras palabras, la representación de $D_{(x_0,y_0)}f$ como matriz, es la matriz renglón dada por:
-        $$
-        [\partial_xf(x_0,y_0) \partial_yf(x_0,y_0)].
-        $$
-      
+            <li>
+                parcial con respecto a la variable x:
+                $$
+                \partial_x f(x_0,y_0)=\frac{\partial f}{\partial x}(x_0,y_0)=\lim_{s\to 0} \frac{f(x_0+s,y_0)}{s} 
+                $$
+            </li>
+            <li>
+                parcial con respecto a la variable y:
+                $$
+                \partial_y f(x_0,y_0)=\frac{\partial f}{\partial y}(x_0,y_0)=\lim_{t\to 0} \frac{f(x_0,y_0+t)}{t} 
+                $$
+                siempre y cuando los límites existen.
+            </li>
+         </ol>
     </p>
 </div>
 
-
-  <div class="definicion-box"> 
-    <h2 class="number-title"> Definición </h2>
-    <p>
-        Dada una función $f:U\to \mathbb{R}$ y un punto $(x_0,y_0)\in U$, el gradiente de
-        $f$ en $(x_0,y_0)$,
-        denotado $\nabla_{(x_0,y_0)}f$ se define como el vector formado por todas las derivadas parciales.
-        $$
-        \nabla_{(x_0,y_0)}f= (\partial_xf(x_0,y_0), \partial_yf(x_0,y_0)  )
-        $$
-        siempre y cuando las parciales existan.
-    </p>
-    <p>
-        En otras palabras, si $f$ es diferenciable en $(x_0,y_0)$ tenemos que:
-        $$(D_{(x_0,y_0)}f)(x,y)= \langle \nabla_{(x_0,y_0)}f, (x,y) \rangle, \quad \forall (x,y)\in \mathbb{R}^2 $$    
-    </p>
-    <p>
-        Sin embargo, puede pasar que todas las derivadas parciales existan pero la función no sea
-        diferenciable (ver ejercicio  \ref{Ejer:ExistenParcialesPeroNoDif}).
-    </p>
-  </div>
-
-
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2> 
-    <p>
-        Para cada una de las siguientes funciones calcula el gradiente.
-        <ol>
-          <li>
-              $f(x,y)=\frac{xy}{(x^2+y^2)^{1/2}}$
-          </li>
-          <li>
-              $f(x,y)=\log(x^2+y^2)$
-          </li>
-          <li>
-              $f(x,y)=\frac{x}{y}+\frac{y}{x}$
-          </li>
-        </ol>
-    </p>
-</div>
-
-
-<div class="ejercicio-box"> 
-    <h2 class="number-title" id="Ejer:ExistenParcialesPeroNoDif"> Ejercicio </h2> 
-    <p>
-        El ejercicio \ref{Ejer:ParcialesYDerivada} muestra que las derivadas parciales y la derivada
-        están muy relacionadas, pero éste ejercicio muestra que no son equivalentes. Es decir,
-        una función puede admitir derivadas parciales sin ser diferenciable.      
-    </p>
-    <p>
-        Considera la función
-        $$
-        f(x,y)=\left\{
-          \begin{array}{cc}
-            \frac{xy^2}{x^2+y^2} & (x,y)\ne (0,0) \\
-            0 & (x,y)=(0,0)
-          \end{array}
-        \right.
-          $$
-                <ol>
-                  <li>
-                      Demuestra, usando la definición de límite de las derivas parciales,
-                      que $\partial_xf(0,0)=0=\partial_yf(0,0)$.
-                  </li>
-                  <li>
-                      Demuestra que $f$ no es diferenciable en $(0,0)$.
-                  </li>
-                </ol>
-    </p>
-  </div>        
-
-  <div class="definicion-box"> 
-    <h2 class="number-title"> Definición </h2>
-    <p>
-        Sea $U$ un abierto de $\mathbb{R}^2$, $(x_0,y_0)\in U$ y $f:U\to \mathbb{R}$ una función
-        diferenciable en $p_0$. El plano tangente a la gráfica de $f$ en el punto $(x_0,y_0)$ se define como
-        como
-        $$
-        z=f(x_0,y_0)+[\partial_xf(x_0,y_0)](x-x_0)+[\partial_yf(x_0,y_0)]
-        (y-y_0)
-        $$
-        Nota, de la ecuación, de que el vector normal al plano tangente es
-        $$N=(\partial_xf(x_0,y_0), \partial_yf(x_0,y_0), -1)$$
-    </p>
-  </div>
-  
-
-
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2> 
-    <p>
-        Para cada una de las siguientes superficies encuentra la
-        ecuación del plano tangente en el punto indicado.
-        <ol>
-          <li>
-              $z=x^2+y^3$ en $(1,2,9)$.
-          </li>
-          <li>
-              $z=e^{x^2+xy}$ en $(0,1,1)$.
-          </li>
-          <li>
-              $x^2+y^2+z^2=1$ en $(1/\sqrt{3}, 1/\sqrt{3}), 1/\sqrt{3})$.
-          </li>
-          <li>
-              $x^2+y^2-z^2=1$ en $(1,2,-2)$.
-          </li>
-        </ol>
-    </p>
-</div>
-
-
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2> 
-    <p>
-        ¿ En dónde cruza al eje $z$
-          el plano tangente a $z=2e^{x-y}$ en $(1,1,2)$ ?       
-    </p>
-</div>
-
-
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2> 
-    <p>
-        Considera la superficie $z^2-x^2-y^2=0$ y sea $(x_0,y_0,z_0)\ne(0,0,0)$ un 
-        punto en la superficie. Demuestra que el plano tangente a la superficie
-        que pasa por $(x_0,y_0,z_0)$ pasa por el origen y forma un ángulo de $45$
-        con el eje $z$.
-    </p>
-  </div>
-
-
-    
-    <div class="definicion-box"> 
-        <h2 class="number-title" id="Def:DerivadaRn"> Definición </h2>
+ <div class="nota-box">
+    <h2 class="number-title"> Nota </h2>
         <p>
-            Esta definición generaliza la definicion \ref{Def:DerivadaR2}
+            Dependiendo de las variables independientes la notación de parciales puede cambiar. Por
+            ejemplo, si tenemos una función $f(x_1,x_2)$, las parciales se denotan $\partial_{x_1}f$
+            y $\partial_{x_2}f$ o si es  $f(r,\theta)$ tendríamos $\partial_r f$, $\partial_\theta f$.
         </p>
         <p>
-            Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$,  $f:U \to \mathbb{R}$ una
-            función y $p_0\in U$. Decimos que $f$ es diferenciable en $p_0$ si 
-            existe una transformación lineal $T:\mathbb{R}^n \to \mathbb{R}$ tal que
+            Para cada punto $(x_0,y_0)$,  al  calcular las  parciales
+            $$\partial_xf(x_0,y_0), \quad \partial_{y}f(x_0,y_0)$$
+            obtenemos  números reales. Pero,   si pensamos a $(x_0,y_0)$ variando en un dominio y
+            lo denotamos $(x,y)$ (notación de variable), obtenemos funciones
+            $$\partial_xf(x,y),\quad \partial_yf(x,y)$$
+       
+        </p>
+        <p>
+            Note que en las expresiones
+            anteriores las $x$ que aparecen son distintas. La de la parcial indica con respecto a qué
+            variable se diferencia y la otra indica en qué punto se está evaluando. Asi por ejemplo
+            si $\partial_xf(x,y)=6x-2y$ entonces  $\partial_xf(3,5)=6(3)-2(5)=8$, sin embargo $\partial_3f(x,y)$
+            o $\partial_3f(3,5)$ no tienen sentido.
+        </p>
+ </div>
+
+
+
+<div class="ejercicio-box"> 
+<h2 class="number-title"> Ejercicio</h2> 
+<p>
+    Sean $g,h:\mathbb{R}\to \mathbb{R}$ funciones de una variable, ambas diferenciables,  y define $f(x,y)=g(x)h(y)$.
+    Fija un punto $(x_0,y_0)$. Demuestra que
+    $$
+    \partial_xf(x_0,y_0)=g'(x_0)h(y_0), \quad \partial_yf(x_0,y_0)=g(x_0)h'(y_0).
+    $$
+</p>
+
+    <div>
+        <p>
+            Primero formamos el cociente diferencial para $\partial_xf(x_0,y_0) $:
             $$
-            \lim_{p\to p_0} \frac{|f(p)-f(p_0)+T(p-p_0)|}{\|p-p_0\|}=0.
+            \frac{f(x_0+t,y_0)-f(x_0,y_0)}{t}=\frac{g(x_0+t)h(y_0)-g(x_0)h(x_0)}{t}.
             $$
-            A la transformación lineal $T$ se le llama la derivada de $f$ en $p_0$
-            y se le denota $D_{p_0}f$.
+            Factorizando $h(x_0)$ se sigue que
+            $$
+            \frac{f(x_0+t,y_0)-f(x_0,y_0)}{t}=\left( \frac{g(x_0+t)-g(x_0)}{t}\right) h(y_0)
+            $$
+            Reconocemos el cociente diferencial para $g$, así que al tomar límite
+            cuando $t\to 0$ concluimos
+            $$
+            \partial_xf(x_0,y_0)=g'(x_0)h(y_0)
+            $$
+       
+            La fórmula $\partial_yf(x_0,y_0)=g(x_0)h'(y_0)$ se prueba de manera similar.
         </p>
     </div>
+ 
+</div>
 
 
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2> 
-    <p>
-        Este ejercicio muestra que si $f$ es diferenciable en $p_0$, todas
-        las derivdas parciales en $p_0$ existen.
-    </p>
-    <p>
-        Sea $U\neq \emptyset $ un abierto de $\mathbb{R}^n$, $p_0\in U$ y $f:U\to \mathbb{R}$.
-    </p>
-    <p>
-        Supon que $f$ es diferenciable en $p_0$ y sea $T:\mathbb{R}^n \to \mathbb{R}$
-        la derivada de $f$ en $p_0$, es decir, $T$ satisface
-        $$
-        \lim_{p\to p_0} \frac{|f(p)-f(p_0)-T(p-p_0)|}{\|p-p_0\|}=0.
-        $$
-    
-        Recuerda que al ser $T$ lineal, existe un vector  $a=(a_1,\dots, a_n )\in \mathbb{R}^n$ tal que
-        $$
-        T(p)=\langle a, p \rangle, \quad  \forall p\in \mathbb{R}^n.
-        $$
-    
-        Tomando $p$ de la forma $p=p_0+se_j$, $s\ne 0$ (con $j$ fijo) prueba que $\partial_{p_j}f(p_0)$ existe
-        y $a_j=\partial_{p_j}f(p_0)$.
-    
-    </p>
-    <p>
-        Por lo tanto, usando la notación de la derivda como $T=D_{p_0}f$, resulta que
-        la derivada es la transformación lineal inducida  por el gradiente en $p_0$, es decir
-        $$
-        (D_{p_0}f)(p)=\langle \nabla_{p_0}f, p \rangle, \quad \forall p\in \mathbb{R}^n.
-        $$
+
+
+<div class="ejercicio-box"> 
+<h2 class="number-title"> Ejercicio</h2> 
+<p>
+    Sea $f(x,y)$ una función de dos variables definida en un abierto de $\mathbb{R}^2$ y fija
+    $(x_0,y_0)$ un punto en dicho abierto. Supongamos que $\partial_xf(x_0,y_0)$
+    y $\partial_y f(x_0,y_0)$ existen. Define funciones de una variable
+    $$
+    g(x)=f(x,y_0), \quad h(y)=f(x_0,y)
+    $$
+    Usando la definición de derivada parcial y derivada usual, demuestra que $g'(x_0)=\partial_x(x_0,y_0)$
+    y $h'(y)=\partial_yf(x_0,y_0)$.     
+</p>
+<p>
+    Es decir, este ejercicio muestra que para calcular las derivadas parciales simplemente se
+    calcula la derivada uno dimensional, pensando  las otras variables como constantes. 
+ 
+</p>
+    <div>
+        <p>
+            Primero, usamos la definición de $g$ para formar  su el cociente diferencial:
+            $$
+            \frac{g(x_0+s)-g(x_0)}{t}=\frac{f(x_0+s,y_0)-f(x_0,y_0)}{s}
+            $$
+       
+            Tomando límite cuando $s\to 0$ vemos que el límite del cociente diferencial es el
+            mismo que el que aparece en la definición de derivada parcial y concluimos
+            $$
+            g'(x_0)=\partial_x f(x_0,y_0).
+            $$
+            De manera similar,
+            $$
+            \frac{h(y_0+t)-h(y_0)}{t}=\frac{f(x_0,y_0+t)-f(x_0,y_0)}{t}
+            $$
+            y al tomar el límite cuando $t\to 0$ concluimos
+            $$
+            h'(y_0)=\partial_yf(x_0,y_0).
+            $$
+        </p>
+    </div>
+</div>
+
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p> 
+        Para cada una de las siguientes funciones encuentra la derivada parcial en los puntos indicados.
+        <ol>
+            <li>
+                $f(x,y)=xy+x^2$ en $(1,0)$ y en $(0,1)$.
+            </li>
+            <li>
+                $f(x,y)=\log(\sqrt{1+x^2y^2})$ en $(1,0)$ y en $(1,1)$.
+            </li>
+            <li>
+                $f(x,y)=(x^2+y^2)e^{x^2+y^2}$ en $(1,1)$ y en $(2,2)$.
+            </li>
+            <li>
+                $f(x,y)=xy\cos(2x+y)$ en $(\frac{\pi}{2},0)$ y en $(0,\frac{\pi}{2})$.
+            </li>
+        </ol>
     </p>
 </div>
 
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2> 
+
+<div class="ejercicio-box"> 
+<h2 class="number-title"> Ejercicio</h2> 
+<p>
+    Para cada una de las siguientes funciones $f(x,y)$, encuentra el dominio de definición
+    de las funciones $\partial_xf(x,y)$ y $\partial_yf(x,y)$.
+
+    <ol>
+        <li>
+            $f(x,y)=\log(x^2+y^2+1)$.
+        </li>
+        <li>
+            $f(x,y)=\frac{1}{\sqrt{x^2+y^2}}$.
+        </li>
+        <li>
+            $f(x,y)=y\sqrt{1-x^2-y^2}$.
+        </li>
+        <li>
+            $f(x,y)=\frac{x}{y}$.
+        </li>
+    </ol>
+    
+</p>
+</div>
+
+
+<div class="ejercicio-box"> 
+<h2 class="number-title"> Ejercicio</h2> 
     <p>
-        Sea$f:\mathbb{R}^n\to \mathbb{R}$
-        una función diferenciable en todo punto de $\mathbb{R}^n$.¿  Tiene sentido la fórmula
+        Sea $D:\mathbb{R}\to \mathbb{R}$ la función de Dirichlet
         $$
-        \nabla_{p_0+p_0'}f=\nabla_{p_0}f+\nabla_{p_0'}f ?
-        $$  
-    </p> 
-  </div>
+        D(x)=\left\{
+        \begin{array}{cc}
+        1, & \textrm{$x$ racional.}\\
+        0, & \textrm{$x$ irracional.}
+        \end{array}
+        \right.	
+        $$
+       Define la función $f:\mathbb{R}^2 \to \mathbb{R}$ dada por $f(x,y)=y^2D(x)$.
+    </p>
+    <p>
+        <ol>
+            <li>
+                Demuestra que, para todo puntos $(x_0,y_0)$, $\partial_yf(x_0,y_0)$ siempre existe y calcula su valor.
+            </li>
+            <li>
+                Además, prueba que si $y_0\ne 0$, $\partial_xf(x_0,y_0)$ no existe y que para todo
+                $x_0$, $\partial_yf(x_0,0)=0$. 
+            </li>
+        </ol>
+    
+    </p>
+</div>    
+    
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+     <p>
+        Considera la función $f:\mathbb{R}^2 \to \mathbb{R}$ dada por $f(x,y)=\sqrt[3]{x}\sqrt[3]{y}$. Demuestra
+        que $\partial_xf(0,0)=0=\partial_yf(0,0)$. Además, muestra que para toda $y_0\ne0$, $\partial_xf(0,y_0)$
+        no existe.
+     </p>
+
+     <div>
+        <p>
+            Para $\partial_xf(0,0)$, primero calculamos el cociente diferencial
+            $$
+            \frac{f(0+s,0)-f(0,0)}{s}=\frac{\sqrt[3]{s}\sqrt[3]{0}-\sqrt[3]{0}\sqrt[3]{0}}{s}=\frac{0}{s}=0
+            $$
+            Tomando límite cuando $s\to 0$ concluimos que $\partial_xf(0,0)=0$.
+        </p>
+        <p>
+            De manera similar
+            $$
+            \frac{f(0,0+t)-f(0,0)}{t}=\frac{\sqrt[3]{0}\sqrt[3]{t}-\sqrt[3]{0}\sqrt[3]{0}}{t}=\frac{0}{t}=0
+            $$
+            y al tomar límite cuanto $t\to 0$ se obtiene $\partial_yf(0,0)=0$.
+      
+            Ahora fijemos $y_0\ne 0$. Al formar el cociente diferencial para $\partial_xf(0,y_0)$
+            obtenemos
+            $$
+            \frac{f(0+s,y_0)-f(0,y_0)}{s}=\frac{\sqrt[3]{s}\sqrt[3]{y_0}-\sqrt[3]{0}\sqrt[3]{y_0}}{s}
+            =\frac{\sqrt[3]{s}}{s} \sqrt[3]{y_0}=
+            \frac{1}{s^{2/3}}\sqrt[3]{y_0}
+            $$
+            Ya que
+            $$\lim_{s\to 0} \frac{1}{s^{2/3}}\sqrt[3]{y_0}=+\infty, \quad   \textrm{si $y_0>0$}$$
+            y
+            $$\lim_{s\to 0} \frac{1}{s^{2/3}}\sqrt[3]{y_0}=-\infty, \quad  \textrm{si $y_0 < 0$}$$
+            la derivada parcial $\partial_xf(0,y_0)$ no existe.
+        </p>
+     </div>
+</div>
+
+<div class="ejercicio-box"> 
+<h2 class="number-title"> Ejercicio</h2> 
+<p>
+    Considera la función $f(x,y)=|x+y|-|x-y|$.
+    <ol>
+        <li>
+            Demuestra que, para todos $x_0,y_0\in \mathbb{R}$
+            $$
+            \partial_xf(x_0,0)=0, \quad \partial_yf(0,y_0)=0.
+            $$
+        </li>
+        <li>
+            Demuestra que $\partial_xf(1,1)$ no existe.
+        </li>
+    </ol>
+</p>
+</div> 
+
+
+<div class="nota-box"> 
+<h2 class="number-title"> Nota </h2> 
+<h3> interpretación geométrica</h3>
+<p>
+
+    Las derivadas parciales tienen las siguiente interpretación geométrica.
+    Dada una función $f: U\to \mathbb{R}$, definida en un abierto,
+    <ol>
+        <li>
+            $\partial_xf(x_0,y_0)$ es la pendiente de la recta tangente
+            a la gráfica que se obtiene al cortar la gráfica de $f$ con el plano $y=y_0$.
+        </li>
+        <li>
+            $\partial_yf(x_0,y_0)$  es le pendiente de la recta tangente a la gráfica
+            que se obtiene al cortar la gráfica de $f$ con el plano $x=x_0$.
+        </li>
+    </ol>
+</p>
+<p>
+    Ejemplo.
+</p>
+<p>
+    Considera el paraboloide de revolución $f(x,y)=x^2+xy+y^2$.       
+
+    <ol>
+        <li>
+            Define $g(x)=f(x,0)$. Nota que $g$ es una parábola y nota que $g'(x)=\partial_xf(x,0)$.
+            Así las pendientes de las rectas tangentes a  $g$  están dadas por $\partial_xf(x,0)$.
+        </li>
+        <li>
+            Define $h(y)=f(0,y)$. Nota que $h$ es una parábola y not que $h'(y)=\partial_yf(0,y)$.
+            Así las pendientes de las rectas tangentes a  $h$  están dadas por $\partial_yf(0,y)$.
+        </li>
+        <li>
+            De manera más general, dados $x_0, y_0$ define 
+            $$g_{y_0}(x):=f(x,y_0), \quad h_{x_0}(y)=f(x_0,y)$$
+            Nota que $g_{y_0}$ y $h_{x_0}$ son parábolas.
+            <p>
+                Por $G(g_{y_0})$ y $G(h_{x_0})$ denotamos las gráficas de $g_{y_0}$ y $h_{y_0}$, respectivamente.
+                Encuentra los puntos $(x_0, y_0)$, para las cuales las rectas tangentes a $G(g_{x_0})$
+                y a $G(h_{y_0})$, que pasan por $(1,g_{y_0}(1))$ y $(1,h_{y_0}(1))$ respectivamente, tienen pendiente iguales.		       
+            </p>
+        </li>
+    </ol>
+</p>
+</div>
+
+
+    
+
+    
+
+<div class="ejercicio-box"> 
+<h2 class="number-title"> Ejercicio</h2> 
+<p>
+    Considera la función
+    $$
+    f(x,y)=\left\{
+      \begin{array}{cc}
+        \frac{\sen(x^2+y^2)}{x^2+y^2} & (x,y)\ne (0,0) \\
+        1 & (x,y)=(0,0)
+      \end{array}
+      \right.
+      $$
+      
+      Calcula $\partial_xf(0,0)$ y $\partial_yf(0,0)$.
+      
+</p>
+</div>
+
+  
+
+
+<div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> 
+<p>
+    Para cada una de las siguientes funciones calcula $\partial_x\left( \int_0^x f(s,y)ds \right)$. 
+    ¿ Encuentras algún patron?:
+    <ol>
+        <li>
+            $f(x,y)=x^2+xy+y^2$,
+        </li>
+        <li>
+            $f(x,y)=e^{xy}$,
+        </li>
+        <li>
+            $f(x,y)=\cos(x+2y)$.
+        </li>
+    </ol>
+</p>
+</div>
+
+<div class="ejercicio-box"> 
+<h2 class="number-title" id="Ejer:TFCyParciales"> Ejercicio</h2> 
+<p>
+    Para cada una de las siguientes funciones calcula,  $\int_0^x(\partial_s f(s,y))ds$.
+    ¿ Encuentras algún patron?
  
-</body>
+     <ol>
+         <li>
+             $f(x,y)=x^3y^2+xy+x^2y$
+         </li>
+         <li>
+             $f(x,y)=e^{x^2+y}$
+         </li>
+         <li>
+             $f(x,y)=\sen(xy)$
+         </li>
+     </ol>
+</p>
+</div>
+
+
+
+<div class="ejercicio-box"> 
+<h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Este ejercicio generaliza al ejercicio \ref{Ejer:TFCyParciales}. Usa el Teorema Fundamental para probar
+        que $\int_0^x(\partial_s f(s,y))ds=f(x,y)-f(0,y)$.        
+    </p>
+</div>
+
+
+
+
+
+
+  <div class="definicion-box">
+    <h2 class="number-title"> Definición </h2> 
+    <p>
+        Sea $f(p)$ una función de n-variables, $p=(p_1,\dots, p_n)$ ,definida en un abierto en $\mathbb{R}^n$.Fija
+        $j\in\{1,\dots,n\}$. La derivada parcial de $f$, con respecto a la variable $p_j$ (también llamada  la j-ésima derivada
+        parcial), valuada en $p$ se define como
+        $$
+        \partial_{p_j}f(p)=\lim_{h\to 0} \frac{f(p+he_j)-f(p)}{h}
+        $$
+        donde $\{e_1,\dots, e_1\}$ es la base canónica de $\mathbb{R}^n$.
+    </p>
+           
+  </div>
+
+    <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio</h2> 
+        <p>
+            Para cada una de las siguientes funciones encuentra la derivada parcial con respecto a la variable indicada.
+            <ol>
+               <li>
+                   $f(p)=\sum_{i=1}^n p_i^2$. Calcular $\partial_{p_j}f(p)$.
+               </li>
+               <li>
+                   $f(x)=\langle x, y \rangle$, donde $x=(x_1,\dots, x_n)$ y $y=(y_1,\dots, y_n)$ es un vector fijo. 
+                   Calcular  $\partial_{x_j}f(x)$. ¿ La notación $\partial_{y_j}f(x)$ 
+                   tiene sentido en este ejemplo?
+               </li>
+               <li>
+                   $f(z)=\left( \sum_{i=1}^n \log(z_i^2+1) \right)^2$, donde $z=(z_1,\dots, z_n)$. Calcular $\partial_{z_j}f(z)$.
+               </li>
+               <li>
+                   $f(x,y,z)=100x^{1/2}y^{1/4}z^{1/5}$. Calcular $\partial_xf(x,y,z), \partial_yf(x,y,z)$ y $\partial_zf(x,y,z)$.
+               </li>
+            </ol>
+
+        </p>    
+    </div>
+    </body>

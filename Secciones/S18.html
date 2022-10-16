@@ -1,0 +1,322 @@
+<!DOCTYPE html PUBLIC >
+
+<html lang="es">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
+
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1],
+            id: "\\operatorname{id}",
+            senh:"\\operatorname{senh}"
+          },
+          tags: "ams", /* this part is for numbered equations */
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+      };
+    </script>
+
+    <!-- This part is for using single $ for latex input, instead of \(\) -->
+    <!--<script>
+        MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>-->
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../style.css" />
+
+    <!-- This part restart counter of cards to start at n+1 -->
+    <style>
+        body.number-title{
+          counter-reset: sectionCounter 17 cardCounter ;
+        }
+        h1.number-title{
+          counter-reset: sectionCounter 17 cardCounter ;
+        }
+      </style>
+  
+    <!-- Top Menu  -->
+
+
+        <header class="main-header">
+          <h1> Cálculo TRES </h1>
+         <nav class="top-nav">
+           <ul>
+              <li> <a href="../Home.html"> Inicio  </a> </li>
+              <li> <a href="../InfoPrimerDia.html"> Información general </a> </li>
+              <li> <a href="../Secciones.html"> Secciones  </a> </li>
+              <li> <a href="../ExternalLinks.html"> Links </a> </li>
+              
+            </ul>
+          </nav>
+          <label class="switch">
+            <input type="checkbox" onclick="myFunction()">
+            <span class="slider"></span>
+          </label>
+        </header>
+
+      <!-- This part is for title in tab-->
+      <title id="Sec"> § 18 </title>
+    
+  </head>
+  <body class="fondo-body" >
+
+    <h1 class="number-title flexbox"> Teorema de la función inversa </h1> 
+
+    
+
+
+
+
+
+
+<div class="teorema-box">
+  <h2 class="number-title"> Teorema </h2>
+  <p>
+    Sea $U$ un abierto de $\mathbb{R}^n$ y $F:U\to \mathbb{R}^n$ una
+    función de clase $C^1$ en $U$ (también llamada un campo vectorial).    
+  </p>
+  <p>
+      Sea $\mathbf{p}_0\in U$  y supongamos que la derivada de $F$ en $\mathbf{p}_0$,
+      denotada $D_{\mathbf{p}_0}F$,
+      es una biyección de $\mathbb{R}^n$ a $\mathbb{R}^n$ (es decir,
+      inyectiva y supreyectiva).
+  </p>
+  <p>
+    Entonces existe $W$, una vecindad de $\mathbf{p}_0$, tal que $F(W)$ es una
+    vecindad de $F(\mathbf{p}_0)$ donde se cunple:
+  </p>
+
+  <ol>
+    <li>
+        denotando $V:=F(W)$, $F$ es una biyección de $W$ a $V$
+        (es decir, inyectiva en $W$ y
+        suprayectiva a $V$);
+    </li>
+    <li>
+        $G:V \to W$, la  función inversa de $F$,  es continua en $V$;
+    </li>
+    <li>
+        además, $G$ es de clase $C^1$ en $V$ y si $\mathbf{q}\in V$ y
+        $\mathbf{p}=G(\mathbf{q})$
+        entonces $D_{\mathbf{q}}G$ es la inversa de $D_{\mathbf{p}}F$.
+    </li>
+  </ol>
+
+</div>
+
+
+
+
+
+
+<div class="nota-box">
+  <h2 class="number-title"> Notas </h2>
+  <ol>
+    <li>
+        una vecindad de un punto $\mathbf{p}$ es
+        simplemente un abierto que contiene
+        a $p$.
+    </li>
+    <li>
+        recuerda que $D_{\mathbf{p}_0}F$ es una transformación lineal cuya
+        matriz asociada en la base canónica, es la matrix de derivadas parciales
+        $\partial_{p_i}f_j(\mathbf{p}_0)$, donde $F=(f_1,\dots f_n)$.
+    </li>
+    <li>
+        $D_{\mathbf{p}_0}F$ es inyectiva sii, vista como matriz,
+        $\det(D_{\mathbf{p}_0}F)\ne 0$.
+    </li>
+    <li>
+        $D_{\mathbf{p}_0}F$ es suprayectiva sii su rango es $n$.
+    </li>
+    <li>
+        Existe un teorema de álgebra lineal que dice que,
+        dada una matriz de $n\times n$, la transformación lineal
+        (que va de $\mathbb{R}^n$ a $\mathbb{R}^n$)
+        inducida por la matriz es inyectiva si y sólo si es suprayectiva. Por
+        lo tanto, para aplicar el Teorema de la Función Inversa, es suficiente
+        checar que $\det(D_{\mathbf{p}_0}F)\ne 0$.
+        
+    </li>
+  </ol>
+</div>  
+
+
+
+    
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2>
+    <p>
+      Considera la función
+      $f:\mathbb{R}^2\setminus\{(0,0)\} \to \mathbb{R}^2$ dada por
+      $$f(x,y)=\left(\frac{x^2-y^2}{x^2+y^2}, \frac{2xy}{x^2+y^2}  \right)$$
+      
+      ¿ Tiene $f$ una inversa local
+      cerca del punto $(0,r)$, con $r>0$ ?
+    </p> 
+  </div>
+
+
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Considera la función $f:\mathbb{R}^2 \to \mathbb{R}^2$ dada por
+      $$
+      f(x,y)=(x^2-y^2,2xy)
+      $$
+    </p>
+    
+    <ol>
+        <li>
+            Fija una constante $\alpha\in \mathbb{R}$. Encuentra
+            las imagines inversas de las
+            curvas $u=\alpha$ y $v=\alpha$. Es decir, describe
+            los siguientes conjuntos:
+            $$
+            f^{-1}(\{(u,v)\in \mathbb{R}^2:u=\alpha \}),
+            f^{-1}(\{(u,v)\in \mathbb{R}^2: v=\alpha\}).
+            $$
+            A los puntos en el dominio de $f$ los vamos a denotar
+            como $(u,v)$ y  a los puntos en con
+            contradominio de $f$ los vamos a denotar $(u,v)$.
+        </li>
+        <li>
+            Fija una constante $\alpha \in \mathbb{R}$. Encuentra
+            las imagines directas de las
+            curvas $x=\alpha$ y $y=\alpha$. Es decir, describe los conjuntos: 
+            $$
+            f(\{(x,y)\in \mathbb{R}^2: x=\alpha \}),
+            f(\{(x,y)\in \mathbb{R}^2: y=\alpha\}).
+            $$
+        </li>
+        <li>
+            Encuentra en cuál región se transforma el 
+            rectángulo $\{(x,y):0\leq x \leq 1, 0\leq y \leq 1\}$ al aplicar $f$.      
+        </li>
+        <li>
+            Encuentra la región tal que, al aplicar $f$,
+            se obtiene el  rectángulo
+            $\{(u,v): 0\leq u \leq 1,0\leq v \leq 1\}$.
+        </li>
+        <li>
+            Demuestra que, para todo $(x,y)$, existe una vecindad
+            del punto tal que $f$ restringida a
+            dicha vecindad es inyectiva, excepto para el punto $(0,0)$.
+            Además prueba que $f$ no es inyectiva en
+            todo $\mathbb{R}^2$.
+        </li>  
+    </ol>
+  </div>
+
+    
+    
+
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Sea $f:\mathbb{R}\to \mathbb{R}$ una función de
+      clase $C^1$. Define $F:\mathbb{R}^2 \to \mathbb{R}^2$
+      dada por $$F(x,y)=(f(x), xf(x)-y).$$
+    </p>
+    <p>
+      Si $f'(x_0)\ne 0$ demuestra que $F$ tiene una inversa local
+      cerca de $(x_0,y_0)$ (donde $y_0$ es arbitrario).
+      Además, prueba que ésta inversa está dada por
+      $$F^{-1}(u,v)=(f^{-1}(u),uf^{-1}(u)-v).$$
+    </p>
+  </div>
+
+
+
+
+    
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2>
+    <p>
+      Sea $f:\mathbb{R}^n \to \mathbb{R}^n$ una función.
+      ¿ Es cierto que si,
+      $f$ es diferenciable en $p_0$ y $f$ admite una inversa
+      diferenciable, entonces $D_cf$ es inyectiva?
+    </p> 
+  </div>
+  
+  
+     <div class="ejercicio-box"> 
+      <h2 class="number-title"> Ejercicio</h2> 
+      <p>
+        Considera la función $f:\mathbb{R}\to \mathbb{R}$ dada por
+        $$
+        f(x)=\left\{
+          \begin{array}{cc}
+            x+2x^2\sen(1/x) & x\ne 0 \\
+            0 & x=0
+            \end{array}
+          \right.
+        $$
+
+        En este caso recuerda que $D_0f$ es simplemente $f'(0)$ y que
+        la condición de que $D_0f$ sea inyectiva simplemente se traduce
+        a $f'(0)\ne0$.
+
+      </p>
+      <p>
+        Prueba que $f'(0)$ existe, es distinta de cero, pero sin embargo,
+        $f$ no es invertible cerca de $x=0$.
+      </p>
+      <p>
+        ¿ Contradice esto el teorema de la función inversa?
+      </p>
+          
+  </div>
+
+       
+
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Considera la función $F(x,y)=(x^4+2xy+3,y)$ y considera las ecuaciones
+      \begin{eqnarray*}
+        x^4+2xy+3&=&u \\
+        y&=&v\\
+      \end{eqnarray*}
+      
+    </p>
+    <ol>
+        <li>
+            Muestra que para $(u,v)=(0,1)$, una solución es $(x,y)=(2,1)$.
+        </li>
+        <li>
+            Encuentra $D_{(x,y)}F$, para todo punto $(x,y)$.
+        </li>
+        <li>
+            Prueba que $D_{(2,1)}F$ es invertible, por lo tanto $F$
+            es invertible en una vecindad de $(2,1)$.
+              Usa una aproximación lineal para estimar
+            $F^{\langle -1 \rangle }(2.2,1.01)$.
+        </li>
+    </ol>
+  </div>
+
+  </body>

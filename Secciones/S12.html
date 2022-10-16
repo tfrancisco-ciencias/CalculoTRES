@@ -82,587 +82,487 @@
   </head>
   <body class="fondo-body" >
 
-    <h1 class="number-title flexbox"> Regla de la cadena y aplicaciones </h1> 
+    <h1 class="number-title flexbox">Primeros casos de la regla de la cadena </h1> 
 
 
+           
+                
+           
     <div class="teorema-box">
-      <h2 class="number-title"> Teorema </h2>
-      <p>
-        Sean $U \subset \mathbb{R}^n$ y $V\subseteq \mathbb{R}^m$ subconjuntos
-        abiertos y $G:V \to \mathbb{R}^n$, $F:U \to \mathbb{R}^k$ tal que
-        $G(V)\subseteq U$ (para que $F\circ G$ esté bien definida).
-        Supongamos que $q_0\in V$,  $G$ es
-        diferenciable en $q_0$ y $F$ es diferenciable en $G(q_0)$.
-      </p>
-      <p>
-        Entonces
-        $F\circ G$ es diferenciable en $q_0$ y
-        $$
-        D_{q_0}(F\circ G)=(D_{G(q_0)}F)(D_{q_0}G)
-        $$
-        donde en la última igualdad se tiene multiplicación
-        de matrices.
-      </p>
-  </div>
+        <h2 class="number-title"> Teorema </h2>
+        <p>
+            Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$ y $f: U \to \mathbb{R}$ una
+            función diferenciable en $p_0\in U$. Sea $I$ un intervalo abierto de 
+            $\mathbb{R}$, $\gamma: I \to \mathbb{R}^n$
+            una función con tal que $\gamma(t_0)=p_0$ y $\gamma$ diferenciable en $t_0$.
+        </p>
+        <p>
+            Entonces $f \circ \gamma$ es diferenciable en $t_0$ y 
+            $$
+            \frac{d f\circ \gamma (t_0)}{dt}=\langle \nabla_{p_0}f, \gamma'(t_0) \rangle	
+            $$
+            es decir
+            $$
+            (f \circ \gamma)'(t_0)=\sum_{i=1}^n \partial_{p_i} f(p_0)\gamma_i'(t_0)	
+            $$
+            donde $\gamma(t)=(\gamma_1(t), \dots, \gamma_n(t))$.
+        </p>
 
-
-<div class="ejercicio-box"> 
-  <h2 class="number-title"> Ejercicio</h2> 
-  <p>
-    Este ejercicio es una preparación para dar una prueba de
-    la regla de la cadena.
-  </p>
-  <p>
-    Considera las funciones $G: \mathbb{R}^3 \to \mathbb{R}^2$,
-    $F:\mathbb{R}^2 \to \mathbb{R}^2$ dadas por
-    \begin{eqnarray*}
-      G(x,y,z)&=&(g_1(x,y,z),g_2(x,y,z)), \\
-      F(u,v)&=&(f_1(u,v), f_2(u,v) )
-    \end{eqnarray*}
-    donde
-    \begin{eqnarray*}
-      g_1(x,y,z)&=&xy,\\
-      g_2(x,y,z)&=&yz, \\
-      f_1(u,v)&=&u^2-v^2,\\
-      f_2(u,v)&=&u+v. 
-    \end{eqnarray*}
-    
-    Define $H:\mathbb{R}^3 \to \mathbb{R}^2$ por $H(x,y,z)=F(G(x,y,z))$.
-  </p>
-  <ol>
-    <li>
-        Calcula  $\partial_x g_i, \partial_yg_i, \partial_z g_i$, $i=1,2,3$,
-        $\partial_u f_j.\partial_v f_j$, $j=1,2$.
-    </li>
-    <li>
-        Escribe las funciones coordenadas de $H$ como
-        $$H(x,y,z)=(h_1(x,y,z), h_2(x,y,z))$$
-    
-        Calculando directamente
-        la composición, encuentra las fórmulas
-        para $h_1$ y $h_2$.
-    </li>
-    <li>
-        Calcula las parciales
-        $\partial_x h_i,\partial_y h_i, \partial_z h_i$, $i=1,2$.
-    </li>
-    <li>
-        Usando los incisos anteriores prueba que, para $i=1,2$:
-        \begin{eqnarray*}
-        \partial_x h_i(x,y,z)&=&
-        \partial_u f_i(g_1(x,y,z),g_2(x,y,z))
-                                 \partial_x g_1(x,y,z) \\
-                             &+&
-        \partial_v f_i(g_1(x,y,z),g_2(x,y,z))
-        \partial_x g_2(x,y,z)
-        \end{eqnarray*}
-    
-        Si hacemos abuso de notación y
-        pensamos a las variables $u$ y $v$ como dependientes
-        de $x,y$ y $z$ de la siguiente forma:
-        $u(x,y,z)=g_1(x,y,z), v(x,y,z)=g_2(x,y,z)$, lo
-        anterior también se escribe:
-        \begin{eqnarray*}
-          \frac{\partial h_i}{\partial x}&=&
-                                             \frac{\partial f_i}{\partial u}
-                                             \frac{\partial u}{\partial x} 
-                                         + \frac{\partial f_i}{\partial v}
-                                             \frac{\partial v}{\partial x}
-        \end{eqnarray*}    
-    </li>
-  </ol>
-</div>
-
+    </div>
+             
 
 <div class="ejercicio-box"> 
-  <h2 class="number-title"> Ejercicio</h2> 
-  <p>
-    Este ejercicio generaliza el anterior, observando que
-    las fórmulas para $F$ y $G$ no son absolutamente necesarias.
-  </p>
-  <p>
-    Considera funciones clase $C^!$, $G:\mathbb{R}^3 \to \mathbb{R}^2$
-    y $F:\mathbb{R}^2 \to \mathbb{R}^2$ y $H=F \circ G$.
-  </p>
-  <ol>
-    <li>
-        Escribe las funciones coordenadas de las funciones como
-        \begin{eqnarray*}
-          G(x,y,z)&=&(g_1(x,y,z),g_2(x,y,z))\\
-          F(u,v)&=&(f_1(u,v), f_2(u,v))\\
-          H(x,y,z)&=&(h_1(x,y,z), h_2(x,y,z))
-        \end{eqnarray*}
-    
-        Prueba que
-        $$
-        h_i(x,y,z)=f_i(g_1(x,y,z), g_2(x,y,z))
-        $$
-    </li>
-    <li>
-        Dejando las coordenadas $y$ y $z$ fija y usando
-        el primer caso de la regla de la cadena, prueba que
-        $$
-        \partial_x h_i =\partial_u f_i \partial_x g_1+
-        \partial_v f_i \partial_yg_2
-        $$
-    </li>
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p> 
+        Este ejercicio da una prueba del primer caso
+        de la regla de la cadena, en dimensión 3 y con la
+        hipótesis adicional de que las funciones sean
+        clase $C^1$.      
+    </p>
+    <p>
+        Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^3$
+        y $f: U \to \mathbb{R}$ una
+        función clase $C^1$ en $ U$. Sea $I$ un intervalo abierto de 
+        $\mathbb{R}$, $\gamma: I \to \mathbb{R}^3$
+        una función clase $C^1$ con $\gamma(I)\subset U$ (para que
+        $f\circ \gamma$ esta bien definida).      
+    </p>
+    <ol>
+        <li>
+            Denotemos $\gamma(t)=(x(t),y(t),z(t))$ y
+            sea $t_0\in I$, fijo y arbitrario y
+            denota $\gamma(t_0)=p_0=(x(t_0),y(t_0),z(t_0))\in U$.
+        </li>
+        <li>
+            Ya que $U$ es abierto, existe $r>0$ con $B_r(p_0)\subset U$.
+            Demuestra que si $t$ está suficientemente cerca de
+            $t_0$ entonces los puntos 
+            \begin{eqnarray*}
+              p_1(t)&:=&p_0+(x(t)-x(t_0))e_1,\\
+              p_2(t)&:=&p_1(t)+(y(t)-y(t_0))e_2,\\
+              p_3(t)&:=&(z(t)-z(t_0))e_3
+            \end{eqnarray*}
+            están todos en $U$, donde $\{e_1,e_2,e_3\}$ es la
+            base canónica de $\mathbb{R}^3$ y además $p_3(t)=\gamma(t)$.
+        </li>
+        <li>
+            Define $h(t)=f(\gamma(t))$. Si $t\ne t_0$ y $t$ está
+            suficientemente cerca de $t_0$ demuestra que
+            \begin{eqnarray*}
+              \frac{h(t)-h(t_0)}{t-t_0}&=& \frac{f(p_1(t))-f(p_0)}{t-t_0} \\
+                                       &+& \frac{f(p_2(t))-f(p_1(t))}{t-t_0}\\
+                                       &+&\frac{f(p_3(t))-f(p_2(t))}{t-t_0}
+            \end{eqnarray*}
+        </li>
+        <li>
+            Usando el Teorema del Valor Medio, para funciones
+            de una variable, demuestra que existen $c_x,c_y,c_z$ con:
+            
+            $$
+            f((x,y(t_0),z(t_0)))-f((x(t_0),y(t_0),z(t_0)))
+            =\partial_xf(c_x,y(t_0),z(t_0))(x-x(t_0))
+            $$
+            donde $c_x$ está entre $x(t_0)$ y $x$,
+        
+            $$
+            f((x,y,z(t_0)))-f((x,y(t_0),z(t_0)))
+            =\partial_yf(x,c_y,z(t_0))(y-y_0)
+            $$
+            donde $c_y$ está entre $y(t_0)$ y $y$,
+        
+            $$
+            f((x,y,z))-f((x,y,z(t_0)))
+            =\partial_zf(x,y,c_z)(z-z_0)
+            $$
+            donde $c_z$ está entre $z$ y $z(t_0)$.
+        
+        </li>
+        <li>
+            Usando el inciso anterior prueba que existen
+            $c_{x}$, entre $x(t)$ y $x_0$, $c_y$, entre $y(t)$ y $y_0$
+            y $c_z$, entre $z(t)$ y $z_0$ tal que
+           
+             \begin{eqnarray*}
+               \frac{h(t)-h(t_0)}{t-t_0}&=& \partial_xf(c_x,x(t_0),y(t_0))
+                                            \frac{x(t)-x(t_0)}{t-t_0} \\
+                                        &+& \partial_yf(x(t),c_y,z(t_0))
+                                            \frac{y(t)-y(t_0)}{t-t_0}\\
+                                        &+&\partial_zf(x(t),y(t),c_z)
+                                            \frac{z(t)-z(t_0)}{t-t_0}
+            \end{eqnarray*}
+        
+        </li>
+        <li>
+            Tomando límite en la expresión del inciso anterior
+            para el cociente diferencial de $h$ y usando la
+            continuidad de las derivadas parciales, concluye que
+            \begin{eqnarray*}
+              h'(t_0)&=&\partial_xf(x(t_0), y(t_0), z(t_0))x'(t_0)\\
+                     &+& \partial_yf(x(t_0), y(t_0), z(t_0))y'(t_0)\\
+                     &+&\partial_zf(x(t_0), y(t_0), z(t_0))z'(t_0)
+            \end{eqnarray*}
+            y por lo tanto, ya que $t_0$ es arbitrario, $h$ es clase $C^1$.
+        </li>
+    </ol>
+  
+</div>    
+  
+  
+  
+
+  
+
+  
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Este ejercicio prueba el primer caso de la regla de la cadena, con
+        la hipótesis extra de que la función sea clase $C^1$ y es una
+        generalización del ejercicio anterior.      
+    </p>
+    <p>
+        Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$ y $f: U \to \mathbb{R}$ una
+        función clase $C^1$ en $ U$. Sea $I$ un intervalo abierto de 
+        $\mathbb{R}$, $\gamma: I \to \mathbb{R}^n$
+        una función clase $C^1$ con $\gamma(I)\subset U$ (para que
+        $f\circ \gamma$ esta bien definida).
+    </p>  
+    <ol>
+        <li>
+            Toma $p\in U$ un punto arbitrario y $r>0$
+            tal que $B_r(p)\subset U$. Dado  $q \in B_r(p) $   define
+            \begin{eqnarray*}
+              p_0&=& p, \\
+              p_1&=& p_0+ (q_1-p_1)e_1, \\
+              p_2&=&p_1+(q_2-p_2)e_2, \\
+             & \vdots&\\
+              p_n&=&p_{n-1}+(q_n-p_n)e_n
+            \end{eqnarray*}
+            donde $p=(p_1,\dots,p_n), q=(q_1,\dots, a_n)$,
+            $\{e_1,\dots, e_n\}$ es la base canónica de $\mathbb{R}^n$.
+      
+            Prueba
+            que $p_n=q$, $p_i\in U$, para todo $i=1,\dots, n$, y
+            $$
+            f(q)-f(p)=\sum_{i=1}^n f(p_i)-f(p_{i-1}).
+            $$
+        </li>
+        <li>
+            Fija $t_0\in I$ y $r>0$ tal que $B_r(\gamma(t_0)) \subset U$.
+
+            Para $t$ cercano a $t_0$  y tal que $\gamma(t)\in B_r(\gamma(t_0))$ define:
+            \begin{eqnarray*}
+              p_0(t)&=&\gamma(t_0),\\
+              p_1(t)&=&p_0(t)+(\gamma_1(t)-\gamma_1(t_0))e_1,\\
+              p_2(t)&=&p_1(t)+(\gamma_2(t)-\gamma_2(t_0))e_2,\\
+                    &\vdots& \\
+              p_n(t)&=&p_{n-1}(t)+(\gamma_n(t)-\gamma_{n}(t_0)e_n)
+            \end{eqnarray*}
+            Define $h(t)=f(\gamma(t))$. Usando el inciso anterior prueba
+            que, para $t\ne t_0$ y cercana a $t_0$:
+            $$
+            \frac{h(t)-h(t_0)}{t-t_0}=\sum_{i=1}^n \frac{f(p_i(t))-f(p_{i-1}(t))}{t-t_0}
+            $$      
+        </li>
+        <li>
+            Usando el Teorema del Valor medio, para una variable, demuestra
+            que existen $c_1,\dots, c_n$, escalares tales que $c_i$
+            está entre $\gamma_i(t)$ y $\gamma_i(t_0)$ tal que
+            $$
+            f(p_i(t))-f(p_{i-1}(t))=\partial_{p_i}f(\tilde{p}_i)(\gamma_i(t)-\gamma_i(t_0))
+            $$
+            donde $\tilde{p}_i=p_{i-1}(t)+c_ie_i$.
+        </li>
+        <li>
+            Usando la continuidad de las parciales de $f$ y la continuidad
+            de las funciones coordenadas $\gamma_1,\dots, \gamma_n$ concluye que
+            $$
+            \lim_{t\to t_0} \frac{f(p_i(t))-f(p_{i-1}(t))}{t-t_0}=
+            \partial_{p_i}f(\gamma(t_0))\gamma_i'(t_0)
+            $$
+        </li>
+        <li>
+            Concluye que
+            $$
+            h'(t_0)=\lim_{t\to t_0} \frac{h(t)-h(t_0)}{t-t_0}=
+            \sum_{i=1}^n \partial_{p_i}f(\gamma(t_0))\gamma_i'(t_0)
+            $$
+            y que la función  $f \circ \gamma$ es clase $C^1$ en $I$. 
+        </li>
 </ol>
 </div>
 
   
 
+
+
+
+    
+
   
-  
-<div class="ejercicio-box"> 
-  <h2 class="number-title"> Ejercicio</h2> 
-  <p>
-    Este ejercicio prueba el caso general de la regla de la cadena,
-    con la hipótesis extra de que tanto $F$ como $G$ son funciones
-    clase $C^1$ en sus respectivos dominios.
-  </p>
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Este ejercicio prueba el primer caso de la regla de la cadena, en el caso
+        más general.
+    </p>
+    <p>
+        Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$ y $f: U \to \mathbb{R}$ una
+        función diferenciable en $p_0\in U$. Sea $I$ un intervalo abierto de 
+        $\mathbb{R}$, $\gamma: I \to \mathbb{R}^n$
+        una función con tal que $\gamma(t_0)=p_0$ y $\gamma$ diferenciable en $t_0$.
+    </p>   
+       <ol>
+            <li>
+                Usando que $f$ es diferenciable en
+                $p_0$, prueba que podemos escribir, para $p$ cercano a $p_0$:
+                $$
+                f(p)=f(p_0)+ \langle \nabla_{p_0} f, p-p_0\rangle + E(p)
+                $$
+                con $E(p)$ una función continua con  $\lim_{p\to p_0}|E(p)|/\|p-p_0\|=0$ y $E(p_0)=0$.
+            </li>
+            <li>
+                Modifica el inciso anterior para probar que, para $p$ cercano a $p_0$
+                $$
+                f(p)=f(p_0)+ \langle \nabla_{p_0} f, p-p_0\rangle +\|p-p_0\| F(p)
+                $$
+                donde $F$ es una función continua con $F(p_0)=0$.
+       
+                Sugerencia: simplemente define
+                $$
+                F(p)=\left\{
+                  \begin{array}{cc}
+                    \frac{E(p)}{\|p-p_0\|} & p\ne p_0 \\
+                    0 & p=p_0
+                  \end{array}
+                \right.
+                $$
+            </li>
+            <li>
+                Ahora prueba que, para $t$ cercano a $t_0$:
+                $$
+                f(\gamma(t))= f (\gamma (t_0))+
+                \langle \nabla_{p_0}f, \gamma(t)-\gamma(t_0) \rangle
+                + \|\gamma(t)-\gamma(t_0)\| F(\gamma(t))
+                $$
+            </li>
+            <li id="Ejer:AuxReglaCadena">
+                Concluye que el cociente diferencial para $f\circ \gamma$ se puede escribir
+                $$
+                \frac{f\circ \gamma (t)- f\circ \gamma (t_0)}{t-t_0}=
+                \langle \nabla_{p_0} f, \frac{\gamma(t)-\gamma(t_0)}{t-t_0}\rangle
+                + \frac{\| \gamma(t)-\gamma(t_0)\|}{t-t_0}F(\gamma(t))
+                $$
+            </li>
+            <li>
+                Prueba que
+                $$\lim_{t\to t_0} \left| \frac{\| \gamma(t)-\gamma(t_0)\|}{t-t_0}F(\gamma(t))   \right|=0$$
+       
+                Sugerencia: usando que
+                $\gamma$ es diferenciable en $t_0$,
+                $$\lim_{t \to t_0}\frac{\gamma(t)-\gamma(t_0)}{t-t_0}=\gamma'(t_0) $$
+                además, por la continuidad de $F$ y $\gamma$, prueba $\lim_{t\to t_0}F(\gamma(t))=0$.       
+            </li>
+            <li>
+                Tomando límite cuando $t\to t_0$ en el inciso \ref{Ejer:AuxReglaCadena} concluye que
+                $$
+                (f\circ \gamma)'(t_0)= \langle \nabla_{p_0}f, \gamma'(t_0)\rangle
+                $$
+            </li>
 
-  <ol>
-    <li>
-        Escribe las funciones coordendas de $F$ y $G$ como:
-        $$
-        F(p)=(f_1(p), \dots, f_k(p)), \, p\in U \subset \mathbb{R}^n,
-        $$
-    
-        $$
-        G(q)=(g_1(q), \dots, q_n(q)), \, q\in V\subset \mathbb{R}^m.
-        $$
-    
-        Denotemos $H=F\circ G$. Entonces tenemos, para $q\in V$
-        $$
-        H(q)=(f_1(g_1(q), \dots, g_n(q)), \dots,f_k(g_1(q), \dots, g_n(q)) )
-        $$
-        Fija una función coordenada de $H$, digamos
-        $$
-        h_{i_0}(q):=f_{i_0}(g_1(q), \dots, g_n(q))
-        $$
-        
-        Denotemos las entradas de $q$ como $q=(q_1,\dots, q_m)$ y las
-        de $p$ como $p=(p_1,\dots, p_n)$.
-    
-        Fija $j_0\in \{1,\dots, m\}$ y considera la función que se
-        obtiene de $h_{i_0}$ dejando todas las coordenadas $q_1,\dots, q_m$
-        fijas, excepto la $q_{j_0}$. Usa el primer caso de la regla
-        de la cadena para probar
-        $$
-        \partial_{q_{j_0}}h_{i_0}(q)= \sum_{i=1}^n \partial_{p_i}f_{i_0}(
-        g_1(q), \dots, g_n(q))
-        \partial_{q_{j_0}}g_i(q)
-        $$
-    </li>
-    <li>
-        Usando el ejercicio anterior y la definición de
-        producto de matrices, prueba que
-        $$
-        D_{q}H=(D_{g(q)}F)(D_qG)
-        $$    
-    </li>
-    <li>
-        Concluye que $H$ es una función de clase $C^1$.
-    </li>
- </ol>
-
-</div>
-
-
-
-<div class="ejercicio-box"> 
-  <h2 class="number-title"> Ejercicio</h2> 
-  <p>
-    Este ejercicio prueba  la regla de la cadena, en el caso
-    más general.
-  </p>
-     <ol>
-        <li>
-            Denota $p_0=G(q_0)$.
-            Usando que $F$ es diferenciable en $p_0$,
-            prueba que podemos escribir, para $p$ cercano a $p_0$:
-            $$
-            F(p)=F(p_0)+ D_{p_0} F(p-p_0) + E(p)
-            $$
-            con $E(p)$ una función continua con
-            $\lim_{p\to p_0}\|E(p)\|/\|p-p_0\|=0$ y $E(p_0)=0$.
-        </li>
-        <li>
-            Modifica el inciso anterior para probar que,
-            para $p$ cercano a $p_0$
-            $$
-            F(p)=F(p_0)+ D_{p_0}F (p-p_0) +\|p-p_0\| F(p)
-            $$
-            donde $F$ es una función continua con $F(p_0)=0$.
-     
-            Sugerencia: simplemente define
-            $$
-            F(p)=\left\{
-              \begin{array}{cc}
-                \frac{E(p)}{\|p-p_0\|} & p\ne p_0 \\
-                0 & p=p_0
-              \end{array}
-            \right.
-            $$
-        </li>
-        <li>
-            Ahora prueba que, para $q$ cercano a $q_0$:
-            $$
-            F(G(q))= F (G (q_0))+
-            (D_{p_0}F)( G(q)-G(q_0))
-            + \|G(q)-G(q_0)\| F(G(q))
-            $$
-        </li>
-        <li>
-            Usando que $G$ es diferenciable en $q_0$ prueba
-            que, para $q$ cercano a $q_0$
-            $$
-            G(p)-G(q_0)=(D_{q_0})G(q-q_0)+ \| q-q_0\|\tilde{F}(q)
-            $$
-            donde $\tilde{F}$ es una función continua
-            con $\tilde{F}(q_0)=0$.
-        </li>
-        <li id="Ejer:AuxReglaCadenaGeneral">
-            Concluye que, para $q \ne q_0$ y cerca de $q_0$  
-            \begin{eqnarray*}
-            \frac{\|F(G(q))-F(G(q_0))- (D_{p_0}F)(D_{q_0}G)(q-q_0) \|}{\|q-q_0 \|}
-            &\leq &  \| (D_{p_0}F)(\tilde{F}(q))\| \\
-           &+& \frac{\| G(q)-G(q_0)\|}{\|q-q_0\|}\| F(G(q))\|
-            \end{eqnarray*}
-        </li>
-        <li>
-            Prueba que 
-            $$\lim_{q \to q_0}
-            \left| \frac{\| G(q)-G(q_0)\|}{\|q-q_0\|} F(G(q))\right|=0
-            $$
-            y
-     
-            $$
-            \lim_{q\to q_0} \|(D_{p_0}F)(\tilde{F}(q) \|=0.
-            $$
-        </li>
-        <li>
-            Usando el ejercicio \ref{Ejer:EquivDefDifGeneral}, concluye
-            que $F\circ G$ es diferenciable en $q_0$ y
-            $$
-            D_{q_0}F\circ G= (D_{G(q_0)}F)(D_{q_0}G)
-            $$
-        </li>
     </ol>							
-</div>
+  </div>   
 
-
-  
-<div class="ejercicio-box"> 
-  <h2 class="number-title"> Ejercicio</h2> 
-  <p> 
-    Considera las funciones
-    $F:\mathbb{R}^3\to \mathbb{R}^2$
-    y $G:\mathbb{R}^3\to \mathbb{R}^3$ dadas  por
-    $$
-    F(x,y,z)=(x^2+y+z, 2x+y+z^2), \quad G(u,v,w)=(2uv^2w^2,w^2\sen(v),u^2e^v)
-    $$
-  </p>
-  <ol>
-    <li>
-        Encuentra la matriz de derivadas parciales
-        $D_{(x,y,z)}F$ y $D_{(u,v,w)}G$.
-    </li>
-    <li>
-        Define $H=F\circ G$. Usa la regla de la
-        cadena para calcular la matriz derivada
-        parciales $D_{(u,0,w)}H$.
-    </li>
-  </ol>
-</div>
 
 
 <div class="ejercicio-box"> 
-  <h2 class="number-title"> Ejercicio</h2> 
-  <p>
-    Considera la función $G:\mathbb{R}^2 \to \mathbb{R}^2$
-    dada por
-    $$
-    G(x,y)=(x+y,2x-y )
-    $$
-  </p>
-  <ol>
-    <li>
-        Encuentra una función lineal,  $f:\mathbb{R}^2 \to \mathbb{R}$
-        tal que, si  $h=f\circ G$, entonces
-        $$
-        \partial_x h(x,y)=2, \quad \partial_y h(x,y)=1 
-        $$
-    </li>
-    <li>
-        Encuentra una función clase $C^1$, $f:\mathbb{R}^2 \to \mathbb{R}$
-        tal que, si $h=f\circ G$, entonces
-        $$
-        \partial_x h(x,y)=2x+y, \quad \partial_y h(x,y)=x-y
-        $$
-    </li>
-  </ol>
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Usa la regla de la cadena para escribir las derivadas 
+        parciales que se piden en las siguientes funciones:
+    </p>
+
+            <ol>
+                <li>
+                    $\frac{\partial f}{\partial y}(A(x,y),B(x,y),C(x,y))$,
+                </li>
+                <li>
+                    $\frac{\partial f}{\partial x_2}(p_1(x_1,x_2,x_3),p_2(x_1,x_2,x_3))$
+                </li>
+                <li>
+                    $\frac{\partial f}{\partial x_5}
+                    (X_1(x_1, \dots, x_{10}), \dots, X_{7}(x_1,\dots, x_{10}))$
+                </li>
+            </ol>
 </div>
 
 
-  
-    <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2>
-      <ol>
-        <li>
-            Considera la función $I:\mathbb{R}^3\to \mathbb{R}^3$
-            dada por $I(x,y,z)=(x,y,z)$.
-            Demuestra que
-            $$
-            D_{(x,y,z)}I=\left[
-              \begin{array}{ccc}
-                1 & 0 & 0 \\
-                0 & 1 & 0 \\
-                0 & 0 & 1
-              \end{array}
-            \right]
-            $$
-        </li>
-        <li>
-            Encuentra todas las funciones diferenciables en $\mathbb{R}^3$,
-            $F:\mathbb{R}^3 \to \mathbb{R}^3$, para las cuales
-            
-            $$
-            D_{(x,y,z)}F=\left[
-              \begin{array}{ccc}
-                x & 0 & 0 \\
-                0 & y & 0 \\
-                0 & 0 & x
-              \end{array}
-            \right]
-            $$
-        </li>
-        <li>
-            Sean $p,q,r:\mathbb{R}\to \mathbb{R}$ funciones
-            continuas en todo $\mathbb{R}$. Encuentra
-            todas la funciones diferenciables en $\mathbb{R}^3$,
-            $G:\mathbb{R}^3 \to \mathbb{R}^3$, para
-            las cuales
-    
-            $$
-            D_{(x,y,z)}G=\left[
-              \begin{array}{ccc}
-                p(x) & 0 & 0 \\
-                0 & q(y) & 0 \\
-                0 & 0 & r(z)
-              \end{array}
-            \right]
-            $$
-        </li>
-    </ol>
- </div>
 
-
-      
-  <div class="ejercicio-box"> 
+<div class="ejercicio-box"> 
     <h2 class="number-title"> Ejercicio</h2> 
     <p>
-      Usa la regla de la cadena para probar que,
-      si $g:U\to \mathbb{R}$ es de clase
-        $C^1$ en $U$, con $U$ un abierto de $\mathbb{R}^n$, entonces
-        $$
-        \nabla_{p}(1/g)=-\frac{1}{g(p)^2}\nabla_p g
-        $$    
-        donde suponemos que $g(p)\ne 0$, para toda $p\in U$.
+        Sea $U\ne \emptyset$ un abierto de
+        $\mathbb{R}^2$, $g:U\to \mathbb{R}$ una función de clase $C^1$
+        y $x,y:I\to \mathbb{R}$ funciones  de clase $C^1$
+        (con $I$ un intervalo abierto).
+        Encuentra $h'(t)$, la derivada de
+        $h$ (función de una variable), para las siguientes funciones:
     </p>
-    
-   </div>
-
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-      Sean $G:\mathbb{R}^m \to \mathbb{R}^n$,
-      una función de clase $C^1$ en $\mathbb{R}^m$, con funciones
-      coordenadas $G(q)=(g_1(q),\dots, g_n(q))$
-      y sea $f:\mathbb{R}^n \to \mathbb{R}$ una función
-      de clase $C^1$ en $\mathbb{R}^n$ y sea $h=f\circ G$.
-      Usa la regla de la cadena para demostrar que
-      el gradiente de $h$ es una combinación lineal de los
-      gradientes de las $g_k$, en específico:
-      $$ 
-      \nabla_{q_0} h= \sum_{k=1}^n \partial_{p_k}f(G(q_0)) \nabla_{q_0}g_k
-      $$
-      nota que $\partial_{p_k}f(g(q_0))$ es escalar
-      y $\nabla_{q_0}g_k$ es vector.
-    </p>
-
-      
-      <div class="definicion-box">
-        <h2 class="number-title" id="Def:PlanoTangenteSupNivel">  Definición</h2>
-        <p>
-          Sea $U\ne \emptyset$ un conjunto abierto de $\mathbb{R}^3$
-          y $g:U \to \mathbb{R}$ una función de clase $C^1$. Considera
-          la superficie de nivel
-          $$
-          S=\{(x,y,z): g(x,y,z)=0\}
-          $$
-        </p>
-        <p>
-          Si $p_0=(x_0,y_0,z_0)\in S$ y
-          $\nabla_{p_0}g \ne 0$, el plano tangente a $S$, que pasa
-          por $p_0$ se define como
-          $$
-          \{ (x,y,z): \langle
-          \nabla_{p_0}g, (x-x_0, y-y_0, z-z_0)
-          \rangle =0
-          \}
-          $$
-          es decir, los puntos $(x,y,z)$ para los cuales
-          $(x,y,z)-(x_0,y_0,z_0)$ es ortogonal a $\nabla_{p_0}g$.
-        </p>
-      </div>
-
-      <div class="ejercicio-box"> 
-        <h2 class="number-title"> Ejercicio</h2> 
-        <p>
-          Sea $U\ne \emptyset$ un conjunto abierto de $\mathbb{R}^3$
-          y $g:U \to \mathbb{R}$ una función de clase $C^1$. Considera
-          la superficie de nivel
-          $$
-          S=\{(x,y,z): g(x,y,z)=0\}
-          $$
-          y $p_0=(x_0,y_0,z_0)\in S$.
-        </p>
-        
-
         <ol>
             <li>
-                Prueba que la ecuación del
-                plano tangente a $S$ en $p_0$ está dada por
-                $$
-                \partial_xg(p_0)(x-x_0)+\partial_yg(p_0)(y-y_0)+\partial_zg(p_0)(z-z_0)
-                =0
-                $$
+                $h(t)=(g(x(t), y(t)))^2$,
             </li>
             <li>
-                Sea $\gamma:I \to \mathbb{R}^3$ una curva diferenciable  tal que
-                $\gamma(I)\subset S$  y
-                $\gamma(t_0)=p_0$. Demuestra que $p_0+\gamma'(t_0)$ es un punto
-                en el plano tengente a $S$ que pasa por $p_0$.
+                $h(t)=e^{g(x(t),y(t))}$,
+            </li>
+            <li>
+                $h(t)=\sen(g(x(t),y(t)))$.
             </li>
         </ol>
-     </div>
-
-
-    <div class="ejercicio-box"> 
-      <h2 class="number-title"> Ejercicio</h2> 
-      <p>
-        Hallar la ecuación del plano tangente a las superficies
-        dadas en los puntos indicados.
-      </p>
-    <ol>
-        <li>
-            $x^2+2y^2+3xz=10$ en $(1,2,1/3)$,
-        </li>
-        <li>
-            $y^2-x^2=3$ en $(1,2,8)$,
-        </li>
-        <li>
-            $xyz=1$ en $(1,1,1)$.
-        </li>
-    </ol>
-    </div>
-
-
-    
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-      Recuerda que, para una superficie de nivel
-      $S \subset \mathbb{R}^3$, de la función $g(x,y,z)$,
-      la ecuación del plano tangente es
-      $$
-      \langle \nabla_{(x_0,y_0,z_0)}g, (x-x_0,y-y_0,z-z_0) \rangle =0
-      $$
-      donde $(x_0,y_0z_0)$ es un punto en la superficie $S$.
-    </p>
-    <p>
-      Demuestra que, como caso especial, la fórmula del plano tangente
-      a la gráfica de la función
-      $f(x,y)$, clase $C^1$,  se puede obtener de la ecuación anterior si
-      se considera a la gráfica
-      como una superficie de nivel de $g(x,y,z)=f(x,y)-z$.
-    </p>
-  </div>
-
-    
- 
-
-  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-    Dada una superficie $S$ en $\mathbb{R}^3$
-    y un punto $p_0$ en la superficie, vamos a
-    denotar $N,U,L$, a tres vectores unitarios
-    con las características de que:
-    </p>
-    <p>
-      $N$  es el vector normal al plano tangente a $S$
-      que pasa por $p_0$; $U$ es vector que indica
-      la dirección donde la razón de crecimiento, en $p_0$, es máxima;
-      $L$ es el  vector donde la razón de crecimiento, en $p_0$, es cero.  
-    </p>  
-    <p>
-      Nota:  en general hay dos elecciones para dichos vectores,
-      pues podemos tomar su negativo
-      (por ejemplo $-N$ o $N$).
-  
-    </p>
-
-    <p>
-      Para las siguientes superficies calcula $N,U$ y $L$
-      para un punto general de la superficie.
-    </p>    
-    
-    
-    <ol>
-        <li>
-            $S$ es la gráfica de la función $g(x,y)=1-x-y$ (un plano).
-        </li>
-        <li>
-            $S$ es la superficie dada por la ecuación $x^2+y^2-z^2=0$
-            (un cono). En este ejemplo
-            se evita el vértica, pues el plano tangente en ese punto
-            no está bien definido.
-        </li>
-    </ol>
 </div>
 
 
-    
-  <div class="ejercicio-box"> 
+<div class="ejercicio-box"> 
     <h2 class="number-title"> Ejercicio</h2> 
     <p>
-      Considera la función
-      $f(x,y)=-(1-x^2-y^2)^{1/2}$, definida para los puntos $(x,y)$
-      con $x^2+y^2 < 1$. Prueba que el plano tangente a la gráfica
-      de $f$, en el punto $(x_0,y_0,f(x_0,y_0))$
-      es ortogonal al vector $(x_0,y_0,f(x_0,y_0))$.
-  
+        Se dice que una función $f$ tiene rendimientos de escala constante,
+        o que es homogenea de grado 1, si satisface
+        \begin{equation}\label{Eqn:RendimientoEscala}
+        f(cx,cy)=cf(x,y)
+        \end{equation}
+        para toda $c>0$. El nombre viene porque, por ejemplo,
+        si se duplica $x$ y $y$, también se duplica $f$.
+        
     </p>
-  </div>
+            <ol>
+                <li>
+                    Prueba que $f(x,y)=\sqrt{x^2+y^2}$ y  $f(x,y)=\sqrt{xy}$, $x,y>0$,
+                    tienen rendimientos de escala constante.
+                </li>
+                <li>
+                    Demuestra que si $f$ es clase $C^1$ y tiene rendimientos
+                    de escala constante entonces $f$ satisface:
+                    \begin{equation}\label{Eqn:RendimientoEscala2}
+                    x \partial_x f(x,y) + y \partial_y f(x,y)=f(x,y)
+                    \end{equation}
+                    
+                    Sugerencia: usa la regla de la cadena para
+                    diferenciar la ecuación \eqref{Eqn:RendimientoEscala}
+                    con respecto a $c$ y luego evalua en $c=1$.
+                </li>
+                <li>
+                    Demuestra directamente que $f(x,y)=\sqrt{x^2+y^2}$ y $f(x,y)=\sqrt{xy}$
+                    satisfacen la ecuacion \eqref{Eqn:RendimientoEscala2}.
+                </li>
+                <li>
+                    Encuentra un ejemplo de una función de rendimiento de escala
+                    constante diferente a las dadas en el ejercicio.
+                </li>
+            </ol>
+</div>
 
 
-    <div class="ejercicio-box"> 
-      <h2 class="number-title"> Ejercicio</h2> 
-      <p>
-        Encuentra el conjunto de puntos $(a,b,c)$
-        en $\mathbb{R}^3$, para los cuales las
-        dos esferas: $(x-a)^2+(y-b)^2+(z-c)^2=1$ y $x^2+y^2+z^2=1$,
-        se intersectan ortogonalmente.  
-      </p>
-      <p>
-        Nota: Dos superficies se intersectan ortogonalmente si,
-        para todo punto en su intersección,
-        los planos tangentes son ortogonales. 
-      </p>
-      <p>
-        Sugerencia: ve las esferas como superficies de nivel y
-        utiliza gradientes. 
-      </p>
-    </div>
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Un alambre tiene forma circular, de radio $r$ y supongamos que está
+        colocado con su centro en el origen. Supongamos que
+        $T:\mathbb{R}^2 \to \mathbb{R}$ es la función que da la temperatura en
+        el punto $(x,y)$ del plano. Para las siguientes funciones
+        temperatura, encuentra las temperaturas máximas y mínimas
+        que sufre el alambre.
+    </p>
+
+            <ol>
+                <li>
+                    $T(x,y)=2x+3y$,
+                </li>
+                <li>
+                    $T(x,y)=2xy$,
+                </li>
+                <li>
+                    $T(x,y)=x^2+y^2$.
+                </li>
+            </ol>
+     <p>
+        Sugerencia: empieza dando $\gamma$, una parametrización del alambre,
+        luego encuentra el máximo y el mínimo de $T\circ \gamma$.
+     </p>       
+</div>
+
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Una función $f:\mathbb{R}^n \to \mathbb{R}$ se llama par si
+        satisface $f(-p)=f(p)$, para todo punto  $p$. Supon que $f$ es clase
+        $C^1$ y demuestra que  $\nabla_{(0,\dots, 0)}f=(0,\dots, 0)$.        
+    </p>
+    <p>
+        Sugerencia: aplica la regla de la cadena a $f(p)=f(-p)$. 
+    </p>
+</div>
+
+
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Sea $y(x)$ una función definida implícitamente por $G(x,y(x))=0$,
+        donde $G$ es una función de clase $C^1$ definida en $\mathbb{R}^2$.
+        Prueba que si $y$ es de clase
+        $C^1$  y  $\frac{\partial G}{\partial y}\ne 0$ entonces
+        $$
+        \frac{dy}{dx}=-\frac{ \partial G/ \partial x}{\partial G/\partial y}, 
+        $$
+    </p>
+</div>
+
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Prueba los siguientes pasos para demostrar la  fórmula:
+        \begin{equation}\label{Eqn:FormulaDerivadaInt}
+        \frac{d}{dt} \int_{y_1(t)}^{y_2(t)}g(x,t)dx=
+        \int_{y_1(t)}^{y_2(t)}\frac{\partial g(x,t)}{\partial t}dx+ g(y_2(t),t)y_2'(t)
+        -g(y_1(t),t)y_1'(t)
+        \end{equation}        
+        donde $g(x,t)$ es una función clase $C^1$ en un abierto $U$
+        y $y_1,y_2$ funciones de clase $C^1$ de una variable.
+    </p>
+            <ol>
+                <li>
+                    Define $f(u,v,w)=\int_u^v g(x,w)dx$. Usa el Teorema fundamental
+                    del cálculo para probar que
+                    $$
+                    \frac{\partial f}{\partial u}(u,v,w)=-g(u,w),
+                    \quad \frac{\partial f}{\partial v}(u,v,w)=g(v,w).
+                    $$        
+                </li>
+                <li>
+                    Usa la regla de la cadena para probar
+                    $$
+                    \frac{d}{dt} f(y_1(t),y_2(t),t)= \frac{\partial f}{\partial u}
+                    y_1'(t)+ \frac{\partial f}{\partial v}y_2'(t)
+                    +\frac{\partial f}{\partial w}
+                    $$
+                </li>
+                <li>
+                    Se puede probar, no lo demuestres, que se puede diferencial
+                    dentro  de la integral para obtener:
+                    $$
+                    \frac{\partial f}{\partial w}=\int_{u}^v
+                    \frac{\partial g}{\partial w}(x,w)dx.
+                    $$
+                    Finalmente, usa ésta fórmula y los incisos anteriores
+                    para demostrar la ecuación \eqref{Eqn:FormulaDerivadaInt}. 
+                </li>
+            </ol>
+     </div>
+
 
  </body>
