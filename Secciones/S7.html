@@ -99,13 +99,13 @@
             <li>
                 parcial con respecto a la variable \(x\):
                 $$
-                \partial_x f(x_0,y_0)=\frac{\partial f}{\partial x}(x_0,y_0)=\lim_{s\to 0} \frac{f(x_0+s,y_0)}{s} 
+                \partial_x f(x_0,y_0)=\frac{\partial f}{\partial x}(x_0,y_0)=\lim_{s\to 0} \frac{f(x_0+s,y_0)-f(x_0,y_0)}{s} 
                 $$
             </li>
             <li>
                 parcial con respecto a la variable \(y\):
                 $$
-                \partial_y f(x_0,y_0)=\frac{\partial f}{\partial y}(x_0,y_0)=\lim_{t\to 0} \frac{f(x_0,y_0+t)}{t} 
+                \partial_y f(x_0,y_0)=\frac{\partial f}{\partial y}(x_0,y_0)=\lim_{t\to 0} \frac{f(x_0,y_0+t)-f(x_0,y_0)}{t} 
                 $$
                 siempre y cuando los límites existen.
             </li>
@@ -113,6 +113,49 @@
     </p>
 </div>
 
+
+
+
+<div class="nota-box"> 
+    <h2 class="number-title"> Nota</h2> 
+    <p>
+        Sea $f(x,y)$ una función de dos variables definida en un abierto de $\mathbb{R}^2$ y fija
+        $(x_0,y_0)$ un punto en dicho abierto. Supongamos que $\partial_xf(x_0,y_0)$
+        y $\partial_y f(x_0,y_0)$ existen. Define funciones de una variable
+        $$
+        g(x)=f(x,y_0), \quad h(y)=f(x_0,y)
+        $$
+        Usando la definición de derivada parcial y derivada usual vamos a probar $g'(x_0)=\partial_x(x_0,y_0)$
+        y $h'(y)=\partial_yf(x_0,y_0)$.     
+    </p>
+    <p>
+        Es decir, para calcular las derivadas parciales simplemente se
+        calcula la derivada uno dimensional, pensando  las otras variables como constantes. 
+     
+    </p>
+        <div>
+            <p>
+                Primero, usamos la definición de $g$ para formar  su el cociente diferencial:
+                $$
+                \frac{g(x_0+s)-g(x_0)}{t}=\frac{f(x_0+s,y_0)-f(x_0,y_0)}{s}
+                $$
+           
+                Tomando límite cuando $s\to 0$ vemos que el límite del cociente diferencial es el
+                mismo que el que aparece en la definición de derivada parcial y concluimos
+                $$
+                g'(x_0)=\partial_x f(x_0,y_0).
+                $$
+                De manera similar,
+                $$
+                \frac{h(y_0+t)-h(y_0)}{t}=\frac{f(x_0,y_0+t)-f(x_0,y_0)}{t}
+                $$
+                y al tomar el límite cuando $t\to 0$ concluimos
+                $$
+                h'(y_0)=\partial_yf(x_0,y_0).
+                $$
+            </p>
+        </div>
+    </div>
 
 <div class="ejercicio-box">
     <h2 class="number-title"> Ejercicio</h2>
@@ -145,7 +188,7 @@
             \(g(x,y)=x^y\).
         </li>
         <li>
-            \(h(s,t)=y^{1/x}\).
+            \(h(s,t)=s^{1/t}\).
         </li>
         <li>
             \(F(x,y)=\int_x^y \cos(t^2+t)dt\).
@@ -203,47 +246,6 @@
     </p>
 </div>
 
-
- <div class="nota-box"> 
-    <h2 class="number-title"> Nota</h2> 
-    <p>
-        Sea $f(x,y)$ una función de dos variables definida en un abierto de $\mathbb{R}^2$ y fija
-        $(x_0,y_0)$ un punto en dicho abierto. Supongamos que $\partial_xf(x_0,y_0)$
-        y $\partial_y f(x_0,y_0)$ existen. Define funciones de una variable
-        $$
-        g(x)=f(x,y_0), \quad h(y)=f(x_0,y)
-        $$
-        Usando la definición de derivada parcial y derivada usual vamos a probar $g'(x_0)=\partial_x(x_0,y_0)$
-        y $h'(y)=\partial_yf(x_0,y_0)$.     
-    </p>
-    <p>
-        Es decir, para calcular las derivadas parciales simplemente se
-        calcula la derivada uno dimensional, pensando  las otras variables como constantes. 
-     
-    </p>
-        <div>
-            <p>
-                Primero, usamos la definición de $g$ para formar  su el cociente diferencial:
-                $$
-                \frac{g(x_0+s)-g(x_0)}{t}=\frac{f(x_0+s,y_0)-f(x_0,y_0)}{s}
-                $$
-           
-                Tomando límite cuando $s\to 0$ vemos que el límite del cociente diferencial es el
-                mismo que el que aparece en la definición de derivada parcial y concluimos
-                $$
-                g'(x_0)=\partial_x f(x_0,y_0).
-                $$
-                De manera similar,
-                $$
-                \frac{h(y_0+t)-h(y_0)}{t}=\frac{f(x_0,y_0+t)-f(x_0,y_0)}{t}
-                $$
-                y al tomar el límite cuando $t\to 0$ concluimos
-                $$
-                h'(y_0)=\partial_yf(x_0,y_0).
-                $$
-            </p>
-        </div>
-    </div>
 
 <div class="ejercicio-box"> 
 <h2 class="number-title"> Ejercicio</h2> 
@@ -583,11 +585,111 @@
         <p>
             Por ejemplo, para \(f(x,y)=2y^3-yx^2+y^3x^3\),
             \begin{eqnarray*} 
-            \partial_{x^2}f=\partial_x(\partial_xf)=\partial_x(-2yx+3y^3x^2)=-2y+6y^3x\\
-            \partial_{y^2}=\partial_y(\partial_y f)=\partial_y(6y^2-x^2+)
+            \partial_{x^2}f&=&\partial_x(\partial_xf)=\partial_x(-2yx+3y^3x^2)=-2y+6y^3x\\
+            \partial_{y^2}f&=&\partial_y(\partial_y f)=\partial_y(6y^2-x^2+3y^2x^3)= 12y+6yx^3\\
+            \partial_{xy}f&=&\partial_x(\partial_y f)=\partial_x(6y^2-x^2+3y^2x^3)=-2x+9y^2x^2\\
+            \partial_{yx}f&=&\partial_y(\partial_x f)=\partial_y(-2yx+3y^3x^2)=-2x+9y^2x^2
             \end{eqnarray*}
         </p>
 
+
+    </div>
+
+    <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+            Encuentra todas las segundas derivadas parciales de las siguientes funciones.
+        </p>
+        <ol>
+            <li>
+                \(f(x,y)=x^{10}y^9-x^{5}y^4\).
+            </li>
+            <li>
+                \(f(s,t)=\cos^2(as+bt)\).
+            </li>
+            <li>
+                \(f(z,w)=\arctan\left( \frac{x+y}{1-xy} \right)\).
+            </li>
+            <li>
+                \(f(u,v)=e^{ue^{uv}}\).
+            </li>
+        </ol>
+
+    </div>
+
+
+    <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+            Comprueba que la función \(u(x,y,z)=\frac{1}{\sqrt{x^2+y^2+z^2}}\) es una solución 
+            de la ecuación de Laplace: 
+            \[
+            \partial_x^2 u + \partial_y^2 u + \partial_z^2 u = 0.
+            \]
+        </p>
+
+    </div>
+
+
+    <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+            Demuestra que cada una de las funciones es una solución de la ecuación de onda:
+            \[
+                \partial_{t}^2u=a^2\partial_x^2 u.
+            \]
+        </p>
+        <ol>
+            <li>
+                \(u(x,t)=\sen(kt)\sen(akt)\).
+            </li>
+            <li>
+                \(u(x,t)=\frac{t}{a^2t^2-x^2}\).
+            </li>
+            <li>
+                \(u(x,t)=(x-at)^6+(x+at)^6\).
+            </li>
+            <li>
+                \(u(x,t)=\sen(x-at)+\ln(x+at)\).
+            </li>
+        </ol>
+
+    </div>
+
+    <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+            Sea \((a_1,\dots, a_n)\in \mathbb{R}^n\) que satisfaga \(a_1^2+\cdots+a_n^2=1\) y 
+            define la función  \(f(x_1,\dots, x_n)=e^{a_1x_1+\cdots+a_nx_n}\). Prueba que 
+            \(f\) satisface la ecuación diferencial:
+            \[
+                \partial_{x_1}^2f+\cdots + \partial_{x_n}^2 f= f.
+            \]
+        </p>
+
+    </div>
+
+    <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+            Prueba que la función de producción Cobb-Douglas 
+            \(P(L.K)=bL^{\alpha}K^{\beta}\), satisface la ecuación 
+            \[
+                L\partial_{L}P+K\partial_KP=(\alpha+\beta)P.
+            \]
+        </p>
+
+    </div>
+
+    <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+            La energía cinética de un cuerpo de masa \(m\) y velocidad \(v\) está dada por 
+            \(K(m,v)=\frac{1}{2}mv^2\). Prueba que 
+            \[
+                \partial_m K \partial_v^2K = K
+            \]
+        </p>
 
     </div>
     </body>
