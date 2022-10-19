@@ -722,6 +722,49 @@
                 \(yz+y\ln(x)=z^2\).
             </li>
         </ol>
+        </div>
 
+     <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+            Un polinomio en dos variables se puede escribir de manera general como 
+            \[
+            p(x,y)=\sum_{0\leq n,m \leq N} a_{n,m}x^ny^m
+            \]
+            donde los \(a_{n,m}\) son escalares.
+        </p>
+        <p>
+            Prueba que \(\partial_{xy}p=\partial_{yx}p\).
+        </p>
+        <p>
+            Nota: más adelante se probará que si \(\partial_{xy}f\) y \(\partial_{yx}f\) 
+            existen y son continuas  entonces \(\partial_{xy}f=\partial_{yx}f\).
+        </p>
+        <button class="respButton hvr-grow "> Solución</button>
+        <div class="resp-box">
+        <p>
+            Primero encontramos las primeras derivadas parciales:
+            \begin{eqnarray*} 
+                \partial_xp&=&\partial_x\left( \sum_{0\leq n,m \leq N}a_{n,m}x^ny^m\right)\\
+                &=& \sum_{0\leq n,m \leq N}\partial_x(a_{n,m} x^{n}y^m) \\
+                &=& \sum_{0\leq n,m \leq N}a_{n,m} nx^{n-1}y^m \\
+                \partial_yp&=&\partial_y\left( \sum_{0\leq n,m \leq N}a_{n,m}x^ny^m\right)\\
+                &=& \sum_{0\leq n,m \leq N}\partial_y(a_{n,m} x^{n}y^m) \\
+                &=& \sum_{0\leq n,m \leq N}a_{n,m} mx^{n}y^{m-1} \\
+            \end{eqnarray*}
+            Ahora calculamos las segundas derivadas parciales 
+            \begin{eqnarray*} 
+                \partial_{yx}p&=&\partial_y(\partial_x p)=\partial_y\left( \sum_{0\leq n,m \leq N}a_{n,m} nx^{n-1}y^m  \right) \\
+                &=& \sum_{0\leq n,m \leq N} \partial_y( a_{n,m} nx^{n-1}y^m ) \\
+                &=&\sum_{0\leq n,m \leq N}a_{n,m} nmx^{n-1}y^{m-1} \\
+                \partial_{xy}p&=&\partial_x(\partial_y p)=\partial_x\left( \sum_{0\leq n,m \leq N}a_{n,m} mx^{n}y^{m-1}  \right) \\
+                &=& \sum_{0\leq n,m \leq N} \partial_x( a_{n,m} mx^{n}y^{m-1} ) \\
+                &=&\sum_{0\leq n,m \leq N}a_{n,m} nmx^{n-1}y^{m-1} 
+            \end{eqnarray*}
+            Comparando las dos últimas identidades obtenemos \(\partial_{xy}p=\partial_{yx}p\).
+        </p>
+        </div>
+     </div>
+     
     </div>
     </body>
