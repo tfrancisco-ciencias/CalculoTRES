@@ -405,7 +405,7 @@
 
 <div class="nota-box"> 
 <h2 class="number-title"> Nota </h2> 
-<h3> interpretación geométrica</h3>
+<h3> Interpretación geométrica</h3>
 <p>
 
     Las derivadas parciales tienen las siguiente interpretación geométrica.
@@ -432,10 +432,22 @@
             Define $g(x)=f(x,0)$. Nota que $g$ es una parábola y nota que $g'(x)=\partial_xf(x,0)$.
             Así las pendientes de las rectas tangentes a  $g$  están dadas por $\partial_xf(x,0)$.
         </li>
+        <p>
+            <div class="flexbox" >
+                <img src="./Images/S7-Img1.png" alt="InterseccionYZ" width="40%" height="auto" >
+              </div>
+        </p>
+        
         <li>
             Define $h(y)=f(0,y)$. Nota que $h$ es una parábola y not que $h'(y)=\partial_yf(0,y)$.
             Así las pendientes de las rectas tangentes a  $h$  están dadas por $\partial_yf(0,y)$.
         </li>
+        <p>
+            <div class="flexbox">
+                <img src="./Images/S7-Img2.png" alt="InterseccionXZ" width="40%" height="auto">
+              </div>
+        </p>
+        
         <li>
             De manera más general, dados $x_0, y_0$ define 
             $$g_{y_0}(x):=f(x,y_0), \quad h_{x_0}(y)=f(x_0,y)$$
@@ -460,6 +472,34 @@
         Encuentra los puntos $(x_0, y_0)$, para las cuales las rectas tangentes a $G(g)$
         y a $G(h)$, que pasan por $(x_0,g(x_0))$ y $(y_0,h(y_0))$ respectivamente, tienen pendiente iguales.		       
     </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+    <p>
+        Las pendientes están dadas por las derivadas asi que buscamos los puntos donde 
+        \(g'=h'\) pero sabemos que \(g'=\partial_xf\), \(h'=\partial_y\), así que buscamos puntos
+        \((x_0,y_0)\) donde 
+        \[
+            \partial_xf(x_0,y_0)=\partial_yf(x_0,y_0).
+        \]
+        Un cálculo directo prueba 
+        \[
+        \partial_xf(x,y)=2x+y, \quad \partial_yf(x,y)=x+2y
+        \] 
+        así que debemos de encontrar los puntos que satisfagan 
+        \[
+        2x_0+y_0=x_0+2y_0 \Leftrightarrow x_0=y_0
+        \]
+        Así que todos los puntos de la recta identidad son los puntos donde las pendientes
+        de las rectas tangentes son iguales.
+    </p>
+    <p>
+        Gráficamente lo anterior dice que las pendientes de las rectas tangentes en el punto de intersección de las 
+        curvas son iguales siempre  y cuando la recta de intersección de los planos pasa por la recta identidad que se dibuja en el piso.
+        <div class="flexbox">
+            <img src="./Images/S7-Img3.png" alt="InterseccionPlanosCoordenados" width="40%" height="auto">
+          </div>
+    </p>
+    </div>
 
 </div>
 
@@ -637,6 +677,46 @@
             \partial_x^2 u + \partial_y^2 u + \partial_z^2 u = 0.
             \]
         </p>
+        <button class="respButton hvr-grow "> Solución</button>
+        <div class="resp-box">
+        <p>
+            Primero calculamos la 1a derivada parcial con respecto a \(x\):
+            \begin{eqnarray*} 
+            \partial_x\left( \frac{1}{\sqrt{x^2+y^2}}\right)&=& \partial_x((x^2+y^2+z^2)^{-1/2})\\
+            &=& -\frac{1}{2}(x^2+y^2+z^2)^{-3/2}(2x) \\
+            &=& \frac{-x}{(x^2+y^2+z^2)^{3/2}}
+            \end{eqnarray*}
+        </p>
+        <p>
+            Luego calculamos la 2a derivada parcial con respecto a \(x\):
+            \begin{eqnarray*} 
+            \partial_x^2\left( \frac{1}{\sqrt{x^2+y^2}}\right)&=&\partial_x\left( \partial_x\left(\frac{1}{\sqrt{x^2+y^2}}\right)\right)\\
+            &=& \partial_x\left( \frac{-x}{(x^2+y^2+z^2)^{3/2}} \right)\\
+            &=& \frac{-(x^2+y^2+z^2)^{3/2}+x\frac{3}{2}(x^2+y^2+z^2)^{1/2}(2x) }{(x^2+y^2+z^2)^3}\\
+            &=& \frac{-(x^2+y^2+z^2)^{3/2}}{(x^2+y^2+z^2)^3}+\frac{3x^2(x^2+y^2+z^2)^{1/2}}{(x^2+y^2+z^2)^3}\\
+            &=& \frac{-1}{(x^2+y^2+z^2)^{3/2}}+\frac{3x^2}{(x^2+y^2+z^2)^{5/2}}
+            \end{eqnarray*}
+        </p>
+        <p>
+            Ya que la función \(u(x,y,z)=\frac{1}{\sqrt{x^2+y^2+z^2}}\) permanece igual cuando se intercambian la
+            \(x\) con la \(y\) o la \(x\) con la \(z\), por simetía podemos obtenre las segundas derivadas 
+            parciales de las otras variables 
+            \begin{eqnarray*} 
+            \partial_y^2\left( \frac{1}{\sqrt{x^2+y^2}}\right)&=& \frac{-1}{(x^2+y^2+z^2)^{3/2}}+\frac{3y^2}{(x^2+y^2+z^2)^{5/2}} \\
+            \partial_z^2\left( \frac{1}{\sqrt{x^2+y^2}}\right)&=& \frac{-1}{(x^2+y^2+z^2)^{3/2}}+\frac{3z^2}{(x^2+y^2+z^2)^{5/2}} 
+            \end{eqnarray*}
+        </p>
+        <p>
+            Sumando las 3 segundas derivadas parciales obtenemos 
+            \begin{eqnarray*} 
+            \partial_x^2u+\partial_y^2u+\partial_z^2u&=& \frac{-3}{(x^2+y^2+z^2)^{3/2}}  \\
+            &+&\frac{3x^2}{(x^2+y^2+z^2)^{5/2}} +\frac{3y^2}{(x^2+y^2+z^2)^{5/2}} +\frac{3z^2}{(x^2+y^2+z^2)^{5/2}} \\
+            &=& \frac{-3}{(x^2+y^2+z^2)^{3/2}}  + \frac{3(x^2+y^2+z^2)}{(x^2+y^2+z^2)^{5/2}}\\
+            &=& \frac{-3}{(x^2+y^2+z^2)^{3/2}}  + \frac{3}{(x^2+y^2+z^2)^{3/2}}\\
+            &=&0.
+            \end{eqnarray*}
+        </p>
+        </div>
 
     </div>
 
