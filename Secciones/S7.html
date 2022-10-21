@@ -337,6 +337,61 @@
         </ol>
     
     </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            <ol>
+                <li>
+                    Sea $(x_0,y_0) \in \mathbb{R}^2$. Notemos que la función $y \mapsto y^2$ es diferenciable, sin embargo la función
+                    de Dirichlet $D(x)$ no lo es por lo que es necesario considerar el cociente diferencial para encontrar las derivadas
+                    parciales:
+                    \begin{align*}
+                    \frac{f(x_0,y_0 + s)- f(x_0,y_0)}{s}=& \frac{(y_0+s)^2 D(x_0) - y_0^2 D(x_0)}{s},\\
+                    =& \frac{(y_0+s)^2 - y_0^2}{s}D(x_0),\\
+                    =& \frac{2y_0s + s^2}{s}D(x_0),\\
+                    =& [2y_0 + s]D(x_0).
+                    \end{align*}
+                    Podemos reconocer que el factor izquierdo corresponde al cociente diferencial de la función $y \to y^2$ en el punto
+                    $y_0$ y el derecho es constante respecto a $s$, por lo que el límite de ambos existe y por tanto también el del producto.
+                    Más aún,
+                    \begin{equation*}
+                    \partial_x f(x_0,y_0) = 2y_0D(x_0).
+                    \end{equation*}
+                </li>
+                <li>
+                    Sea $y_0 \neq 0$. Comenzamos por escribir el cociente diferencial de la función para la derivada parcial respecto a $x$,
+                    \begin{equation*}
+                    \frac{f(x_0 + s,y_0)-f(x_0,y_0)}{s} = y_0^2\frac{D(x_0+s)-D(x_0)}{s}.
+                    \end{equation*}
+                    Empezaremos por considerar el caso en que $x_0 \in \mathbb{Q}$ y el caso restante será similar salvo por algunos detalles.
+                    <p>
+                        Si $s \in \mathbb{Q}$ entonces $x_0 + s \in \mathbb{Q}$ y se tiene que $f(x_0 + s,y_0) - f(x_0,y_0) = 1-1 = 0$, de manera
+                        que 0 es candidato para ser límite del cociente. Veamos que el límite no existe. Sea $\epsilon =1$, para cada
+                        $s \in \mathbb{R}\setminus\mathbb{Q}$ se observa que $x_0 + s \notin \mathbb{Q}$, por lo que $f(x_0 + s,y_0) - f(x_0,y_0) = -1$.
+                        Como $y_0 \neq 0$ entonces podemos considerar $s$ tal que $0 < |s| < y_0^2$, de manera que para cada $\delta>0$, cada
+                        número irracional $s$ tal que $0<|s| < \min (\delta,y_0^2)$ satisface que
+                        \begin{equation*}
+                        \left |y_0^2\frac{D(x_0+s)-D(x_0)}{s} \right |= \left | y_0^2\frac{-1}{s} \right | > 1,
+                        \end{equation*}
+                        con lo cual se concluye que el límite cuando $s \to 0$ no existe y por lo tanto $\partial_xf(x_0,y_0)$ no existe.
+                        El caso en que se toma $x_0 \notin \mathbb{Q}$ es similar. Por un lado se considera $s \in \mathbb{Q}$ de manera que
+                        $x_0$ y $x_0 + s$ sean números irracionales para que la diferencia en el numerador sea 0, y por el otro se considera
+                        $s$ tal que $0<|s|<\min (y_0^2, \delta)$ de manera que $x_0 + s \in \mathbb{Q}$ y el valor absoluto del cociente sea
+                        mayor que 1.
+                    </p>
+                    <p>
+                        Finalmente
+                        \begin{align*}
+                        \frac{f(x_0,0 + s)-f(x_0,0}{s} =& \frac{s^2D(x_0) - 0^2D(x_0)}{s},\\
+                        =& \frac{s^2D(x_0)}{s},\\
+                        =&sD(x_0).
+                        \end{align*}
+                        De esta manera $\partial_y f(x_0,0)=0$.
+                    </p>
+                </li>
+            </ol>
+        </p>
+    </div>
 </div>    
     
 <div class="ejercicio-box"> 
@@ -521,6 +576,31 @@
       Calcula $\partial_xf(0,0)$ y $\partial_yf(0,0)$.
       
 </p>
+<button class="respButton hvr-grow "> Solución</button>
+<div class="resp-box">
+    <p>
+        Comencemos por notar que existe simetría entre las variables de la función $f(x,y)$. Lo que hagamos
+        para calcular $\partial_x f(0,0)$ será válido para la otra derivada parcial. Escribimos primero el
+        cociente diferencial
+        \begin{align*}
+        \frac{f(s,0)-f(0,0)}{s}=& \frac{\frac{\sen(s^2)}{s^2}-1}{s},\\
+        =& \frac{\sen(s^2) - s^2}{s^2},
+        \end{align*}
+        notamos que el límite del numerador y del denominador son 0 cuando $s \to 0$ y que ambos
+        son diferenciables alrededor del 0, por lo que podemos aplicar la regla de L'Hôpital,
+        \begin{equation*}
+        \frac{2s\cos(s^2) - 2s)}{3s^2} = \frac{2}{3}\left( \frac {\cos(s^2) - 1}{s}\right),
+        \end{equation*}
+        una vez más notamos que los límites del numerador y denominador son 0 y que las funciones son diferenciables
+        alrededor del 0 por lo que aplicamos la regla de L'Hôpital una vez más al factor del lado derecho para obtener
+        la expresión,
+        \begin{equation*}
+        \frac{-2s\sen(s^2)}{1},
+        \end{equation*}
+        como el límite de ésta cuando $s \to 0$ es 0, entonces concluimos que $\partial_x f(0,0) = 0$ y por el argumento
+        de simetría también se tiene que $\partial_y f(0,0) = 0$.
+    </p>
+</div>
 </div>
 
   
@@ -615,7 +695,37 @@
                </li>
             </ol>
 
-        </p>    
+        </p>
+        <button class="respButton hvr-grow "> Solución 1</button>
+        <div class="resp-box">
+            <p>
+                \begin{align*}
+                \partial_{p_j}f(p) =& \lim_{s \to 0} \frac{f(p+se_j)-f(p)}{s},\\
+                =& \lim_{s\to 0} \frac{(p_1^2 + \ldots + (p_j+s)^2+ \ldots + p_n^2 - \sum_{i=1}^n p_i^2}{s},\\
+                =& \lim_{s \to 0} \frac{(p_j + s)^2 - p_j^2}{s},\\
+                =& \lim_{s \to 0} 2p_j + s,\\
+                =& 2p_j.
+                \end{align*}
+                Notamos que éstas derivadas son completamente análogas al caso bidimensional e incluso
+                podemos reescribir
+                \begin{equation*}
+                f(p + se_j) = f(p_1,p_2,\ldots,p_j + s,\ldots,p_n).
+                \end{equation*}
+                Así, podemos hacer la misma observación que se hizo anteriormente, si $\partial_{p_j}f(p)$ existe,
+                entonces la podemos calcular como la derivada de dimensión 1 respecto de la variable $p_j$, tratando
+                al resto de las variables como constantes (con respecto a $p_j$).
+            </p>
+        </div>
+        <button class="respButton hvr-grow "> Solución 3</button>
+        <div class="resp-box">
+            <p>
+                Usando la regla de la cadena y las observaciones hechas en el primer inciso se tiene que
+                \begin{align*}
+                \partial_{z_j}f(z) =& 2 \left( \sum_{i=1}^n \log(z_i^2 + 1)\right)\frac{1}{z_j^2+1}2z_j,\\
+                =& 4 \frac{z_j}{z_j^2 + 1}\sum_{i=1}^n \log(z_i^2 + 1).
+                \end{align*}
+            </p>
+        </div>
     </div>
 
 
@@ -665,6 +775,46 @@
             </li>
         </ol>
 
+        <button class="respButton hvr-grow "> Solución 1</button>
+        <div class="resp-box">
+            <p>
+                Empezamos por calcular $\partial_x f$ y $\partial_y f$.
+                \begin{align*}
+                \partial_x f =& 10x^9y^9 - 5x^4y^4,\\
+                \partial_y f =& 9x^10y^8 - 4x^5y^3.
+                \end{align*}
+                Por lo tanto
+                \begin{align*}
+                \partial_{x^2}f = 90x^8y^9 - 20x^3y^4,\\
+                \partial_{xy} f= 90x^9y^8 - 20x^4y^3,\\
+                \partial_{yx}f = 90x^9y^8 - 20x^4y^3,\\
+                \partial_{y^2}f = 72x^{10}y^7 - 12x^5y^2.
+                \end{align*}
+            </p>
+        </div>
+        <button class="respButton hvr-grow "> Solución 3</button>
+        <div class="resp-box">
+            <p>
+                Usando la regla de la cadena
+                \begin{align*}
+                \partial_x f =& \frac{1}{1 + \left( \frac{x+y}{1-xy}\right)^2} \left[ \frac{1}{1-xy} - \frac{(-y)(x+y)}{(1-xy)^2}\right],\\
+                =& \frac{1}{\frac{(1-xy)^2 + (x+y)^2}{(1-xy)^2}} \frac{(1-xy) + y(x+y)}{(1-xy)^2},\\
+                =& \frac{(1-xy)^2}{(1-xy)^2 + (x+y)^2} \frac{(1-xy) + y(x+y)}{(1-xy)^2},\\
+                =& \frac{1 -xy + y(x+y)}{(1-xy)^2 + (x+y)^2},\\
+                =& \frac{1 + y^2}{1 + (xy)^2 + x^2 + y^2},\\
+                =& \frac{1+y^2}{(1+y^2)(x^2+1)},\\
+                =& \frac{1}{x^2 + 1}.
+                \end{align*}
+                Usando un argumento de simetría también se tiene que $\partial_y f = \frac{1}{y^2+1}$.
+                De lo anterior se tiene que
+                \begin{align*}
+                \partial_{x^2} =& \frac{-2x}{(1+x^2)^2},\\
+                \partial_{xy} =& 0,\\
+                \partial_{yx} =& 0,\\
+                \partial_{y^2} =& \frac{-2y}{(1+y^2)^2}.
+                \end{align*}
+            </p>
+        </div>
     </div>
 
 
@@ -756,6 +906,30 @@
                 \partial_{x_1}^2f+\cdots + \partial_{x_n}^2 f= f.
             \]
         </p>
+
+        <button class="respButton hvr-grow "> Solución</button>
+        <div class="resp-box">
+            <p>
+                Notemos que para $j=1,\ldots,n$ se tiene que
+                \begin{equation*}
+                e^{\sum_{i=1}^n a_i x_i} = e^{\sum_{i\neq j} a_i x_i}e^{a_j x_j},
+                \end{equation*}
+                por lo tanto
+                \begin{equation*}
+                \partial_{x_j}f = e^{\sum_{i\neq j} a_i x_i} a_je^{a_j x_j},
+                \end{equation*}
+                y
+                \begin{equation*}
+                \partial_{x_j^2}f = e^{\sum_{i\neq j} a_i x_i} a_je^{a_j x_j} = a_j^2 e^{a_1 x_1 + \ldots + a_n x_n}.
+                \end{equation*}
+                Por lo tanto
+                \begin{align*}
+                \partial_{x_1}^2f+\cdots + \partial_{x_n}^2 f =& \sum_{i=1}^n a_j^2 e^{a_1 x_1 + \ldots + a_n x_n},\\
+                =& (a_1^2 + \ldots + a_n^2)(e^{a_1 x_1 + \ldots + a_n x_n}),\\
+                =& f.
+                \end{align*}
+            </p>
+        </div>
 
     </div>
 
