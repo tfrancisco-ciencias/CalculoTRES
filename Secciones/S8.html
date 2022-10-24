@@ -82,7 +82,9 @@
   <body class="fondo-body" >
 
     <h1 class="number-title flexbox"> Diferenciabilidad </h1> 
-
+<!-- this part is for next and prev sections -->
+<!--<button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>-->
+<button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
 
  
     <div class="definicion-box"> 
@@ -94,16 +96,55 @@
             Dado un punto $(x_0,y_0)\in U$, decimos que $f$ es diferenciable en $(x_0,y_0)$ si,
             existe una función lineal $T:\mathbb{R}^2 \to \mathbb{R}$, tal que
             $$
-            \lim_{(x,y)\to (x_0,y_0)} \frac{|f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0))  |}{\|(x-x_0,y-y_0)\|}=0
+            \lim_{(x,y)\to (x_0,y_0)} \frac{f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)  }{\|(x-x_0,y-y_0)\|}=0
             $$
             
             Si es así, la función lineal $T$ se llama la derivada de $f$ en $(x_0,y_0)$ y la vamos
             a denotar $D_{(x_0,y_0)}f$.
         </p>
         <p>
-            Nota: lo más importante que uno debe darse cuenta es que, ahora, la derivada
-            valuada en un punto dado es una función, no un número. 
+          Notas:
         </p>
+        <ol>
+          <li>
+            Lo más importante que uno debe darse cuenta es que, ahora, la derivada
+            valuada en un punto dado es una función lineal, no un número. Además pesnado que las 
+            funciones lineales se representan con matrices también podemos decir que ahora la derivada no 
+            es un número si no una matriz. 
+          </li>
+          <li>
+            Con esta definición uno tiene que proponer la función \(T\) que va a ser la derivada. Más adelante
+            se verá una forma sistemática de proponerla (y la cual involucra las derivadas parciales). 
+          </li>
+          <li>
+            Ya que el límite de una cantidad es cero si y sólo si su valor absoluto tiende a cero, el límite en la definición 
+            también puede escribirse como 
+            $$
+            \lim_{(x,y)\to (x_0,y_0)} \frac{|f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0))  |}{\|(x-x_0,y-y_0)\|}=0
+            $$
+            El valor absoluto tiende a hacer la prueba de los límites más sencilla.
+          </li>
+          <li>
+            Similarmente al caso uno-dimensional el cociente diferencial es la expresión 
+            \[
+            \frac{f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)  }{\|(x-x_0,y-y_0)\|}
+            \]
+          </li>
+          <li>
+            Otra forma equivalente de escribir el límite es 
+            $$
+            \lim_{ (h,k)\to (0,0)} \frac{|f(x_0+h,y_0+k)-f(x_0,y_0)-T(h,k))  |}{\|(h,k)\|}=0
+            $$
+            Para pasar de una a la otra se usa el cambio de variable \((h,k)=(x,y)-(x_0,y_0)\).
+
+          </li>
+          <li>
+            Para calcular la derivada usando sólo la definición se hacen tres pasos:
+            (1) se propone la derivada (la función \(T\) en la notación de arriba); (2) se escribe el 
+            cociente diferencial y se trata de simplificar;(3) se prueba que el cociente diferencial tiende a cero.
+          </li>
+        </ol>
+        
    </div>
 
   
@@ -114,6 +155,33 @@
         es diferenciable en todo punto $(x_0,y_0)$. Es más, demuestra que $D_{(x_0,y_0)}f$
         es la función constante cero.
     </p>
+    <!--<p>
+      Supongamos que la función es constante igual a \(c\).
+    </p>
+    <p>
+      Proponemos (en este caso nos proponen) a la derivada: denotamos \(T\)  a la función cero. 
+    </p>
+    <p>
+      Escribimos el cociente diferencial y simplificamos:
+      \begin{eqnarray*} 
+      \frac{f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)  }{\|(x-x_0,y-y_0)\|}&=&\frac{c-c-0}{\|(x-x_0,y-y_0)\|}\\
+      &=& 0
+      \end{eqnarray*}
+      Nota: la última igualdad es cero pues para el cociente diferencial siempre se asume que 
+      \((x,y)\ne (x_0,y_0)\) (pues se va a tomar el límite cuando \((x,y)\to (x_0,y_0)\)).
+    </p>
+    <p>
+      Finalmente, tomamos el límite del cociente diferencial:
+      \begin{eqnarray*} 
+      \lim_{(x,y)\to (x_0,y_0)}\frac{f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)  }{\|(x-x_0,y-y_0)\|}
+      &=&\lim_{(x,y)\to (x_0,y_0)}0\\
+      &=&0.
+      \end{eqnarray*}
+
+    </p>
+    <p>
+      Por lo tanto la función es diferenciable y la derivada en todo punto es la función cero.
+    </p>-->
 </div>
 
 
@@ -124,6 +192,29 @@
         que $f$ es diferenciable en todo punto $(x_0,y_0)$. Es más, demuestra
         que $D_{(x_0,y_0)}f=f$.
     </p>
+    <!-- 
+    <p>
+      Proponemos a la derivada: denotamos \(T=f\). 
+    </p>
+    <p>
+      Escribimos el cociente diferencial y simplificamos: 
+      \begin{eqnarray*} 
+      \frac{f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)}{\|(x-x_0,y-y_0)\|}&=&\frac{f(x-x_0,y-y_0)-f(x-x_0,y-y_0)}{\|(x,y)-(x_0,y_0)\|}\\
+      &=& 0
+      \end{eqnarray*}
+      donde en la primera igualdad se usa que \(f\) es lineal.
+    </p>
+    <p>
+      Límite del cociente diferencial:
+      \begin{eqnarray*} 
+      \lim_{(x,y)\to (x_0,y_0)}\frac{f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)  }{\|(x-x_0,y-y_0)\|}
+      &=&0.
+      \end{eqnarray*}
+    </p>
+    <p>
+      Por lo tanto la función es diferenciable y en todo punto la derivada es la función \(f\).
+    </p>
+    -->
 </div>
 
 
@@ -207,8 +298,8 @@
 
   
 
-<div class="ejercicio-box"> 
-    <h2 class="number-title" id="Ejer:ParcialesYDerivada"> Ejercicio </h2> 
+<div class="prop-box"> 
+    <h2 class="number-title" id="Ejer:ParcialesYDerivada"> Proposición  </h2> 
     <p>
         Sea $U$ un abierto en $\mathbb{R}^2$ y $f:U\to \mathbb{R}$. Considera un punto
         $(x_0,y_0)\in U$. Supon que $f$ es diferenciable en $(x_0,y_0)$. Sea $T:\mathbb{R}^2 \to \mathbb{R}$
@@ -235,7 +326,11 @@
         
         En otras palabras, la representación de $D_{(x_0,y_0)}f$ como matriz, es la matriz renglón dada por:
         $$
-        [\partial_xf(x_0,y_0) \partial_yf(x_0,y_0)].
+        \left[
+        \begin{array}{cc} 
+         \partial_xf(x_0,y_0) &  \partial_yf(x_0,y_0) 
+        \end{array}
+        \right]
         $$
       
     </p>
@@ -259,7 +354,7 @@
     </p>
     <p>
         Sin embargo, puede pasar que todas las derivadas parciales existan pero la función no sea
-        diferenciable (ver ejercicio  \ref{Ejer:ExistenParcialesPeroNoDif}).
+        diferenciable (ver ejercicio <a href="#Ejer:ExistenParcialesPeroNoDif"> Ejercicio 8.10</a>).
     </p>
   </div>
 
@@ -286,7 +381,7 @@
 <div class="ejercicio-box"> 
     <h2 class="number-title" id="Ejer:ExistenParcialesPeroNoDif"> Ejercicio </h2> 
     <p>
-        El ejercicio \ref{Ejer:ParcialesYDerivada} muestra que las derivadas parciales y la derivada
+        La <a href="#Ejer:ParcialesYDerivada">Proposición 8.7</a> muestra que las derivadas parciales y la derivada
         están muy relacionadas, pero éste ejercicio muestra que no son equivalentes. Es decir,
         una función puede admitir derivadas parciales sin ser diferenciable.      
     </p>
@@ -314,15 +409,16 @@
 
   <div class="definicion-box"> 
     <h2 class="number-title"> Definición </h2>
+    
     <p>
         Sea $U$ un abierto de $\mathbb{R}^2$, $(x_0,y_0)\in U$ y $f:U\to \mathbb{R}$ una función
         diferenciable en $p_0$. El plano tangente a la gráfica de $f$ en el punto $(x_0,y_0)$ se define como
-        como
+        el plano cuya ecuación está dada por:
         $$
         z=f(x_0,y_0)+[\partial_xf(x_0,y_0)](x-x_0)+[\partial_yf(x_0,y_0)]
         (y-y_0)
         $$
-        Nota, de la ecuación, de que el vector normal al plano tangente es
+        Nota: de la ecuación se tiene que el vector normal al plano tangente es
         $$N=(\partial_xf(x_0,y_0), \partial_yf(x_0,y_0), -1)$$
     </p>
   </div>
@@ -376,7 +472,13 @@
     <div class="definicion-box"> 
         <h2 class="number-title" id="Def:DerivadaRn"> Definición </h2>
         <p>
-            Esta definición generaliza la definicion \ref{Def:DerivadaR2}
+          <p>
+            La <a href="#Def:DerivadaR2">Definición 8.1</a> se aplica para funciones con dominio en \(\mathbb{R}^2\)
+            pero la definición es prácticamente la misma para funciones en dimensiones más grandes, simplemente 
+            se tienen límites en \(\mathbb{R}^n\) por lo que los puntos tienen más coordenadas, no sólo 
+            \(x,y\). Por ejemplo si \(p\in \mathbb{R}^3\), \(p=(x,y,z)\) y en general para 
+            \(p\in \mathbb{R}^n\), \(p=(x_1,\dots, x_n)\) ó \(p=(p_1,\dots, p_n)\).
+          </p>
         </p>
         <p>
             Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$,  $f:U \to \mathbb{R}$ una
@@ -394,7 +496,7 @@
   <div class="ejercicio-box"> 
     <h2 class="number-title"> Ejercicio </h2> 
     <p>
-        Este ejercicio muestra que si $f$ es diferenciable en $p_0$, todas
+        Este ejercicio generaliza la <a>Proposición 8.7</a> pues muestra que si $f$ es diferenciable en $p_0$, todas
         las derivdas parciales en $p_0$ existen.
     </p>
     <p>
@@ -420,7 +522,7 @@
         Por lo tanto, usando la notación de la derivda como $T=D_{p_0}f$, resulta que
         la derivada es la transformación lineal inducida  por el gradiente en $p_0$, es decir
         $$
-        (D_{p_0}f)(p)=\langle \nabla_{p_0}f, p \rangle, \quad \forall p\in \mathbb{R}^n.
+        (D_{p_0}f)(x_1,\dots, x_n)=\sum_{i=1}^n \partial_{p_i}f(p_0)x_i \quad \forall (x_1,\dots, x_n)\in \mathbb{R}^n.
         $$
     </p>
 </div>
