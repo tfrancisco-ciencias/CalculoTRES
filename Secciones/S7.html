@@ -308,6 +308,70 @@
     </ol>
     
 </p>
+<button class="respButton hvr-grow "> Solución</button>
+<div class="resp-box">
+    <p>
+        Sabemos que si existen las derivadas parciales entonces se pueden calcular derivando respecto a una
+        de las variables y tratando a las demás como constantes. Adicionalmente, dado que el cociente diferencial
+        contiene el término $f(x_0,y_0)$ es necesario que la función esté definida en dicho punto, por lo que
+        empezaremos con el dominio de las funciones propuestas y se trabajará únicamente con puntos interiores de
+        dichos dominios
+    </p>
+    <ol>
+        <li>
+            La función $\log$ está definida en $\mathbb{R}_{>0}$ y es diferenciable en todo su dominio. Usando la
+            regla de la cadena y el hecho de que $f$ es simétrica respecto a sus variables tenemos que para
+            $(x_0,y_0) \in \mathbb{R}^2$
+            \begin{align*}
+            \partial_x f(x_0,y_0) =& \frac{2x_0}{x_0^2+y_0^2 + 1},\\
+            \partial_y f(x_0,y_0) =& \frac{2y_0}{x_0^2+y_0^2 + 1}.
+            \end{align*}
+            Adicionalmente, notamos que para $s$ suficientemente chica el cociente diferencial
+            \begin{equation*}
+            \frac{f(x_0+s,y_0) - f(x_0,y_0)}{s}
+            \end{equation*}
+            está bien definido y coincide con el de la función real de variable real $\log(x^2+b)$ para algún
+            número $b \geq 1$. Con ello concluimos que el dominio de $\partial_x f$ y $\partial_y f$ es
+            \mathbb{R}^2.
+        </li>
+        <li>
+            Empezamos por notar que la función $f$ está definida en $\mathbb{R}^2 \setminus \{(0,0)\}$ y que
+            dicho conjunto es abierto. Las derivadas parciales están dadas por
+            \begin{align*}
+            \partial_x f(x_0,y_0) =& \frac{-1}{2}(x_0^2 + y_0^2)^{-3/2}2x_0,\\
+            =& \frac{-x_0}{(x_0^2 + y_0^2)^{3/2}},
+            \end{align*}
+            ésto está bien definido en puntos distintos a $(0,0)$ y si repetimos el argumento del primer inciso,
+            en el que estamos calculando el límite del cociente
+            \begin{equation*}
+            \frac{f(x_0+s,y_0)-f(x_0,y_0)}{s}
+            \end{equation*}
+            podemos observar que éste corresponde al cociente diferencial de una función real de variable real.
+            Concluimos que $\partial_x f$ y $\partial_y f$ están definidas en $\mathbb{R}^2 \setminus \{(0,0)\}$.
+        </li>
+        <li>
+            Debido a que la raíz cuadrada únicamente está definida en $\mathbb{R}_{\geq 0}$ tenemos que $f$
+            únicamente está definida para $(x^2 + y^2) \leq 1$, o equivalentemente, para $\|(x,y)\|\leq 1$. Como
+            se deben considerar puntos interiores de este conjunto entonces tenemos que las derivadas parciales
+            están definidas, a lo más, dentro de la bola unitaria $\|(x,y)\|<1$. Se tiene que
+            \begin{align*}
+            \partial_x f(x_0,y_0) =& y_0 \left[\frac{1}{2}(1-x_0^2-y_0^2)^{-1/2}(-2x_0) \right],\\
+            =& \frac{-x_0y_0}{\sqrt{1 - x_0^2 - y_0^2}},\\
+            \partial_y f(x_0,y_0) =& \sqrt{1-x_0^2-y_0^2} + (y_0)(-2y_0)\frac{1}{2}(1-x_0^2-y_0^2)^{-1/2},\\
+            =& \sqrt{1-x_0^2-y_0^2} - \frac{y_0^2}{\sqrt{1-x_0^2-y_0^2}}.
+            \end{align*}
+            Siguiendo los argumentos anteriores notamos que éstas están definidas en todo el dominio de la función $f$.
+        </li>
+        <li>
+            La función $f$ está definida si $y \neq 0$ y al calcular las derivadas parciales tenemos
+            \begin{align*}
+            \partial_x f(x_0,y_0) =& \frac{1}{y_0},\\
+            \partial_y f(x_0,y_0) =& \frac{-x_0}{y_0^2}. 
+            \end{align*}
+            De la misma manera, éstas están bien definidas si en $\{(x,y) \in \mathbb{R}^2:y \neq 0\}$.
+        </li>
+    </ol>
+</div>
 </div>
 
 
@@ -995,6 +1059,89 @@
                 \(yz+y\ln(x)=z^2\).
             </li>
         </ol>
+        <button class="respButton hvr-grow "> Solución</button>
+        <div class="resp-box">
+            <p>
+                Recordemos que ecuaciones como las anteriores introducen restricciones en las
+                variables y nos permiten considerar a la variable $z$ como función de las variables
+                $(x,y)$, es decir, la variable $z$ implícitamente representa a una función $z(x,y)$.
+                Con esto en mente podemos realizar diferenciación implícita para calculara las derivadas
+                requeridas
+            </p>
+            <ol>
+                <li>
+                    \begin{equation*}
+                    \partial_x (x^2 + 4y^2 - 5z^2) = \partial_x 1 = 0,
+                    \end{equation*}
+                    Desarrollando el lado izquierdo y con la regla de la cadena presente, se tiene que
+                    \begin{align*}
+                    \partial_x (x^2 + 4y^2 - 5z^2)=& 2x - 10z \partial_x z,
+                    \end{align*}
+                    al despejar se obtiene que
+                    \begin{equation*}
+                    \partial_x z = \frac{2x}{-10z}=\frac{x}{-5z}.
+                    \end{equation*}
+                    Por otro lado,
+                    \begin{equation*}
+                    \partial_y((x^2 + 4y^2 - 5z^2) = 8y - 10z\partial_y z = \partial_y 1 = 0,
+                    \end{equation*}
+                    así
+                    \begin{equation*}
+                    \partial_y z = \frac{4y}{5z}
+                    \end{equation*}
+                </li>
+                <li>
+                    Repetimos el proceso anterior para obtener que
+                    \begin{align*}
+                    \partial_x (-x^2+6y^2+3z^2-z)=& -2x + 6z\partial_x z - \partial_x z=0,\\
+                    \partial_y (-x^2+6y^2+3z^2-z)=& 12y + 6z\partial_y z - \partial_y z=0.
+                    \end{align*}
+                    y en cada caso despejamos para obtener
+                    \begin{align*}
+                    \partial_x z =& \frac{2x}{6z -1},\\
+                    \partial_y z =& \frac{-12y}{6z-1}.
+                    \end{align*}
+                </li>
+                <li>
+                    Usando la regla de la cadena y la regla del producto
+                    \begin{align*}
+                    \partial_x e^{2z} =& 2\partial_x z e^{2z},\\
+                    \partial_y e^{2z} =& 2\partial_x z e^{2z},\\
+                    \partial_x xy^2z =& \partial_x (xy^2)(z),\\
+                    =& y^2z + xy^2\partial_x z,\\
+                    \partial_y yx^2z =& \partial_y (xy^2)z,\\
+                    =& 2xyz + xy^2\partial_y z.
+                    \end{align*}
+                    Con lo anterior tenemos que
+                    \begin{align*}
+                    (2e^{2z}-xy^2)\partial_x z =& y^2z,\\
+                    \partial_x z =& \frac{y^2z}{2e^{2z}-xy^2},
+                    \end{align*}
+                    y similarmente
+                    \begin{align*}
+                    (2e^{2z}-x^2)\partial_y z =& 2xyz,\\
+                    \partial_y z =& \frac{2xyz}{2e^{2z} - xy^2}.
+                    \end{align*}
+                </li>
+                <li>
+                    En primer lugar
+                    \begin{align*}
+                    \partial_x z^2 =& 2z \partial_x z,\\
+                    \partial_y z^2 =& 2z \partial_y z.
+                    \end{align*}
+                    Además
+                    \begin{align*}
+                    \partial_x (yz + y \ln(x)) =& y \partial_xz + \frac{y}{x},\\
+                    \partial_y (yz + y \ln(x)) =& z + y \partial_y z + \ln(x).
+                    \end{align*}
+                    Concluimos que
+                    \begin{align*}
+                    \partial_x z = \frac{y}{x(2z - y)},\\
+                    \partial_y z = \frac{z + \ln x}{2z-y}.
+                    \end{align*}
+                </li>
+            </ol>
+        </div>
         </div>
 
      <div class="ejercicio-box">
