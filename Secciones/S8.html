@@ -686,6 +686,64 @@
   </div>
   
 
+  <div class="nota-box">
+    <h2 class="number-title"> Nota </h2>
+    <p>
+      La idea tras la definición del plano tangente en un punto \((x_0,y_0)\) es que es el plano que 
+      más se aproxima a la función cerca del punto \((x_0,y_0)\).
+    </p>
+    <p>
+      Para tratar de justificar lo anterior consideramos las curvas 
+      \[
+      \gamma(t)=(x_0+t,y_0,f(x_0+t,y_0)), \delta(t)=(x_0,y_0+t, f(x_0,y_0+t))
+      \]
+    </p>
+    <p>
+      Estas curvas se dibujan sobre la gráfica de \(f\) y en \(t=0\) pasan 
+      por \((x_0,y_0,f(x_0,y_0))\), el punto de tangencia del plano tangente.  Si notamos, los cocientes diferenciales 
+      \[
+        \frac{\gamma(t)-\gamma(0)}{t}, \frac{\delta(t)-\delta(0)}{t}
+      \]
+      dan rectas secantes a la gráfica así que cuando tomamos el límite cuando \(t\to 0\) la idea es que 
+      estos límites dan vectores tangentes a la gráfica.
+    </p>
+    <p>
+      Calculando los límites 
+      \[
+      \lim_{t\to 0}\frac{\gamma(t)-\gamma(0)}{t}, \lim_{t\to 0}\frac{\delta(t)-\delta(0)}{t}
+      \]
+      llegamos a que son iguales a 
+      \[
+      (1,0,\partial_xf(x_0,y_0)), (0,1,\partial_{y}f(x_0,y_0))
+      \]
+      estos vectores son los vectores directores para el plano tangente a la gráfica.
+    </p>
+    <p>
+      En forma paramétrica tenemos que el plano esta dado por 
+      \[
+      (x_0,y_0,f(x_0,y_0))+t(1,0,\partial_xf(x_0,y_0))+s(0,1,\partial_yf(x_0,Y_0))
+      \]
+      de la cual se obtiene la forma 
+      \[
+      z=f(x_0,y_0)+[\partial_xf(x_0,y_0)](x-x_0)+[\partial_yf(x_0,y_0)]
+      \]
+    </p>
+
+  </div>
+
+  <div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+      Considera la función \(f(x,y)=\sqrt{|xy|}\).
+    </p>
+    <p>
+      Prueba que las derivadas parciales \(\partial_xf(0,0)\), \(\partial_yf(0,0)\) existen.
+    </p>
+    <p>
+      ¿La gráfica de \(f\) tiene un plano tangente en el \((0,0)\)?
+    </p>
+
+  </div>
 
 <div class="ejercicio-box"> 
     <h2 class="number-title"> Ejercicio </h2> 
@@ -746,6 +804,10 @@
             Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$,  $f:U \to \mathbb{R}$ una
             función y $p_0\in U$. Decimos que $f$ es diferenciable en $p_0$ si 
             existe una transformación lineal $T:\mathbb{R}^n \to \mathbb{R}$ tal que
+            \begin{eqnarray*}
+            \lim_{ v \to 0} \frac{|f(p_0+v)-f(p_0)-T(v)|}{\| v\|}=0. 
+            \end{eqnarray*}
+            o equivalentemente 
             $$
             \lim_{p\to p_0} \frac{|f(p)-f(p_0)-T(p-p_0)|}{\|p-p_0\|}=0.
             $$
@@ -767,19 +829,36 @@
     <p>
         Supon que $f$ es diferenciable en $p_0$ y sea $T:\mathbb{R}^n \to \mathbb{R}$
         la derivada de $f$ en $p_0$, es decir, $T$ satisface
-        $$
-        \lim_{p\to p_0} \frac{|f(p)-f(p_0)-T(p-p_0)|}{\|p-p_0\|}=0.
-        $$
-    
-        Recuerda que al ser $T$ lineal, existe un vector  $a=(a_1,\dots, a_n )\in \mathbb{R}^n$ tal que
-        $$
-        T(p)=\langle a, p \rangle, \quad  \forall p\in \mathbb{R}^n.
-        $$
-    
-        Tomando $p$ de la forma $p=p_0+se_j$, $s\ne 0$ (con $j$ fijo) prueba que $\partial_{p_j}f(p_0)$ existe
-        y $a_j=\partial_{p_j}f(p_0)$.
-    
+        \begin{eqnarray}
+        \lim_{ v \to 0} \frac{|f(p_0+v)-f(p_0)-T(v)|}{\| v\|}=0. \label{Eqn:AuxDifImplicaParciales}
+        \end{eqnarray}
     </p>
+    <p>
+      Prueba que todas las derivadas parciales existen en \(p_0\) y además 
+      \[
+      T(x_1,\dots, x_n)=\sum_{i=1}^n \partial_{p_i}f(p_0)x_i
+      \]
+    </p>
+    <button class="respButton hvr-grow "> Demostración</button>
+    <div class="resp-box">
+    <p>
+      Recuerda que al ser $T$ lineal, existe un vector  $a=(a_1,\dots, a_n )\in \mathbb{R}^n$ tal que
+      $$
+      T(x_1,\dots, x_n)=\sum_{i=1}a_ix_i \quad  \forall (x_1,\dots, x_n)\in \mathbb{R}^n.
+      $$
+  
+      Tomando $v=\gamma(h)$ de la forma $\gamma(h)=he_j$, $h\ne 0$ (con $j$ fijo) el límite 
+      \eqref{Eqn:AuxDifImplicaParciales} implica que 
+      \begin{eqnarray*} 
+        0&=&\lim_{h\to 0} \frac{|f(p_0+he_j)-f(p_0)-T(he_i)|}{\|he_j\|}\\
+        &=& \lim_{h\to 0} \left| \frac{f(p_0+he_j)-f(p_0)-hT(e_j)|}{h} \right\| \\
+        &=& \lim_{h\to 0}\left| \frac{f(p_0+he_j)-f(p_0)}{t}-a_j  \right|
+      \end{eqnarray*}
+
+    </p>
+    <p>
+      Por lo tanto el límite anterior implica que \(\partial_{p_j}f(p_0)\) existe y es igual a \(a_j\).
+     </p>
     <p>
         Por lo tanto, usando la notación de la derivda como $T=D_{p_0}f$, resulta que
         la derivada es la transformación lineal inducida  por el gradiente en $p_0$, es decir
@@ -787,6 +866,7 @@
         (D_{p_0}f)(x_1,\dots, x_n)=\sum_{i=1}^n \partial_{p_i}f(p_0)x_i \quad \forall (x_1,\dots, x_n)\in \mathbb{R}^n.
         $$
     </p>
+    </div>
 </div>
 
   <div class="ejercicio-box"> 
