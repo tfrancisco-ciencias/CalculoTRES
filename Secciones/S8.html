@@ -769,6 +769,50 @@
           </li>
         </ol>
     </p>
+    <button class="respButton hvr-grow "> Solución 3</button>
+    <div class="resp-box">
+        <p>
+            De la ecuación $x^2 + y^2 + z^2 =1$ deducimos que $z = \sqrt{1-x^2 - y^2}$, como
+            se pide trabajar en el punto para el cual $z=1/\sqrt{3}$ entonces tomaremos el valor
+            positivo de la raíz cuadrada. Escribimos ahora $f(x,y) = \sqrt{1-x^2 - y^2}$ y por
+            hipótesis se tiene que $f$ es diferenciable en el punto, en particular se sabe que si
+            es diferenciable entonces existen las derivadas parciales en dicho punto:
+            \begin{align*}
+            \partial_x f =& \frac{1}{2} \frac{1}{\sqrt{1-x^2-y^2}}-2x, \\
+            =& \frac{-x}{\sqrt{1-x^2-y^2}},\\
+            \partial_y f =& \frac{-x}{\sqrt{1-x^2-y^2}},
+            \end{align*}
+            Evaluando en el punto $(1/\sqrt{3},1/\sqrt{3})$ se tiene que $\partial_x f(x_0,y_0)=-1$ y
+            $\partial_y f(x_0,y_0) = -1$.
+        </p>
+        <p>
+            Si ahora sustituimos en la ecuación del plano tangente al punto $(1/\sqrt{3},1/\sqrt{3})$ tenemos
+            \begin{align*}
+            z=& f(x_0,y_0) + \partial_x f(x_0,y_0)(x-x_0) + \partial_y f(x_0,y_0)(y-y_0),\\
+            =& \frac{1}{\sqrt{3}}+ (\frac{1}{\sqrt{3}}-x) + (\frac{1}{\sqrt{3}}-y),\\
+            =& \sqrt{3} -x - y.
+            \end{align*}
+            Adicionalmente, este plano se puede caracterizar como aquel que pasa por el punto
+            $(1/\sqrt{3}, 1/\sqrt{3}), 1/\sqrt{3})$ y es normal al vector $N=(-1,-1,-1)$.
+        </p>
+    </div>
+    <button class="respButton hvr-grow "> Solución 5</button>
+    <div class="resp-box">
+        <p>
+            Empezamos por escribir $z=f(x,y)=\sqrt{xy}$. Podemos calcular las derivadas parciales,
+            \begin{align*}
+            \partial_x f =& \frac{1}{2}\frac{1}{\sqrt{xy}}y,\\
+            =& \frac{y}{2\sqrt{xy}},\\
+            \partial_y f =& \frac{x}{2\sqrt{xy}}.
+            \end{align*}
+            Al evaluar en el punto $(1/2,1/2)$ tenemos que $\partial_x f(x_0,y_0) =1/2 = \partial_y f(x_0,y_0)$.
+            Con ello podemos deducir que el plano tangente al punto (1,1,1) de la superficie está caracterizado
+            por su vector normal $N=(1/2,1/2,-1)$, o bien por la ecuación
+            \begin{equation*}
+            z = 1 + 1/2(x-1) + 1/2(y-1) = \frac{1}{2}x + \frac{1}{2}y.
+            \end{equation*}
+        </p>
+    </div>
 </div>
 
 
@@ -789,6 +833,49 @@
         que pasa por $(x_0,y_0,z_0)$ pasa por el origen y forma un ángulo de $45$
         con el eje $z$.
     </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            De la ecuación que define a la superficie se tiene que $z= \sqrt{x^2 + y^2}=f(x,y)$,
+            dicha función es diferenciable si $(x,y) \neq (0,0)$. Empezamos por calcular las
+            derivadas parciales
+            \begin{align*}
+            \partial_x f =& \frac{1}{2}\frac{2x}{\sqrt{x^2 + y^2}},\\
+            =& \frac{x}{\sqrt{x^2+y^2}},\\
+            \partial_y f =& \frac{y}{\sqrt{x^2+y^2}},
+            \end{align*}
+            que en el punto $(x_0,y_0)$ están dadas por $\frac{x_0}{\sqrt{x_0^2+y_0^2}}$ y
+            $\frac{y_0}{\sqrt{x_0^2+y_0^2}}$, respectivamente. Al sustituir estos valores en la
+            ecuación del plano tangente a la superficie tenemos que
+            \begin{equation*}
+            z = \sqrt{x_0^2 + y_0^2} + \frac{x_0}{\sqrt{x_0^2+y_0^2}}(x-x_0) + \frac{y_0}{\sqrt{x_0^2+y_0^2}}(y-y_0),\\
+            \end{equation*}
+            y notamos que al sustituir $x=0,y=0$ se tiene
+            \begin{equation*}
+            z = \sqrt{x_0^2 + y_0^2} + \frac{-x_0^2}{\sqrt{x_0^2 + y_0^2}} + \frac{-y_0^2}{\sqrt{x_0^2 + y_0^2}} = 0.
+            \end{equation*}
+            De ésto se concluye que el punto $(0,0,0)$ satisface la ecuación del plano y por lo tanto pertenece a él.
+        </p>
+        <p>
+            Recordemos que el ángulo entre el plano y el eje $z$ es el ángulo entre el vector normal al plano y el eje $z$.
+            De los cálculos presentados anteriormente se tiene que el plano tiene vector normal
+            $N=\left(\frac{x_0}{\sqrt{x_0^2 + y_0^2}},\frac{y_0}{\sqrt{x_0^2 + y_0^2}},-1\right)$. Por un lado $\langle N, (0,0,1)\rangle = -1$,
+            por otro lado también se sabe que
+            \begin{align*}
+            \langle N, (0,0,1)\rangle =& \|N\|\|(0,0,1)\| \cos(\theta),\\
+            =& \sqrt{ \frac{x_0^2 + y_0^2}{x_0^2 + y_0^2} + 1} \cos(\theta),\\
+            =& \sqrt{2} \cos(\theta),
+            \end{align*}
+            de donde $\cos(\theta) = \frac{-1}{\sqrt{2}}$ y por lo tanto $\theta = \pm \frac{3\pi}{4}$, y en ambos casos el ángulo complementario
+            es $\frac{\pi}{4}$. Como siempre se puede considerar un ángulo menor o igual a $\frac{\pi}{2}$ nos quedamos con éste último y concluye
+            la prueba.
+        </p>
+        <p>
+            Observación: De manera implícita supusimos que $y_0 \geq 0$, si ocurriera que $y_0<0$ entonces es necesario definir
+            $f(x,y) = -\sqrt{x^2+y^2}$ y se puede seguir el mismo procedimiento, ya que en la primera parte del ejercicio las derivadas parciales
+            también cambian de signo y en la segunda parte el nuevo vector normal al plano nos brinda directamente que $\cos(\theta) = \frac{1}{\sqrt{2}}$.
+        </p>
+    </div>
   </div>
 
 
