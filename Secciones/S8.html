@@ -1009,6 +1009,78 @@
         D_{(x_0,y_0)}F(x,y)=f'(x_0)g(y_0)x+f(x_0)g'(y_0)y. 
         \]
       </p>
-
+      <button class="respButton hvr-grow "> Solución</button>
+      <div class="resp-box">
+          <p>
+              Definimos $T(x,y) = f'(x_0)g(y_0)x+f(x_0)g'(y_0)y$ y comenzamos por escribir
+              el cociente diferencial
+              \begin{equation*}
+              \frac{F(x,y) - F(x_0,y_0) - T(x-x_0,y-y_0)}{\|(x-x_0,y-y_0\|} =
+              \frac{f(x)g(y) - f(x_0)g(y_0) - f'(x_0)g(y_0)(x-x_0) - f(x_0)g'(y_0)(y-y_0)}{\|(x-x_0,y-y_0)\|}.
+              \end{equation*}
+              Dado que se busca el límite cuando $(x,y) \to (x_0,y_0)$ hay que considerar puntos en una vecindad
+              de $(x_0,y_0)$, pero distintos de éste. Así, consideraremos tres casos: $x_0=x$ y $y_0 \neq y$,
+              $x_0 \neq x$ y $y_0 = y$, y finalmente $x_0 \neq x$ y $y_0 \neq y$. En lo que sigue aplicaremos
+              valor absoluto al numerador del cociente.
+          </p>
+          <p>
+              En el primer caso el cociente diferencial se reduce a la expresión
+              \begin{align*}
+              \frac{|f(x_0)g(y) - f(x_0)g(y_0) - f(x_0)g'(y_0)(y-y_0)|}{|y-y_0|} =& \left|\frac{f(x_0)[g(y)-g(y_0)]-f(x_0)g'(y_0)(y-y_0)}{y-y_0}\right|,\\
+              =& |f(x_0)|\left |\frac{g(y) - g(y_0)}{y-y_0} - g'(y_0)\right|.
+              \end{align*}
+              En el segundo caso se tiene una expresión similar,
+              \begin{align*}
+              \frac{|f(x)g(y_0) - f(x_0)g(y_0) - f'(x_0)g(y_0)(x-x_0)|}{|x-x_0|} =& \left| \frac{g(y_0)[f(x)-f(x_0) - f'(x_0)](x-x_0)}{x-x_0} \right|,\\
+              =& |g(y_0)| \left|\frac{f(x)-f(x_0}{x-x_0} - f'(x_0) \right|.
+              \end{align*}
+              Para $\epsilon >0$ notamos que si $f(x_0)=0$ entonces para cualquier $\delta > 0$ se tiene que si $0 < |y-y_0| < \delta$ entonces
+              \begin{equation*}
+              |f(x_0)|\left |\frac{g(y) - g(y_0)}{y-y_0} - g'(y_0)\right| < \epsilon,
+              \end{equation*}
+              si $f(x_0) \neq 0$ entonces como $g$ es diferenciable en $y_0$ existe $\delta_1 > 0$ tal que si $0 < |y-y_0| < \delta_1$ entonces
+              $\left|\frac{g(y) - g(y_0)}{y-y_0} - g'(y_0)\right| < \frac{\epsilon}{|f(x_0)|}$ y el primer cociente queda acotado por $\epsilon$.
+              De manera similar, si $g(y_0) \neq 0$ entonces existe $\delta_2>0$ tal que si $0 < |x-x_0| < \delta_2$ entonces el segundo cociente
+              queda acotado por $\epsilon$.
+          </p>
+          <p>
+              Finalmente trabajaremos con el caso en que $x_0 \neq x$ y $y_0 \neq y$, al numerador del cociente diferencial agregaremos la expresión
+              $-f(x)g(y_0) + f(x)g(y_0)$:
+              \begin{align*}
+              \frac{|f(x)g(y) - f(x_0)g(y_0) - f'(x_0)g(y_0)(x-x_0) - f(x_0)g'(y_0)(y-y_0)|}{\|(x-x_0,y-y_0)\|}=\\
+              \frac{|f(x)g(y) - f(x)g(y_0) + f(x)g(y_0) -f(x_0)g(y_0) - f'(x_0)g(y_0)(x-x_0) - f(x_0)g'(y_0)(y-y_0)|}{\|(x-x_0,y-y_0)\|} \leq\\
+              \frac{|f(x)[g(y) - g(y_0)] + g(y_0)[f(x) -f(x_0)] - f'(x_0)g(y_0)(x-x_0) - f(x_0)g'(y_0)(y-y_0)|}{\|(x-x_0,y-y_0)\|} \leq\\
+              \frac{|f(x)[g(y) - g(y_0)] - f(x_0)g'(y_0)(y-y_0)|}{\|(x-x_0,y-y_0)\|} + \frac{|g(y_0)[f(x) -f(x_0)] - f'(x_0)g(y_0)(x-x_0)|}{\|(x-x_0,y-y_0)\|},
+              \end{align*}
+              Como $|x-x_0|,|y-y_0| \leq \|(x-x_0,y-y_0\|$ y ninguno se anula entonces podemos acotar superiormente la última expresión por
+              \begin{align*}
+              \frac{|f(x)[g(y) - g(y_0)] - f(x_0)g'(y_0)(y-y_0)|}{|y-y_0|} + \frac{|g(y_0)[f(x) -f(x_0)] - f'(x_0)g(y_0)(x-x_0)|}{|x-x_0|}=\\
+              \left|\frac{f(x)[g(y) - g(y_0)] - f(x_0)g'(y_0)(y-y_0)}{y-y_0}\right| + \left|\frac{g(y_0)[f(x) -f(x_0)] - f'(x_0)g(y_0)(x-x_0)}{x-x_0}\right| =\\
+              \left|\frac{f(x)[g(y) - g(y_0)]}{y-y_0}- f(x_0)g'(y_0)\right| + \left|\frac{g(y_0)[f(x) -f(x_0)]}{x-x_0} - f'(x_0)g(y_0)\right|=\\
+              \left|\frac{f(x)[g(y) - g(y_0)]}{y-y_0}- f(x_0)g'(y_0)\right| + |g(y_0)|\left|\frac{g(y_0)[f(x) -f(x_0)]}{x-x_0} - f'(x_0)\right|.
+              \end{align*}
+              Analicemos cada uno de estos sumandos. Si $g(y_0)\neq 0$ como $f$ es diferenciable en $x_0$ entonces existe $\delta_3 > 0$ tal que
+              si $0<|x-x_0|< \delta_3$ entonces $|g(y_0)|\left|\frac{g(y_0)[f(x) -f(x_0)]}{x-x_0} - f'(x_0)\right|< |g(y_0)| \frac{\epsilon}{2 |g(x_0)|} = \epsilon/2$,
+              si $g(y_0)=0$ se puede tomar $\delta_3$ como cualquier número real positivo.
+          </p>
+          <p>
+              También se tiene que
+              \begin{align*}
+              \left|\frac{f(x)[g(y) - g(y_0)]}{y-y_0}- f(x_0)g'(y_0)\right| = \\
+              \left|\frac{f(x)[g(y) - g(y_0)]}{y-y_0}- \frac{f(x_0)[g(y) - g(y_0)]}{y-y_0} + \frac{f(x_0)[g(y) - g(y_0)]}{y-y_0} - f(x_0)g'(y_0)\right| \leq \\
+              |f(x)-f(x_0)|\left|\frac{g(y) - g(y_0)}{y-y_0}\right| +  |f(x_0)| \left|\frac{g(y) - g(y_0)}{y-y_0} - g'(y_0)\right| \leq\\
+              |f(x)-f(x_0)|\left(\left|\frac{g(y) - g(y_0)}{y-y_0} - g'(y_0)\right| + |g'(y_0)|\right) +  |f(x_0)| \left|\frac{g(y) - g(y_0)}{y-y_0} - g'(y_0)\right|
+              \end{align*}
+              De manera análoga se sabe que existe $\delta_4>0$ tal que si $0< |y-y_0|<\delta_4$ entonces $|f(x_0)| \left|\frac{g(y) - g(y_0)}{y-y_0} - g'(y_0)\right| < \epsilon/4$,
+              por continuidad de $f$ existe $\delta_5>0$ tal que si $0<|x-x_0|<\delta_5$ entonces $|f(x)-f(x_0)||g'(y_0)| < \epsilon/8$ y existen $\delta_6,\delta_7>0$
+              tales que si $0<|x-x_0|<\delta_6$, $0<|y-y_0|<\delta_7$ entonces $|f(x)-f(x_0)|< \sqrt{\epsilon/8}$ y
+              $\left|\frac{g(y) - g(y_0)}{y-y_0} - g'(y_0)\right|<\sqrt{\epsilon/8}$ respectivamente. Basta tomar $\delta = \min (\delta_1,\ldots,\delta_7) >0$ y si
+              $0< \|(x-x_0,y-y_0)\|< \delta$, en particular $|x-x_0|,|y-y_0|\leq \delta_i$ para cada $i$ y en cada uno de los casos anteriores el cociente diferencial
+              es acotado por $\epsilon$, es decir,
+              \begin{equation*}
+              \lim_{(x,y) \to (x_0,y_0)} \frac{F(x,y) - F(x_0,y_0) - T(x-x_0,y-y_0)}{\|(x-x_0,y-y_0\|} = 0.
+              \end{equation*}
+          </p>
+      </div>
     </div>
 </body>
