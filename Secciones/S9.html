@@ -329,6 +329,11 @@
         $C^1$ en $U$, si todas las derivadas parciales existen y son
         continuas en todo punto de $U$.
     </p>
+    <p>
+        Por ejemplo, un polinomio en varias variables es clase \(C^1\) pues 
+        sus derivadas parciales vuelven a ser polinomios, los cuales son funciones 
+        continuas.
+    </p>
   </div>
 
 
@@ -415,6 +420,9 @@
         f(x_0+h,y_0+k)-f(x_0,y_0)=\partial_yf(x_0+h,\overline{y})k+ \partial_xf(\overline{x},y_0)h.
         $$
     </p>
+    <div class="flexbox">
+        <img src="./Images/S9-Img1.png" alt="ParcialesContinuasImplicaDif" width="40%" height="auto">
+      </div>
     <p>
         Se sigue que 
         \begin{eqnarray*}
@@ -457,7 +465,7 @@
 </div>
 
 
-<div class="ejercicio-box"> 
+<div class="teorema-box"> 
     <h2 class="number-title" id="Teo:C1ImplicaDif"> Teorema </h2> 
     <p>
         El teorema anterior se generaliza a más variables. 
@@ -583,59 +591,84 @@
     </p>
 </div>
 
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
+<div class="teorema-box"> 
+    <h2 class="number-title"> Teorema </h2> 
     <p>
-        Este ejercicio muestra que toda función $f:U\subseteq \mathbb{R}^2\to \mathbb{R}$,
-        de clase $C^2$ es $U$,  satisface que $\partial_{xy}f=\partial_{yx}f$. Fija $(x_0,y_0)\in U$.
+        Para toda función de clase \(C^2\), las derivadas parciales mixtas son iguales.
+    </p>
+    <p>
+        En concreto sea $f:U\subseteq \mathbb{R}^2\to \mathbb{R}$,
+        de clase $C^2$ es $U$. Entonces  $\partial_{xy}f=\partial_{yx}f$. 
         
     </p>
-<ol>
-    <li>
-        Considera las funciones
+    <button class="respButton hvr-grow "> Demostración</button>
+    <div class="resp-box">
+        <p>
+            Fijamos $(x_0,y_0)\in U$ arbitrario. Debemos de probar 
+            \[
+            \partial_{xy}f(x_0,y_0)=\partial_{yx}f(x_0,y_0).
+            \]
+        </p>
+        
+    <p>
+        Consideramos las funciones
         $$
-        S(h_1,h_2)=f(x_0+h_1,y_0+h_2)-f(x_0+h_1),y_0)-f(x_0,y_0+h_2)+f(x_0,y_0)
+        S(h,k)=f(x_0+h,y_0+k)-f(x_0+h,y_0)-f(x_0,y_0+k)+f(x_0,y_0)
         $$
         y
         $$
-        g(x)=f(x,y_0+h_1)-f(x,y_0), \quad h(y)=f(x_0+h_1,y)-f(x_0,y)
+        G(x)=f(x,y_0+k)-f(x,y_0), \quad H(y)=f(x_0+h,y)-f(x_0,y)
         $$
-        Prueba que
-        $$
-        S(h_1,h_2)=g(x_0+h_1)-g(x_0)=h(y_0+h_2)-h(y_0)
-        $$
-    </li>
-    <li>
-        Demuestra que existe un punto $\overline{x}$, entre $x_0$ y $x_0+h_1$
-        y un punto $\overline{y}$, entre $y_0$y $y_0+h_2$, tales que:
-        $$g(x_0+h_1)-g(x_0)=g'(\overline{x})h_1, h(y_0+h_2)-h(y_0)=h'(\overline{y})h_2$$
-        <p>
-            Sugerencia: utiliza el teorema del valor medio.
-        </p>
-    </li>
-    <li>
-        Prueba que
+        Con las definiciones anteriores se sigue que:
+        \begin{equation}\label{Eqn:Aux1ParcialesMixtas}
+        S(h,k)=G(x_0+h)-G(x_0)=H(y_0+k)-H(y_0).
+        \end{equation}
+    </p>
+    <p>
+        Usando el Teorema del valor medio para derivadas, aplicadas a las funciones 
+        \(G\) y \(H\) $\overline{x}$, entre $x_0$ y $x_0+h$
+        y un punto $\overline{y}$, entre $y_0$y $y_0+k$, tales que:
+        $$G(x_0+h)-G(x_0)=G'(\overline{x})h,\quad  H(y_0+k)-H(y_0)=H'(\overline{y})k$$
+    </p>
+    <p>
+        Substituyendo las identidades anteriores en \eqref{Eqn:Aux1ParcialesMixtas} obtenemos 
         \begin{eqnarray*}
-        S(h_1,h_2)&=&\left( \partial_xf(\overline{x}, y_0+h_2)-\partial_xf(\overline{x}, y_0)  \right) h_1 \\
-        &=&\left(\partial_yf(x_0+h_1,\overline{y})-\partial_yf(x_0, \overline{y}) \right)h_2
+        S(h,k)&=&\left( \partial_xf(\overline{x}, y_0+k)-\partial_xf(\overline{x}, y_0)  \right) h \\
+        &=&\left(\partial_yf(x_0+h,\overline{y})-\partial_yf(x_0, \overline{y}) \right)k
         \end{eqnarray*}
         
-    </li>
-    <li>
-        Demostrar que existen puntos $\overline{\overline{y}}$, entre $y_0$ y $y_0+h_2$ y
-        $\overline{\overline{x}}$, entre $x_0$ y $x_0+h_1$ tales que
+    </p>
+    <p>
+        Aplicando de nuevo el Teorema del valor medio para las derivadas, pero 
+        ahora aplicado a las parciales \(\partial_xf, \partial_yf\), 
+        obtenemos que existen puntos  $\overline{\overline{y}}$, entre $y_0$ y $y_0+k$ y
+        $\overline{\overline{x}}$, entre $x_0$ y $x_0+h$ tales que
         $$
-        S(h_1,h_2)=\partial_{yx}f(\overline{x}, \overline{\overline{y}})h_1h_2=\partial_{yx}f(\overline{\overline{x}}, \overline{y})h_1h_2
+        S(h,k)=\partial_{yx}f(\overline{x}, \overline{\overline{y}})hk=\partial_{xy}f(\overline{\overline{x}}, \overline{y})hk
         $$
-        Sugerencia: utiliza el teorema del valor medio.
-    </li>
-    <li>
-        Tomando límites, cuando $(h_1,h_2)\to (0,0)$, concluye que
-        $$
-        \partial_{xy}f(x_0,y_0)=\lim_{(h_1,h_2)\to (0,0)} \frac{S(h_1,h_2)}{h_1h_2}=\partial_{yx}f(x_0,y_0).
-        $$
-    </li>
-</ol>
+    </p>
+    <div class="flexbox">
+        <img src="./Images/S9-Img2.png" alt="ParcialesMixtas" width="40%" height="auto">
+      </div>
+    <p>
+        Si \(h\ne 0\) y \(k\ne 0\)  tenemos que 
+        \[
+        \frac{S(h,k)}{hk}=\partial_{yx}f(\overline{x},\overline{\overline{y}}),
+        \]
+        \[
+        \frac{S(h,k)}{hk}=\partial_{xy}f(\overline{\overline{x}},\overline{y}).
+        \]
+        Si ahora tomamos $(h,k)\to (0,0)$ y usamos que los puntos 
+        \(\overline{x},\overline{y},\overline{\overline{x}},\overline{\overline{y}}\) están entre 
+        \(x_0\) y \(x_0+h\), \(y_0\) y \(y_0+k\) y usando que \(\partial_{xy}f, \partial_{yx}f\)
+        son continuas en \((x_0,y_0)\) llegamos 
+        \begin{eqnarray*} 
+        \partial_{xy}f(x_0,y_0)=\lim_{(h,k)\to (0,0)} \partial_{yx}f(\overline{x},\overline{\overline{y}})=\lim_{(h,k)\to (0,0)}  \frac{S(h,k)}{hk}\\
+        \partial_{yx}f(x_0,y_0)=\lim_{(h,k)\to (0,0)} \partial_{yx}f(\overline{\overline{x}},\overline{y})=\lim_{(h,k)\to (0,0)}  \frac{S(h,k)}{hk}
+        \end{eqnarray*}
+        y por lo tanto \(\partial_{xy}f(x_0,y_0)=\partial_{yx}f(x_0,y_0)\).
+    </p>
+</div>
 </div>
 
 
@@ -756,27 +789,7 @@
 
 <div class="ejercicio-box"> 
     <h2 class="number-title"> Ejercicio</h2> 
-    <h3> Bartle </h3>
-    <p>
-        Considera la función
-        $$
-        f(x,y)=\left\{
-        \begin{array}{cc}
-         \frac{xy(x^2-y^2)}{x^2+y^2} & (x,y)\ne (0,0)\\
-         0 & (x,y)=(0,0)
-        \end{array}
-        \right.
-        $$
-    </p>
-    <p>
-        Prueba que las derivadas parciales mixtas existen pero no son iguales.
-    </p>
-</div>
-
-
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <h3> Vogel</h3>
+    <h3> Bartle</h3>
     <p>
          Considera la función
         $$
