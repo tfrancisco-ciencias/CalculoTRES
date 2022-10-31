@@ -95,6 +95,7 @@
             \lim_{p\to q} f(p)=f(q).
             $$        
         </p>
+        
   </div>
 
 
@@ -109,6 +110,39 @@
     <p>
         Sugerencia: usa el <a href="./S3.html#Ejer:TeoRiesz">Teorema de Riesz</a>.
     </p>
+    <button class="respButton hvr-grow "> Solución </button>
+    <div class="resp-box">
+        <p>
+            Debemos de probar que para todo \(q\in \mathbb{R}^n\), 
+            \[
+            \lim_{p\to q}f(p)=f(q).
+            \]
+        </p>
+        <p>
+            Por el <a href="./S3.html#Ejer:TeoRiesz">Teorema de Riesz</a> sabemos que existe un 
+            vector \(p_0\in \mathbb{R}^n\) tal que 
+            \[
+            f(p)=\langle p, p_0 \rangle, \quad \forall  p\in \mathbb{R}^n
+            \]
+            Por lo tanto tenemos que 
+            \begin{eqnarray*} 
+            |f(p)-f(q)|&=&|\langle p,p_0\rangle -\langle q,p_0\rangle |\\
+            &=& |\langle p-q, p_0\rangle| \\
+            &\leq & \|p-q\| \|p_0\|
+            \end{eqnarray*}
+            donde la última desigualdad se debe a l adesigualdad de Cauchy-Schwartz.
+        </p>
+        <p>
+            Finalmente, dado \(\varepsilon > 0\) si tomamos \(\delta=\frac{\varepsilon}{1+\|p_0\|}\) 
+            entonces para todo \(p\) con \(0< \|p-q\|< \delta \) se cumple que 
+            \[
+            |f(p)-f(q)|\leq \|p-q\|\|p_0\| <  \delta \|p_0| < \varepsilon.
+            \]
+            Por lo tanto \(\lim_{p\to q}f(p)=f(q)\).
+        </p>
+        
+
+    </div>
 </div>
 
 <div class="nota-box">
@@ -142,6 +176,32 @@
 
 </div>
 
+<div class="prop-box">
+    <h2 class="number-title" id="Prop:ComposicionCont"> Proposición</h2>
+    <p>
+        La composición de funciones continuas es continua.
+    </p>
+    <p>
+        En específico, supongamos que tenemos funciones \(f: D \to \mathbb{R}^m \),
+        \(g: E \to \mathbb{R}^d\), donde \(D\subseteq \mathbb{R}^n, E\subseteq \mathbb{R}^m\) y 
+        \(f(D)\subseteq E\) (para que la composición \(g\circ f\) está definida).
+    </p>
+    <p>
+        Si \(f\) es continua en \(p_0\in D\) y \(g\) es continua en \(f(p_0)\in E\) entonces 
+        \(g\circ f\) es continua en \(p_0\). Es decir 
+        \[
+        \lim_{p\to p_0} (g\circ f)(p)=(g\circ f)(p_0)
+        \]
+        Lo anterior también se puede escribir como 
+        \[
+        \lim_{p\to p_0} g(f(p))=g(\lim_{p\to p_0} f(p))
+        \]
+        lo cual se abrevia diciendo que las funciones continuas meten el límite.
+    </p>
+
+
+</div>
+
 
 <div class="nota-box">
     <h2 class="number-title"> Algebra de las funciones continuas  </h2>
@@ -160,8 +220,14 @@
               divisiones: \(f/g\), con \(g(p_0)\ne 0\),
             </li>
         </ol>  
-        son todas continuas en \(p_0\).
+        son todas continuas en \(p_0\). 
     </p>
+    <p>
+        Así pues, muchas de las operaciones elementales entre funciones arrojan funciones continuas. Otras 
+        operaciones como raíces, logaritmo y exponenciación también toman funciones continuas y producen 
+        funciones continuas. Lo anterior se sigue de la <a href="#Prop:ComposicionCont">Proposición 9.4</a>. 
+        Por ejemplo, si \(f\) es continua en \(p_0\) y \(f(p_0) > 0\) entonces la función 
+        \(\ln(f(p))\) es continua en \(p_0\).
 </div>
 
 <div class="ejercicio-box"> 
@@ -189,7 +255,7 @@
       
     </p>
     <p>
-        Demuestra que si $f$ es diferenciable en $p_0$ entonces
+        Si $f$ es diferenciable en $p_0$ entonces
         $f$ es continua en $p_0$. 
     </p>
     <p>
@@ -197,6 +263,9 @@
         contra-ejemplo es la función valor absoluto; en dimensión 2 
         un contra-ejemplo está dado en el <a href="./S8.html#Ejer:ExistenParcialesPeroNoDif"> Ejercicio 8.13</a>.
     </p>
+    <button class="respButton hvr-grow "> Demostración</button>
+    <div class="resp-box">
+    
     <!--<p>
         Sugerencia: considera la aproximación lineal de $f$ cerca de $p_0$:
         $$
@@ -205,7 +274,48 @@
         Demuestra que  $\lim_{p\to p_0} \langle \nabla_{p_0}f, p-p_0\rangle=0$ y $\lim_{p\to p_0}E(p)=0$.
       
     </p>-->
-
+    <div>
+        <p>
+            Debemos de probar que 
+            \[
+                \lim_{p\to p_0} f(p)=f(p_0)
+            \]
+            Pero, al ser \(f\) diferenciable sabemos que 
+            \[
+            \lim_{p\to p_0} \frac{f(p)-f(p_0)-T(p-p_0)}{\|p-p_0\|}=0
+            \]
+            donde \(T(x_1,\dots, x_n)=\sum_{i=1}^n (\partial_{p_i}f(p_0))x_i\).
+        </p>
+        <p>
+            Pero es claro que 
+            \[
+            \lim_{p\to p_0}\|p-p_0\|=0
+            \]
+            así que por la ley del producto para límites 
+            \begin{eqnarray*}
+            0&=&\left(\lim_{p\to p_0} \|p-p_0\|\right)\left( \lim_{p\to p_0} \frac{f(p)-f(p_0)-T(p-p_0)}{\|p-p_0\|} \right) \\
+             &=& \lim_{p\to p_0} \left( \|p-p_0\|\frac{f(p)-f(p_0)-T(p-p_0)}{\|p-p_0\|}\right) \\
+             &=& \lim_{p\to p_0} (f(p)-f(p_0)-T(p-p_0))
+            \end{eqnarray*}
+        </p>
+        <p>
+            Ahora, por el <a>Ejercicio 9.2</a> 
+            \[
+            \lim_{p\to p_0}T(p-p_0)=T(p_0-p_0)=T(0)=0
+            \]
+            donde usamos \(T(0)=0\), al ser \(T\) función lineal.
+        </p>
+        <p>
+            Se sigue de las leyes de los límites para sumas tenemos 
+            \begin{eqnarray*} 
+            0&=&\lim_{p\to p_0} (f(p)-f(p_0)-T(p-p_0))+ \lim_{p\to p_0}(T(p-p_0)) \\
+            &=& \lim_{p\to p_0} (f(p)-f(p_0)-T(p-p_0)+T(p-p_0))\\
+            &=& \lim_{p\to p_0} (f(p)-f(p_0))
+            \end{eqnarray*}
+            lo que es equivalente a \(\lim_{p\to p_0} f(p)=f(p_0)\).
+        </p>
+    </div>
+    </div>
 </div>
 
  
