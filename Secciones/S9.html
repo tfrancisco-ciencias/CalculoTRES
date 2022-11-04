@@ -867,6 +867,54 @@
             </li>
         </ol>
     </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            Si $(x,y) \neq (0,0)$ entonces podemos tomar toda una vecindad tal que $B_r(x,y) \not\ni (0,0)$
+            y $(x+h,y), (x,y+k) \neq (0,0)$ si $0<|h|,|k| < r$, por lo tanto podemos calcular las derivadas
+            parciales en estos puntos con la regla de la cadena y el producto:
+            \begin{align*}
+            \partial_x f =& \partial_x \left[ \frac{xy^3}{x^2 + y^2} - \frac{x^3y}{x^2+y^2}\right],\\
+            =& \frac{y^3}{x^2 + y^2} + \frac{(-1)xy^3(2x)}{(x^2 + y^2)^2} - \left[\frac{3x^2y}{x^2 + y^2} + \frac{(-1)x^3y(2x)}{(x^2+y^2)^2}\right],\\
+            =& \frac{y^3-3x^2y}{x^2 + y^2} - \frac{2x(xy^3 - x^3y)}{(x^2+y^2)^2}.
+            \end{align*}
+
+            Para encontrar la derivada parcial en $(0,0)$ consideramos el cociente diferencial
+            \begin{align*}
+            \frac{f(h,0)-f(0,0)}{h} =& \frac{\frac{h(0)^3 - h^3(0)}{h^2+0^2} - 0}{h},\\
+            =& \frac{0}{h},
+            \end{align*}
+            y por lo tanto $\partial_x f(0,0) = 0$.
+        </p>
+        <p>
+            Para calcular la derivada parcial respecto a $y$ podemos repetir el proceso anterior, o bien, notar que $f(x,y) = -f(y,x)$ de donde
+            se desprende que si $(x,y) \neq (0,0)$ entonces
+            \begin{equation*}
+            \partial_y f(x,y) = \frac{3y^2x - x^3}{x^2 + y^2} - \frac{2y(xy^3 - x^3y)}{(x^2+y^2)^2},
+            \end{equation*}
+            y
+            \begin{equation*}
+            \partial_y f(0,0) = \lim_{k \to 0} \frac{\frac{(0)k^3 - (0)^3k}{0^2+k^2}}{k} = \lim_{k \to 0}\frac{0}{k}=0.
+            \end{equation*}
+        </p>
+
+        <p>
+            Para concluir calculamos la derivadas parciales mixtas:
+            \begin{align*}
+            \partial_x \partial_y f(0,0) =& \lim_{h \to 0} \frac{\partial_y f(h,0) - \partial_y f(0,0)}{h},\\
+            =& \lim_{h \to 0} \frac{\frac{3(0)^2h - h^3}{h^2 + 0^2}}{h},\\
+            =& \lim_{h \to 0} \frac{\frac{-h^3}{h^2}}{h},\\
+            =& -1.
+            \end{align*}
+            De manera análoga,
+            \begin{align*}
+            \partial_y \partial_x f(0,0) =& \lim_{k \to 0} \frac{\partial_x f(0,k) - \partial_x f(0,0)}{k},\\
+            =& \lim_{k \to 0} \frac{\frac{k^3 - 3(0)^2k}{0^2 + k^2} - \frac{2(0)((0)k^3 - (0)^3k)}{(0^2 + k^2)^2}}{k},\\
+            =& \lim_{k \to 0} \frac{\frac{k^3}{k^2}}{k},\\
+            =& 1
+            \end{align*}
+        </p>
+    </div>
 </div>
 
 
