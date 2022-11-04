@@ -753,6 +753,46 @@
         \partial^{3}_{xyz}f=\partial_{yzx}^3 f
         $$
     </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            Observe que el teorema de la igualdad de derivadas parciales mixtas para dos variables requiere una
+            función $g:U \subseteq \mathbb{R}^2 \to \mathbb{R}$ por lo que no se puede aplicar directamente
+            a nuestra función. Nuestra hipótesis indica que $f$ está definida en todo $\mathbb{R}^3$, al final
+            veremos que se puede considerar una función definida únicamente en un abierto de éste.
+        </p>
+        <p>
+            Sea $(x_0,y_0,z_0) \in \mathbb{R}^3$, definimos $F(x,z)=f(x,y_0,z)$, demostraremos que $F:\mathbb{R}^2 \to \mathbb{R}$
+            es de clase $C^2$ y además sus derivadas parciales respecto a $x$ y $z$ en el punto $(x_0,z_0)$ son las mismas que
+            las de $f$ en el punto $(x_0,y_0,z_0)$.
+
+            \begin{align*}
+            \partial_x F(x_0,z_0) =& \lim_{h \to 0} \frac{F(x_0 + h, z_0) - F(x_0,z_0)}{h},\\
+            =& \lim_{h \to 0} \frac{f(x_0 + h, y_0,z_0) - f(x_0,y_0,z_0)}{h},\\
+            =& \partial_x f(x_0,y_0,z_0).
+            \end{align*}
+            Realizando un proceso análogo obtenemos que $\partial_z F(x_0,z_0) = \partial_z f(x_0,y_0,z_0)$ y también podemos extender este
+            argumento a las derivadas parciales de orden 2. Recordemos que $f$ es de clase $C^3$ por lo que sus derivadas parciales de orden
+            menor o igual a 3 son todas continuas, dado que al fijar una de las variables la función sigue siendo continua entonces tenemos
+            que $F$ también es de clase $C^2$ y por lo tanto sus derivadas parciales mixtas de orden 2 son iguales,
+            $\partial_{zx}^2F(x_0,z_0) = \partial_{xz}^2F(x_0,z_0)$. Para concluir basta mencionar que $y_0$ es un número real arbitrario,
+            por lo que en general se tiene que $\partial_{zx}f(x,y,z) = \partial_{xz}f(x,y,z)$ y se concluye que
+            \begin{equation*}
+            \partial_{yzx}^3 f = \partial_y \partial_{zx}^2f = \partial_y \partial_{xz}^2 f = \partial_{yxz}^3 f.
+            \end{equation*}
+            Definimos ahora $G(x,y,z) = \partial_z f$, por hipótesis $f$ es de clase $C^3$ así que $G$ es de clase $C^2$ y aplicando el
+            resultado anterior sobre derivadas parciales mixtas de orden 2 podemos asegurar que
+            \begin{equation*}
+            \partial_{yxz}^3 f = \partial_{yx}^2G = \partial_{xy}^2G = \partial_{xyz}^3f
+            \end{equation*}
+        </p>
+        <p>
+            De la transitividad de la igualdad es inmediato que
+            \begin{equation*}
+            \partial^{3}_{xyz}f=\partial_{yzx}^3 f.
+            \end{equation*}
+        </p>
+    </div>
 </div>
 
 
