@@ -105,33 +105,57 @@
             la cual se demuestra más adelante.
             
         </p>
+        <p>
+            Notas. 
+        </p>
+        <ol>
+            <li>
+                La idea es que la derivada direccional \(\partial_uf(p)\) está midiendo la razón de cambio de 
+                la función \(f\) cuando estamos parados en \(p\) y nos empezamos a mover en la dirección \(u\).
+            </li>
+            <li>
+                Imagina que estás parado en el punto \(p\) y dibujas un círculo de radio \(1\) centrado en \(p\). 
+                En problema es encontrar el vector \(u\), sobre el círculo, para la cual 
+                \(\partial_uf(p)\) sea: máximo, mínimo, cero. EL \(u\) para el cual es máximo 
+                nos da la dirección para la cual la función crece más rápido, el que da el mínimo es donde la 
+                función decrece más rápido y donde da cero es donde la función no varia (ó existe un punto crítico, los cuales 
+                veremos más adelante).
+            </li>
+        </ol>
+        
     </div>
 
 
-    <div class="ejercicio-box"> 
-        <h2 class="number-title"> Ejercicio </h2>
+    <div class="prop-box"> 
+        <h2 class="number-title"> Proposición  </h2>
         <p>
             Sea $U\ne \emptyset$ un subconjunto abierto de $\mathbb{R}^n$
             y $f:U\to \mathbb{R}$ una función diferenciable en $p_0\in U$.
         </p>
         <p>
+            Para todo \(u=(u_1,\dots, u_n)\in \mathbb{R}^n\) se tiene que 
+            \[
+            \partial_uf(p_0)=\sum_{i=1}^n \partial_{x_i}f(p_0)u_i.
+            \]
+        </p>
+        <p>
             Sea $r>0$ tal que $B_r(p_0)\subseteq U$. Nota que
-            para todo vector $v$ con $\|v\|< r$, $p_0+v \in B_r(p_0)$. Fija
-            $u\ne 0$ con $\|u\| < r$.
+            para todo vector $v$ con $\|v\|< r$, $p_0+v \in U$. Fija
+            $u\ne 0$.
         </p>
         <ol>
             <li>
-                Para $|t| < 1$ define la función de una variable: $g(t)=f(p_0+tu)$.
+                Para $|t| < r/\|u\|$ define la función de una variable: $g(t)=f(p_0+tu)$.
     
                 Usando una aproximación para $f$, alrededor de $p_0$, prueba que
-                para $|t| < 1$, podemos escribir:
+                para $|t| < r/\|u\|$, podemos escribir:
                 $$
                 g(t)= f(p_0)+ \langle \nabla_{p_0}f, tu \rangle + E_1(t)
                 $$
                 donde $E_1$ es una función que satisface $\lim_{t\to t_0}\frac{|E_1(t)|}{|t|}=0$.
             </li>
             <li>
-                Del inciso anterior demuestra que
+                Del inciso anterior se sigue que:
                 $$
                 \lim_{t\to 0} \frac{g(t)-g(0)}{t}=\langle \nabla_{p_0}f, u \rangle 
                 $$
@@ -139,8 +163,8 @@
                 es decir, $g$ es diferenciable en $0$ con $g'(0)=\langle \nabla_{p_0}f, u \rangle$.
             </li>
             <li>
-                Concluye que $\partial_u f(p_0)$ existe y es igual a $\langle \nabla_{p_0}f, u \rangle$.
-                Es decir, usando coordendas, $u=(u_1,\dots, u_n)$:
+                Pero por definición  $\partial_u f(p_0)=g'(0)$. 
+                Es decir, 
           
                 $$
                 \partial_uf(p_0)=\sum_{i=1}^n \partial_{p_i}f(p_0)u_i
@@ -159,9 +183,9 @@
     <div class="ejercicio-box"> 
         <h2 class="number-title"> Ejercicio </h2> 
         <p> 
-            Para las funciones dadas, calcula: (1o) $\nabla_{(x,y)}f$;
-            (2o) $\langle \nabla_{(x,y)} f, u \rangle$;
-            (3o) $\partial_{u}f(p)$.
+            Para las funciones dadas, calcula:  $\nabla_{(x,y)}f$;
+             $\langle \nabla_{(x,y)} f, u \rangle$;
+            $\partial_{u}f(p)$.
         </p>
             
             <ol>
@@ -181,7 +205,7 @@
     </div>
 
 
-    <div class="ejercicio-box"> 
+    <!-- <div class="ejercicio-box"> 
         <h2 class="number-title"> Ejercicio </h2>
         <p>
             Para las siguientes funciones calcula $\nabla_{(x,y,z)}f$ y además haz un bosquejo
@@ -199,7 +223,7 @@
                     $f(x,y,z)=\frac{1}{\sqrt{(x-1)^2+y^2+z^2}}-\frac{1}{\sqrt{(x+1)^2+y^2+z^2}}$, (dipolo). 
                 </li>
             </ol>
-     </div>
+     </div>-->
 
       
      <div class="ejercicio-box"> 

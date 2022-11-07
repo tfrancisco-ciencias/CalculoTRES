@@ -85,14 +85,95 @@
 
 
           
+    
+    <div class="definicion-box"><h2 class="number-title">  Definición</h2>
+        <p>
+            Sea $U\ne \emptyset $  un abierto de $\mathbb{R}^n$,
+            $p_0\in U$ y $f:U\to \mathbb{R}$ una función diferenciable en $p_0$.
+    
+            A la función
+            $$L_{p_0}(p)= f(p_0)+ \langle \nabla_{p_0}f, p-p_0 \rangle$$
+           
+            se le llama la aproximación
+            de orden 1 (o lineal) para $f$ alrededor de $p_0$. Por simplicidad nos 
+            referirnos al punto \(p_0\) como el punto de tangencia de la aproximación lineal.
+        </p>
+        <p>
+            Por ejemplo, en dimensión 2, \(p_0=(x_0,y_0), p=(x,y)\) por lo que  tenemos 
+            \[
+            L_{(x_0,y_0)}(x,y)= f(x_0,y_0)+\partial_xf(x_0,y_0)(x-x_0)+ \partial_yf(x_0,y_0)(y-y_0)
+            \]
+            por lo que la aproximación lineal en \(p_0\) es simplemente la función cuya gráfica 
+            es precisamente el plano tangente a la gráfica de \(f\) en \(p_0\)
+            (ver <a href="./S8.html#Def:PlanoTangente">Definición 8.16</a>).
+
+        </p>
+        Notas
+        <ol>
+            <li>
+                La idea es que, cerca del punto de tangencia (el punto \(p_0\) en la notación de arriba) la 
+                función y la aproximación lineal son muy parecidas. Así podemos utilizar la aproximación lineal 
+                para aproximar los valores de la  función cerca de \(p_0\).
+            </li>
+            <li>
+                La aproximación lineal dependen del punto de tangencia. Si tratamos de aproximar la 
+                función alrededor de dos puntos distintos las aproximaciones lineales serán distintas.
+            </li>
+            <li>
+                A diferencia de la función \(f\), el dominio de \(L_{p_0}\) es todo \(\mathbb{R}^n\).
+            </li>
+        </ol>
         
+      </div>
+      
+
+      <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        <p>
+            Considera la función $f:\mathbb{R}^2 \to \mathbb{R}$
+            dada por $f(p)=\sqrt{x^2+y^2}$. Sus derivadas parciales  son
+            \begin{eqnarray*} 
+            \partial_xf(x,y)=\frac{x}{\sqrt{x^2+y^2}}, \quad \partial_yf(x,y)=\frac{y}{\sqrt{x^2+y^2}}
+            \end{eqnarray*} 
+            las cuales son continuas en todo punto \((x,y)\ne 0\). Por lo tanto 
+            \(f\) es diferenciable en todo punto distinto del origen.
+            
+        </p>
+        <p>
+            <ol>
+                <li>
+                    Demuestra que la  aproximación lineal de $f(x,y)=\sqrt{x^2+y^2}$,
+                    cerca del punto $(x_0,y_0)\ne (0,0)$ está dada por
+                    $$
+                    L(x,y)=r_0 +\frac{x_0}{r_0}(x-x_0)+\frac{y_0}{r_0}(y-y_0) 
+                    $$
+                    donde $r_0=\sqrt{x_0^2+y_0^2}$.
+                </li>
+                <li>
+                    Ya que el plano tangente se aproxima a la función cerca del punto de tangencia podemos 
+                    escribir 
+                    $$
+                    \sqrt{x^2+y^2}\approx r_0+\frac{x_0}{r_0}(x-x_0)+\frac{y_0}{r_0}(y-y_0)
+                    $$
+                    donde $(x,y)$ es un punto cercano a $(x_0,y_0)$.
+                </li>
+                <li>
+                    Usando lo anterior estima $\sqrt{(3.1)^2+(4.2)^2}$.
+                </li>
+            </ol>
+        </p>
+      </div>
+      
+      
               
-    <div class="ejercicio-box"> 
-        <h2 class="number-title" id="Ejer:AproxLineal"> Ejercicio </h2> 
+    <div class="prop-box"> 
+        <h2 class="number-title" id="Ejer:AproxLineal"> Proposición </h2> 
         <p>
             Sea $U$ un abierto de $\mathbb{R}^n$,  $p_0\in U$ y $f:U\to \mathbb{R}$
             una función diferenciable en $p_0$.
-            Demuestra que existe una función $E_{p_0}(p)$, definida en $B_r(p_0)$,  bola centrada en $p_0$,
+        </p>
+        <p>
+            Existe una función $E_{p_0}(p)$, definida en una bola abierta centrada en \(p_0\), denotada $B_r(p_0)$, 
             que satisface
         </p>
         <p>
@@ -114,26 +195,17 @@
 
         
         
-      <div class="definicion-box"><h2 class="number-title">  Definición</h2>
+
+      
+      
+
+    <div class="prop-box"> 
+        <h2 class="number-title" id="Ejer:CaracterizacionAproxLineal"> Proposición </h2>
         <p>
-            Sea $U\ne \emptyset $  un abierto de $\mathbb{R}^n$,
-            $p_0\in U$ y $f:U\to \mathbb{R}$ una función diferenciable en $p_0$.
-    
-            A la función
-            $$L_{p_0}(p)= f(p_0)+ \langle \nabla_{p_0}f, p-p_0 \rangle$$
-           
-            se le llama la aproximación
-            de orden 1 (o lineal) para $f$ alrededor de $p_0$.
+            Este ejercicio es importante pues da un criterio para que una función sea diferenciable. 
         </p>
-      </div>
-
-      
-      
-
-    <div class="ejercicio-box"> 
-        <h2 class="number-title" id="Ejer:CaracterizacionAproxLineal"> Ejercicio </h2>
         <p>
-            Este ejercicio es importante pues da un criterio para que una función sea diferenciable. El criterio
+            El criterio
             dice que si una función admite una aproximación lineal entonces es diferenciable.	
         </p>
         <p>
@@ -154,8 +226,7 @@
                     $$
                 </li>
             </ol>
-            Entonces $f$ es diferenciable en $p_0$ y la matriz (renglón) de derivadas
-            parciales,  es la matriz que representa a la función lineal $T$.
+            Entonces $f$ es diferenciable en $p_0$ y $D_{p_0}f=T$.
         </p>
         
     </div>
@@ -165,7 +236,7 @@
         
       
 
-      <div class="ejercicio-box"> 
+      <!-- <div class="ejercicio-box"> 
         <h2 class="number-title"> Ejercicio </h2> 
         <p>
             Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$, $p_0\in U$ y $f,g :U \to \mathbb{R}$
@@ -178,45 +249,15 @@
             $$
     
         </p>
-      </div>
+      </div>-->
 
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2> 
-    <p>
-        Considera la función $f:\mathbb{R}^2 \to \mathbb{R}$
-        dada por $f(p)=\sqrt{x^2+y^2}$. Durante este ejercicio vamos a suponer que $f$ es diferenciable
-        en todo punto $(x_0,y_0)\ne (0,0)$.
-    </p>
-    <p>
-        <ol>
-            <li>
-                Demuestra que la  aproximación lineal de $f(x,y)=\sqrt{x^2+y^2}$,
-                cerca del punto $(x_0,y_0)\ne (0,0)$ está dada por
-                $$
-                L(x,y)=\sqrt{x_0^2+y_0^2}+\frac{x_0}{r_0}(x-x_0)+\frac{y_0}{r_0}(y-y_0) 
-                $$
-                donde $r_0=\sqrt{x_0^2+y_0^2}$.
-            </li>
-            <li>
-                Lo anterior se puede escribir
-                $$
-                \sqrt{x^2+y^2}\approx \sqrt{x_0^2+y_0^2}+\frac{x-x_0}{r_0}+\frac{y-y_0}{r_0}
-                $$
-                donde $(x,y)$ es un punto cercano a $(x_0,y_0)$.
-            </li>
-            <li>
-                Usando lo anterior estima $\sqrt{(3.1)^2+(4.2)^2}$.
-            </li>
-        </ol>
-    </p>
-  </div>
     
     
 
   <div class="ejercicio-box"> 
     <h2 class="number-title"> Ejercicio </h2> 
     <p>
-        Usando el ejercicio \ref{Ejer:AproxLineal}, estima las siguientes cantidades
+        Usando aproximaciones lineales  estima las siguientes cantidades
     </p>
     <ol>
         <li>
@@ -231,14 +272,14 @@
     </ol>
  </div>
 
-  <div class="ejercicio-box"> 
+  <!--<div class="ejercicio-box"> 
     <h2 class="number-title" id="Ejer:DifProductoDos1D"> Ejercicio </h2> 
     <p>
-        Sean $g,h:\mathbb{R} \to \mathbb{R}$ funciones diferenciables.
+        Sean $g:(a,b) \to \mathbb{R}$, \(h:(c,d)\to \mathbb{R}\) dos funciones diferenciables.
     </p>
     <p>
         Fija
-        dos puntos $x_0,y_0\in \mathbb{R}$ y  considera las aproximaciones lineales
+        dos puntos $x_0\in (a,b), y_0\in (c,d)$ y  considera las aproximaciones lineales
         de $g$ y $h$ alrededor de $x_0$ y $y_0$ respectivamente, es decir
         \begin{equation}\label{Eqn:Ejer1DAproxLinealg}
           g(x)=g(x_0)+g'(x_0)(x-x_0)+E_1(x)
@@ -250,7 +291,7 @@
         donde  $\lim_{y\to y_0}\frac{|E_2(y)|}{|y-y_0|}=0$.
     </p>
     <p>
-        Considera la función de dos variables $f:\mathbb{R}^2 \to \mathbb{R}$ dada por
+        Considera la función de dos variables $f:(a,b)\times (c,d) \to \mathbb{R}$ dada por
         $f(x,y)=g(x)h(y)$.
         <ol>
             <li>
@@ -273,7 +314,7 @@
                 $$
             </li>
             <li>
-                Usando el ejercicio \ref{Ejer:CaracterizacionAproxLineal} concluye
+                Usando  la <a href="#Ejer:CaracterizacionAproxLineal">Proposición 10.4</a> concluye
                 que $f$ es diferenciable en $(x_0,y_0)$ y que
                 $$
                 \nabla_{(x_0,y_0)}f=( g'(x_0)h(y_0), g(x_0)h'(y_0)  )
@@ -285,55 +326,9 @@
         </ol>
     
     </p>
-</div>
-    
+</div>-->
     
 
-
-  <div class="ejercicio-box"> 
-    <h2 class="number-title" id="Ejer:DifPolinomios"> Ejercicio </h2>
-    <p>
-        Este ejercicio muestra que todo polinomio en dos variables es diferenciable en todo
-        punto de $\mathbb{R}^2$.
-    </p>
-    <p>
-        <ol>
-            <li>
-                Dados naturales $n,m\geq 0$ considera la función $f:\mathbb{R}^2\to \mathbb{R}$
-                dada por $f(x,y)=x^ny^m$. Demuestra que $f$ es diferenciable en todo punto de $\mathbb{R}^2$.
-                <p>
-                    Sugerencia: usa el ejercicio \ref{Ejer:DifProductoDos1D}
-                </p>
-            </li>
-            <li>
-                Un polinomio en dos variables en una función de la forma
-                $$
-                p(x,y)= \sum_{i=1}^N \alpha_i x^{n_i}y^{m_i}
-                $$
-                donde, para $i=1,\dots, N$,  $\alpha_i\in \mathbb{R}$ y $n_i,m_i\geq 0$ son naturales.
-                <p>
-                    Demuestra que $p$ es diferenciable en todo punto de $\mathbb{R}^2$.
-                </p>
-                <p>
-                    Nota: también se puede probar que todo polinomio en $n$-variables es diferenciable.
-                </p>
-            </li>
-            <li>
-                Considera el polinomio en dos variables
-                $$p(x,y)= a + bx+ cy + \sum_{i=1}^N x^{i}y^{i+1}$$
-                donde $a,b,c\in \mathbb{R}$ y $N\geq 1$ es un natural.
-                <p>
-                    Encuentra su aproximación lineal de $p$ cerca del $(0,0)$.
-                </p>
-                <p>
-                    Sugerencia: primero prueba que, $\lim_{(x,y)\to (0,0)} \frac{|x^ny^m|}{\|(x,y)\|}=0$ si
-                    $n,m\geq0$ son naturales con $n+m\geq 2$ y después usa el ejercicio
-                    \ref{Ejer:CaracterizacionAproxLineal}.
-                </p>
-            </li>
-        </ol>
-    </p>
-  </div>
 
     
     
@@ -376,7 +371,7 @@
                 Demuestra que $\lim_{p\to p_0} \frac{|\tilde{E}(p)|}{\|p-p_0 \|}=0$.
             </li>
             <li>
-                Usando el ejercicio \ref{Ejer:CaracterizacionAproxLineal} concluye que $f$ es diferenciable
+                Usando  la <a href="#Ejer:CaracterizacionAproxLineal">Proposición 10.4</a> concluye que $f$ es diferenciable
                 en $p_0$ y que
                 $$
                 \nabla_{p_0}(gh)=g(p_0)\nabla_{p_0}h + h(p_0)\nabla_{p_0}g.
@@ -413,17 +408,7 @@
   </div>
     
     
-    
-    
-    
-        <div class="ejercicio-box"> 
-            <h2 class="number-title"> Ejercicio </h2> 
-            <p>
-                Sea $q_0$ un vector fijo en $\mathbb{R}^n$ y define $f:\mathbb{R}^n \to \mathbb{R}$
-                por $f(p)=\langle q_0, p \rangle$. Demuestra que $f$ es diferenciable en todo punto $p \in \mathbb{R}^n$
-                y encuentra $\nabla_p f$.
-            </p>
-        </div>
+
 
     
    <div class="ejercicio-box"> 
@@ -477,7 +462,7 @@
   </div>
 
 
-    <div class="ejercicio-box"> 
+<!--    <div class="ejercicio-box"> 
         <h2 class="number-title"> Ejercicio </h2>  
         <p>
             Considera la función  $t\mapsto 1/t$, definida para $t\in \mathbb{R}, t\ne 0$.
@@ -596,7 +581,7 @@
             </ol>
       
         </p>
-    </div>
+    </div>-->
       
             
 

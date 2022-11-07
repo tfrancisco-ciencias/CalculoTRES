@@ -489,180 +489,181 @@
       nota que $\partial_{p_k}f(g(q_0))$ es escalar
       y $\nabla_{q_0}g_k$ es vector.
     </p>
+</div>
 
       
-      <div class="definicion-box">
-        <h2 class="number-title" id="Def:PlanoTangenteSupNivel">  Definición</h2>
-        <p>
-          Sea $U\ne \emptyset$ un conjunto abierto de $\mathbb{R}^3$
-          y $g:U \to \mathbb{R}$ una función de clase $C^1$. Considera
-          la superficie de nivel
-          $$
-          S=\{(x,y,z): g(x,y,z)=0\}
-          $$
-        </p>
-        <p>
-          Si $p_0=(x_0,y_0,z_0)\in S$ y
-          $\nabla_{p_0}g \ne 0$, el plano tangente a $S$, que pasa
-          por $p_0$ se define como
-          $$
-          \{ (x,y,z): \langle
-          \nabla_{p_0}g, (x-x_0, y-y_0, z-z_0)
-          \rangle =0
-          \}
-          $$
-          es decir, los puntos $(x,y,z)$ para los cuales
-          $(x,y,z)-(x_0,y_0,z_0)$ es ortogonal a $\nabla_{p_0}g$.
-        </p>
-      </div>
+<div class="definicion-box">
+  <h2 class="number-title" id="Def:PlanoTangenteSupNivel">  Definición</h2>
+  <p>
+    Sea $U\ne \emptyset$ un conjunto abierto de $\mathbb{R}^3$
+    y $g:U \to \mathbb{R}$ una función de clase $C^1$. Considera
+    la superficie de nivel
+    $$
+    S=\{(x,y,z): g(x,y,z)=0\}
+    $$
+  </p>
+  <p>
+    Si $p_0=(x_0,y_0,z_0)\in S$ y
+    $\nabla_{p_0}g \ne 0$, el plano tangente a $S$, que pasa
+    por $p_0$ se define como
+    $$
+    \{ (x,y,z): \langle
+    \nabla_{p_0}g, (x-x_0, y-y_0, z-z_0)
+    \rangle =0
+    \}
+    $$
+    es decir, los puntos $(x,y,z)$ para los cuales
+    $(x,y,z)-(x_0,y_0,z_0)$ es ortogonal a $\nabla_{p_0}g$.
+  </p>
+</div>
 
-      <div class="ejercicio-box"> 
-        <h2 class="number-title"> Ejercicio</h2> 
-        <p>
-          Sea $U\ne \emptyset$ un conjunto abierto de $\mathbb{R}^3$
-          y $g:U \to \mathbb{R}$ una función de clase $C^1$. Considera
-          la superficie de nivel
-          $$
-          S=\{(x,y,z): g(x,y,z)=0\}
-          $$
-          y $p_0=(x_0,y_0,z_0)\in S$.
-        </p>
-        
-
-        <ol>
-            <li>
-                Prueba que la ecuación del
-                plano tangente a $S$ en $p_0$ está dada por
-                $$
-                \partial_xg(p_0)(x-x_0)+\partial_yg(p_0)(y-y_0)+\partial_zg(p_0)(z-z_0)
-                =0
-                $$
-            </li>
-            <li>
-                Sea $\gamma:I \to \mathbb{R}^3$ una curva diferenciable  tal que
-                $\gamma(I)\subset S$  y
-                $\gamma(t_0)=p_0$. Demuestra que $p_0+\gamma'(t_0)$ es un punto
-                en el plano tengente a $S$ que pasa por $p_0$.
-            </li>
-        </ol>
-     </div>
-
-
-    <div class="ejercicio-box"> 
-      <h2 class="number-title"> Ejercicio</h2> 
-      <p>
-        Hallar la ecuación del plano tangente a las superficies
-        dadas en los puntos indicados.
-      </p>
-    <ol>
-        <li>
-            $x^2+2y^2+3xz=10$ en $(1,2,1/3)$,
-        </li>
-        <li>
-            $y^2-x^2=3$ en $(1,2,8)$,
-        </li>
-        <li>
-            $xyz=1$ en $(1,1,1)$.
-        </li>
-    </ol>
-    </div>
-
-
-    
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-      Recuerda que, para una superficie de nivel
-      $S \subset \mathbb{R}^3$, de la función $g(x,y,z)$,
-      la ecuación del plano tangente es
-      $$
-      \langle \nabla_{(x_0,y_0,z_0)}g, (x-x_0,y-y_0,z-z_0) \rangle =0
-      $$
-      donde $(x_0,y_0z_0)$ es un punto en la superficie $S$.
-    </p>
-    <p>
-      Demuestra que, como caso especial, la fórmula del plano tangente
-      a la gráfica de la función
-      $f(x,y)$, clase $C^1$,  se puede obtener de la ecuación anterior si
-      se considera a la gráfica
-      como una superficie de nivel de $g(x,y,z)=f(x,y)-z$.
-    </p>
-  </div>
-
-    
- 
-
-  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-    Dada una superficie $S$ en $\mathbb{R}^3$
-    y un punto $p_0$ en la superficie, vamos a
-    denotar $N,U,L$, a tres vectores unitarios
-    con las características de que:
-    </p>
-    <p>
-      $N$  es el vector normal al plano tangente a $S$
-      que pasa por $p_0$; $U$ es vector que indica
-      la dirección donde la razón de crecimiento, en $p_0$, es máxima;
-      $L$ es el  vector donde la razón de crecimiento, en $p_0$, es cero.  
-    </p>  
-    <p>
-      Nota:  en general hay dos elecciones para dichos vectores,
-      pues podemos tomar su negativo
-      (por ejemplo $-N$ o $N$).
+<div class="ejercicio-box"> 
+  <h2 class="number-title"> Ejercicio</h2> 
+  <p>
+    Sea $U\ne \emptyset$ un conjunto abierto de $\mathbb{R}^3$
+    y $g:U \to \mathbb{R}$ una función de clase $C^1$. Considera
+    la superficie de nivel
+    $$
+    S=\{(x,y,z): g(x,y,z)=0\}
+    $$
+    y $p_0=(x_0,y_0,z_0)\in S$.
+  </p>
   
-    </p>
 
-    <p>
-      Para las siguientes superficies calcula $N,U$ y $L$
-      para un punto general de la superficie.
-    </p>    
-    
-    
-    <ol>
-        <li>
-            $S$ es la gráfica de la función $g(x,y)=1-x-y$ (un plano).
-        </li>
-        <li>
-            $S$ es la superficie dada por la ecuación $x^2+y^2-z^2=0$
-            (un cono). En este ejemplo
-            se evita el vértica, pues el plano tangente en ese punto
-            no está bien definido.
-        </li>
-    </ol>
+  <ol>
+      <li>
+          Prueba que la ecuación del
+          plano tangente a $S$ en $p_0$ está dada por
+          $$
+          \partial_xg(p_0)(x-x_0)+\partial_yg(p_0)(y-y_0)+\partial_zg(p_0)(z-z_0)
+          =0
+          $$
+      </li>
+      <li>
+          Sea $\gamma:I \to \mathbb{R}^3$ una curva diferenciable  tal que
+          $\gamma(I)\subset S$  y
+          $\gamma(t_0)=p_0$. Demuestra que $p_0+\gamma'(t_0)$ es un punto
+          en el plano tengente a $S$ que pasa por $p_0$.
+      </li>
+  </ol>
 </div>
 
 
-    
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-      Considera la función
-      $f(x,y)=-(1-x^2-y^2)^{1/2}$, definida para los puntos $(x,y)$
-      con $x^2+y^2 < 1$. Prueba que el plano tangente a la gráfica
-      de $f$, en el punto $(x_0,y_0,f(x_0,y_0))$
-      es ortogonal al vector $(x_0,y_0,f(x_0,y_0))$.
-  
-    </p>
-  </div>
+<div class="ejercicio-box"> 
+<h2 class="number-title"> Ejercicio</h2> 
+<p>
+  Hallar la ecuación del plano tangente a las superficies
+  dadas en los puntos indicados.
+</p>
+<ol>
+  <li>
+      $x^2+2y^2+3xz=10$ en $(1,2,1/3)$,
+  </li>
+  <li>
+      $y^2-x^2=3$ en $(1,2,8)$,
+  </li>
+  <li>
+      $xyz=1$ en $(1,1,1)$.
+  </li>
+</ol>
+</div>
 
 
-    <div class="ejercicio-box"> 
-      <h2 class="number-title"> Ejercicio</h2> 
-      <p>
-        Encuentra el conjunto de puntos $(a,b,c)$
-        en $\mathbb{R}^3$, para los cuales las
-        dos esferas: $(x-a)^2+(y-b)^2+(z-c)^2=1$ y $x^2+y^2+z^2=1$,
-        se intersectan ortogonalmente.  
-      </p>
-      <p>
-        Nota: Dos superficies se intersectan ortogonalmente si,
-        para todo punto en su intersección,
-        los planos tangentes son ortogonales. 
-      </p>
-      <p>
-        Sugerencia: ve las esferas como superficies de nivel y
-        utiliza gradientes. 
-      </p>
-    </div>
+
+<div class="ejercicio-box"> 
+<h2 class="number-title"> Ejercicio</h2> 
+<p>
+Recuerda que, para una superficie de nivel
+$S \subset \mathbb{R}^3$, de la función $g(x,y,z)$,
+la ecuación del plano tangente es
+$$
+\langle \nabla_{(x_0,y_0,z_0)}g, (x-x_0,y-y_0,z-z_0) \rangle =0
+$$
+donde $(x_0,y_0z_0)$ es un punto en la superficie $S$.
+</p>
+<p>
+Demuestra que, como caso especial, la fórmula del plano tangente
+a la gráfica de la función
+$f(x,y)$, clase $C^1$,  se puede obtener de la ecuación anterior si
+se considera a la gráfica
+como una superficie de nivel de $g(x,y,z)=f(x,y)-z$.
+</p>
+</div>
+
+
+
+
+<div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> 
+<p>
+Dada una superficie $S$ en $\mathbb{R}^3$
+y un punto $p_0$ en la superficie, vamos a
+denotar $N,U,L$, a tres vectores unitarios
+con las características de que:
+</p>
+<p>
+$N$  es el vector normal al plano tangente a $S$
+que pasa por $p_0$; $U$ es vector que indica
+la dirección donde la razón de crecimiento, en $p_0$, es máxima;
+$L$ es el  vector donde la razón de crecimiento, en $p_0$, es cero.  
+</p>  
+<p>
+Nota:  en general hay dos elecciones para dichos vectores,
+pues podemos tomar su negativo
+(por ejemplo $-N$ o $N$).
+
+</p>
+
+<p>
+Para las siguientes superficies calcula $N,U$ y $L$
+para un punto general de la superficie.
+</p>    
+
+
+<ol>
+  <li>
+      $S$ es la gráfica de la función $g(x,y)=1-x-y$ (un plano).
+  </li>
+  <li>
+      $S$ es la superficie dada por la ecuación $x^2+y^2-z^2=0$
+      (un cono). En este ejemplo
+      se evita el vértica, pues el plano tangente en ese punto
+      no está bien definido.
+  </li>
+</ol>
+</div>
+
+
+
+<div class="ejercicio-box"> 
+<h2 class="number-title"> Ejercicio</h2> 
+<p>
+Considera la función
+$f(x,y)=-(1-x^2-y^2)^{1/2}$, definida para los puntos $(x,y)$
+con $x^2+y^2 < 1$. Prueba que el plano tangente a la gráfica
+de $f$, en el punto $(x_0,y_0,f(x_0,y_0))$
+es ortogonal al vector $(x_0,y_0,f(x_0,y_0))$.
+
+</p>
+</div>
+
+
+<div class="ejercicio-box"> 
+<h2 class="number-title"> Ejercicio</h2> 
+<p>
+  Encuentra el conjunto de puntos $(a,b,c)$
+  en $\mathbb{R}^3$, para los cuales las
+  dos esferas: $(x-a)^2+(y-b)^2+(z-c)^2=1$ y $x^2+y^2+z^2=1$,
+  se intersectan ortogonalmente.  
+</p>
+<p>
+  Nota: Dos superficies se intersectan ortogonalmente si,
+  para todo punto en su intersección,
+  los planos tangentes son ortogonales. 
+</p>
+<p>
+  Sugerencia: ve las esferas como superficies de nivel y
+  utiliza gradientes. 
+</p>
+</div>
 
  </body>
