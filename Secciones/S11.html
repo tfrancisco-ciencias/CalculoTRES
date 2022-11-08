@@ -83,6 +83,9 @@
   <body class="fondo-body" >
 
     <h1 class="number-title flexbox"> Gradiente y derivada direccional </h1> 
+    <!-- this part is for next and prev sections -->
+<!--<button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>-->
+<button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
 
  
 
@@ -128,50 +131,72 @@
 
     <div class="prop-box"> 
         <h2 class="number-title"> Proposición  </h2>
+
         <p>
             Sea $U\ne \emptyset$ un subconjunto abierto de $\mathbb{R}^n$
             y $f:U\to \mathbb{R}$ una función diferenciable en $p_0\in U$.
         </p>
+
         <p>
             Para todo \(u=(u_1,\dots, u_n)\in \mathbb{R}^n\) se tiene que 
             \[
             \partial_uf(p_0)=\sum_{i=1}^n \partial_{x_i}f(p_0)u_i.
             \]
         </p>
+        <button class="respButton hvr-grow "> Solución </button>
+        <div class="resp-box">
         <p>
             Sea $r>0$ tal que $B_r(p_0)\subseteq U$. Nota que
-            para todo vector $v$ con $\|v\|< r$, $p_0+v \in U$. Fija
+            para todo vector $v$ con $\|v\|< r$, $p_0+v \in U$.Fija
             $u\ne 0$.
         </p>
-        <ol>
-            <li>
-                Para $|t| < r/\|u\|$ define la función de una variable: $g(t)=f(p_0+tu)$.
-    
-                Usando una aproximación para $f$, alrededor de $p_0$, prueba que
-                para $|t| < r/\|u\|$, podemos escribir:
-                $$
-                g(t)= f(p_0)+ \langle \nabla_{p_0}f, tu \rangle + E_1(t)
-                $$
-                donde $E_1$ es una función que satisface $\lim_{t\to t_0}\frac{|E_1(t)|}{|t|}=0$.
-            </li>
-            <li>
-                Del inciso anterior se sigue que:
+            <p>
+                Ya que \(f\) es diferenciable en \(p_0\) podemos tomar la aproximación lineal 
+                de \(f\) alrededor de \(p_0\):
+                \begin{equation}\label{Eqn:Aux1DerDireccional}
+                f(p)=f(p_0)+\langle \nabla_{p_0}f, p-p_0 \rangle + E(p)
+                \end{equation}
+                donde \(p\in B_r(p_0)\) y \(\lim_{p\to p_0}\frac{E(p)}{\|p-p_0\|}=0\).
+            </p>
+            <p>
+                Para $|t| < r/\|u\|$ define la función de una variable: $g(t)=f(p_0+tu)$. 
+                Usando \eqref{Eqn:Aux1DerDireccional}, con \(p=p_0+tu \) obtenemos que 
+                para $|t| < r/\|u\|$:
+                \begin{equation}\label{Eqn:Aux2DerDireccional}
+                g(t)= f(p_0)+ \langle \nabla_{p_0}f, tu \rangle + E(p_0+tu)
+                \end{equation}
+                donde tenemos que 
+                \[
+                \lim_{t\to 0}\frac{|E(p_0+tu)|}{|t|}=0
+                \]
+                el cual se obtiene del límite  \(\lim_{p\to p_0}\frac{E(p)}{\|p-p_0\|}=0\) a lo largo de la curva
+                \(p_0+tu\).
+            </p>
+            <p>
+                De la ecuación anterior (observando que \(g(0)=f(p_0)\)) obtenemos 
+                \[
+                \frac{g(t)-g(0)}{t}=\langle \nabla_{p_0}f, u \rangle + \frac{E(p_0+ut)}{t}
+                \]
+                tomando límite llegamos a 
                 $$
                 \lim_{t\to 0} \frac{g(t)-g(0)}{t}=\langle \nabla_{p_0}f, u \rangle 
                 $$
           
                 es decir, $g$ es diferenciable en $0$ con $g'(0)=\langle \nabla_{p_0}f, u \rangle$.
-            </li>
-            <li>
-                Pero por definición  $\partial_u f(p_0)=g'(0)$. 
+            </p>
+            <p>
+                Pero por definición  de la derivada direccional 
+                \[
+                \partial_u f(p_0)=\lim_{t\to 0} \frac{f(p_0+tu)-f(p_0)}{t}=\lim_{t\to 0}\frac{g(t)-g(0)}{t}=g'(0)
+                \]
                 Es decir, 
           
                 $$
-                \partial_uf(p_0)=\sum_{i=1}^n \partial_{p_i}f(p_0)u_i
+                \partial_uf(p_0)=\langle \nabla_{p_0}f, u\rangle =\sum_{i=1}^n \partial_{p_i}f(p_0)u_i
                 $$
-            </li>  
-        </ol>
-    
+            </p>  
+        
+        </div>
     </div>
 
     
@@ -230,10 +255,91 @@
         <h2 class="number-title"> Ejercicio </h2> 
         <p>
             Para $f(x,y)=3x^2+2y^2$, encuentra la dirección (vector unitario)  en la cual la gráfica
-            de la función está más enpinada  y en la cual se mantiene nivelada, si estas parada
-            en el puntp $(1,2)$.
+            de la función está:
+            <ol>
+                <li>
+                    más inclinada,
+                </li>
+                <li>
+                    en la cual se mantiene nivelada,
+                </li>
+            </ol>   
+            si estes parade en el punto $(1,2)$.
         </p>
+        <button class="respButton hvr-grow "> Solución </button>
+        <div class="resp-box">
+        <p>
+            Primera parte.
+        </p>
+        <p>
+            Un vector unitario arbitrario \(u\), se puede escribir como \(u(\theta)=(\cos(\theta), \sen(\theta))\), 
+            con \(\theta\in [0,2\pi)\). La primera parte del  problema pide encontrar \(\theta^*\) tal que 
+            \[ 
+             \partial_{u(\theta)}f(1,2)\leq \partial_{u(\theta^*)}f(1,2)
+            \] 
+            para cualquer \(\theta\).
+        </p>
+        <p>
+            Calculando directamente obtenemos 
+            \begin{eqnarray*}
+            \partial_{u(\theta)}f(1,2)&=& \partial_xf(1,2)\cos(\theta)+\partial_yf(1,2)\sen(\theta)\\
+            &=& (6(1))\cos(\theta)+(4(2))\sen(\theta)\\
+            &=&6\cos(\theta)+8\sen(\theta)
+            \end{eqnarray*}
+            Por lo tanto, tenemos que maximizar 
+            \[
+            \max_{\theta \in [0,2\pi]}\{ 6\cos(\theta)+8\sen(\theta) \}
+            \]
+            Para lo cual definimos \(h(\theta)=6\cos(\theta)+8\sen(\theta)\) y usamos cálculo 1 para maximizar.
+            Tenemos 
+            \begin{eqnarray*} 
+            h'(\theta)=-6\sen(\theta)+8\cos(\theta) \\ 
+            h'(\theta)=0 \Leftrightarrow \frac{4}{3}=\frac{8}{6}=\tan(\theta)
+            \end{eqnarray*}
+            Por lo que  \(\theta^*=\arctan(4/3)\) es un punto crítico para \(h\).
+            
+            
+        </p>
+        <p>
+            Para saber si en \(\theta^*\) se alcanza máximo o mínimo o punto de inflexión usamos el criterio de la 
+            segunda derivada: 
+            \begin{eqnarray*}
+            h''(\arctan(4/3))&=& -6\cos(\theta^*)-8\sen(\theta^*)\\
+            &=& -6 \frac{3}{5}-8\frac{4}{5}\\
+            &=& -\frac{18+32}{5}\\
+            &=& -10< 0
+            \end{eqnarray*}
+        </p>
+        <p>
+            Por lo tanto, si estamos en el punto \((1,2)\), en la dirección 
+            \[u=(\cos(\theta^*),\sen(\theta^*))=(\frac{3}{5}, \frac{4}{5})\] 
+            la función crece más rápido y por lo tanto la gráfica está más inclinada. 
+        </p>
+        <p>
+            Segunda parte.
+        </p>
+        <p>
+            Para la segunda parte debemos de encontar un \(\theta_0\in [0,2\pi)\) tal que 
+            \[
+            0=\partial_{u(\theta_0)}f(1,2)=6\cos(\theta_0)+8\sen(\theta_0)
+            \]
+            lo cual es  equivalente a \(\arctan(\theta_0)=-\frac{3}{4}\).  
+        </p>
+        <p>
+            Por lo tanto la dirección donde la gráfica permanece nivelada es 
+            \[
+            u=(\cos(\theta_0), \sen(\theta_0))=(-\frac{4}{5}, \frac{3}{5}).
+            \]
+        </p>
+        <p>
+            Observación: los vectores que se obtienen en la primera y segunda parte son ortogonales.
+        </p>
+        </div>
+
+
       </div>
+
+
 
       
       <div class="ejercicio-box"> 
@@ -263,6 +369,37 @@
                 </ol>
         </p> 
         
+     </div>
+
+
+     <div class="ejercicio-box">
+        <h2 class="number-title">  Ejercicio </h2>
+
+        <p>
+            Sea \(U\subseteq \mathbb{R}^2\) abierto y \(f:U\to \mathbb{R}\) una función diferenciable en 
+            \(p_0\in U\). Sean \(u^*,u_0\) vectores unitarios para los cuales, si estamos sobre \(p_0\), \(f\)
+            crece más rapidamente en la dirección \(U^*\) y \(f\) no crece en la dirección \(u_0\). En términos 
+            de derivadas direccionales lo anterior se puede escribir como 
+            \begin{eqnarray*} 
+                \max_{\|u\|=1}\{\partial_uf(p_0) \}&=&\partial_{u^*}f(p_0)\\
+                \partial_{u_0}f(p_0)&=&0.
+            \end{eqnarray*}
+            Prueba que \(\langle u^*, u_0\rangle =0\).
+        </p>
+        <p>
+            Podemos parametrizar los vectores \(u\) con \(\|u\|=1\) como 
+            \(u(\theta)=(\cos(\theta), \sen(\theta))\). Consideramos la función 
+            \[
+            h(\theta)=\partial_{u(\theta)}f(p_0)=\partial_xf(p_0)\cos(theta)+\partial_yf(p_0)\sen(\theta)
+            \]
+            Entonces 
+            \[
+            \max_{\theta \in [0,2\pi]}\{h(\theta)\}=\max_{\|u\|=1}\{\partial_uf(p_0) \}
+            \]
+            Ahora encontramos el máximo de \(h\) mediante la derivada.
+
+        </p>
+
      </div>
 
     <div class="ejercicio-box"> 

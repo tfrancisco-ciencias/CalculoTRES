@@ -50,7 +50,9 @@ $(document).ready(function() {
     
     function nextS() {
       var secString = document.getElementById("Sec");
-      var secNum= parseInt(secString.innerText[3]);
+      var cleanSecString=secString.innerText.replace(/[§ ]/g,"")
+      var secNum= parseInt(cleanSecString);
+      //var secNum= parseInt(secString.innerText[3]);
         var secNumNext=secNum+1
         var secNextString=secNumNext.toString()
         var addressNext= `./S${secNextString}.html`
@@ -59,7 +61,9 @@ $(document).ready(function() {
       
       function prevS() {
         var secString = document.getElementById("Sec");
-        var secNum= parseInt(secString.innerText[3]);
+        var cleanSecString=secString.innerText.replace(/[§ ]/g,"")
+        var secNum= parseInt(cleanSecString);
+        //var secNum= parseInt(secString.innerText[3]);
           var secNumPrev=secNum-1
           var secPrevString=secNumPrev.toString()
           var addressPrev= `./S${secPrevString}.html`
