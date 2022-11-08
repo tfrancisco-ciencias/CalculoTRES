@@ -342,6 +342,7 @@
         Sea $U$ un abierto de $\mathbb{R}^n$  y $g,h:U\to \mathbb{R}$ dos funciones.
         Sea $p_0 \in U$ un punto tal que tanto $g$ como $h$ son diferenciables en $p_0$.
     </p>
+    
     <p>
         Considera las aproximaciones lineales de $g$ y $h$ en $p_0$, es decir
         \begin{equation}\label{Eqn:EjerAproxLinealg}
@@ -360,7 +361,7 @@
                 Multiplicando las ecuaciones \eqref{Eqn:EjerAproxLinealg} y \eqref{Eqn:EjerAproxLinealh}
                 demuestra que
                 $$
-                f(p)= f(x_0,y_0)+ \langle h(p_0)\nabla_{p_0}g+ g(p_0)\nabla_{p_0}h, p-p_0 \rangle +\tilde{E}(p)
+                f(p)= f(p_0)+ \langle h(p_0)\nabla_{p_0}g+ g(p_0)\nabla_{p_0}h, p-p_0 \rangle +\tilde{E}(p)
                 $$
                 donde
                 \begin{eqnarray*}
@@ -413,8 +414,107 @@
     
 
 
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+    <p>
+        Sea $U$ un abierto de $\mathbb{R}^n$  y $g:U\to \mathbb{R}$ dos funciones.
+        Sea $p_0 \in U$ un punto tal que $g$  son diferenciables en $p_0$ y \(g(p_0)\ne 0\).
+    </p>
+    <p>
+        Entonces \(g\) es diferenciable y 
+        \[
+        \nabla_{p_0}\left(\frac{1}{g}\right)=-\frac{1}{g(p_0)^2}\nabla_{p_0}g.
+        \]
+    </p>
+    <button class="respButton hvr-grow "> Demostración</button>
+        <div class="resp-box">
+    <p>
+        Considera las aproximación  lineal de $g$ en $p_0$, es decir, 
+        \begin{equation}\label{Eqn:Aux2EjerAproxLinealg}
+          g(p)=g(p_0)+ \langle \nabla_{p_0}g, p-p_0 \rangle  + E(p)
+        \end{equation}
+        con $\lim_{p\to p_0}\frac{|E(p)|}{\|p-p_0\|}=0$.
+    </p>
+        
+            <p>
+                Ya que \(g(p_0)\ne 0\) y \(g\) es continua en \(p_0\) (al ser difernciable) existe un 
+                \(r>0 \) tal que \(g(p)\ne 0\) para todo \(p\in B_r(p_0)\). Así pues restringimos 
+                \(g\) a la bola \(B_r(p_0)\) para poder tomar \(\frac{1}{g(p)}\).
+            </p>
+            <ol>
+            <p>
+                Si 
+                dividimos  \eqref{Eqn:Aux2EjerAproxLinealg}  por \(g(p)g(p_0)\).
+                obtenemos que
+                \begin{equation}\label{Eqn:Aux3DifInversaMulti}
+                \frac{1}{g(p)}= \frac{1}{g(p_0)} - \frac{1}{g(p_0)g(p)}\langle \nabla_{p_0}g, p-p_0 \rangle -\frac{E(p)}{g(p_0)g(p)}
+                \end{equation}
+            </p>
+            <p>
+                Sumando el cero \(\frac{1}{g(p_0)^2}\langle \nabla_{p_0}g, p-p_0\rangle -\frac{1}{g(p_0)^2}\langle \nabla_{p_0}g, p-p_0\rangle \),
+                en la ecuación \eqref{Eqn:Aux3DifInversaMulti} se obtiene 
+                \begin{equation}\label{Eqn:Aux4DifInversaMulti}
+                \frac{1}{g(p)}= \frac{1}{g(p_0)}- \frac{1}{g(p_0)^2}\langle \nabla_{p_0}g, p-p_0 \rangle +\tilde{E}(p)
+                \end{equation}
+                donde 
+                \begin{eqnarray*}
+                \tilde{E}(p)&=& \frac{1}{g(p_0)}\langle \nabla_{p_0}g, p-p_0\rangle \left(\frac{1}{g(p_0)}-\frac{1}{g(p)} \right) \\
+                &+& \frac{E(p)}{g(p)g(p_0)}
+               \end{eqnarray*}
+            </p>
+            <p>
+                Ahora afirmamos que  $\lim_{p\to p_0} \frac{|\tilde{E}(p)|}{\|p-p_0 \|}=0$.
+            </p>
+            <p>
+                Escribimos el cociente anterior como 
+                \begin{eqnarray*}
+                \frac{\tilde{E}(p)}{\|p-p_0 \|}&=&\frac{E(p)}{g(p)g(p_0)\|p-p_0\|} \\
+                &+&  \frac{1}{g(p_0)} \frac{\langle \nabla_{p_0}g, p-p_0\rangle}{\|p-p_0\|}\left( \frac{1}{g(p)}-\frac{1}{g(p_0)}\right) 
+                \end{eqnarray*}
+                Para probar $\lim_{p\to p_0} \frac{|\tilde{E}(p)|}{\|p-p_0 \|}=0$ vamos a probar que el límite de cada sumando es cero.
+                <p>
+                    Para el primer sumando de la igualdad anterior, usando que  
+                    \(\lim_{p\to p_0}\frac{E(p)}{\|p-p_0\|}=0\) y \(\lim_{p\to p_0}\frac{1}{g(p)g(p_0)}=\frac{1}{g(p_0)^2}\), obtenemos 
+                    \[
+                    \lim_{p\to p_0}\frac{E(p)}{g(p)g(p_0)\|p-p_0\|}=\left( \lim_{p\to p_0}\frac{E(p)}{\|p-p_0\|} \right)\left(\lim_{p\to p_0}\frac{1}{g(p)g(p_0)} \right)=0
+                    \]
+                     
+                </p>
+                <p>
+                    Para el segundo sumando 
+                    usamos la desigualdad de Cauchy-Schwartz para llegar 
+                    \begin{eqnarray*} 
+                    \left| \frac{1}{g(p_0)}\right| \frac{|\langle \nabla_{p_0}g, p-p_0\rangle|}{\|p-p_0\|} 
+                    \left| \frac{1}{g(p_0)}-\frac{1}{g(p)|} \right| 
+                    &\leq& 
+                    \left| \frac{1}{g(p_0)}\right| \frac{\|\nabla_{p_0}g\| \|p-p_0\|}{\|p-p_0\|}\left| \frac{1}{g(p_0)}-\frac{1}{g(p)|} \right|  \\
+                    &\leq & \left| \frac{1}{g(p_0)}\right| \|\nabla_{p_0}g\| \left| \frac{1}{g(p_0)}-\frac{1}{g(p)|} \right| 
+                    \end{eqnarray*}
+                    Usando la continuidad de \(g\) tenemos \(\lim_{p\to p_0}\left| \frac{1}{g(p_0)}-\frac{1}{g(p)|} \right| =0\), por lo tanto 
+                    \[
+                    \lim_{p\to p_0} \left| \frac{1}{g(p_0)}\right| \frac{|\langle \nabla_{p_0}g, p-p_0\rangle|}{\|p-p_0\|} 
+                    \left| \frac{1}{g(p_0)}-\frac{1}{g(p)|} \right| =0
+                    \]
+                </p>
+            
+            </p>
+            <p>
+                Finalmente de la ecuación  \eqref{Eqn:Aux4DifInversaMulti}, el límite \(\lim_{p\to p_0}\frac{\tilde{E}(p)}{\|p-p_0\|}=0\) y 
+                la  <a href="#Ejer:CaracterizacionAproxLineal">Proposición 10.4</a> concluimos que $1/g$ es diferenciable
+                en $p_0$ y que
+                $$
+                \nabla_{p_0}\left(\frac{1}{g} \right)=-\frac{1}{g(p_0)^2}\nabla_{p_0}g
+                $$
+            </p>
+        </ol>
+        
     
-   <div class="ejercicio-box"> 
+    </div>
+  </div>
+
+
+    
+   <!--<div class="ejercicio-box"> 
     <h2 class="number-title" id="Ejer:AproxLinealReglaCadena"> Ejercicio </h2> 
     <p>
         Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$, $p_0\in U $ y $g:U \to \mathbb{R}$
@@ -463,7 +563,7 @@
         </ol>    
     </p>
   </div>
-
+-->
 
 <!--    <div class="ejercicio-box"> 
         <h2 class="number-title"> Ejercicio </h2>  

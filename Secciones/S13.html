@@ -85,6 +85,336 @@
     <h1 class="number-title flexbox"> Regla de la cadena y aplicaciones </h1> 
 
 
+
+
+               
+<div class="definicion-box">
+  <h2 class="number-title" id="Def:DerivadaGeneral">  Definición</h2>
+  <p>
+      Sea $U\ne \emptyset$ un subconjunto abierto de $\mathbb{R}^n$ y $F:U \to \mathbb{R}^m$
+      una función. Escribamos las funciones coordenadas de $F$ como
+      $F(p)=(f_1(p),\cdots, f_m(p) )$. La función $F$ es diferenciable en
+      $p_0$ si y sólo si todas las funciones escalares $f_i$, $i=1,\dots, m$, son diferenciables
+      en $p_0$. Note que cada $f_i$ es una función de $n$-variables.        
+  </p>
+  <p>
+      Recordemos que si $f_i$ es diferenciable en $p_0$ entonces todas sus derivadas parciales en $p_0$
+      existen. Asi pues, si $F=(f_1,\dots, f_m)$ es diferenciable en $p_0$  podemos formar la matriz de derivadas 
+      parciales, denotada $D_{p_0}F$, es decir
+      $$
+      D_{p_0}F=[\partial_{p_j}f_i(p_0)]_{1\leq i \leq  m,  1 \leq j \leq n}
+      $$        
+  </p>
+  <p>
+      Note que  el  renglón-$i$ de $D_{p_0}F$ es simplemente $\nabla_{p_0}f_i$.
+  </p>
+</div>
+
+
+
+
+<div class="ejercicio-box"> 
+  <h2 class="number-title"> Ejercicio</h2> 
+  <p>
+      Para cada una de las siguientes funciones encuentra la matriz de derivadas
+      parciales
+      <ol>
+          <li>
+              $F(x,y)=(xe^y, ye^x)$
+          </li>
+          <li>
+              $F(x,y)=(xy\cos(x), xy\sen(y))$
+          </li>
+          <li>
+              $F(x,y)=(xy+x^2,x^2+y^2, x^3+xy+y^3)$
+          </li>
+          <li>
+              $F(x,y,z)=(xyz, x^2y^2z^2)$
+          </li>
+      </ol>        
+  </p>
+</div>
+
+
+
+
+
+<div class="ejercicio-box"> 
+  <h2 class="number-title" id="Ejer:LimiteEquivalenteDefDif"> Ejercicio</h2> 
+  <p>
+      Usando el cambio de variable $p=(x,y)$ y denotando $p_0=(x_0,y_0)$, prueba que el
+      límite de la Definición
+      \ref{Def:DerivadaR2} es equivalente a
+      $$
+      \lim_{p\to p_0}\frac{|f(p)-f(p_0)-\partial_xf(p_0)(x-x_0) - \partial_yf(p_0)(y-y_0) |}{\|p-p_0\|}=0.
+      $$
+      donde $f:U\subset \mathbb{R}^2 \to \mathbb{R}$ es diferenciable en $p_0$.
+  </p>
+</div>
+
+
+<div class="ejercicio-box"> 
+  <h2 class="number-title" id="Ejer:LimiteDefDifRn"> Ejercicio</h2> 
+  <p>
+      Este ejercicio es análogo al ejercicio \ref{Ejer:LimiteEquivalenteDefDif}, pero
+      para funciones de $\mathbb{R}^2$ a $\mathbb{R}^2$.
+  </p>
+  <p>
+      Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^2$, $(x_0,y_0)\in $ y 
+      $F:U \to \mathbb{R}^2 $ una función diferenciable en $(x_0,y_0)$.
+  </p>
+  <p>
+      Escribamos las funciones coordenadas de $F$ como $F=(f_1,f_2)$. Por simplicidad
+      denotamos $A$ la matriz (de 2 por 2) de derivadas parciales $D_{(x_0,y_0)}F$.        
+  </p>
+  <p>
+      <ol>
+          <li>
+              Demuestra que, si $(x,y)\ne (x_0,y_0)$:
+              \begin{eqnarray*}
+                & & \frac{\|F(x,y)-F(x_0,y_0)-A(x-x_0,y-y_0) \|}{\|(x-x_0,y-y_0)\|} \\
+                &\leq &
+                        \frac{|f_1(x,y)-f_1(x_0,y_0)-
+                        \partial_xf_1(x_0,y_0)(x-x_0)-
+                        \partial_yf_1(x_0,y_0)(y-y_0)|}
+                        {\| (x-x_0,y-y_0)\|} \\
+                &+&  \frac{|f_2(x,y)-f_2(x_0,y_0)-
+                    \partial_xf_2(x_0,y_0)(x-x_0)-
+                    \partial_yf_2(x_0,y_0)(y-y_0)|}
+                    {\| (x-x_0,y-y_0)\|}
+              \end{eqnarray*}
+              
+              Hint: primero prueba que, para todo vector $(a,b)$
+              $$
+              \| (a,b) \| \leq |a| + |b|.
+              $$
+          </li>
+          <li>
+              Usando el inciso anterior y el ejercicio \ref{Ejer:LimiteEquivalenteDefDif}
+              demuestra que
+              $$
+              \lim_{(x,y)\to (x_0,y_0)}	\frac{\|F(x,y)-F(x_0,y_0)-A(x-x_0,y-y_0) \|}{\|(x-x_0,y-y_0)\|} =0.
+              $$
+          </li>
+      </ol>		 
+      
+  </p>
+</div>
+
+
+
+
+
+
+
+<div class="ejercicio-box"> 
+  <h2 class="number-title" id="Ejer:EquivDefDif"> Ejercicio</h2> 
+  <p>
+      Este ejercicio se puede pensar como el regreso del ejercicio \ref{Ejer:LimiteDefDifRn}.
+  </p>
+  <p>
+      Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^2$,  $p_0=(x_0,y_0)\in U$
+      y $F:U\to \mathbb{R}^2$. Supongamos que existe una matriz, de 2 por 2, $A$, tal que
+      \begin{equation}\label{Eqn:GenLimiteEquivalenteDefDif}
+      \lim_{(x,y)\to (x_0,y_0)} \frac{\| F(x,y)-F(x_0,y_0)-A(x-x_0,y-y_0) \|}{\| (x-x_0, y-y_0)  \|}=0.	
+      \end{equation}
+      Denotemos
+      $$
+      A=\left[
+      \begin{array}{cc}
+        a_{1,1} & a_{1,2} \\
+        a_{2,1} & a_{2,2}
+      \end{array}
+      \right]	
+      $$
+      Demuestra que 
+      <ol>
+          <li>
+              Demuestra que, para $i=1,2$
+              \begin{eqnarray*}
+                & & \frac{|f_i(x,y)-f_i(x_0,y_0)-a_{i,1}(x-x_0)-
+                    a_{i,2}(y-y_0)|}{\|(x-x_0,y-y_0)\|} \\
+                &\leq &
+                        \frac{\|F(x,y)-F(x_0,y_0)-A(x-x_0,y-y_0) \|}{\|(x-x_0,y-y_0)\|}
+              \end{eqnarray*}
+              Hint: primero prueba  que, para todo vector $(a,b)$
+              $$
+              |a|\leq \| (a,b)\|, \quad |b|\leq \|(a,b) \|
+              $$
+          </li>
+          <li>
+              Usando la hipótesis \eqref{Eqn:GenLimiteEquivalenteDefDif} y la definición
+              \ref{Def:DerivadaR2} concluye que tanto $f_1$
+              como $f_2$ son diferenciables en $p_0$ y por lo tanto $F$ es diferenciable en $p_0$.          
+          </li>
+      </ol>        
+  </p>
+</div>
+
+
+<div class="ejercicio-box"> 
+  <h2 class="number-title" id="Ejer:EquivDefDifR2"> Ejercicio</h2> 
+  <p>
+      Usando los dos ejercicios \ref{Ejer:LimiteDefDifRn} y \ref{Ejer:EquivDefDif} prueba:
+  </p>
+  <p>
+      Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^2$, $(x_0,y_0)\in U$ y $F:U\to \mathbb{R}^2$. 
+      Entonces $F$ es diferenciable (en el sentido de la definición \ref{Def:DerivadaGeneral}) si y sólo si 
+      existe una matriz $A$, de 2 por 2, tal que 
+      $$
+      lim_{(x,y)\to (x_0,y_0)}   \frac{\|F(x,y)-F(x_0,y_0)-A(x-x_0,y-y_0) \|}{\|(x-x_0,y-y_0)\|}=0
+      $$  
+  </p>
+</div>
+
+
+<div class="ejercicio-box"> 
+  <h2 class="number-title" id="Ejer:EquivDefDifGeneral"> Ejercicio</h2> 
+  <p>
+      Generaliza el ejercicio  \ref{Ejer:EquivDefDifR2} 
+      para varias dimensiones, es decir, prueba lo siguiente.         
+  </p>
+  <p>
+      Sea $U$ un subconjunto abierto de $\mathbb{R}^n$ y $F:U\to \mathbb{R}^m$. Sea
+      $p_0\in U$. Prueba que  $F$ es diferenciable en $p_0$ si y sólo si  existe una matriz $A$,
+      de $m$ por $n$, tal que
+      $$
+      \lim_{p\to p_0}\frac{\|F(p)-F(p_0)-T(p-p_0)) \|}{\|p-p_0\|}=0.
+      $$
+      En tal caso, $A=D_{p_0}F$.        
+  </p>
+  <p>
+      Sugerencia: copia los pasos de los ejercicios \ref{Ejer:LimiteDefDifRn} y \ref{Ejer:EquivDefDif}
+      pero ahora utiliza las desigualdades        
+  </p>
+  <p>
+          $$
+          \|(a_1,\dots, a_n)\| \leq |a_1|+\cdots +|a_n|
+          $$
+          y 
+          $$
+          |a_i| \leq \| (a_1,\dots, a_n)\|, \quad \textrm{para toda $i=1,\dots, n$}.
+          $$
+  </p>
+</div>
+
+
+
+
+
+<div class="ejercicio-box"> 
+  <h2 class="number-title"> Ejercicio</h2> 
+  <p>
+      Supongamos que  $F:\mathbb{R}^n \to \mathbb{R}^m$ es una función lineal.
+      Demuestra que, para todo $p_0\in \mathbb{R}^n$, $F$ es
+      diferenciable en $p_0$ y $D_{p_0}F=F$.
+  </p>
+  <p>
+      Sugerencia: usa el ejercicio \ref{Ejer:EquivDefDifGeneral}.
+  </p>
+</div>
+
+
+
+
+
+
+<div class="ejercicio-box"> 
+  <h2 class="number-title"> Ejercicio</h2> 
+  <p> 
+      Sea $U$ un abierto de $\mathbb{R}^n$  y $F,G:U\to \mathbb{R}^m$ dos funciones.
+      Sea $p_0 \in U$ un punto tal que tanto $F$ como $G$ son diferenciables en $p_0$.
+      Sea $\alpha\in \mathbb{R}$ un escalar. Demuestra que la función
+      $\alpha F+G$ es diferenciable en $p_0$ y
+      $$
+      D_{p_0}(\alpha F+G)=\alpha D_{p_0}F+D_{p_0}G.
+      $$
+  </p>
+  <p>
+      Sugerencia: define la función $H:=\alpha F+G$ y la matriz $A=\alpha D_{p_0}F+D_{p_0}G$. Primero
+      muestra que, para $p\ne p_0$
+      \begin{eqnarray*}
+      \| H(p)- H(p_0)-A(p-p))   \|  &\leq  & |\alpha| \|F(p)-F(p_0)-D_{p_0}F(p-p_0)  \| \\
+                                    &+& \|G(p)-G(p_0)-D_{p_0}G(p-p_0) \|
+      \end{eqnarray*}
+      Después, usa el ejercicio \ref{Ejer:EquivDefDifGeneral} para concluir que $H$ es diferenciable
+      en $p_0$ con $D_{p_0}H=A$.        
+  </p>
+</div>
+
+
+
+
+
+<div class="ejercicio-box"> 
+  <h2 class="number-title"> Ejercicio</h2> 
+  <p>
+      Así como las funciones diferenciables con valores reales admiten una aproximación lineal,
+      ver ejercicio \ref{Ejer:AproxLineal}, también
+      las funciones con valores vectoriales.        
+  </p>
+  <p>
+      Sea $U\ne \emptyset $ un abierto de $\mathbb{R}^n$, $p_0\in U$ y $F:U\to \mathbb{R}^m$ una función
+      diferenciable en $p_0$. Demuestra que existe una función con valores vectoriales, definida en
+      una bola centrada en $p_0$, $E:B_r(p_0) \to \mathbb{R}^m$ tal que
+      <ol>
+          <li>
+              para todo $p\in B_r(p_0)$, $F(p)=F(p_0)+D_{p_0}F(p-p_0)+E(p)$,
+          </li>
+          <li>
+              $\lim_{p\to p_0}\frac{\|  E(p)\|}{\| p-p_0 \|}=0$.
+              <p>
+                  Sugerencia: define $E(p)=F(p)-F(p_0)-D_{p_0}(p-p_0)$ y prueba que el límite que se pide
+                  es cero.            
+              </p>
+          </li>
+      </ol>
+  </p>
+</div>
+
+
+
+<div class="ejercicio-box"> 
+  <h2 class="number-title"> Ejercicio</h2> 
+  <p>
+      Este ejercicio es el análogo al \ref{Ejer:CaracterizacionAproxLineal} , 
+      pero para funciones que toman valores vectoriales.
+  </p>
+  <p>
+      Sea $U\ne \emptyset $ un abierto de $\mathbb{R}^n$, $p_0\in U$ y $F:U\to \mathbb{R}^m$ una función.
+  </p>
+  <p>
+          Supongamos que existe una bola abierta $B_r(p_0)\subseteq U$,
+          una función $\tilde{E}:B_r(p_0) \to \mathbb{R}^m$
+          y una matriz $A$ de $m\times n$  que satisfacen
+
+          <ol>
+              <li id="Hip:1">
+                  para $p\in B_r(p_0)$, $F(p)=F(p_0)+A(p-p_0)+\tilde{E}(p)$
+              </li>
+              <li id="Hip:2">
+                  $$
+                  \lim_{p \to p_0} \frac{\|\tilde{E}(p)\|}{\|p-p_0\|}=0
+                  $$
+              </li>
+          </ol>
+          Entonces $F$ es diferenciable en $p_0$ y la matriz de derivadas
+          parciales, valuadas en $p_0$,  es $A$.
+  </p>
+  <p>
+      Sugerencia: si $\tilde{E}(p)=(\tilde{E}_1(p), \dots, \tilde{E}_m(p))$, primero
+      prueba que las funciones $\tilde{E}_j$ satisfacen las condiciones del ejercicio
+      \ref{Ejer:CaracterizacionAproxLineal} y de éste ejercicio concluye que
+      cada función coordenada de $F$ es diferenciable en $p_0$.
+      
+  </p>
+</div>
+
+
+
+
+
+
     <div class="teorema-box">
       <h2 class="number-title"> Teorema </h2>
       <p>

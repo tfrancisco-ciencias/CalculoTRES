@@ -447,6 +447,171 @@
     </div>
 
 
+
+<!--<div class="definicion-box"><h2 class="number-title">  Definición</h2>
+    <p>
+        Si en la definición  \ref{Def:DerivadaGeneral} tomamos la dimensión del dominio igual a uno, 
+        es decir $n=1$, tenemos la siguiente definición.
+    </p>
+    <p>
+        Sea $I\ne \emptyset$ un intervalo abierto en $\mathbb{R}$, $t_0\in I$ y $\gamma:I \to \mathbb{R}^m$.
+        Decimos que $\gamma$ es diferenciable en $t_0$ si, cuando escribmos las funciones coordendas
+        de $\gamma=(\gamma_1, \dots, \gamma_m)$, se cunple que para toda $j=1,\dots, m$, $\gamma_j$
+        es diferenciable en $t_0$. Note que cada $\gamma_j$ es una función de una variable que 
+        toma valores escalares, así que $\gamma_j$ es del tipo de  funciones estudidas  en cálculo 
+        uno dimensional.
+    </p>
+  </div>
+  
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Sea  $\gamma:I\to \mathbb{R}^m$ una curva diferenciable. Al subconjunto
+        de $\mathbb{R}^m$ definido por $\{\gamma(t):t\in I\}$
+        se le conoce como la traza de $\gamma$.
+    </p>
+    <p>
+        Para las siguientes curvas, haz ub bosquejo de su traza.
+        <ol>
+            <li>
+                $\gamma(t)=(R\cos(t), R\sen(t))$, $t\in \mathbb{R}$, donde $R>0$ es un número fijo.
+            </li>
+            <li>
+                $\gamma(t)=(t,t^2)$, $t\in \mathbb{R}$.
+            </li>
+            <li>
+                $\gamma(t)=(\cosh(t), \senh(t))$, $t\in \mathbb{R}$.
+            </li>
+            <li>
+                $\gamma(t)=(\cos(t), \sen(t), t)$, $t \in (0,2\pi) $.
+            </li>
+        </ol>
+        
+    </p>
+  </div>
+  
+  
+  
+  <div class="definicion-box"><h2 class="number-title">  Definición</h2>
+    <p>
+        Si $\gamma: I \to \mathbb{R}^m$ es diferenciable en todo punto de $I$, decimos que
+        $\gamma$ es una curva parametrizada diferenciable o por brevedad
+        una curva diferenciable. Si escribimos las funciones
+        coordenadas de $\gamma=(\gamma_1,\cdots, \gamma_m)$, notamos que el cociente
+        diferencial de $\gamma$, en $t_0$, es el vector $m$-dimensional
+        $$
+        \frac{\gamma(t)-\gamma(t_0)}{t-t_0}=\left(\frac{\gamma_1(t)-\gamma_1(t_0)}{t-t_0}, \dots, \frac{\gamma_m(t)-\gamma_m(t_0)}{t-t_0} \right)
+        $$
+      
+        Por lo tanto, tomando el límite cuanto $t\to t_0$ y usando que cada $\gamma_j$ es diferenciable en
+        $t_0$ obtenemos
+        $$
+        \lim_{t\to t_0}\frac{\gamma(t)-\gamma(t_0)}{t-t_0}=( \gamma_1'(t_0), \dots, \gamma_m'(t_0))
+        $$
+      
+        el cual se llama el vector derivada o vector tangente a $\gamma$ en $t_0$ y se denota
+        $$
+        \gamma'(t_0)=( \gamma_1'(t_0), \dots, \gamma_m'(t_0)).
+        $$
+    </p>
+  </div>
+  
+  <div class="ejercicio-box"> 
+    <h2 class="number-title" id="Ejer:ParametrizacionPorLongitudArco"> Ejercicio</h2>
+    <p>
+        Una curva diferenciable
+        $\gamma: I \to \mathbb{R}$ se llama parametrizada por longitud de arco si
+        para toda $t\in I$, $\|\gamma'(t)\|=1$.        
+    </p> 
+    <p>
+        Para las siguientes curvas, encuentra cuales están
+        parametrizadas por longitud de arco.
+        
+    </p>
+  
+        <ol>
+            <li>
+                $\gamma(t)=(\cos(t), \sen(t))$, $t\in \mathbb{R}$.
+            </li>
+            <li>
+                $\gamma(t)=(\cosh(t), \senh(t))$, $t\in \mathbb{R}$.
+            </li>
+            <li>
+                $\gamma(t)=(\cos(t), \sen(t), t)$, $t\in \mathbb{R}$.
+            </li>
+        </ol>
+  </div>
+  
+  
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Sean $v, p \in \mathbb{R}^m$ vectores fijos y arbitrarios.
+        Considera la curva $\gamma:\mathbb{R} \to \mathbb{R}^m$ dada por
+        $\gamma(t)=p+ tv$. Demuestra:
+    </p>
+    <p>
+        <ol>
+            <li>
+                $\gamma$ es diferenciable en todo $\mathbb{R}$
+                y para todo $t\in \mathbb{R}$, $\gamma'(t)=v$.
+            </li>
+            <li>
+                $\gamma$ está parametrizada por longitud
+                de arco si y sólo si $\|v\|=1$.
+            </li>
+        </ol>
+        
+    </p>
+  </div>
+  
+     
+  <div class="ejercicio-box"> 
+    <h2 class="number-title" id="Ejer:DerivadaProductoPunto"> Ejercicio</h2> 
+    <p>
+        Supon que $I\subset \mathbb{R}$ es un intervalo abierto
+        y que $\gamma,\beta :I\to \mathbb{R}^2$  son curvas diferenciables.
+    </p>
+        <ol>
+            <li>
+                Demuestra
+                $$
+                \frac{d}{dt} \langle \beta(t), \gamma(t) \rangle
+                =\langle \beta(t), \gamma'(t) \rangle
+                + \langle \beta'(t) , \gamma(t) \rangle
+                $$
+            </li>
+            <li>
+                Ahora supon que la imagen de $\gamma$ está contenida
+                en una esfera centrada en el origen. Usa el inciso anterior
+                para demostrar que, para toda $t$,
+                $\langle \gamma(t), \gamma'(t)\rangle=0$, es decir
+                el vector posición y el vector velocidad son ortogonales.        
+            </li>
+        </ol>
+  </div>
+  
+  
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Sea $\gamma: I \to \mathbb{R}$ una curva clase $C^2$ (lo cual
+        significa que todas sus funciones coordenadas son clase $C^2$) que
+        además está parametrizada por longitud de arco. Demuestra
+        que, para todo $t\in I$, $\gamma'(t)$ y $\gamma''(t)$ son ortogonales.
+    </p>
+    <p>
+        Sugerencia: primero nota que $\langle \gamma'(t), \gamma'(t)\rangle =1$,
+        para toda $t\in I$, después  toma la derivada de la función
+        $$
+        t \mapsto \langle \gamma'(t), \gamma'(t)\rangle
+        $$
+        usando el ejercicio \ref{Ejer:DerivadaProductoPunto}
+        
+    </p>
+  </div>-->
+  
+  
  </body>   
 
 
