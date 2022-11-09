@@ -130,7 +130,7 @@
 
 
     <div class="prop-box"> 
-        <h2 class="number-title"> Proposición  </h2>
+        <h2 class="number-title" id="Prop:FormulaDerDir"> Proposición  </h2>
 
         <p>
             Sea $U\ne \emptyset$ un subconjunto abierto de $\mathbb{R}^n$
@@ -338,11 +338,106 @@
         </p>  
       </div>
 
-      <div class="ejercicio-box"> 
+
+      <div class="prop-box">
+        <h2 class="number-title" id="Prop:DirCrecimientoMax"> Proposición </h2>
+        <p>
+            Sea \(U\subseteq \mathbb{R}^n\) un abierto y \(f:U\to \mathbb{R}\). Si \(f\) es 
+            diferenciable en \(p_0\) y \(\nabla_{p_0}f\ne 0\) entonces \(f\) crece más 
+            rápidamente en la dirección de \(\frac{1}{\|\nabla_{p_0}f\|}\nabla_{p_0}f\).
+        </p>
+        <p>
+            Es decir 
+            \[
+            \max_{\|u\|=1}\{ \partial_u f(p_0) \}=\partial_{u^*}f(p_0)
+            \]
+            donde \(u^*=\frac{1}{\|\nabla_{p_0}f\|}\nabla_{p_0}f\).
+        </p>
+        <p>
+            De manera similar también se tiene que 
+            \[
+            \min_{\|u\|=1}\{ \partial_u f(p_0) \}=\partial_{u_*}f(p_0)
+            \]
+            donde \(u_*=-\frac{1}{\|\nabla_{p_0}f\|}\nabla_{p_0}f\).
+        </p>
+        <button class="respButton hvr-grow "> Demostración </button>
+        <div class="resp-box">
+        <p>
+            Por la <a href="#Prop:FormulaDerDir">Proposición 11.2</a> tenemos 
+            \[
+            \partial_uf(p_0)=\langle \nabla_{p_0}f, u\rangle
+            \]
+            por Cauchy-Schwartz
+            \[
+            \langle \nabla_{p_0}f, u\rangle= \|\nabla_{p_0}f\| \|u\| \cos(\alpha)=\|\nabla_{p_0}f\| \cos(\alpha)
+            \]
+            donde \(\alpha\) es el ángulo entre \(\nabla_{p_0}f\) y \(u\). Ya que \(|\cos(t)|\leq 1\) para todo \(1\)
+            vemos que el máximo se alcanza cuando \(\cos(\alpha)=1\), es decir cuando  \(\alpha =0\). Por lo tanto 
+            el máximo se alcanza cuando \(u\) apunta en la misma dirección de \(\nabla_{p_0}f\) y ya que \(\|u\|=1\)
+            concluimos que el máximos se alcanza en \(u^*=\frac{1}{\|\nabla_{p_0}f\|}\nabla_{p_0}f\).
+        </p>
+        <p>
+            Para el mínimo tenemos que se alcanza cuando \(\cos(\alpha)=-1\), es decir cuando \(\alpha=\pi\). Por 
+            lo tanto se alcanza cuando \(u\) y \(\nabla_{p_0}f\) tiene direcciones opuestas, es decir 
+            el mínimo se alcanza en \(u_*=-\frac{1}{\|\nabla_{p_0}f\|}\nabla_{p_0}f\)
+        </p>
+        </div>
+      </div>
+
+
+
+     <div class="ejercicio-box">
+        <h2 class="number-title">  Ejercicio </h2>
+
+        <p>
+            Sea \(U\subseteq \mathbb{R}^2\) abierto y \(f:U\to \mathbb{R}\) una función diferenciable en 
+            \(p_0\in U\). Sean \(u^*,u_0\) vectores unitarios para los cuales, si estamos sobre \(p_0\), \(f\)
+            crece más rapidamente en la dirección \(u^*\) y \(f\) es constante en la dirección \(u_0\). 
+            
+        </p>
+        <p>
+            Si \(\nabla_{p_0}f\ne 0\), prueba que \(\langle u^*, u_0\rangle =0\).
+        </p>
+        <button class="respButton hvr-grow "> Demostración </button>
+        <div class="resp-box">
+        <p>
+            En términos 
+            de derivadas direccionales lo anterior se puede escribir como 
+            \begin{eqnarray*} 
+                \max_{\|u\|=1}\{\partial_uf(p_0) \}&=&\partial_{u^*}f(p_0)\\
+                \partial_{u_0}f(p_0)&=&0.
+            \end{eqnarray*}
+        </p>
+
+        <p>
+            Por la <a href="#Prop:DirCrecimientoMax">Proposición </a> tenemos que 
+            \(u^*=\frac{1}{\|\nabla_{p_0}f\|}\nabla_{p_0}f\).
+        </p>
+        <p>
+            Usando la fórmula de la <a href="#Prop:FormulaDerDir">Proposición </a> 
+            \(\partial_{u_0}f(p_0)=0\) se puede escribir como 
+            \[
+            0=\langle \nabla_{p_0} f, u_0 \rangle 
+            \]
+            Se sigue que \(\langle u^*, u_0\rangle =0\).
+        </p>
+        </div>
+     </div>
+
+
+     <div class="ejercicio-box"> 
         <h2 class="number-title"> Ejercicio </h2>
         <p>
-            Encuentra la dirección $u$ ( $\|u\|=1$) para la cual $f$ crece más rápidamente
-            si estás parado en $(1,2)$.
+            Encuentra la dirección $u$ ( $\|u\|=1$) para la cual al moverse en la dirección de \(u\):
+            <ol>
+            <li>
+                $f$ crece más rápidamente
+                si estás parado en $(1,2)$.
+            </li>
+            <li>
+                \(f\) permance constante si estás parado en \((1,2)\).
+            </li>
+            </ol> 
                 <ol>
                     <li>
                         $f(x,y)=e^{x-y}$,
@@ -358,45 +453,14 @@
         
      </div>
 
-
-     <div class="ejercicio-box">
-        <h2 class="number-title">  Ejercicio </h2>
-
-        <p>
-            Sea \(U\subseteq \mathbb{R}^2\) abierto y \(f:U\to \mathbb{R}\) una función diferenciable en 
-            \(p_0\in U\). Sean \(u^*,u_0\) vectores unitarios para los cuales, si estamos sobre \(p_0\), \(f\)
-            crece más rapidamente en la dirección \(U^*\) y \(f\) no crece en la dirección \(u_0\). En términos 
-            de derivadas direccionales lo anterior se puede escribir como 
-            \begin{eqnarray*} 
-                \max_{\|u\|=1}\{\partial_uf(p_0) \}&=&\partial_{u^*}f(p_0)\\
-                \partial_{u_0}f(p_0)&=&0.
-            \end{eqnarray*}
-            Prueba que \(\langle u^*, u_0\rangle =0\).
-        </p>
-        <!-- <p>
-            Podemos parametrizar los vectores \(u\) con \(\|u\|=1\) como 
-            \(u(\theta)=(\cos(\theta), \sen(\theta))\). Consideramos la función 
-            \[
-            h(\theta)=\partial_{u(\theta)}f(p_0)=\partial_xf(p_0)\cos(theta)+\partial_yf(p_0)\sen(\theta)
-            \]
-            Entonces 
-            \[
-            \max_{\theta \in [0,2\pi]}\{h(\theta)\}=\max_{\|u\|=1}\{\partial_uf(p_0) \}
-            \]
-            Ahora encontramos el máximo de \(h\) mediante la derivada.
-
-        </p>-->
-
-     </div>
-
     <div class="ejercicio-box"> 
         <h2 class="number-title"> Ejercicio </h2>
         <p>
-            Asume que $f(x,y)$ y $g(x,y)$ son   función, clase $C1$, tal que
-            $\nabla_{(x,y)} f$ es perpendicular a $(3,2)$ con su longitud
-            igual a 1 y $\nabla_{(x,y)}g$ es paralelo a $(3,2)$
-            con su longitud igual a $5$. Encuentra $\nabla_{(x,y)}f$,
-            $\nabla_{(x,y)}g$, $f$ y $g$.
+            Asume que \(U\subseteq \mathbb{R}^2\) es un abierto, $f,g:U\to \mathbb{R}$ son  funciones  lineales, tal que
+            $\nabla_{p_0} f$ es perpendicular a $(3,2)$ con su longitud
+            igual a 1 y $\nabla_{p_0}g$ es paralelo a $(3,2)$
+            con su longitud igual a $5$. Encuentra $\nabla_{p_0}f$,
+            $\nabla_{p_0}g$, $f$ y $g$.
         </p>  
         
     </div>
@@ -468,7 +532,18 @@
 
 
 
+    <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio  </h2>
+        <p>
+            Considera la función \(f(x,y)=3x^2+2y^2\). Encuntra la curva \(\gamma(t)\), en el plano \(xy\), 
+            para la cual \(f(\gamma(t))\) aumenta más rapidamente. Es decir, para toda \(t\) 
+            \[
+            \nabla_{\gamma(t)}f =\gamma'(t)
+            \]
+        </p>
+        
 
+    </div>
 
 
  </body>
