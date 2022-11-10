@@ -287,6 +287,9 @@
             
             
         </p>
+        <div class="flexbox" >
+            <img src="./Images/S11-Img1.png" alt="InterseccionYZ" width="40%" height="auto" >
+          </div>
         <p>
             Para saber si en \(\theta^*\) se alcanza máximo o mínimo o punto de inflexión usamos el criterio de la 
             segunda derivada: 
@@ -539,13 +542,51 @@
         <h2 class="number-title"> Ejercicio  </h2>
         <p>
             Considera la función \(f(x,y)=3x^2+2y^2\). Encuentra la curva \(\gamma(t)\), en el plano \(xy\), 
-            para la cual \(f(\gamma(t))\) aumenta más rapidamente. Es decir, para toda \(t\) 
-            \[
-            \nabla_{\gamma(t)}f =\gamma'(t)
-            \]
+            para la cual \(f(\gamma(t))\) crece a la razón más rápida y que al tiempo \(t=0\) pasa 
+            por \((1,2)\). Es decir, existe un \(\lambda >0 \) tal que, para toda \(t\) 
+            \begin{equation}\label{Eqn:AuxCurvasMayorCrecimiento}
+            \lambda \nabla_{\gamma(t)}f =\gamma'(t)
+            \end{equation}
+            La razón de la ecuación anterior es: \(\gamma'(t)\) representa el vector tangente a la curva en \(\gamma(t)\)
+            y \(\nabla_{p}f\) es el vector que apunto en la dirección donde \(f\) crece más rapidamente (<a href="#Prop:DirCrecimientoMax">Proposición 11.6</a>).
+            Por lo tanto \(\gamma'(t)\) debe de apuntar en la  dirección donde \(f\) crece más rápidamente.
         </p>
-
-
+        <button class="respButton hvr-grow "> Solución </button>
+        <div class="resp-box">
+        <p>
+            Tenemos que \(\nabla_{(x,y)}f=(6x,4y)\). Si dentamos las entradas de \(\gamma\) como 
+            \(\gamma(t)=(x(t),y(t))\). Por lo tanto la ecuación \eqref{Eqn:AuxCurvasMayorCrecimiento} 
+            se puede escribir como el siguiente sistema de ecuaciones 
+            \begin{eqnarray*} 
+            \lambda 6x(t)=x'(t) \\
+            \lambda 4y(t)=y'(t)
+            \end{eqnarray*}
+        </p>
+        <p>
+            Dada una constante \(k\), la solución más general de la ecuación diferencial \(g'(t)=k g(t)\) es 
+            \(g(t)=ce^{kt}\), donde \(c\) es una constante. Por lo tanto una solución del sistema es 
+            \(x(t)=c_1e^{\lambda 6 t}, y(t)=c_2e^{\lambda 4 t}\).
+        </p>
+        <p>
+            Finalmente, queremos que \(\gamma(0)=(1,2)\). Substituyendo en las fórmulas para \(x\) y \(y\) llegamos 
+            \[
+            1=x(0)=c_1e^{\lambda 6 (0)}=c_1,\quad  2=y(0)=c_2e^{\lambda 4 (0)}=c_2
+            \]
+            Por lo tanto la curva que buscamos es \(\gamma(t)=(e^{\lambda 6 t},2e^{\lambda 4 t} )\).
+        </p>
+        <p>
+            La curva \(\gamma\).
+        </p>
+        <div class="flexbox" >
+            <img src="./Images/S11-Img2.png" alt="PlanoXY" width="40%" height="auto" >
+          </div>
+          <p>
+            Los valores de \(f\) sobre la curva \(\gamma\).
+          </p>
+          <div class="flexbox" >
+            <img src="./Images/S11-Img3.png" alt="SobreSuperficie" width="40%" height="auto" >
+          </div>
+          </div>
     </div>
 
 
