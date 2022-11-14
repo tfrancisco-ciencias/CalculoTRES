@@ -120,90 +120,120 @@
         clase $C^1$.      
     </p>
     <p>
-        Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^3$
+        Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^2$
         y $f: U \to \mathbb{R}$ una
-        función clase $C^1$ en $ U$. Sea $I$ un intervalo abierto de 
-        $\mathbb{R}$, $\gamma: I \to \mathbb{R}^3$
-        una función clase $C^1$ con $\gamma(I)\subset U$ (para que
+        función clase $C^1$ en $ U$. 
+    </p>
+    <p>
+        Sea $I$ un intervalo abierto de 
+        $\mathbb{R}$, $\gamma: I \to \mathbb{R}^2$
+        una función clase $C^1$ en \(I\) con $\gamma(I)\subset U$ (para que
         $f\circ \gamma$ esta bien definida).      
     </p>
-    <ol>
-        <li>
-            Denotemos $\gamma(t)=(x(t),y(t),z(t))$ y
-            sea $t_0\in I$, fijo y arbitrario y
-            denota $\gamma(t_0)=p_0=(x(t_0),y(t_0),z(t_0))\in U$.
-        </li>
-        <li>
-            Ya que $U$ es abierto, existe $r>0$ con $B_r(p_0)\subset U$.
-            Demuestra que si $t$ está suficientemente cerca de
-            $t_0$ entonces los puntos 
+    <p>
+        Denotemos $\gamma(t)=(x(t),y(t))$. 
+    </p>
+    <p>
+        Entonces la composición \(f\circ \gamma\) es clase \(C^1\) y para todo \(t_0\in I\) :
+        \[
+        \frac{d f\circ \gamma}{dt}(t_0)=\partial_xf(\gamma(t_0))x'(t_0)+\partial_yf(\gamma(t_0))y'(t_0)
+        \]
+    </p>
+
+    <button class="respButton hvr-grow "> Demostración</button>
+    <div class="resp-box">
+        
+        <p>
+            Denotemos \(p_0=(x(t_0),y(t_0),z(t_0))\). Ya que $U$ es abierto, existe $r>0$ con $B_r(p_0)\subset U$.
+            Al ser \(\gamma(t)=(x(t),y(t),z(t))\) clase \(C^1\) en \(I\) 
+            los siguientes puntos  
             \begin{eqnarray*}
               p_1(t)&:=&p_0+(x(t)-x(t_0))e_1,\\
               p_2(t)&:=&p_1(t)+(y(t)-y(t_0))e_2,\\
-              p_3(t)&:=&(z(t)-z(t_0))e_3
             \end{eqnarray*}
-            están todos en $U$, donde $\{e_1,e_2,e_3\}$ es la
-            base canónica de $\mathbb{R}^3$ y además $p_3(t)=\gamma(t)$.
-        </li>
-        <li>
-            Define $h(t)=f(\gamma(t))$. Si $t\ne t_0$ y $t$ está
-            suficientemente cerca de $t_0$ demuestra que
+            están todos en $U$ si \(t\) está cercano a \(t_0\) ( donde $\{e_1,e_2,e_3\}$ es la
+            base canónica de $\mathbb{R}^3$). En concreto, si \(t\) está suficientemente cercano a 
+            \(t_0\) para que \(|x(t)-x(t_0)|< r/2\) entonces 
+            \begin{eqnarray*} 
+            \| p_1(t)-p_0\| &= &|x(t)-x(t_0)|< r/2 < r \\ 
+            \end{eqnarray*}
+            además 
             \begin{eqnarray*}
-              \frac{h(t)-h(t_0)}{t-t_0}&=& \frac{f(p_1(t))-f(p_0)}{t-t_0} \\
+            \|p_2(t)-p_0\| &\leq  & \|p_2(t)-p_1(t)\|+\|p_1(t)-p_0\| \\
+            &=& |y(t)-y(t_1)|+ |x(t)-x(t_0)|\\
+            &<&  r/2+r/2=r
+            \end{eqnarray*}
+            por lo tanto \(p_1(t), p_2(t)\in B_r(p_0)\).
+        </p>
+        <p>
+            Además nota que 
+            \begin{eqnarray*}
+            p_2(t)&=&p_1(t)+(y(t)-y(t_0))e_2\\
+            &=& p_0+ (x(t)-x(t_0))e_1+ (y(t)-y(t_0))e_2\\
+            &=& x(t_0)e_1+y(t_0)e_2 + (x(t)-x(t_0))e_1+ (y(t)-y(t_0))e_2\\
+            &=&\gamma(t)
+            \end{eqnarray*}
+        </p>
+        <p>
+            Si $t$ está
+            suficientemente cerca de $t_0$  (para que \(p_1(t),p_2(t)\in U \) y podamos aplciar \(f\))
+            tenemos que 
+            \begin{eqnarray*}
+              \frac{f(\gamma((t))-f(\gamma(t_0))}{t-t_0}&=& \frac{f(p_1(t))-f(p_0)}{t-t_0} \\
                                        &+& \frac{f(p_2(t))-f(p_1(t))}{t-t_0}\\
-                                       &+&\frac{f(p_3(t))-f(p_2(t))}{t-t_0}
             \end{eqnarray*}
-        </li>
-        <li>
-            Usando el Teorema del Valor Medio, para funciones
-            de una variable, demuestra que existen $c_x,c_y,c_z$ con:
+        </p>
+        <p>
+            Por otro lado, usando el Teorema del Valor Medio, para funciones
+            de una variable, podemos asegurar que existen  números $c_x,c_y$ con:
             
-            $$
-            f((x,y(t_0),z(t_0)))-f((x(t_0),y(t_0),z(t_0)))
-            =\partial_xf(c_x,y(t_0),z(t_0))(x-x(t_0))
-            $$
-            donde $c_x$ está entre $x(t_0)$ y $x$,
-        
-            $$
-            f((x,y,z(t_0)))-f((x,y(t_0),z(t_0)))
-            =\partial_yf(x,c_y,z(t_0))(y-y_0)
-            $$
-            donde $c_y$ está entre $y(t_0)$ y $y$,
-        
-            $$
-            f((x,y,z))-f((x,y,z(t_0)))
-            =\partial_zf(x,y,c_z)(z-z_0)
-            $$
-            donde $c_z$ está entre $z$ y $z(t_0)$.
-        
-        </li>
-        <li>
-            Usando el inciso anterior prueba que existen
-            $c_{x}$, entre $x(t)$ y $x_0$, $c_y$, entre $y(t)$ y $y_0$
-            y $c_z$, entre $z(t)$ y $z_0$ tal que
-           
-             \begin{eqnarray*}
-               \frac{h(t)-h(t_0)}{t-t_0}&=& \partial_xf(c_x,x(t_0),y(t_0))
-                                            \frac{x(t)-x(t_0)}{t-t_0} \\
-                                        &+& \partial_yf(x(t),c_y,z(t_0))
-                                            \frac{y(t)-y(t_0)}{t-t_0}\\
-                                        &+&\partial_zf(x(t),y(t),c_z)
-                                            \frac{z(t)-z(t_0)}{t-t_0}
-            \end{eqnarray*}
-        
-        </li>
-        <li>
-            Tomando límite en la expresión del inciso anterior
-            para el cociente diferencial de $h$ y usando la
-            continuidad de las derivadas parciales, concluye que
             \begin{eqnarray*}
-              h'(t_0)&=&\partial_xf(x(t_0), y(t_0), z(t_0))x'(t_0)\\
-                     &+& \partial_yf(x(t_0), y(t_0), z(t_0))y'(t_0)\\
-                     &+&\partial_zf(x(t_0), y(t_0), z(t_0))z'(t_0)
+            f(p_1(t))-f(p_0)&=&f(x(t),y(t_0))-f(x(t_0),y(t_0))\\
+            &=&\partial_xf(c_x,y(t_0))(x-x(t_0))
             \end{eqnarray*}
-            y por lo tanto, ya que $t_0$ es arbitrario, $h$ es clase $C^1$.
-        </li>
-    </ol>
+            donde $c_x$ está entre $x(t_0)$ y $x(t)$,
+        
+            \begin{eqnarray*} 
+            f(p_2(t))-f(p_1(t))&=& f(x(t),y(t))-f(x(t),y(t_0))\\
+            &=&\partial_yf(x(t),c_y)(y(t)-y(t_0))
+            \end{eqnarray*}
+            donde $c_y$ está entre $y(t_0)$ y $y(t)$,
+        
+        </p>
+        <p>
+            Substituyendo las ecuaciones anteriores en el cociente diferencial de \(f\circ \gamma\) llegamos a 
+            
+             \begin{eqnarray*}
+               \frac{f\circ \gamma (t)-f\circ \gamma (t_0)}{t-t_0}&=& \partial_xf(c_x,y(t_0))
+                                            \frac{x(t)-x(t_0)}{t-t_0} \\
+                                        &+& \partial_yf(x(t),c_y) 
+                                            \frac{y(t)-y(t_0)}{t-t_0} \\
+            \end{eqnarray*}
+        
+        </p>
+        <p>
+            Nota: si \(t\) tiende a cero por  continuidad tenemos que  \(x(t)\) tiende a 
+            \(x(t_0)\) y \(y(t)\) tiende a \(y(t_0)\). Ya que donde $c_x$ está entre $x(t_0)$ y $x(t)$
+            también obtenemos que \(c_x\) tiende a \(x(t_0)\) y similarmente 
+            \(c_y\) tiende a \(y(t_0)\).
+        </p>
+        <p>
+            Tomando límite en la expresión del cociente diferencial 
+            y usando la
+            continuidad de las derivadas parciales, se concluye que
+            \begin{eqnarray*}
+              (f\circ \gamma)'(t_0)&=&\partial_xf(x(t_0), y(t_0))x'(t_0)\\
+                     &+& \partial_yf(x(t_0), y(t_0))y'(t_0)
+            \end{eqnarray*}
+            y por lo tanto \(f\circ \gamma\) es diferenciable en \(t_0\).
+        </p>
+        <p>
+            Finalmente, ya que \((f\circ \gamma)'=\partial_xf x' + \partial_yf y'\), y 
+            todas las funciones \(\partial_x, \partial_y, x',y'\) son continuas también 
+            resulta que \((f\circ \gamma)'\) es continua y por lo tanto \(f\circ \gamma\) es clase 
+            \(C^1\) en \(I\).
+        </p>
+    </div>
   
 </div>    
   
@@ -218,7 +248,7 @@
     <p>
         Este ejercicio prueba el primer caso de la regla de la cadena, con
         la hipótesis extra de que la función sea clase $C^1$ y es una
-        generalización del ejercicio anterior.      
+        generalización del ejercicio anterior para más de dos variables (pero es la misma idea).      
     </p>
     <p>
         Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$ y $f: U \to \mathbb{R}$ una
@@ -375,7 +405,7 @@
 
 
 
-<div class="ejercicio-box"> 
+<!--<div class="ejercicio-box"> 
     <h2 class="number-title"> Ejercicio</h2> 
     <p>
         Usa la regla de la cadena para escribir las derivadas 
@@ -394,7 +424,7 @@
                     (X_1(x_1, \dots, x_{10}), \dots, X_{7}(x_1,\dots, x_{10}))$
                 </li>
             </ol>
-</div>
+</div>-->
 
 
 
