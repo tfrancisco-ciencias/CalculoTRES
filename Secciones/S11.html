@@ -214,6 +214,48 @@
                     $f(x,y)=$ distancia de $(x,y)$ a $(0,3)$, $u=(1,0)$, $p=(1,1)$.
                 </li>
             </ol>
+            <button class="respButton hvr-grow "> Solución 1</button>
+            <div class="resp-box">
+                <p>
+                    Comenzamos por calcular las derivadas parciales de $f$:
+                    \begin{equation*}
+                    \partial_x f = 2x, \quad \partial_y f= -2y
+                    \end{equation*}
+                    por lo tanto $\nabla_{(x,y)}f = (2x,-2y)$.
+                </p>
+                <p>
+                    Ahora,
+                    \begin{equation*}
+                    \langle \nabla_{(x,y)},u \rangle = \langle (2x,-2y), (\sqrt{3}/2,1/2) \rangle = \sqrt 3 x - y.
+                    \end{equation*}
+
+                    De esta manera
+                    \begin{equation*}
+                    \partial_u f(p) = \langle \nabla_p f, u \rangle = \sqrt{3} \cdot 1 - 0 = \sqrt 3.
+                    \end{equation*}
+                </p>
+            </div>
+
+            <button class="respButton hvr-grow "> Solución 3</button>
+            <div class="resp-box">
+                <p>
+                    Se realiza el mismo proceso que en el inciso anterior, al calcular las derivadas parciales se obtiene
+                    \begin{equation*}
+                    \partial_x f = 0, \quad \partial_y f = 10y^9; \quad \nabla_{(x,y)}f = (0,10y^9).
+                    \end{equation*}
+
+                    De aquí
+                    \begin{equation*}
+                    \langle \nabla_{(x,y)}f,u \rangle = \langle (0,10y^9) , (0,-1) \rangle = -10y^9, 
+                    \end{equation*}
+
+                    finalmente al trabajar en el punto $p=(1,-1)$
+
+                    \begin{equation*}
+                    \partial_u f(p) = \langle \nabla_{p}f , u \rangle = -10(-1)^9 = 10.
+                    \end{equation*}
+                </p>
+            </div>
     </div>
 
 
@@ -474,7 +516,30 @@
             Si $f(0,1)=0, f(1,0)=1$ y $f(2,1)=2$, encuentra
             $\nabla_{(x,y)}f$ suponiendo que $f(x,y)=Ax+By+C$.
         </p>
-        
+        <button class="respButton hvr-grow "> Solución</button>
+        <div class="resp-box">
+            <p>
+                El conocer la forma que toma la función así como sus valores en tres
+                puntos distintos nos dan un sistema linenal en las variables $A,B,C$,
+                \begin{align*}
+                A \cdot 0 + B + C =& 0,\\
+                A + B \cdot 0 + C =& 1,\\
+                A \cdot 2 + B + C =& 2
+                \end{align*}
+                Si al tercer renglón se le resta 2 veces el segundo renglón y una
+                vez el primer renglón entonces se obtiene el sistema equivalente
+                \begin{align*}
+                B + C =& 0,\\
+                A + C =& 1,\\
+                -2C =& 0.
+                \end{align*}
+                De aquí deducimos que $C=0=B$ y $A=1$, por lo que la función $f$ está
+                dada por $f(x,y) = x$. Ahora calculamos sus derivadas parciales
+                \begin{equation*}
+                \partial_x f =1, \quad \partial_y f = 0; \quad \nabla_{(x,y)} f = (1,0).
+                \end{equation*}
+            </p>
+        </div>
     </div>
       
     <div class="ejercicio-box"> 
@@ -498,6 +563,65 @@
                     \((\frac{x}{x^2+y^2+z^2},\frac{y}{y^2+x^2+z^2}, \frac{z}{x^2+y^2+z^2} )\).
                 </li>
             </ol>
+
+            <button class="respButton hvr-grow "> Solución 1</button>
+            <div class="resp-box">
+                <p>
+                    Supongamos que existe una función $f$ cuyo gradiente es $(2x+y,x)$, es decir
+                    \begin{equation*}
+                    \partial_x f = 2x + y, \quad \partial_y f = x.
+                    \end{equation*}
+                    Integramos respecto a la variable $x$ y tenemos que
+                    \begin{equation*}
+                    f(x,y) = x^2 + xy + g(y),
+                    \end{equation*}
+                    donde, como la notación lo indica, $g$ es una función que depende únicamente
+                    de la variable $y$ y es constante respecto a la variable $x$. Si se calcula
+                    ahora la derivada parcial respecto a $y$ y utilizamos nuestra hipótesis se
+                    tiene que
+                    \begin{equation*}
+                    x = \partial_y f = x + g'(y),
+                    \end{equation*}
+                    es decir, $g'(y)'=0$ lo cual significa que es una función constante. Con ello
+                    concluimos que dicho gradiente le corresponde a la familia de funciones de
+                    la forma $f(x,y) = x^2 + xy + c, \quad c \in \mathbb{R}$.
+
+                </p>
+            </div>
+
+            <button class="respButton hvr-grow "> Solución 3</button>
+            <div class="resp-box">
+                <p>
+                    Se afirma que no existe ninguna función $f$ con gradiente $(y,-x)$. Veremos
+                    dos formas de mostrar ésto:
+                    <p>
+                        <b>
+                            Idea 1.
+                        </b>
+                        Aplicaremos el mismo procedimiento que en el inciso anterior. De existir tal
+                        función entonces $\partial_x f = y$ por lo que $f(x,y) = xy + g(y)$. Al calcular
+                        la derivada parcial respecto a $y$ e igualar con la expresión propuesta se tiene
+                        que $-x = x + g'(y)$ o equivalentemente $-2x = g'(y)$ lo cual es absurdo, pues
+                        la función $g$ es independiente de la variable $x$. Adicionalmente, si integramos
+                        respecto a la variable $y$ entonces $g(y) = -2xy + c$ y $f(x,y) = -xy$, pero
+                        $\partial_x -xy = -y \neq y$, lo cual es una contradicción.
+                    </p>
+                    <p>
+                        <b>
+                            Idea 2.
+                        </b>
+                        Veamos que si $f$ tiene el gradiente propuesto entonces es de clase $C^2$,
+                        \begin{align*}
+                        \partial_{x^2}^2 f =& 0,\\
+                        \partial_{y^2}^2 f =& 0,\\
+                        \partial_{xy}^2 f =& -1,\\
+                        \partial_{yx}^2 f =& 1.
+                        \end{align*}
+                        Se sabe que si una función es de clase $C^2$ entonces sus derivadas parciales
+                        mixtas de orden 2 son iguales y en este caso no es así, lo cual es una contradicción.
+                    </p>
+                </p>
+            </div>
     </div>
     
     
@@ -534,6 +658,73 @@
                     </p>
                 </li>
             </ol>
+
+            <button class="respButton hvr-grow "> Solución</button>
+            <div class="resp-box">
+                <p>
+                    <ol>
+                        <li>
+                            Si $f(p) = f(-p)$ para toda $p$ entonces sus cocientes diferenciales
+                            en $p=0$ deben ser iguales
+                            \begin{align*}
+                            \frac{f(t) - f(0)}{t-0} =& \frac{f(-t) - f(0)}{t - 0},\\
+                            =& \frac{f(t) - f(0)}{-t},\\
+                            =& - \frac{f(t) - f(0)}{t},
+                            \end{align*}
+                            al tomar el límite cuando $t \to 0$ de ambos lados se tiene que
+                            $f'(0) = - f'(0)$ y claramente $f'(0) = 0$.
+                        </li>
+                        <li>
+                            Para el i-ésimo vector canónico definimos $g(t) = f(te_i)$ por lo
+                            que el cociente diferencial correspondiente a la derivada parcial
+                            de $f$ respecto a la i-ésima variable en $0$ es
+                            \begin{align*}
+                            \frac{f(0 + te_i) - f(0)}{t} = \frac{g(t) - g(0)}{t}.
+                            \end{align*}
+                            Como $f$ es par, entonces $g(t) = f(te_i) = f(-te_i) = g(-t)$ para
+                            toda $t$, asímismo, dado que $f$ es diferenciable en $0$ entonces
+                            sus derivadas parciales en $0$ existen y $g$ es diferenciable en $0$.
+                            Finalmente, dado que $g$ es par entonces por el primer inciso
+                            $\partial_{x_i}f(0) = g'(0) = 0$. Si se repite el mismo argumento
+                            con cada una de las variables se concluye que $\nabla_{0}f = 0$.
+                        </li>
+                        <li>
+                            <p>
+                                Realizaremos un proceso similar a los incisos anteriores para demostrar
+                                que $\partial_u g(0,0) = \partial_v g(0,0) = 0$ y con ello que el gradiente
+                                también se anula.
+                            </p>
+                            <p>
+                                Comenzamos por definir funciones $h_1,h_2:\mathbb{R} \to \mathbb{R}$ como
+                                $h_1(t) = g(tu)$ y $h_2(t) = g(tv)$. Como se vió en el inciso anterior, al
+                                definir $h_1$ y $h_2$ de esta manera se tiene que éstas son funciones pares
+                                y son diferenciables en $0$ pues las derivadas direccionales en $0$ en las
+                                direcciones $u$ y $v$ existen y
+                                \begin{equation*}
+                                \frac{g(tu) - g(0,0)}{t} = \frac{h_1(t)-h_1(0)}{0}; \quad \frac{g(tv)-g(0,0)}{t} = \frac{h_2(t)-h_2(0)}{t},
+                                \end{equation*}
+                                es decir, $h_1'(0)=0=h_2'(0)$. Escrito de otra forma $\partial_u g(0,0) = 0 = \partial_v  g(0,0)$.
+                            </p>
+                            <p>
+                                Como $u,v$ son ortonormales entonces son una base para $\mathbb{R}^2$, en particular sabemos
+                                que existen escalares $a_x,b_x,a_y,b_y \in \mathbb{R}$ tales que $e_1 = a_x u + b_x v$ y
+                                $e_2 = a_y u + b_y v$. Las derivadas direccionales en la dirección de $e_1$ y $e_2$ no son más
+                                que las derivades parciales respecto a $x$ y $y$ por lo que
+                                \begin{align*}
+                                \partial_x g (0,0) =& \partial_{e_1} g (0,0),\\
+                                =& \langle \nabla_{(0,0)} g , e_1 \rangle,\\
+                                =& \langle \nabla_{(0,0)} g , a_x u + b_x v \rangle,\\
+                                =& a_x \langle \nabla_{(0,0)} g , u \rangle + b_x \langle \nabla_{(0,0)} g, v \rangle,\\
+                                =& a_x \partial_u g(0,0) + b_x \partial_v g(0,0),\\
+                                =& 0.
+                                \end{align*}
+                                De manera análoga $\partial_y g(0,0) = a_y \partial_u g(0,0) + b_y \partial_v g(0,0) = 0$ y se concluye que
+                                $\nabla_{(0,0)}g = 0$.
+                            </p>
+                        </li>
+                    </ol>
+                </p>
+            </div>
     </div>
 
 
