@@ -89,7 +89,7 @@
                 
            
     <div class="teorema-box">
-        <h2 class="number-title"> Teorema </h2>
+        <h2 class="number-title" id="Teo:ReglaCadena"> Teorema </h2>
         <p>
             Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$ y $f: U \to \mathbb{R}$ una
             función diferenciable en $p_0\in U$. Sea $I$ un intervalo abierto de 
@@ -109,8 +109,321 @@
         </p>
 
     </div>
-             
+          
+    
+    <div class="nota-box">
+        <h2 class="number-title"> Nota </h2>
+        <p>
+            La fórmula de la <a href="#Teo:ReglaCadena"> Regla de la Cadena </a>  se puede escribir como 
+            \[
+            \frac{d f\circ \gamma(t)}{dt}=\langle \nabla_{\gamma(t)}f, \gamma'(t) \rangle 
+            \]
+            pero si escribimos las coordenadas de \(f\) y las funciones  coordenadas de \(\gamma\) podemos escribirlo de la siguiente manera. 
+        </p>
+        <p>
+            Supongamos que la función \(f\) tiene variables \(f(x,y)\) y que \(\gamma\) tiene funciones 
+            coordenadas \(\gamma(t)=(x(t),y(t))\). En este caso la regla de la cadena se puede escribir como 
+            \[
+            \frac{d f}{dt}=\frac{\partial f}{\partial x} \frac{dx}{dt}+\frac{\partial f}{\partial y} \frac{dy}{dt}
+            \]
+            En tres variables se vuelve
+            \[
+            \frac{d f}{dt}=\frac{\partial f}{\partial x} \frac{dx}{dt}+\frac{\partial f}{\partial y} \frac{dy}{dt}+
+            \frac{\partial f}{\partial z}\frac{dz}{dt}
+            \]
+            y de manera general  si \(f\) depende de las variables \(f(x_1,\dots, x_n)\) y asu vez 
+            las coordenadas \(x_i\) dependen de la variable \(t\), \(x_i(t)\), entonces (con las hipótesis del teorema)
+            \[
+            \frac{d f}{d t} =\sum_{i=1}^n \frac{\partial f}{\partial x_i} \frac{dx_i}{dt}
+            \]
+        </p>
 
+    </div>
+
+    <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+            Para las siguientes funciones \(f(x,y,z)\), \(x(t),y(t),z(t)\) calcula \(\frac{df}{dt}\).
+        </p>
+        <ol>
+            <li>
+                \(f(x,y,z)=xy^2+2xz-4x^2y^2z^3\), \(x(t)=\sen(t),y(t)=\sen(2t), z(t)=\cos(3t)\).
+            </li>
+            <p>
+
+            </p>
+            <li>
+                \(f(x,y,z)=\frac{\ln(1+x^2+3z^2)}{1+y^2}\), \(x(t)=t,y(t)=1-t, z(t)=\cos(t)\).
+            </li>
+            <p>
+                
+            </p>
+            <li>
+                \(f(x,y,z)=\frac{x^2}{1+\cos(y)+z^2}\), \(x(t)=e^{t}, y(t)=e^{-t},z(t)=0\).
+            </li>
+            <p>
+                
+            </p>
+            <li>
+                \(f(x,y,z)=\sqrt{x^2+y^{2}+z^2}\), \(x(t)=\cos(t)\sen(2t), y(t)=\cos(t)\cos(2t),z(t)=\sen(t)\).
+            </li>
+            <p>
+                
+            </p>
+            <li>
+                \(f(x,y,z)=ze^{x^2-y^2}\), \(x(t)=1-t,y(t)=t, z(t)=e^{t}\).
+            </li>
+            <p>
+                
+            </p>
+            <li>
+                \(f(x,y,z)=e^{x+y+z}\), \(x(t)=\ln(1+t^2), y(t)=\ln(t), z(t)=\ln(1+t^3)\).
+            </li>
+        </ol>
+
+    </div>
+
+
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Sea $U\ne \emptyset$ un abierto de
+        $\mathbb{R}^2$, $g:U\to \mathbb{R}$ una función de clase $C^1$
+        y $x,y:I\to \mathbb{R}$ funciones  de clase $C^1$
+        (con $I$ un intervalo abierto).
+        Encuentra $h'(t)$, la derivada de
+        $h$ (función de una variable), para las siguientes funciones:
+    </p>
+        <ol>
+            <li>
+                $h(t)=(g(x(t), y(t)))^2$.
+            </li>
+            <p>
+
+            </p>
+            <li>
+                $h(t)=e^{g(x(t),y(t))}$.
+            </li>
+            <p>
+                
+            </p>
+            <li>
+                $h(t)=\sen(g(x(t),y(t)))$.
+            </li>
+            <p>
+                
+            </p>
+            <li>
+                \(h(t)=\ln(1+g(x(t),y(t)))\).
+            </li>
+        </ol>
+</div>
+
+
+    <div class="prop-box">
+        <h2 class="number-title"> Proposición</h2>
+        <p>
+            Sea \(f:U\to \mathbb{R}\) una función clase \(C^1\) en \(U\).
+        </p>
+        <p>
+            Sea \(\gamma:I\to U\) una curva diferenciable. 
+        </p>
+        <p>
+            Entonces \(f\) es constante a lo largo de \(\gamma\) sii 
+            \(\nabla_{\gamma(t)}f\) y \(\gamma'(t)\) son perpendiculares en cada punto \(t\in I\).
+        </p>
+        <button class="respButton hvr-grow "> Demostración</button>
+        <div class="resp-box">
+        <p>
+            Ya que las funciones \(f\) y \(\gamma\) son diferencibles tenemos que su composición 
+            \(f\circ \gamma\) es diferenciable en \(I\). Por lo tanto \(f\) restringida a \(\gamma\) es constante 
+            sii su derivada es cero. Pero por la regla de la cadena su derivada es 
+            \[
+            \langle \nabla_{\gamma(t)}, \gamma'(t)\rangle 
+            \]
+            Por lo tanto, \(f\) es constante a lo largo de \(\gamma\) sii 
+            \(\langle \nabla_{\gamma(t)}, \gamma'(t)\rangle =0\) sii \(\nabla_{\gamma(t)}f\) y 
+            \(\gamma'(t)\) son ortogonales.
+        </p>
+        </div>
+    </div>
+
+    <div class="nota-box">
+        <h2 class="number-title"> Nota </h2>
+        <p>
+            Sea \(f:U\to \mathbb{R}\) una función clase \(C^1\) en \(U\). Fija un punto \(c\in \mathbb{R}\)
+            y considera la superficie de nivel 
+            \[
+            S=\{(x,y,z)\in \mathbb{R}^3: f(x,y,z)=c\}
+            \]
+            Sea \(p_0\in S\). Supongamos que \(\gamma:I\to \mathbb{R}^3\) es una curva diferenciable 
+            tal que \(\gamma(t)\in S\) para toda \(t\in I\) y digamos que \(\gamma(t_0)=p_0\). 
+            Por la regla de la cadena 
+            \[
+            \langle \nabla_{\gamma(t)}f, \gamma'(t)\rangle =(f\circ \gamma)'(t)
+            \]
+            Pero \((f\circ \gamma )'(t)=0\) pues \(\gamma\) cae dentro de la superficie de nivel de \(f\).
+            Por lo tanto \(\nabla_{\gamma(t_0)}f\) y \(\gamma'(t_0)\) son ortogonales. 
+        </p>
+        <p>
+            Ahora como \(\gamma\) cae dentro de la superficie de nivel, \(\gamma'(t)\) es un vector tangente 
+            a la superficie. Por lo tanto tomando diferentes curvas \(\gamma\) podemos obtener los vectores 
+            directores del plano tangente en \(\gamma(t_0)=p_0\) y como todos estos vectores son 
+            ortogonales a \(\nabla_{p_0}f\) concluimos que \(\nabla_{p_0}f\) es el vector normal al plano tangente 
+            en \(p_0\). Concluimos que la ecuación del plano tangente en \(p_0\) es 
+            \[
+            \langle \nabla_{p_0}f , p-p_0 \rangle =0
+            \]
+            Si escribimos la ecuación anterior en términos de coordenadas \(f(x,y,z), p_0=(x_0,y_0,z_0)\) llegamos 
+            a la ecuación 
+            \[
+            \partial_xf(p_0)(x-x_0)+\partial_yf(p_0)(y-y_0)+\partial_zf(p_0)(z-z_0)=0.
+            \]
+        </p>
+        
+
+    </div>
+    <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+             Para las siguientes funciones calcula el plano tangente 
+             a la superficie de nivel \(f(x,y,z)=c\), que pasa por el punto dado.
+        </p>
+        <ol>
+            <li>
+                \(f(x,y,z)=x^2+y^2+z^2\), \(c=1\), \(p_0=(1/\sqrt{3}, 1/\sqrt{3},1/\sqrt{3})\).
+            </li>
+            <p>
+
+            </p>
+            <li>
+                \(f(x,y,z)=xyz\), \(c=2\), \(p_0=(1,1,2)\).
+            </li>
+            <p>
+                
+            </p>
+            <li>
+                \(f(x,y,z)=xe^{y^2-z^2}\), \(c=3\), \(p_0=(1,-1,3)\).
+            </li>
+            <p>
+                
+            </p>
+            <li>
+                \(f(x,y,z)=x^2+y^2-z^2\), \(c=-1\), \(p_0=(1,1,\sqrt{2})\).
+            </li>
+        </ol>
+
+    </div>
+
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Se dice que una función $f$ tiene rendimientos de escala constante,
+        o que es homogenea de grado 1, si satisface
+        \begin{equation}\label{Eqn:RendimientoEscala}
+        f(cx,cy)=cf(x,y)
+        \end{equation}
+        para toda $c>0$. El nombre viene porque, por ejemplo,
+        si se duplica $x$ y $y$, también se duplica $f$.
+        
+    </p>
+            <ol>
+                <li>
+                    Prueba que $f(x,y)=\sqrt{x^2+y^2}$ y  $f(x,y)=\sqrt{xy}$, $x,y>0$,
+                    tienen rendimientos de escala constante.
+                </li>
+                <li>
+                    Demuestra que si $f$ es clase $C^1$ y tiene rendimientos
+                    de escala constante entonces $f$ satisface:
+                    \begin{equation}\label{Eqn:RendimientoEscala2}
+                    x \partial_x f(x,y) + y \partial_y f(x,y)=f(x,y)
+                    \end{equation}
+                    
+                    Sugerencia: usa la regla de la cadena para
+                    diferenciar la ecuación \eqref{Eqn:RendimientoEscala}
+                    con respecto a $c$ y luego evalua en $c=1$.
+                </li>
+                <li>
+                    Demuestra directamente que $f(x,y)=\sqrt{x^2+y^2}$ y $f(x,y)=\sqrt{xy}$
+                    satisfacen la ecuacion \eqref{Eqn:RendimientoEscala2}.
+                </li>
+                <li>
+                    Encuentra un ejemplo de una función de rendimiento de escala
+                    constante diferente a las dadas en el ejercicio.
+                </li>
+            </ol>
+</div>
+
+
+<!--<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Un alambre tiene forma circular, de radio $r$ y supongamos que está
+        colocado con su centro en el origen. Supongamos que
+        $T:\mathbb{R}^2 \to \mathbb{R}$ es la función que da la temperatura en
+        el punto $(x,y)$ del plano. Para las siguientes funciones
+        temperatura, encuentra las temperaturas máximas y mínimas
+        que sufre el alambre.
+    </p>
+
+            <ol>
+                
+                <li>
+                    $T(x,y)=2xy$,
+                </li>
+                <li>
+                    $T(x,y)=2x+3y$,
+                </li>
+                <li>
+                    $T(x,y)=x^2+y^2$.
+                </li>
+                <li>
+                    \(T(x,y)=\frac{1}{x+y-2r}\)
+                </li>
+            </ol>
+     <p>
+        Sugerencia: empieza dando $\gamma$, una parametrización del alambre,
+        luego encuentra el máximo y el mínimo de $T\circ \gamma$.
+     </p>       
+
+     <p>
+        Primero parametrizamos el círculo de radio \(r\): \(\gamma(t)=(r\cos(t),r\sen(t))\), \(t\in [0,2\pi]\). 
+        Entonces la composición \(T\circ \gamma(t)\) es:
+        \[
+        T(\gamma(t))=(r\cos(t))(r\sen(t))=r^2\cos(t)\sen(t)
+        \]
+        uando identidades trigonométricas podemos escribir 
+        \[
+        T(\gamma(t))=\frac{r^2}{2}\sen(2t)
+        \]
+        Lo que tenemos que es maximiar \(T\circ \gamma\) en el intervalo \([0,2\pi]\).
+     </p>
+     <p>
+        Puntos críticos. Por la regla de la cadena tenemos 
+        \begin{eqnarray*}
+        (T\circ \gamma)'(t)&=& \langle \nabla_{\gamma(t)} f, \gamma'(t) \\
+        &=& \partial_xT(\gamma(t))(r(-\sen(t)))+\partial_yT(\gamma)(r\cos(t))
+        \end{eqnarray*}
+     </p>
+</div>-->
+
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Una función $f:\mathbb{R}^n \to \mathbb{R}$ se llama par si
+        satisface $f(-p)=f(p)$, para todo punto  $p$. Supon que $f$ es clase
+        $C^1$ y demuestra que  $\nabla_{(0,\dots, 0)}f=(0,\dots, 0)$.        
+    </p>
+    <p>
+        Sugerencia: aplica la regla de la cadena a $f(p)=f(-p)$. 
+    </p>
+</div>
 <div class="ejercicio-box"> 
     <h2 class="number-title"> Ejercicio</h2> 
     <p> 
@@ -338,67 +651,121 @@
     </p>
     <p>
         Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$ y $f: U \to \mathbb{R}$ una
-        función diferenciable en $p_0\in U$. Sea $I$ un intervalo abierto de 
+        función diferenciable en $p_0\in U$. 
+    </p>   
+    <p>
+        Sea $I$ un intervalo abierto de 
         $\mathbb{R}$, $\gamma: I \to \mathbb{R}^n$
         una función con tal que $\gamma(t_0)=p_0$ y $\gamma$ diferenciable en $t_0$.
-    </p>   
+    </p>
        <ol>
+            
             <li>
-                Usando que $f$ es diferenciable en
-                $p_0$, prueba que podemos escribir, para $p$ cercano a $p_0$:
-                $$
-                f(p)=f(p_0)+ \langle \nabla_{p_0} f, p-p_0\rangle + E(p)
-                $$
-                con $E(p)$ una función continua con  $\lim_{p\to p_0}|E(p)|/\|p-p_0\|=0$ y $E(p_0)=0$.
-            </li>
-            <li>
-                Modifica el inciso anterior para probar que, para $p$ cercano a $p_0$
+                Prueba  que, para $p$ cercano a $p_0$
                 $$
                 f(p)=f(p_0)+ \langle \nabla_{p_0} f, p-p_0\rangle +\|p-p_0\| F(p)
                 $$
                 donde $F$ es una función continua con $F(p_0)=0$.
-       
-                Sugerencia: simplemente define
-                $$
-                F(p)=\left\{
-                  \begin{array}{cc}
-                    \frac{E(p)}{\|p-p_0\|} & p\ne p_0 \\
-                    0 & p=p_0
-                  \end{array}
-                \right.
-                $$
             </li>
+            
             <li>
-                Ahora prueba que, para $t$ cercano a $t_0$:
-                $$
-                f(\gamma(t))= f (\gamma (t_0))+
-                \langle \nabla_{p_0}f, \gamma(t)-\gamma(t_0) \rangle
-                + \|\gamma(t)-\gamma(t_0)\| F(\gamma(t))
-                $$
-            </li>
-            <li id="Ejer:AuxReglaCadena">
-                Concluye que el cociente diferencial para $f\circ \gamma$ se puede escribir
-                $$
+                Prueba que el  cociente diferencial para $f\circ \gamma$ en \(t_0\) se puede escribir como:
+                \begin{equation}\label{Eqn:AuxReglaCadena}
                 \frac{f\circ \gamma (t)- f\circ \gamma (t_0)}{t-t_0}=
                 \langle \nabla_{p_0} f, \frac{\gamma(t)-\gamma(t_0)}{t-t_0}\rangle
                 + \frac{\| \gamma(t)-\gamma(t_0)\|}{t-t_0}F(\gamma(t))
-                $$
+                \end{equation}
             </li>
             <li>
                 Prueba que
                 $$\lim_{t\to t_0} \left| \frac{\| \gamma(t)-\gamma(t_0)\|}{t-t_0}F(\gamma(t))   \right|=0$$
-       
-                Sugerencia: usando que
-                $\gamma$ es diferenciable en $t_0$,
-                $$\lim_{t \to t_0}\frac{\gamma(t)-\gamma(t_0)}{t-t_0}=\gamma'(t_0) $$
-                además, por la continuidad de $F$ y $\gamma$, prueba $\lim_{t\to t_0}F(\gamma(t))=0$.       
             </li>
             <li>
-                Tomando límite cuando $t\to t_0$ en el inciso \ref{Ejer:AuxReglaCadena} concluye que
+                Tomando límite cuando $t\to t_0$ en el inciso \eqref{Eqn:AuxReglaCadena} concluye que
                 $$
                 (f\circ \gamma)'(t_0)= \langle \nabla_{p_0}f, \gamma'(t_0)\rangle
                 $$
             </li>
+
+            <button class="respButton hvr-grow "> Demostración inciso 1</button>
+            <div class="resp-box">
+                <p>
+                    Sabemos que si  $f$ es diferenciable en
+                    $p_0$ entonces \(f\) tiene una aproximación lineal en \(p_0\), es decir, existe 
+                    una bola abierta \(B_r(p_0)\) y un error \(E\) tal  que 
+                    $$
+                    f(p)=f(p_0)+ \langle \nabla_{p_0} f, p-p_0\rangle + E(p)
+                    $$
+                    
+                    para \(p\in B_r(p_0)\) y además  $\lim_{p\to p_0}|E(p)|/\|p-p_0\|=0$.
+                </p>
+                <p>
+                    Definimos 
+                        $$
+                        F(p)=\left\{
+                        \begin{array}{cc}
+                            \frac{E(p)}{\|p-p_0\|} & p\ne p_0 \\
+                            0 & p=p_0
+                        \end{array}
+                        \right.
+                        $$
+                    Para todo punto \(p\) de \(B_r(p_0)\), excepto en \(p_0\), es directo ver que \(F\) es continua en \(p\). Para 
+                    \(p=p_0\) la continuidad se sigue de que \(\lim_{p\to p_0}|E(p)|/\|p-p_0\|=0\).
+                </p>
+                <p>
+                    Finalmente, si multiplicamos por el \(1=\frac{\|p-p_0\|}{\|p-0\|}\), para \(p\ne p_0\), en la 
+                    aproximación lineal obtenemos 
+                    \begin{eqnarray*} 
+                    f(p)&=&f(p_0)+ \langle \nabla_{p_0} f, p-p_0\rangle + \frac{\|p-p_0\|}{\|p-p_0\|}E(p) \\
+                    &=& f(p_0)+ \langle \nabla_{p_0} f, p-p_0\rangle + \|p-p_0\|F(p)
+                    \end{eqnarray*} 
+                    Nota: la última identidad también se vale cuando \(p=p_0\) pues en ese caso \(F(p_0)=0\)
+                    y ambos lados son iguales a \(f(p_0)\).
+                </p>
+                </div>
+                <button class="respButton hvr-grow "> Demostración inciso 2</button>
+                <div class="resp-box">
+                <p>
+                    Ahora, usando la continuidad de \(\gamma\) en \(t_0\), si $t$ está cercano a $t_0$ entonces  
+                    \(p=\gamma(t)\in B_r(p_0)\) y substituyendo en la ecuación del inciso 1 obtenemos:
+                    $$
+                    f(\gamma(t))= f (\gamma (t_0))+
+                    \langle \nabla_{p_0}f, \gamma(t)-\gamma(t_0) \rangle
+                    + \|\gamma(t)-\gamma(t_0)\| F(\gamma(t))
+                    $$
+                    Por lo que el cociente diferencial de \(f\circ \gamma\) toma la forma 
+                    
+                        $$
+                        \frac{f(\gamma(t)) - f (\gamma (t_0))}{t-t_0}=
+                        \langle \nabla_{p_0}f, \frac{\gamma(t)-\gamma(t_0)}{t-t_0} \rangle
+                        + \frac{\|\gamma(t)-\gamma(t_0)\|}{t-t_0} F(\gamma(t))
+                        $$
+                
+                </p>
+                </div>
+                <button class="respButton hvr-grow "> Demostración inciso 3</button>
+                <div class="resp-box">
+                <p>
+                Ya que     
+                $\gamma$ es diferenciable en $t_0$,
+                $$\lim_{t \to t_0}\frac{\gamma(t)-\gamma(t_0)}{t-t_0}=\gamma'(t_0) $$
+                Por otro lado,  la continuidad de $F$ y $\gamma$ implica que 
+                 \begin{eqnarray*} 
+                 \lim_{t\to t_0}F(\gamma(t))=F(\lim_{t\to t_0}\gamma(t))=F(p_0)=0
+                 \end{eqnarray*} 
+                 por lo tanto 
+                \begin{eqnarray*} 
+                \lim_{t\to t_0}\ \left| \frac{\|\gamma(t)-\gamma(t_0)\|}{t-t_0} F(\gamma(t)) \right|=\|\gamma'(t_0) \||F(p_0)|=0
+                \end{eqnarray*}
+                </p>
+                </div>
+                <button class="respButton hvr-grow "> Demostración inciso 4</button>
+                <div class="resp-box">
+                    <p>
+                        Es directo: toma límite cuando \(t\to t_0\) en ecuación \eqref{Eqn:AuxReglaCadena}
+                        y usa el inciso 3.
+                    </p>
+                </div>
 
     </ol>							
   </div>   
@@ -428,111 +795,7 @@
 
 
 
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-        Sea $U\ne \emptyset$ un abierto de
-        $\mathbb{R}^2$, $g:U\to \mathbb{R}$ una función de clase $C^1$
-        y $x,y:I\to \mathbb{R}$ funciones  de clase $C^1$
-        (con $I$ un intervalo abierto).
-        Encuentra $h'(t)$, la derivada de
-        $h$ (función de una variable), para las siguientes funciones:
-    </p>
-        <ol>
-            <li>
-                $h(t)=(g(x(t), y(t)))^2$,
-            </li>
-            <li>
-                $h(t)=e^{g(x(t),y(t))}$,
-            </li>
-            <li>
-                $h(t)=\sen(g(x(t),y(t)))$.
-            </li>
-        </ol>
-</div>
 
-
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-        Se dice que una función $f$ tiene rendimientos de escala constante,
-        o que es homogenea de grado 1, si satisface
-        \begin{equation}\label{Eqn:RendimientoEscala}
-        f(cx,cy)=cf(x,y)
-        \end{equation}
-        para toda $c>0$. El nombre viene porque, por ejemplo,
-        si se duplica $x$ y $y$, también se duplica $f$.
-        
-    </p>
-            <ol>
-                <li>
-                    Prueba que $f(x,y)=\sqrt{x^2+y^2}$ y  $f(x,y)=\sqrt{xy}$, $x,y>0$,
-                    tienen rendimientos de escala constante.
-                </li>
-                <li>
-                    Demuestra que si $f$ es clase $C^1$ y tiene rendimientos
-                    de escala constante entonces $f$ satisface:
-                    \begin{equation}\label{Eqn:RendimientoEscala2}
-                    x \partial_x f(x,y) + y \partial_y f(x,y)=f(x,y)
-                    \end{equation}
-                    
-                    Sugerencia: usa la regla de la cadena para
-                    diferenciar la ecuación \eqref{Eqn:RendimientoEscala}
-                    con respecto a $c$ y luego evalua en $c=1$.
-                </li>
-                <li>
-                    Demuestra directamente que $f(x,y)=\sqrt{x^2+y^2}$ y $f(x,y)=\sqrt{xy}$
-                    satisfacen la ecuacion \eqref{Eqn:RendimientoEscala2}.
-                </li>
-                <li>
-                    Encuentra un ejemplo de una función de rendimiento de escala
-                    constante diferente a las dadas en el ejercicio.
-                </li>
-            </ol>
-</div>
-
-
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-        Un alambre tiene forma circular, de radio $r$ y supongamos que está
-        colocado con su centro en el origen. Supongamos que
-        $T:\mathbb{R}^2 \to \mathbb{R}$ es la función que da la temperatura en
-        el punto $(x,y)$ del plano. Para las siguientes funciones
-        temperatura, encuentra las temperaturas máximas y mínimas
-        que sufre el alambre.
-    </p>
-
-            <ol>
-                <li>
-                    $T(x,y)=2x+3y$,
-                </li>
-                <li>
-                    $T(x,y)=2xy$,
-                </li>
-                <li>
-                    $T(x,y)=x^2+y^2$.
-                </li>
-            </ol>
-     <p>
-        Sugerencia: empieza dando $\gamma$, una parametrización del alambre,
-        luego encuentra el máximo y el mínimo de $T\circ \gamma$.
-     </p>       
-</div>
-
-
-
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-        Una función $f:\mathbb{R}^n \to \mathbb{R}$ se llama par si
-        satisface $f(-p)=f(p)$, para todo punto  $p$. Supon que $f$ es clase
-        $C^1$ y demuestra que  $\nabla_{(0,\dots, 0)}f=(0,\dots, 0)$.        
-    </p>
-    <p>
-        Sugerencia: aplica la regla de la cadena a $f(p)=f(-p)$. 
-    </p>
-</div>
 
 
 
