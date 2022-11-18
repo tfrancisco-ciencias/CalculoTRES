@@ -499,7 +499,43 @@
     <p>
         Sugerencia: aplica la regla de la cadena a $f(p)=f(-p)$. 
     </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            Como la función es de clase $C^1$ entonces existe cada una de sus derivadas parciales.
+            Será suficiente demostrar que se anula cada una de sus derivadas parciales.
+            Definimos dos curvas de clase $C^1$ sobre $\mathbb{R}$,
+            \begin{align*}
+            \gamma_i(t) =& (0, \hdots,0,t,0,\hdots,0) = t e_i,\\
+            \alpha_i(t) =& (0, \hdots,0,-t,0,\hdots,0) = -t e_i.
+            \end{align*}
+            Como $\gamma_i(0) = 0 = \alpha(0)$ y además $\gamma(t)=-\alpha(t)$ entonces
+            \begin{equation*}
+            \frac{d f \circ \gamma(0)}{dt} = \frac{d f \circ \alpha(0)}{dt}.
+            \end{equation*}
+            Por medio de la regla de la cadena se desarrolla el lado izquierdo y derecho
+            de la ecuación anterior para obtener
+            \begin{align*}
+            \frac{d f \circ \gamma(0)}{dt} =& \langle \nabla_{0,\hdots, 0}f, \gamma'(0)\rangle,\\
+            =& \langle \nabla_{0,\hdots, 0}f, (0,\hdots,0,1,0,\hdots,0)\rangle,\\
+            =& \langle \nabla_{0,\hdots,0}f, e_i \rangle,\\
+            =& \partial_{x_i}f(0,\hdots,0).
+            \end{align*}
+            De manera análoga,
+            \begin{align*}
+            \frac{d f \circ \alpha(0)}{dt} =& \langle \nabla_{0,\hdots,0}f, (0,\hdots,0,-1,0,\hdots,0)\rangle,\\
+            =& \langle \nabla_{0,\hdots,0}f , -e_i\rangle,\\
+            =& - \partial_{x_i}f(0,\hdots,0).
+            \end{align*}
+            Por lo tanto $\partial_{x_i}f(0,\hdots,0) = -\partial_{x_i}f(0,\hdots,0)$ y concluimos que
+            \begin{equation*}
+            \partial_{x_i}f(0,\hdots,0) = 0,
+            \end{equation*}
+            como se había propuesto.
+        </p>
+    </div>
 </div>
+
 <div class="ejercicio-box"> 
     <h2 class="number-title"> Ejercicio</h2> 
     <p> 
