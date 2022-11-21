@@ -82,32 +82,66 @@
   </head>
   <body class="fondo-body" >
 
-    <h1 class="number-title flexbox"> Regla de la cadena y aplicaciones </h1> 
+    <h1 class="number-title flexbox"> Regla de la cadena </h1> 
+<!-- this part is for next and prev sections -->
+<!--<button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>-->
+<button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
 
 
 
+<div class="nota-box">
+  <h2 class="number-title"> Nota </h2>
+  <p>
+    Antes de dar la regla de la cadena en la forma más general tenemos que definir 
+    las funciones diferencibles de la forma más general. Hasta ahora sólo se han 
+    tratado la diferenciabilidd de funciones con valores escalares (llamadas campos escalares) la siguiente 
+    definición generaliza la definición de diferenciabilidad para funciones con 
+    valores vectoriales (llamados campos vectoriales). 
+  </p>
 
+</div>
                
 <div class="definicion-box">
   <h2 class="number-title" id="Def:DerivadaGeneral">  Definición</h2>
+  
   <p>
       Sea $U\ne \emptyset$ un subconjunto abierto de $\mathbb{R}^n$ y $F:U \to \mathbb{R}^m$
       una función. Escribamos las funciones coordenadas de $F$ como
-      $F(p)=(f_1(p),\cdots, f_m(p) )$. La función $F$ es diferenciable en
-      $p_0$ si y sólo si todas las funciones escalares $f_i$, $i=1,\dots, m$, son diferenciables
-      en $p_0$. Note que cada $f_i$ es una función de $n$-variables.        
+      $$F(p)=(f_1(p),\cdots, f_m(p) )$$
+      donde cada \(f_i\) es una función que con valores escalares, \(f_i:U \to \mathbb{R}\).
+      
   </p>
   <p>
-      Recordemos que si $f_i$ es diferenciable en $p_0$ entonces todas sus derivadas parciales en $p_0$
-      existen. Asi pues, si $F=(f_1,\dots, f_m)$ es diferenciable en $p_0$  podemos formar la matriz de derivadas 
-      parciales, denotada $D_{p_0}F$, es decir
+
+    Decimos que la función  $F$ es diferenciable en
+    $p_0$ si y sólo si todas las funciones escalares $f_i$, $i=1,\dots, m$, son diferenciables
+    en $p_0$. 
+  </p>
+  <p>
+    Si \(F\) es diferenciable en \(p_0\) definimos la matriz de darivadas parciales de \(F\) en 
+    \(p_0\) como: 
       $$
       D_{p_0}F=[\partial_{p_j}f_i(p_0)]_{1\leq i \leq  m,  1 \leq j \leq n}
-      $$        
+      $$ 
   </p>
   <p>
-      Note que  el  renglón-$i$ de $D_{p_0}F$ es simplemente $\nabla_{p_0}f_i$.
+    Notas.
   </p>
+  <ol>
+    <li>
+      Recordemos que si $f_i$ es diferenciable en $p_0$ entonces todas sus derivadas parciales en $p_0$
+      existen asi pues la matriz anterior tiene sentido. 
+    </li>
+    <li>
+      El  renglón-$i$ de $D_{p_0}F$ es simplemente $\nabla_{p_0}f_i$. Es decir la matriz derivada se 
+      obtiene escribiendo en los renglones los gradientes de las funciones coordenadas.
+    </li>
+    <li>
+      La matriz \(D_{p_0}F\) es una matriz de \(m\times n\) es decir de tamaño
+      \[\textrm{(dimensión codominio)}\times \textrm{(dimensión dominio)}\]
+    </li>
+  </ol>
+  
 </div>
 
 
@@ -131,6 +165,12 @@
           <li>
               $F(x,y,z)=(xyz, x^2y^2z^2)$
           </li>
+          <li>
+            \(F(x,y,z)=(xy, xe^{xy}, \ln(1+x^2z^2))\)
+          </li>
+          <li>
+            \(F(x,y,z)=(x+y+z, x^2+y^2+z^2, e^{xyz}, \ln(x^2+y^2+z^2))\)
+          </li>
       </ol>        
   </p>
 </div>
@@ -139,7 +179,7 @@
 
 
 
-<div class="ejercicio-box"> 
+<!--<div class="ejercicio-box"> 
   <h2 class="number-title" id="Ejer:LimiteEquivalenteDefDif"> Ejercicio</h2> 
   <p>
       Usando el cambio de variable $p=(x,y)$ y denotando $p_0=(x_0,y_0)$, prueba que el
@@ -150,22 +190,66 @@
       $$
       donde $f:U\subset \mathbb{R}^2 \to \mathbb{R}$ es diferenciable en $p_0$.
   </p>
+</div>-->
+
+
+
+
+
+<div class="ejercicio-box"> 
+  <h2 class="number-title"> Ejercicio</h2> 
+  <p>
+      Supongamos que  $F:\mathbb{R}^n \to \mathbb{R}^m$ es una función lineal.
+      Demuestra que, para todo $p_0\in \mathbb{R}^n$, $F$ es
+      diferenciable en $p_0$. Además si \(M\) es la matriz que 
+      representa a \(F\) entonces  $D_{p_0}F=M$.
+  </p>
 </div>
+
+
+
+
+
+
+<div class="ejercicio-box"> 
+  <h2 class="number-title"> Ejercicio</h2> 
+  <p> 
+      Sea $U$ un abierto de $\mathbb{R}^n$ , $F,G:U\to \mathbb{R}^m$ dos funciones y 
+      sea $\alpha\in \mathbb{R}$ un escalar.
+      Sea $p_0 \in U$ un punto tal que tanto $F$ como $G$ son diferenciables en $p_0$.
+  </p>
+  <p>
+    Demuestra que la función
+      $\alpha F+G$ es diferenciable en $p_0$ y
+      $$
+      D_{p_0}(\alpha F+G)=\alpha D_{p_0}F+D_{p_0}G.
+      $$
+  </p>
+  <!--<p>
+      Sugerencia: define la función $H:=\alpha F+G$ y la matriz $A=\alpha D_{p_0}F+D_{p_0}G$. Primero
+      muestra que, para $p\ne p_0$
+      \begin{eqnarray*}
+      \| H(p)- H(p_0)-A(p-p))   \|  &\leq  & |\alpha| \|F(p)-F(p_0)-D_{p_0}F(p-p_0)  \| \\
+                                    &+& \|G(p)-G(p_0)-D_{p_0}G(p-p_0) \|
+      \end{eqnarray*}
+      Después, usa el ejercicio \ref{Ejer:EquivDefDifGeneral} para concluir que $H$ es diferenciable
+      en $p_0$ con $D_{p_0}H=A$.        
+  </p>-->
+</div>
+
 
 
 <div class="ejercicio-box"> 
   <h2 class="number-title" id="Ejer:LimiteDefDifRn"> Ejercicio</h2> 
+  
   <p>
-      Este ejercicio es análogo al ejercicio \ref{Ejer:LimiteEquivalenteDefDif}, pero
-      para funciones de $\mathbb{R}^2$ a $\mathbb{R}^2$.
-  </p>
-  <p>
-      Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^2$, $(x_0,y_0)\in $ y 
+      Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^2$, $(x_0,y_0)\in U $ y 
       $F:U \to \mathbb{R}^2 $ una función diferenciable en $(x_0,y_0)$.
   </p>
   <p>
       Escribamos las funciones coordenadas de $F$ como $F=(f_1,f_2)$. Por simplicidad
-      denotamos $A$ la matriz (de 2 por 2) de derivadas parciales $D_{(x_0,y_0)}F$.        
+      denotamos por $A$ a la función lineal inducida por la 
+      matriz de derivadas parciales $D_{(x_0,y_0)}F$.        
   </p>
   <p>
       <ol>
@@ -184,13 +268,13 @@
                     {\| (x-x_0,y-y_0)\|}
               \end{eqnarray*}
               
-              Hint: primero prueba que, para todo vector $(a,b)$
-              $$
-              \| (a,b) \| \leq |a| + |b|.
-              $$
+              Hint: primero escribe la numerador \(F(x,y)-F(x_0,y_0)-A(x-x_0,y-y_0) \)
+              en sus coordenadas y después recuerda que
+              $\| (a,b) \| \leq |a| + |b|.$
           </li>
           <li>
-              Usando el inciso anterior y el ejercicio \ref{Ejer:LimiteEquivalenteDefDif}
+              Usando el inciso anterior y el hecho de que las funciones \(f_i\) son diferenciables en 
+              \(p_0\)
               demuestra que
               $$
               \lim_{(x,y)\to (x_0,y_0)}	\frac{\|F(x,y)-F(x_0,y_0)-A(x-x_0,y-y_0) \|}{\|(x-x_0,y-y_0)\|} =0.
@@ -210,23 +294,29 @@
 <div class="ejercicio-box"> 
   <h2 class="number-title" id="Ejer:EquivDefDif"> Ejercicio</h2> 
   <p>
-      Este ejercicio se puede pensar como el regreso del ejercicio \ref{Ejer:LimiteDefDifRn}.
+      Este ejercicio se puede pensar como el regreso del <a href="#Ejer:LimiteDefDifRn"> Ejercicio 13.4</a>.
   </p>
   <p>
-      Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^2$,  $p_0=(x_0,y_0)\in U$
-      y $F:U\to \mathbb{R}^2$. Supongamos que existe una matriz, de 2 por 2, $A$, tal que
+    Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^2$,  $p_0=(x_0,y_0)\in U$
+      y $F:U\to \mathbb{R}^2$.
+  </p>
+  <p>
+       Supongamos que existe una función lineal  $A:\mathbb{R}^2\to \mathbb{R}^2$, tal que
       \begin{equation}\label{Eqn:GenLimiteEquivalenteDefDif}
       \lim_{(x,y)\to (x_0,y_0)} \frac{\| F(x,y)-F(x_0,y_0)-A(x-x_0,y-y_0) \|}{\| (x-x_0, y-y_0)  \|}=0.	
       \end{equation}
       Denotemos
-      $$
+      \[
+      A(x,y)=(a_{1,1}x+a_{1,2}y, a_{2,1}x+a_{2,2}y).
+      \]
+      <!--$$
       A=\left[
       \begin{array}{cc}
         a_{1,1} & a_{1,2} \\
         a_{2,1} & a_{2,2}
       \end{array}
       \right]	
-      $$
+      $$-->
       Demuestra que 
       <ol>
           <li>
@@ -237,14 +327,13 @@
                 &\leq &
                         \frac{\|F(x,y)-F(x_0,y_0)-A(x-x_0,y-y_0) \|}{\|(x-x_0,y-y_0)\|}
               \end{eqnarray*}
-              Hint: primero prueba  que, para todo vector $(a,b)$
-              $$
-              |a|\leq \| (a,b)\|, \quad |b|\leq \|(a,b) \|
-              $$
+              Hint: recuerda que 
+              $
+              |a|\leq \| (a,b)\|, \quad |b|\leq \|(a,b) \|.
+              $
           </li>
           <li>
-              Usando la hipótesis \eqref{Eqn:GenLimiteEquivalenteDefDif} y la definición
-              \ref{Def:DerivadaR2} concluye que tanto $f_1$
+              Concluye del inciso anterior y de la <a href="./S8.html#Def:DerivadaR2">definción de diferenabildad (8.1)</a>  que tanto $f_1$
               como $f_2$ son diferenciables en $p_0$ y por lo tanto $F$ es diferenciable en $p_0$.          
           </li>
       </ol>        
@@ -252,95 +341,44 @@
 </div>
 
 
-<div class="ejercicio-box"> 
-  <h2 class="number-title" id="Ejer:EquivDefDifR2"> Ejercicio</h2> 
+<div class="nota-box"> 
+  <h2 class="number-title" id="Ejer:EquivDefDifR2"> Nota</h2> 
   <p>
-      Usando los dos ejercicios \ref{Ejer:LimiteDefDifRn} y \ref{Ejer:EquivDefDif} prueba:
-  </p>
-  <p>
-      Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^2$, $(x_0,y_0)\in U$ y $F:U\to \mathbb{R}^2$. 
-      Entonces $F$ es diferenciable (en el sentido de la definición \ref{Def:DerivadaGeneral}) si y sólo si 
-      existe una matriz $A$, de 2 por 2, tal que 
+      De los  <a href="#Ejer:LimiteDefDifRn">Ejercicio 13.4</a> y <a href="@Ejer:EquivDefDif">Ejercicio 13.5</a> 
+      se puede concluir que \(F:U\to \mathbb{R}^2\) es diferenciable en \(p_0\) sii si y sólo si 
+      existe una transformación lineal  $A:\mathbb{R}^2\to \mathbb{R}^2$ tal que 
       $$
-      lim_{(x,y)\to (x_0,y_0)}   \frac{\|F(x,y)-F(x_0,y_0)-A(x-x_0,y-y_0) \|}{\|(x-x_0,y-y_0)\|}=0
+      \lim_{(x,y)\to (x_0,y_0)}   \frac{\|F(x,y)-F(x_0,y_0)-A(x-x_0,y-y_0) \|}{\|(x-x_0,y-y_0)\|}=0
       $$  
-  </p>
+      y la matriz que representa \(A\) es la matriz de derivadas parciales \(D_{p_0}F\).
+   </p>
 </div>
 
 
-<div class="ejercicio-box"> 
-  <h2 class="number-title" id="Ejer:EquivDefDifGeneral"> Ejercicio</h2> 
+<div class="prop-box"> 
+  <h2 class="number-title" id="Ejer:EquivDefDifGeneral"> Proposición</h2> 
   <p>
-      Generaliza el ejercicio  \ref{Ejer:EquivDefDifR2} 
-      para varias dimensiones, es decir, prueba lo siguiente.         
+      Esta proposición  generaliza la observación de la   <a href="#Ejer:EquivDefDifR2">Nota 13.6</a>  
+      para varias dimensiones.
   </p>
   <p>
-      Sea $U$ un subconjunto abierto de $\mathbb{R}^n$ y $F:U\to \mathbb{R}^m$. Sea
-      $p_0\in U$. Prueba que  $F$ es diferenciable en $p_0$ si y sólo si  existe una matriz $A$,
+    Sea $U$ un subconjunto abierto de $\mathbb{R}^n$, $p_0\in U$  y $F:U\to \mathbb{R}^m$.
+  </p>
+  <p>    
+      $F$ es diferenciable en $p_0$ si y sólo si  existe una trandormación lineal  $A:\mathbb{R}^n \to \mathbb{R}^m$,
       de $m$ por $n$, tal que
       $$
-      \lim_{p\to p_0}\frac{\|F(p)-F(p_0)-T(p-p_0)) \|}{\|p-p_0\|}=0.
+      \lim_{p\to p_0}\frac{\|F(p)-F(p_0)-A(p-p_0)) \|}{\|p-p_0\|}=0.
       $$
-      En tal caso, $A=D_{p_0}F$.        
+      En tal caso la matriz de derivadas parciales $D_{p_0}F$ es la representación matricial de \(A\).        
   </p>
   <p>
-      Sugerencia: copia los pasos de los ejercicios \ref{Ejer:LimiteDefDifRn} y \ref{Ejer:EquivDefDif}
-      pero ahora utiliza las desigualdades        
-  </p>
-  <p>
-          $$
-          \|(a_1,\dots, a_n)\| \leq |a_1|+\cdots +|a_n|
-          $$
-          y 
-          $$
-          |a_i| \leq \| (a_1,\dots, a_n)\|, \quad \textrm{para toda $i=1,\dots, n$}.
-          $$
-  </p>
+      Sugerencia: copia los pasos de  <a href="#Ejer:LimiteDefDifRn">Ejercicio 13.4</a> 
+      <a href="#Ejer:EquivDefDif">Ejercicio 13.5</a>.
+    </p>
 </div>
 
 
-
-
-
-<div class="ejercicio-box"> 
-  <h2 class="number-title"> Ejercicio</h2> 
-  <p>
-      Supongamos que  $F:\mathbb{R}^n \to \mathbb{R}^m$ es una función lineal.
-      Demuestra que, para todo $p_0\in \mathbb{R}^n$, $F$ es
-      diferenciable en $p_0$ y $D_{p_0}F=F$.
-  </p>
-  <p>
-      Sugerencia: usa el ejercicio \ref{Ejer:EquivDefDifGeneral}.
-  </p>
-</div>
-
-
-
-
-
-
-<div class="ejercicio-box"> 
-  <h2 class="number-title"> Ejercicio</h2> 
-  <p> 
-      Sea $U$ un abierto de $\mathbb{R}^n$  y $F,G:U\to \mathbb{R}^m$ dos funciones.
-      Sea $p_0 \in U$ un punto tal que tanto $F$ como $G$ son diferenciables en $p_0$.
-      Sea $\alpha\in \mathbb{R}$ un escalar. Demuestra que la función
-      $\alpha F+G$ es diferenciable en $p_0$ y
-      $$
-      D_{p_0}(\alpha F+G)=\alpha D_{p_0}F+D_{p_0}G.
-      $$
-  </p>
-  <p>
-      Sugerencia: define la función $H:=\alpha F+G$ y la matriz $A=\alpha D_{p_0}F+D_{p_0}G$. Primero
-      muestra que, para $p\ne p_0$
-      \begin{eqnarray*}
-      \| H(p)- H(p_0)-A(p-p))   \|  &\leq  & |\alpha| \|F(p)-F(p_0)-D_{p_0}F(p-p_0)  \| \\
-                                    &+& \|G(p)-G(p_0)-D_{p_0}G(p-p_0) \|
-      \end{eqnarray*}
-      Después, usa el ejercicio \ref{Ejer:EquivDefDifGeneral} para concluir que $H$ es diferenciable
-      en $p_0$ con $D_{p_0}H=A$.        
-  </p>
-</div>
 
 
 
@@ -350,12 +388,15 @@
   <h2 class="number-title"> Ejercicio</h2> 
   <p>
       Así como las funciones diferenciables con valores reales admiten una aproximación lineal,
-      ver ejercicio \ref{Ejer:AproxLineal}, también
+      (ver ejercicio <a href="./S10.html#Ejer:AproxLineal">Proposición 10.3</a>), también así lo hacen 
       las funciones con valores vectoriales.        
   </p>
   <p>
-      Sea $U\ne \emptyset $ un abierto de $\mathbb{R}^n$, $p_0\in U$ y $F:U\to \mathbb{R}^m$ una función
-      diferenciable en $p_0$. Demuestra que existe una función con valores vectoriales, definida en
+    Sea $U\ne \emptyset $ un abierto de $\mathbb{R}^n$, $p_0\in U$ y $F:U\to \mathbb{R}^m$ una función
+    diferenciable en $p_0$. 
+  </p>
+  <p>
+      Demuestra que existe una función con valores vectoriales, definida en
       una bola centrada en $p_0$, $E:B_r(p_0) \to \mathbb{R}^m$ tal que
       <ol>
           <li>
@@ -374,23 +415,20 @@
 
 
 
-<div class="ejercicio-box"> 
-  <h2 class="number-title"> Ejercicio</h2> 
-  <p>
-      Este ejercicio es el análogo al \ref{Ejer:CaracterizacionAproxLineal} , 
-      pero para funciones que toman valores vectoriales.
-  </p>
+<div class="prop-box"> 
+  <h2 class="number-title" id="Prop:AproxLinealImplicaDif"> Proposición</h2> 
+  
   <p>
       Sea $U\ne \emptyset $ un abierto de $\mathbb{R}^n$, $p_0\in U$ y $F:U\to \mathbb{R}^m$ una función.
   </p>
   <p>
           Supongamos que existe una bola abierta $B_r(p_0)\subseteq U$,
           una función $\tilde{E}:B_r(p_0) \to \mathbb{R}^m$
-          y una matriz $A$ de $m\times n$  que satisfacen
+          y una función lineal $L:\mathbb{R}^n \to \mathbb{R}^m$   que satisfacen
 
           <ol>
               <li id="Hip:1">
-                  para $p\in B_r(p_0)$, $F(p)=F(p_0)+A(p-p_0)+\tilde{E}(p)$
+                  para $p\in B_r(p_0)$, $F(p)=F(p_0)+L(p-p_0)+\tilde{E}(p)$
               </li>
               <li id="Hip:2">
                   $$
@@ -404,7 +442,8 @@
   <p>
       Sugerencia: si $\tilde{E}(p)=(\tilde{E}_1(p), \dots, \tilde{E}_m(p))$, primero
       prueba que las funciones $\tilde{E}_j$ satisfacen las condiciones del ejercicio
-      \ref{Ejer:CaracterizacionAproxLineal} y de éste ejercicio concluye que
+      <a href="./S10.html#Ejer:CaracterizacionAproxLineal">Proposición 10.4</a> y de 
+      éste ejercicio concluye que
       cada función coordenada de $F$ es diferenciable en $p_0$.
       
   </p>
@@ -612,67 +651,61 @@
             Usando que $F$ es diferenciable en $p_0$,
             prueba que podemos escribir, para $p$ cercano a $p_0$:
             $$
-            F(p)=F(p_0)+ D_{p_0} F(p-p_0) + E(p)
+            F(p)=F(p_0)+ D_{p_0}F (p-p_0) +\|p-p_0\| K(p)
             $$
-            con $E(p)$ una función continua con
-            $\lim_{p\to p_0}\|E(p)\|/\|p-p_0\|=0$ y $E(p_0)=0$.
-        </li>
-        <li>
-            Modifica el inciso anterior para probar que,
-            para $p$ cercano a $p_0$
+            con $K(p)$ una función continua con \(K(p_0)=0\).
+            <p>
+              Sugerencia: si \(E\) es el error de la aproximación lineal define 
             $$
-            F(p)=F(p_0)+ D_{p_0}F (p-p_0) +\|p-p_0\| F(p)
-            $$
-            donde $F$ es una función continua con $F(p_0)=0$.
-     
-            Sugerencia: simplemente define
-            $$
-            F(p)=\left\{
+            K(p)=\left\{
               \begin{array}{cc}
                 \frac{E(p)}{\|p-p_0\|} & p\ne p_0 \\
                 0 & p=p_0
               \end{array}
             \right.
             $$
+
+            </p>
         </li>
+        
         <li>
             Ahora prueba que, para $q$ cercano a $q_0$:
             $$
             F(G(q))= F (G (q_0))+
             (D_{p_0}F)( G(q)-G(q_0))
-            + \|G(q)-G(q_0)\| F(G(q))
+            + \|G(q)-G(q_0)\| K(G(q))
             $$
         </li>
         <li>
             Usando que $G$ es diferenciable en $q_0$ prueba
             que, para $q$ cercano a $q_0$
             $$
-            G(p)-G(q_0)=(D_{q_0})G(q-q_0)+ \| q-q_0\|\tilde{F}(q)
+            G(p)-G(q_0)=D_{q_0}G(q-q_0)+ \| q-q_0\|\tilde{K}(q)
             $$
-            donde $\tilde{F}$ es una función continua
-            con $\tilde{F}(q_0)=0$.
+            donde $\tilde{K}$ es una función continua
+            con $\tilde{K}(q_0)=0$.
         </li>
         <li id="Ejer:AuxReglaCadenaGeneral">
             Concluye que, para $q \ne q_0$ y cerca de $q_0$  
             \begin{eqnarray*}
             \frac{\|F(G(q))-F(G(q_0))- (D_{p_0}F)(D_{q_0}G)(q-q_0) \|}{\|q-q_0 \|}
-            &\leq &  \| (D_{p_0}F)(\tilde{F}(q))\| \\
-           &+& \frac{\| G(q)-G(q_0)\|}{\|q-q_0\|}\| F(G(q))\|
+            &\leq &  \| (D_{p_0}F)(\tilde{K}(q))\| \\
+           &+& \frac{\| G(q)-G(q_0)\|}{\|q-q_0\|}\| K(G(q))\|
             \end{eqnarray*}
         </li>
         <li>
             Prueba que 
             $$\lim_{q \to q_0}
-            \left| \frac{\| G(q)-G(q_0)\|}{\|q-q_0\|} F(G(q))\right|=0
+            \left| \frac{\| G(q)-G(q_0)\|}{\|q-q_0\|} K(G(q))\right|=0
             $$
             y
      
             $$
-            \lim_{q\to q_0} \|(D_{p_0}F)(\tilde{F}(q) \|=0.
+            \lim_{q\to q_0} \|(D_{p_0}F)(\tilde{K}(q) \|=0.
             $$
         </li>
         <li>
-            Usando el ejercicio \ref{Ejer:EquivDefDifGeneral}, concluye
+            Usando la <a href="#Prop:AproxLinealImplicaDif">Proposición 13.11</a> concluye
             que $F\circ G$ es diferenciable en $q_0$ y
             $$
             D_{q_0}F\circ G= (D_{G(q_0)}F)(D_{q_0}G)
@@ -681,7 +714,42 @@
     </ol>							
 </div>
 
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <ol>
+  <li>
+    Las ecuaciones 
+    \[
+    u=f(x,y,z), x=X(r,s,t), y=Y(r,s,t), z=Z(r,s,t)
+    \]
+    definen a \(u\) como una función de \(r,s,t\). Usando la regla de la cadena calcula 
+    \[
+    \frac{\partial u}{ \partial r},\frac{\partial u}{ \partial s}, \frac{\partial u}{ \partial t}.
+    \]
+  </li>
+  <li>
+    Las ecuaciones 
+    \[
+    u=f(x,y,z), x=X(r,s), y=Y(r,s), z=Z(r,s)
+    \]
+    definen a \(u\) como una función de \(r,s,t\). Usando la regla de la cadena calcula 
+    \[
+    \frac{\partial u}{ \partial r},\frac{\partial u}{ \partial s}. 
+    \]
+  </li>
+  <li>
+    Las ecuaciones 
+    \[
+    u=f(x,y), x=X(r,s,t), y=Y(r,s,t), z=Z(r,s,t)
+    \]
+    definen a \(u\) como una función de \(r,s,t\). Usando la regla de la cadena calcula 
+    \[
+    \frac{\partial u}{ \partial r},\frac{\partial u}{ \partial s},\frac{\partial u}{ \partial t} . 
+    \]
+  </li>
+  </ol>
 
+</div>
   
 <div class="ejercicio-box"> 
   <h2 class="number-title"> Ejercicio</h2> 
@@ -769,7 +837,7 @@
         <li>
             Sean $p,q,r:\mathbb{R}\to \mathbb{R}$ funciones
             continuas en todo $\mathbb{R}$. Encuentra
-            todas la funciones diferenciables en $\mathbb{R}^3$,
+            todas la funciones diferenciables,
             $G:\mathbb{R}^3 \to \mathbb{R}^3$, para
             las cuales
     
@@ -787,20 +855,6 @@
  </div>
 
 
-      
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-      Usa la regla de la cadena para probar que,
-      si $g:U\to \mathbb{R}$ es de clase
-        $C^1$ en $U$, con $U$ un abierto de $\mathbb{R}^n$, entonces
-        $$
-        \nabla_{p}(1/g)=-\frac{1}{g(p)^2}\nabla_p g
-        $$    
-        donde suponemos que $g(p)\ne 0$, para toda $p\in U$.
-    </p>
-    
-   </div>
 
   <div class="ejercicio-box"> 
     <h2 class="number-title"> Ejercicio</h2> 
@@ -821,86 +875,12 @@
     </p>
 </div>
 
-      
-<div class="definicion-box">
-  <h2 class="number-title" id="Def:PlanoTangenteSupNivel">  Definición</h2>
-  <p>
-    Sea $U\ne \emptyset$ un conjunto abierto de $\mathbb{R}^3$
-    y $g:U \to \mathbb{R}$ una función de clase $C^1$. Considera
-    la superficie de nivel
-    $$
-    S=\{(x,y,z): g(x,y,z)=0\}
-    $$
-  </p>
-  <p>
-    Si $p_0=(x_0,y_0,z_0)\in S$ y
-    $\nabla_{p_0}g \ne 0$, el plano tangente a $S$, que pasa
-    por $p_0$ se define como
-    $$
-    \{ (x,y,z): \langle
-    \nabla_{p_0}g, (x-x_0, y-y_0, z-z_0)
-    \rangle =0
-    \}
-    $$
-    es decir, los puntos $(x,y,z)$ para los cuales
-    $(x,y,z)-(x_0,y_0,z_0)$ es ortogonal a $\nabla_{p_0}g$.
-  </p>
-</div>
-
-<div class="ejercicio-box"> 
-  <h2 class="number-title"> Ejercicio</h2> 
-  <p>
-    Sea $U\ne \emptyset$ un conjunto abierto de $\mathbb{R}^3$
-    y $g:U \to \mathbb{R}$ una función de clase $C^1$. Considera
-    la superficie de nivel
-    $$
-    S=\{(x,y,z): g(x,y,z)=0\}
-    $$
-    y $p_0=(x_0,y_0,z_0)\in S$.
-  </p>
-  
-
-  <ol>
-      <li>
-          Prueba que la ecuación del
-          plano tangente a $S$ en $p_0$ está dada por
-          $$
-          \partial_xg(p_0)(x-x_0)+\partial_yg(p_0)(y-y_0)+\partial_zg(p_0)(z-z_0)
-          =0
-          $$
-      </li>
-      <li>
-          Sea $\gamma:I \to \mathbb{R}^3$ una curva diferenciable  tal que
-          $\gamma(I)\subset S$  y
-          $\gamma(t_0)=p_0$. Demuestra que $p_0+\gamma'(t_0)$ es un punto
-          en el plano tengente a $S$ que pasa por $p_0$.
-      </li>
-  </ol>
-</div>
-
-
-<div class="ejercicio-box"> 
-<h2 class="number-title"> Ejercicio</h2> 
-<p>
-  Hallar la ecuación del plano tangente a las superficies
-  dadas en los puntos indicados.
-</p>
-<ol>
-  <li>
-      $x^2+2y^2+3xz=10$ en $(1,2,1/3)$,
-  </li>
-  <li>
-      $y^2-x^2=3$ en $(1,2,8)$,
-  </li>
-  <li>
-      $xyz=1$ en $(1,1,1)$.
-  </li>
-</ol>
-</div>
 
 
 
-<div class="ejercicio-box"> 
+
+
+<!--<div class="ejercicio-box"> 
 <h2 class="number-title"> Ejercicio</h2> 
 <p>
 Recuerda que, para una superficie de nivel
@@ -918,82 +898,9 @@ $f(x,y)$, clase $C^1$,  se puede obtener de la ecuación anterior si
 se considera a la gráfica
 como una superficie de nivel de $g(x,y,z)=f(x,y)-z$.
 </p>
-</div>
+</div>-->
 
 
 
-
-<div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> 
-<p>
-Dada una superficie $S$ en $\mathbb{R}^3$
-y un punto $p_0$ en la superficie, vamos a
-denotar $N,U,L$, a tres vectores unitarios
-con las características de que:
-</p>
-<p>
-$N$  es el vector normal al plano tangente a $S$
-que pasa por $p_0$; $U$ es vector que indica
-la dirección donde la razón de crecimiento, en $p_0$, es máxima;
-$L$ es el  vector donde la razón de crecimiento, en $p_0$, es cero.  
-</p>  
-<p>
-Nota:  en general hay dos elecciones para dichos vectores,
-pues podemos tomar su negativo
-(por ejemplo $-N$ o $N$).
-
-</p>
-
-<p>
-Para las siguientes superficies calcula $N,U$ y $L$
-para un punto general de la superficie.
-</p>    
-
-
-<ol>
-  <li>
-      $S$ es la gráfica de la función $g(x,y)=1-x-y$ (un plano).
-  </li>
-  <li>
-      $S$ es la superficie dada por la ecuación $x^2+y^2-z^2=0$
-      (un cono). En este ejemplo
-      se evita el vértica, pues el plano tangente en ese punto
-      no está bien definido.
-  </li>
-</ol>
-</div>
-
-
-
-<div class="ejercicio-box"> 
-<h2 class="number-title"> Ejercicio</h2> 
-<p>
-Considera la función
-$f(x,y)=-(1-x^2-y^2)^{1/2}$, definida para los puntos $(x,y)$
-con $x^2+y^2 < 1$. Prueba que el plano tangente a la gráfica
-de $f$, en el punto $(x_0,y_0,f(x_0,y_0))$
-es ortogonal al vector $(x_0,y_0,f(x_0,y_0))$.
-
-</p>
-</div>
-
-
-<div class="ejercicio-box"> 
-<h2 class="number-title"> Ejercicio</h2> 
-<p>
-  Encuentra el conjunto de puntos $(a,b,c)$
-  en $\mathbb{R}^3$, para los cuales las
-  dos esferas: $(x-a)^2+(y-b)^2+(z-c)^2=1$ y $x^2+y^2+z^2=1$,
-  se intersectan ortogonalmente.  
-</p>
-<p>
-  Nota: Dos superficies se intersectan ortogonalmente si,
-  para todo punto en su intersección,
-  los planos tangentes son ortogonales. 
-</p>
-<p>
-  Sugerencia: ve las esferas como superficies de nivel y
-  utiliza gradientes. 
-</p>
-</div>
 
  </body>
