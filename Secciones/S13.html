@@ -562,6 +562,9 @@
           </li>
       </ol>
   </p>
+  <p>
+    Concluye que la función \(F\) es continua en \(p_0\).
+  </p>
   <button class="respButton hvr-grow "> Solución</button>
   <div class="resp-box">
   <p>
@@ -739,9 +742,32 @@
         el primer caso de la regla de la cadena, prueba que
         $$
         \partial_x h_i =\partial_u f_i \partial_x g_1+
-        \partial_v f_i \partial_yg_2
+        \partial_v f_i \partial_x g_2
         $$
     </li>
+    <button class="respButton hvr-grow "> Solución inciso 1</button>
+    <div class="resp-box">
+    <p>
+      Componiendo las funciones tenemos 
+      \begin{eqnarray*} 
+      H(x,y,z)&=&F(G(x,y,z))\\
+      &=&(f_1(G(x,y,z)),f_2(G(x,y,z))) \\
+      &=& (f_1(g_1(x,y,z),g_2(x,y,z)), f_2(g_1(x,y,z),g_2(x,y,z)))
+      \end{eqnarray*}
+      de donde sale el resultado.
+    </p>
+    </div>
+    <button class="respButton hvr-grow "> Solución  inciso 2</button>
+        <div class="resp-box">
+    <p>
+      Fijamos \(y,z\) y definimos la curva \(\gamma(x)=(g_1(x,y,z),g_2(x,y,z))\). Se sigue que 
+      \begin{eqnarray*} 
+      \partial_xh_i&=& \frac{d f_i(\gamma(x))}{dx}\\
+      &=&\langle \nabla_{(u,v)} f , \gamma'(x)\rangle  \\
+      &=& \partial_u f \partial_x g_1+ \partial_vf \partial_x g_2
+      \end{eqnarray*}
+    </p>
+    </div>
 </ol>
 </div>
 
@@ -819,6 +845,10 @@
     Supongamos que $q_0\in V$,  $G$ es
     diferenciable en $q_0$ y $F$ es diferenciable en $G(q_0)$.
   </p>
+  <div class="flexbox">
+    <img src="./Images/S13-Img1.png" alt="ComposicionFun" width="60%" height="auto">
+  </div>
+
      <ol>
         <li>
             Denota $p_0=G(q_0)$.
@@ -830,6 +860,12 @@
             con $K(p)$ una función continua con \(K(p_0)=0\).
             
         </li>
+        <p>
+          <div class="flexbox">
+            <img src="./Images/S13-Img2.png" alt="AproxLineal" width="60%" height="auto">
+          </div>
+          
+        </p>
         
         <li>
             Ahora prueba que, para $q$ cercano a $q_0$:
@@ -918,7 +954,15 @@
         <div class="resp-box">
     <p>
       Ya que \(G\) es continua en \(q_0\) (al ser diferenciable en \(q_0\)) si \(q\) está cercano a 
-      \(q_0\) entonces \(G(q)\) está cercano a \(G(q_0)=p_0\) y por lo tanto podemos utilizar el inciso 1
+      \(q_0\) entonces \(G(q)\) está cercano a \(G(q_0)=p_0\).
+      
+      <div class="flexbox">
+        <img src="./Images/S13-Img3.png" alt="ContinuidadG" width="60%" height="auto">
+      </div>
+      
+    </p>
+    <p>
+      Por lo tanto podemos utilizar el inciso (1)
       para obtener (tomando \(p=G(q)\))
       \[
       F(G(q))= F (G (q_0))+
