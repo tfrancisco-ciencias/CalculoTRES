@@ -1253,6 +1253,65 @@
         parciales $D_{(u,0,w)}H$.
     </li>
   </ol>
+
+  <button class="respButton hvr-grow "> Solución</button>
+  <div class="resp-box">
+      <p>
+          <ol>
+              <li>
+                  Las matrices de derivadas parciales se obtienen colocando en la i-ésima fila el gradiente de la i-ésima función coordenada. De esta
+                  forma
+                  \begin{align*}
+                  D_{(x,y,z)}F =&
+                  \begin{pmatrix}
+                  2x & 1 & 1\\
+                  2 & 1 & 2z
+                  \end{pmatrix},\\
+                  D_{(u,v,w)}G =&
+                  \begin{pmatrix}
+                  2v^2w^2 & 4uvw^2 & 4uv^2w\\
+                  0 & w^2\cos(v) & 2w\sen(v)\\
+                  2ue^v & u^2e^v & 0
+                  \end{pmatrix},
+                  \end{align*}
+              </li>
+              <li>
+                  Primero calculamos $G(u,0,w) = (0,0,u^2)$. Por la regla de la cadena $D_{(u,0,w)}H = D_{G(u,0,w)}F D_{(u,0,w)}G$, evaluamos cada una
+                  de las matrices en el punto dado para obtener
+                  \begin{align*}
+                  D_{(u,0,w)}G =&
+                  \begin{pmatrix}
+                  0 & 0 & 0\\
+                  0 & w^2 & 0\\
+                  2u & u^2 & 0
+                  \end{pmatrix},
+                  D_{G(u,0,w)}F =&
+                  \begin{pmatrix}
+                  0 & 1 & 1\\
+                  2 & 1 & 2u^2
+                  \end{pmatrix},
+                  \end{align*}
+                  al multiplicar estas matrices se deduce que
+                  \begin{equation*}
+                  D_{(u,0,w)}H =
+                  \begin{pmatrix}
+                  0 & 1 & 1\\
+                  2 & 1 & 2u^2
+                  \end{pmatrix}
+                  \begin{pmatrix}
+                  0 & 0 & 0\\
+                  0 & w^2 & 0\\
+                  2u & u^2 & 0
+                  \end{pmatrix} =
+                  \begin{pmatrix}
+                  2u & w^2 + u^2 & 0\\
+                  4u^3 & w^2+2u^4 & 0
+                  \end{pmatrix}.
+                  \end{equation*}
+              </li>
+          </ol>
+      </p>
+  </div>
 </div>
 
 
