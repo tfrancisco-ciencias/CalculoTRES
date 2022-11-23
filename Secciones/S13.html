@@ -1145,7 +1145,7 @@
   <li>
     Las ecuaciones 
     \[
-    u=f(x,y), x=X(r,s,t), y=Y(r,s,t), z=Z(r,s,t)
+    u=f(x,y), x=X(r,s,t), y=Y(r,s,t)
     \]
     definen a \(u\) como una función de \(r,s,t\). Usando la regla de la cadena calcula 
     \[
@@ -1153,6 +1153,82 @@
     \]
   </li>
   </ol>
+
+  <button class="respButton hvr-grow "> Solución 1</button>
+  <div class="resp-box">
+      <p>
+          Los tres ejercicios se resolverán de manera similar. 
+      </p>
+      <p>
+          Tenemos composición de una función de $\mathbb{R}^3 \to \mathbb{R}^3$ con otra de $\mathbb{R}^3 \to \mathbb{R}$.
+          Por un lado notemos que como función de $x,y,z$ la matriz de derivadas parciales de $u$ es el gradiente
+          $D_{(x,y,z)}u = (\frac{\partial u}{\partial x}, \frac{\partial u}{\partial y}, \frac{\partial u}{\partial z})$.
+          y como función de $r,s,t$ es $D_{(r,s,t)}u = (\frac{\partial u}{\partial r},\frac{\partial u}{\partial s},\frac{\partial u}{\partial t})$.
+          Por otro lado, $u = f(x,y,z) = f(X(r,s,t),Y(r,s,t),Z(r,s,t))$, por lo que usando la regla de la cadena se tiene que
+          $D_{(r,s,t)}u = D_{(X(r,s,t),Y(r,s,t),Z(r,s,t))}f D_{(r,s,t)}(X,Y,Z)$. Ya se mencionó que la matriz
+          de derivadas parciales de $u$, o en su defecto de $f$, es un gradiente, la matriz de derivadas parciales
+          de la función $(X,Y,Z)$ es
+          \begin{equation*}
+          D_{(r,s,t)}(X,Y,Z) = \begin{pmatrix}
+          \frac{\partial X}{\partial r} & \frac{\partial X}{\partial s} & \frac{\partial X}{\partial t}\\
+          \frac{\partial Y}{\partial r} & \frac{\partial Y}{\partial s} & \frac{\partial Y}{\partial t}\\
+          \frac{\partial Z}{\partial r} & \frac{\partial Z}{\partial s} & \frac{\partial Z}{\partial t}
+          \end{pmatrix}.
+          \end{equation*}
+          Recordemos que si tenemos el producto de matrices $AB = C$, la entrada $i,j$ de la matriz $C$ se
+          obtiene de multiplicar la i-ésima matriz fila de $A$ por la j-ésima matriz columna de $B$, por lo
+          tanto
+          \begin{align*}
+          \frac{\partial u}{\partial r} =& \frac{\partial u}{\partial x}\frac{\partial X}{\partial r} + \frac{\partial u}{\partial y}\frac{\partial Y}{\partial r} + \frac{\partial u}{\partial z}\frac{\partial Z}{\partial r},\\
+          \frac{\partial u}{\partial s} =& \frac{\partial u}{\partial x}\frac{\partial X}{\partial s} + \frac{\partial u}{\partial y}\frac{\partial Y}{\partial s} + \frac{\partial u}{\partial z}\frac{\partial Z}{\partial s},\\
+          \frac{\partial u}{\partial t} =& \frac{\partial u}{\partial x}\frac{\partial X}{\partial t} + \frac{\partial u}{\partial y}\frac{\partial Y}{\partial t} + \frac{\partial u}{\partial z}\frac{\partial Z}{\partial t},\\
+          \end{align*}
+      </p>
+  </div>
+
+  <button class="respButton hvr-grow "> Solución 2</button>
+  <div class="resp-box">
+      <p>
+          En este caso tenemos la composición de una función de $\mathbb{R}^3 \to \mathbb{R}$ con una de de $\mathbb{R}^2 \to \mathbb{R^3}$,
+          sin embargo el procedimiento es similar. $u$ como función de $x,y,z$ tiene gradiente $(\frac{\partial u}{\partial x},\frac{\partial u}{\partial y},\frac{\partial u}{\partial z})$,
+          en tanto que como función de $r,s$ tiene gradiente $(\frac{\partial u}{\partial r},\frac{\partial u}{\partial s})$. La matriz de derivadas parciales de la función
+          $(X,Y,Z)$ ahora está dada por
+          \begin{equation*}
+          D_{(r,s,t)}(X,Y,Z) = \begin{pmatrix}
+          \frac{\partial X}{\partial r} & \frac{\partial X}{\partial s}\\
+          \frac{\partial Y}{\partial r} & \frac{\partial Y}{\partial s}\\
+          \frac{\partial Z}{\partial r} & \frac{\partial Z}{\partial s}\\
+          \end{pmatrix},
+          \end{equation*}
+          por lo tanto
+          \begin{align*}
+          \frac{\partial u}{\partial r} =& \frac{\partial u}{\partial x}\frac{\partial X}{\partial r} + \frac{\partial u}{\partial y}\frac{\partial Y}{\partial r} + \frac{\partial u}{\partial z}\frac{\partial Z}{\partial r},\\
+          \frac{\partial u}{\partial s} =& \frac{\partial u}{\partial x}\frac{\partial X}{\partial s} + \frac{\partial u}{\partial y}\frac{\partial Y}{\partial s} + \frac{\partial u}{\partial z}\frac{\partial Z}{\partial s},\\
+          \end{align*}
+      </p>
+  </div>
+
+  <button class="respButton hvr-grow "> Solución 3</button>
+  <div class="resp-box">
+      <p>
+          Finalmente trabajamos con la composición de una función de $\mathbb{R}^2 \to \mathbb{R}$ y otra de $\mathbb{R}^3 \to \mathbb{R}^2$.
+          El gradiente de $u$ respecto a las variables $x,y$ es $(\frac{\partial u}{\partial x},\frac{\partial u}{\partial y})$ y el gradiente
+          respecto a las variables $r,s,t$ es $(\frac{\partial u}{\partial r},\frac{\partial u}{\partial s},\frac{\partial u}{\partial t})$.
+          La matriz de derivadas parciales de la función $(X,Y)$ está dada por
+          \begin{equation*}
+          D_{(r,s,t)}(X,Y) = \begin{pmatrix}
+          \frac{\partial X}{\partial r} & \frac{\partial X}{\partial s} & \frac{\partial X}{\partial t}\\
+          \frac{\partial X}{\partial r} & \frac{\partial Y}{\partial s} & \frac{\partial Y}{\partial t}
+          \end{pmatrix}.
+          \end{equation*}
+          Utilizando la regla de la cadena y la fórmula para el producto de matrices tenemos
+          \begin{align*}
+          \frac{\partial u}{\partial r} = \frac{\partial u}{\partial x}\frac{\partial X}{\partial r} + \frac{\partial u}{\partial y}\frac{\partial Y}{\partial r},\\
+          \frac{\partial u}{\partial s} = \frac{\partial u}{\partial x}\frac{\partial X}{\partial s} + \frac{\partial u}{\partial y}\frac{\partial Y}{\partial s},\\
+          \frac{\partial u}{\partial t} = \frac{\partial u}{\partial x}\frac{\partial X}{\partial t} + \frac{\partial u}{\partial y}\frac{\partial Y}{\partial t}.
+          \end{align*}
+      </p>
+  </div>
 
 </div>
   
