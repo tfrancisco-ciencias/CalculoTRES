@@ -204,6 +204,31 @@
       diferenciable en $p_0$. Además si \(M\) es la matriz que 
       representa a \(F\) entonces  $D_{p_0}F=M$.
   </p>
+  <button class="respButton hvr-grow "> Solución </button>
+  <div class="resp-box">
+  <p>
+    Escribimos las funciones coordenadas de \(F\) como 
+    \[
+    F(p)=(f_1(p),\dots, f_m(p))
+    \]
+    Al ser \(F\) lineal resulta que cada \(f_i:\mathbb{R}^n \to \mathbb{R}\) es una función lineal. 
+    Ya que las funciones lineales son diferenciables en todo punto concluimos que \(F\) es 
+    diferenciable en todo \(\mathbb{R}^n\). 
+  </p>
+  <p>
+    Continuando con la matriz que representa a \(F\), al ser \(f_i\)  lineal 
+    existe un vector \((a_{i,1}, \dots,a_{i,m} )\in \mathbb{R}^n \) tal que 
+    \begin{equation}\label{Eqn:AuxEjmploFunLineal}
+    f_i(p_1,\dots, p_n)=a_{i,1}p_1+\cdots + a_{i,n}p_n
+    \end{equation}
+    y por lo tanto \(M=[a_{i,j}]_{1\leq i \leq n, 1\leq j \leq m}\). 
+  </p>
+  <p>
+    Finalmente tomando la derivada parcial con respecto a \(p_j\) en 
+    \eqref{Eqn:AuxEjmploFunLineal} obtenemos 
+    \(\partial_{p_j}f_i=a_{i,j}\) y por lo tanto \(D_{p_0}F=M\).
+  </p>
+  </div>
 </div>
 
 
@@ -235,6 +260,27 @@
       Después, usa el ejercicio \ref{Ejer:EquivDefDifGeneral} para concluir que $H$ es diferenciable
       en $p_0$ con $D_{p_0}H=A$.        
   </p>-->
+  <button class="respButton hvr-grow "> Solución</button>
+  <div class="resp-box">
+  <p>
+    Escribimos las funciones coordenadas de \(F\) y \(G\) como 
+    \[
+    F(p)=(f_1(p),\dots, f_m(p)), G(p)=(g_1(p),\dots, g_m(p))
+    \]
+    Se sigue que las funciones coordenadas de \(\alpha F+G\) son 
+    \[
+    (\alpha F+G)(p)=((\alpha f_1+g_1)(p), \dots, (\alpha f_m+g_m)(p))
+    \]
+    Ahora: 
+    <p>
+      <p>\(F, G\) diferenciables en \(p_0\) \(\Rightarrow \)  para toda \(i\), \(f_i, g_i\) son diferenciables en \(p_0\),  </p> 
+      <p>\(\Rightarrow\)  \(\alpha f_i+g_i\) es diferenciable en \(p_0\) para toda \(i\), </p>
+      <p>  \(\Rightarrow \) \(\alpha F+G\) es diferenciable en \(p_0\).</p>
+      
+    </p>
+    
+  </p>
+  </div>
 </div>
 
 
@@ -268,10 +314,9 @@
                     {\| (x-x_0,y-y_0)\|}
               \end{eqnarray*}
               
-              Hint: primero escribe la numerador \(F(x,y)-F(x_0,y_0)-A(x-x_0,y-y_0) \)
-              en sus coordenadas y después recuerda que
-              $\| (a,b) \| \leq |a| + |b|.$
           </li>
+
+          
           <li>
               Usando el inciso anterior y el hecho de que las funciones \(f_i\) son diferenciables en 
               \(p_0\)
@@ -280,9 +325,88 @@
               \lim_{(x,y)\to (x_0,y_0)}	\frac{\|F(x,y)-F(x_0,y_0)-A(x-x_0,y-y_0) \|}{\|(x-x_0,y-y_0)\|} =0.
               $$
           </li>
+
+          
       </ol>		 
       
   </p>
+ 
+          <button class="respButton hvr-grow "> Demostración inciso 1 </button>
+          <div class="resp-box">
+            <p>
+              En coordenadas tenemos que 
+              \begin{eqnarray*} 
+              F(x,y)-F(x_0,y_0)&=&(f_1(x,y), f_2(x,y))-(f_1(x_0,y_0), f_2(x_0,y_0))\\
+              &=&(f_1(x,y)-f_1(x_0,y_0),f_2(x,y)-f_2(x_0,y_0))
+              \end{eqnarray*}
+              \begin{eqnarray*} 
+              A(x-x_0,y-y_0)&=& (\partial_xf_1(x_0,y_0)(x-x_0)+\partial_y f_1(x_0,y_0)(y-y_0), \\
+              & &\partial_xf_2(x_0,y_0)(x-x_0)+\partial_y f_2(x_0,y_0)(y-y_0))
+              \end{eqnarray*}
+              Por lo tanto \(F(x,y)-F(x_0,y_0)-A(x-x_0,y-y_0)=(a,b)\) donde 
+              \begin{eqnarray*}
+                a= f_1(x,y)-f_1(x_0,y_0) - \partial_xf_1(x_0,y_0)(x-x_0)-\partial_y f_1(x_0,y_0)(y-y_0) \\
+                b= f_2(x,y)-f_2(x_0,y_0) - \partial_xf_2(x_0,y_0)(x-x_0)-\partial_y f_2(x_0,y_0)(y-y_0) 
+              \end{eqnarray*}
+              
+            </p>
+            <p>
+              Usando que \(\|(a,b)\|\leq |a|+|b|\) obtenemos 
+              \begin{eqnarray*}
+                          & & \frac{\|F(x,y)-F(x_0,y_0)-A(x-x_0,y-y_0) \|}{\|(x-x_0,y-y_0)\|} \\
+                          &\leq & \frac{|a|}{\|(x-x_0,y-y_0)\|}+\frac{|b|}{\|(x-x_0,y-y_0)\|} \\
+                          <!--&= &
+                                  \frac{|f_1(x,y)-f_1(x_0,y_0)-
+                                  \partial_xf_1(x_0,y_0)(x-x_0)-
+                                  \partial_yf_1(x_0,y_0)(y-y_0)|}
+                                  {\| (x-x_0,y-y_0)\|} \\
+                          &+&  \frac{|f_2(x,y)-f_2(x_0,y_0)-
+                              \partial_xf_2(x_0,y_0)(x-x_0)-
+                              \partial_yf_2(x_0,y_0)(y-y_0)|}
+                              {\| (x-x_0,y-y_0)\|}-->
+                        \end{eqnarray*}
+                        
+              
+            </p>
+          </div>
+
+          <button class="respButton hvr-grow "> Demostración inciso 2 </button>
+          <div class="resp-box">  
+          <p>
+            Ahora, \(F\) diferenciable en \((x_0,y_0)\) implica \(f_1,f_2\) diferenciables en 
+            \((x_0,y_0)\) por lo que 
+            \begin{eqnarray*} 
+            & \lim_{(x,y)\to (x_0,y_0)} & \frac{|f_1(x,y)-f_1(x_0,y_0)-
+              \partial_xf_1(x_0,y_0)(x-x_0)-
+              \partial_yf_1(x_0,y_0)(y-y_0)|}
+              {\| (x-x_0,y-y_0)\|} \\
+             & = &  0\\
+              & \lim_{(x,y)\to (x_0,y_0)}& \frac{|f_2(x,y)-f_2(x_0,y_0)-
+                \partial_xf_2(x_0,y_0)(x-x_0)-
+                \partial_yf_2(x_0,y_0)(y-y_0)|}
+                {\| (x-x_0,y-y_0)\|} \\
+                & = & 0
+            \end{eqnarray*}
+            Por el inciso anterior
+            \begin{eqnarray*}
+            & 0\leq & \frac{\|F(x,y)-F(x_0,y_0)-A(x-x_0,y-y_0) \|}{\|(x-x_0,y-y_0)\|} \\
+            &\leq &
+                    \frac{|f_1(x,y)-f_1(x_0,y_0)-
+                    \partial_xf_1(x_0,y_0)(x-x_0)-
+                    \partial_yf_1(x_0,y_0)(y-y_0)|}
+                    {\| (x-x_0,y-y_0)\|} \\
+            &+&  \frac{|f_2(x,y)-f_2(x_0,y_0)-
+                \partial_xf_2(x_0,y_0)(x-x_0)-
+                \partial_yf_2(x_0,y_0)(y-y_0)|}
+                {\| (x-x_0,y-y_0)\|}
+          \end{eqnarray*}
+          
+          y por la ley del sandwich concluimos 
+            \[
+            \lim_{(x,y)\to (x_0,y_0)}\frac{\|F(x,y)-F(x_0,y_0)-A(x-x_0,y-y_0) \|}{\|(x-x_0,y-y_0)\|}=0
+            \]
+          </p>
+          </div>
 </div>
 
 
@@ -327,10 +451,7 @@
                 &\leq &
                         \frac{\|F(x,y)-F(x_0,y_0)-A(x-x_0,y-y_0) \|}{\|(x-x_0,y-y_0)\|}
               \end{eqnarray*}
-              Hint: recuerda que 
-              $
-              |a|\leq \| (a,b)\|, \quad |b|\leq \|(a,b) \|.
-              $
+              
           </li>
           <li>
               Concluye del inciso anterior y de la <a href="./S8.html#Def:DerivadaR2">definción de diferenabildad (8.1)</a>  que tanto $f_1$
@@ -338,6 +459,36 @@
           </li>
       </ol>        
   </p>
+
+  <button class="respButton hvr-grow "> Demostración inciso 1 </button>
+  <div class="resp-box">  
+  <p>
+    Denotemos \((a,b)=F(x,y)-F(x_0,y_0)-A(x-x_0,y-y_0)\). Tomando coordenadas tenemos que 
+    \begin{eqnarray*} 
+    a= f_1(x,y)-f_1(x_0,y_0)-a_{1,1}(x-x_0)-a_{1,2}(x-x_0)\\
+    b= f_2(x,y)-f_2(x_0,y_0)-a_{2,1}(x-x_0)-a_{2,2}(x-x_0)
+    \end{eqnarray*}
+    Usando las desigualdades \(|a|\leq \|(a,b)\|, |b|\leq \|(a,b)\|\) llegamos a 
+    \begin{eqnarray*}
+                & & \frac{|f_i(x,y)-f_i(x_0,y_0)-a_{i,1}(x-x_0)-
+                    a_{i,2}(y-y_0)|}{\|(x-x_0,y-y_0)\|} \\
+                &\leq &
+                        \frac{\|F(x,y)-F(x_0,y_0)-A(x-x_0,y-y_0) \|}{\|(x-x_0,y-y_0)\|}
+              \end{eqnarray*}
+  </p>
+  </div>
+  <button class="respButton hvr-grow "> Demostración inciso 2 </button>
+  <div class="resp-box">  
+  <p>
+    Usando \eqref{Eqn:GenLimiteEquivalenteDefDif} y la desigualdad anterior obtenemos 
+    \[
+    \lim_{(x,y)\to 0 } \frac{|f_i(x,y)-f_i(x_0,y_0)-a_{i,1}(x-x_0)-
+    a_{i,2}(y-y_0)|}{\|(x-x_0,y-y_0)\|} =0
+    \]
+    por lo tanto concluimos que 
+    \(f_i\) es diferenciable en \((x_0,y_0)\) (ver <a href="./S8.html#Def:DerivadaR2">Definición 8.1</a>).
+  </p>
+  </div>
 </div>
 
 
@@ -366,7 +517,7 @@
   </p>
   <p>    
       $F$ es diferenciable en $p_0$ si y sólo si  existe una trandormación lineal  $A:\mathbb{R}^n \to \mathbb{R}^m$,
-      de $m$ por $n$, tal que
+     tal que
       $$
       \lim_{p\to p_0}\frac{\|F(p)-F(p_0)-A(p-p_0)) \|}{\|p-p_0\|}=0.
       $$
@@ -405,12 +556,28 @@
           <li>
               $\lim_{p\to p_0}\frac{\|  E(p)\|}{\| p-p_0 \|}=0$.
               <p>
-                  Sugerencia: define $E(p)=F(p)-F(p_0)-D_{p_0}(p-p_0)$ y prueba que el límite que se pide
+                  Sugerencia: define $E(p)=F(p)-F(p_0)-D_{p_0}F(p-p_0)$ y prueba que el límite que se pide
                   es cero.            
               </p>
           </li>
       </ol>
   </p>
+  <button class="respButton hvr-grow "> Solución</button>
+  <div class="resp-box">
+  <p>
+    Al ser \(U\) abierto exsite un \(r>0\) tal que \(B_r(p_0)\subseteq U\). Para \(p\in B_r(p_0)\) definimos 
+    \(E(p)=F(p)-F(p_0)-D_{p_0}F(p-p_0)\). Es claro que para \(p\in B_r(p_0)\) se satisface 
+    \[
+    F(p)=F(p_0)+D_{p_0}F(p-p_0)+E(p)
+    \]
+    Además 
+    \[
+    \frac{\|E(p)\|}{\|p-p_0\|}=\frac{\|F(p)-F(p_0)-D_{p_0}F(p-p_0)\| \|}{\|p-p_0\|}
+    \]
+    por lo que \(\lim_{p\to p_0}\frac{\|E(p)\|}{\|p-p_0\|}=0\) se sigue de 
+    <a href="#Ejer:EquivDefDifGeneral">Proposición 13.9</a>
+  </p>
+  </div>
 </div>
 
 
@@ -437,7 +604,7 @@
               </li>
           </ol>
           Entonces $F$ es diferenciable en $p_0$ y la matriz de derivadas
-          parciales, valuadas en $p_0$,  es $A$.
+          parciales, valuadas en $p_0$,  es la matriz que representa a $L$.
   </p>
   <p>
       Sugerencia: si $\tilde{E}(p)=(\tilde{E}_1(p), \dots, \tilde{E}_m(p))$, primero
@@ -550,7 +717,7 @@
     las fórmulas para $F$ y $G$ no son absolutamente necesarias.
   </p>
   <p>
-    Considera funciones clase $C^!$, $G:\mathbb{R}^3 \to \mathbb{R}^2$
+    Considera funciones clase $C^1$, $G:\mathbb{R}^3 \to \mathbb{R}^2$
     y $F:\mathbb{R}^2 \to \mathbb{R}^2$ y $H=F \circ G$.
   </p>
   <ol>
@@ -645,6 +812,13 @@
     Este ejercicio prueba  la regla de la cadena, en el caso
     más general.
   </p>
+  <p>
+    Sean $U \subset \mathbb{R}^n$ y $V\subseteq \mathbb{R}^m$ subconjuntos
+    abiertos y $G:V \to \mathbb{R}^n$, $F:U \to \mathbb{R}^k$ tal que
+    $G(V)\subseteq U$ (para que $F\circ G$ esté bien definida).
+    Supongamos que $q_0\in V$,  $G$ es
+    diferenciable en $q_0$ y $F$ es diferenciable en $G(q_0)$.
+  </p>
      <ol>
         <li>
             Denota $p_0=G(q_0)$.
@@ -654,18 +828,7 @@
             F(p)=F(p_0)+ D_{p_0}F (p-p_0) +\|p-p_0\| K(p)
             $$
             con $K(p)$ una función continua con \(K(p_0)=0\).
-            <p>
-              Sugerencia: si \(E\) es el error de la aproximación lineal define 
-            $$
-            K(p)=\left\{
-              \begin{array}{cc}
-                \frac{E(p)}{\|p-p_0\|} & p\ne p_0 \\
-                0 & p=p_0
-              \end{array}
-            \right.
-            $$
-
-            </p>
+            
         </li>
         
         <li>
@@ -680,7 +843,7 @@
             Usando que $G$ es diferenciable en $q_0$ prueba
             que, para $q$ cercano a $q_0$
             $$
-            G(p)-G(q_0)=D_{q_0}G(q-q_0)+ \| q-q_0\|\tilde{K}(q)
+            G(q)-G(q_0)=D_{q_0}G(q-q_0)+ \| q-q_0\|\tilde{K}(q)
             $$
             donde $\tilde{K}$ es una función continua
             con $\tilde{K}(q_0)=0$.
@@ -696,7 +859,7 @@
         <li>
             Prueba que 
             $$\lim_{q \to q_0}
-            \left| \frac{\| G(q)-G(q_0)\|}{\|q-q_0\|} K(G(q))\right|=0
+             \frac{\| G(q)-G(q_0)\|}{\|q-q_0\|} \|K(G(q))\|=0
             $$
             y
      
@@ -712,6 +875,145 @@
             $$
         </li>
     </ol>							
+
+    <button class="respButton hvr-grow "> Demostración inciso 1</button>
+        <div class="resp-box">
+    <p>
+      Usando que \(F\) admite una aproximación lineal podemos escribir 
+      \[
+      F(p)=F(p_0)+D_{p_0}F(p-p_0)+E(p)
+      \]
+      para \(p\) cercano a \(p_0\) y donde la función \(E\) satisface 
+      \[
+      \lim_{p\to p_0} \frac{\|E(p)\|}{\|p-p_0\|}=0.
+      \]
+    </p>
+    <p>
+      Ahora definimos  
+        $$
+        K(p)=\left\{
+          \begin{array}{cc}
+            \frac{E(p)}{\|p-p_0\|} & p\ne p_0 \\
+            0 & p=p_0
+          \end{array}
+        \right.
+        $$
+      Es claro que \(K\) está definida para \(p\) cercano a \(p_0\) y es continua para todo \(p\ne p_0\). 
+      Además es continua en \(p_0\) pues 
+      \[
+      \lim_{p\to p_0}\|K(p)\|=\lim_{p\to  p_0}\frac{\|E(p)\|}{\|p-p_0\|}=0
+      \]    
+
+      Finalmente de la definición de \(K\) y la aproximación lineal para \(F\) se sigue, para \( p\ne p_0\) 
+      \begin{eqnarray*}
+      F(p)&=&F(p_0)+D_{p_0}F(p-p_0)+E(p)\\
+      &=&F(p_0)+D_{p_0}F(p-p_0)+\|p-p_0\|\frac{E(p)}{\|p-p_0\|}\\
+      &=&F(p_0)+D_{p_0}F(p-p_0)+\|p-p_0\|K(p)
+      \end{eqnarray*}
+
+    </p>
+    </div>
+
+    <button class="respButton hvr-grow "> Demostración inciso 2</button>
+        <div class="resp-box">
+    <p>
+      Ya que \(G\) es continua en \(q_0\) (al ser diferenciable en \(q_0\)) si \(q\) está cercano a 
+      \(q_0\) entonces \(G(q)\) está cercano a \(G(q_0)=p_0\) y por lo tanto podemos utilizar el inciso 1
+      para obtener (tomando \(p=G(q)\))
+      \[
+      F(G(q))= F (G (q_0))+
+            (D_{p_0}F)( G(q)-G(q_0))
+            + \|G(q)-G(q_0)\| K(G(q))
+      \]
+    </p>
+    </div>
+    
+    <button class="respButton hvr-grow "> Demostración inciso 3</button>
+        <div class="resp-box">
+    <p>
+      La prueba de que 
+      $$
+            G(q)-G(q_0)=D_{q_0}G(q-q_0)+ \| q-q_0\|\tilde{K}(q)
+      $$
+      con \(\tilde{K}\) una función continua con \(\tilde{K}(q_0)=0\) es similar al 
+      inciso 1.
+    </p>
+    </div>
+    <button class="respButton hvr-grow "> Demostración inciso 4</button>
+        <div class="resp-box">
+    <p>
+      Ahora, substituyendo 
+      $$
+      G(q)-G(q_0)=D_{q_0}G(q-q_0)+ \| q-q_0\|\tilde{K}(q)
+      $$
+      en
+      $$
+            F(G(q))= F (G (q_0))+
+            (D_{p_0}F)( G(q)-G(q_0))
+            + \|G(q)-G(q_0)\| K(G(q))
+      $$
+      se sigue que  
+      \begin{eqnarray*}
+      F(G(q))&= &F (G (q_0))+
+            (D_{p_0}F)(D_{q_0}G)(q-q_0)\\
+            &+&  \|q-q_0\|(D_{p_0}F)(\tilde{K}(q))
+            + \|G(q)-G(q_0)\| K(G(q))
+      \end{eqnarray*}
+      por lo tanto 
+      \begin{eqnarray*}
+      \frac{\|F(G(q))-F(G(q_0))- (D_{p_0}F)(D_{q_0}G)(q-q_0) \|}{\|q-q_0 \|}
+            &\leq &  \| (D_{p_0}F)(\tilde{K}(q))\| \\
+           &+& \frac{\| G(q)-G(q_0)\|}{\|q-q_0\|}\| K(G(q))\|
+      \end{eqnarray*}
+    </p>
+    </div>
+    <button class="respButton hvr-grow "> Demostración inciso 5</button>
+        <div class="resp-box">
+    <p>
+      Usando el inciso (3) tenemos (para \(q\ne q_0\))
+      \begin{eqnarray*}
+      \frac{\|G(q)-G(q_0)\|}{\|q-q_0\|}&=&\frac{\| D_{q_0}G(q-q_0)+ \|q-q_0\|\tilde{K}(p)\|}{\|q-q_0\|} \\
+      &\leq & \frac{\|D_{q_0}G(q-q_0)\|}{\|p-p_0\|}+\frac{\|q-q_0\|\|\tilde{K}(q)\|}{\|q-q_0\|} \\
+      &\leq & \frac{\|D_{q_0}G(q-q_0)\|}{\|p-p_0\|}+\|\tilde{K}(q)\| 
+      \end{eqnarray*}
+      Ahora usamos la desigualdad \(\|D_{q_0}G(q-q_0)\| \leq \|D_{q_0}G\|_2 \|q-q_0\|\) 
+      (ver <a href="./S3.html#Ejer:NormaMatriz">Ejercicio 3.41</a>) llegamos a que 
+      \[
+      \frac{\|G(q)-G(q_0)\|}{\|q-q_0\|}\leq \|D_{q_0}G\|_2+\|\tilde{K}(q)\|
+      \]
+      Finalmente llegamos a 
+      \begin{eqnarray*} 
+      \lim_{q\to q_0 } \frac{\|G(q)-G(q_0)\|}{\|q-q_0\|}\|K(G(q))\| &\leq & \lim_{q\to q_0} (\|D_{q_0}G\|_2+\|\tilde{K}(q)\|)\|K(G(q))\| \\
+      &=&(\|D_{q_0}G\|_2+ \|\tilde{K}(q_0) \|)\|K(p_0)\|=0
+      \end{eqnarray*}
+    </p>
+    <p>
+      Ahora, usando que las funciones lineales son continuas tenemos 
+      \begin{eqnarray*} 
+      \lim_{q\to q_0} \|D_{p_0}F(\tilde{K}(q)) \|=\|D_{p_0}F(\tilde{K}(q_0)) \|=\|D_{p_0}F(0)\|=0.
+      \end{eqnarray*}
+    </p>
+    </div>
+    <button class="respButton hvr-grow "> Demostración inciso 6</button>
+        <div class="resp-box">
+    <p>
+      Por último ya que 
+      \begin{eqnarray*}
+      \frac{\|F(G(q))-F(G(q_0))- (D_{p_0}F)(D_{q_0}G)(q-q_0) \|}{\|q-q_0 \|}
+            &\leq &  \| (D_{p_0}F)(\tilde{K}(q))\| \\
+           &+& \frac{\| G(q)-G(q_0)\|}{\|q-q_0\|}\| K(G(q))\|
+      \end{eqnarray*}
+      tomando límite cuando \(q\to q_0\) y el inciso anterior llegamos a 
+      \[
+      \lim_{q\to q_0} \frac{\|F(G(q))-F(G(q_0))- (D_{p_0}F)(D_{q_0}G)(q-q_0) \|}{\|q-q_0 \|}=0
+      \]
+      por <a href="#Ejer:EquivDefDifGeneral">Proposición 13.9</a> concluimos que \(F\circ G\) es 
+      diferenciable en \(p_0\) y 
+      \[
+      D_{p_0}F\circ G= (D_{p_0}F)(D_{q_0}G)
+      \]
+    </p>
+    </div>
 </div>
 
 <div class="ejercicio-box">
