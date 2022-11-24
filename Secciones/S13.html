@@ -639,6 +639,34 @@
     por lo que \(\lim_{p\to p_0}\frac{\|E(p)\|}{\|p-p_0\|}=0\) se sigue de 
     <a href="#Ejer:EquivDefDifGeneral">Proposición 13.9</a>
   </p>
+  <p>
+    Antes de probar la continuidad notamos que \(\lim_{p\to p_0}E(p)=0\). Para probar lo 
+    anterior  usando la ley de multiplicación para límites tenemos:
+    \begin{eqnarray*}
+    0&=&  \lim_{p\to p_0} \| p-p_0\| \lim_{p\to p_0}\frac{\|E(p)\|}{\|p-p_0\|}\\
+    &=& \lim_{p\to p_0}\left(\|p-p_0\|\frac{\|E(p)\|}{\|p-p_0\|} \right) \\
+    &=& \lim_{p\to p_0}\| E(p)\|
+    \end{eqnarray*}
+  </p>
+  <p>
+    Fnalmente para probar la continuidad de \(F\) primero notamos los siguientes límites 
+    \begin{eqnarray*} 
+    \lim_{p\to p_0}F(p_0)&=&F(p_0) \\
+    \lim_{p\to p_0} D_{p_0}F(p-p_0)&=&D_{p_0}F(p_0-p_0)=0 \\
+    \lim_{p\to p_0} E(p)&=&0
+    \end{eqnarray*}
+    (la segunda identidad se justifica al ser la función lineal \(D_{p_0}F\) continiua).
+    
+    Si tomamos límite en la identidad 
+    \[
+    F(p)=F(p_0)+D_{p_0}F(p-p_0)+E(p)
+    \]
+    y usamos la ley de la suma para límites obtenemos que 
+    \begin{eqnarray*} 
+    \lim_{p\to p_0}F(p)&=&\lim_{p\to p_0}F(p_0)+\lim_{p\to p_0}D_{p_0}F(p-p_0)+\lim_{p\to p_0}E(p) \\
+    &=&F(p_0)
+    \end{eqnarray*}
+  </p>
   </div>
 </div>
 
@@ -676,6 +704,58 @@
       cada función coordenada de $F$ es diferenciable en $p_0$.
       
   </p>
+  <button class="respButton hvr-grow "> Demostración</button>
+  <div class="resp-box">
+  <p>
+    Primeramente escribimos las funciones coordenadas de las funciones:
+    \begin{eqnarray*}
+    F(p)&=&(f_1,(p),\dots, f_m(p)), \\
+    L(p)&=&(L_1(p),\dots, L_m(p)), \\
+    \tilde{E}(p)&=&(\tilde{E}_1(p),\dots, \tilde{E}_m(p))
+    \end{eqnarray*}
+    Notamos que al ser \(L\) lineal cada una de las funciones coordenadas \(L_i\) es lineal.
+  </p>
+
+  <p>
+    Ahora, si escribimos la identidad $F(p)=F(p_0)+L(p-p_0)+\tilde{E}(p)$
+    en coordenadas obtenemos \(m\) identidades como siguen:
+    \begin{eqnarray*} 
+    f_1(p)&=&f_1(p_0)+L_1(p-p_0)+\tilde{E}_1(p) \\
+    &\vdots & \\
+    f_m(p)&=&f_m(p_0)+L_m(p-p_0)+\tilde{E}_m(p) \\
+    \end{eqnarray*}
+    además usando que \(|\tilde{E}_i(p)|\leq \|\tilde{E}(p)\|\) obtenemos  
+    \[
+    0\leq \frac{|\tilde{E}_j(p)|}{\|p-p_0\|}\leq \frac{\|\tilde{E}(p)\|}{\|p-p_0\|}
+    \]
+    asi que por la ley del sandwich para límites concluimos 
+    \[
+    \lim_{p\to p_0} \frac{|\tilde{E}_j(p)|}{\|p-p_0\|}=0
+    \]
+  </p>
+
+  <p>
+    Recapitulando tenemos que para cada función coordenada \(f_j\) se cumple 
+    \[
+    f_j(p)=f_j(p_0)+L_j(p-p_0)+\tilde{E}_j(p)
+    \]
+    donde \(L_j\) es una función lineal y 
+    \[
+      \lim_{p\to p_0} \frac{|E_j(p)|}{\|p-p_0\|}=0
+    \]
+    Es decir, \(f_j\) admite una aproximación lineal en \(p_0\). Por la <a href="./S10.html#Ejer:CaracterizacionAproxLineal">Proposición 10.4</a>
+    concluimos que \(f_j\) es diferenciable en \(p_0\). 
+  </p>
+  <p>
+    Por lo tanto toda función coordenada de \(F\) es diferenciable en \(p_0\) lo que nos dice que 
+    \(F\) es diferenciable en \(p_0\).
+  </p>
+  <p>
+    En cuanto a la matriz de derivadas parciales, de nuevo por la <a href="./S10.html#Ejer:CaracterizacionAproxLineal">Proposición 10.4</a>
+    \(L_j=\nabla_{p_0} f_j\). Por lo tanto la matriz que representa a \(L\) tiene por 
+    renglones los gradientes \(\nabla_{p_0}f_j\), \(j=1,\dots,m\), por lo que \(L=D_{p_0}F\). 
+  </p>
+  </div>
 </div>
 
 

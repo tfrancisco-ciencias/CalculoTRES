@@ -125,6 +125,16 @@
       Q(\lambda x_1,\dots, \lambda x_n)=\lambda^2Q(x_1,\dots x_n)
       $$
     </p>
+    <button class="respButton hvr-grow "> Solución </button>
+    <div class="resp-box">
+    <p>
+      \begin{eqnarray*} 
+      Q(\lambda x_1,\dots, \lambda x_n)&=&\sum_{i,j=1}^n (\lambda x_i)(\lambda x_j) \\
+      &=& \sum_{i,j=1}^n \lambda ^2(x_ix_j) \\
+      &=& \lambda^2Q(x_1,\dots, x_n)
+      \end{eqnarray*}
+    </p>
+    </div>
   </div>
   
     
@@ -187,13 +197,86 @@
              $$
         </li>
     </ol>
+
+    <button class="respButton hvr-grow "> Bosquejo inciso 1</button>
+    <div class="resp-box">
+    <p>
+      Sólo hacemos el caso de matrices de \(3\times 3\) (para más dimensiones es similar).
+    </p>
+    <p>
+      \begin{eqnarray*} 
+      & & \left[
+      \begin{array}{cc}
+        x_1 & x_2 & x_3 
+      \end{array}
+    \right]
+    \left[
+      \begin{array}{ccc}
+        a_{1,1} & a_{1,2} & a_{1,3} \\
+        a_{2,1} & a_{2,2} & a_{2,3} \\
+        a_{3,1} & a_{3,2} & a_{3,3}
+      \end{array}
+    \right]
+    \left[
+      \begin{array}{c}
+        x_1 \\
+        x_2 \\
+        x_3
+      \end{array}
+    \right]  \\
+     &=& 
+     \left[
+     \begin{array}{cc}
+       x_1 & x_2 & x_3 
+     \end{array}
+   \right]
+      \left[ 
+        \begin{array}{c}  
+        a_{1,1}x_1+a_{1,2}x_2+ a_{1,3}x_3 \\
+        a_{2,1}x_1 + a_{2,2}x_2 +a_{2,3}x_3 \\
+        a_{3,1}x_1+a_{3,2}x_2 + a_{3,3}x_3
+        \end{array}
+      \right] \\
+      &=& x_1(a_{1,1}x_1+a_{1,2}x_2+ a_{1,3}x_3 )\\
+      &+& x_2(a_{2,1}x_1 + a_{2,2}x_2 +a_{2,3}x_3 ) \\
+      &+& x_3(a_{3,1}x_1+a_{3,2}x_2 + a_{3,3}x_3) \\
+      &=& \sum_{i,j=1}^3 a_{i,j}x_ix_j
+      \end{eqnarray*} 
+    </p>
+    </div>
+    <button class="respButton hvr-grow "> Bosquejo inciso 2</button>
+    <div class="resp-box">
+    <p>
+      Sólo hacemos el caso de matrices de \(3\times 3\) (para más dimensiones es similar).
+       Por \(Ax[1], Ax[2], Ax[3]\) denotamos las entradas del vector \(Ax\). Un cálculo directo muestra 
+       \begin{eqnarray*} 
+        Ax[1]=a_{1,1}x_1+a_{1,2}x_2+ a_{1,3}x_3 \\
+        Ax[2]=a_{2,1}x_1 + a_{2,2}x_2 +a_{2,3}x_3 \\
+        Ax[3]=a_{3,1}x_1+a_{3,2}x_2 + a_{3,3}x_3
+       \end{eqnarray*}
+    </p>
+    <p>
+      Por lo tanto 
+      \begin{eqnarray*} 
+      \langle Ax, x \rangle &=&A x[1]x_1+Ax[2]x_2+Ax[3]x_3 \\
+      &=& (a_{1,1}x_1+a_{1,2}x_2+ a_{1,3}x_3 )x_1 \\
+      &+& (a_{2,1}x_1 + a_{2,2}x_2 +a_{2,3}x_3)x_2 \\
+      &+& (a_{3,1}x_1+a_{3,2}x_2 + a_{3,3}x_3)x_3 \\
+      &=& \sum_{i,j=1}^3 a_{i,j}x_ix_j
+      \end{eqnarray*}
+    </p>
+    </div>
   </div>
+
   
   
   <div class="definicion-box"><h2 class="number-title">  Definición</h2>
       <p>
         Una matriz cuadrada de $n\times n$, $A=[a_{i,j}]$, se llama simétrica
         si $a_{i,j}=a_{j,i}$, para todas $i,j=1,\dots, n$. 
+      </p>
+      <p>
+        En términos de la transpuesta una matriz \(A\) es simétrica sii \(A=A^t\).
       </p>
   </div>
   
@@ -212,14 +295,68 @@
         <li>
             Demuestra que
             $$
-            \langle Ax,x\rangle = \langle Bx,x \rangle
+            \langle Ax,y\rangle = \langle Bx,y \rangle
             $$
-            para toda $x=(x_1,\dots, x_n)\in \mathbb{R}^n$.
+            para todos $x,y \in \mathbb{R}^n$.
         
-            Este ejercicio dice que siempre podemos suponer simétrica
-            a la matriz asociada a una forma cuadrática.
+            
         </li>  
     </ol>
+      <p>
+        Este ejercicio dice que siempre podemos suponer simétrica
+            a la matriz asociada a una forma cuadrática.
+      </p>
+      <button class="respButton hvr-grow "> Demostración inciso 1</button>
+      <div class="resp-box">  
+    <p>
+      Usando las propiedades de linealidad de la transpuesta obtenemos 
+      \begin{eqnarray*} 
+      B^t&=&\left( \frac{1}{2}(A+A^t) \right)^t\\
+      &=& \frac{1}{2}(A^t+(A^t)^t) \\
+      &=& \frac{1}{2}(A^t+A)\\
+      &=&B 
+      \end{eqnarray*}
+    </p>
+    </div>
+    <button class="respButton hvr-grow "> Demostración inciso 2 </button>
+    <div class="resp-box">
+    <p>
+      Para el segundo inciso primero probamos la identidad 
+      \[
+      \langle Ax,y\rangle =\langle x, A^t y \rangle 
+      \]
+    </p>
+      <p>
+        El lado izquiero es 
+        \begin{eqnarray*} 
+        \langle Ax,y\rangle &=& \sum_{i=1}^n Ax[i]y_i \\
+        &=& \sum_{i=1}^n (\sum_{j=1}^n A[i,j]x_j  )y_i \\
+        &=& \sum_{i=1}^n \sum_{j=1}^n A[i,j]x_j y_i
+        \end{eqnarray*}
+      </p>
+      <p>
+        El lado derecho es 
+        \begin{eqnarray*} 
+        \langle x, A^t y \rangle &=& \sum_{i=1}^n x_i A^ty[i] \\
+        &=& \sum_{i=1}^n x_i(\sum_{j=1}^n  A^t[i,j]y_j) \\
+        &=& \sum_{i=1}^n \sum_{j=1}^n A[j,i]x_i y_j
+        \end{eqnarray*} 
+      </p>
+      <p>
+        Comparando ambos obtenemos \(\langle Ax,y\rangle = \langle x,A^ty\rangle\).
+      </p>
+      <p>
+        Finalmente 
+        \begin{eqnarray*} 
+        \langle Bx, x \rangle &=&\langle \frac{1}{2}(A+A^t)x,x\rangle  \\
+        &=& \frac{1}{2} \langle Ax+A^tx,x \rangle \\
+        &=& \frac{1}{2}\left(  \langle Ax, x \rangle + \langle A^tx, x \rangle \right)\\
+        &=& \frac{1}{2} \left( \langle Ax,x  \rangle + \langle x,Ax \rangle \right) \\
+        &=& \frac{1}{2} \left( \langle Ax,x  \rangle + \langle Ax ,x \rangle \right)  \\
+        &=& \langle Ax,x\rangle
+        \end{eqnarray*} 
+      </p>
+      </div>
   </div>
 
 
@@ -228,9 +365,12 @@
     <h2 class="number-title" id="Ejer:MatrizSimetrica"> Ejercicio</h2>
     <p>
       Considera la matriz de $n\times n$,
-      $A=[a_{i,j}]$. Demuestra que $A$ es simétrica
-      si y sólo si $\langle Ax,x \rangle=\langle x,Ax\rangle$, para toda
-      $x=(x_1,\dots, x_n)\in \mathbb{R}^n$.
+      $A=[a_{i,j}]$. 
+    </p>
+    <p>
+      Demuestra que $A$ es simétrica
+      si y sólo si $\langle Ax,y \rangle=\langle x,Ay \rangle$, para todos 
+      $x,y \in \mathbb{R}^n$.
     
     </p>
   </div>
