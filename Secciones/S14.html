@@ -83,6 +83,9 @@
   <body class="fondo-body" >
 
     <h1 class="number-title flexbox"> Teorema de Taylor y Hessianos </h1> 
+    <!-- this part is for next and prev sections -->
+<!--<button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>-->
+<button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
 
     <div class="definicion-box"><h2 class="number-title">  Definición</h2>
       <p>
@@ -505,7 +508,8 @@
     </div>
     </div>
 
-  
+
+
     
   
     
@@ -525,44 +529,53 @@
       Da un ejemplo de una matriz de $2\times 2$ que no es
       ni definitivamente negativa ni positiva definida.
     </p>
-    <!--<p>
-      Proponemos 
-      \[
-      A= \left[ \begin{array}{cc} 
-        1 & 1 \\
-        0 & -1
-      \end{array}
-      \right]
-      \]
-    </p>
     <p>
-      Para ver que no es positiva definida ni negativa definida 
-      debemos de encontrar vectores  \(x,y\) 
-      con \(\langle Ax, x \rangle < 0\) y \(\langle Ay,y\rangle >0\).
+      Sugerencia: busca entre las matrices triangulares superiores.
     </p>
-    <p>
-      Se toma \(x=(-2,1)\). Entonces 
-      \begin{eqnarray*} 
-      Ax=\left[
-      \begin{array}{cc} 
-        1 & 1 \\
-        0 & 1
-      \end{array}
-      \right] \left[
-        \begin{array}{c} 
-          1 \\ -2
-        \end{array}
-      \right]
-      =
-      \left[ 
-      \begin{array}{c} 
-      -1 \\
-      -2
-      \end{array} 
-      \right]
-      \end{eqnarray*}
-    </p>-->
-  </div>
+      </div>
+
+
+    <div class="teorema-box">
+      <h2 class="number-title"> Teorema </h2>
+      <p>
+        Sea \(A=[a_{i,j}]_{i,j}\) una matriz de \(n\times n\) simétrica considera su forma cuadrática 
+        \[
+        Q(x_1,\dots, x_n)=\sum_{i,j=1}^n a_{i,j}x_ix_j
+        \]
+      </p>
+      <ol>
+        <li>
+          \(Q\) es positiva definida sii todos los valores propios de \(A\) son positivos.
+        </li>
+        <li>
+          \(Q\) es negativa definida sii todos los valores propios de \(A\) son negativos.
+        </li>
+      </ol>
+      <button class="respButton hvr-grow "> Demostración</button>
+      <div class="resp-box">
+      <p>
+        Ya que \(A\) es una matriz simétrica existe una matriz ortogonal \(U\) tal que 
+        \(U^tDU=A\), donde \(D\) es una matriz diagonal formada por, \(\lambda_1,\dots, \lambda_n\), los valores propios de 
+        \(A\) (contados con multiplicidad).
+      </p>
+      <p>
+        Entonces 
+        \begin{eqnarray*} 
+        \langle Ax,x\rangle &=&\langle U^tDU x, x\rangle \\\
+        &=& \langle DUx,Ux\rangle \\
+        &=& \langle Dy,y\rangle \\
+        &=& \sum_{i=1}^n \lambda_i y_i^2
+        \end{eqnarray*}
+        donde \(y:=Ux\).
+      </p>
+      <p>
+        De la identidad \(Q(x_1,\dots, x_n)=\sum_{i=1}^n \lambda_i y_i^2 \) se sigue que 
+        \(Q\) es positiva definida sii \(\lambda_i >0\) para toda \(i\) y es 
+        negativa definida sii \(\lambda_i < 0\) para toda \(i\).
+      </p>
+      </div>
+    </div>
+
 
    
   <div class="ejercicio-box"> 
@@ -579,13 +592,20 @@
       Sugerencia: toma  $k$ como el mínimo de $Q$ sobre
       la esfera unitaria de $\mathbb{R}^n$.
     </p>
-
+    <button class="respButton hvr-grow "> Demostración</button>
+    <div class="resp-box">
     <p>
       Como \(Q\) es polinomio es una función continua por lo que alcanza su valor mínimo 
-      en la esfera unitaria. Sea 
+      en la esfera unitaria, es decir si  
       \[
       k=\min \{ Q(x_1,\dots, x_n): \|(x_1,\dots , x_n)\|=1\}
       \] 
+      entonces existe \((z_1,\dots z_n)\) un vector unitario tal que \(Q(z_1,\dots, z_n)=k\). Notamos 
+      que \(k>0\) pues si \(k=0\) entonces \(Q(z_1,\dots, z_n)=0\) pero al ser 
+      \(Q\) positiva definida debe de pasar que \((z_1,\dots, z_n)=0\), una contradiccíon 
+      al ser \((z_1,\dots, z_n)\) unitario.
+      </p>
+      <p>
       Si \(y\in \mathbb{R}^n\) es distinto de cero entonces \(y/\|y\| \) está en la esfera unitaria 
       y por lo tanto 
       \[
@@ -597,9 +617,10 @@
        \]
        por lo tanto 
        \begin{eqnarray*} 
-       \frac{1}{\|y\|^2} Q(y_1,\dots, y_n)\geq k \Rightarrow Q(y_1,\dots, y_n) \geq \|y\|^2
+       \frac{1}{\|y\|^2} Q(y_1,\dots, y_n)\geq k \Rightarrow Q(y_1,\dots, y_n) \geq k \|y\|^2
        \end{eqnarray*}
     </p>
+    </div>
   </div>
   
     
@@ -648,6 +669,10 @@
         a la matriz de segundas derivadas parciales, multiplicada
         por un factor de $1/2$, es decir 
         $A=(1/2)[\partial_{i,j}^2f(p_0)]_{i,j=1}^n$, evaluadas en $p_0$.
+      </p>
+      <p>
+        La matriz Hessiana de \(f\), en \(p_0\), se define como la matriz 
+        \([\partial_{i,j}f(p_0)]_{i,j}\). 
       </p>
     </div>
   
