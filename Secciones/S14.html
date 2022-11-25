@@ -141,7 +141,8 @@
   
     
   
-  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> 
+  <div class="ejercicio-box"> 
+    <h2 class="number-title" id="Ejer:EquivalenciasFormaCuadratica"> Ejercicio</h2> 
     <p>
       Considera  la forma cuadrática
       $$
@@ -268,6 +269,50 @@
     </div>
   </div>
 
+  <div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:PropiedadFundTranspuesta"> Ejercicio </h2>
+    <p>
+      Sea \(A\) una matriz de \(n\times n\). Entonces para todos \(x,y\in \mathbb{R}^n\) 
+      se cumple la identidad 
+      \[
+      \langle Ax, y \rangle = \langle x, A^t y\rangle
+      \]
+      donde \(A^t\) denota la matriz transpuesta de \(A\).
+    </p>
+    <button class="respButton hvr-grow "> Solución </button>
+        <div class="resp-box">
+      <p>
+        Por \(A[i,j]\) vamos a denotar la entrada \(i,j\) de la matirz \(A\) y por 
+        \(Ax[i]\) denotamos la entrada \(i\) del vector columna \(Ax\). 
+      </p>
+      <p>
+        Con la notación anterior, si \(x=(x_1,\dots, x_n)\) entonces \(Ax[i]\) se escribe como 
+        \[
+        Ax[i]=\sum_{j=1}^n A[i,j]x_j
+        \]
+      </p>
+      <p>
+        El lado izquiero de la identida es 
+        \begin{eqnarray*} 
+        \langle Ax,y\rangle &=& \sum_{i=1}^n Ax[i]y_i \\
+        &=& \sum_{i=1}^n (\sum_{j=1}^n A[i,j]x_j  )y_i \\
+        &=& \sum_{i=1}^n \sum_{j=1}^n A[i,j]x_j y_i
+        \end{eqnarray*}
+      </p>
+      <p>
+        El lado derecho es 
+        \begin{eqnarray*} 
+        \langle x, A^t y \rangle &=& \sum_{i=1}^n x_i A^ty[i] \\
+        &=& \sum_{i=1}^n x_i(\sum_{j=1}^n  A^t[i,j]y_j) \\
+        &=& \sum_{i=1}^n \sum_{j=1}^n A[j,i]x_i y_j
+        \end{eqnarray*} 
+      </p>
+      <p>
+        Comparando ambos obtenemos \(\langle Ax,y\rangle = \langle x,A^ty\rangle\).
+      </p>
+      </div>
+
+  </div>
   
   
   <div class="definicion-box"><h2 class="number-title">  Definición</h2>
@@ -295,9 +340,9 @@
         <li>
             Demuestra que
             $$
-            \langle Ax,y\rangle = \langle Bx,y \rangle
+            \langle Ax,x\rangle = \langle Bx,x \rangle
             $$
-            para todos $x,y \in \mathbb{R}^n$.
+            para todo  $x\in \mathbb{R}^n$.
         
             
         </li>  
@@ -320,31 +365,6 @@
     </div>
     <button class="respButton hvr-grow "> Demostración inciso 2 </button>
     <div class="resp-box">
-    <p>
-      Para el segundo inciso primero probamos la identidad 
-      \[
-      \langle Ax,y\rangle =\langle x, A^t y \rangle 
-      \]
-    </p>
-      <p>
-        El lado izquiero es 
-        \begin{eqnarray*} 
-        \langle Ax,y\rangle &=& \sum_{i=1}^n Ax[i]y_i \\
-        &=& \sum_{i=1}^n (\sum_{j=1}^n A[i,j]x_j  )y_i \\
-        &=& \sum_{i=1}^n \sum_{j=1}^n A[i,j]x_j y_i
-        \end{eqnarray*}
-      </p>
-      <p>
-        El lado derecho es 
-        \begin{eqnarray*} 
-        \langle x, A^t y \rangle &=& \sum_{i=1}^n x_i A^ty[i] \\
-        &=& \sum_{i=1}^n x_i(\sum_{j=1}^n  A^t[i,j]y_j) \\
-        &=& \sum_{i=1}^n \sum_{j=1}^n A[j,i]x_i y_j
-        \end{eqnarray*} 
-      </p>
-      <p>
-        Comparando ambos obtenemos \(\langle Ax,y\rangle = \langle x,A^ty\rangle\).
-      </p>
       <p>
         Finalmente 
         \begin{eqnarray*} 
@@ -355,6 +375,10 @@
         &=& \frac{1}{2} \left( \langle Ax,x  \rangle + \langle Ax ,x \rangle \right)  \\
         &=& \langle Ax,x\rangle
         \end{eqnarray*} 
+      </p>
+      <p>
+        donde en la cuarta igualdad usamos el <a href="#Ejer:PropiedadFundTranspuesta">Ejercicio 14.4</a> y 
+        el hecho que \((A^t)^t=A\).
       </p>
       </div>
   </div>
@@ -386,7 +410,7 @@
     
       Demuestra
       $$
-      \langle \nabla_{(x_1,\dots x_n)}Q, (x_1,\dots, x_n) \rangle=
+      \langle \nabla Q, (x_1,\dots, x_n) \rangle=
       2Q(x_1,\dots, x_n) 
       $$
     </p>
@@ -400,7 +424,7 @@
         $$
         Q(x_1,\dots, x_n)=\sum_{i,j=1}^n a_{i,j}x_ix_j
         $$
-        se llama definitivamente positiva sii:
+        se llama positiva definida sii:
         <ol>
           <li>
               para toda $(x_1,\dots, x_n)\in \mathbb{R}^n$,
@@ -413,7 +437,7 @@
          </ol>
     
           La forma cuadrática $Q$ se llama definitivamente
-          negativa si $-Q$ es definitivamente positiva.
+          negativa si $-Q$ es positiva definida.
     
       </p>    
     </div>
@@ -423,10 +447,24 @@
         <div class="definicion-box">
           <h2 class="number-title">  Definición</h2>
           <p>
-            De manera similar, decimos que la matriz cuadrada $A=[a_{i,j}]$,
-            es definitivamente positiva sii la forma cuadrática asociada,
+            Una matriz cuadrada $A=[a_{i,j}]$,
+            es positiva definida sii la forma cuadrática asociada,
             $$Q(x_1,\dots, x_n)=\sum_{i,j=1}^na_{i,j}x_ix_j$$
-            es definitivamente positiva.
+            es positiva definida.
+          </p>
+          <p>
+            Usando el <a href="#Ejer:EquivalenciasFormaCuadratica">Ejercicio 14.3</a> 
+            resulta que una matriz \(A\) es positiva definida sii 
+            \(\langle Ax,x \rangle \geq 0\) para toda \(x\in \mathbb{R}^n\).
+          </p>
+          <p>
+            Una matriz \(B\) es negativa definida si \(-B\) es positiva definida.
+          </p>
+          <p>
+            La idea es que las matrices positivas definidas juegan el papel de los números 
+            positivos. Algunas analogías son: si \(A\) y \(B\) son positivas definidas 
+            entonces más adelante se verá que \(A+B\) es positiva definida; si \(A\) es 
+            positiva definida e invertible entonces \(A^{-1}\) es positiva definida.
           </p>
         </div>
   
@@ -444,6 +482,27 @@
       Demuestra que $D$ es definitivamente
       negativa si y sólo si $\lambda_i < 0$, para toda $i$.
     </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+
+    <p>
+      Primero notamos que si \(D\) es una matriz diagonal entonces su forma cuadrática se ve 
+      \begin{eqnarray*} 
+      Q(x_1,\dots, x_n)&=&\sum_{i,j=1}^n D[i,j]x_ix_j \\
+      &=& \sum_{i=1}^n \lambda_i x_i^2
+      \end{eqnarray*}
+      pues \(D[i,j]= 0\) para todos  \(i,j\) con \(i\ne j\) y \(D[i,i]=\lambda_i\).
+    </p>
+    <p>
+      Ahora, si \(\lambda_j >0\) para toda \(j\) se sigue que \(Q(x_1,\dots, x_n) \geq 0\) 
+      para todos \(x_1,\dots, x_n\) y si \(Q(x_1,\dots, x_n)=\sum_{i=1}^n \lambda_i x_i^2=0\)
+      entonces \(x_1=\dots=x_n=0\). Por lo tanto \(D\) se positiva definida. 
+    </p>
+    <p>
+      Si \(\lambda_j< 0 \) para toda \(j\) se prueba de manera similar que \(-D\) es definitivamente 
+      positiva por lo que \(D\) es definitivamente negativa.
+    </p>
+    </div>
     </div>
 
   
@@ -454,8 +513,8 @@
     <h2 class="number-title"> Ejercicio</h2> 
     <p>
       Demuestra que si las matrices cuadradas $A$ y $B$ son
-      definitivamente positivas y $a>0$, entonces la matriz
-      $aA+B$ también es definitivamente positiva.
+      positiva definidas y $a>0$, entonces la matriz
+      $aA+B$ también es positiva definida.
     </p>
   </div>
 
@@ -464,8 +523,45 @@
     <h2 class="number-title"> Ejercicio</h2> 
     <p>
       Da un ejemplo de una matriz de $2\times 2$ que no es
-      ni definitivamente negativa ni definitivamente positiva.
+      ni definitivamente negativa ni positiva definida.
     </p>
+    <!--<p>
+      Proponemos 
+      \[
+      A= \left[ \begin{array}{cc} 
+        1 & 1 \\
+        0 & -1
+      \end{array}
+      \right]
+      \]
+    </p>
+    <p>
+      Para ver que no es positiva definida ni negativa definida 
+      debemos de encontrar vectores  \(x,y\) 
+      con \(\langle Ax, x \rangle < 0\) y \(\langle Ay,y\rangle >0\).
+    </p>
+    <p>
+      Se toma \(x=(-2,1)\). Entonces 
+      \begin{eqnarray*} 
+      Ax=\left[
+      \begin{array}{cc} 
+        1 & 1 \\
+        0 & 1
+      \end{array}
+      \right] \left[
+        \begin{array}{c} 
+          1 \\ -2
+        \end{array}
+      \right]
+      =
+      \left[ 
+      \begin{array}{c} 
+      -1 \\
+      -2
+      \end{array} 
+      \right]
+      \end{eqnarray*}
+    </p>-->
   </div>
 
    
@@ -482,6 +578,27 @@
     <p>
       Sugerencia: toma  $k$ como el mínimo de $Q$ sobre
       la esfera unitaria de $\mathbb{R}^n$.
+    </p>
+
+    <p>
+      Como \(Q\) es polinomio es una función continua por lo que alcanza su valor mínimo 
+      en la esfera unitaria. Sea 
+      \[
+      k=\min \{ Q(x_1,\dots, x_n): \|(x_1,\dots , x_n)\|=1\}
+      \] 
+      Si \(y\in \mathbb{R}^n\) es distinto de cero entonces \(y/\|y\| \) está en la esfera unitaria 
+      y por lo tanto 
+      \[
+      Q\left(\frac{1}{\|y\|}y_1,\dots, \frac{1}{\|y\|}y_n\right) \geq k 
+       \]
+       al ser \(Q\) cuadrática 
+       \[
+       Q\left(\frac{1}{\|y\|}y_1,\dots, \frac{1}{\|y\|}y_n\right)=\frac{1}{\|y\|^2} Q(y_1,\dots, y_n)
+       \]
+       por lo tanto 
+       \begin{eqnarray*} 
+       \frac{1}{\|y\|^2} Q(y_1,\dots, y_n)\geq k \Rightarrow Q(y_1,\dots, y_n) \geq \|y\|^2
+       \end{eqnarray*}
     </p>
   </div>
   
@@ -502,7 +619,7 @@
     </p>
     <ol>
         <li>
-            Demuestra que $B$ es definitivamente positiva si y sólo si
+            Demuestra que $B$ es positiva definida si y sólo si
             $a>0$ y $ac-b^2 = \det(B) >0$.
         </li>
         <li>
