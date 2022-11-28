@@ -626,7 +626,7 @@
     
     
   <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
+    <h2 class="number-title" id="Ejer:CriterioPosDefMat2"> Ejercicio</h2> 
     <p>
       Considera la matriz de $2\times 2$
       $$
@@ -648,6 +648,51 @@
             $a < 0$ y $ ac-b^2=\det(B) < 0$
         </li>
     </ol>
+    <button class="respButton hvr-grow "> Demostración inciso 1</button>
+    <div class="resp-box">
+    <p>
+      La forma cuadrática asociada a \(B\) es 
+
+      \begin{eqnarray*} 
+      Q(x,y)&=& \langle B(x,y), (x,y)\rangle \\
+        &=& \langle (ax+by,bx+cy),(x,y)\rangle  \\
+        &=& ax^2+2bxy+cy^2 
+      \end{eqnarray*}
+    </p>
+    <p>
+      \(\Rightarrow ] \) Supongamos que \(B\) es positiva. 
+    </p>
+    <p>
+      Valuando en \((1,0)\) obtenemos \(0< Q(1,0)= a \). 
+    </p>
+    <p>
+      Completando el cuadrado en \(x,y\) tenemos 
+      \begin{eqnarray*} 
+        Q(x,y)&=& a\left( x^2+ \frac{2b}{a}xy+\frac{c}{a}y^2 \right) \\
+        &=& a\left( x+ \frac{b}{a}y \right)^2-  \frac{b^2}{a^2} y^2+\frac{c}{a}y^2 \\
+        &=& a\left( x+ \frac{b}{a}y \right)^2+\left( c -  \frac{b^2}{a}\right) \frac{y^2}{a}
+      \end{eqnarray*}
+    </p>
+    <p>
+      Al ser positiva definida 
+      \begin{eqnarray*} 
+      0< Q(-b,a)=0+c-\frac{b^2}{a}\Rightarrow  0< ac-b^2
+      \end{eqnarray*}
+    </p>
+    <p>
+      \(\Leftarrow ]\) Suppngamos que \(a>0, ac-b^2>0\). De la factorización 
+      \[
+      Q(x,y)= a\left( x+ \frac{b}{a}y \right)^2+\left( c -  \frac{b^2}{a}\right) \frac{y^2}{a}
+      \]
+      obtenemos que \(Q(x,y)\geq 0\) para toda \((x,y)\). Ahora, si suponemos que \(Q(x,y)=0\) se sigue 
+      \begin{eqnarray*} 
+      0&=& a\left( x+ \frac{b}{a}y \right)^2+\left( c -  \frac{b^2}{a}\right) \frac{y^2}{a}  \\
+      &\Rightarrow & 0= a\left( x+ \frac{b}{a}y \right)^2, \quad 0=\left( c -  \frac{b^2}{a}\right) \frac{y^2}{a} \\
+      &\Rightarrow & 0=x+ \frac{b}{a}y , \quad 0=(ac - b^2) y^2 \\
+      &\Rightarrow & 0=x, 0=y.
+      \end{eqnarray*}
+    </p>
+    </div>
     </div>
 
     
@@ -731,8 +776,17 @@
       una función de clase $C^2$.
     </p>
     <p>
-      Fija $p_0\in U$ arbitrario y $r>0$ tal que $B_r(p_0)\subset U$. Para
-      toda $h=(h_1,\dots, h_n)$ con $\|h\| < r$,
+      Fija $p_0\in U$ arbitrario y $r>0$ tal que $B_r(p_0)\subset U$.
+    </p>
+    <p>
+      Para
+      toda $h=(h_1,\dots, h_n)$ con $\|h\| < r$, existe un \(0< c < 1 \)
+      tal que 
+      \[
+      f(p_0+h)=f(p_0)+\sum_{i=1}^n \partial_{p_i}f(p_0)h_i +
+      \frac{1}{2}\sum_{i,j=1}^n \partial_{p_i,p_j}^2f(p_0+ c h)h_ih_j
+      \]
+      además también se puede escribir 
       $$
       f(p_0+h)=f(p_0)+\sum_{i=1}^n \partial_{p_i}f(p_0)h_i +
       \frac{1}{2}\sum_{i,j=1}^n \partial_{p_i,p_j}^2f(p_0)h_ih_j
@@ -740,6 +794,80 @@
       $$
       donde $E_{p_0}$ satisface $\lim_{h\to 0} \frac{\|E_{p_0}(h)\|}{\|h\|^2}=0$.
     </p>
+    <button class="respButton hvr-grow "> Demostración</button>
+    <div class="resp-box">
+    <p>
+      Fija \(h\) con \(\|h\|< r\) y define \(g:[-1,1]\to \mathbb{R}\) por 
+      \[
+      g(t)=f(p_0+th)
+      \]
+      Nota que \(g(1)-g(0)=f(p_0+ h)-f(p_0)\). Ahora se aplica el teorema de Taylor 
+      a la función de 1-variable \(g\). Entonces existe un \(0< c < t \) tal que 
+      \[
+      g(t)= g(0)+g'(0)t+ \frac{1}{2}g''(c)t^2 
+      \]
+    </p>
+    <p>
+      Ya que \(g(t)=f(\gamma(t))\) con \(\gamma(t)=p_0+th\) tenemos, por la regla de la cadena  
+      \[ 
+      g'(t)=\langle \nabla_{\gamma(t)}f,\gamma'(t)\rangle = \sum_{i=1}^n \partial_{p_i}f(p_0+tu) h_i 
+      \]
+      en particular \(g'(0)=\sum_{i=1}^n \partial_{p_i}f(p_0)h_i\). Además 
+      \begin{eqnarray*}
+      g''(t)&=&\frac{d}{dt}\left( \sum_{i=1}^n \partial_{p_i}f(p_0+th) h_i \right) \\
+        &=& \sum_{i=1}^n \frac{d}{dt}\left( \frac{\partial f(\gamma(t))}{\partial p_i}  \right) h_i\\
+        &=& \sum_{i=1}^n \left\{  \sum_{j=1}^n \frac{\partial}{\partial p_j}\left( \frac{\partial f(\gamma(t))}{\partial p_i}\right)\frac{ d p_j(t)}{dt}   \right\}h_i\\
+        &=& \sum_{i=1}^n \left\{  \sum_{j=1}^n \frac{\partial^2 f(\gamma(t))}{\partial p_j \partial p_i} h_j \right\}h_i\\
+        &=& \sum_{i=1}^n \sum_{j=1}^n \partial^2_{p_jp_j }f(p_0+th )h_jh_i
+      \end{eqnarray*}
+      en particular 
+      \[
+      g''(0)=\sum_{i=1}^n \sum_{j=1}^n \partial^2_{p_jp_j }f(p_0)h_jh_i
+      \]
+    </p>
+    <p>
+      Concuimos 
+      \begin{eqnarray*} 
+      f(p_0+h)-f(p_0)&=&g(1)-g(0) \\
+      &=& g'(0)+ \frac{1}{2}g''(c) \\
+      &=& \sum_{i=1}^n \partial_{p_i}f(p_0)h_i +\frac{1}{2} \sum_{i=1}^n\sum_{j=1}^n \partial^2_{p_j p_j}f(p_0+ch)h_ih_j\\
+      \end{eqnarray*}
+      \[
+      \Rightarrow  f(p_0+h)= f(p_0)+\sum_{i=1}^n \partial_{p_i}f(p_0)h_i +\frac{1}{2} \sum_{i=1}^n\sum_{j=1}^n \partial^2_{p_j p_j}f(p_0+ch)h_ih_j
+      \]
+    </p>
+    <p>
+      Para el error debemos de probar \(\lim_{h\to 0}\frac{\|E_{p_0}(h)\|}{\|h\|^2}=0\) donde 
+      \[
+      E_{p_0}(h)=f(p_0+h)-f(p_0)-\sum_{i=1}^n \partial_{p_i}f(p_0)h_i -\sum_{i,j=1}^n \partial_{p_j, p_i}f(p_0)h_ih_j 
+      \]
+    </p>
+    <p>
+      Por la primera parte 
+      \[
+      f(p_0+h)-f(p_0)-\sum_{i=1}^n \partial_{p_i}f(p_0)h_i= \sum_{i,j=1}^n \partial_{p_j, p_i}f(p_0+ch)h_ih_j 
+      \]
+      por lo que 
+      \begin{eqnarray*} 
+      E_{p_0}(h)&=&\sum_{i,j=1}^n \partial_{p_j p_i}^2f(p_0+ch)h_ih_j-\sum_{i,j=1}^n \partial_{p_jp_i}^2 f(p_0)h_ih_j \\
+      &=& \sum_{i,j=1}^n (\partial_{p_j p_i}^2f(p_0+ch)-\partial_{p_jp_i}^2 f(p_0)) h_ih_j 
+      \end{eqnarray*}
+    </p>
+    <p>
+      Finalemente, usando la desigualdad del triángulo y las desigualdades \(|h_i|\leq \|h\|\) llegamos 
+      \begin{eqnarray*} 
+      \frac{|E_{p_0}(h)|}{\|h\|^2} & \leq  & \sum_{i,j=1}^n |\partial_{p_j p_i}^2f(p_0+ch)-\partial_{p_jp_i}^2 f(p_0)|\frac{ |h_i||h_j| }{\|h\|^2} \\
+      &\leq &\sum_{i,j=1}^n |\partial_{p_j p_i}^2f(p_0+ch)-\partial_{p_jp_i}^2 f(p_0)|
+      \end{eqnarray*}
+    </p>
+    <p>
+      Ya que \(f\) es clase \(C^2\), para toda \(i,j\), \(\lim_{h\to 0} \partial_{p_jp_i}^2f(p_0+ch)=\partial_{p_jp_i}^2f(p_0) \) por lo   que 
+      \begin{eqnarray*} 
+      0\leq \lim_{h\to 0} \frac{|E_{p_0}(h)|}{\|h\|^2}\leq \lim_{h\to 0} \sum_{i,j=1}^n |\partial_{p_j p_i}^2f(p_0+ch)-\partial_{p_jp_i}^2 f(p_0)|=0
+      \end{eqnarray*}
+
+    </p>
+    </div>
   </div>
   
   
@@ -779,7 +907,8 @@
     <div class="ejercicio-box"> 
       <h2 class="number-title" id="Ejer:PtsCriticos"> Ejercicio</h2>
       <p>
-        Para las siguientes funciones  encuentra sus puntos críticos.
+        Para las siguientes funciones  encuentra sus puntos críticos y determina si el Hessiano en 
+        cada uno  de ellos es positivo definido, negativo definido o ninguno.
       </p>
       <ol>
         <li>
@@ -798,18 +927,85 @@
             $f(x,y)=xy+\frac{1}{x}+\frac{1}{y}$.
         </li>
       </ol>
+      <button class="respButton hvr-grow "> Solución inciso 1</button>
+      <div class="resp-box">
+      <p>
+        El gradiente es \(\nabla f=(2x+y,-2y+x)\). Resolviendo el sistema \(2x+y=0, -2y+x=0\) obtenemos 
+        una única solución: \(x=0,y=0\). 
+      </p>
+      <p>
+        Las segundas derivadas parciales son 
+        \[
+        \partial_{xx}^2f= 2, \partial_{yy}^2f=-2, \partial_{xy}^2f=1.
+        \]
+        Por lo tanto el Hessiano en cualquier punto \(p\) es 
+        \begin{eqnarray*} 
+        H_{p}f(x,y)&=& \frac{1}{2}(\partial_{xx}^2f(1,1)x^2+\partial_{xy}^2f(1,1)xy+\partial_{yx}^2f(1,1)yx +\partial_{yy}^2f(1,1)y^2  ) \\ 
+        &=& \frac{1}{2}( 2x^2+ xy + yx-2y^2)=x^2+xy-y^2
+        \end{eqnarray*}
+        La matriz asociada a la forma cuadrática es 
+        \[
+        B=\left[  
+        \begin{array}{cc} 
+         1 & 1 \\
+         1 & -1 
+        \end{array}
+        \right]
+        \]
+        Tenemos que \(B[1,1]>0\) pero \(\det(B)=-1-1=-2\). Por el 
+        <a href="#Ejer:CriterioPosDefMat2">Ejercicio 14.16</a> \(B\), y por lo tanto 
+        \(H_pf\),  no es ni positiva definida ni negativa definida. 
+      </p>
+      </div>
+      <button class="respButton hvr-grow "> Solución inciso 5</button>
+      <div class="resp-box">
+      <p>
+        El gradiente es \(\nabla f=(y-\frac{1}{x^2}, x-\frac{1}{y^2} )\). Resolviendo 
+        el sistema \(y-\frac{1}{x^2}=0, x-\frac{1}{y^2} =0\) obtenemos 
+        \begin{eqnarray*} 
+        y=\frac{1}{x^2}, \quad x=\frac{1}{y^2} 
+        \end{eqnarray*}
+        substituyendo llegamos 
+        \begin{eqnarray*}  
+        y= \frac{1}{\left( \frac{1}{y^2}\right)^2}=y^4 \Rightarrow y(y^3-1)=0 \\
+        \Rightarrow y=0,y=1.
+        \end{eqnarray*}
+        La solución \(y=0\) se elimina pues no cae dentro del domino de la función. Por lo 
+        tanto existe un único punto crítico \(p=(1,1)\).
+      </p>
+      <p>
+        Las segundas derivadas parciales son 
+        \begin{eqnarray*} 
+        \partial_{xx}^2f(x,y)&=&\frac{2}{x^3}\\
+        \partial_{yy}^2f(x,y)&=&\frac{2}{x^3}\\
+        \partial_{xy}^2f(x,y)&=&1
+        \end{eqnarray*}
+      </p>
+      <p>
+        EL Hessiano en \((1,1)\) es 
+        \begin{eqnarray*} 
+        H_pf(x,y)&=&\frac{1}{2}(\partial_{xx}^2f(1,1)x^2+\partial_{xy}^2f(1,1)xy+\partial_{yx}^2f(1,1)yx +\partial_{yy}^2f(1,1)y^2  )\\
+        &=& \frac{1}{2} (2x^2+xy+yx+2y^2  )\\
+        &=& x^2+xy+y^2
+        \end{eqnarray*}
+      </p>
+      <p>
+        La matriz asociada es 
+        \[
+        B=\left[ 
+          \begin{array}{cc} 
+          1 & 1 \\
+          1 & 1
+          \end{array}
+        \right]
+        \]
+        La entrada \((1,1)\) es \(B[1,1]=1\) pero \(\det(B)=1-1=0\), por lo que \(H_{(1,1)}f\) no es 
+        ni positivo definido ni negativo definido.
+      </p>
+      </div>
       </div>
 
       
-  
-    <div class="ejercicio-box"> 
-      <h2 class="number-title"> Ejercicio</h2> 
-      <p>
-        Para cada una de las funciones del ejercicio  \ref{Ejer:PtsCriticos}
-        encuentra el Hessiano en los puntos críticos y determina si es
-        definitivamente positivo, negativo o ninguno.
-      </p>
-      </div>
 
   
     <div class="ejercicio-box"> 
