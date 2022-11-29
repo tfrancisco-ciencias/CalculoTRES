@@ -387,6 +387,27 @@
   </div>
 
 
+  <div class="nota-box">
+    <h2> Nota </h2>
+    <p>
+      Dada una forma cuadrática en dimensión 2  
+      \[
+      Q(x,y)=Ax^2+Bxy+Cx^2
+      \]
+      la matriz simétrica que representa a \(Q\), es decir la matriz simétrica \(B\) que satisface 
+      \(Q(x)=\langle Bx,x\rangle\) se puede tomar como 
+      \[
+      B=\left[
+      \begin{array}{cc}
+        A & B/2 \\
+        B/2 & C
+      \end{array}
+      \right]
+      \]
+    </p>
+
+  </div>
+
 
   <div class="ejercicio-box"> 
     <h2 class="number-title" id="Ejer:MatrizSimetrica"> Ejercicio</h2>
@@ -503,7 +524,7 @@
     </p>
     <p>
       Si \(\lambda_j< 0 \) para toda \(j\) se prueba de manera similar que \(-D\) es definitivamente 
-      positiva por lo que \(D\) es definitivamente negativa.
+      positiva por lo que \(D\) es negativa definida.
     </p>
     </div>
     </div>
@@ -527,7 +548,7 @@
     <h2 class="number-title"> Ejercicio</h2> 
     <p>
       Da un ejemplo de una matriz de $2\times 2$ que no es
-      ni definitivamente negativa ni positiva definida.
+      ni negativa definida ni positiva definida.
     </p>
     <p>
       Sugerencia: busca entre las matrices triangulares superiores.
@@ -644,7 +665,7 @@
             $a>0$ y $ac-b^2 = \det(B) >0$.
         </li>
         <li>
-            Demuestra que $B$ es definitivamente negativa si y sólo si
+            Demuestra que $B$ es negativa definida si y sólo si
             $a < 0$ y $ ac-b^2=\det(B) < 0$
         </li>
     </ol>
@@ -770,7 +791,8 @@
 
     
   <div class="teorema-box">
-    <h2 class="number-title"> Teorema </h2>
+    <h2 class="number-title" id="Teo:TaylorGrado2"> Teorema </h2>
+    <h3> Teorma de Taylor (de segundo grado)</h3>
     <p>
       Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$ y $f:U \to \mathbb{R}$
       una función de clase $C^2$.
@@ -792,7 +814,7 @@
       \frac{1}{2}\sum_{i,j=1}^n \partial_{p_i,p_j}^2f(p_0)h_ih_j
       +E_{p_0}(h)
       $$
-      donde $E_{p_0}$ satisface $\lim_{h\to 0} \frac{\|E_{p_0}(h)\|}{\|h\|^2}=0$.
+      donde $E_{p_0}$ satisface $\lim_{h\to 0} \frac{|E_{p_0}(h)|}{\|h\|^2}=0$.
     </p>
     <button class="respButton hvr-grow "> Demostración</button>
     <div class="resp-box">
@@ -1020,7 +1042,7 @@
         </li>
         <li>
             calcula el Hessiano de $f$ en dicho punto crítico
-            y determina si es definitivamente positivo o definitivamente
+            y determina si es positivo definido o definitivamente
             negativo o ninguno.
         </li>
       </ol>
@@ -1035,9 +1057,11 @@
         $$
     
         Después calcula el Hessiano en dichos puntos y determina si es
-        definitivamente positivo, definitivamente negativo o ninguno.
+        positivo definido, definitivamente negativo o ninguno.
       </p>
     </div>
 
+
+    
 
  </body>

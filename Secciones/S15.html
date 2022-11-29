@@ -100,6 +100,10 @@
             $$
             f(p_0) \leq f(p)
             $$
+            <p>
+              Por ejemplo $f(x,y)=x^2+y^2+1$ 
+              tiene  un mínimo local en $p_0=(0,0)$.
+            </p>
         </li>
         <li>
             Decimos que $p_0$ es un máximo local para
@@ -107,13 +111,20 @@
             $$
             f(p) \leq f(p_0)
             $$
+            <p>
+              Por ejemplo $f(x,y)=2-(x-1)^2-y^2$ 
+              es un máximo local en $p_0=(1,0)$.
+            </p>
         </li>
         <li>
             Decimos que $p_0$ es un punto silla  para
             $f$ si para todo  $r>0$, tal que $B_r(p_0) \subset U$,
             existen puntos $p\in B_r(p_0)$ para los cuales
             $f(p) < f(p_0)$ y existen otros puntos $q\in B_r(p_0)$
-            para los cuales $f(p_0) < f(p)$
+            para los cuales $f(p_0) < f(p)$.
+            <p>
+              Por ejemplo la función $f(x,y)=xy$ tiene un punto silla en  $p_0=(0,0)$.
+            </p>
         </li>
       </ol>
 
@@ -124,32 +135,22 @@
        
     </div>
 
-    <div class="ejercicio-box"> 
-      <h2 class="number-title"> Ejercicio</h2> 
-      <p>
-        Demuestra que
-      </p>
-      <ol>
-        <li>
-            para la función $f(x,y)=x^2+y^2+1$, $p_0=(0,0)$
-            es un mínimo local.
-        </li>
-        <li>
-            para la función $f(x,y)=2-(x-1)^2-y^2$, $p_0=(1,0)$
-            es un máximo local.
-        </li>
-        <li>
-            para la función $f(x,y)=xy$, $p_0=(0,0)$ es un
-            punto silla.
-        </li>
-    
-      </ol>
-    </div>
-    
     
 
-    <div class="ejercicio-box"> 
-      <h2 class="number-title" id="Ejer:GradienteNuloPuntoExtremo"> Ejercicio</h2>
+
+    
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Encuentra $c>0$ tal que la función $f(x,y)=x^2+xy+cy^2$ tiene un
+      punto silla en $(0,0)$.
+    </p>
+  </div>
+
+    
+
+    <div class="prop-box"> 
+      <h2 class="number-title" id="Ejer:GradienteNuloPuntoExtremo"> Proposición </h2>
       <p>
         Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$,
         $f:U\to \mathbb{R}$ y $p_0\in U$.
@@ -167,17 +168,48 @@
             no sea diferenciable en $p_0$
         </li>
       </ol>
-
-        <p>
-          Nota: a un punto donde todas las derivadas parciales
-          se anulan se llama punto crítico.
-        </p>  
-
+      <button class="respButton hvr-grow "> Demostración inciso 1</button>
+        <div class="resp-box">
+      <p>
+        Sin pérdida de generalidad supongamos que \(p_0\) es un máximo local para \(f\). 
+      </p>
+      <p>
+        Fijamos un vector \(u\in \mathbb{R}^n\) con \(\|u\|=1\), definimos la curva 
+        \(\gamma(t)=p_0+tu\) y la función 1-dimensional \(g(t)=f(\gamma(t))\). Nota que 
+        \(g\) es diferenciable (por la regla de la cadena). 
+      </p>
+      <p>
+        Ya que  \(f\) tiene un máximo local en \(p_0\) se sigue que \(g\) tiene un máximo local en 
+        \(t=0\). De cálculo 1 se sigue que \(g'(0)=0\) y por la regla de la cadena lo anterior se puede 
+        escribir como 
+        \[
+        0=g'(0)=\langle \nabla_{p_0}f, \gamma'(0)\rangle= \langle \nabla_{p_0}f, u \rangle 
+        \]
+        Ahora, ya que el vector \(u\) es un vector unitario arbitrario la igualdad anterior implica que 
+        \(\nabla_{p_0}f=0\).
+      </p>
       </div>
 
 
-      <div class="ejercicio-box" id="Ejer:CriterioHessiano"> 
-        <h2 class="number-title"> Ejercicio</h2>
+      <button class="respButton hvr-grow "> Demostración inciso 2</button>
+      <div class="resp-box">
+      <p>
+        Considermos la función \(f(x,y)=\sqrt{x^2+y^2}\). La gráfica de la función es un cono con vértice 
+        en el origen. Al intentar calcular la derivada parcial con respecto a \(x\) en \((0,0)\) llegamos 
+        \[
+        \lim_{h\to 0}\frac{f(h,0)-f(0,0)}{h}=\lim_{h\to 0} \frac{\sqrt{h^2}}{h}=\lim_{h\to 0}\frac{|h|}{h}
+        \]
+        y dicho límite no existe.
+      </p>
+      <p>
+        Sin embargo \((0,0)\) es un mínimo local.
+      </p>
+      </div>
+      </div>
+
+
+      <div class="teorema-box" id="Ejer:CriterioHessiano"> 
+        <h2 class="number-title"> Teorema </h2>
         <p>
           Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$ y
           $f:U\to \mathbb{R}$ una función de clase $C^1$ en $U$
@@ -197,8 +229,66 @@
             </li>
         </ol>
         <p>
-          Sugerencia: usa el ejercicio \ref{Ejer:LemaCriterioHessiano}.
+          Sugerencia: usa el <a href="./S14.html#Ejer:LemaCriterioHessiano"> Ejercicio 14.5</a>.
         </p>
+        <button class="respButton hvr-grow "> Demostración</button>
+        <div class="resp-box">
+        <p>
+          Supongamos que \(H_{p_0}f\) es positivo definido. Debemos de probar que 
+          \(f(p)\geq f(p_0)\) para \(p\) en una bola abierta centrada en \(p_0\).
+        </p>
+        <p>
+          Por el <a href="./S14.html#Teo:TaylorGrado2">Teorema de Taylor </a> existe una  bola 
+          \(B_r(p_0)\) tal que 
+          \[
+          f(p_0+h)=f(p_0)+\sum_{i=1}^n \partial_{p_i}f(p_0)h_i +
+          \frac{1}{2}\sum_{i,j=1}^n \partial_{p_i,p_j}^2f(p_0)h_ih_j
+          +E_{p_0}(h)
+          \]
+          para \(\|h\|< r\) y \(\lim_{h\to 0}\frac{|E_{p_0}(h)|}{\|h\|^2} =0\). 
+        </p>
+        <p>
+          Pero \(p_0\) es un punto crítico, por lo que \(\partial_{p_i}f(p_0)=0\) para toda \(i\) por lo 
+          que la ecuación anterior se reduce a 
+          \begin{eqnarray*}
+          f(p_0+h)&=&f(p_0)+
+          \frac{1}{2}\sum_{i,j=1}^n \partial_{p_i,p_j}^2f(p_0)h_ih_j
+          +E_{p_0}(h) 
+          \end{eqnarray*}
+        </p>
+        <p>
+          Además al ser \(H_{p_0}f\) positiva definida 
+          por el <a href="./S14.html#Ejer:LemaCriterioHessiano"> Ejercicio 14.5</a> 
+          existe un \(k>0\) tal que para toda \(h=(h_1,\dots, h_n)\)
+          \[
+          \frac{1}{2}\sum_{i,j=1}^n \partial_{p_i,p_j}^2f(p_0)h_ih_j \geq k \|h\|^2
+          \]
+        </p>
+        <p>
+        Además ya que  \(\lim_{h\to 0}\frac{|E_{p_0}(h)|}{\|h\|^2} =0\) existe un \(\delta >0\) tal que 
+        se cumple que 
+        \begin{eqnarray*}
+        \frac{|E_{p_0}(h)|}{\|h\|^2} < \frac{k}{2} & \Rightarrow  & \frac{E_{p_0}(h)}{\|h\|^2}> -\frac{k}{2} \\
+        &\Rightarrow &E_{p_0}(h) \geq -\frac{k}{2}\|h\|^2
+        \end{eqnarray*}
+        siempre que  \(\|h\|< \delta\).
+        </p>
+        <p>
+          Por lo tanto para todo \(h\) con \(0< \|h\|< \delta\) se sigue que 
+          \begin{eqnarray*} 
+          f(p_0+h)&=&f(p_0)+\frac{1}{2}\sum_{i,j=1}^n \partial_{p_i,p_j}^2f(p_0)h_ih_j+E_{p_0}(h) \\
+          &\geq & f(p_0)+ k\|h\|^2-\frac{k}{2}\|h\|^2 \\
+          &=& f(p_0)+\frac{k}{2}\|h\|^2
+          \end{eqnarray*}
+        </p>
+        <p>
+          Concluimos que para todo \(0<\|h\| < \delta \)
+          \[
+          f(p_0+h)-f(p_0) \geq k\|h\|^2 > 0 \Rightarrow f(p_0+h) > f(p_0)
+          \]
+          por lo que \(p_0\) es un mínimo relativo. 
+        </p>
+        </div>
         </div>
 
 
@@ -207,8 +297,34 @@
         <p>
           Considera la función $f(x,y)=x^2+y^4$. Demuestra
           que $f$ tiene un mínimo en $p_0=(0,0)$ y sin embargo
-          $H_{p_0}f$ no es definitivamente positivo.
+          $H_{p_0}f$ no es positivo definido.
         </p>
+
+        <button class="respButton hvr-grow "> Solución </button>
+        <div class="resp-box">
+        <p>
+          Ya que \(f(x,y)\geq 0\) para todo \((x,y)\) y \(f(0,0)=0\) es claro que 
+          \(f\) tiene un mínimo en \(p_0\). 
+        </p>
+        <p>
+          Para calcular el Hessiano iniciamos calculando las parciales 
+          \begin{eqnarray*} 
+          \partial_x f = 2x \\
+          \partial_y f = y^3 \\
+          \partial_{xx}^2 f = 2 \\
+          \partial_{yy}^2 f = 3y^2 \\
+          \partial_{xy}^2 f = 0 
+          \end{eqnarray*}
+          Por lo tanto el Hessiano es 
+          \begin{eqnarray*} 
+          H_{(0,0)}f(x,y)&=&\frac{1}{2}(\partial_{xx}^2f(0,0) x^2+\partial_{xy}^2f(0,0)xy+\partial_{yx}^2f(0,0)yx+\partial_{yy}^2f(0,0)y^2 )  \\
+          &=& \frac{1}{2}( 2x^2+ 0*xy+0*y^2   )\\
+          &=&x^2
+          \end{eqnarray*}
+          Ya que \(H_{(0,0)}f(0,1)=0\) y \((1,0)\ne 0\), el Hessiano \(H_{(0,0}f\) no es 
+          positivo definido.
+        </p>
+        </div>
       </div>
 
         
@@ -256,6 +372,45 @@
         </ol>
         </div>
 
+
+
+        <div class="ejercicio-box"> 
+          <h2 class="number-title"> Ejercicio</h2> 
+          <h3> Método de mínimos cuadrados </h3>
+          <p>
+            Dados $n$ números distintos,
+            $x_1,\dots, x_n$ y otros $n$ números $y_1,\dots y_n$
+            (no necesariamente distintos), por lo general
+            no es posible encontrar una función de la
+            forma $f(x)=ax+b$, que satisfaga $f(x_i)=y_i$,
+            para toda $i$. Sin embargo se puede
+            tratar de encontrar una función que minimize el error cuadrado
+            $$
+            E(a,b)=\sum_{i=1}^n (f(x_i)-y_i)^2
+            $$
+            
+            Determinar los valores de $a$ y $b$ que hagan esto.
+          </p>
+        </div>
+
+
+
+
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Sean $z_1,\dots, z_k $, $k$ puntos distintos en $\mathbb{R}^n$.
+      Para $x\in \mathbb{R}^n$ define
+      $$
+      f(x)=\sum_{j=1}^k \| x- z_k\|^2
+      $$
+      
+      Prueba que $f$ alcanza su mínimo en el punto
+      $\frac{1}{k}\sum_{j=1}^k z_j$ (conocido como el centroide de los
+      puntos $z_1,\dots, z_k$).
+    </p>
+  </div>
+
     
         
 
@@ -286,12 +441,15 @@
           </ol>
           
         </div>
+
+
+      
         
 
-      <div class="ejercicio-box"> 
-        <h2 class="number-title"> Ejercicio</h2> 
+      <div class="teorema-box"> 
+        <h2 class="number-title"> Teorema </h2> 
         <p>
-          Sea $C$ un subconjunto compacto de $\mathbb{R}^n$ y
+          Sea $C$ un subconjunto compacto de $\mathbb{R}^n$  (es decir, cerrado y acotado) y
           $f:C \to \mathbb{R}$ una función continua en todo punto de $C$.
         </p>
         <p>
@@ -299,20 +457,100 @@
           $f$ alcanza su mínimo absoluto en $p_*$ y su máximo
           absoluto en $p^*$.
         </p>
+        <button class="respButton hvr-grow "> Demostración</button>
+        <div class="resp-box">
+          <p>
+            Sólo se probará el resultado para máximos pues para mínimos es similar.
+          </p>
+        <p>
+          Primero probamos que el conjunto 
+          \[
+          f(C)=\{f(p): p\in C \}
+          \]
+          es un subconjunto acotado superiormente, lo cual se hace por contradicción.
+        </p>
+        <p>
+          Si \(f(C)\) no es acotado superiormente, para todo \(n \in \mathbb{N}\) existe un \(q_n\in C\) 
+          tal que \(f(q_n) > n \). Aplicando el Teorema de Weirestrass a la sucesión \((p_n)_{n=1}^\infty\)
+          podemos encontrar una subsucesión \((q_{n_m})_{m=1}^\infty\) y un punto \(q\in C\) tal que 
+          \(\lim_{m\to \infty} q_{n_m}=q\). Por continuodad de \(f\), \(\lim_{m\to \infty} f(q_{n_m})=f(q)\),
+          pero ya que \(f(q_{n_m})>  n_m\) tomando límite llegamos a que \(f(q)\geq \infty\), una contradicción.
+        </p>
+        <p>
+          Denotemos \(\alpha= \sup_{p \in C}\{ f(p)\}\). Por la propiedad fundamental del supremo, para toda 
+          \(\varepsilon >0\) existe un punto \(p\in C\) tal que 
+          \[
+           \alpha - \varepsilon < f(p) \leq \alpha
+          \]
+          Variando \(\varepsilon = 1/n\), \(n=1,2,\dots\), podemos construir una sucesión 
+          de puntos en \(C\) tal que, \(\alpha- 1/n < f(p_n)\leq \alpha\) lo que lleva a  
+          \[
+          \lim_{n\to \infty} f(p_n)=\alpha 
+          \]
+          Por el Teorema de Bolzano Weirestrass existe un punto \(p^*\in C\) y una subsucesión \((p_k)_{k=1}^\infty\)
+          tal que \(\lim_{k\to \infty}p_{n_k}=p^*\). 
+        </p>
+        <p>
+          Finalmente, al ser \(f\) continua se tiene 
+          \[
+          \lim_{k\to \infty} f(p_{n_k})=f(p^*)
+          \]
+          por lo que concluimos 
+          \[
+          f(p^*)=\alpha = \sup_{p\in C}\{f(p) \}
+          \]
+          es decir, \(f\) alcanza su máximo absoluto en \(p^*\).
+        </p>
+        </div>
       </div>
 
         
 
-        
+    
 
-  <div class="ejercicio-box"> 
+  <!--<div class="ejercicio-box"> 
     <h2 class="number-title"> Ejercicio</h2> 
     <p>
       Hallar el punto en el plano $2x-y+2z=20$ más cercano al origen.
     </p>
+  </div>-->
+
+  <div class="nota-box">
+    <h2 class="number-title"> Nota </h2>
+    <p>
+      Con las herramientas revisadas hasta ahora se puede dar un método para 
+      encontrar máximos/mínimos absolutos sobre conjuntos abiertos con cerradura compacta.
+    </p>
+    <p>
+      Sea \(U\) un abierto acotado de \(\mathbb{R}^n\) y 
+      \(f:\overline{U}\to \mathbb{R}\) una función continua en \(\overline{U}\) y diferenciable en \(U\). 
+      Ya que \(\overline{U}\) es cerrado y acotado resulta ser un conjunto compacto y por lo tanto  
+      \(f\) alcanza su máximo y mínimo. Para encontrar el máximo/mínimo se procede:
+      <ol>
+        <li>
+          Se encuentran los puntos críticos de \(f\) en \(U\).
+        </li>
+        <li>
+          Se determinan si los puntos críticos son máximos relativos, mínimos relativos o puntos silla. 
+        </li>
+        <li>
+          Se encuentra el máximo/mínimo absoluto de la función \(f\) restringido a la frontera de \(\overline{U}\).
+          Por lo general la dimensión de \(\partial \overline{U}\) es una menos que la de \(U\) lo cual 
+          reduce el problema de encontrar los máximos/mínimos  de \(f\) en \(\partial \overline{U}\) y para 
+          lo cual se parametriza  la frontera.
+        </li>
+      </ol>
+      <p>
+        Nota: un punto \(p\) se llama punto frontera de un conjunto \(A\) si para todo \(r>0\),
+        \(B_r(p)\cap A\ne \emptyset\) y \(B_r(p)\cap A^c \ne \emptyset\). Al conjunto de 
+        puntos frontera de \(A\) se le denota por \(\partial A\).
+      </p>
+    </p>
+
   </div>
 
-	
+
+
   <div class="ejercicio-box"> 
     <h2 class="number-title"> Ejercicio</h2> 
     <p>
@@ -321,6 +559,9 @@
       definida en $ax^2+by^2 \leq 1$, (donde $a$ y $b$ son constantes positivas).
     </p>
     </div>
+    
+    
+	
 
 
   <div class="ejercicio-box"> 
@@ -334,35 +575,8 @@
     </div>
 
     
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <h3> Método de mínimos cuadrados </h3>
-    <p>
-      Dados $n$ números distintos,
-      $x_1,\dots, x_n$ y otros $n$ números $y_1,\dots y_n$
-      (no necesariamente distintos), por lo general
-      no es posible encontrar una función de la
-      forma $f(x)=ax+b$, que satisfaga $f(x_i)=y_i$,
-      para toda $i$. Sin embargo se puede
-      tratar de encontrar una función que minimize el error cuadrado
-      $$
-      E(a,b)=\sum_{i=1}^n (f(x_i)-y_i)^2
-      $$
-      
-      Determinar los valores de $a$ y $b$ que hagan esto.
-    </p>
-  </div>
 
     
-    
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-      Encuentra $c>0$ tal que la función $f(x,y)=x^2+xy+cy^2$ tiene un
-      punto silla en $(0,0)$.
-    </p>
-  </div>
-
 
 
   <div class="ejercicio-box"> 
@@ -375,21 +589,6 @@
   </div>
 
 
-
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-      Sean $z_1,\dots, z_k $, $k$ puntos distintos en $\mathbb{R}^n$.
-      Para $x\in \mathbb{R}^n$ define
-      $$
-      f(x)=\sum_{j=1}^k \| x- z_k\|^2
-      $$
-      
-      Prueba que $f$ alcanza su mínimo en el punto
-      $\frac{1}{k}\sum_{j=1}^k z_j$ (conocido como el centroide de los
-      puntos $z_1,\dots, z_k$).
-    </p>
-  </div>
 
 
 
@@ -404,32 +603,42 @@
         $$
   
         Por ejemplo $u(x,y)=x^2+y^2$ es estrictamente
-        sub-armónican en cualquier abierto de $R^2$.
+        sub-armónican en cualquier abierto de $R^2$ pues 
+        \(\partial_x^2 u +\partial_y^2 u = 2+2 >0\).
       </p>
-    
+    </div>
 
-    <div>
-      Por $U \subseteq \mathbb{R}^2$ denotamos un conjunto abierto
+
+
+    <div class="prop-box">
+      <h2 class="number-title"> Proposición </h2>
+      <p>
+        Por $U \subseteq \mathbb{R}^2$ denotamos un conjunto abierto
       tal que su cerradura $\overline{U}$, sea compacta.
-      Sea $u:\overline{U}\to R$ una función continua en el cerrado y clase
-      $C^2$ en el abierto $U$. Supon que $u$ es estrictamente
-      sub-armónica en $U$. 
+      Sea $u:\overline{U}\to R$ una función continua en \(\overline{U}\) y clase
+      $C^2$ en el abierto $U$ y  supon que $u$ es estrictamente
+      sub-armónica en $U$.
+      </p>
+      <p>
+        Entonces  el máximo de $u$ se alcanzan en la frontera de $U$.
+      </p>
 
-      Prueba que el máximo de $u$ se alcanzan en la frontera de $U$.
-    \end{prop}
-
-    \begin{proof}[Prueba]
-      
-      Por contradicción.
-
-      Supongamos que existe $p_0=(x_0,y_0)\in  U$ con
-      $$
-      u(p_0)=\max_{ p \in \overline{U}}\{ u(p) \}
-      $$
-      
-      Como $p_0$ está en el interior necesariamente
-      debemos de tener $\nabla_{p_0} u=0$, es decir
-      $\partial_x u (p_0)=0=\partial_yu(p_0)$.
+      <button class="respButton hvr-grow "> Demostración</button>
+        <div class="resp-box">
+      <p>
+        Por contradicción.
+      </p>
+      <p>
+        Supongamos que existe $p_0=(x_0,y_0)\in  U$ con
+        $$
+        u(p_0)=\max_{ p \in \overline{U}}\{ u(p) \}
+        $$
+        
+        Como $p_0$ está en el interior necesariamente
+        debemos de tener $\nabla_{p_0} u=0$, es decir
+        $\partial_x u (p_0)=0=\partial_yu(p_0)$.
+      </p>
+      <p>
 
       Por otro lado, por la aproximación de segundo grado (Taylor de grado 2),
       si $h=(x,y)$ es un vector (de norma peque\~na) tal que $p_0+h \in U$
@@ -441,7 +650,8 @@
       con $\lim_{h\to 0} \frac{E_{p_0}(h)}{\|h\|^2}=0$. En esta parte usamos
       que $\partial_{x}f(p_0)=0=\partial_yf(p_0)$, para que no exista
       la parte lineal en la aproximación.
-
+      </p>
+      <p>
 
       Tomando $h=(t,0)$, para $t>0$ y cercano a cero, tenemos
       $$
@@ -463,17 +673,32 @@
       $$
       \frac{\partial_{y}^2u(p_0)}{2}+\frac{E_{p_0}((0,t))}{t^2} \leq 0
       $$
+      </p>
+      <p>
+        Sumando las ultimas ecuaciones llegamos
+        $$
+        \frac{\partial_{y}u(p_0)}{2}+\frac{E_{p_0}((0,t))}{t^2}
+        +\frac{\partial_{x}^2u(p_0)}{2}+\frac{E_p((0,t))}{t^2} \leq 0 
+        $$
+        tomando límite cuando $t\to 0$ concluimos que
+        $$
+        \partial_{x}^2u(p_0)+\partial_{y}^2u(p_0)\leq 0
+        $$
+        contradiciendo que $u$ sea estrictamente sub-armónica.
+        
+      </p>
+      </div>
+    </div>
+    
+
+    
       
-      Sumando las ultimas ecuaciones llegamos
-      $$
-      \frac{\partial_{y}u(p_0)}{2}+\frac{E_{p_0}((0,t))}{t^2}
-      +\frac{\partial_{x}^2u(p_0)}{2}+\frac{E_p((0,t))}{t^2} \leq 0 
-      $$
-      tomando límite cuando $t\to 0$ concluimos que
-      $$
-      \partial_{x}^2u(p_0)+\partial_{y}^2u(p_0)\leq 0
-      $$
-      contradiciendo que $u$ sea estrictamente sub-armónica.
+      
+
+
+
+
+      
       
     </div>
   </div> 
@@ -495,57 +720,68 @@
         Probar que si $u$ alcanza su máximo en $U$ entonces
         también lo alcanza en $\partial U$.
       </p>
-      <div>
-        Para $n\geq 1$ natural, definimos $u_n:\overline{U}\to R$
-        dada por $u_n(x.y)=u(x,y)+\frac{1}{n}e^{x}$.
-  
-        Entonces $\partial_{x}^2 u_n +\partial_{y}^2 u_n
-        = (\partial_{x}^2u+\partial_{y}^2u)+\frac{1}{n}e^x=\frac{1}{n}e^x >0$,
-        por lo que $u_n$ es estrictamente sub-armónica en $U$.
-  
-        Por el ejercicio anterior, existe $p_n=(x_n,y_n) \in \partial U$ tal que 
-  
-        $$
-        u_n(p_n)=\max_{(x,y)\in \overline{U}}\{ u_n(x,y) \}
-        $$
-        
-        Se sigue que, para todo $(x,y)\in U$
-        $$
-        u(x_n,y_n)+\frac{1}{n}e^{x_n} \geq u(x,y)+\frac{1}{n}e^x > u(x,y)
-        $$
-        Tomando máximo del lado derecho, variando
-        los $(x,y)\in \overline{U}$, llegamos a que
-        $$
-        u(x_n,y_n)+\frac{1}{n}e^{x_n} \geq \max_{(x,y)\in \overline{U}}\{u(x,y)\}
-        $$
-        Denotemos $M=\max_{(x,y)\in \overline{U}}\{u(x,y)\}$.
-  
-  
-        Concluimos que para toda $n$
-        $$
-        0 \leq   M -u(p_n) < \frac{1}{n}e^{x_n}
-        $$
-  
-        Ahora, como $\partial U$ es cerrado y acotado,
-        por Bolzano-Weirestrass exsite una subsucesión
-        $p_{n_k}=(x_{n_k},y_{n_k})$ y $p^*\in \partial U$
-        tal que $\lim_{k\to \infty} p_{n_k}=p^*$.
-  
-        De la desigualdad, (válida para toda $k$)
-        $$
-        0 \leq   M-u(p_{n_k}) < \frac{1}{n_k}e^{x_{n_k}}
-        $$
-        tomando límite cuando $k\to \infty$ se tiene
-        (usando la continuidad de $u$ ) que 
-        $$
-        0\leq M -u(p^*) \leq 0
-        $$
-        por lo tanto existe $p^*\in \partial U$ com
-  
-        $$
-        u(p^*)=\max_{(x,y)\in \overline{U}}\{u(x,y)\}.
-        $$
+      <button class="respButton hvr-grow "> Demostración</button>
+        <div class="resp-box">
+        <p>
+          Para $n\geq 1$ natural, definimos $u_n:\overline{U}\to R$
+          dada por $u_n(x.y)=u(x,y)+\frac{1}{n}e^{x}$.
+        </p>
+          <p>
+            Entonces $\partial_{x}^2 u_n +\partial_{y}^2 u_n
+            = (\partial_{x}^2u+\partial_{y}^2u)+\frac{1}{n}e^x=\frac{1}{n}e^x >0$,
+            por lo que $u_n$ es estrictamente sub-armónica en $U$.
       
+          </p>
+          <p>
+            Por la Proposición anterior, existe $p_n=(x_n,y_n) \in \partial U$ tal que 
+  
+            $$
+            u_n(p_n)=\max_{(x,y)\in \overline{U}}\{ u_n(x,y) \}
+            $$
+            
+            Se sigue que, para todo $(x,y)\in U$
+            $$
+            u(x_n,y_n)+\frac{1}{n}e^{x_n} \geq u(x,y)+\frac{1}{n}e^x > u(x,y)
+            $$
+            Tomando máximo del lado derecho, variando
+            los $(x,y)\in \overline{U}$, llegamos a que
+            $$
+            u(x_n,y_n)+\frac{1}{n}e^{x_n} \geq \max_{(x,y)\in \overline{U}}\{u(x,y)\}
+            $$
+            Denotemos $M=\max_{(x,y)\in \overline{U}}\{u(x,y)\}$.
+      
+          </p>
+          <p>
+            Concluimos que para toda $n$
+            $$
+            0 \leq   M -u(p_n) < \frac{1}{n}e^{x_n}
+            $$
+      
+          </p>
+        
+          <p>
+            Ahora, como $\partial U$ es cerrado y acotado,
+            por Bolzano-Weirestrass exsite una subsucesión
+            $p_{n_k}=(x_{n_k},y_{n_k})$ y $p^*\in \partial U$
+            tal que $\lim_{k\to \infty} p_{n_k}=p^*$.
+      
+          </p>
+          <p>
+            De la desigualdad, (válida para toda $k$)
+            $$
+            0 \leq   M-u(p_{n_k}) < \frac{1}{n_k}e^{x_{n_k}}
+            $$
+            tomando límite cuando $k\to \infty$ se tiene
+            (usando la continuidad de $u$ ) que 
+            $$
+            0\leq M -u(p^*) \leq 0
+            $$
+            por lo tanto existe $p^*\in \partial U$ com
+
+              $$
+              u(p^*)=\max_{(x,y)\in \overline{U}}\{u(x,y)\}.
+              $$
+          </p>
       </div>
 
      </div>
