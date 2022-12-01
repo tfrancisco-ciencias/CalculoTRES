@@ -658,23 +658,28 @@
         $$
         u(p_0)=\max_{ p \in \overline{U}}\{ u(p) \}
         $$
-        
-        Como $p_0$ está en el interior necesariamente
-        debemos de tener $\nabla_{p_0} u=0$, es decir
-        $\partial_x u (p_0)=0=\partial_yu(p_0)$.
       </p>
       <p>
 
-      Por otro lado, por la aproximación de segundo grado (Taylor de grado 2),
-      si $h=(x,y)$ es un vector (de norma peque\~na) tal que $p_0+h \in U$
-      $$
-      u(p_0+h)-u(p_0)= \frac{1}{2}\left( \partial_x^2u(p_0)x^2+
-        2 \partial^2_{xy}u(p_0) xy + \partial_y^2u(p_0) y^2 \right) 
-      + E_{p_0}(h)
-      $$
-      con $\lim_{h\to 0} \frac{E_{p_0}(h)}{\|h\|^2}=0$. En esta parte usamos
-      que $\partial_{x}f(p_0)=0=\partial_yf(p_0)$, para que no exista
-      la parte lineal en la aproximación.
+      Por el <a href="./S14.html#Teo:TaylorGrado2">Teorema de Taylor </a>,
+      si $h=(x,y)$ es un vector (de norma pequeña tal que $p_0+h \in U$) se tiene 
+      \begin{eqnarray*}
+      u(p_0+h)&=&  u(p_0)+ \partial_xf(p_0)x+\partial_yf(p_0)y \\
+      &+&  \frac{1}{2}\left( \partial_x^2u(p_0)x^2+
+        2 \partial^2_{xy}u(p_0) xy + \partial_y^2u(p_0) y^2 \right) \\
+      &+&  E_{p_0}(h)
+      \end{eqnarray*}
+      con $\lim_{h\to 0} \frac{E_{p_0}(h)}{\|h\|^2}=0$. 
+      </p>
+      <p>         
+        Como $p_0$ está en el interior necesariamente
+        debemos de tener $\nabla_{p_0} u=0$, es decir
+        $\partial_x u (p_0)=0=\partial_yu(p_0)$ por lo que obtenemos 
+        \begin{eqnarray*} 
+        u(p_0+h)-u(p_0)&=& \frac{1}{2}\left( \partial_x^2u(p_0)x^2+
+        2 \partial^2_{xy}u(p_0) xy + \partial_y^2u(p_0) y^2 \right) \\
+      &+&  E_{p_0}(h)
+        \end{eqnarray*}
       </p>
       <p>
 
@@ -749,7 +754,10 @@
         <div class="resp-box">
         <p>
           Para $n\geq 1$ natural, definimos $u_n:\overline{U}\to R$
-          dada por $u_n(x.y)=u(x,y)+\frac{1}{n}e^{x}$.
+          dada por 
+          \[
+          u_n(x.y)=u(x,y)+\frac{1}{n}e^{x}
+          \]
         </p>
           <p>
             Entonces $\partial_{x}^2 u_n +\partial_{y}^2 u_n
@@ -831,6 +839,45 @@
         
      </div>
     
+
+
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      $f:\mathbb{R}\to \mathbb{R}$ de la forma $f(t)=mt+c$, donde
+      $m$ y $c$ son constantes. 
+    </p> 
+    <p>
+      Demuestra que el máximo y mínimo de
+      $f$, restringida al intervalo $[a,b]$ se alcanzan en los extremos
+      del intervalo.
+    </p>
+    <button class="respButton hvr-grow "> Demostración</button>
+        <div class="resp-box">
+    <p>
+      Caso 1: \(m=0\).
+    </p>
+    <p>
+      En este caso la función es constante y el resultado es claro.
+    </p>
+    <p>
+      Caso 2: \(m>0\).
+    </p>
+    <p>
+      En este caso la función \(f\) es estrictamente creciente por lo que 
+      el mínimo global se alcanza en el extremo izquierdo, \(a\) y 
+      el máximo en el lado derecho, \(b\).
+    </p>
+    <p>
+      Caso 3: \(m< 0\).
+    </p>
+    <p>
+      En este caso la función \(f\) es estrictamente decreciente por lo que 
+      el mínimo global se alcanza en el extremo derecho, \(b\) y 
+      el máximo en el lado izquierdo, \(a\).
+    </p>
+    </div>
+  </div>
     
     
     <div class="coro-box">
@@ -843,7 +890,8 @@
         Entonces, el valor máximo de $u$ se alcanza en uno de los
         vértices de $U$.
       </p>
-      <div class="resp-box">
+      <button class="respButton hvr-grow "> Demostración</button>
+        <div class="resp-box">
         <p>
           Primero notamos que 
           $$
@@ -853,17 +901,23 @@
           por lo que $u$ es armónica en $U$, además de que
           claramente es continua en 
           $\overline{U}$.
-    
+      </p>
+      <p>
           Por la proposición anterior, para encontrar
           el máximo de $U$ es suficiente 
-          encontrar el máximo de $u$, restringido a la frontera. Después, notamos
+          encontrar el máximo de $u$, restringido a la frontera. 
+          
+       </p>   
+       <p>
+          Después, notamos
           que la frontera de $U$ está formada por segementos de recta, los cuales
           se parametrizan de manera general como
           $$
           (1-t)(x_0,y_0)+t(x_1,y_1)=((1-t)x_0+tx_1, (1-t)y_0+ty_1), \quad t\in [0,1]
           $$
           donde $(x_0,y_0)$ y $(x_1,y_1)$ son los extremos del segmento.
-    
+        </p>
+
           Si restingimos $u$ a este segmento se convierte una función de la variable
           $t$ con regla de correspondencia
           $$
@@ -873,7 +927,10 @@
           (para algunas constantes $m$ y $c$) la cual alcanza
           su máximo en $t=0$ o en $t=1$. Por lo tanto, $u$,
           restringida al segmento alcanza su máximo en $(x_0,y_0)$
-          o en $(x_1,y_1)$.  Finalmente, recorriendo
+          o en $(x_1,y_1)$.  
+        </p>
+        <p>
+          Finalmente, recorriendo
           todos los segmentos de la frontera, obtenemos quel máximo se 
           alcanza en uno de los vértices.
     
@@ -907,15 +964,6 @@
 
 
     
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-      $f:\mathbb{R}\to \mathbb{R}$ de la forma $f(t)=mt+c$, donde
-      $m$ y $c$ son constantes. Demuestra que el máximo y mínimo de
-      $f$, restringida al intervalo $[a,b]$ se alcanzan en los extremos
-      del intervalo.
-    </p> 
-  </div>
 
     
   <div class="ejercicio-box"> 
@@ -952,5 +1000,14 @@
       $x+y+z \leq 1$.
     </p>
   </div>
+
+
+  <!--<div class="teorema-box">
+    <h2 class="number-title"> Teorema </h2>
+    <p>
+        Sea
+    </p>
+
+  </div>-->
 
  </body>
