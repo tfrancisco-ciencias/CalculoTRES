@@ -1175,6 +1175,43 @@
         Después calcula el Hessiano en dichos puntos y determina si es
         positivo definido, definitivamente negativo o ninguno.
       </p>
+      <button class="respButton hvr-grow "> Solución</button>
+      <div class="resp-box">
+          <p>
+              Podemos observar que $f$ es una forma cuadrática y por lo
+              tanto coincide con su Hessiano, o bien podemos calcular primero
+              el gradiente y después sus derivadas parciales mixtas de orden 2
+              para encontrar su matriz Hessiana.
+              \begin{equation*}
+              \nabla f = (2x + y, 2y + x, 2z),
+              \end{equation*}
+              de donde la matriz Hessiana es
+              \begin{equation*}
+              H =
+              \begin{pmatrix}
+              2 & 1 & 0\\
+              1 & 2 & 0\\
+              0 & 0 & 2
+              \end{pmatrix}.
+              \end{equation*}
+              Ahora calculamos sus valores propios
+              \begin{align*}
+              det
+              \begin{pmatrix}
+              2-\lambda & 1 & 0\\
+              1 & 2-\lambda & 0\\
+              0 & 0 & 2-\lambda
+              \end{pmatrix}
+              =& (2-\lambda)(2-\lambda)(2-\lambda) - 1(2-\lambda),\\
+              =& (2-\lambda)^2 - (2-\lambda)\\
+              =& (2-\lambda)((2-\lambda)^2 -1)\\
+              =& (2-\lambda)(3-\lambda)(1-\lambda),
+              \end{align*}
+              y podemos afirmar que los v.p. son $\lambda=1,2,3$. Como todos
+              éstos son estrictamente positivos entonces concluimos que el
+              Hessiano es positivo definido.
+          </p>
+      </div>
     </div>
 
 
