@@ -421,6 +421,30 @@
       $x,y \in \mathbb{R}^n$.
     
     </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            Empecemos por suponer que $A$ es simétrica, es decir, $A^t=A$,
+            además se sabe que para todo $x,y \in \mathbb{R}^n$ se tiene que
+            $\langle Ax,y \rangle = \langle x,A^ty \rangle$, por lo tanto
+            \begin{equation*}
+            \langle Ax,y \rangle = \langle x,A^t y \rangle = \langle x,Ay \rangle.
+            \end{equation*}
+        </p>
+        <p>
+            Supongamos ahora que se satisface la identidad descrita anteriormente.
+            Empecemos por notar que la entrada $a_{ij}$ de la matriz $A$ se puede
+            obtener como
+            \begin{equation*}
+            a_{ij} = \langle Ae_j,e_i \rangle,
+            \end{equation*}
+            donde $e_i,e_j$ son vectores canónicos. De esta manera
+            \begin{equation*}
+            a_{ij}=\langle Ae_j,e_i \rangle = \langle e_j,Ae_i \rangle = a_{ji},
+            \end{equation*}
+            para cada $1\leq i,j \leq n$, por lo que $A$ es una matriz simétrica.
+        </p>
+    </div>
   </div>
   
   
@@ -541,6 +565,20 @@
       positiva definidas y $a>0$, entonces la matriz
       $aA+B$ también es positiva definida.
     </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            Si $x \in \mathbb{R}^n$ entonces
+            \begin{equation*}
+            \langle(aA+B)x, x\rangle = a\langle Ax,x \rangle + \langle Bx,x \rangle,
+            \end{equation*}
+            y la expresión del lado derecho siempre es no negativa pues $a>0$ y cada
+            una de las matrices es positiva definida. De aquí también se deduce que
+            si $\langle (aA+B)x,x \rangle =0$ para algún $x \in \mathbb{R}^n$ entonces
+            $\langle Ax,x \rangle = \langle Bx,x \rangle = 0$ y por lo tanto
+            $x = 0$.
+        </p>
+    </div>
   </div>
 
 
