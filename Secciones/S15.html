@@ -170,6 +170,59 @@
       Encuentra $c>0$ tal que la función $f(x,y)=x^2+xy+cy^2$ tiene un
       punto silla en $(0,0)$.
     </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            $f$ es una forma cuadrática, por lo que coincide con su Hessiano
+            y de esta manera afirmamos que su matriz Hessiana es
+            \begin{equation*}
+            H=
+            \begin{pmatrix}
+            2 & 1\\
+            1 & 2c
+            \end{pmatrix}.
+            \end{equation*}
+            Si $H$ es positiva definida entonces $(0,0)$ es un mínimo local,
+            si es negativa entonces es un máximo local, entonces tenemos que
+            encontrar para qué valores de $c$ la matriz tiene un valor propio
+            positivo y otro negativo.
+        </p>
+        <p>
+            \begin{align*}
+            det H = (2-\lambda)(2c-\lambda)-1,\\
+            =& \lambda^2 + \lambda(-2 - 2c) + (4c-1),
+            \end{align*}
+            tiene soluciones $\lambda = 1+c \pm \sqrt{c^2 - 2c + 2}$, claramente
+            en el caso de la suma $\lambda$ es estrictamente positivo, por lo que
+            para que el segundo valor propio sea negativo es necesario que
+            \begin{equation*}
+            1 + c < \sqrt{c^2 - 2c + 2},
+            \end{equation*}
+            lo cual es equivalente a que $(1+c)^2 < c^2 -2c + 2$, dado que el
+            término cuadrático aparece en ambos lados de la desigualdad se puede
+            cancelar y basta despejar a $c$ para obtener que $0< c < 1/4$.
+        </p>
+        <p>
+            Ahora buscamos una dirección en la que siempre podamos encontrar vectores
+            $(x,y)$ de norma arbitrariamente pequeña tales que $f(x,y)<0$, proponemos
+            $y=-mx$ para alguna $m>0$ y sustituimos en $f$:
+            \begin{equation*}
+            f(x,y) = x^2 - x(mx) +(0.2)(-mx)^2 = x^2 - mx^2 + 0.2m^2x^2 < 0,
+            \end{equation*}
+            como $x^2 > 0$ si $x \neq 0$ entonces podemos cancelarlo para obtener
+            un polinomio de grado 2 en $m$
+            \begin{equation*}
+            0.2m^2 - m + 1,
+            \end{equation*}
+            éste corresponde a una parábola que abre hacia arriba por lo que el conjunto
+            de valores para los cuales $f$ es negativo será vacío, un punto, o un intervalo.
+            Aplicamos la fórmula para encontrar ceros de polinomios de grado 2 para obtener
+            que $m = \frac{1 \pm \sqrt{0.2}}{2}$, por lo que al considerar $m \in
+            (\frac{1 - \sqrt{0.2}}{2},\frac{1 + \sqrt{0.2}}{2})$ se asegura que $f(x,-mx)<0$
+            y por lo tanto $(0,0)$ es un punto silla.
+        </p>
+
+    </div>
   </div>
 
     
@@ -416,6 +469,46 @@
             
             Determinar los valores de $a$ y $b$ que hagan esto.
           </p>
+          <button class="respButton hvr-grow "> Solución</button>
+          <div class="resp-box">
+              <p>
+                  Empecemos por notar que
+                  \begin{equation*}
+                  k = (0x_1 + (y_1 + k) - y_1)^2 \leq E(0,y_1+k),
+                  \end{equation*}
+                  por lo que el error no está superiormente acotado, al buscar puntos
+                  críticos únicamente encontraremos mínimos o puntos silla.
+              </p>
+              <p>
+                  Los puntos críticos se encontran cuando el gradiente se anula, por
+                  lo que comenzamos por calcular el gradiente en puntos arbitrarios,
+                  \begin{align*}
+                  \frac{\partial E}{\partial a} =& \sum_{i=1}^n 2(ax_i + b - y_i)x_i,\\
+                  \frac{\partial E}{\partial b} =& \sum_{i=1}^n 2(ax_i + b - y_i,
+                  \end{align*}
+                  lo anterior da lugar a un sistema de dos ecuaciones lineales con dos incógnitas:
+                  \begin{align*}
+                  \sum_{i=1}^n 2(ax_i + b - y_i)x_i = 0,\\
+                  \sum_{i=1}^n 2(ax_i + b - y_i = 0,
+                  \end{align*}
+                  podemos empezar por dividir ambos lados por 2 y luego despejar $b$ de la segunda ecuación:
+                  \begin{equation*}
+                  b= \frac{\sum_{i=1}^n y_i - a(\sum_{i=1}^n x_i)}{\sum_{i=1}^n} = \frac{1}{n} \sum_{i=1}^n y_i - a \frac{1}{n}\sum_{i=1}^n x_i = \overline y - a \overline x,
+                  \end{equation*}
+                  con $\overline x,\overline y$ los promedios de los $x_i$ y $y_i$, respectivamente.
+                  Ahora sustituimos en la primera ecuación para encontrar $a$
+                  \begin{align*}
+                  a =& \frac{\sum_{i=1}^n x_i(y_i-\overline y}{\sum_{i=1}^n x_i(x_i-\overline x},\\
+                  =& \frac{\sum_{i=1}^n (x_i- \overline x + \overline x)(y_i - \overline y)}{\sum_{i=1}^n (x_i - \overline x + \overline x)(x_i - \overline x)},\\
+                  =& \frac{\sum_{i=1}^n (x_i - \overline x)(y_i - \overline y) \sum_{i=1}^n \overline x (y_i - \overline y)}{\sum_{i=1}^n (x_i - \overline x)^2 + \sum_{i=1}^n \overline x (x_i - \overline x)},\\
+                  =& \frac{\sum_{i=1}^n (x_i - \overline x)(y_i - \overline y) + n(\frac{1}{n} \sum_{i=1}^n \overline x (y_i - \overline y))}{\sum_{i=1}^n (x_i - \overline x)^2 + n (\frac{1}{n} \sum \overline x (x_i - \overline x))},\\
+                  =& \frac{\sum_{i=1}^n (x_i - \overline x)(y_i - \overline y) + n(\overline x \frac{1}{n} \sum_{i=1}^n  y_i - \frac{1}{n} n \overline x \overline y)}{\sum (x_i - \overline x)^2 + n (\overline x \frac{1}{n} \sum_{i=1}^n x_i - \frac{1}{n} n \overline x^2)},\\
+                  =& \frac{\sum_{i=1}^n (x_i - \overline x)(y_i - \overline y)}{\sum_{i=1}^n (x_i - \overline x)^2},
+                  \end{align*}
+                  sustituimos nuevamente en $b$ y tenemos
+                  $b = \overline y - \frac{\sum_{i=1}^n (x_i - \overline x)(y_i - \overline y)}{\sum_{i=1}^n (x_i - x)^2}$.
+              </p>
+          </div>
         </div>
 
 
