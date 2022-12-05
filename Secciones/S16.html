@@ -83,20 +83,25 @@
   <body class="fondo-body" >
 
     <h1 class="number-title flexbox"> Multiplicadores de Lagrange </h1> 
+    <!--<button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>-->
+<button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
+
 
 
     
     <div class="teorema-box">
-      <h2> Teorema </h2>
-      <h3> Teorema de Lagrange, una restricción </h3>
+      <h2 class="number-title"> Teorema </h2>
+      <h3> Teorema de Lagrange (una restricción)</h3>
       <p>
         Sean $U\subseteq \mathbb{R}^n$ un abierto y $f,g:U \to \mathbb{R}$
-        funciones clase $C^1$ en $U$. Supongamos que $p_0\in U$ satisface
-        $$
-        f(p) \leq f(p_0) \quad o \quad f(p) \geq f(p_0),
-        $$
-        para toda $p$ en una vecindad de $p_0$ que además satisfacen
-        la restricción $g(p)=0$.
+        funciones clase $C^1$ en $U$. Supongamos que $p_0\in U$ es un extremo local 
+        de \(f\) (es decir, máximo o mínimo realtivo) con la restricción $g(p)=0$.
+      </p>
+      <p>
+        Por ejemplo 
+        \[
+        \max_{p\in U, g(p)=0 } \{ f(p)\}=f(p_0)
+        \]
       </p>
       <p>
         Si $\nabla_{p_0}g \ne 0$ entonces existe $\lambda \in \mathbb{R}$ tal
@@ -107,7 +112,425 @@
       </p>
     </div>
       
+
+
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <ol>
+    <li>
+      Encuentra el máximo de $f(x,y)=xy$ sujeto a la
+      restricción $x+y=1$. 
+    </li>
+    <li>
+      ¿ Con las
+      mismas condiciones, existe el mínimo ? Explica.
+    </li>
+    </ol>
+    <button class="respButton hvr-grow "> Solución inciso 1 </button>
+    <div class="resp-box">
+    <p>
+      Paso 1: existencia del máximo.
+    </p>
+    <p>
+      Primero notamos que la restricción \(x+y=1\) dibuja una recta en el plano 
+      que pasa por el primer, segundo y cuarto cuadrante. En el segundo y cuarto 
+      cuadrante la función \(f(x,y)\) es negativa así que el máximo se 
+      debe de alcancar en el primer cuadrante.
+    </p>
+    <p>
+      En el primer cuadrante la condición es \(x+y=1, x\geq 0, y\geq 0\), lo cual 
+      dibuja un segmento de recta el cual es compacto y por lo tanto (al ser \(f\) continua) 
+      el máximo 
+      \[
+      \max_{x+y=1}\{ f(x,y)\}=\max_{x+y=1, x\geq 0, y\geq 0}\{f(x,y)\}
+      \]
+      se alcanza. Sea \(p_0\) un punto donde se alcance el máximo.
+    </p>
+    <p>
+      Paso 2: solución del multiplicador de Lagrange.
+    </p>
+    <p>
+      \begin{eqnarray*} 
+      \nabla_{p}f=\lambda \nabla_{p}g 
+      \end{eqnarray*}
+    </p>
+    <p>
+      Tomamos la función clase \(C^1\) dada por \(g(x,y)=x+y-1\). Solucionamos 
+      el sistema 
+      \begin{eqnarray*}
+      \left\{ 
+        \begin{array}{c} 
+        \nabla_{p}f=\lambda \nabla_{p}g  \\
+        g(p) =0 
+        \end{array} 
+       \right.  
+       & \Leftrightarrow & 
+       \left\{ 
+        \begin{array}{c}
+        \partial_xf(p)=\lambda \partial_x g(p) \\
+        \partial_y f(p)= \lambda \partial_y g(p)   \\
+        g(p)=0
+       \end{array}
+       \right. 
+      \\
+      & \Leftrightarrow & 
+      \left\{ 
+       \begin{array}{c}
+        y  =\lambda x   \\
+       x = \lambda  y    \\
+        x+y-1=0
+      \end{array}
+      \right.
+      \end{eqnarray*}
+    </p>
+    <p>
+      Observación: \(x \ne 0\) y \(y \ne 0\) (si \(x =0\) la primera ecuación implica 
+      \(y=0\), contradiciendo la tercera ecuación).
+    </p>
+    <p>
+      Ya que \(x\ne 0, y\ne 0\) tenemos \(y/x=\lambda= x/y \Rightarrow y^2=x^2\). Pero 
+      ya habíamos notado que \(x\geq 0, y \geq 0 \) por lo que \(x=y\). De la tercera 
+      ecuación obtenemos \(x=y=1/2\). 
+    </p>
+    <p>
+      Paso 3: asignación de máximo.
+    </p>
+    <p>
+      Sea \(p_0=(x_0,y_0)\) un punto donde se alcanza el máximo, es decir 
+      \[
+      \max_{x+y=1}\{ f(x,y)\}=f(x_0,y_0)
+      \]
+
+    </p>
+    <p>
+      Ya que \(\nabla_{p}g\ne 0\) para todo \(p\ne 0\) por el Teorema de Lagrange existe 
+      \(\lambda \) tal que \(\nabla_{p_0}f = \lambda \nabla_{p_0} g\). Pero por el paso 2
+      la única solución es \((x_0,y_0)=(1/2,1/2)\). 
+    </p>
+    <p>
+      Por lo tanto el máximo se alcanza en \(p_0=(1/2,1/2)\) y 
+      \[
+      \max_{x+y=1}\{ xy\} =\frac{1}{4}.
+      \]
+    </p>
+    
+    </div>
+
+    <button class="respButton hvr-grow "> Solución inciso 2 </button>
+    <div class="resp-box">
+
+      <p>
+        Para el mínimo vemos que no se alcanza pues en el segundo y cuarto cuadrante la función 
+        \(f\) se va a \(-\infty\). Por ejemplo para los puntos de la forma \((x,y)=(-n,n+1)\) se satisface 
+        \(x+y=1\) pero \(f(x,y)=xy=-n(n+1)\) tiende a \(-\infty\) cuando \(n\to \infty\).
+      </p>
+      </div>
+      </div>
+
+
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    
+    <p>
+      Generaliza el ejercicio anterior: encuentra el máximo de $f(x,y)=xy$ sujeto a la
+      restricción $bx+ay=ab$ donde \(a,b>0\) son constantes. 
+    </p>
+  </div>    
+
+
+  </div>
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Encuentra los máximos y mínimos de la función
+      $f(x,y,z)=x-2y+2z$ sobre la esfera $x^2+y^2+z^2=1$.
+    </p>
+    <button class="respButton hvr-grow "> Solución  </button>
+    <div class="resp-box">
+    <p>
+      Paso 1: Existencia de máximos, mínimos.
+    </p>
+    <p>
+      La esfera unitaria \(S=\{(x,y,z):x^2+y^2+z^2=1\}\) es un conjunto compacto. 
+      Ya que la función \(f(x,y,z)=x-2y+2z\) es continua (al ser lineal) el máximo 
+      y mínimo de \(f\) se alcanzan en \(S\). 
+    </p>
+    <p>
+      Paso 2: solución del multiplicador de Lagrange,
+      \[
+      \nabla_{p}f =\lambda \nabla_p g 
+      \]
+      donde tomamos la función clase \(C^1\), \(g(x,y,z)=x^2+y^2+z^2-1\). 
+    </p>
+    <p>
+      Resolvemos  el siguiente sistema, para \(x,y,z,\lambda\): 
+      
+      \begin{eqnarray*}
+      \left\{
+      \begin{array}{c} 
+      \nabla_{p}f &=&\lambda \nabla_p g \\
+      g(p)&=&0 
+      \end{array}
+      \right. 
+      & \Leftrightarrow  &
+      \left\{ 
+      \begin{array}{c} 
+      \partial_xf(p)&=&\lambda \partial_x g(p) \\
+      \partial_yf(p)&=&\lambda \partial_y g(p) \\
+      \partial_z f(p)&=&\lambda \partial_z g(p) \\
+      g(x,y,z)&=&0
+      \end{array}
+      \right. \\
+      & \Leftrightarrow  &
+      \left\{ 
+      \begin{array}{c} 
+       1 &=&\lambda 2x \\
+       -2 &=&\lambda 2y \\
+      2 &=& \lambda 2z  \\
+      x^2+y^2+z^2-1&=& 0
+      \end{array}
+      \right.
+      \end{eqnarray*}
+    </p>
+    <p>
+      Las primeras tres ecuaciones dicen que \(x\ne 0, y\ne 0, z\ne 0, \lambda \ne 0 \) y 
+      \(x=\frac{1}{2\lambda}, y= \frac{-1}{\lambda}, z=\frac{1}{\lambda}\). Se sigue
+      \begin{eqnarray*} 
+        0&=&x^2+y^2+z^2-1\\
+        &=& \frac{1}{4\lambda^2}+\frac{1}{\lambda^2}+\frac{1}{\lambda^2} \\
+        &=& \frac{9}{4}\frac{1}{\lambda^2}
+      \end{eqnarray*}
+      por lo que \(\lambda= \pm \frac{3}{2}\) y 
+      \begin{eqnarray*}  
+      x&=& \frac{1}{2\lambda}= \pm \frac{1}{3} \\
+      y&=& \frac{-1}{\lambda }= \mp \frac{2}{3}\\
+      z&=& \frac{1}{\lambda} = \pm \frac{2}{3}
+      \end{eqnarray*}
+    </p>
+    <p>
+      Por lo tanto tenemos dos soluciones \((1/3,-2/3,2/3), (-1/3,2/3,-2/3)\).
+    </p>
+    <p>
+      Paso 3: asignación de máximos, mínimos.
+    </p>
+    <p>
+      Sean \(p_1, p_2 \in S \) puntos donde se alcanza el máximos y mínimo para \(f\). 
+      Notamos que \(\nabla_p g \ne 0\) para todo \(p\ne 0\). Por el Teorema de Lagrange 
+      existen \(\lambda_i\), \(i=1,2\), tal que \(\nabla_{p_i}=\lambda_i \nabla_{p_i}g\) y \(g(p_i)=0\), \(i=1,2\).
+      Ya que sólo exsiten dos soluciones al sistema anterior necesariamente una es el máximo y otra el 
+      mínimo. Evaluando tenemos 
+      \begin{eqnarray*} 
+      f(1/3,-2/3,2/3)&=&(1/3)-2(-2/3)+2(2/3)=9/3=3\\
+      f(-1/3,2/3,-2/3)&=&-1/3-2(2/3)+2(-2/3)=-9/3=-3.
+      \end{eqnarray*}
+    </p>
+    <p>
+      Por lo tanto el máximo se alcanza en \((1/3,-2/3,2/3)\) y es \(3\). El mínimo se 
+      alcanza en \((-1/3,2/3,-2/3)\) y es \(-3\).
+    </p>
+    </div>
+  </div>
+
+    
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Encuentra las distancias máximas y mínimas 
+      desde el origen a la curva $5x^2+6xy+5y^2=8$.
+    </p>
+    <p>
+      Sugerencia: es más sencillo minimizar la distancias al cuadrado.
+    </p>
+  </div>
+    
+
+       
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Un canal de riego tiene lados y fondo de concreto con
+      sección transversal trapezoidal de área $A=y(x+y\tan(\theta))$
+      y perímetro húmedo $P=x+\frac{2y}{\cos(\theta)}$, donde
+      $x$ es el ancho del fondo, $y$ la profundidad del agua y
+      $\theta$ la inclinación lateral, medida a partir de la
+      vertical. El mejor dise\~no para una inclinación
+      fija $\theta$ se halla resolviendo $P=$ mínimo
+      sujeto a la condición $A=$ constante. Mostrar que
+      $y^2=\frac{A\cos(\theta)}{2-\cos(\theta)}$.
+      
+    </p>
+
+   </div>
+   
+
+   <div class="nota-box">
+    <h2 class="number-title"> Nota </h2>
+    <p>
+      Con la herramienta de multiplicadores de Lagrange podemos actualizar los pasos dados
+      en la sección 15 para encontrar máximos y mínimos absolutos.
+    </p>
+    <p>
+      Sea \(U\) un abierto acotado de \(\mathbb{R}^n\) y 
+      \(f:\overline{U}\to \mathbb{R}\) una función continua en \(\overline{U}\) y diferenciable en \(U\). 
+      Además supongamos que \(\partial \overline{U}\) está dada por una condición de la forma \(g(p)=0\) donde 
+      \(g\) es una función clase \(C^1\).
+      
+    </p>
+    <p>
+      Ya que \(\overline{U}\) es cerrado y acotado resulta ser un conjunto compacto y por lo tanto  
+      \(f\) alcanza su máximo y mínimo absoluto. Para encontrar el máximo/mínimo absoluto se procede:
+    </p>
+      <ol>
+        <li>
+          Se encuentran los puntos críticos de \(f\) en \(U\).
+        </li>
+        <li>
+          Se determinan si los puntos críticos son máximos relativos, mínimos relativos o puntos silla. 
+        </li>
+        <li>
+          Usando multiplicadores de Lagrange se 
+          encuentra  máximos/mínimos  de la función \(f\) restringida a \(\partial \overline{U}\).
+        </li>
+        <li>
+            Calcular los valores de \(f\) en los puntos críticos y en los máximos/mínimos en la frontera.
+            El mayor de estos valores es el máximo absoluto y el menor es el mímimo absoluto.
+        </li>
+      </ol>
+    </div>
+   
+   
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Considera la función $f(x,y)=x^2+xy+y^2$,
+      en el disco unitario $D=\{(x,y): x^2+y^2 \leq 1\}$. 
+      Encuentra los máximos y mínimos absolutos
+      de $f$ en $D$.
+    </p>
+    <button class="respButton hvr-grow "> Solución </button>
+    <div class="resp-box">
+    <p>
+      Primero notamos que al ser \(D\) compacto y \(f\) continua 
+      existen el máximo y mínimo absoluto.
+    </p>
+    <p>
+      Paso 1: puntos críticos.
+    </p>
+    <p>
+      El sistema \(\nabla_p f = 0 \) se escribe 
+      \begin{eqnarray*} 
+      2x+y=0 \\
+      x+2y=0
+      \end{eqnarray*}
+      el cual tiene una única solución: \((x,y)=(0,0)\).
+    </p>
+    <p>
+      Paso 2: asignar punto crítico como máx/mín/silla.
+    </p>
+    <p>
+      La matrix de segundas derivadas parciales en \((0,0)\) es 
+      \begin{eqnarray*} 
+      \left[ 
+      \begin{array}{cc} 
+        2 & 1 \\
+        1 &  2 
+      \end{array}
+      \right]
+      \end{eqnarray*}
+      la cual tiene determinante igual a \(3 >0\) y primera entrada \(2 >0\). Por lo tanto 
+      es positiva definida (ambos valores propios son positivo). Por el criterio del Hessiano 
+      \((0,0)\) es un mínimo local.
+    </p>
+    <p>
+      Paso 3: encontrar máx/mín en \(\partial D\) via multiplicadores de Lagrange.
+    </p>
+    <p>
+      Ya habíamos notado que el máximo y mínimo existen al ser el dominio compacto y la función continua.
+      Notamos que \(\partial D\) esta dada por la condición \(g(x,y)=0\) donde 
+      \(g(x,y)=x^2+y^2-1\) es clase \(C^1\). 
+    </p>
+    <p>
+      Resolvemos el multiplicador de Lagrange, es decir el sistema 
+      \begin{eqnarray*} 
+      \left\{ 
+        \begin{array}{c}  
+        \nabla_p f = \lambda \nabla_p g \\
+        g(p)=0
+        \end{array}
+      \right.
+      \Leftrightarrow 
+      \left\{ 
+        \begin{array}{c}  
+        2x+y = 2\lambda x  \\
+        x+2y = 2\lambda y \\
+        x^2+y^2-1=0
+        \end{array}
+      \right.
+      \end{eqnarray*}
+    </p>
+    <p>
+      Substituyendo \(y=2\lambda x -2x = 2x(\lambda -1)\) en \(x^2+y^2=1\) llegamos a 
+      \begin{eqnarray*} 
+      x^2(1+4(\lambda -1)^1)=1 \Rightarrow x^2 = \frac{1}{1+4(\lambda -1)^2}
+      \end{eqnarray*}
+      De manera similar 
+      \[
+      y^2=\frac{1}{1+4(\lambda -1)^2}
+      \]
+      Por lo tanto tenemos que \(x^2=y^2\) de lo cual se siguen dos casos.
+    </p>
+    <p>
+      Caso \(x=y\). De \(2x+y=2\lambda x\) llegamos a \(3x=2\lambda x\). Si \(x=0\) entonces 
+      \(y=0\) pero entonces \(x^2+y^2=1\) no es válido. Así \(x\ne 0\) y por lo tanto 
+      \(3/2=\lambda\). Se sigue que 
+      \begin{eqnarray*} 
+        x&=& \frac{\pm 1}{\sqrt{1+4(\lambda -1)^2}}\\
+        &=& \frac{\pm 1}{\sqrt{1+4(3/2 -1)^2}}\\
+        &=&  \frac{\pm 1}{\sqrt{2}}
+      \end{eqnarray*}
+      Por lo que en este caso tenemos dos soluciones \((1/\sqrt{2},1/\sqrt{2}), (-1/\sqrt{2},-1/\sqrt{2})\).
+    </p>
+    <p>
+      Caso \(x=-y\). De \(2x+y=2\lambda x\) llegamos a \(x=2\lambda x\). Si \(x=0\) entonces 
+      \(y=0\) pero entonces \(x^2+y^2=1\) no es válido. Así \(x\ne 0\) y por lo tanto 
+      \(1/2=\lambda\). Se sigue que 
+      \begin{eqnarray*} 
+        x&=& \frac{\pm 1}{\sqrt{1+4(\lambda -1)^2}}\\
+        &=& \frac{\pm 1}{\sqrt{1+4(1/2 -1)^2}}\\
+        &=&  \frac{\pm 1}{\sqrt{2}}
+      \end{eqnarray*}
+      Por lo que en este caso tenemos dos soluciones \((1/\sqrt{2},-1/\sqrt{2}), (-1/\sqrt{2},1/\sqrt{2})\).
+    </p>
+    <p>
+      Valuando todas las soluciones obtenemos 
+      \begin{eqnarray*} 
+        f(1/\sqrt{2},1/\sqrt{2})=1/2+1/2+1/2=3/2\\
+        f(-1/\sqrt{2},-1/\sqrt{2})=1/2-1/2+1/2=1/2\\
+        f(1/\sqrt{2},-1/\sqrt{2})=1/2-1/2+1/2=1/2\\
+        f(-1/\sqrt{2},1/\sqrt{2})=1/2-1/2+1/2=1/2
+      \end{eqnarray*}
+      Por lo tanto el máximo en la frontera es \(3/2\) y el mínimo es \(1/2\).
+    </p>
+    <p>
+      Paso 4: asignar máximos y mínimos absolutos.
+    </p>
+    <p>
+      Juntando los valores en puntos críticos y máximos/mínimos para la frontera llegamos 
+      \begin{eqnarray*} 
+        f(1/\sqrt{2},1/\sqrt{2})&=&1/2+1/2+1/2=3/2\\
+        f(-1/\sqrt{2},-1/\sqrt{2})&=&1/2-1/2+1/2=1/2\\
+        f(1/\sqrt{2},-1/\sqrt{2})&=&1/2-1/2+1/2=1/2\\
+        f(-1/\sqrt{2},1/\sqrt{2})&=&1/2-1/2+1/2=1/2\\
+        f(0,0)&=&0
+      \end{eqnarray*}
+      Por lo tanto el máximo absoluto es \(3/2\) y se alcanza en \((1/\sqrt{2},1/\sqrt{2})\) y 
+      el mínimo absoluto es \(0\) y se alcanza en \((0,0)\).
+    </p>
+    </div>
+  </div>
   
+
+
 
   <div class="ejercicio-box"> 
     <h2 class="number-title"> Ejercicio</h2> 
@@ -121,12 +544,12 @@
       dos funciones clase $C^1$, $f,g:U\to \mathbb{R}$. Considera
       la superficie de nivel
       $$
-      S=\{p\in S: f(p)=0 \}
+      S=\{p\in U: g(p)=0 \}
       $$
   
     </p>
     <p>
-      Recuerda que, dado pun punto $p_0\in S$, el plano
+      Recuerda que dado punto $p_0\in S$, el plano
       tangente a $S$ en $p_0$ se define como
       $$
       \{p\in \mathbb{R}^3: \langle \nabla_{p_0}g, p-p_0 \rangle=0\}.
@@ -165,81 +588,18 @@
   </div>
 
     
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-      Encuentra el mínimo de $f(x,y)=xy$ sujeto a la
-      restricción $x+y=1$. ¿ Con las
-      mismas condiciones, existe el máximo ? Explica.
-    </p>
-  </div>
 
 
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-      Encuentra los máximos y mínimos de la función
-      $f(x,y,z)=x-2y+2z$ sobre la esfera $x^2+y^2+z^2=1$.
-    </p>
-  </div>
-
-    
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-      Encuentra las distancias máximas y mínimas 
-      desde el origen a la curva $5x^2+6xy+5y^2=8$.
-    </p>
-    <p>
-      Sugerencia: es más sencillo minimizar la distancias al cuadrado.
-    </p>
-  </div>
-    
-
-       
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-      Un canal de riego tiene lados y fondo de concreto con
-      sección transversal trapezoidal de área $A=y(x+y\tan(\theta))$
-      y perímetro húmedo $P=x+\frac{2y}{\cos(\theta)}$, donde
-      $x$ es el ancho del fondo, $y$ la profundidad del agua y
-      $\theta$ la inclinación lateral, medida a partir de la
-      vertical. El mejor dise\~no para una inclinación
-      fija $\theta$ se halla resolviendo $P=$ mínimo
-      sujeto a la condición $A=$ constante. Mostrar que
-      $y^2=\frac{A\cos(\theta)}{2-\cos(\theta)}$.
-      
-    </p>
-
-   </div>
-   
-   
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-      Considera la función $f(x,y)=x^2+xy+y^2$,
-      en el disco unitario $D=\{(x,y): x^2+y^2 \leq 1\}$. Usa
-      multiplicadores de Lagrange para maximizar $f$ en
-      el circulo unitario  $\partial D=\{(x,y): x^2+y^2=1\}$. Usa
-      lo anterior para encontrar los máximos y mínimos absolutos
-      de $f$ en $D$.
-    </p>
-  </div>
   
   
   <div class="teorema-box">
     <h2 class="number-title"> Teorema </h2>
-    <h3>Lagrange, varias restricciones</h3> 
+    <h3>Multiplicadores de Lagrange (varias restricciones)</h3> 
     <p>
       Sean $U\subseteq \mathbb{R}^n$ un abierto y
       $f,g_1,\dots, g_m:U \to \mathbb{R}$
-      funciones clase $C^1$ en $U$. Supongamos que $p_0\in U$ satisface
-      $$
-      f(p) \leq f(p_0) \quad o \quad f(p) \geq f(p_0),
-      $$
-      para toda $p$ en una vecindad de $p_0$ que además satisfacen
-      la restricciones $g_1(p)=0, \cdots ,  g_m(p)=0$.
+      funciones clase $C^1$ en $U$. Supongamos que $p_0\in U$ es un punto extremo de \(f\)
+      con las restricciones $g_1(p)=0, \cdots ,  g_m(p)=0$.
     
     </p>
     <p>
