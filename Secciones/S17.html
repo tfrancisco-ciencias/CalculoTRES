@@ -342,7 +342,7 @@
 
   </div>
   <div class="lema-box">
-    <h2 class="number-title"> Lema </h2>
+    <h2 class="number-title" id="Lema:ContiMatrizDerivadasPar"> Lema </h2>
     <p>
       Sea $F=(f_1,\dots, f_m):U\subseteq R^n \to R^m$, una función $C^1$ en $U$ y $\mathbf{p}_0 \in U$.
     </p>
@@ -390,10 +390,10 @@
       <button class="respButton hvr-grow "> Demostración</button>
       <div class="resp-box">
         <p>
-          Sea $\delta>0$ tal que 
+          Por el <a href="#Lema:ContiMatrizDerivadasPar">Lema 17.10</a> existe  $\delta>0$ tal que 
           $$
           \textrm{ $\mathbf{p}\in U$ y $ \| \mathbf{p}-\mathbf{p}_0\| <\delta$ } 
-          \rightarrow \| D_{\mathbf{p}}F-D_{\mathbf{p}_0}F \| < \varepsilon
+          \rightarrow \| D_{\mathbf{p}}F-D_{\mathbf{p}_0}F \|_2 < \varepsilon
           $$
         </p>
         <p>
@@ -435,7 +435,7 @@
         <p>
           Sea $\mathbf{p}_1:=\mathbf{p}_0+\xi(\mathbf{v}-\mathbf{w})+\mathbf{w}$. 
           Es importante notar que $\| \mathbf{p}_1 - \mathbf{p}_0 \| < \delta$ por lo que 
-          $\| D_{\mathbf{p}_1}F-D_{\mathbf{p}_2}F\| < \varepsilon$.
+          $\| D_{\mathbf{p}_1}F-D_{\mathbf{p}_2}F\|_2 < \varepsilon$.
         </p>
         <p>
               Como
@@ -447,16 +447,19 @@
                 $$
                 [ F(\mathbf{p}_0+\mathbf{v})- F(\mathbf{p}_0+\mathbf{v}) 
                 - D_{\mathbf{p}_0}(\mathbf{v}-\mathbf{w}) ]   \cdot \mathbf{u} 
-                = [ D_{\mathbf{p}_1}(\mathbf{v}-\mathbf{w})-D_{\mathbf{p}_0}(\mathbf{v}-\mathbf{w})]\cdot \mathbf{u}
+                = [ D_{\mathbf{p}_1}F(\mathbf{v}-\mathbf{w})-D_{\mathbf{p}_0}F(\mathbf{v}-\mathbf{w})]\cdot \mathbf{u}
                 $$
         </p>
         <p>
             Usando la definición de $u$ y la desigualdad de Cauchy-Schwartz se tiene
-            $$
-              \| F(\mathbf{p}_0+\mathbf{v})- F(\mathbf{p}_0+\mathbf{v}) 
-              - D_{\mathbf{p}_0}(\mathbf{v}-\mathbf{w}) \| \leq \| D_{\mathbf{p}_1}F 
-              - D_{\mathbf{p}_0} \| <\varepsilon
-            $$	
+            \begin{eqnarray*} 
+             &  &\| F(\mathbf{p}_0+\mathbf{v})- F(\mathbf{p}_0+\mathbf{v}) 
+              - D_{\mathbf{p}_0}(\mathbf{v}-\mathbf{w}) \| \\
+              & \leq & \| D_{\mathbf{p}_1}F(\mathbf{v}-\mathbf{w}) - D_{\mathbf{p}}F(\mathbf{v}-\mathbf{w})  \|\\
+               & \leq  & \| D_{\mathbf{p}_1}F 
+              - D_{\mathbf{p}_0} \|_2 \|\mathbf{v}-\mathbf{w} \| \\
+              &< & \varepsilon \|\mathbf{v}-\mathbf{w} \|
+            \end{eqnarray*}
         </p>
       </div>
     </div>
@@ -592,6 +595,40 @@
   </div>
   </div>
 
+  <div class="lema-box">
+    <h2 class="number-title"> Lema </h2>
+    <p>
+      Sea \(U\subseteq \mathbb{R}^n\) un abierto y \(F:U \to \mathbb{R}^n \) una función clase \(C^1\). Si \(p_0\in U\)
+      es un punto donde  \(D_{p_0}F\) es invertible entonces existen constantes   \(r,c > 0\) tal que 
+      \[
+      c \|v\| \leq \|D_{p}F v \|
+      \]
+      para todo \(v\in \mathbb{R}^n\) y todo \(p\in B_r(p_0)\).
+    </p>
+
+
+  </div>
+
+
+
+  <div class="prop-box">
+    <h2 class="number-title"> Proposición  </h2>
+    <p>
+      Sea \(U\subseteq \mathbb{R}^n\) un abierto y \(F:U \to \mathbb{R}^n \) una función clase \(C^1\). Si \(p_0\in U\)
+      es un punto donde  \(D_{p_0}F\) es invertible entonces existen constantes   \(r,d > 0\) tal que 
+      \[
+      d \|p_1-p_2\| \leq \|F(p_1)-F(p_2) \| 
+      \]
+      todos \(p_1,p_2 \in B_r(p_0)\).
+
+    </p>
+    <p>
+      En particular \(F\) es inyectiva en \(B_r(p_0)\).
+    </p>
+
+
+
+  </div>
 
     <div class="teorema-box">
       <h2 class="number-title"> Teorema </h2>
@@ -656,6 +693,115 @@
         $B_\beta(F(p_0)) \subseteq F(U)$.
       </p>
       </div>
+    </div>
+
+
+
+
+    <div class="prop-box">
+      <h2 class="number-title"> Proposición  </h2>
+      <p>
+        Sea $U$ un abierto de $\mathbb{R}^n$ y $F:U\to \mathbb{R}^n$ una
+        función de clase $C^1$ en $U$.
+      </p>
+      <p>
+          Sea $\mathbf{p}_0\in U$  y supongamos que la derivada de $F$ en $\mathbf{p}_0$,
+          denotada $D_{\mathbf{p}_0}F$,
+          es invertible.
+      </p>
+      <p>
+        Entonces existe $W$, una vecindad de $\mathbf{p}_0$, tal que $F(W)$ es una
+        vecindad abierta de $F(\mathbf{p}_0)$ donde se cumple:
+      </p>
+    
+      <ol>
+        <li>
+            denotando $V:=F(W)$, $F$ es una biyección de $W$ a $V$
+            (es decir, inyectiva en $W$ y
+            suprayectiva a $V$);
+        </li>
+        <li>
+            $G:V \to W$, la  función inversa de $F$,  es continua en $V$;
+        </li>
+      </ol>
+    
+    </div>
+
+    <div class="nota-box">
+      <h2 class="number-title"> Demostración del Teorema de la función inversa </h2>
+      <p>
+        Sea $U$ un abierto de $\mathbb{R}^n$ y $F:U\to \mathbb{R}^n$ una
+        función de clase $C^1$ en $U$.
+      </p>
+      <p>
+          Sea $\mathbf{p}_0\in U$  y supongamos que la derivada de $F$ en $\mathbf{p}_0$,
+          denotada $D_{\mathbf{p}_0}F$,
+          es invertible.
+      </p>
+
+      <p>
+          Por la proposición anterior existe \(W\) una vecindad abierta de \(p_0\) 
+          tal que \(V:=F(W)\) es una vecindad abierta de \(F(p_0)\) y tal que 
+          \(F\) es una biyección entre \(W\) y \(V\) y es continua. Denotemos por 
+          \(G\) la inversa de \(F\). Lo que resta probar es que \(G\) es diferenciable 
+          en todo punto de \(V\).       
+      </p>
+      <p>
+          Nota: a los puntos de \(W\) los denotaremos por letras \(p\)'s y a los puntos 
+          de \(V\) por \(q\)'s. Ya que \(F\) es una biyección entre \(W\) y \(V\)
+          para todo \(q\in V\) existe un único \(p\in V\) tal que \(F(p)=q\) ó 
+          equivalentemente \(G(q)=p\).
+      </p>
+      <p>
+        Fijemos \(q _1\in  V\). Debemos de probar que \(G\) es diferenciable en 
+        \(q_1\) y para lo cual se probará que tiene una aproximación lineal.
+      </p>
+      <p>
+        Al ser \(F\) diferenciable en \(p_1\) podemos escribir 
+        \[
+        F(p)=F(p_1)+ D_{p_1}F(p-p_1)+E(p)
+        \]
+        donde \(\lim_{p\to p_1} \frac{\|E(p)\|}{\| p-p_1\|}=0\).
+      </p>
+      <p>
+        Sea \(M\) la matriz inversa de \(D_{p_0}F\). Si multiplicamos la identidad anterior por 
+        \(M\) llegamos a 
+        \begin{eqnarray*} 
+          MF(p)=MF(p_1)+(p-p_1)+ M E(p)
+        \end{eqnarray*}
+        usando que \(F(p)=q, p=G(q)\) lo anterior se reescribe como 
+        \begin{eqnarray*} 
+          Mq=Mq_1+(G(q)-G(q_1))+ M E(G(q)) \\
+          \Rightarrow G(q)=G(q_1)+M(q-q_1)+ME(G(q))
+        \end{eqnarray*}
+        Si logramos probar que \(\lim_{q\to q_1}\frac{\|ME(G(q))\|}{\|q-q_1\|}=0\) habremos terminado 
+        pues estaremos probando que \(G\) admite una aproximación lineal en \(q_1\). Además 
+        \(D_{q_1}G=M=(D_{p_1}F)^{-1}\).
+      </p>
+      <p>
+        Ahora, para el error tenemos 
+        \begin{eqnarray*} 
+          \frac{\|ME(G(q))\|}{\| q-q_1\|}&\leq & \|M\|_2 \frac{\|E(G(q))\|}{\|q-q_1\|} \\
+          &=& \|M\|_2 \frac{\|E(p)\|}{\|p-p_1\|}\frac{\|p-p_1\|}{\|F(p)-F(p_1) \|}
+        \end{eqnarray*}
+        Por la proposición 17.14, existe \(d>0\) tal que si \(p\) está cerca de \(p_1\) entonces 
+        \(d\|p-p_1\| \leq \|F(p)-F(p_1)\|\). Si \(p\neq p_1\) se sigue que 
+        \( \frac{\|p-p_1\|}{\|F(p)-F(p_1)\| } \leq \frac{1}{d}\).
+      </p>
+      <p>
+        Se sigue que 
+        \begin{eqnarray*} 
+          \frac{\|ME(G(q))\|}{\| q-q_1\|}&\leq & \|M\|_2 \frac{\|E(G(q))\|}{\|q-q_1\|} \\
+          &=& \|M\|_2 \frac{\|E(p)\|}{\|p-p_1\|}\frac{\|p-p_1\|}{\|F(p)-F(p_1) \|} \\
+          &\leq & \|M\|_2 \frac{1}{d}\frac{\|E(p)\|}{\|p-p_1\|}
+        \end{eqnarray*}
+        Finalmente si \(q\to q_1\) entonces por continuidad de \(G\) \(p\to p_1\) 
+        y entonces 
+        \[
+        0\leq \lim_{q\to q_1} \frac{\|ME(G(q))\|}{\| q-q_1\|} \leq 
+        \|M\|_2 \frac{1}{d}\lim_{p\to p_1} \frac{\|E(p)\|}{\|p-p_1\|}=0
+        \]
+      </p>
     </div>
   </body>
 
