@@ -98,9 +98,9 @@
         de \(f\) (es decir, máximo o mínimo realtivo) con la restricción $g(p)=0$.
       </p>
       <p>
-        Es decir 
+        Es decir, para alguna bola \(B_r(p)\),  
         \[
-        \max_{p\in U, g(p)=0 } \{ f(p)\}=f(p_0) \quad \textrm{ó} \quad \min_{p\in U, g(p)=0 } \{ f(p)\}=f(p_0)
+        \max_{p\in B_r(p), g(p)=0 } \{ f(p)\}=f(p_0) \quad \textrm{ó} \quad \min_{p\in B_r(p), g(p)=0 } \{ f(p)\}=f(p_0)
         \]
       </p>
       <p>
@@ -117,11 +117,12 @@
         Este teorema da un método para encontrar máximos/mínimos locales dadas restricciones.
       </p>
       <p>
-        Paso 1: Asegurar la existencia de máximos ó mínimos.  
+        Paso 1: Asegurar la existencia de máximos ó mínimos. Nota que dentro de las hipótesis 
+        del teorema de Lagrange está la exsitencia del extremo local \(p_0\).
       </p>
       <p>
         Paso 2: Resolver el sistema \(\nabla_pf = \lambda \nabla_p g, g(p)=0\)
-        con respecto a las variables \(p=(x_1,\dots, x_n)\) y \(\lambda\).
+        con respecto a las variables \(p=(x_1,\dots, x_n)\) y \(\lambda\). 
       </p>
       <p>
         Paso 3: Determinar cuáles de las soluciones del paso anterior corresponden a máximos 
@@ -645,6 +646,19 @@
       Encuentra el mínimo de $f(x,y,z)=x^2+2y^2+z^2$ con
       la restricción $x+y+z=0$ y $x-z=1$.
     </p>
+  </div>
+
+  <div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+      Encuentra los puntos de la curva intersección de las superficies 
+      \begin{eqnarray*} 
+      x^2-xy+y^2-z^2=1 \\
+      x^2+y^2=1
+      \end{eqnarray*}
+      más cercanos al origen.
+    </p>
+
   </div>
     
 

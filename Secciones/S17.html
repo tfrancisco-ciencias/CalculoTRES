@@ -82,336 +82,582 @@
   </head>
   <body class="fondo-body" >
 
-    <h1 class="number-title flexbox"> Teorema de la función implícita </h1> 
-
+    <h1 class="number-title flexbox"> Teorema de la función inversa </h1> 
+    <!--<button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>-->
+  <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
     
 
 
-   <div class="teorema-box">
-    <h2 class="number-title"> Teorema </h2>
-    <p>
-      Antes de enunciar el teorema usamos la siguiente convención: usamos
-      letras negritas $\mathbf{x}, \mathbf{z}$ para denotar vectores
-      y letras normales, $x,z$ para denotar escalares.
-    </p>
-    <p>
-      Sea $U$ un abierto de $\mathbb{R}^n\times \mathbb{R}^m$ que contenga
-      al punto $(\mathbf{x}_0,\mathbf{z}_0)$ y sea $F:U \to \mathbb{R}^m$
-      una función de clase $C^1$ en $U$. Nota: a los puntos
-      de primer  $\mathbb{R}^n$ los vamos a denotar $\mathbf{x}$ y a los
-      puntos del segundo $\mathbf{R}^m$ los vamos a denotar $\mathbf{z}$.
-    
-    </p>
-    <p>
-      Supongamos que $F(\mathbf{x}_0,\mathbf{z}_0)=0$
-      y que la función lineal dada por
-      $$
-      L(\mathbf{z})=D_{(\mathbf{x}_0, \mathbf{z}_0)}F(0,\mathbf{z}),
-      \mathbf{z} \in \mathbb{R}^m
-      $$
-    
-      es una función inyectiva, de $\mathbb{R}^m$ a $\mathbb{R}^m$.    
-    </p>
-    <p>
-      Entonces existe una vecindad de $\mathbf{x}_0$ en $\mathbb{R}^n$, denotada $W$
-      y una función de clase $C^1$, $G:W \to\mathbb{R}^m$ tal que
-      $G(\mathbf{x}_0)=\mathbf{z}_0$ y, para toda $\mathbf{x}\in W$,
-      $F(\mathbf{x},G(\mathbf{x}))=0$.    
-    </p>
 
-   </div> 
+
+
+
+<div class="teorema-box">
+  <h2 class="number-title"> Teorema </h2>
+  <p>
+    Sea $U$ un abierto de $\mathbb{R}^n$ y $F:U\to \mathbb{R}^n$ una
+    función de clase $C^1$ en $U$ (también llamada un campo vectorial).    
+  </p>
+  <p>
+      Sea $\mathbf{p}_0\in U$  y supongamos que la derivada de $F$ en $\mathbf{p}_0$,
+      denotada $D_{\mathbf{p}_0}F$,
+      es una biyección de $\mathbb{R}^n$ a $\mathbb{R}^n$ (es decir,
+      inyectiva y supreyectiva).
+  </p>
+  <p>
+    Entonces existe $W$, una vecindad de $\mathbf{p}_0$, tal que $F(W)$ es una
+    vecindad de $F(\mathbf{p}_0)$ donde se cumple:
+  </p>
+
+  <ol>
+    <li>
+        denotando $V:=F(W)$, $F$ es una biyección de $W$ a $V$
+        (es decir, inyectiva en $W$ y
+        suprayectiva a $V$);
+    </li>
+    <li>
+        $G:V \to W$, la  función inversa de $F$,  es continua en $V$;
+    </li>
+    <li>
+        además, $G$ es de clase $C^1$ en $V$ y si $\mathbf{q}\in V$ y
+        $\mathbf{p}=G(\mathbf{q})$
+        entonces $D_{\mathbf{q}}G$ es la inversa de $D_{\mathbf{p}}F$.
+    </li>
+  </ol>
+
+</div>
+
+
+
+
+
 
 <div class="nota-box">
-    <h2 class="number-title"> Nota</h2>
-<ol>
+  <h2 class="number-title"> Notas </h2>
+  <ol>
+    <li>
+        una vecindad de un punto $\mathbf{p}$ es
+        simplemente un abierto que contiene
+        a $p$.
+    </li>
+    <li>
+        recuerda que $D_{\mathbf{p}_0}F$ es una transformación lineal cuya
+        matriz asociada en la base canónica, es la matrix de derivadas parciales
+        $\partial_{p_i}f_j(\mathbf{p}_0)$, donde $F=(f_1,\dots f_n)$.
+    </li>
+    <li>
+        $D_{\mathbf{p}_0}F$ es inyectiva sii, vista como matriz,
+        $\det(D_{\mathbf{p}_0}F)\ne 0$.
+    </li>
+    <li>
+        $D_{\mathbf{p}_0}F$ es suprayectiva sii su rango es $n$.
+    </li>
+    <li>
+        Existe un teorema de álgebra lineal que dice que,
+        dada una matriz de $n\times n$, la transformación lineal
+        (que va de $\mathbb{R}^n$ a $\mathbb{R}^n$)
+        inducida por la matriz es inyectiva si y sólo si es suprayectiva. Por
+        lo tanto, para aplicar el Teorema de la Función Inversa, es suficiente
+        checar que $\det(D_{\mathbf{p}_0}F)\ne 0$.
+        
+    </li>
+  </ol>
+</div>  
 
 
-<!--%<div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> Este enunciado generaliza el Teorema del Marsden. En el caso
- % del Marsden  $m=1$ en para este caso la función $L$ es simplemente
- % multiplicar por $\partial_zF(\mathbf{x}_0,z_0)$, la cual es inyectiva
- % si $\partial_zF(\mathbf{x}_0,z_0) \ne 0$.-->
-
-  <li>
-    La condición de que la transformación lineal
-    $L(\mathbf{z})=D_{(\mathbf{x}_0, \mathbf{z}_0)}F(0,\mathbf{z})$
-    sea inyectiva se puede reescribir usando un determinante,
-    pero se necesita algo de notación. 
-    <p>
-        Para $\mathbf{x}\in \mathbf{R}^n$ escribimos
-        $\mathbf{x}=(x_1,\dots, x_n)$
-        y a los puntos $\mathbf{z}\in \mathbf{R}^m$ los escribimos
-        $\mathbf{z}=(z_1,\dots, z_m)$. A las funciones
-        coordenadas de $F$ las escribimos $F=(f_1,\dots, f_m)$,
-        así que cada función $f_i$ se valua en
-        $f_i(x_1,\dots, x_n, z_1,\dots, z_m)$.
-      
-    </p>
-    <p>
-        La condición de que $L$ sea inyectiva es equivalente a pedir que
-        el determinante de la siguiente matriz sea distinto de cero
-        $$
-        \left[ \begin{array}{ccc}
-           \partial_{z_1}f_1(\mathbf{x}_0,\mathbf{z}_0) & \cdots
-           & \partial_{z_m}f_1(\mathbf{x}_0, \mathbf{z}_0) \\
-           \vdots & \ddots & \vdots \\
-            \partial_{z_1}f_m(\mathbf{x}_0,\mathbf{z}_0) & \cdots
-           & \partial_{z_m}f_m(\mathbf{x}_0, \mathbf{z}_0)
-               \end{array}
-               \right]
-         $$
-    </p>
-  </li>
-  
-  
-
- <li>
-    El teorema de la función implícita se puede
-    leer de la siguiente forma. Sean $f_1,\cdots, f_m$
-    funciones clase $C^1$, definidas en un abierto de
-    $\mathbb{R}^n\times \mathbb{R}^m$ y supongamos que
-    tenemos escalares $x_1^{(0)}, \dots, x_{n}^{(0)}, z_1^{(0)}, \dots, z_m^{(0)}$
-    que satisfacen el siguiente sistema de ecuaciones:
-    \begin{eqnarray*}
-      f_1(x_1^{(0)}, \dots, x_{n}^{(0)}, z_1^{(0)}, \dots, z_m^{(0)})&=&0\\
-      f_2(x_1^{(0)}, \dots, x_{n}^{(0)}, z_1^{(0)}, \dots, z_m^{(0)})&=&0\\
-      &\vdots& \\
-      f_m(x_1^{(0)}, \dots, x_{n}^{(0)}, z_1^{(0)}, \dots, z_m^{(0)})&=&0
-    \end{eqnarray*}
-  
-    Denotemos $\mathbf{x}_0=(x_1^{(0)}, \dots, x_{n}^{(0)})$
-    y $\mathbf{z}_0=(z_1^{(0)}, \dots, z_m^{(0)})$. Entonces,
-    si
-  
-     $$
-  \det \left[ \begin{array}{ccc}
-      \partial_{z_1}f_1(\mathbf{x}_0,\mathbf{z}_0) & \cdots
-      & \partial_{z_m}f_1(\mathbf{x}_0, \mathbf{z}_0) \\
-      \vdots & \ddots & \vdots \\
-       \partial_{z_1}f_m(\mathbf{x}_0,\mathbf{z}_0) & \cdots
-      & \partial_{z_m}f_m(\mathbf{x}_0, \mathbf{z}_0)
-          \end{array}
-          \right]\ne 0
-    $$
-  
-    entonces podemos resolver el siguiente sistema, de manera única,
-    para las $z's$ en términos de las $x's$:
-  
-     \begin{eqnarray*}
-      f_1(x_1, \dots, x_n, z_1, \dots, z_m)&=&0\\
-      f_2(x_1, \dots, x_{n}, z_1, \dots, z_m)&=&0\\
-      &\vdots& \\
-      f_m(x_1, \dots, x_{n}, z_1, \dots, z_m)&=&0
-    \end{eqnarray*}
-  
-    para cuando las $(x_1,\dots, x_n)$ están cerca de $\mathbf{x}_0$.
-</li> 
-</ol>
-</div>
 
     
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-      Mostrar que $xy+z+3xz^5=4$ es soluble para $z$ como
-      función de $x,y$ cerca de $(1,0,1)$. Además:
-      <ol>
-          <li>
-              calcular $\partial_xz(1,0)$ y $\partial_yz(1,0)$.
-          </li>
-          <li>
-              usando una aproximación lineal, estimar el valor de $z$
-              cuando $x=1.1$ y $y=0.5$.
-          </li>
-      </ol>
-    </p>
-  </div>
-
-
-
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> C
-    <p>
-      Considera la superficie en $\mathbb{R}^3$ dada por
-      $$
-      2y^2z^2-2x=0
-      $$
-    </p>
-    
-    <ol>
-        <li>
-            Encuentra dos simetrias de la superficie.
-        </li>
-        <li>
-            Usar el teorema de la función implícita para verificar
-            que, para cualquier punto en la curva,
-            podemos despejar $x$ en terminos de $y$ y $z$ y usando
-            también el teorema de la función implícita
-            calcula $\partial_y x$ y $\partial_z x$
-        </li>
-        <li>
-            de manera directa despeja $x$ y usa este despeja para calcular
-            $\partial_y x$ y $\partial_z x$.
-        </li>
-        <li>
-            Usando el teorema de la función
-            implícita, prueba que cerca de los punto $(1,1,1)$ y $(1,-1,1)$ podemos
-            despejar a  $y$, en términos de las otras dos variables. Además
-            calcula $\partial_xy(1,1)$, $\partial_z y (1,1)$. Nota:
-            las parciales dependen si estás en el punto $(1,1,1)$ o $(1,-1,1)$.
-        </li>
-        <li>
-            Trata de despejar de manera directa $y$ en $2y^2z^2-2x=0$
-            para encontrar una fórmula para $y$ cerca de $(1,1,1)$
-            y para $y$ cerca de $(1,-1,1)$.
-        </li>  
-    </ol>
-    
-</div>
-
-
-  <div class="ejercicio-box">
-     <h2 class="number-title"> Ejercicio</h2> 
-     <p>  
-      Analiza la solubilidad del sistema
-      \begin{eqnarray*}
-        3x+2y+z^2+u+v^2&=&0\\
-        4x+3y+z+u^2+v+w+2&=&0\\
-        x+z+w+u^2+2&=&0\\
-      \end{eqnarray*}
-      para $u$, $v$ y $w$ en términos de $x,y$ y $z$ cerca de $x=y=z=0$,
-      $u=v=0$ y $w=-2$.
-     </p>
-  </div>
-
   <div class="ejercicio-box"> 
     <h2 class="number-title"> Ejercicio</h2>
     <p>
-      Investiga si el siguiente sistema
-    
-      \begin{eqnarray*}
-        u(x,y,z)&=&x+yxz \\
-        v(z,y,z)&=&y+xy\\
-        w(x,y,z)&=&z+2x+3z^2
-      \end{eqnarray*}
+      Considera la función
+      $f:\mathbb{R}^2\setminus\{(0,0)\} \to \mathbb{R}^2$ dada por
+      $$f(x,y)=\left(\frac{x^2-y^2}{x^2+y^2}, \frac{2xy}{x^2+y^2}  \right)$$
       
-      puede resolverse para $x,y,z$ (despejar $x,y$ y $z$) en términos
-      de $u,v$ y $w$, cerca del punto $(x,y,z)=(0,0,0)$.
-      
+      ¿ Tiene $f$ una inversa local
+      cerca del punto $(0,r)$, con $r>0$ ?
     </p> 
   </div>
+
 
   <div class="ejercicio-box"> 
     <h2 class="number-title"> Ejercicio</h2> 
     <p>
-      Este ejercicio da una demostración del Teorema
-      de Lagrange con una restricción.
-    </p>
-    <p>
-      Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$ y $f,g:U\to \mathbb{R}$
-      dos funciones de clase $C^1$. Considera la superficie de nivel
+      Considera la función $f:\mathbb{R}^2 \to \mathbb{R}^2$ dada por
       $$
-      S=\{\mathbf{x} \in \mathbb{R}^n: f(\mathbf{x})=0\}.
+      f(x,y)=(x^2-y^2,2xy)
       $$
-  
-      Supongamos que $\mathbf{x}_0\in S$ es un máximo  local para $f$ en $S$ y
-      supon que $\partial_{x_n}g(\mathbf{x}_0) \ne 0$. Denotemos
-      $\mathbf{x}_0=(x_1^0, \dots, x_n^0)$.
-  
     </p>
-
     
     <ol>
         <li>
-            <p>
-                Demuestra que existe una función de clase $C^1$,
-                $\phi(x_1,\dots, x_{n-1})$, definida en
-                una vecindad de $(x^0_1,\dots, x^0_{n-1})$
-                en $\mathbb{R}^{n-1}$, tal que
-                $\phi(x^0_1,\dots, x^0_{n-1})=x^0_n$ y
-                $g(x_1,\dots, x_{n-1}, \phi(x_1,\dots, x_{n-1}))=0$.
-            </p>
-            
-            <p>
-                Para simplificar notación, si $\mathbf{x}=(x_1,\dots, x_{n})$ denotamos
-                $\hat{\mathbf{x}}=(x_1,\dots, x_{n-1})$. Con esta notación
-                $g(\hat{\mathbf{x}}, \phi(\hat{\mathbf{x}}))=0$, para toda $\mathbf{x}$
-                suficientemente cercana a $\mathbf{x}_0$.
-          
-            </p>
-            <p>
-                Sugerencia: usa el teorema de la funciín implícita.
-            </p>
-            
-            
+            Fija una constante $\alpha\in \mathbb{R}$. Encuentra
+            las imagines inversas de las
+            curvas $u=\alpha$ y $v=\alpha$. Es decir, describe
+            los siguientes conjuntos:
+            $$
+            f^{-1}(\{(u,v)\in \mathbb{R}^2:u=\alpha \}),
+            f^{-1}(\{(u,v)\in \mathbb{R}^2: v=\alpha\}).
+            $$
+            A los puntos en el dominio de $f$ los vamos a denotar
+            como $(u,v)$ y  a los puntos en con
+            contradominio de $f$ los vamos a denotar $(u,v)$.
         </li>
         <li>
-            Considera la función
+            Fija una constante $\alpha \in \mathbb{R}$. Encuentra
+            las imagines directas de las
+            curvas $x=\alpha$ y $y=\alpha$. Es decir, describe los conjuntos: 
             $$
-            h(x_1,\dots, x_{n-1})=f(x_1,\dots, x_{n-1},\phi(x_1,\dots, x_{n-1}))
+            f(\{(x,y)\in \mathbb{R}^2: x=\alpha \}),
+            f(\{(x,y)\in \mathbb{R}^2: y=\alpha\}).
             $$
-            con la notación del inciso anterior podemos escribir
-            $h(\hat{\mathbf{x}})=f(\hat{\mathbf{x}}, \phi(\hat{\mathbf{x}}))$.
-      
-            Demuestra que, para $i=1,\dots, n-1$:
-            $$
-            \partial_{x_i}h(\hat{\mathbf{x}})=
-            \partial_{x_i}f(\hat{\mathbf{x}},\phi(\hat{\mathbf{x}}))+
-            \partial_{x_n}f(\hat{\mathbf{x}})
-            \partial_{x_i}\phi(\hat{\mathbf{x}})
-            $$
-            <p>
-                Sugerencia: usa la regla de la cadena.
-            </p>
-            
         </li>
         <li>
-            Demuestra que, para $i=1,\dots, n-1$:
-            \begin{eqnarray*}
-              \partial_{x_i}f(\mathbf{x}_0)+
-              \partial_{x_n}f(\mathbf{x}_0)\partial_{x_i}\phi(\hat{\mathbf{x}}_0)=0
-            \end{eqnarray*}
-            <p>
-                Sugerencia: $h$ tiene un máximo local en $\hat{\mathbf{x}}_0$.
-            </p>
+            Encuentra en cuál región se transforma el 
+            rectángulo $\{(x,y):0\leq x \leq 1, 0\leq y \leq 1\}$ al aplicar $f$.      
         </li>
         <li>
-            Demuestra que, para toda $i=1,\dots, n-1$:
-            $$
-            \partial_{x_i}g(\hat{\mathbf{x}},\phi(\hat{\mathbf{x}}))
-            + \partial_{x_n}g(\hat{\mathbf{x}},\phi(\hat{\mathbf{x}}))
-            \partial_{x_i}\phi(\hat{\mathbf{x}})=0.
-            $$
-            <p>
-                Sugerencia: para toda $\mathbf{x}$, $g(\hat{\mathbf{x}},
-                \phi(\hat{\mathbf{x}}))=0$. 
-            </p>
+            Encuentra la región tal que, al aplicar $f$,
+            se obtiene el  rectángulo
+            $\{(u,v): 0\leq u \leq 1,0\leq v \leq 1\}$.
+        </li>
+        <li>
+            Demuestra que, para todo $(x,y)$, existe una vecindad
+            del punto tal que $f$ restringida a
+            dicha vecindad es inyectiva, excepto para el punto $(0,0)$.
+            Además prueba que $f$ no es inyectiva en
+            todo $\mathbb{R}^2$.
+        </li>  
+    </ol>
+  </div>
 
+    
+    
+
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Sea $f:\mathbb{R}\to \mathbb{R}$ una función de
+      clase $C^1$. Define $F:\mathbb{R}^2 \to \mathbb{R}^2$
+      dada por $$F(x,y)=(f(x), xf(x)-y).$$
+    </p>
+    <p>
+      Si $f'(x_0)\ne 0$ demuestra que $F$ tiene una inversa local
+      cerca de $(x_0,y_0)$ (donde $y_0$ es arbitrario).
+      Además, prueba que ésta inversa está dada por
+      $$F^{-1}(u,v)=(f^{-1}(u),uf^{-1}(u)-v).$$
+    </p>
+  </div>
+
+
+
+
+    
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2>
+    <p>
+      Sea $f:\mathbb{R}^n \to \mathbb{R}^n$ una función.
+      ¿ Es cierto que si,
+      $f$ es diferenciable en $p_0$ y $f$ admite una inversa
+      diferenciable, entonces $D_cf$ es inyectiva?
+    </p> 
+  </div>
+  
+  
+     <div class="ejercicio-box"> 
+      <h2 class="number-title"> Ejercicio</h2> 
+      <p>
+        Considera la función $f:\mathbb{R}\to \mathbb{R}$ dada por
+        $$
+        f(x)=\left\{
+          \begin{array}{cc}
+            x+2x^2\sen(1/x) & x\ne 0 \\
+            0 & x=0
+            \end{array}
+          \right.
+        $$
+
+        En este caso recuerda que $D_0f$ es simplemente $f'(0)$ y que
+        la condición de que $D_0f$ sea inyectiva simplemente se traduce
+        a $f'(0)\ne0$.
+
+      </p>
+      <p>
+        Prueba que $f'(0)$ existe, es distinta de cero, pero sin embargo,
+        $f$ no es invertible cerca de $x=0$.
+      </p>
+      <p>
+        ¿ Contradice esto el teorema de la función inversa?
+      </p>
+          
+  </div>
+
+       
+
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Considera la función $F(x,y)=(x^4+2xy+3,y)$ y considera las ecuaciones
+      \begin{eqnarray*}
+        x^4+2xy+3&=&u \\
+        y&=&v\\
+      \end{eqnarray*}
+      
+    </p>
+    <ol>
+        <li>
+            Muestra que para $(u,v)=(0,1)$, una solución es $(x,y)=(2,1)$.
         </li>
         <li>
-            Demuestra que, para toda $i=1,\dots, n-1$:
-            $$
-            \partial_{x_i}\phi(\hat{\mathbf{x}}_0)=
-            -\frac{\partial_{x_i}g(\mathbf{x}_0)}{\partial_{x_n}g(\mathbf{x}_0)}
-            $$
-            <p>
-                Sugerencia: usa el inciso anterior.
-            </p>
+            Encuentra $D_{(x,y)}F$, para todo punto $(x,y)$.
         </li>
         <li>
-            Denota $\lambda=\frac{\partial_{x_n}f(\mathbf{x}_0)}
-            {\partial_{x_n}g(\mathbf{x}_0)}$. Demuestra que,
-            para toda $i=1,\dots, n-1$:
-            $$
-            \partial_{x_i}f(\mathbf{x}_0)=\lambda \partial_{x_i}g(\mathbf{x}_0)
-            $$
-            <p>
-                Además, $\partial_{x_n}f(\mathbf{x}_0)
-                =\lambda \partial_{x_n}g(\mathbf{x}_0)$
-                 Concluye que $\nabla_{\mathbf{x}_0}f=\lambda \nabla_{\mathbf{x}_0}g$.
-            </p>
+            Prueba que $D_{(2,1)}F$ es invertible, por lo tanto $F$
+            es invertible en una vecindad de $(2,1)$.
+              Usa una aproximación lineal para estimar
+            $F^{\langle -1 \rangle }(2.2,1.01)$.
         </li>
     </ol>
-</div>
+  </div>
 
 
- </body>
+  <div class="lema-box">
+    <h2 class="number-title" id="Lema:LinealNorma"> Lema </h2>
+    <p>
+      Para todo  $\mathbf{v}\in \mathbb{R}^n$ exsite $\mathbf{u}\in \mathbb{R}^n$ con $\|\mathbf{u}\|=1$ 
+      tal que $\|\mathbf{v}\|=\mathbf{v}\cdot \mathbf{u}$.
+    </p>
+    <button class="respButton hvr-grow "> Demostración</button>
+    <div class="resp-box">
+    <p>
+      Si \(\mathbf{v}=0\) cualquier \(\mathbf{u}\) sirve. Si \(\mathbf{v}\ne 0\) tomar 
+      \(\mathbf{u}=\frac{1}{\|\mathbf{v} \|}\mathbf{v}\).
+    </p>
+    </div>
+ </div>
+
+
+
+
+
+  </div>
+  <div class="lema-box">
+    <h2 class="number-title"> Lema </h2>
+    <p>
+      Sea $F=(f_1,\dots, f_m):U\subseteq R^n \to R^m$, una función $C^1$ en $U$ y $\mathbf{p}_0 \in U$.
+    </p>
+    <p>
+      Para todo $\varepsilon>0$ existe $\delta=\delta(\varepsilon,\mathbf{p}_0)$ tal que
+      $$
+      \textrm{si $\|\mathbf{p}-\mathbf{p}_0\|<\delta $ entonces 
+      $\| D_{\mathbf{p}}F-D_{\mathbf{p}_0}F \|_2 <\varepsilon$}
+      $$
+    </p>
+    <button class="respButton hvr-grow "> Demostración</button>
+    <div class="resp-box">
+    <p>
+      Denotemos $[a_{i,j}]=D_{\mathbf{p}}F-D_{\mathbf{p}_0}F$. Recordemos que 
+      \(\|A\|_2=(\sum_{i,j=1}^na_{i,j}^2)^{1/2}\). Pero tenemos que 
+      \(a_{i,j}=\partial_{x_j}f_i(p)-\partial_{x_j}f_i(p_0)\) por lo tanto 
+        $$
+        \| D_{\mathbf{p}}F-D_{\mathbf{p}_0}F\|_2^2 = \sum_{i=1}^m \sum_{j=1}^m \left(  \frac{\partial f_i (\mathbf{p})}{\partial x_j} -  \frac{\partial f_i (\mathbf{p}_0)}{\partial x_j}  \right)^2
+        $$
+    </p>
+    <p>
+      Usando la continuidad de las parciales,  para  $\varepsilon>0$ existe $\delta>0$ tal que
+      si $\mathbf{p}\in U$ y $\|\mathbf{p}-\mathbf{p}_0\| < \delta$, entonces para toda $i$ y para toda $j$,
+      $$(\partial_{x_j}f_i(\mathbf{p})-\partial_{x_j}f_i(\mathbf{p}_0))^2 < \varepsilon^2/(nm)$$
+      ésta $\delta$ es la que sirve.      
+    </p>
+  </div>
+  </div>
+
+
+    <div class="prop-box">
+      <h2 class="number-title"> Proposición</h2>
+      <p>
+        Sea $F=(f_1,\dots, f_m): U\subset R^n \to R^m$, clase $C^1$, $\mathbf{p}_0\in U$.
+      </p>
+      <p>
+          Para todo $\varepsilon>0$ existe $\alpha>0$ tal que 
+          $$
+          \textrm{si $\mathbf{v},\mathbf{w}\in B_\alpha(0)$ 
+          entonces $\| F(\mathbf{p}_0+v)-F(\mathbf{p_0}+w)-D_{\mathbf{p}_0}F(\mathbf{v}-\mathbf{w})\| 
+          \leq \varepsilon \| \mathbf{v}-\mathbf{w}\|$}
+          $$
+      </p>
+
+      <button class="respButton hvr-grow "> Demostración</button>
+      <div class="resp-box">
+        <p>
+          Sea $\delta>0$ tal que 
+          $$
+          \textrm{ $\mathbf{p}\in U$ y $ \| \mathbf{p}-\mathbf{p}_0\| <\delta$ } 
+          \rightarrow \| D_{\mathbf{p}}F-D_{\mathbf{p}_0}F \| < \varepsilon
+          $$
+        </p>
+        <p>
+          Tomamos $\alpha= \delta/3 $.
+        </p>
+        <p>
+            Tomamos $\mathbf{v},\mathbf{w}\in B_\alpha (\mathbf{0})$. Debemos de probar que
+            $$
+            \| F(\mathbf{p}_0+v)-F(\mathbf{p_0}+w)-D_{\mathbf{p}_0}F(\mathbf{v}-\mathbf{w})\| 
+            \leq \varepsilon \| \mathbf{v}-\mathbf{w}\|
+            $$
+        </p>
+        <p>
+              Por el <a href="#Lema:LinealNorma">Lema 17.9</a>  existe $\mathbf{u}\in \mathbb{R}^n$ de norma 1 con
+              \begin{eqnarray*}
+              \| F(\mathbf{p}_0+\mathbf{v})-F(\mathbf{p_0}+\mathbf{w})-D_{\mathbf{p}_0}F(\mathbf{v}-\mathbf{w})\|
+              \\
+              =\left[ F(\mathbf{p}_0+\mathbf{v})-F(\mathbf{p_0}+\mathbf{w})-D_{\mathbf{p}_0}F(\mathbf{v}
+              -\mathbf{w})\right] \cdot \mathbf{u}
+              \end{eqnarray*}
+        </p>
+        <p>
+          Ahora definimos $g:[0,1]\to R$ por
+          $$
+          g(t)=\left[  F(\mathbf{p}_0+t(\mathbf{v}-\mathbf{w})+\mathbf{w}) 
+          -D_{\mathbf{p}_0}F(\mathbf{v}-\mathbf{w})\right]\cdot u
+          $$
+        </p>
+        <p>
+            Notar que $g$ es continua en $[0,1]$ y diferenciable en $(0,1)$. Adem\'as
+            $$
+            g'(t)=\left[ D_{\mathbf{p}_0+t(\mathbf{v}-\mathbf{w}+\mathbf{w})} 
+            (\mathbf{v}-\mathbf{w})\right]\cdot \mathbf{u}
+            $$	   
+        </p>
+        <p>
+          Por el T.V.M. exsite $\xi \in (0,1)$ con $g(1)-g(0)=g'(\xi)$. 
+        </p>
+        <p>
+          Sea $\mathbf{p}_1:=\mathbf{p}_0+\xi(\mathbf{v}-\mathbf{w})+\mathbf{w}$. 
+          Es importante notar que $\| \mathbf{p}_1 - \mathbf{p}_0 \| < \delta$ por lo que 
+          $\| D_{\mathbf{p}_1}F-D_{\mathbf{p}_2}F\| < \varepsilon$.
+        </p>
+        <p>
+              Como
+              \begin{eqnarray*}
+              g(0)=\left[  F(\mathbf{p}_0+\mathbf{w})-D_{\mathbf{p}_0}F(\mathbf{v}-\mathbf{w})  \right] \cdot   \mathbf{u} \\
+              g(1)=\left[  F(\mathbf{p}_0+\mathbf{v})-D_{\mathbf{p}_0}F(\mathbf{v}-\mathbf{w})  \right] \cdot   \mathbf{u} 
+              \end{eqnarray*}	
+              substituyendo en $g(1)-g(0)=g'(\xi)$ se concluye  
+                $$
+                [ F(\mathbf{p}_0+\mathbf{v})- F(\mathbf{p}_0+\mathbf{v}) 
+                - D_{\mathbf{p}_0}(\mathbf{v}-\mathbf{w}) ]   \cdot \mathbf{u} 
+                = [ D_{\mathbf{p}_1}(\mathbf{v}-\mathbf{w})-D_{\mathbf{p}_0}(\mathbf{v}-\mathbf{w})]\cdot \mathbf{u}
+                $$
+        </p>
+        <p>
+            Usando la definición de $u$ y la desigualdad de Cauchy-Schwartz se tiene
+            $$
+              \| F(\mathbf{p}_0+\mathbf{v})- F(\mathbf{p}_0+\mathbf{v}) 
+              - D_{\mathbf{p}_0}(\mathbf{v}-\mathbf{w}) \| \leq \| D_{\mathbf{p}_1}F 
+              - D_{\mathbf{p}_0} \| <\varepsilon
+            $$	
+        </p>
+      </div>
+    </div>
+	
+	
+
+
+
+
+
+  <div class="prop-box">
+    <h2 class="number-title" id="Prop:PrelimSolobilidad">  Proposición </h2>
+    <p>
+      Sea  $g:B_r(\mathbf{0}) \subseteq \mathbb{R}^n \to \mathbb{R}^n$ clase $C^1$ tal que
+    </p>
+    <ol>
+      <li>
+        $g(0)=0$.
+      </li>
+      <li>
+        existe $L:R^n \to R^n$ lineal, biyectiva tal que
+        $$
+        \| g(w)-g(v)-L(v-w)\| \leq \frac{1}{2m}\| v- w\|
+        $$
+        para todo $v,w\in B_r(\mathbf{0})$, donde $m=\| L^{-1}\|$.
+        
+      </li>
+    </ol>
+      <p>
+        Entonces, para todo $\mathbf{q}\in B_{r/2m}(\mathbf{0})$ existe 
+        $\mathbf{p}\in B_r(\mathbf{0})$ tal que $g(\mathbf{p})=\mathbf{q}$.
+      </p>
+
+      <button class="respButton hvr-grow "> Demostración</button>
+      <div class="resp-box">
+  <p>
+    Vamos a definir $p_0=0$ y $q_0=q$.
+  </p>
+  <p>
+    Por recursión vamos a definir
+    $$
+    \begin{array}{c | c }
+    B_r(\mathbf{0}) & B_{1/2m}(\mathbf{0}) \\
+    \hline
+    p_1:=L^{-1}(q_0)+p_0 &  q_1:=q_0+g(p_0)-g(p_1) \\
+    p_2:=L^{-1}(q_1)+p_1 & q_2:= q_1+g(p_1)-g(p_2) \\
+    \vdots & \vdots  \\
+    p_n:= L^{-1}(q_{n-1})+p_{n-1} & q_n=q_{n-1}+g(p_{n-1})-g(p_n) \\
+    p_{n+1}=L^{-1}(q_n)+p_n &  q_{n+1}=q_{n}+g(p_n)-g(p_{n+1})
+    \end{array}
+    $$    
+  </p>
+    <p>
+      Para que las sucesiones estén bien definidas debemos de probar que $p_n \in B_r(\mathbf{0})$ y
+      $q_n \in B_{1/2m}(\mathbf{0})$. Para esto se va a probar
+      <ol>
+        <li>
+          $\|p_k - p_{k-1}  \| \leq \frac{m}{2^{k-1}}\| q\|$;
+        </li>
+        <li>
+          $\| q_k \| \leq \frac{1}{2^{k}}\|q\|$
+        </li>
+      </ol>
+      Lo anterior se prueba por inducción.
+    </p>
+
+    <p>
+      Caso $k=1$. 
+    </p>
+    <p>
+      Para el primero debemos de probar $\| p_1-p_0 \| \leq m \| q\|$. Pero
+      \begin{eqnarray*}
+      \| p_1-p_0\| =\|p_1\|=\| L^{-1}(q_0)+p_0\|=\| L^{-1}(q)\| \leq m \|q\|.
+      \end{eqnarray*}
+    </p>
+    <p>
+      Para el segundo tenemos, por la hipótesis
+      \begin{eqnarray*}
+      \| q_1\|&=&\| q_0 + g(p_0)-g(p_1)\|  \\
+      &=&  \| L(p_1-p_0)+g(p_0)-g(p_1)\|  \\
+      &\leq &  \frac{1}{2m}\| p_1-p_0\| \\
+      &=& \frac{1}{2m}\|p_1\| \\
+      &\leq & \frac{m\|q\|}{2m} \\
+      &=&\frac{\|q\|}{2}
+      \end{eqnarray*}
+    </p>
+    <p>
+      Caso $k+1$. Suponemos para $k$ y probamos para $k+1$.
+    </p>
+    <p>
+      Para la primer parte
+      \begin{eqnarray*}
+      \| p_{k+1}-p_k\| = \| L^{-1}(q_k)\| \leq m \| q_k\| \leq m \frac{\|q\|}{2^k}
+      \end{eqnarray*}
+    </p>
+    <p>
+        Para la segunda parte 
+        \begin{eqnarray*}
+        \|q_{k+1}\|&=& \| q_k + g(p_k)-g(p_{k+1})\| \\
+        &=& \| L^{-1}(p_{k+1}-p_k)+g(p_k-g(p_{k+1})) \\
+        &\leq & \frac{1}{2m} \| p_{k+1}-p_k\| \\
+        &\leq& \frac{1}{2m} \frac{m\|q\|}{2^k}=\frac{\|q\|}{2^{k+1}}
+        \end{eqnarray*}
+        Esto acaba la inducción.
+    </p>
+    <p>
+      La condición sobre las $q_k$ implica que para toda $k$, $q_k \in B_{1/2m}(\mathbf{0})$.
+    </p>
+    <p>
+        De la condición para  las $p_k$ se tiene que
+        \begin{eqnarray*}
+        \|p_k\|&=& \| p_k - p_0\| \leq \|p_k - p_{k-1}\|+ \| p_{k-1}-p_{k-2}\| + \cdots + \| p_1-p_0\|  \\
+        &\leq & \sum_{j=0}^{k-1} \frac{m\|q\|}{2^j} \\
+        &<&  m \| q\| \sum_{j=0}^{\infty} \frac{1}{2^j}=2m \|q\| < 2m (\frac{r}{2m})=r
+        \end{eqnarray*}
+    </p>
+    <p>
+      Como $p_k \in Br(\mathbf{0})$, para toda $k$, por Bolzano-Weirestrass exsite una 
+      sunsucesión $(p_{k_n})_{n\geq 1}$ y $p\in R^n$ tal que $\lim_n p_{k_n}=p$. Notar que $\|p_k\| \leq 2m\|q\|$ al 
+      tomar límite se tiene $\|p\|\leq 2m\|q\|< r$, por lo que $p\in B_r(\mathbf{0})$.
+    </p>
+
+    <p>
+      También de la relaciones es claro que $\lim_n q_n =0$.
+    </p>
+    <p>
+        Ahora, si substituimos las expresiones del lado derecho de la columnas tenemos que
+        $$
+        q_{n}=q_0-g(p_n)
+        $$
+        en particular \(q_{k_n}=q_0-g(p_{k_n})\). Tomando límite cuando $n\to \infty$ se concluye que $0=q-g(p)$.
+    </p>
+  </div>
+  </div>
+
+
+    <div class="teorema-box">
+      <h2 class="number-title"> Teorema </h2>
+      <h3> Solubilidad local </h3>
+      <p>
+        Sea $F:U \subseteq R^n \to R^n$, clase $C^1$ en $U$ y $\mathbf{p}_0 \in U$ tal que
+        $D_{\mathbf{p}_0}F$ sea invertible. Entonces existen $\alpha>0$ y $\beta >0$ tal que satisface:
+        <p >
+          para todo $q\in B_\beta(F(\mathbf{p}_0))$ existe $p \in B_\alpha(\mathbf{p_0})$ tal que $F(p)=q$.
+        </p>
+      </p>
+
+      <button class="respButton hvr-grow "> Demostración</button>
+      <div class="resp-box">
+        <p>
+          Sea $L=D_{\mathbf{p}_0}F$ y $m:=\|L^{-1}\|$. Usando el <a>Lema </a>  
+          para $\varepsilon=\frac{1}{2m}$ existe un  $\alpha >0$ 
+          tal que, para $v,w \in B_\alpha (\mathbf{0})$
+          
+            $$
+            \| F(p_0+v)-F(p_0+w)-D_{p_0}F(v-w)\| \leq \frac{1}{2m}\| v-w\|
+            $$
+
+        </p>
+        <p>
+          Definimos $g:B_\alpha(\mathbf{0}) \to R^n$ por $g(v)=F(p_0+v)-F(p_0)$.
+        </p>
+        <p>
+          Entonces
+          <ol>
+            <li>
+              $g$ es de clase $C^1$,
+            </li>
+            <li>
+              $g(0)=0$,
+            </li>
+            <li>
+              $\| g(v)-g(w)-L(v-w)\| \leq \frac{1}{2m}\|v-w\|$.
+            </li>
+          </ol>
+        </p>
+        <p>
+          Por la <a href="#Prop:PrelimSolobilidad">Proposición 17.12</a> para 
+          $w=q-F(p_0) \in B_{1/2m}(\mathbf{0})$, exsite $v\in B_\alpha(0)$ tal que $g(v)=w$, es decir
+          $F(p_0+v)-F(p_0)=q-F(p_0)$ por lo que $F(p_0+v)=q$. Se toma $p=p_0+v$.
+        </p>
+        </div>
+    </div>
+
+    <div class="teorema-box">
+      <h2 class="number-title"> Teorema  </h2>
+      <h3> Del mapeo abierto</h3>
+      <p>
+        Sea $F:U \subseteq \mathbb{R}^n \to \mathbb{R}^n$ tal que $D_pF$ es invertible para todo $p\in U$.
+        Entonces $F(U)\subseteq R^n$ es abierto en $R^n$.        
+      </p>
+      <button class="respButton hvr-grow "> Demostración</button>
+      <div class="resp-box">
+      <p>
+        Sea $F(p_0)\in F(U)$. Por el teorema de solubilidad local, existe $\alpha>0$ y $\beta>0$ tal que, 
+        para todo $q\in B_\beta(F(p_0))$ existe $p\in B_\alpha(p_0)$ tal que $F(p)=q$. Esto quiere decir que
+        $B_\beta(F(p_0)) \subseteq F(U)$.
+      </p>
+      </div>
+    </div>
+  </body>
+
+
+
