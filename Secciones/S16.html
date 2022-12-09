@@ -253,6 +253,38 @@
       Generaliza el ejercicio anterior: encuentra el máximo de $f(x,y)=xy$ sujeto a la
       restricción $bx+ay=ab$ donde \(a,b>0\) son constantes. 
     </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            Empecemos por notar que la restricción indica que el dominio en el que se maximiza
+            es una recta, como $a,b>0$ entonces
+            \begin{equation*}
+            y = \frac{ ab - bx}{a} = -\frac{b}{a}x + b.
+            \end{equation*}
+            Dicha recta pasa por el primer, segundo y cuarto cuadrante, y dada la definición que
+            se tiene para $f$ podemos determinar que la función toma valores no negativos en el
+            primer cuadrante y por continuidad de $f$ y compacidad del segmento que une a los puntos
+            $(0,b)$ y $(a,0)$ se asegura la existencia de un máximo.
+        </p>
+        <p>
+            Escribimos $g(x,y) = bx + ay - ab$, esta función claramente es de clase $C^1$ y su gradiente
+            está dado por $\nabla_{(x,y)} g = (b,a)$ que por hipótesis es distinto de $(0,0)$. Ahora, si
+            $(x,y)$ es un extremo, entonces por el Teorema de Lagrange existe $\lambda \in \mathbb{R}$
+            tal que $\nabla_{(x,y)} f = \lambda \nabla_{(x,y)} g$, lo cual da lugar al siguiente sistema
+            de ecuaciones
+            \begin{align*}
+            y =& \lambda b,\\
+            x =& \lambda a,\\
+            bx + ay - ab=& 0.
+            \end{align*}
+            Como $a,b \neq 0$ entonces $\frac{y}{b} = \lambda = \frac{x}{a}$, de donde $ay = bx$, por lo
+            que al sustituir en la tercera ecuación del sistema se tiene que $2(bx)-ab=0$, o bien
+            que $x=\frac{a}{2}$ y en consecuencia $y=\frac{b}{2}$. En dicho punto la función toma como
+            valor máximo $f(a/2,b/2)=\frac{ab}{4}$. Notemos además que al sustituir $y=-\frac{b}{a}x + b$
+            en la función tenemos $f(x,y) = x(-\frac{b}{a}x + b) = -\frac{b}{a}x^2 + bx$, lo cual es una
+            parábola que abre hacia abajo y claramente no tiene mínimo.
+        </p>
+    </div>
   </div>    
 
 
