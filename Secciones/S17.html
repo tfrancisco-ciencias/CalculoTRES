@@ -94,6 +94,7 @@
 
 <div class="teorema-box">
   <h2 class="number-title"> Teorema </h2>
+  <h3> de la Función Inversa </h3>
   <p>
     Sea $U$ un abierto de $\mathbb{R}^n$ y $F:U\to \mathbb{R}^n$ una
     función de clase $C^1$ en $U$ (también llamada un campo vectorial).    
@@ -605,8 +606,54 @@
       \]
       para todo \(v\in \mathbb{R}^n\) y todo \(p\in B_r(p_0)\).
     </p>
-
-
+    <button class="respButton hvr-grow "> Demostración</button>
+    <div class="resp-box">
+    <p>
+      Lo demostramos por contradicción. Suponemos que para todos \(r,c > 0\) existen 
+      \(v\in \mathbb{R}^n\) y \(p\in B_r(p_0)\) tal que 
+      \[
+      c\|v\| > \|D_{p}Fv\|
+      \]
+      Tomando valores de la forma \(r=c=1/n \) podemos construir sucesiones \((v_n)_{n=1}^\infty\) 
+      y \((p_n)_{n=1}^\infty\) tal que 
+      \begin{equation}\label{Eqn:Aux1LemaIyectividadLocal}
+      \frac{1}{n}\|v_n\| > \|D_{p_n}F v_n\|
+      \end{equation}
+      con \(p_n\in B_{1/n}(p_0)\) y ésto último implica que \(\lim_{n\to \infty}p_n=p_0\). 
+    </p>
+    <p>
+      La desigualdad estricta en \eqref{Eqn:Aux1LemaIyectividadLocal}   implica que \(\|v_n\| >0\) y por lo tanto 
+      tomando \(w_n=\frac{1}{\|v_n\|}v_n\) obtenemos una sucesión \((w_n)_{n=1}^\infty\) contenida 
+      en la esfera unitaria y por la linealidad de \(D_{p}F\) satisface 
+      \[
+      \frac{1}{n}> \| D_{p_n}Fw_n\|.
+      \]
+      Ya que la esfera unitaria es compacta por el <a>Teorema de Bolzano-Weirestrass </a>
+      existe un punto \(w\) en la esfera y una subsucesión \((w_{n_k})_{k=1}^\infty\) tal que 
+      \(\lim_{k\to \infty} w_{n_k}=w\).
+    </p>
+      <p>
+        Escribiendo la desigualdad en términos de coordenadas, \(F=(f_1,\dots, f_n)\), con 
+        \(v[i]\) denotando la entrada del vector \(v\), obtenemos 
+        \begin{eqnarray*} 
+          \frac{1}{n_k} >\sqrt{\sum_{i=1}^n \left( \sum_{j=1}^n\partial_{x_j}f_i(p_{n_k})w_{n_k}[j]\right)^2}  \geq 0
+        \end{eqnarray*}
+      </p>
+      
+      <p>
+        Usando que las parciales son continuas, tomando límite cuando \(k\to \infty\) en la desigualdad 
+        anterior llegamos a 
+        \begin{eqnarray*} 
+        0\geq \sqrt{\sum_{i=1}^n \left( \sum_{j=1}^n\partial_{x_j}f_i(p_{0})w[j]\right)^2}\geq 0
+        \end{eqnarray*}
+      </p>
+      <p>
+        Lo cual se puede traducir como \(\|D_{p_0}F w\| =0\) lo cual implica \(D_{p_0}Fw=0\). Ahora al ser 
+        \(D_{p_0}F\) invertible lo anterior implica \(w=0\) pero ésto es una contradicción pues 
+        \(w\) es un punto en la esfera unitaria.
+      </p>
+      </div>
+      
   </div>
 
 
