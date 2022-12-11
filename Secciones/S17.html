@@ -600,7 +600,7 @@
     <h2 class="number-title"> Lema </h2>
     <p>
       Sea \(U\subseteq \mathbb{R}^n\) un abierto y \(F:U \to \mathbb{R}^n \) una función clase \(C^1\). Si \(p_0\in U\)
-      es un punto donde  \(D_{p_0}F\) es invertible entonces existen constantes   \(r,c > 0\) tal que 
+      es un punto donde  \(D_{p_0}F\) es invertible entonces existen constantes positivas  \(r,c > 0\) tal que 
       \[
       c \|v\| \leq \|D_{p}F v \|
       \]
@@ -662,17 +662,34 @@
     <h2 class="number-title"> Proposición  </h2>
     <p>
       Sea \(U\subseteq \mathbb{R}^n\) un abierto y \(F:U \to \mathbb{R}^n \) una función clase \(C^1\). Si \(p_0\in U\)
-      es un punto donde  \(D_{p_0}F\) es invertible entonces existen constantes   \(r,d > 0\) tal que 
+      es un punto donde  \(D_{p_0}F\) es invertible entonces existen constantes   \(s,d > 0\) tal que 
       \[
       d \|p_1-p_2\| \leq \|F(p_1)-F(p_2) \| 
       \]
-      todos \(p_1,p_2 \in B_r(p_0)\).
+      todos \(p_1,p_2 \in B_s(p_0)\).
 
     </p>
     <p>
       En particular \(F\) es inyectiva en \(B_r(p_0)\).
     </p>
-
+    
+    <p>
+      Por el <a>Lema 7.13</a> existen  constantes positivas \(r,c>0\) tales que 
+      \[
+      c\|v\| \leq \|D_{p}Fv\|
+      \]
+      para todo \(v\in \mathbb{R}^n\) y todo \(p_1,p_2\in B_r(p_0)\).
+    </p>
+    <p>
+      Por la <a>Proposición 17.11</a> existe una constante positivas \(\alpha >0\) tal que 
+      \[
+        \| F(p_0+v)-F(p_0+w) - D_{p_0}F(v-w)\| < \frac{c}{2}\| v-w\|
+      \]
+      para todos \(v,w\) con \(\|v\|<\alpha, \|w\| < \alpha\).
+    </p>
+    <p>
+      Por la otra desigualdad del triángulo 
+    </p>
 
 
   </div>
