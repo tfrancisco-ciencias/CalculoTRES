@@ -375,7 +375,7 @@
 
 
     <div class="prop-box">
-      <h2 class="number-title"> Proposición</h2>
+      <h2 class="number-title" id="Prop:DifQuotienBounded"> Proposición</h2>
       <p>
         Sea $F=(f_1,\dots, f_m): U\subset R^n \to R^m$, clase $C^1$, $\mathbf{p}_0\in U$.
       </p>
@@ -597,7 +597,7 @@
   </div>
 
   <div class="lema-box">
-    <h2 class="number-title"> Lema </h2>
+    <h2 class="number-title" id="Lema:CotaAbajoDif"> Lema </h2>
     <p>
       Sea \(U\subseteq \mathbb{R}^n\) un abierto y \(F:U \to \mathbb{R}^n \) una función clase \(C^1\). Si \(p_0\in U\)
       es un punto donde  \(D_{p_0}F\) es invertible entonces existen constantes positivas  \(r,c > 0\) tal que 
@@ -659,7 +659,7 @@
 
 
   <div class="prop-box">
-    <h2 class="number-title"> Proposición  </h2>
+    <h2 class="number-title" id="Prop:InyectividadLocal"> Proposición  </h2>
     <p>
       Sea \(U\subseteq \mathbb{R}^n\) un abierto y \(F:U \to \mathbb{R}^n \) una función clase \(C^1\). Si \(p_0\in U\)
       es un punto donde  \(D_{p_0}F\) es invertible entonces existen constantes   \(s,d > 0\) tal que 
@@ -670,18 +670,19 @@
 
     </p>
     <p>
-      En particular \(F\) es inyectiva en \(B_r(p_0)\).
+      En particular \(F\) es inyectiva en \(B_s(p_0)\).
     </p>
-    
+    <button class="respButton hvr-grow "> Demostración </button>
+        <div class="resp-box">
     <p>
-      Por el <a>Lema 7.13</a> existen  constantes positivas \(r,c>0\) tales que 
-      \[
-      c\|v\| \leq \|D_{p}Fv\|
-      \]
-      para todo \(v\in \mathbb{R}^n\) y todo \(p_1,p_2\in B_r(p_0)\).
+      Por el <a href="#Lema:CotaAbajoDif">Lema 7.13</a> existen  constantes positivas \(r,c>0\) tales que 
+      \begin{equation}\label{Eqn:CotaAbajoDerivada}
+      c\|u\| \leq \|D_{p}Fu\|
+      \end{equation}
+      para todo \(u \in \mathbb{R}^n\) y todo \(p_1,p_2\in B_r(p_0)\).
     </p>
     <p>
-      Por la <a>Proposición 17.11</a> existe una constante positivas \(\alpha >0\) tal que 
+      Por la <a href="#Prop:DifQuotienBounded">Proposición 17.11</a> existe una constante positiva \(\alpha >0\) tal que 
       \[
         \| F(p_0+v)-F(p_0+w) - D_{p_0}F(v-w)\| < \frac{c}{2}\| v-w\|
       \]
@@ -689,8 +690,25 @@
     </p>
     <p>
       Por la otra desigualdad del triángulo 
+      \begin{eqnarray*}
+      \left| \|F(p_0+v)-F(p_0+w) \| - \|D_{p_0}(v-w) \| \right| \\
+      \leq \| F(p_0+v)-F(p_0+w) - D_{p_0}F(v-w)\|
+      \end{eqnarray*}
+      y de las dos últimas desigualdades se sigue que 
+      \begin{eqnarray*} 
+      -\frac{c}{2}\|v-w\| \leq \|F(p_0+v)-F(p_0+w) \| - \|D_{p_0}F(v-w) \| \\
+      \Rightarrow \|D_{p_0}F(v-w)\| - \frac{c}{2}\| v-w\| \leq \|F(p_0+v)-F(p_0+w)\|
+      \end{eqnarray*}
+      pero por \eqref{Eqn:CotaAbajoDerivada} lo anterior implica 
+      \begin{eqnarray*} 
+      \frac{c}{2}\|v-w\| &=&  c \|v-w\| - \frac{c}{2}\|v-w\| \\
+      & \leq  & \|D_{p_0}F(v-w)\| - \frac{c}{2}\| v-w\| \\
+      & \leq &  \|F(p_0+v)-F(p_0+w)\| 
+      \end{eqnarray*}
+      Ya que \(v\) y \(w\) son arbitrarios el resultado se obtiene tomando las constantes 
+      \(s=\min\{\alpha, r\}\) y \(d=c/2\).
     </p>
-
+  </div>
 
   </div>
 
@@ -743,7 +761,7 @@
     </div>
 
     <div class="teorema-box">
-      <h2 class="number-title"> Teorema  </h2>
+      <h2 class="number-title" id="Teo:MaperoAbierto"> Teorema  </h2>
       <h3> Del mapeo abierto</h3>
       <p>
         Sea $F:U \subseteq \mathbb{R}^n \to \mathbb{R}^n$ tal que $D_pF$ es invertible para todo $p\in U$.
@@ -789,6 +807,64 @@
         </li>
       </ol>
     
+      <button class="respButton hvr-grow "> Demostración</button>
+        <div class="resp-box">
+
+
+      <p>
+
+        Por el <a href="#Lema:CotaAbajoDif"> Lema 17.3</a> existen constantes positivas \(r,c>0\) con 
+
+        \[
+        c\|v\| \leq \|D_pFv\|
+        \]
+        para todo \(v\in \mathbb{R}^n\) y todo \(p\in B_r(p_0)\). Lo anterior implica que 
+        \(D_pF\) es invertible para todo \(p\in B_r(p_0)\). Razón:  si \(D_pFv=0\) la desigualdad anterior
+        implica  que  
+        \(\|v\|=0\), es decir \(v=0\). Ahora ya que  \(D_pF\) tiene kernel cero y es  una matriz de 
+        \(n\times n\) ésto implica que es invertible.
+      </p>
+      <p>
+        Por la <a href="#Prop:InyectividadLocal"> Proposición 17.14</a> existen constantes positivas \(s,d>0\)
+        con 
+        \[
+        d\|p_1-p_2\|\leq \|F(p_1)-F(p_2)\|
+        \]
+        para todos \(p_1,p_2\in B_s(p_0)\).
+      </p>
+      <p>
+        Sea \(t=\min\{r,s\}\) la cual combina la inyectibilidad \(F\) y la 
+        invertibilidad de \(D_pF\). Para el abierto \(W\) tomamos \(W=B_t(p_0)\). Ya que \(D_pF\) es 
+        invertible para todo 
+        \(p\in B_t(p_0)\) se sigue de <a href="#Teo:MaperoAbierto">Teorema del mapeo abierto </a> 
+        que \(F(W)\) es un conjunto abierto abierto. Definimos \(V=F(W)\). Nota que 
+        por la <a href="##Prop:InyectividadLocal"> Proposición 17.14</a> \(F\) es inyectiva en 
+        \(B_t(p_0)\) y por lo tanto \(F\) es una biyección entre \(W\) y \(V\) y por lo tanto 
+        existe su inversa bajo composición. Denotemos por \(G\) a la inversa de \(F\). 
+      </p>
+
+      <p>
+        Nota: tenemos que \(F:W\to V\) y  \(G:V\to W\); 
+        a los puntos de \(W\) los vamos a denotar por \(p's\) y a los de \(V\) por \(q's\).
+      </p>
+      <p>
+        Lo que resta probar es que \(G\) es continua en todo punto de \(V\) y para probarlo 
+        empezamos con la desigualdad 
+        \[
+        d\|p_1-p_1\| \leq \|F(p_1)-F(p_2)\|
+        \]
+        válida para todos \(p_1,p_2\in B_t(p_0)=W\). Denotando \(q_1=F(p_1),q_2=F(p_2)\in V\)
+        también obtenemos que \(G(q_1)=p_1, G(q_2)=p_1\) la desigualdad anterior se puede 
+        reescribir como 
+        \[
+        \|G(q_1)-G(p_2) \| \leq \frac{1}{d}\|q_1-q_2\|
+        \]
+        y al ser \(G\) biyección entre \(v\) y \(W\) la desigualdad anterior es válida para todos \(q_1,q_2\in V\).
+        Finalmente notamos que la desigualdad anterior implica que \(G\) es continua (es más, uniformemente continua) 
+        en todo punto de \(V\) (dada \(\varepsilon> 0\) se toma \(\delta=d \varepsilon\)).
+      </p>
+      </div>
+      
     </div>
 
     <div class="nota-box">
@@ -806,8 +882,9 @@
       <p>
           Por la proposición anterior existe \(W\) una vecindad abierta de \(p_0\) 
           tal que \(V:=F(W)\) es una vecindad abierta de \(F(p_0)\) y tal que 
-          \(F\) es una biyección entre \(W\) y \(V\) y es continua. Denotemos por 
-          \(G\) la inversa de \(F\). Lo que resta probar es que \(G\) es diferenciable 
+          \(F\) es una biyección entre \(W\) y \(V\). Sea \(G\) la inversa 
+          bajo composición de \(F\) también por la proposición anterior \(G\) es continua.  
+          Lo que resta probar es que \(G\) es diferenciable 
           en todo punto de \(V\).       
       </p>
       <p>
