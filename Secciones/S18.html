@@ -99,8 +99,8 @@
       Sea $U$ un abierto de $\mathbb{R}^n\times \mathbb{R}^m$ que contenga
       al punto $(\mathbf{x}_0,\mathbf{z}_0)$ y sea $F:U \to \mathbb{R}^m$
       una función de clase $C^1$ en $U$. Nota: a los puntos
-      de primer  $\mathbb{R}^n$ los vamos a denotar $\mathbf{x}$ y a los
-      puntos del segundo $\mathbf{R}^m$ los vamos a denotar $\mathbf{z}$.
+      de primer espacio $\mathbb{R}^n$ los vamos a denotar $\mathbf{x}$ y a los
+      puntos del segundo espacio $\mathbf{R}^m$ los vamos a denotar $\mathbf{z}$.
     
     </p>
     <p>
@@ -114,9 +114,9 @@
       es una función inyectiva, de $\mathbb{R}^m$ a $\mathbb{R}^m$.    
     </p>
     <p>
-      Entonces existe una vecindad de $\mathbf{x}_0$ en $\mathbb{R}^n$, denotada $W$
-      y una función de clase $C^1$, $G:W \to\mathbb{R}^m$ tal que
-      $G(\mathbf{x}_0)=\mathbf{z}_0$ y, para toda $\mathbf{x}\in W$,
+      Entonces existe una vecindad de $\mathbf{x}_0$ en $\mathbb{R}^n$, denotada $V$
+      y una función de clase $C^1$, $G:V\to\mathbb{R}^m$ tal que
+      $G(\mathbf{x}_0)=\mathbf{z}_0$ y, para toda $\mathbf{x}\in V$,
       $F(\mathbf{x},G(\mathbf{x}))=0$.    
     </p>
     <p>
@@ -237,7 +237,7 @@
 
 
   <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> C
+    <h2 class="number-title"> Ejercicio</h2> 
     <p>
       Considera la superficie en $\mathbb{R}^3$ dada por
       $$
@@ -419,6 +419,108 @@
             </p>
         </li>
     </ol>
+</div>
+
+
+<div class="nota-box">
+  <h2 class="number-title"> Demostración del Teorema de la función implítica </h2>
+  <p>
+    Sea $U$ un abierto de $\mathbb{R}^n\times \mathbb{R}^m$ que contenga
+    al punto $(\mathbf{x}_0,\mathbf{z}_0)$ y sea $F:U \to \mathbb{R}^m$
+    una función de clase $C^1$ en $U$. Nota: a los puntos
+    de primer espacio $\mathbb{R}^n$ los vamos a denotar $\mathbf{x}$ y a los
+    puntos del segundo espacio $\mathbf{R}^m$ los vamos a denotar $\mathbf{z}$.
+  
+  </p>
+  <p>
+    Supongamos que $F(\mathbf{x}_0,\mathbf{z}_0)=0$
+    y que la función lineal, \(L:\mathbb{R}^m \to \mathbb{R}^m \), dada por
+    $$
+    L(\mathbf{z})=D_{(\mathbf{x}_0, \mathbf{z}_0)}F(0,\mathbf{z}),
+    \mathbf{z} \in \mathbb{R}^m
+    $$
+  
+    es una función inyectiva. Otra forma de pensar a \(L\) es como la 
+    función lineal dada por la matriz:
+    \begin{eqnarray*} 
+    \left[
+    \begin{array}{ccc}
+      \partial_{z_1}f_1(\mathbf{x}_0,\mathbf{z}_0)  & \cdots & \partial_{z_m}f_1 (\mathbf{x}_0,\mathbf{z}_0)\\
+      \vdots & \cdots & \vdots         \\
+      \partial_{z_1}f_m(\mathbf{x}_0,\mathbf{z}_0) & \cdots & \partial_{z_m}f_m(\mathbf{x}_0,\mathbf{z}_0)    
+    \end{array}
+    \right]
+    \end{eqnarray*}
+    donde \(F=(f_1,\dots, f_m)\).
+  </p>
+  <p>
+    Consideramos la función clase \(C^1\) dada por 
+    \(H:U  \to \mathbb{R}^n\times \mathbb{R}^m\)
+    dada por 
+    \[
+    H(\mathbf{x},\mathbf{z})=(\mathbf{x},F(\mathbf{x},\mathbf{z}))
+    \]
+    Notamos que la matriz de derivadas parciales para \(H\) es de la forma 
+    \[
+    D_{(\mathbf{x}_0,\mathbf{z}_0)}H=
+    \left[ 
+    \begin{array}{cc} 
+      I_{n} & \mathbf{0} \\
+      M & L
+    \end{array}
+    \right]
+    \]
+    donde 
+    \begin{eqnarray*} 
+    M=\left[
+    \begin{array}{ccc}
+      \partial_{x_1}f_1(\mathbf{x}_0,\mathbf{z}_0)  & \cdots & \partial_{x_n}f_1 (\mathbf{x}_0,\mathbf{z}_0)\\
+      \vdots & \cdots & \vdots         \\
+      \partial_{x_1}f_m(\mathbf{x}_0,\mathbf{z}_0) & \cdots & \partial_{x_n}f_m(\mathbf{x}_0,\mathbf{z}_0)    
+    \end{array}
+    \right]
+    \end{eqnarray*}
+
+    Ya que \(L\) es inyectiva se sigue que \(D_{(\mathbf{x}_0,\mathbf{z}_0)}H\) es invertible, en efecto:
+    si \(D_{(\mathbf{x}_0,\mathbf{z}_0)}H(\mathbf{x},\mathbf{z})=0 \) se sigue que 
+    \(\mathbf{x}=0\) y por lo tanto \(L(\mathbf{z})=D_{(\mathbf{x}_0, \mathbf{z}_0)}F(0,\mathbf{z})=0\) y al ser \(L\)
+    inyectiva se tiene  
+    que \(\mathbf{z}=0\), conclusión, el núcleo de \(D_{(\mathbf{x}_0,\mathbf{z}_0)}H\) es cero.
+  </p>
+  <p>
+    Por el 
+    Teorema de la función inversa existe \(\tilde{W}\), una vecindad de \((\mathbf{x}_0,\mathbf{z}_0)\) y 
+    \(\tilde{V}\), una vecindad de \(H(\mathbf{x}_0,\mathbf{z}_0)=(\mathbf{x}_0,0)\), tal 
+    que la función \(H\) restringida, \(H: \tilde{W} \to \tilde{V}\), es una biyección con inversa también clase \(C^1\). Ya que la 
+    primera entrada de \(H\) es la identidad la regla de correspondendia de la inversa de \(H\) debe verse de la forma 
+    \[
+    H^{-1}(\mathbf{u},\mathbf{v})=(\mathbf{u}, J(\mathbf{u},\mathbf{v}))
+    \]
+    donde \(J\) es de clase \(C^1\) en \(\tilde{V}\).
+    
+  </p>
+  <p>
+    De la ecuación \(H(\mathbf{x}_0,\mathbf{z}_0)=(\mathbf{x}_0,0)\) se sigue que 
+    \[
+    (\mathbf{x}_0,\mathbf{z}_0)=H^{-1}(\mathbf{x}_0,0)=(\mathbf{x}_0,J(\mathbf{x}_0,0))
+    \]
+     lo cual implica  
+    \(\mathbf{z}_0=J(\mathbf{x}_0,0)\).
+  </p>
+  <p>
+    Ya que \(\tilde{V}\) es una vecindad de \((\mathbf{x}_0,0)\) existe \(V\),
+    una vecindad de \(\mathbf{x}_0\), donde podemos definir  
+    \(G(\mathbf{x})=J(\mathbf{x},0)\) la cual es clase \(C^1\) en \(V\). Se sigue que 
+    para \(x\in V\)
+    \begin{eqnarray*}
+    (\mathbf{x}, 0)&=& H(H^{-1}(\mathbf{x},0))\\
+    &=& H(\mathbf{x},J(\mathbf{x},0)) \\
+    &=& H(\mathbf{x},G(\mathbf{x}))\\
+    &=& (\mathbf{x}, F(\mathbf{x},G(\mathbf{x})))
+    \end{eqnarray*}
+    por lo tanto \(F(\mathbf{x},G(\mathbf{x})) =0 \).
+  </p>
+
 </div>
 
 
