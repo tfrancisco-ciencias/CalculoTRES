@@ -108,15 +108,429 @@
             <li>multiplicación escalar.</li> 
         </ol>
         
-        Con estas operaciones se dice que $\mathbb{R}^n$ es un espacio vectorial.
+        Con estas operaciones se dice que $\mathbb{R}^n$ es un espacio vectorial. Es decir, 
+        las operaciones satisfacen:
+        <ol>
+            <li>
+                \(u+(v+w)=(u+v)+w\)
+            </li>
+            <li>
+                \(u+v=v+u\)
+            </li>
+            <li>
+                \(0+v=v\)
+            </li>
+            <li>
+                \((-v)+v=0\)
+            </li>
+            <li>
+                \((\alpha \beta)v=\alpha(\beta v)\)
+            </li>
+            <li>
+                \(1v=v\)
+            </li>
+            <li>
+                \(\alpha(v+u)=\alpha v + \alpha u\)
+            </li>
+            <li>
+                \((\alpha+\beta)v=\alpha v + \beta v\)
+            </li>
+        </ol>
+        donde \(u,v,w\in \mathbb{R}^n\)  y \(\alpha, \beta \in \mathbb{R}\).
     </p>
     
  </div>
 
 
 
+    <div class="definicion-box">
+        <h2 class="number-title""> Definición </h2>
+        <p>
+            Las ecuación paramétrica de la linea recta con vector dirección  $v$ y 
+            que pasa por el punto  $p_0$ esta tadas por
+            $$
+            p=p_0+tv, \quad t\in \mathbb{R}
+            $$
+      
+        </p>
+        <p>
+            Por ejemplo, en $\mathbb{R}^3$, si $v=(v_1,v_2,v_3), p_0=(x_0,y_0,z_0)$ y $p=(x,y,z)$ 
+            esta ecuación es equivalente a
+            $$
+            x=x_0+tv_1, \quad y=y_0+tv_2, \quad z=z_0+tv_3
+            $$
+        </p>
+    </div>
+
+
+    <div class="definicion-box">
+    <h2 class="number-title"> Definición </h2>
+    <p>
+        Decimos que dos vectores distintos de cero, $u$ y $v$, son 
+        linealmente independientes si uno no es multiplo escalar del otro.
+    </p>
+
+        <p>
+            Sean $u\ne 0$, $v\ne 0$, vectores linealmente independientes.  
+            La ecuación paramétrica del plano que pasa por el punto $p_0$ 
+            y está generado por los vectores $u$ y $v$ está
+             dada por
+             $$
+             p=p_0+tu+sv, \quad t,s \in \mathbb{R}
+             $$
+        </p>
+        <p>
+            Si el plano está en $\mathbb{R}^3$, y $p_0=(x_0,y_0,z_0)$, $u=(u_1,u_2,u_3), v=(v_1,v_2,v_3)$ 
+            podemos escribir las ecuaciones como
+            $$
+            x=x_0+tu_1+sv_1, \quad y= y_0+tu_2+sv_2, \quad z=z_0+tu_3+sv_3.
+            $$
+        </p>         
+       </div>
 
       
+
+
+    <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+         <p>
+            Un conjunto de vectores $\{\mathbf{v}_1, \dots , \mathbf{v}_k\}$, todos distintos de cero,
+            se llama linealmente
+            independiente si siempre que se cumpla la igualdad
+            $$
+            \sum_{i=1}^k \alpha_i \mathbf{v}_i=0,
+            $$
+            con  $\alpha_i \in \mathbb{R}$,  se sigue que $\alpha_i=0$ para toda $i=1,\dots, k$.
+         </p>
+         <p>
+            Por ejemplo, si \(\mathbf{e}_i\) denota al vector con todas las entradas 
+            iguales a cero, excepto la entrada \(i\) la cual es un \(1\), entonces 
+            \(\{\mathbf{e}_i\}_{i=1}^n\) es linealmente independiente.
+         </p>
+         <p>
+            Nota: el conjunto \(\{\mathbf{e}_i\}_{i=1}^n\) se llama la base canónica de \(\mathbb{R}^n\).
+         </p>
+     </div>       
+
+
+
+	<div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+	<p>
+        En $\mathbb{R}^n$ se define la norma de un vector $p=(p_1,\dots, p_k)$ como
+	$$
+		\|p\|=\left( \sum_{k=1}^k p_k^2\right)^{1/2}
+	$$
+    </p>
+	<p>
+            La distancia entre dos puntos $p,q \in \mathbb{R}^n$ se define como
+	$$
+	\|p-q\|	
+	$$
+        Por ejemplo, con esta notación la esfera de radio \(r\) centrada 
+        en el punto \(p_0\) se puede escribir
+        \[
+        \{ p\in \mathbb{R}^n: \|p-p_0\|=r \}
+        \]
+    </p>
+	
+
+	</div>
+
+	
+	<div class="lema-box"> 
+        <h2 class="number-title"> Lema  </h2> 
+        La norma satisface:
+	<ol>
+	    <li>
+            $\|\alpha p \|=|\alpha| \|p\|$.
+        </li>
+        <li>
+            $\|p\|=0$ sii $p=0$.
+        </li> 	
+	 
+	</ol>
+    donde \(p\in \mathbb{R}^n\) y \(\alpha\) es real.
+    <button class="respButton hvr-grow "> Solución </button>
+    <div class="resp-box">
+            <p>
+                Inciso 1.
+            </p>
+            <p>
+                \begin{eqnarray*}
+                    \|\alpha p\|&=& \left( \sum_{i=1}^n (\alpha x_i)^2 \right)^{1/2} \\
+                    &=& \left( \alpha^2 \left( \sum_{i=1}^n  x_i^2\right) \right)^{1/2} \\
+                    &=& (\alpha^2)^{1/2}\left( \sum_{i=1}^n  x_i^2 \right)^{1/2} \\
+                    &=& |\alpha|\|p\|
+                \end{eqnarray*}
+            </p>
+            <p>
+                Inciso 2.
+            </p>
+            <p>
+                \begin{eqnarray*}
+                \|p\|=0 \Leftrightarrow \\
+                \sum_{i=1}^n x_i^2=0 \Leftrightarrow \\
+                x_i^2=0, \forall i \Leftrightarrow \\
+                x_i=0, \forall i
+                \end{eqnarray*}
+            </p>
+        </div>
+    </div>
+
+
+       <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+            En $\mathbb{R}^n$ el producto interior o producto punto se define como:
+            $$
+           \langle  p,  q \rangle=p\cdot q= \sum_{j=1}^n p_jq_j.
+            $$
+            Por ejemplo, para todo punto \(p\in \mathbb{R}^n\), \( \mathbf{e}_i\cdot p = p_i\).
+        </p>
+         
+       </div>
+       
+
+
+		<div class="lema-box"> 
+            <h2 class="number-title" id="Ejer:PropiedadesProdInt"> Lema </h2> 
+            Dados $p,q,v\in \mathbb{R}^n$ y $\alpha \in \mathbb{R}$, se satisfacen:
+		
+        <ol>
+		   <li>
+             $\langle p, q \rangle = \langle q,p \rangle$.
+           </li>
+		   <li>
+            $\langle p, \alpha q +v \rangle = \alpha \langle p,q \rangle + \langle p,v \rangle$.
+           </li>
+           <li>
+            \( \langle p, p \rangle =\|p\|^2  \)
+           </li> 
+		</ol>
+        </div>
+
+
+  <div class="teorema-box"> 
+        <h2 class="number-title" id="Tep:Desigualdad-CS"> Teorema </h2> 
+        <h3> Desigualdad de Cauchy-Schwartz en $\mathbb{R}^n$ </h3>
+
+         Sean $p,q\in \mathbb{R}^n$.
+         <ol>
+           <li>
+            Usa la ley de los cosenos para probar
+            $$
+                \|p-q\|^2=\|p\|^2+\|q\|^2-2\|p\|\|q\| \cos(\theta)
+            $$
+            donde $\theta\in [0,\pi]$ es el ángulo entre $p$ y $q$. 
+           </li> 
+       
+            <li>
+                Usando lo anterior concluye que 
+                \begin{equation}\label{Eqn:PrevioCauchySchwartz}
+               \langle  p , q  \rangle= \|p\| \|q\|  \cos(\theta).
+                \end{equation}
+            </li> 
+
+            <li>
+                Concluye que
+                $$
+                |\langle p, q \rangle| \leq \|p\|  \|q\| 
+                $$
+                conocida como la desigualdad de Cauchy-Schwartz.
+            </li> 
+         </ol>
+         <button class="respButton hvr-grow "> Solución</button>
+         <div class="resp-box">
+            <p>
+                Inciso 1.
+            </p>
+            <p>
+                Como la identidad involucra sólo los puntos \(p\) y \(q\)
+                podemos considerar el plano generado por \(p,q\) y el origen 
+                y pensar la identidad vista en este plano, es decir, no podemos 
+                restringir a \(\mathbb{R}^2\) y ahí aplicar la ley de los cosenos.
+            </p>
+            <p>
+                Aplicando a la ley de los cosenos al triángulo con vértices el origen, \(p\)
+                y \(q\) obtenemos 
+                \[
+                \|p-q\|^2 = \|p\|^2+\|q\|^2-2\|p\|\|q\|\cos(\theta)
+                \]
+            </p>
+            <div class="flexbox">
+                <img src="./Images/S1-Img1.png" alt="LeyCosenos-CS" width="40%" height="auto">
+              </div>
+            <p>
+                Inciso 2.
+            </p>
+            <p>
+                Escribiendo \(\|p-q\|^2=\langle p-q, p-q\rangle\) y desarrolando el lado derecho obtenemos 
+                \[
+                \|p-q\|^2=\|p\|^2-2\langle p,q\rangle +\|q\|^2.
+                \]
+                Igualando con la ley de los cosenos llegamos a 
+                \[
+                \|p\|^2-2\langle p,q\rangle +\|q\|^2=\|p\|^2+\|q\|^2-2\|p\|\|q\|\cos(\theta)
+                \]
+                por lo que concluimos
+                \[
+                \langle p,q\rangle = \|p\|\|q\|\cos(\theta).
+                \]
+            </p>
+            <p>
+                Inciso 3.
+            </p>
+            <p>
+                Utilizando que, para todo ángulo \(\theta\), \(|\cos(\theta)|\leq 1\) se sigue 
+                directamente que 
+                \[
+                |\langle p, q \rangle |\leq \|p\| \|q\|
+                \]
+            </p>
+         </div>
+        </div>
+     
+
+         
+           		
+    <div class="teorema-box"> 
+        <h2 class="number-title"> Teorema </h2> 
+        <h3> Desigualdad del triángulo</h3>
+		Usa la desigualdad de Cauchy-Schwartz para probar que, para todos los vectores $p,q$
+		$$
+		\| p+q\| \leq \|p\|+\|q\|.	
+		$$
+    </div>
+
+     <div class="lema-box"> 
+        <h2 class="number-title"> Lema </h2> 
+        Este lema muestra que el área del triángulo con vértices  $0, u=(u_1,u_2)$ y $v=(v_1,v_2)$
+        es $\frac{1}{2}|u_1v_2-u_2v_1|$.
+       <ol>
+            <li>
+                Prueba que el área del triángulo es $\frac{1}{2}\|u\|(\|v\| \operatorname{sen}(\theta))$,
+                donde $\theta\in [0,\pi]$, es el ángulo entre $v$ y $u$. 
+            </li> 
+            <li>
+                Prueba que $\operatorname{sen}(\theta)=\sqrt{1- \left( \frac{\langle u , v \rangle }{\|u\|\|v\|} \right)^2}$.
+                <p>Sugerencia: usa ecuación \eqref{Eqn:PrevioCauchySchwartz}.</p>
+            </li> 
+            <li>
+                Prueba que el área es igual a $\frac{1}{2}\sqrt{\|u\|^2\|v\|^2-(\langle u,  v\rangle )^2}$.
+            </li>
+            <li>
+                Finalmente prueba que $\|u\|^2\|v\|^2-(\langle u,  v\rangle )^2=(u_1v_2-u_2v_1)^2$.
+            </li>
+       </ol>
+       <button class="respButton hvr-grow "> Solución</button>
+        <div class="resp-box">
+        <p>
+            Inciso 1.
+        </p>
+        <p>
+            El área de un triángulo es \(\frac{1}{2}\textrm{base}\times \textrm{altura}\). Tomando como la 
+            base el lado que une \(0\) con \(u\) tenemos que 
+            \begin{eqnarray*}
+            \textrm{base}=\|u\|\\
+            \textrm{altura}= \|v\|\sen(\theta)
+            \end{eqnarray*}
+        </p>
+        <div class="flexbox">
+            <img src="./Images/S1-Img2.png" alt="AreaTriangulo" width="40%" height="auto">
+          </div>
+        <p>
+            Inciso 2.
+        </p>
+        <p>
+            Por la prueba de la desigualdad de Cauchy-Schwartz tenemos 
+            \[
+            \langle u, v \rangle = \|u\|\|v\| \cos(\theta)
+            \]
+            por lo que 
+            \begin{eqnarray*}
+                \sen(\theta)&=&\sqrt{1-\cos^2(\theta)} \\
+                &=& \sqrt{1- \frac{\langle u, v \rangle ^2}{\|u\|^2\|v\|^2}}
+            \end{eqnarray*}
+        </p>
+        <p>
+            Inciso 3.
+        </p>
+        <p>
+            Substituyendo el valor de \(\sen(\theta)\) en la fórmula del inciso (1) resulta 
+            \begin{eqnarray*}
+            \frac{1}{2}\textrm{base}\textrm{altura}&=& \frac{1}{2}\|u\| \|v\| \sqrt{\frac{\|u\|^2\|v\|^2- \langle u, v \rangle ^2}{\|u\|^2\|v\|^2}} \\
+            &=&\frac{1}{2}\|u\| \|v\| \frac{1}{\|u\|\|v\|}\sqrt{\|u\|^2\|v\|^2- \langle u, v \rangle ^2} \\
+            &=& \frac{1}{2}\sqrt{\|u\|^2\|v\|^2-\langle u,v\rangle^2}
+            \end{eqnarray*}
+        </p>
+        <p>
+            Inciso 4.
+        </p>
+        <p>
+            Finalmente hacemos la cuenta directamente 
+            \begin{eqnarray*}
+            \|u\|^2\|v\|^2-(\langle u,v \rangle)^2&=&(u_1^2+u_2^2)(v_1^2+v_2^2)-(u_1v_1+u_2v_2)^2 \\
+            &=& u_1^2v_1^2+u_2^2v_1^2 + u_1^2v_2^2+u_2^2v_2^2-(u_1^2v_1^2+2u_1v_1u_2v_2+u_2^2v_2^2)\\
+            &=& u_2^2v_1^2+u_1^2v_2^2-2u_1v_1u_2v_2=(u_2v_1-u_1v_2)^2
+            \end{eqnarray*}
+        </p>
+
+       </div>
+     </div>
+
+
+      <div class="definicion-box"><h2 class="number-title"> Definición </h2>
+        <p>
+            Dos vectores $p,q\in \mathbb{R}^n$ se llaman ortogonales si $\langle p,q \rangle=0$. Por ejmplo,
+            para la base canónica \(\{\mathbf{e}_i\}_{i=1}^n\), si \(i\ne j\) entonces \(\mathbf{e}_i\cdot \mathbf{e}_j=0\).
+        </p>
+           
+           <p>
+            Por el <a href="#Tep:Desigualdad-CS">Teorema 1.9 </a> 
+            <a href="#Tep:Desigualdad-CS" class="ref"> </a> los vectores 
+            \(p\) y \(q\) son ortogonales si y sólo si el ángulo entre ellos es de 90 grados. 
+           </p>
+    </div>
+         
+         
+    <div class="teorema-box"> 
+        <h2 class="number-title"> Teorema </h2> 
+        <h3>Teorema de Pitágoras</h3>
+
+         <p>
+            Par dos vectores $p, q \in \mathbb{R}^n$, demuestra:
+         </p>
+         <p>
+            $\|p+q\|^2=\|p\|^2+\|q\|^2$ si y sólo si los vectores son perpendiculares.
+         </p>
+
+         <button class="respButton hvr-grow "> Solución</button>
+         <div class="resp-box">
+            <p>
+                Usando que \(\|p\|^2=\langle p, p\rangle\) para todo punto \(p\in \mathbb{R}^n\)
+                podemos reescribir: 
+                \begin{eqnarray*}
+                    \|p+q\|^2&=&\|p\|^2+\|q\|^2 \\
+                    &\Leftrightarrow & \\
+                    \langle p+q,p+q \rangle & = & \langle p, p \rangle + \langle q,q \rangle \\
+                    & \Leftrightarrow & \\
+                    \langle p,p \rangle + 2 \langle p,q \rangle + \langle q,q\rangle & = & \langle p, p \rangle + \langle q,q \rangle
+                \end{eqnarray*}
+                donde en la última implicación usamos las propiedades del producto interior mencionadas en 
+                <a href="#Ejer:PropiedadesProdInt"> Ejercicio 1.22</a>.
+            </p>
+            <p>
+                Cancelando los términos iguales en la última identidad concluimos 
+                \[
+                \|p+q\|^2=\|p\|^2+\|q\|^2 \Leftrightarrow \langle p, q\rangle =0.
+                \]
+            </p>
+
+         </div>
+    </div>
+
+       
 
 <div class="ejercicio-box">
     <h2 class="number-title"> Ejercicio</h2> 
@@ -229,7 +643,7 @@
 
   
  <div class="ejercicio-box">
-    <h2 class="number-title""> Ejercicio</h2> 
+    <h2 class="number-title"> Ejercicio</h2> 
     <p>
         Soluciona la siguiente ecuación para $x,y,z$.
     </p>
@@ -259,24 +673,6 @@
 </div>
 
     
-    <div class="definicion-box">
-        <h2 class="number-title""> Definición </h2>
-        <p>
-            Las ecuación paramétrica de la linea recta con vector dirección  $v$ y 
-            que pasa por el punto  $p_0$ esta tadas por
-            $$
-            p=p_0+tv, \quad t\in \mathbb{R}
-            $$
-      
-        </p>
-        <p>
-            Por ejemplo, en $\mathbb{R}^3$, si $v=(v_1,v_2,v_3), p_0=(x_0,y_0,z_0)$ y $p=(x,y,z)$ 
-            esta ecuación es equivalente a
-            $$
-            x=x_0+tv_1, \quad y=y_0+tv_2, \quad z=z_0+tv_3
-            $$
-        </p>
-    </div>
 
 
 
@@ -514,33 +910,6 @@
         </div>
     </div> 
 
-<div class="definicion-box">
-    <h2 class="number-title"> Definición </h2>
-    <p>
-        Decimos que dos vectores distintos de cero, $u$ y $v$, son 
-        linealmente independientes si uno no es multiplo escalar del otro.
-    </p>
-</div>
-
-
-       <div class="definicion-box"><h2 class="number-title"> Definición </h2>
-        <p>
-            Sean $u\ne 0$, $v\ne 0$, vectores linealmente independientes.  
-            La ecuación paramétrica del plano que pasa por el punto $p_0$ 
-            y está generado por los vectores $u$ y $v$ está
-             dada por
-             $$
-             p=p_0+tu+sv, \quad t,s \in \mathbb{R}
-             $$
-        </p>
-        <p>
-            Si el plano está en $\mathbb{R}^3$, y $p_0=(x_0,y_0,z_0)$, $u=(u_1,u_2,u_3), v=(v_1,v_2,v_3)$ 
-            podemos escribir las ecuaciones como
-            $$
-            x=x_0+tu_1+sv_1, \quad y= y_0+tu_2+sv_2, \quad z=z_0+tu_3+sv_3.
-            $$
-        </p>         
-       </div>
 
 
        
@@ -573,18 +942,6 @@
         </div>
     </div>
     
-    <div class="definicion-box">
-        <h2 class="number-title"> Definición </h2>
-         <p>
-            Un conjunto de vectores $\{\mathbf{v}_1, \dots , \mathbf{v}_k\}$, todos distintos de cero,
-            se llama linealmente
-            independiente si siempre que se cumpla la igualdad
-            $$
-            \sum_{i=1}^k \alpha_i \mathbf{v}_i=0,
-            $$
-            con  $\alpha_i \in \mathbb{R}$,  se sigue que $\alpha_i=0$ para toda $i=1,\dots, k$.
-         </p>
-     </div>
        
 
 
@@ -623,71 +980,6 @@
 
    
 
-	<div class="definicion-box">
-        <h2 class="number-title"> Definición </h2>
-	En $\mathbb{R}^n$ se define la norma de un vector $p=(p_1,\dots, p_k)$ como
-	$$
-		\|p\|=\left( \sum_{k=1}^k p_k^2\right)^{1/2}
-	$$
-	
-	La distancia entre dos puntos $p,q \in \mathbb{R}^n$ se define como
-	$$
-	\|p-q\|	
-	$$
-	</div>
-
-	
-	<div class="ejercicio-box"> 
-        <h2 class="number-title"> Ejercicio </h2> 
-        Demuestra las siguientes propiedades de la norma:
-	<ol>
-	    <li>
-            $\|\alpha p \|=|\alpha| \|p\|$.
-        </li>
-        <li>
-            $\|p\|=0$ sii $p=0$.
-        </li> 	
-	 
-	</ol>
-    <button class="respButton hvr-grow "> Solución </button>
-    <div class="resp-box">
-            <p>
-                Inciso 1.
-            </p>
-            <p>
-                \begin{eqnarray*}
-                    \|\alpha p\|&=& \left( \sum_{i=1}^n (\alpha x_i)^2 \right)^{1/2} \\
-                    &=& \left( \alpha^2 \left( \sum_{i=1}^n  x_i^2\right) \right)^{1/2} \\
-                    &=& (\alpha^2)^{1/2}\left( \sum_{i=1}^n  x_i^2 \right)^{1/2} \\
-                    &=& |\alpha|\|p\|
-                \end{eqnarray*}
-            </p>
-            <p>
-                Inciso 2.
-            </p>
-            <p>
-                \begin{eqnarray*}
-                \|p\|=0 \Leftrightarrow \\
-                \sum_{i=1}^n x_i^2=0 \Leftrightarrow \\
-                x_i^2=0, \forall i \Leftrightarrow \\
-                x_i=0, \forall i
-                \end{eqnarray*}
-            </p>
-        </div>
-    </div>
-
-
-       <div class="definicion-box">
-        <h2 class="number-title"> Definición </h2>
-        <p>
-            En $\mathbb{R}^n$ el producto interior usual es el producto punto
-            $$
-           \langle  p,  q \rangle=p\cdot q= \sum_{j=1}^n p_jq_j.
-            $$
-        </p>
-         
-       </div>
-       
    
        
        <div class="ejercicio-box"> 
@@ -711,22 +1003,6 @@
          </div>
 
 
-		<div class="ejercicio-box"> 
-            <h2 class="number-title" id="Ejer:PropiedadesProdInt"> Ejercicio </h2> 
-            Dados $p,q,v\in \mathbb{R}^n$ y $\alpha \in \mathbb{R}$, demuestra las siguientes propiedades.
-		
-        <ol>
-		   <li>
-             $\langle p, q \rangle = \langle q,p \rangle$.
-           </li>
-		   <li>
-            $\langle p, \alpha q +v \rangle = \alpha \langle p,q \rangle + \langle p,v \rangle$.
-           </li>
-           <li>
-            \( \langle p, p \rangle =\|p\|^2  \)
-           </li> 
-		</ol>
-        </div>
 
 
 		<div class="ejercicio-box"> 
@@ -758,163 +1034,7 @@
             
         </div>
 
-       <div class="ejercicio-box"> 
-        <h2 class="number-title"> Ejercicio </h2> 
-        <h3> Desigualdad de Cauchy-Schwartz en $\mathbb{R}^n$ </h3>
-
-         Sean $p,q\in \mathbb{R}^n$.
-         <ol>
-           <li>
-            Usa la ley de los cosenos para probar
-            $$
-                \|p-q\|^2=\|p\|^2+\|q\|^2-2\|p\|\|q\| \cos(\theta)
-            $$
-            donde $\theta\in [0,\pi]$ es el ángulo entre $p$ y $q$. 
-           </li> 
-       
-            <li>
-                Usando lo anterior concluye que 
-                \begin{equation}\label{Eqn:PrevioCauchySchwartz}
-               \langle  p , q  \rangle= \|p\| \|q\|  \cos(\theta).
-                \end{equation}
-            </li> 
-
-            <li>
-                Concluye que
-                $$
-                |\langle p, q \rangle| \leq \|p\|  \|q\| 
-                $$
-                conocida como la desigualdad de Cauchy-Schwartz.
-            </li> 
-         </ol>
-         <button class="respButton hvr-grow "> Solución</button>
-         <div class="resp-box">
-            <p>
-                Inciso 1.
-            </p>
-            <p>
-                Como la identidad involucra sólo los puntos \(p\) y \(q\)
-                podemos considerar el plano generado por \(p,q\) y el origen 
-                y pensar la identidad vista en este plano, es decir, no podemos 
-                restringir a \(\mathbb{R}^2\) y ahí aplicar la ley de los cosenos.
-            </p>
-            <p>
-                Aplicando a la ley de los cosenos al triángulo con vértices el origen, \(p\)
-                y \(q\) obtenemos 
-                \[
-                \|p-q\|^2 = \|p\|^2+\|q\|^2-2\|p\|\|q\|\cos(\theta)
-                \]
-            </p>
-            <div class="flexbox">
-                <img src="./Images/S1-Img1.png" alt="LeyCosenos-CS" width="40%" height="auto">
-              </div>
-            <p>
-                Inciso 2.
-            </p>
-            <p>
-                Escribiendo \(\|p-q\|^2=\langle p-q, p-q\rangle\) y desarrolando el lado derecho obtenemos 
-                \[
-                \|p-q\|^2=\|p\|^2-2\langle p,q\rangle +\|q\|^2.
-                \]
-                Igualando con la ley de los cosenos llegamos a 
-                \[
-                \|p\|^2-2\langle p,q\rangle +\|q\|^2=\|p\|^2+\|q\|^2-2\|p\|\|q\|\cos(\theta)
-                \]
-                por lo que concluimos
-                \[
-                \langle p,q\rangle = \|p\|\|q\|\cos(\theta).
-                \]
-            </p>
-            <p>
-                Inciso 3.
-            </p>
-            <p>
-                Utilizando que, para todo ángulo \(\theta\), \(|\cos(\theta)|\leq 1\) se sigue 
-                directamente que 
-                \[
-                |\langle p, q \rangle |\leq \|p\| \|q\|
-                \]
-            </p>
-         </div>
-        </div>
-     
-
-     <div class="ejercicio-box"> 
-        <h2 class="number-title"> Ejercicio </h2> 
-        Este ejercicio muestra que el área del triángulo con vértices  $0, u=(u_1,u_2)$ y $v=(v_1,v_2)$
-        es $\frac{1}{2}|u_1v_2-u_2v_1|$.
-       <ol>
-            <li>
-                Prueba que el área del triángulo es $\frac{1}{2}\|u\|(\|v\| \operatorname{sen}(\theta))$,
-                donde $\theta\in [0,\pi]$, es el ángulo entre $v$ y $u$. 
-            </li> 
-            <li>
-                Prueba que $\operatorname{sen}(\theta)=\sqrt{1- \left( \frac{\langle u , v \rangle }{\|u\|\|v\|} \right)^2}$.
-                <p>Sugerencia: usa ecuación \eqref{Eqn:PrevioCauchySchwartz}.</p>
-            </li> 
-            <li>
-                Prueba que el área es igual a $\frac{1}{2}\sqrt{\|u\|^2\|v\|^2-(\langle u,  v\rangle )^2}$.
-            </li>
-            <li>
-                Finalmente prueba que $\|u\|^2\|v\|^2-(\langle u,  v\rangle )^2=(u_1v_2-u_2v_1)^2$.
-            </li>
-       </ol>
-       <button class="respButton hvr-grow "> Solución</button>
-        <div class="resp-box">
-        <p>
-            Inciso 1.
-        </p>
-        <p>
-            El área de un triángulo es \(\frac{1}{2}\textrm{base}\times \textrm{altura}\). Tomando como la 
-            base el lado que une \(0\) con \(u\) tenemos que 
-            \begin{eqnarray*}
-            \textrm{base}=\|u\|\\
-            \textrm{altura}= \|v\|\sen(\theta)
-            \end{eqnarray*}
-        </p>
-        <div class="flexbox">
-            <img src="./Images/S1-Img2.png" alt="AreaTriangulo" width="40%" height="auto">
-          </div>
-        <p>
-            Inciso 2.
-        </p>
-        <p>
-            Por la prueba de la desigualdad de Cauchy-Schwartz tenemos 
-            \[
-            \langle u, v \rangle = \|u\|\|v\| \cos(\theta)
-            \]
-            por lo que 
-            \begin{eqnarray*}
-                \sen(\theta)&=&\sqrt{1-\cos^2(\theta)} \\
-                &=& \sqrt{1- \frac{\langle u, v \rangle ^2}{\|u\|^2\|v\|^2}}
-            \end{eqnarray*}
-        </p>
-        <p>
-            Inciso 3.
-        </p>
-        <p>
-            Substituyendo el valor de \(\sen(\theta)\) en la fórmula del inciso (1) resulta 
-            \begin{eqnarray*}
-            \frac{1}{2}\textrm{base}\textrm{altura}&=& \frac{1}{2}\|u\| \|v\| \sqrt{\frac{\|u\|^2\|v\|^2- \langle u, v \rangle ^2}{\|u\|^2\|v\|^2}} \\
-            &=&\frac{1}{2}\|u\| \|v\| \frac{1}{\|u\|\|v\|}\sqrt{\|u\|^2\|v\|^2- \langle u, v \rangle ^2} \\
-            &=& \frac{1}{2}\sqrt{\|u\|^2\|v\|^2-\langle u,v\rangle^2}
-            \end{eqnarray*}
-        </p>
-        <p>
-            Inciso 4.
-        </p>
-        <p>
-            Finalmente hacemos la cuenta directamente 
-            \begin{eqnarray*}
-            \|u\|^2\|v\|^2-(\langle u,v \rangle)^2&=&(u_1^2+u_2^2)(v_1^2+v_2^2)-(u_1v_1+u_2v_2)^2 \\
-            &=& u_1^2v_1^2+u_2^2v_1^2 + u_1^2v_2^2+u_2^2v_2^2-(u_1^2v_1^2+2u_1v_1u_2v_2+u_2^2v_2^2)\\
-            &=& u_2^2v_1^2+u_1^2v_2^2-2u_1v_1u_2v_2=(u_2v_1-u_1v_2)^2
-            \end{eqnarray*}
-        </p>
-
-       </div>
-     </div>
-
+      
 
     <div class="ejercicio-box"> 
         <h2 class="number-title"> Ejercicio </h2> 
@@ -954,47 +1074,7 @@
          </div>
     </div>
 
-    <div class="definicion-box"><h2 class="number-title"> Definición </h2>
-           Dos vectores $p,q\in \mathbb{R}^n$ se llaman ortogonales si $\langle p,q \rangle=0$.
-    </div>
-         
-         
-    <div class="ejercicio-box"> 
-        <h2 class="number-title"> Ejercicio </h2> 
-        <h3>Teorema de Pitágoras</h3>
-
-         <p>
-            Par dos vectores $p, q \in \mathbb{R}^n$, demuestra:
-         </p>
-         <p>
-            $\|p+q\|^2=\|p\|^2+\|q\|^2$ si y sólo si los vectores son perpendiculares.
-         </p>
-
-         <button class="respButton hvr-grow "> Solución</button>
-         <div class="resp-box">
-            <p>
-                Usando que \(\|p\|^2=\langle p, p\rangle\) para todo punto \(p\in \mathbb{R}^n\)
-                podemos reescribir: 
-                \begin{eqnarray*}
-                    \|p+q\|^2&=&\|p\|^2+\|q\|^2 \\
-                    &\Leftrightarrow & \\
-                    \langle p+q,p+q \rangle & = & \langle p, p \rangle + \langle q,q \rangle \\
-                    & \Leftrightarrow & \\
-                    \langle p,p \rangle + 2 \langle p,q \rangle + \langle q,q\rangle & = & \langle p, p \rangle + \langle q,q \rangle
-                \end{eqnarray*}
-                donde en la última implicación usamos las propiedades del producto interior mencionadas en 
-                <a href="#Ejer:PropiedadesProdInt"> Ejercicio 1.22</a>.
-            </p>
-            <p>
-                Cancelando los términos iguales en la última identidad concluimos 
-                \[
-                \|p+q\|^2=\|p\|^2+\|q\|^2 \Leftrightarrow \langle p, q\rangle =0.
-                \]
-            </p>
-
-         </div>
-    </div>
-
+   
     <div class="ejercicio-box"> 
         <h2 class="number-title"> Ejercicio </h2> 
         Encuentra los valores de $x$ para los cuales los vectores $(x,2x,1)$ y $(4x,-1,x)$ son ortogonales.
@@ -1163,16 +1243,7 @@
      </div>
 
 
-           
-           		
-    <div class="ejercicio-box"> 
-        <h2 class="number-title"> Ejercicio </h2> 
-        <h3> Desigualdad del triángulo</h3>
-		Usa la desigualdad de Cauchy-Schwartz para probar que, para todos los vectores $p,q$
-		$$
-		\| p+q\| \leq \|p\|+\|q\|.	
-		$$
-    </div>
+          
 
 	<div class="ejercicio-box"> 
         <h2 class="number-title" id="Ejer:CotasNormaEntradas"> Ejercicio </h2> 

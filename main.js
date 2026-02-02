@@ -70,4 +70,61 @@ $(document).ready(function() {
           window.location.assign(addressPrev)
         }
   
-  
+  /////// Para hacer referencias automáticas entre elementos en distintas páginas
+
+  $(document).ready(function() {
+    // Función para extraer el número de sección de un documento
+    function getSectionNumber(doc) {
+        let styleText = $(doc).find('style').text();
+        let match = styleText.match(/sectionCounter (\d+)/);
+        return match ? parseInt(match[1]) + 1 : 0;
+    }
+
+    // Función para procesar cada enlace de referencia
+    $('a.ref').each(function() {
+        let $link = $(this);
+        let fullHref = $link.attr('href');
+        let parts = fullHref.split('#');
+        let fileName = parts[0]; // Ej: "S2.html"
+        let targetId = parts[1]; // Ej: "Ejer:TripleProducto"
+
+        // CASO 1: Referencia en la misma página
+        if (fileName === "" || fileName === window.location.pathname.split('/').pop()) {
+            let sectionNum = getSectionNumber(document);
+            updateLinkText($link, $(document), targetId, sectionNum);
+        } 
+        // CASO 2: Referencia a otra página
+        else {
+            $.get(fileName, function(data) {
+                // Creamos un documento temporal en memoria para buscar
+                let $externalDoc = $($.parseHTML(data));
+                let sectionNum = getSectionNumber($externalDoc);
+                updateLinkText($link, $externalDoc, targetId, sectionNum);
+            });
+        }
+    });
+
+    function updateLinkText($link, $doc, id, sectionNum) {
+        // Buscamos el elemento con el ID
+        let $target = $doc.find('#' + id);
+        if ($target.length === 0) {
+            // Si no tiene ID el contenedor, buscamos si el number-title lo tiene
+            $target = $doc.find('h2.number-title#' + id).closest('div[class$="-box"]');
+        }
+
+        if ($target.length > 0) {
+            // Buscamos qué posición ocupa este cuadro en la página
+            let allBoxes = $doc.find('.definicion-box, .teorema-box, .ejercicio-box, .prop-box, .nota-box');
+            let index = allBoxes.index($target) + 1;
+            
+            // Obtenemos el nombre (Teorema, Proposición, etc.)
+            let type = $target.find('h2.number-title').first().contents().filter(function() {
+                return this.nodeType === 3; // Solo el texto, no el número
+            }).text().trim();
+
+            $link.text(type + " " + sectionNum + "." + index);
+        } else {
+            $link.text("Ref no encontrada");
+        }
+    }
+});
