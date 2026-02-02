@@ -28,8 +28,8 @@
       };
     </script>
 
-    <!-- This part is for using single $ for latex input, instead of \(\) -->
-    <!--<script>
+    <!--This part is for using single $ for latex input, instead of \(\)
+    <script>
         MathJax = {
         tex: {
             inlineMath: [['$', '$'], ['\\(', '\\)']]
@@ -96,12 +96,12 @@
  <div class="definicion-box">
     <h2 class="number-title"> Definición </h2>
     <p>
-        Por $\mathbb{R}^n$ denotamos al conjunto de $n$-adas de números
+        Por \(\mathbb{R}^n\) denotamos al conjunto de \(n\)-adas de números
         reales, es decir
         $$
         \mathbb{R}^n=\{(p_1,\dots, p_n): p_1,\dots, p_n\in \mathbb{R}  \}
         $$
-        A los elementos de $\mathbb{R}^n$ se les llama vectores o puntos en
+        A los elementos de \(\mathbb{R}^n\) se les llama vectores o puntos en
         $\mathbb{R}^n$. En $\mathbb{R}^n$ has dos operaciones:
         <ol>
             <li>la suma, la cual se realiza sumando entrada por entrada,</li> 
@@ -530,6 +530,39 @@
     </div>
 
        
+ <div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Soluciona la siguientes ecuaciones para $x,y,z$.
+    </p>
+    <ol>
+        <li>
+            $$
+            x(1,2,3)+(y,3y,2)+(z,2,1)=(1,2,3).
+        $$
+        </li>
+        
+        <li>
+            $$
+            y(-1,3,2)+(x,-x,3)+(z,2,5)=(-1,0,3).
+            $$
+        </li>
+        <li>Recuerda que por \(\mathbf{e}_i\) denotamos a los vectores de la base canónica. Soluciona 
+            las siguientes ecuaciones para \(x_i,y_i,z_i\).
+            \[
+            \begin{eqnarray*}
+            x_1(0,1,-1)+y_1(1,-1,1)+z_1(-1,1,0)=\mathbf{e}_1 \\
+            x_2(0,1,-1)+y_2(1,-1,1)+z_2(-1,1,0)=\mathbf{e}_2  \\
+            x_3(0,1,-1)+y_3(1,-1,1)+z_3(-1,1,0)= \mathbf{e}_3
+            \end{eqnarray*}
+            \]
+            Nota: como todo vector de \(\mathbb{R}^3\) es combinación 
+            lineal de \(\{\mathbf{e}_1,\mathbf{e}_2,\mathbf{e}_3\}\)
+            este ejercicio demuestra que todo vector de \(\mathbb{R}^3\) 
+            es combinación lineal de \(\{(0,1,-1),(1,-1,1),(-1,1,0)\}\).
+        </li>
+    </ol>
+</div>
 
 <div class="ejercicio-box">
     <h2 class="number-title"> Ejercicio</h2> 
@@ -641,28 +674,10 @@
 </div>
 
   
- <div class="ejercicio-box">
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-        Soluciona la siguiente ecuación para $x,y,z$.
-    </p>
-    <ol>
-        <li>
-            $$
-            x(1,2,3)+(y,3y,2)+(z,2,1)=(1,2,3).
-        $$
-        </li>
-        
-        <li>
-            $$
-            y(-1,3,2)+(x,-x,3)+(z,2,5)=(-1,0,3).
-            $$
-        </li>
-    </ol>
-</div>
+
 
   <div class="ejercicio-box">
-    <h2 class="number-title""> Ejercicio</h2> 
+    <h2 class="number-title"> Ejercicio</h2> 
     <p>
         Encuentra todos los pares de números reales $a,b$ que satisfacen
     $$
@@ -671,14 +686,8 @@
     </p>
 </div>
 
-    
-
-
-
-
-
   <div class="ejercicio-box">
-    <h2 class="number-title""> Ejercicio</h2> 
+    <h2 class="number-title"> Ejercicio</h2> 
     <p>
         Encuentra las ecuaciones de la rectas con la información dada
     </p>
@@ -738,6 +747,7 @@
     </div>
   </div>
   
+
   
     <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio</h2> 
@@ -777,6 +787,8 @@
     </div>
  
       
+
+
     <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio</h2> 
         <p>
@@ -793,18 +805,6 @@
     </div>    
 
 
-    <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio</h2> 
-        <p>
-            Determina si los puntos dados están  o no en une misma recta:
-        </p>
-      <ol>
-        <li>$(2,2,4)$, $(1,2,5)$, $(1,2-5)$.</li> 
-        <li>$(1,-1,-2)$, $(3,0,1)$, $(5,-1,0)$</li> 
-      </ol>
-    </div>
-
-      
     <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio</h2> 
         <p>
@@ -843,6 +843,20 @@
             </p>
         </div>
     </div>
+    
+
+    <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio</h2> 
+        <p>
+            Determina si los puntos dados están  o no en une misma recta:
+        </p>
+      <ol>
+        <li>$(2,2,4)$, $(1,2,5)$, $(1,2-5)$.</li> 
+        <li>$(1,-1,-2)$, $(3,0,1)$, $(5,-1,0)$</li> 
+      </ol>
+    </div>
+
+      
     
     
     
@@ -1262,13 +1276,13 @@
         <h2 class="number-title"> Ejercicio </h2> 
         <h3>La otra desigualdad del triángulo</h3>
 
-                Demuestra, para todos  los vectores $p,q$ en un espacio con producto interior:
-                $$
+                Demuestra, para todos  los vectores \(p,q\) en un espacio con producto interior:
+                \[
                 |\|p\| - \|q\|| \leq \|p-q\|.
-                $$
+                \]
 
-                Sugerencia: empieza con $\|p\|$ suma  y resta $q$ y usa la desigualdad del triángulo.
-        <button class="respButton hvr-grow "> Solución</button>
+                Sugerencia: empieza con \(\|p\|\) suma  y resta \(q\) y usa la desigualdad del triángulo.
+        <!-- <button class="respButton hvr-grow "> Solución</button>
         <div class="resp-box">
             <p>
                 Se tiene que demostrar que $-\|p-q\| \leq \|p\| - \|q\| \leq \|p-q\|$, para ello
@@ -1284,16 +1298,16 @@
                 $\|q\| \leq \|q-p\| + \|p\|$ y $\|q\| - \|p\| \leq \|p - q\|$. Al multiplicar ambos
                 lados de la desigualdad por $-1$ obtenemos la desigualdad faltante, $-\|p-q\| \leq \|p\| - \|q\|$.
             </p>
-        </div>
+        </div>-->
     </div>
 
     <div class="ejercicio-box"> 
         <h2 class="number-title"> Ejercicio </h2> 
         Usar la dsigualdad de Cauchy-Schwarz para probar que, para cualesqueira tres
-         reales $a,b,c$
-         $$
+         reales \(a,b,c\)
+         \[
          (a+b+c)^2 \leq 3(a^2+b^2+c^2)
-         $$
+         \]
     </div>
 
 
@@ -1301,25 +1315,25 @@
         <h2 class="number-title"> Ejercicio </h2> 
         <h3>Otra demostración de la desigualdad de Cauchy-Schwartz </h3>
         <p>
-            Sean $x_1,\dots, x_n, y_1,\dots, y_n \in \mathbb{R}.$
+            Sean \(x_1,\dots, x_n, y_1,\dots, y_n \in \mathbb{R}.\)
         </p>
 
          <ol>
             <li>
                 Demostrar la identidad de Lagrange:
         
-                $$
+                \[
                 \bigg( \sum_{i=1}^n x_iy_i \bigg)^2=\bigg( \sum_{i=1}^n x_i^2 \bigg)\bigg( \sum_{i=1}^n y_i^2 \bigg)-
                 \sum_{i < j} (x_iy_j -x_jy_i)^2
-                $$
+                \]
        
                 
             </li>
             <li>
                 Con el inciso anterior da otra demostración de la desigualdad de Cauchy-Schwartz, es decir:
-                $$
+                \[
                \left| \sum_{i=i}^n x_iy_i \right| \leq \left( \sum_{i=1}^n x_i^2 \right)^{1/2}\left( \sum_{i=1}^n y_i^2 \right)^{1/2} 
-                $$
+                \]
             </li> 
 
        </ol>
@@ -1327,7 +1341,7 @@
        <button class="respButton hvr-grow "> Solución</button>
        <div class="resp-box">
            <p>
-               Comenzaremos la prueba de la identidad de Lagrange desarrollando el término $\sum_{i < j} (x_iy_j -x_jy_i)^2$.
+               Comenzaremos la prueba de la identidad de Lagrange desarrollando el término \(\sum_{i < j} (x_iy_j -x_jy_i)^2\).
                \begin{align*}
                \sum_{i < j} (x_iy_j -x_jy_i)^2 =& \sum_{i < j} (x_iy_j -x_jy_i)(x_iy_j -x_jy_i),\\
                =& \sum_{i < j} (x_i y_j x_i y_j + x_j y_i x_j y_i) - \sum_{i < j} (x_i y_j x_j y_i + x_j y_i x_i y_j),\\
@@ -1342,7 +1356,7 @@
            </p>
            <p>
                La desigualdad de Cauchy-Schwartz se obtiene directamente de la identidad anterior, para ello basta notar que
-               $\sum_{i < j} (x_iy_j -x_jy_i)^2 \geq 0$, por lo tanto
+               \(\sum_{i < j} (x_iy_j -x_jy_i)^2 \geq 0\), por lo tanto
                \begin{equation*}
                \bigg( \sum_{i=1}^n x_iy_i \bigg)^2=\bigg( \sum_{i=1}^n x_i^2 \bigg)\bigg( \sum_{i=1}^n y_i^2 \bigg)-
                \sum_{i < j} (x_iy_j -x_jy_i)^2 \leq \bigg( \sum_{i=1}^n x_i^2 \bigg)\bigg( \sum_{i=1}^n y_i^2 \bigg),
@@ -1359,17 +1373,17 @@
     <div class="ejercicio-box"> 
         <h2 class="number-title"> Ejercicio </h2> 
         <p>
-            Sea $L$ una línea recta con ecuación $p_0+tv$. Supongamos que $p_1\in L$ y que $u\ne 0$ es otro vector linealmente
-            dependiente con $v$, para que $p_1+su$ sea otra ecuación paramétrica de $L$. Demuestra que si
-            $$
+            Sea \(L\) una línea recta con ecuación \(p_0+tv\). Supongamos que \(p_1\in L\) y que \(u\ne 0\) es otro vector linealmente
+            dependiente con \(v\), para que \(p_1+su\) sea otra ecuación paramétrica de \(L\). Demuestra que si
+            \[
             p_0+tv=p_1+su
-            $$
-            entonces $s= \frac{1}{\|u\|^2} \langle (p_0-p_1), u \rangle + t \frac{\langle v,  u \rangle}{\|u\|^2}$.
+            \]
+            entonces \(s= \frac{1}{\|u\|^2} \langle (p_0-p_1), u \rangle + t \frac{\langle v,  u \rangle}{\|u\|^2}\).
         </p>
 
        <p>
-        Sugerencia: haz producto  interior con el vector $\frac{1}{\|u\|^2}u$ en cada uno de los lados 
-        de la igualdad $p_0+tv=p_1+su$  y utiliza las propiedades del
+        Sugerencia: haz producto  interior con el vector \(\frac{1}{\|u\|^2}u\) en cada uno de los lados 
+        de la igualdad \(p_0+tv=p_1+su\)  y utiliza las propiedades del
        producto interior para despejar \(s\).
        </p>
     </div>
