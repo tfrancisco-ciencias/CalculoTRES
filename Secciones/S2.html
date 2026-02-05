@@ -88,6 +88,72 @@
    
 
 
+
+<div class="definicion-box">
+    <h2 class="number-title"> Definición </h2>
+       <p>
+        Del determinante de una matriz de \(2\times 2\) se define y denota como  
+       \[
+       det\left[
+        \begin{array}{cc}
+        a_{1,1} & a_{1,2} \\
+        a_{2,1} & a_{2,2}
+        \end{array}
+        \right]=
+        \left|
+        \begin{array}{cc}
+        a_{1,1} & a_{1,2} \\
+        a_{2,1} & a_{2,2}
+        \end{array}
+        \right|
+       =a_{1,1}a_{2,2}-a_{1,2}a_{2,1}
+       \]
+       </p>
+       <p>
+        El determinante de una matriz de \(3\times 3\) se define como 
+        \[
+        \det\left[
+        \begin{array}{ccc}
+        a_{1,1} & a_{1,2} & a_{1,3} \\
+        a_{2,1} & a_{2,2} & a_{2,3} \\
+        a_{3,1} & a_{3,2}  &  a_{3,3}
+        \end{array}
+        \right]=a_{1,1}\left|
+        \begin{array}{cc}
+        a_{2,2} & a_{2,3} \\
+        a_{3,2} & a_{3,3}
+        \end{array}
+        \right|
+        -a_{1,2}\left|
+        \begin{array}{cc}
+        a_{2,1} & a_{2,3} \\
+        a_{3,1} & a_{3,3}
+        \end{array}
+        \right|
+        +a_{1,3}\left|
+        \begin{array}{cc}
+        a_{2,1} & a_{2,2} \\
+        a_{3,1} & a_{3,2}
+        \end{array}
+        \right|
+        \]
+        Nota: la fórmula anterior se obtuvo desarrollando por el primer renglón, 
+        pero lo mismo se puede hacer desde cualquier renglón, o columna, siguiendo 
+        la regla de los signo del tablero de ajedrez:
+        \[
+        \left[
+        \begin{array}{ccc}
+        + & - & + \\
+        - & + & - \\
+        + & -  &  +
+        \end{array}
+        \right]
+        \]
+       </p>
+
+</div>
+
+
 <div class="definicion-box">
     <h2 class="number-title"> Definición </h2>
     <p>
@@ -108,6 +174,10 @@
         \right]
         $$
     </p>
+    <p>
+        En general, la transpuesta de una matriz \(A\), denotada \(A^t\), se obtiene
+        intercambiando renglones por columnas.
+    </p>
 </div>
 
 <div class="ejercicio-box"> 
@@ -119,24 +189,6 @@
 
 
 
-<div class="definicion-box">
-    <h2 class="number-title"> Definición </h2>
-    <p>
-        El determinante de una matriz de \(2\times 2\) se define como
-    </p>
-    <p>
-        $$
-        \det\left[
-        \begin{array}{cc}
-        a_{1,1} & a_{1,2}\\
-        a_{2,1} & a_{2,2}
-        \end{array}
-        \right]=
-        a_{1,1}a_{2,2}-a_{1,2}a_{2,1}
-        $$
-    </p>
-
-</div>
 
 <div class="ejercicio-box"> 
     <h2 class="number-title"> Ejercicio</h2> 
