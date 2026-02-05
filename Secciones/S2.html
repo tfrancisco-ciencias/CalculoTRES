@@ -244,42 +244,46 @@
 
     <p>
         Por ejemplo 
-        $$
+        \[
+        \begin{eqnarray*} 
         \det \left[ \begin{array}{cc}
         a_{2,1} & a_{2,2}\\
         a_{1,1} & a_{1,2}
         \end{array}
-        \right]=
-        a_{2,1}a_{1,2}-a_{2,2}a_{1,1}
-        =-(a_{1,1}a_{2,2}-a_{1,2}a_{2,1})
-        =
+        \right]&=&
+        a_{2,1}a_{1,2}-a_{2,2}a_{1,1} \\
+        &=&-(a_{1,1}a_{2,2}-a_{1,2}a_{2,1}) \\
+        &=&
         -\det\left[ \begin{array}{cc}
         a_{1,1} & a_{1,2} \\
         a_{2,1} & a_{2,2}
         \end{array}
         \right]
-        $$
+        \end{eqnarray*} 
+        \]
         Ahora, utilizando la relación entre la transpuesta y el determinante también se tiene:
         
-        $$
+        \[ 
+        \begin{eqnarray*}
         \det \left[\begin{array}{cc}
         a_{1,2} & a_{1,1}\\
         a_{2,2} & a_{2,1}
         \end{array}
-        \right]
-        =\det \left[\begin{array}{cc}
+        \right] 
+        &=&\det \left[\begin{array}{cc}
         a_{1,2} & a_{2,2} \\
         a_{1,1} & a_{2,1}
-        \end{array}\right]^t        
-        =\det \left[\begin{array}{cc}
+        \end{array}\right]^t     \\   
+        &=&\det \left[\begin{array}{cc}
         a_{1,2} & a_{2,2} \\
         a_{1,1} & a_{2,1}
-        \end{array}\right] 
-        =-\det\left[\begin{array}{cc}
+        \end{array}\right] \\
+        &=&-\det\left[\begin{array}{cc}
         a_{1,1} & a_{1,2} \\
         a_{2,1} & a_{2,2}
         \end{array}\right]
-        $$
+        \end{eqnarray*} 
+        \]
         
     </p>
     
@@ -296,23 +300,25 @@ $$
 $$
 <p>
     Por ejemplo 
-    $$
+    \[
+    \begin{eqnarray*}
         \det\left[
         \begin{array}{cc}
         \alpha a_{1,1} & a_{1,2}\\
         \alpha a_{2,1} & a_{2,2}
         \end{array}
         \right]
-        =\alpha a_{1,1}a_{2,2}- a_{1,2}\alpha a_{2,1}
-        =\alpha(a_{1,1}a_{2,2}-a_{1,2}a_{2,1})
-        =
+        &=&\alpha a_{1,1}a_{2,2}- a_{1,2}\alpha a_{2,1} \\
+        &=&\alpha(a_{1,1}a_{2,2}-a_{1,2}a_{2,1}) \\
+        &=&
         \alpha\det\left[
         \begin{array}{cc}
         a_{1,1} & a_{1,2} \\
         a_{2,1} & a_{2,2}
         \end{array}
         \right]
-        $$
+        \end{eqnarray*} 
+        \]
 
 </p>
 </div>
@@ -335,31 +341,33 @@ $$
     </p>
     <p>
         Por ejemplo
-        $$
+        \[
+        \begin{eqnarray*} 
         \det\left[
         \begin{array}{cc}
         a_{1,1}+v_1 & a_{1,2} \\
         a_{2,1}+v_2 & a_{2,2}
         \end{array}
-        \right]=
-        = (a_{1,1}+v_1)a_{2,2}-a_{1,2}(a_{2,1}+v_2)
-        = a_{1,1}a_{2,2}+v_1a_{2,2}-a_{1,2}a_{2,1}-a_{2,1}v_2 
-        =(a_{1,1}a_{2,2}-a_{1,2}a_{2,1})+ (v_1a_{2,2}-a_{2,1}v_2)
-        = 
+        \right]
+        &=& (a_{1,1}+v_1)a_{2,2}-a_{1,2}(a_{2,1}+v_2) \\
+        &=& a_{1,1}a_{2,2}+v_1a_{2,2}-a_{1,2}a_{2,1}-a_{2,1}v_2 \\
+        &=& (a_{1,1}a_{2,2}-a_{1,2}a_{2,1})+ (v_1a_{2,2}-a_{2,1}v_2) \\
+        &=& 
         \det\left[
         \begin{array}{cc}
         a_{1,1} & a_{1,2}  \\
         a_{2,1} & a_{2,2}
         \end{array}
-        \right]
-        +
+        \right] \\
+        &+& 
         \det\left[
         \begin{array}{cc}
         v_1 & a_{1,2}\\
         v_2 & a_{2,2}
         \end{array}
         \right]
-        $$        
+        \end{eqnarray*} 
+        \]
     </p>
 </div>
 
