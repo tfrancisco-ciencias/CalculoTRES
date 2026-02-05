@@ -89,25 +89,74 @@
 
 
 
-<div class="nota-box">
-    <h2 class="number-title"> Notación </h2>
-    <p>
-        Dada $A$, una matriz de $n\times m$, por $A_{i,j}$, denotamos a la entrada $i,j$ de $A$. Por
-        $A(i:)$ dentoamos el renglón $i$ de $A$ y por $A(:j)$ denotamos la columna $j$ de $A$.    
-    </p>
-    
+<div class="definicion-box">
+    <h2 class="number-title"> Definición </h2>
+       <p>
+        Del determinante de una matriz de \(2\times 2\) se define y denota como  
+       \[
+       det\left[
+        \begin{array}{cc}
+        a_{1,1} & a_{1,2} \\
+        a_{2,1} & a_{2,2}
+        \end{array}
+        \right]=
+        \left|
+        \begin{array}{cc}
+        a_{1,1} & a_{1,2} \\
+        a_{2,1} & a_{2,2}
+        \end{array}
+        \right|
+       =a_{1,1}a_{2,2}-a_{1,2}a_{2,1}
+       \]
+       </p>
+       <p>
+        El determinante de una matriz de \(3\times 3\) se define como 
+        \[
+        \det\left[
+        \begin{array}{ccc}
+        a_{1,1} & a_{1,2} & a_{1,3} \\
+        a_{2,1} & a_{2,2} & a_{2,3} \\
+        a_{3,1} & a_{3,2}  &  a_{3,3}
+        \end{array}
+        \right]=a_{1,1}\left|
+        \begin{array}{cc}
+        a_{2,2} & a_{2,3} \\
+        a_{3,2} & a_{3,3}
+        \end{array}
+        \right|
+        -a_{1,2}\left|
+        \begin{array}{cc}
+        a_{2,1} & a_{2,3} \\
+        a_{3,1} & a_{3,3}
+        \end{array}
+        \right|
+        +a_{1,3}\left|
+        \begin{array}{cc}
+        a_{2,1} & a_{2,2} \\
+        a_{3,1} & a_{3,2}
+        \end{array}
+        \right|
+        \]
+        Nota: la fórmula anterior se obtuvo desarrollando por el primer renglón, 
+        pero lo mismo se puede hacer desde cualquier renglón, o columna, siguiendo 
+        la regla de los signo del tablero de ajedrez:
+        \[
+        \left[
+        \begin{array}{ccc}
+        + & - & + \\
+        - & + & - \\
+        + & -  &  +
+        \end{array}
+        \right]
+        \]
+       </p>
+
 </div>
 
 
 <div class="definicion-box">
     <h2 class="number-title"> Definición </h2>
     <p>
-        Dada una matriz de $n\times m$, la matriz transpuesta, denotada $A^t$, es la matriz de
-        $m\times n$, cuyas entradas están dadas por $(A^t)_{i,j}=A_{j,i}$.
-    </p>
-    <p>
-        Por ejemplo
-        <p>
         La transpuesta de una matriz de $2\times 2$ se define como:
         $$
         \left[
@@ -125,35 +174,38 @@
         \right]
         $$
     </p>
+    <p>
+        En general, la transpuesta de una matriz \(A\), denotada \(A^t\), se obtiene
+        intercambiando renglones por columnas.
+    </p>
+    <p>
+        Si \(A\) es una 
     </p>
 </div>
 
-<div class="prop-box">
-    <h2 class="number-title"> Proposición </h2>
-    <p>
-            Sea $A$ una matriz de $n\times n$. Entonces $\det(A)=\det(A^t)$.
-
-    Nota: esta resultado implica que las propiedades que se pueden probar para renglones tienen 
-    su contraparte en columnas.
-    </p>
-    
-    
-    <p>
-        Por ejemplo, sea $A$ una matriz de $2\times 2$ entonces $\det(A)=\det(A^t)$. 
-    </p>
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p> 
+        Sen $A,B$ dos matrices de $2\times 2$ y $\alpha \in \mathbb{R}$. Demuestra que $(\alpha A+B)^t=\alpha A^t+B^t$.
     </p>
 </div>
 
 
-<div class="prop-box">
-    <h2 class="number-title"> Proposición </h2>
-    Sea $A$ una matrz de $n \times n $ y sea $A'$ la  matriz que se obtiene de $A$ al intercambiar dos renglones (o columnas). Entonces 
-    $$
-    \det(A')=-\det(A).
-    $$
 
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
     <p>
-        Por ejemplo 
+        Sea $A$ una matriz de $2\times 2$. Demuestra que $\det(A)=\det(A^t)$. 
+    </p>
+</div>
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <h3> Propiedad alternante del determinante.</h3>
+    <p>
+        Demuestra que 
         $$
         \det\left[ \begin{array}{cc}
         a_{1,1} & a_{1,2} \\
@@ -167,7 +219,7 @@
         \end{array}
         \right]
         $$
-        Ahora, utilizando la relación entre la transpuesta y el determinante también se tiene:
+        Ahora, utilizando la relación entre la transpuesta y el determinante prueba que:
         
         $$
         \det \left[\begin{array}{cc}
@@ -183,21 +235,17 @@
         $$
         
     </p>
-    
 </div>
 
 
 
-<div class="prop-box">
-    <h2 class="number-title"> Proposición </h2>
-Dada  una matriz $A$, de $n\times n$, y un escalar $\alpha$, constuye $A'$ multiplicando 
-todas las entradas de una columna fija por $\alpha$. Entonces
-$$
-\det(A')=\alpha \det(A).
-$$
-<p>
-    Por ejemplo 
-    $$
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Sea $\alpha$ un escalar. Demuestra que
+        $$
         \det\left[
         \begin{array}{cc}
         \alpha a_{1,1} & a_{1,2}\\
@@ -212,80 +260,7 @@ $$
         \end{array}
         \right]
         $$
-
-</p>
-</div>
-
-<div class="prop-box">
-    <h2 class="number-title"> Proposición </h2>
-Sea $A$ una matriz de $n\times n$ y sean $i,k$ números enteros fijos y arbitrarios
-entre $1$ y $n$. Si la matriz $A'$ se construye reemplazando $A(i:)$ por $A(i:)+A(k:)$, entonces
-$$
-\det(A)=\det(A').
-$$
-</div>
-
-   
-<div class="definicion-box">
-    <h2 class="number-title"> Definición </h2>
-        Decimos que un vector $u$ es combinación lineal de los vectores $v^{(1)},\dots, v^{(n)}$ si existen escalares
-        $\alpha_1,\dots, \alpha_n$ tales que
-        $$
-        u=\sum_{i=1}^n \alpha_i v^{(i)}.
-        $$
-        Por ejemplo, $(1,0)$ es combinación lineal de $(-1,1)$ y $(1,1)$ pues
-        $$
-        (1,0)=\frac{-1}{2}(-1,1)+\frac{1}{2}(1,1).
-        $$
-</div>
-
-<div class="prop-box">
-    <h2 class="number-title"> Proposición </h2>
-    Sea $A$ una matriz de $n\times n$. Supon que un renglón de $A$ es combinación lineal de algunos otros
-    renglones de $A$. Entonces $\det(A)=0$.
-</div>
-
-
-
-
-
-
-
-<div class="definicion-box">
-    <h2 class="number-title"> Definición </h2>
-    <p>
-        El determinante de una matriz de \(2\times 2\) se define como
-    </p>
-    <p>
-        $$
-        \det\left[
-        \begin{array}{cc}
-        a_{1,1} & a_{1,2}\\
-        a_{2,1} & a_{2,2}
-        \end{array}
-        \right]=
-        a_{1,1}a_{2,2}-a_{1,2}a_{2,1}
-        $$
-    </p>
-
-</div>
-
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    
-</div>
-
-
-
-
-
-
-
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-        Sea $\alpha$ un escalar. Demuestra que
-                        
+                
     </p>
 </div>
 
@@ -896,6 +871,87 @@ $$
     </div>
 
 
+
+
+<div class="nota-box">
+    <h2 class="number-title"> Notación </h2>
+    <p>
+        Dada $A$, una matriz de $n\times m$, por $A_{i,j}$, denotamos a la entrada $i,j$ de $A$. Por
+        $A(i:)$ dentoamos el renglón $i$ de $A$ y por $A(:j)$ denotamos la columna $j$ de $A$.    
+    </p>
+    
+</div>
+
+
+<div class="definicion-box">
+    <h2 class="number-title"> Definición </h2>
+    <p>
+        Dada una matriz de $n\times m$, la matriz transpuesta, denotada $A^t$, es la matriz de
+        $m\times n$, cuyas entradas están dadas por $(A^t)_{i,j}=A_{j,i}$.
+    </p>
+</div>
+
+<div class="prop-box">
+    <h2 class="number-title"> Proposición </h2>
+    <p>
+
+    </p>
+    Sea $A$ una matriz de $n\times n$. Entonces $\det(A)=\det(A^t)$.
+
+    Nota: esta resultado implica que las propiedades que se pueden probar para renglones tienen 
+    su contraparte en columnas.
+    
+</div>
+
+
+<div class="prop-box">
+    <h2 class="number-title"> Proposición </h2>
+    Sea $A$ una matrz de $n \times n $ y sea $A'$ la  matriz que se obtiene de $A$ al intercambiar dos renglones (o columnas). Entonces 
+    $$
+    \det(A')=-\det(A).
+    $$
+    
+</div>
+
+
+
+<div class="prop-box">
+    <h2 class="number-title"> Proposición </h2>
+Dada  una matriz $A$, de $n\times n$, y un escalar $\alpha$, constuye $A'$ multiplicando 
+todas las entradas de una columna fija por $\alpha$. Entonces
+$$
+\det(A')=\alpha \det(A).
+$$
+</div>
+
+<div class="prop-box">
+    <h2 class="number-title"> Proposición </h2>
+Sea $A$ una matriz de $n\times n$ y sean $i,k$ números enteros fijos y arbitrarios
+entre $1$ y $n$. Si la matriz $A'$ se construye reemplazando $A(i:)$ por $A(i:)+A(k:)$, entonces
+$$
+\det(A)=\det(A').
+$$
+</div>
+
+   
+<div class="definicion-box">
+    <h2 class="number-title"> Definición </h2>
+        Decimos que un vector $u$ es combinación lineal de los vectores $v^{(1)},\dots, v^{(n)}$ si existen escalares
+        $\alpha_1,\dots, \alpha_n$ tales que
+        $$
+        u=\sum_{i=1}^n \alpha_i v^{(i)}.
+        $$
+        Por ejemplo, $(1,0)$ es combinación lineal de $(-1,1)$ y $(1,1)$ pues
+        $$
+        (1,0)=\frac{-1}{2}(-1,1)+\frac{1}{2}(1,1).
+        $$
+</div>
+
+<div class="prop-box">
+    <h2 class="number-title"> Proposición </h2>
+    Sea $A$ una matriz de $n\times n$. Supon que un renglón de $A$ es combinación lineal de algunos otros
+    renglones de $A$. Entonces $\det(A)=0$.
+</div>
 
 
 

@@ -89,11 +89,23 @@
 
 
 
+<div class="nota-box">
+    <h2 class="number-title"> Notación </h2>
+    <p>
+        Dada $A$, una matriz de $n\times m$, por $A_{i,j}$, denotamos a la entrada $i,j$ de $A$. Por
+        $A(i:)$ dentoamos el renglón $i$ de $A$ y por $A(:j)$ denotamos la columna $j$ de $A$.    
+    </p>
+    
+</div>
+
+
+
 <div class="definicion-box">
     <h2 class="number-title"> Definición </h2>
        <p>
         Del determinante de una matriz de \(2\times 2\) se define y denota como  
        \[
+       \begin{eqnarray*} 
        det\left[
         \begin{array}{cc}
         a_{1,1} & a_{1,2} \\
@@ -107,11 +119,13 @@
         \end{array}
         \right|
        =a_{1,1}a_{2,2}-a_{1,2}a_{2,1}
+       \end{eqnarray*}
        \]
        </p>
        <p>
         El determinante de una matriz de \(3\times 3\) se define como 
         \[
+        \begin{eqnarray*} 
         \det\left[
         \begin{array}{ccc}
         a_{1,1} & a_{1,2} & a_{1,3} \\
@@ -123,19 +137,20 @@
         a_{2,2} & a_{2,3} \\
         a_{3,2} & a_{3,3}
         \end{array}
-        \right|
+        \right| \\
         -a_{1,2}\left|
         \begin{array}{cc}
         a_{2,1} & a_{2,3} \\
         a_{3,1} & a_{3,3}
         \end{array}
-        \right|
+        \right| \\
         +a_{1,3}\left|
         \begin{array}{cc}
         a_{2,1} & a_{2,2} \\
         a_{3,1} & a_{3,2}
         \end{array}
         \right|
+        \end{eqnarray*}
         \]
         Nota: la fórmula anterior se obtuvo desarrollando por el primer renglón, 
         pero lo mismo se puede hacer desde cualquier renglón, o columna, siguiendo 
@@ -157,6 +172,13 @@
 <div class="definicion-box">
     <h2 class="number-title"> Definición </h2>
     <p>
+        Dada una matriz de $n\times m$, la matriz transpuesta, denotada $A^t$, es la matriz de
+        $m\times n$, cuyas entradas están dadas por $(A^t)_{i,j}=A_{j,i}$. En otras 
+        parabras es la matriz que se obtiene de \(A\) intercambian los renglones por las columnas.
+    </p>
+    <p>
+        Por ejemplo
+        <p>
         La transpuesta de una matriz de $2\times 2$ se define como:
         $$
         \left[
@@ -174,81 +196,115 @@
         \right]
         $$
     </p>
-    <p>
-        En general, la transpuesta de una matriz \(A\), denotada \(A^t\), se obtiene
-        intercambiando renglones por columnas.
     </p>
 </div>
 
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p> 
-        Sen $A,B$ dos matrices de $2\times 2$ y $\alpha \in \mathbb{R}$. Demuestra que $(\alpha A+B)^t=\alpha A^t+B^t$.
-    </p>
-</div>
-
-
-
-
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
+<div class="prop-box">
+    <h2 class="number-title"> Proposición </h2>
     <p>
-        Sea $A$ una matriz de $2\times 2$. Demuestra que $\det(A)=\det(A^t)$. 
+    Sea $A$ una matriz de $n\times n$. Entonces $\det(A)=\det(A^t)$.
+
+    Nota: esta resultado implica que las propiedades que se pueden probar para renglones tienen 
+    su contraparte en columnas.
     </p>
-</div>
-
-
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <h3> Propiedad alternante del determinante.</h3>
+    
+    
     <p>
-        Demuestra que 
-        $$
-        \det\left[ \begin{array}{cc}
+        Por ejemplo, si \(A\) es una matriz de \(2\times 2\):
+        \[
+        \det(A)= \left|
+        \begin{array}{cc}
         a_{1,1} & a_{1,2} \\
         a_{2,1} & a_{2,2}
         \end{array}
-        \right]
-        =
-        -\det \left[ \begin{array}{cc}
+        \right|=a_{1,1}a_{2,2}-a_{1,2}a_{2,1}
+        \]
+        y
+        \[
+        det(A^t)=\left| 
+        \begin{array}{cc}
+        a_{1,1}& a_{2,1}\\
+        a_{1,2} & a_{2,2}
+        \end{array}
+        \right|=a_{1,1}a_{2,2}-a_{2,1}a_{1,2}
+        \]
+    </p>
+    </p>
+</div>
+
+
+<div class="prop-box">
+    <h2 class="number-title"> Proposición </h2>
+    <p>
+        Sea $A$ una matrz de $n \times n $ y sea $A'$ la  matriz que se obtiene de $A$ al intercambiar dos renglones (o columnas). Entonces 
+        $$
+        \det(A')=-\det(A).
+        $$
+    </p>
+
+    <p>
+        Por ejemplo 
+        $$
+        \det \left[ \begin{array}{cc}
         a_{2,1} & a_{2,2}\\
         a_{1,1} & a_{1,2}
         \end{array}
+        \right]=
+        a_{2,1}a_{1,2}-a_{2,2}a_{1,1}
+        =-(a_{1,1}a_{2,2}-a_{1,2}a_{2,1})
+        =
+        -\det\left[ \begin{array}{cc}
+        a_{1,1} & a_{1,2} \\
+        a_{2,1} & a_{2,2}
+        \end{array}
         \right]
         $$
-        Ahora, utilizando la relación entre la transpuesta y el determinante prueba que:
+        Ahora, utilizando la relación entre la transpuesta y el determinante también se tiene:
         
         $$
         \det \left[\begin{array}{cc}
-        a_{1,1} & a_{1,2} \\
-        a_{2,1} & a_{2,2}
-        \end{array}\right]
-        =
-        -\det \left[\begin{array}{cc}
         a_{1,2} & a_{1,1}\\
         a_{2,2} & a_{2,1}
         \end{array}
         \right]
+        =\det \left[\begin{array}{cc}
+        a_{1,2} & a_{2,2} \\
+        a_{1,1} & a_{2,1}
+        \end{array}\right]^t        
+        =\det \left[\begin{array}{cc}
+        a_{1,2} & a_{2,2} \\
+        a_{1,1} & a_{2,1}
+        \end{array}\right] 
+        =-\det\left[\begin{array}{cc}
+        a_{1,1} & a_{1,2} \\
+        a_{2,1} & a_{2,2}
+        \end{array}\right]
         $$
         
     </p>
+    
 </div>
 
 
 
-
-
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-        Sea $\alpha$ un escalar. Demuestra que
-        $$
+<div class="prop-box">
+    <h2 class="number-title"> Proposición </h2>
+Dada  una matriz $A$, de $n\times n$, y un escalar $\alpha$, constuye $A'$ multiplicando 
+todas las entradas de una columna fija por $\alpha$. Entonces
+$$
+\det(A')=\alpha \det(A).
+$$
+<p>
+    Por ejemplo 
+    $$
         \det\left[
         \begin{array}{cc}
         \alpha a_{1,1} & a_{1,2}\\
         \alpha a_{2,1} & a_{2,2}
         \end{array}
         \right]
+        =\alpha a_{1,1}a_{2,2}- a_{1,2}\alpha a_{2,1}
+        =\alpha(a_{1,1}a_{2,2}-a_{1,2}a_{2,1})
         =
         \alpha\det\left[
         \begin{array}{cc}
@@ -257,16 +313,28 @@
         \end{array}
         \right]
         $$
-                
-    </p>
+
+</p>
 </div>
 
 
 
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
+
+
+
+<div class="prop-box"> 
+    <h2 class="number-title"> Proposición</h2> 
     <p>
-        Demuestra que
+        Sea \(A\) una matriz de \(n\times n\) y sea \(B\) la matriz que se obtiene 
+        de \(A\) al sumar  a la columna \(i\) el vector \(v=(v_1,\dots, v_n)\). 
+        y sea \(A'\) la matriz que se obtiene de \(A\) al reemplazar la columna 
+        \(i\) por el vector \(v\). Entonces 
+        \[
+        \det(B)=\det(A)+\det(A')
+        \]
+    </p>
+    <p>
+        Por ejemplo
         $$
         \det\left[
         \begin{array}{cc}
@@ -274,6 +342,10 @@
         a_{2,1}+v_2 & a_{2,2}
         \end{array}
         \right]=
+        = (a_{1,1}+v_1)a_{2,2}-a_{1,2}(a_{2,1}+v_2)
+        = a_{1,1}a_{2,2}+v_1a_{2,2}-a_{1,2}a_{2,1}-a_{2,1}v_2 
+        =(a_{1,1}a_{2,2}-a_{1,2}a_{2,1})+ (v_1a_{2,2}-a_{2,1}v_2)
+        = 
         \det\left[
         \begin{array}{cc}
         a_{1,1} & a_{1,2}  \\
@@ -290,6 +362,39 @@
         $$        
     </p>
 </div>
+
+
+<div class="prop-box">
+    <h2 class="number-title"> Proposición </h2>
+Sea $A$ una matriz de $n\times n$ y sean $i,k$ números enteros fijos y arbitrarios
+entre $1$ y $n$. Si la matriz $A'$ se construye reemplazando $A(i:)$ por $A(i:)+A(k:)$, entonces
+$$
+\det(A)=\det(A').
+$$
+</div>
+
+   
+
+
+<div class="definicion-box">
+    <h2 class="number-title"> Definición </h2>
+        Decimos que un vector $u$ es combinación lineal de los vectores $v^{(1)},\dots, v^{(n)}$ si existen escalares
+        $\alpha_1,\dots, \alpha_n$ tales que
+        $$
+        u=\sum_{i=1}^n \alpha_i v^{(i)}.
+        $$
+        Por ejemplo, $(1,0)$ es combinación lineal de $(-1,1)$ y $(1,1)$ pues
+        $$
+        (1,0)=\frac{-1}{2}(-1,1)+\frac{1}{2}(1,1).
+        $$
+</div>
+
+<div class="prop-box">
+    <h2 class="number-title"> Proposición </h2>
+    Sea $A$ una matriz de $n\times n$. Supon que un renglón de $A$ es combinación lineal de algunos otros
+    renglones de $A$. Entonces $\det(A)=0$.
+</div>
+
 
 
 <div class="nota-box">
@@ -313,7 +418,7 @@
         \det(w_1,\beta u +w_2)&=& \beta \det(w_1,u)+\det(w_1,w_2)\\
         \det(w_1,w_2)&=&-\det(w_2,w_1)
         \end{eqnarray*}
-        donde \(u,v\in \mathbb{R}^n\) y \(\alpha,\beta \in \mathbb{R}\).
+        donde \(u,v\in \mathbb{R}^2\) y \(\alpha,\beta \in \mathbb{R}\).
         
     </p>
     <p>
@@ -351,39 +456,6 @@
 
 
 
-<div class="ejercicio-box"> 
-    <h2 class="number-title" id="Ejer:DeterRenglonesRepetidos"> Ejercicio</h2> 
-    <p>
-        Sea $A$ una matriz de $3 \times 3$. Supongamos que dos renglones de $A$ son iguales. Demuestra
-        que $\det(A)=0$. 
-    </p>
-    <p>
-        Sugerencia: utiliza la propiedad alternante del determinante.
-    </p>
-</div>
-
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-        Considera los vectores $v=(v_1,v_2,v_3), w=(w_1,w_2,w_3)$. 
-
-        Dados escalares $\alpha, \beta$ construye
-        el vector $u=\alpha v+ \beta w$. Demuestra que 
-        $$
-        \det\left[
-        \begin{array}{ccc}
-        u_1 & u_2 & u_3 \\
-        v_1 & v_2 & v_3 \\
-        w_1 & w_2 & w_3
-        \end{array}
-        \right]=0
-        $$
-        
-    </p>
-</div>
-
-         
-
 <div class="definicion-box">
     <h2 class="number-title"> Definición </h2>
         En $\mathbb{R}^3$ existe un producto que toma dos vectores y como resultado arroja un nuevo vector. Se llama producto curz
@@ -402,23 +474,10 @@
 </div>
 
 
-       <div class="ejercicio-box"> 
-        <h2 class="number-title"> Ejercicio</h2> 
+ <div class="prop-box"> 
+        <h2 class="number-title"> Proposición </h2> 
         <p>
-            Prueba que
-            $$
-            \hat{i}\times \hat{j}= \hat{k}, \quad \hat{j} \times \hat{k}=\hat{i}, \quad \hat{k}\times \hat{i}=j.
-            $$
-   
-        </p>
-        </div>
-
-
-
-    <div class="ejercicio-box"> 
-        <h2 class="number-title"> Ejercicio</h2> 
-        <p>
-            Demuestra las siguientes propiedades del producto cruz.
+            El producto cruz satisface:
         </p>
          <ol>
             <li>
@@ -502,9 +561,11 @@
     </div>
 
 
+
+
          
-       <div class="ejercicio-box"> 
-        <h2 class="number-title" id="Ejer:TripleProducto"> Ejercicio</h2>
+       <div class="prop-box"> 
+        <h2 class="number-title" id="Ejer:TripleProducto"> Proposición</h2>
         <h3> Triple producto </h3>
         <p>     
             Demuetra la siguiente indentidad
@@ -564,10 +625,60 @@
          </div>   
         </div>
 
+<div class="ejercicio-box"> 
+    <h2 class="number-title" id="Ejer:DeterRenglonesRepetidos"> Ejercicio</h2> 
+    <p>
+        Sea $A$ una matriz de $3 \times 3$. Supongamos que dos renglones de $A$ son iguales. Demuestra
+        que $\det(A)=0$. 
+    </p>
+    <p>
+        Sugerencia: utiliza la propiedad alternante del determinante.
+    </p>
+</div>
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Considera los vectores $v=(v_1,v_2,v_3), w=(w_1,w_2,w_3)$. 
+
+        Dados escalares $\alpha, \beta$ construye
+        el vector $u=\alpha v+ \beta w$. Demuestra que 
+        $$
+        \det\left[
+        \begin{array}{ccc}
+        u_1 & u_2 & u_3 \\
+        v_1 & v_2 & v_3 \\
+        w_1 & w_2 & w_3
+        \end{array}
+        \right]=0
+        $$
+        
+    </p>
+</div>
+
+         
+
+
+
+       <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio</h2> 
+        <p>
+            Prueba que
+            $$
+            \hat{i}\times \hat{j}= \hat{k}, \quad \hat{j} \times \hat{k}=\hat{i}, \quad \hat{k}\times \hat{i}=j.
+            $$
+   
+        </p>
+        </div>
+
+
+
+   
+
        <div class="ejercicio-box"> 
         <h2 class="number-title" id="Ejer:PrependicularidadProdCruz"> Ejercicio</h2> 
         <p>
-            Usando el  <a href="#Ejer:TripleProducto">Ejercicio 2.14</a> 
+            Usando la  <a href="#Ejer:TripleProducto">Proposición </a> 
             prueba que $u\times v$ es perpendicular tanto
              a $u$ como a $v$.
         </p>
@@ -650,14 +761,7 @@
           </div>
 	 </div>
 
-	<div class="definicion-box">
-        <h2 class="number-title"> Definición </h2>
-        <p>
-            Dos vectores $p,q\in \mathbb{R}^n$, distintos de cero, se llaman linealmente independientes si 
-            uno no es multiplo escalar del otro. Son linealmente dependientes si uno es multiplo escalar del otro.
-        </p>
-        
-	</div>
+	
 
 	<div class="ejercicio-box"> 
         <h2 class="number-title" id="Ejer:CaracProdCruzCero"> Ejercicio</h2> 
@@ -777,7 +881,7 @@
                 $s,t\in \mathbb{R}$ tales que $p=su+tv$ (es decir, $p$ está en el plano generado por $u$ y $v$).
             </li>
         </ol>
-        <button class="respButton hvr-grow "> Solución</button>
+        <!-- <button class="respButton hvr-grow "> Solución</button>
 
         <div class="resp-box">
             <p>
@@ -831,7 +935,7 @@
                 \]
             </p>
 
-        </div>
+        </div>-->
     </div>
     
     <div class="ejercicio-box"> 
@@ -868,87 +972,6 @@
     </div>
 
 
-
-
-<div class="nota-box">
-    <h2 class="number-title"> Notación </h2>
-    <p>
-        Dada $A$, una matriz de $n\times m$, por $A_{i,j}$, denotamos a la entrada $i,j$ de $A$. Por
-        $A(i:)$ dentoamos el renglón $i$ de $A$ y por $A(:j)$ denotamos la columna $j$ de $A$.    
-    </p>
-    
-</div>
-
-
-<div class="definicion-box">
-    <h2 class="number-title"> Definición </h2>
-    <p>
-        Dada una matriz de $n\times m$, la matriz transpuesta, denotada $A^t$, es la matriz de
-        $m\times n$, cuyas entradas están dadas por $(A^t)_{i,j}=A_{j,i}$.
-    </p>
-</div>
-
-<div class="prop-box">
-    <h2 class="number-title"> Proposición </h2>
-    <p>
-
-    </p>
-    Sea $A$ una matriz de $n\times n$. Entonces $\det(A)=\det(A^t)$.
-
-    Nota: esta resultado implica que las propiedades que se pueden probar para renglones tienen 
-    su contraparte en columnas.
-    
-</div>
-
-
-<div class="prop-box">
-    <h2 class="number-title"> Proposición </h2>
-    Sea $A$ una matrz de $n \times n $ y sea $A'$ la  matriz que se obtiene de $A$ al intercambiar dos renglones (o columnas). Entonces 
-    $$
-    \det(A')=-\det(A).
-    $$
-    
-</div>
-
-
-
-<div class="prop-box">
-    <h2 class="number-title"> Proposición </h2>
-Dada  una matriz $A$, de $n\times n$, y un escalar $\alpha$, constuye $A'$ multiplicando 
-todas las entradas de una columna fija por $\alpha$. Entonces
-$$
-\det(A')=\alpha \det(A).
-$$
-</div>
-
-<div class="prop-box">
-    <h2 class="number-title"> Proposición </h2>
-Sea $A$ una matriz de $n\times n$ y sean $i,k$ números enteros fijos y arbitrarios
-entre $1$ y $n$. Si la matriz $A'$ se construye reemplazando $A(i:)$ por $A(i:)+A(k:)$, entonces
-$$
-\det(A)=\det(A').
-$$
-</div>
-
-   
-<div class="definicion-box">
-    <h2 class="number-title"> Definición </h2>
-        Decimos que un vector $u$ es combinación lineal de los vectores $v^{(1)},\dots, v^{(n)}$ si existen escalares
-        $\alpha_1,\dots, \alpha_n$ tales que
-        $$
-        u=\sum_{i=1}^n \alpha_i v^{(i)}.
-        $$
-        Por ejemplo, $(1,0)$ es combinación lineal de $(-1,1)$ y $(1,1)$ pues
-        $$
-        (1,0)=\frac{-1}{2}(-1,1)+\frac{1}{2}(1,1).
-        $$
-</div>
-
-<div class="prop-box">
-    <h2 class="number-title"> Proposición </h2>
-    Sea $A$ una matriz de $n\times n$. Supon que un renglón de $A$ es combinación lineal de algunos otros
-    renglones de $A$. Entonces $\det(A)=0$.
-</div>
 
 
 
