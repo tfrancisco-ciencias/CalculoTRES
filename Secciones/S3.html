@@ -82,10 +82,332 @@
 
  <body class="fondo-body" >
 
-   <h1 class="number-title flexbox"> Funciones Lineales </h1> 
+
+   <h1 class="number-title flexbox"> Funciones de varias variables </h1> 
    <!-- this part is for next and prev sections -->
    <button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>
    <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
+
+
+
+
+
+    <div class="info-box">
+        <h2 class="number-title"> Introducción </h2>
+        <p>
+            Una parte importante del cálculo es analizar funciones para obtener 
+            información sobre ellas. Como ahora tenemos funciones de varias variables 
+            las combinaciones son numerosas:
+            <ol>
+                <li>
+                    funciones que mandan vectores a números (por ejemplo, la temperatura en cada punto del espacio).
+                </li>
+                <li>
+                    funciones que mandan números a vectores (por ejemplo, la trayectoria de una nave espacial con respecto al tiempo).
+                </li>
+                <li>
+                    funciones que mandan vectores a vectores (por ejemplo, la fuerza de un campo magnético en cada punto del espacio).
+                </li>
+            </ol>
+        </p>
+        <p>
+            Además, las gráficas, que en cálculo de una variable eran tan útiles van perdiendo 
+            terreno cuando el número de variables aumenta por lo que se necesitan algunas ideas 
+            para visualizar dichas funciones. 
+        </p>
+        <p>
+            En esta sección vamos a ver algunos ejemplos de funciones y herramientas para un estudio básico.
+        </p>
+    </div>
+
+
+    <div class="definicion-box"> 
+        <h2 class="number-title"> Definición </h2>
+        <p>
+            Una función escalar (o que toma valores reales) es simplemente una función 
+            \(f:D\to \mathbb{R}\) donde \(D\) es un subconjunto de algún \(\mathbb{R}^n\).
+        </p>
+        <h3>
+            Gráfica
+        </h3>
+        <p>
+            Si \(f:D\subseteq \mathbb{R}^n \to \mathbb{R}\) es una función escalar su gráfica 
+            se define como el subconjunto de \(\mathbb{R}^{n+1}\) dado por 
+            \[
+            \textrm{Gráfica}(f)=\{(x,f(x)): x\in D\}
+            \]
+
+        </p>
+        <ul>
+            <li>
+                        <p>
+            En el caso de funciones de una variable, \(n=1\), por lo que 
+            la gráfica es un subconjunto de  \(\mathbb{R}^2\) y es la gráfica que conocemos 
+            de cálculo 1 y 2.
+            <p>
+                <div class="flexbox" >
+                <img src="./Images/S3-Img2.png" alt="dimension2" width="40%" height="auto" >
+              </div>
+            </p>
+        </p>
+            </li>
+            <li>
+            <p>
+            Para funciones de dos variables, \(n=2\), por lo que la gráfica es un 
+            subconjunto de \(\mathbb{R}^3\) y la gráfica se conoce como una superficie.
+            <p>
+                <div class="flexbox" >
+                <img src="./Images/S3-Img3.png" alt="dimension3" width="40%" height="auto" >
+              </div>
+            </p>
+        </p>
+
+            </li>
+            <li>
+            <p>
+            Para funciones de tres variables la gráfica es un subconjunto de \(\mathbb{R}^4\) por lo 
+            que ya no es posible dibujar la gráfica. Asi que para funciones de  tres o más variables 
+            las gráficas, como una herramienta visual, dejan de ser útiles.
+            </p>
+            </li>
+        </ul>
+        
+                
+        <h3>
+            Conjuntos de nivel
+        </h3>
+        <p>
+            Ya que las gráficas dejan de ser prácticas en dimensión 3 o más el siguiente recurso 
+            es ver los conjuntos de nivel. 
+        </p>
+        <p>
+            Dada una función $f:D\subseteq \mathbb{R}^n \to \mathbb{R}$, el conjunto de nivel, correspondiente 
+            al valor  $c\in \mathbb{R}$, es el subconjunto de \(\mathbb{R}^n\) dado por:
+            $$
+            N_c(f)=\{ p\in D: f(p)=c \}	
+            $$
+        </p>
+        <ul>
+            <li>
+            <p>
+            Para funciones de dos variables, $D\subseteq \mathbb{R}^2$, y los conjuntos de nivel se llaman curvas de 
+            nivel. Por ejemplo para \(f(x,y)=x^2+xy-y^2\) la gráfica y las 
+            curvas de nivel se ven:
+            <p>
+                <div class="flexbox" >
+                <img src="./Images/S3-Img4.png" alt="curvasygrafica" width="40%" height="auto" >
+              </div>
+            </p>
+
+        </p>
+        <p>
+            Observación: las curvas de nivel se obtienen al cortar la gráfica con planos 
+            paralelos al plano \(xy\).
+        </p>
+            </li>
+            <li>
+            <p>
+            Para funciones de tres variables, $D\subseteq \mathbb{R}^3$, y los conjuntos de 
+            nivel  se llaman superficies de nivel. Por ejemplo 
+            para \(f(x,y,z)=x^2-y^3-zy\) algunas superficies de nivel se ven:
+            </p>
+            <p>
+                <div class="flexbox" >
+                <img src="./Images/S3-Img5.png" alt="superficiesnivel" width="40%" height="auto" >
+              </div>
+            </p>
+            </li>
+            <li>
+                Para cuatro o más variables los subconjuntos de nivel no se puede dibujar pues 
+                son subconjuntos de espacios de dimensión cuatro o mayor.
+            </li>
+        </ul>
+	</div>
+
+
+
+
+	<div class="definicion-box"> 
+        <h2 class="number-title"> Definición </h2>
+        <p>
+            Otro tipo de funciones son las que a mandan números a vectores. Dentro de 
+            estas las más comunes son las trayectorias parametrizadas.
+        </p>
+        <p>
+            Una trayectoria parametrizada en \(\mathbb{R}^n\) es una función $\gamma:I \to \mathbb{R}^n$, donde $I \subseteq \mathbb{R}$ es un intervalo. 
+            Dada una trayectoria $\gamma$ la curva generada por \(\gamma\) (también conocida 
+            como traza) es el subconjunto de \(\mathbb{R}^n\) dado por: 
+            $$
+            \textrm{Traza}(\gamma)=\{ \gamma(t): t\in I\} 
+            $$        
+        </p>
+        <ul>
+            <li>
+            <p>
+            En dimensión dos una curva parametrizada tiene 
+            una regla de correspondencia que se ve como \(\gamma(t)=(x(t),y(t))\), donde 
+            \(x,y:I \to \mathbb{R}\) son dos funciones. 
+            </p>
+            <p>
+            Por ejemplo, \(\gamma(t)=(\cos(t),\sen(t))\), \(t\in [0,2\pi]\),
+            dibuja un círculo de radio 1 (o también se dice que tiene una traza que es un 
+            círculo de radio 1). Nota: como los intervalos en \(\mathbb{R}\) tienen una 
+            dirección natural (de izquierda a derecha) ésto induce una orientación 
+            en la curva parametrizada. En el ejemplo anterior el círculo se recorre 
+            en el sentido contrario a las manecillas del reloj.
+            <p>
+                <div class="flexbox" >
+                <img src="./Images/S3-Img6.png" alt="circulounitario" width="40%" height="auto" >
+              </div>
+            </p>
+            
+            </li>
+            <li>
+            <p>
+            En dimensión tres una curva parametrizada tiene 
+            una regla de correspondencia que se ve como \(\gamma(t)=(x(t),y(t),z(t))\), donde 
+            \(x,y,z:I \to \mathbb{R}\) son dos funciones. 
+            </p>
+            <p>
+            Por ejemplo, \(\gamma(t)=(\cos(t),\sen(t),\cos(t))\), \(t\in [0,2\pi]\),
+            dibuja una espiral. Nota: la misma idea de orientación se tiene presente 
+            en dimensión 3, asi que ésta espiral "sube".
+            <p>
+                <div class="flexbox" >
+                <img src="./Images/S3-Img7.png" alt="espiral" width="40%" height="auto" >
+              </div>
+            </p>
+            
+            </li>
+            <li>
+                Para curvas en cuatro o más dimensiones la traza ya no se puede dibujar.
+            </li>
+        </ul>
+        
+	
+	</div>	
+	
+
+
+    <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+            Por último están las funciones que mandan vectores en vectores. También 
+            llamadas funciones vectoriales o campos vectoriales, \(F:D\subseteq \mathbb{R}^m \to \mathbb{R}^n\).
+            Vairando los valores de las dimensiones del dominio y codominio 
+            se puede ver que estas funciones incluyen todas las anteriores.
+        </p>
+        <p>
+            A continuación mencionamos algunos ejemplos.
+        </p>
+        <ul>
+            <li>
+                <p>
+                    Cambios de coordenadas.
+                </p>
+                <p>
+                    Funciones que en las que el dominio y codominio tienen la misma dimensión. La idea 
+                    es que transforman la forma de representar los puntos y tienen una función inversa 
+                    que permite regresar a las coordeandas originales.
+                </p>
+                <p>
+                    Coordenadas polares. 
+                    \[ 
+                    T: [0,\infty)\times [0,2\pi) \to \mathbb{R}^2, \,
+                    T(r,\theta)=(r\cos(\theta), r\sen(\theta))
+                    \]
+                    con inversa  
+                    \[
+                    S:\mathbb{R}^2\to  [0,\infty)\times [0,2\pi) , \, S(x,y)=( \sqrt{x^2+y^2},\theta)
+                    \]
+                    donde \(\theta\) es el ángulo de \((x,y)\) con el eje \(x\).
+                    <p>
+                    <div class="flexbox" >
+                    <img src="./Images/S3-Img9.png" alt="coordenadaspolares" width="40%" height="auto" >
+                    </div>
+                    </p>
+                </p>
+                <p>
+                    Coordenas cilíndricas.
+                </p>
+                <p>
+                    \[
+                    T:[0,\infty)\times [0,2\pi) \times \mathbb{R} \to \mathbb{R}^3, \, 
+                    T(r,\theta,z)=(r\cos(\theta),r\sen(\theta),z)
+                    \]
+                    con inversa 
+                    \[
+                    S:\mathbb{R}^3 \to [0,\infty)\times [0,2\pi) \times \mathbb{R},\,
+                    S(x,y,z)=(\sqrt{x^2+y^2}, \theta, z)
+                    \]
+                    donde \(\theta\) es el ángulo del punto \((x,y)\) con el eje \(x\).
+                    <p>
+                    <div class="flexbox" >
+                    <img src="./Images/S3-Img10.png" alt="coordenadacilindricas" width="40%" height="auto" >
+                    </div>
+                    </p>
+                </p>
+            </li>
+            <li>
+                <p>
+                    Superficies parametrizadas.
+                </p>
+                <p>
+                    Son funciones que van de subconjuntos de \(\mathbb{R}^2\) a \(\mathbb{R}^3\)
+                    que permiten parametrizar, o dar coordenadas, a superficies en \(\mathbb{R}^3\).
+                    Las superficies son  subconjuntos de \(\mathbb{R}^3\), como planos, esferos o toros, que 
+                    surgen y son útiles en analizar problemas.
+                </p>
+                <p>
+                    El toro.
+                </p>
+                <p>
+                    Una parametrización del toro está dada por 
+                    \begin{eqnarray*}
+                    r &:&[0,2\pi]\times [0,2\pi]\to \mathbb{R}^3, \\
+                    r(u,v)&=&((R+r\cos(v))\cos(u),(R+r\cos(v))\sen(u),r\sen(v))
+                    \end{eqnarray*}
+                    <p>
+                    <div class="flexbox" >
+                    <img src="./Images/S3-Img8.png" alt="toro" width="40%" height="auto" >
+                    </div>
+                    </p>
+            
+                </p>
+            </li>
+            <li>
+                <p>
+                    Campos de fuerza. 
+                </p>
+                <p>
+                    Los campos vectoriales son perfectos para analizar campos de de fuerza, pues 
+                    en cada punto del espacio se está aplicando una fuerza (un vector de dimensión tres).
+                    Por ejemplo la fuerza de gravedad que ejerce un objeto 
+                    de masa \(m_0\), situada en el orige, sobre un cuerpo de masa \(m_1\) situado en el 
+                    punto \((x,y,z)\) es: 
+                    \[
+                    F(x,y,z)=-\frac{1}{\|(x,y,z)\|^3}(x,y,z)
+                    \]
+                </p>
+                <p>
+                Una forma de visualizar los campos vectoriales es la siguiente: en cada punto \(p\in \mathbb{R}^3\)
+                dibujamos el vector \(F(p)\) (pensando a \(p\)) como el origen. De esta manera obtenemos un "campo"
+                lleno de "flechas" (campo vectorial).    
+                </p>
+
+                    <p>
+                    <div class="flexbox" >
+                    <img src="./Images/S3-Img11.png" alt="campovectorial" width="40%" height="auto" >
+                    </div>
+                    </p>
+            </li>
+        </ul>
+    </div>
+
+
+
+
+    
 
    <div class="definicion-box">
     <h2 class="number-title">Definición  </h2>
@@ -99,153 +421,27 @@
 
    </div>
 
-
-
-
-
-
-   <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2> 
+   <div class="definicion-box">
+    <h2 class="number-title"> Definición</h2>
     <p>
-        Supon que $f:\mathbb{R}^2 \to \mathbb{R}$ es lineal y que $f(0,1)=3, f(1,1)=-1$. Calcula
-    </p>
-   <ol>
-    <li>
-        $f(1,5)$,
-    </li>
-    <li>
-        $f(2,3)$,
-    </li>
-    <li>
-        $f(-1,0)$.
-    </li>
-   </ol>
-   <button class="respButton hvr-grow "> Solución inciso 1</button>
-   <div class="resp-box">
-    <p>
-        La idea es escrbir \((1,5)\) como una suma de la forma 
+        Sea \(F:\mathbb{R}^n \to \mathbb{R}^m\) una función lineal. El kernel o núcleo de 
+        \(F\) se define como el conjunto de nivel del cero. Es decir 
         \[
-        (1,5)=a(0,1)+b(1,1)
-        \]
-        Resolviendo el sistema anterior tenemos 
-        \begin{eqnarray*}
-            1=b \\
-            5=a+b
-        \end{eqnarray*}
-        por lo tanto \(b=1\) y \(a=4\). Con esta información y usando la linealidad de \(f\) obtenemos 
-        \[
-        f(1,5)=f(a(0,1)+b(1,1))=af(0,1)+b(1,1)=4(3)+ 1(-1)=11.
+        \ker(F)=\{p \in \mathbb{R}^n: F(p)=0 \}
         \]
     </p>
-
+    <p>
+        Se puede probar que \(\ker(F)\) tiene al cero, es cerrado bajo sumas y multiplicación escalar.
+    </p>
    </div>
-   </div>
-
-
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2>
-    <p>
-        Demuestra que si $F$ es una función lineal, $F(0)=0$.
-    </p>
-    <button class="respButton hvr-grow "> Solución</button>
-    <div class="resp-box">
-        <p>
-            Usando que \(F\) abre sumas: 
-            \[
-            F(0)=F(0+0)=F(0)+F(0) \Rightarrow 0=F(0).
-            \]
-        </p>
-
-    </div>
-</div>
-
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2> 
-    <p> 
-        Sea $\sigma$ una permutación del conjunto $\{1,2,3\}$. Define $F:\mathbb{R}^3\to \mathbb{R}^3$ por
-        $F(p_1,p_2,p_3)=(p_{\sigma(1)}, p_{\sigma(2)}, p_{\sigma(3)})$. Prueba que $F$ es una función lineal.        
-    </p>
-</div>
-
-
-
-<div class="ejercicio-box"> 
-    <h2 class="number-title" id="Ejer:RieszR3"> Ejercicio </h2> 
-    <p>
-        El <a href="./S1.html#Ejer:PropiedadesProdInt"> Ejercicio 1.22</a> prueba que, dado un vector fijo \(v\in \mathbb{R}^3\), 
-        la función \(f:\mathbb{R}^3 \to \mathbb{R}\) dada por 
-        \[
-        f(p)=\langle v.p\rangle
-        \]
-        es lineal. Este ejercicio prueba que toda función lineal de \(\mathbb{R}^3 \) a \(\mathbb{R}\)
-        se puede escribir de esta forma.
-    </p>
-    <p>
-        Sea $f:\mathbb{R}^3 \to \mathbb{R}$ una función lineal. Demuestra que existe un vector
-        $v\in \mathbb{R}^3$ tal que $f(p)=\langle v, p \rangle$, para toda $p\in \mathbb{R}^3$.
-    </p>
-    <p>
-        Sugerencia: $v=(f(\hat{i}), f(\hat{j}), f(\hat{k}))$. 
-    </p>
-    <button class="respButton hvr-grow "> Solución</button>
-    <div class="resp-box">
-    <p>
-        Para \(p=(p_1,p_2,p_3)\in \mathbb{R}\) arbitrario escribimos
-        \[
-        p=p_1\hat{i}+p_2\hat{k}+p_3\hat{k}
-        \]
-        Usando la linealidad de \(f\) obtenemos 
-        \[
-            f(p)=p_1f(\hat{i})+p_2f(\hat{j})+p_3f(\hat{k})
-        \]
-        Finalmente notamos que la última expresión se puede escribir como un producto interior 
-        \[
-        p_1f(\hat{i})+p_2f(\hat{j})+p_3f(\hat{k})=\langle (p_1,p_2,p_3), (f(\hat{i}),f(\hat{j}),f(\hat{k}))
-        \]
-        por lo que \(f(p)=\langle p, v \rangle\), con \(v=(f(\hat{i}),f(\hat{j}),f(\hat{k})\).
-    </p>
-
-</div>
-</div>
-
-
-<div class="ejercicio-box"> 
-    <h2 class="number-title" id="Ejer:UnicidadRieszR3"> Ejercicio </h2>
-    <p>
-        Sean $u,v\in \mathbb{R}^3$ dos vectores con la pripiedad de que $\langle v,p \rangle = \langle u,p \rangle$
-        para toda $p\in \mathbb{R}^3$. Demuestra que $u=v$.  
-    </p>
-    <p>
-        Nota: dada una función lineal, \(f:\mathbb{R}^3\to \mathbb{R}\), el <a href="#Ejer:RieszR3">Ejercicio 3.5</a>
-        asegura que existe \(v\in \mathbb{R}\) tal que \(f(p)=\langle p, v\rangle\). Como consecuencia de 
-        éste ejercicio obtenemos que dicho vector \(v\) es único.
-    </p>  
-
-    <button class="respButton hvr-grow "> Solución</button>
-    <div class="resp-box">
-        <p>
-            Supongamos que \(\langle v,p\rangle = \langle u,p\rangle \) para todo punto \(p\in \mathbb{R}\). 
-            Usando las propiedades del producto interior lo anterior es equivalente a 
-            \(\langle v-u, p \rangle =0\) para todo \(p\). En particular, tomando \(p=v-u\) llegamos a 
-            \[
-            0=\langle v-u , v-u \rangle =\|v-u\|^2
-            \]
-            y por las propiedades de la norma conclimos que \(u=v\).
-        </p>
-    </div>
-    
-</div>
-
-
 
 
 <div class="teorema-box"> 
     <h2 class="number-title" id="Ejer:TeoRiesz"> Teorema </h2> 
-    <h3> Teorema de Riesz en $\mathbb{R}^n$ </h3>
+    <h3> Teorema de Riesz </h3>
     <p> 
-        Este Teorema generaliza  el ejericio anterior.
-        Es decir, demuestra que para toda función lineal  $f:\mathbb{R}^n \to \mathbb{R}$
-        existe un único vector $v\in \mathbb{R}^n$ tal que $f(p)=\langle v, p \rangle$, para todo $p$.        
+        Para cualquier función lineal  $f:\mathbb{R}^n \to \mathbb{R}$
+        existe un único vector $v\in \mathbb{R}^n$ tal que $f(p)= p\cdot v$, para todo $p$.        
     </p> 
     <button class="respButton hvr-grow ">Demostración </button>
     <div class="resp-box"> 
@@ -286,71 +482,8 @@
     </div>
 </div>
 
-<div class="ejercicio-box"> 
-    <h2 class="number-title" id="Ejer:CoincidenciaLinealesEnBase"> Ejercicio </h2> 
-    <p>
-        Sean $F,G: \mathbb{R}^3 \to \mathbb{R}^m$ dos funciones
-        lineales tales que $F(\hat{i})=G(\hat{i})$,
-        $F(\hat{j})=G(\hat{j})$ y $F(\hat{k})=G(\hat{k})$. Demuestra que $F=G$.        
-    </p>
-    <button class="respButton hvr-grow "> Solución</button>
-    <div class="resp-box">
-        <p>
-            Para probar la igualdad de las funciones debemos de probar que para todo 
-            punto \(p\in \mathbb{R}^3\), \(F(p)=G(p)\). Para probarlo escribirmos a 
-            \(p\) como  un combinación lineal de los vectores \(\{\hat{i},\hat{j},\hat{k} \}\)
-            y aplicamos \(F\) y \(G\) (recordando que ambas son lineales)
-            \begin{eqnarray*}
-            p=p_1\hat{i}+p_2\hat{j}+p_3\hat{k} & \Rightarrow & F(p)=p_1F(\hat{i})+p_2F(\hat{j})+p_3F(\hat{k})\\
-             & \Rightarrow & G(p)=p_1G(\hat{i})+p_2G(\hat{j})+p_3G(\hat{k})
-            \end{eqnarray*}
-            Finalmente usando \(F(\hat{i})=G(\hat{i}), F(\hat{j})=G(\hat{j})\) y 
-            \(F(\hat{k})=G(\hat{k})\) concluimos \(F(p)=G(p)\).
-        </p>
 
-    </div>
-</div>
-
-
-
-<div class="definicion-box">
-    <h2 class="number-title"> Definición </h2> 
-    <p>
-        Con junto $\{\mathbf{v}_i \}_{i=1}^l \subset \mathbb{R}^n$ se dice que genera a $\mathbb{R}^n$, si para
-        todo $\mathbf{p}\in \mathbb{R}^n$, existen escalares $\alpha_1,\dots, \alpha_l$ tales que
-        $$
-        \mathbf{p}=\sum_{i=1}^l \alpha_i \mathbf{v}_i.
-        $$
-        Nota: se puede probar que si el conjunto $\{\mathbf{v}_i \}_{i=1}^l \subset \mathbb{R}^n$
-        genera a $\mathbb{R}^n$, entonces $ l \geq  n$.
-    </p>
-
-</div>
-
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2> 
-    <p>
-        En $\mathbb{R}^n$ considera los vectores $\{ \mathbf{e}_i\}_{i=1}^n$, tal que
-        $\mathbf{e}_i$ tiene todas sus entradas iguales a cero, excepto en la entrada $i$ donde tiene un $1$. Prueba que 
-        el conjunto $\{\mathbf{e}_i\}_{i=1}^n$ genera a $\mathbb{R}^n$.
-    </p>
-</div>
-
-
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2>
-    <p>
-        Este ejercicio generaliza el ejercicio <a href="#Ejer:CoincidenciaLinealesEnBase"> Ejercicio 3.8</a>
-    </p>
-    <p>
-        Sea $F,G:\mathbb{R}^n \to \mathbb{R}^m$, dos funciones lineales y sea
-        $\{\mathbf{v}_i\}_{i=1}^l \subset \mathbb{R}^n$ un conjunto generador. 
-        Si $F(\mathbf{v}_i)=G(\mathbf{v}_i)$,
-        para todo $i=1,\dots, l$, entonces $F=G$.        
-    </p> 
-</div>
-
-    <div class="lema-box"> 
+ <div class="lema-box"> 
     <h2 class="number-title" id="Ejer:PrelimMatrixFormLinearFunct"> Lema </h2> 
     <p>
         Sea $F:\mathbb{R}^n\to \mathbb{R}^m$ una función lineal. Demuestra que existen vectores
@@ -418,6 +551,697 @@
         $$     
     </p>
    </div>
+   
+
+<div class="lema-box"> 
+    <h2 class="number-title"> Lema </h2>
+    <p>
+        Sea $M$ una matriz de $m\times n$. Prueba que
+        $$
+        M(\alpha \mathbf{p}+\mathbf{q})=\alpha M\mathbf{p}	+ M\mathbf{q}.
+        $$        
+        Por lo tanto, la multiplicación de una matriz por un vector induce una función lineal.
+    </p> 
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            Para probar la identidad \(M(\alpha \mathbf{p}+\mathbf{q})=\alpha M\mathbf{p}	+ M\mathbf{q}\)
+            debemos probarla entrada por entrada, pues son vectores.
+        </p>
+        <p>
+            La entrada \(i\) de \(M(\alpha \mathbf{p}+\mathbf{q}) \) es 
+            \[
+                \sum_{r=1}^m M_{i,r}(\alpha p_i+ q_i )=\alpha \left(\sum_{r=1}^n M_{i,r} p_i  \right)+
+                \sum_{r=1}^n M_{i,r}q_i.
+            \]
+        </p>
+        <p>
+            Por otro lado, la entrada \(i\) de \(\alpha M\mathbf{p}	+ M\mathbf{q}\) es 
+            \[
+            \alpha \left( \sum_{r=1}^n M_{i,r} p_i\right)	+ \sum_{r=1}^n M_{i,r}q_i.
+            \]
+            Comparando éstas dos últimas ecuaciones obtenemos el resultado.
+        </p>
+
+    </div>
+</div>
+
+
+<div class="lema-box"> 
+    <h2 class="number-title" id="Ejer:UnicidadMatrizFunLineal"> Lema  </h2>
+    <p>
+        Sean $A,B$ dos matrices de $m \times n$. Demuestra que si $A\mathbf{p}=B\mathbf{p}$,
+        para todo $\mathbf{p}\in \mathbb{R}^n$, entonces $A=B$.         
+    </p> 
+    <p>
+        Sugerencia: ve tomando $\mathbf{p}=\mathbf{e}_i$, $i=1,\dots, n$.
+    </p>
+
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            Fijamos indices \(i,j\). Ya que $A\mathbf{p}=B\mathbf{p}$ se vale para todo \(\mathbf{p}\), tomando 
+            \(\mathbf{p}=\mathbf{e}_j\) llegamos a la entrada \(i\) del vector \(A\mathbf{e}_j\) es
+            \[
+            \sum_{r=1}^n A_{i,r}(\mathbf{e}_{j})_r
+            \]
+            donde \((\mathbf{e}_j)_r\) denota la entrada \(r\) del vector \(\mathbf{e}_j\).
+            Por lo tanto \((\mathbf{e}_j)_r=0\) para todo \(r\ne j\) y \((\mathbf{e}_j)_j=1\). Se sigue que  
+            \[
+            \sum_{r=1}^n A_{i,r}(\mathbf{e}_{j})_r=A_{i,j}
+            \]
+            Finalmente ya que \(A\mathbf{e}_j=B\mathbf{e}_j\) para toda \(j\) obtenemos que 
+            \(A_{i,j}=B_{i,j}\) y por lo tanto \(A=B\).
+
+        </p>
+
+    </div>
+</div>
+
+
+<div class="teorema-box"> 
+    <h2 class="number-title" id="Thm:MatrixRepresentation"> Teorema </h2> 
+    <p>
+        Si 
+        $F:\mathbb{R}^n \to \mathbb{R}^m$ es lineal, entonces existe una única matriz $M$, de $m\times n$, 
+        tal que 
+        $$F(\mathbf{p})=M\mathbf{p},$$ 
+        para todo $\mathbf{p}\in \mathbb{R}^n$.        
+    </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            Por el <a href="#Ejer:PrelimMatrixFormLinearFunct">Lema 3.12</a> existen 
+            vectores \(\mathbf{v},\dots, \mathbf{v}_n \in \mathbb{R}^m\) tales que 
+            \[
+            F(\mathbf{p})=\sum_{r=1}^n p_r \mathbf{v}_r
+            \]
+            Si escribimos las entrdas de \(\mathbf{v}_r\) como 
+            \[
+            \mathbf{v}_r=(v_{1,r}, v_{2,r},\dots, v_{n,r})
+            \]
+            tenemos que la entrada \(i\) del vector \(F(\mathbf{p})\) es 
+            \begin{equation}\label{Eqn:Aux1MatrixFunLineal}
+            \textrm{entrada \(i\)}\left(\sum_{r=1}^n p_r \mathbf{v}_r \right)= 
+            \sum_{r=1}^n p_r v_{i,r}
+            \end{equation}
+            Si formamos la matrix \(M\) cuya entrada \(i,j\) es \(v_{i,j}\) obtenemos que 
+            la entrada  \(i\) de \(M\mathbf{p}\) es 
+            \begin{equation}\label{Eqn:Aux2MatrixFunLineal}
+            \sum_{r=1}^n M_{i,r}p_r=\sum_{r=1}^n v_{i,r}p_r
+            \end{equation}
+            Comparando las ecuaciones \eqref{Eqn:Aux1MatrixFunLineal}
+            y \eqref{Eqn:Aux2MatrixFunLineal} obtenemos que todas las 
+            entradas de \(F(\mathbf{p})\) y \(M\mathbf{p}\) son iguales por lo 
+            tanto \(F(\mathbf{p})=M\mathbf{p}\) para toda \(\mathbf{p}\in \mathbb{R}^n\).
+        </p>
+        <p>
+            La unicidad se sigue directamente del <a href="#Ejer:UnicidadMatrizFunLineal">Lema anterior </a>.
+        </p>
+    </div>
+    
+</div>
+
+
+<div class="definicion-box">
+    <h2 class="number-title"> Definición </h2> 
+    <p>
+        Para matrices $A$ de $m \times n$, $B$ de $k \times m$, el producto, denotado
+        $BA$, es la matriz de $k\times n$ con entradas
+        $$
+        (BA)_{i,j}=\sum_{l=1}^m B_{il}A_{lj}
+        $$
+        
+    </p>
+    <p>
+        Por ejemplo 
+        \[
+        \left[ \begin{array}{cc} 
+        b_{1,1} & b_{1,2}  \\
+        b_{2,1} & b_{2,2} \\
+        b_{3,1} & b_{3,2} 
+         \end{array}\right]
+         \left[\begin{array}{cc}
+        a_{1,2} & a_{1,2} \\
+        a_{2,1} & a_{2,2}
+         \end{array}\right]
+         =
+         \left[ \begin{array}{cc}
+        b_{1,1}a_{1,2}+b_{1,2}a_{2,1} & b_{1,1}a_{1,2}+b_{1,2}a_{2,2} \\
+        b_{2,1}a_{1,2}        + b_{2,2}a_{2,1} &  b_{2,1}a_{1,2} +  b_{2,2}a_{2,2} \\
+        b_{3,1}a_{1,2}        + b_{3,2}a_{2,1} &  b_{3,1}a_{1,2} +  b_{3,2}a_{2,2} \\
+         \end{array}\right]
+        \]
+    </p>
+</div>
+
+
+<div class="lema-box"> 
+    <h2 class="number-title"> Lema  </h2>
+    <p>
+        Sean $F:\mathbb{R}^n \to \mathbb{R}^m$ y $G:\mathbb{R}^m \to \mathbb{R}^k$ dos funciones lineales,
+        demuestra que la composición $G\circ F$  también es lineal.        
+    </p> 
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+    <p>
+        Directamente de la definición 
+        \begin{eqnarray*}
+        (G\circ F)(\alpha \mathbf{p}+\mathbf{q})&=& G(F(\alpha \mathbf{p}+\mathbf{q})) \\
+        &=& G(\alpha F(\mathbf{p})+F(\mathbf{q})) \\
+        &=& \alpha G(F(\mathbf{p}))+ G(F(\mathbf{q}))
+        \end{eqnarray*}
+    </p>
+    </div>
+
+</div>
+
+<div class="teorema-box"> 
+    <h2 class="number-title"> Teorema </h2>
+    <p>
+        Considera las funciones lineales $F:\mathbb{R}^n \to \mathbb{R}^m, G:\mathbb{R}^m \to \mathbb{R}^k$. Sean
+        $A,B$ matrices tales que $F(\mathbf{p})=A\mathbf{p}, G(\mathbf{p})=B\mathbf{p}$.  
+        
+        Demuestra
+        que $(G\circ F)(\mathbf{p})=(BA)\mathbf{p}$, para toda $\mathbf{p}$. 
+    
+    </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+    <div>
+        <p>
+            Denotar $q=Ap \in \mathbb{R}^m$. Entonces $G\circ F(p)=G(F(p))=B(Ap)=B(q)$. 
+        </p>
+        <p>
+            Para $i=1,\dots, k$, fijo
+            \begin{eqnarray*}
+            (Bq)_i&=&\sum_{s=1}^m B_{i,s}q_s \\
+            &=& \sum_{s=1}^m B_{i,s}\left( \sum_{r=1}^n A_{s,r}p_r \right)\\
+            &=&\sum_{s=1}^k\sum_{r=1}^m B_{i,s}A_{s,r}p_r\\
+            &=&\sum_{r=1}^m \left( \sum_{s=1}^k B_{i,s}A_{s,r}  \right)p_r \\
+            &=&\sum_{r=1}^m (BA)_{i,r}p_r \\
+            &=& (BA p)_i
+            \end{eqnarray*}
+        </p>
+    </div>    
+    </div>
+</div>
+
+
+<div class="definicion-box">
+    <h2 class="number-title"> Definición </h2> 
+    <p>
+        Una función lineal $F:\mathbb{R}^n \to \mathbb{R}^n$ se llama invertible si es inyectiva
+        y suprayectiva, es decir, una biyección. 
+    </p>
+    <p>
+        Como consecuencia existe una función,
+        que vamos a denotar $F^{\langle -1 \rangle }:\mathbb{R}^n \to \mathbb{R}^n$,
+        que satisface $F\circ F^{\langle -1 \rangle }(\mathbf{q})=\mathbf{q}$, 
+        $F^{\langle -1 \rangle }\circ F(\mathbf{p})=\mathbf{p}$, para todas $\mathbf{p}$, $\mathbf{q}$.
+    </p>
+    <p>
+        Nota: para encontrar la regla de correspondencia de \(F^{\langle -1 \rangle }\)
+        se plantea la ecuación 
+        \[
+        F(\mathbf{p})=\mathbf{q}
+        \]
+        y se revuelve para  las coordenadas de \(\mathbf{p}\) en términos de las 
+        coordenadas de \(\mathbf{q}\).
+    </p>
+
+</div>
+
+
+
+<div class="lema-box"> 
+    <h2 class="number-title"> Lema </h2>
+    <p>
+        La función determinante tiene la siguiente identidad: $\det(AB)=\det(A)\det(B)$. Usando 
+        ésta propiedad y el hecho de que $\det(I_n)=1$ demuestra que si $A$ es invertible
+        entonces $\det(A)\ne 0$ y $\det(A^{-1})=\det(A)^{-1}$.
+    </p> 
+</div>
+
+
+<div class="teorema-box">
+    <h2 class="number-title"> Teorema </h2>
+    <h3> Función inversa (para funciones lineales)</h3>
+    <p>
+        Sea \(F:\mathbb{R}^n \to \mathbb{R}^n\) una función lineal y \(A\) la matriz tal que 
+        \(F(\mathbf{p})=A\mathbf{p}\), para todo \(\mathbf{p}\in \mathbb{R}^n\).
+    </p>
+    <p>
+        La función \(F\) es invertible sii \(\det(A)\ne 0\).
+    </p>
+
+</div>   
+
+
+
+<div class="teorema-box"> 
+    <h2 class="number-title"> Teorema </h2>
+    <p>
+        Sea $F:\mathbb{R}^n \to \mathbb{R}^n$ una función lineal e invertible. 
+    </p> 
+<ol>
+    <li>
+        Demuestra que $F^{\langle -1 \rangle}$ es lineal.
+    </li>
+    <li>
+        Sea $A$ matriz asociada a $F$ y $B$ la matriz asociada a $F^{\langle -1 \rangle }$. Demuestra
+        que $AB=BA=I_n$.
+    </li>
+</ol>
+        <button class="respButton hvr-grow "> Solución</button>
+        <div class="resp-box">  
+        <p>
+            Inciso 1.
+        </p>
+        <p>
+            Debemos de probar 
+            \[
+            F^{\langle -1 \rangle }(\beta \mathbf{q}_1+\mathbf{q}_2) =
+            \beta F^{\langle -1 \rangle }(\mathbf{q}_1)+F^{\langle -1 \rangle}(\mathbf{q}_2)
+            \]
+            Denotamos \(F^{\langle -1 \rangle}(\mathbf{q}_i)=\mathbf{p}_i\), \(i=1,2\). 
+            Por definición \(\mathbf{p}_i\) es el 
+            único punto que satisface 
+            \(F(\mathbf{p}_i)=\mathbf{q}_i\). De lo anterior y 
+            de la linealidad de \(F\) se sigue que 
+            \begin{eqnarray*}
+            F(\beta \mathbf{p}_1+\mathbf{p}_2)=\beta F(\mathbf{p}_1)+ F(\mathbf{p}_2)=\beta \mathbf{q}_1+\mathbf{q}_2
+            \end{eqnarray*}
+            Por lo tanto, por la definición de \(F^{\langle -1 \rangle}\), llegamos a 
+            \begin{eqnarray*}
+            F^{\langle -1 \rangle}(\beta \mathbf{q}_1+\mathbf{q}_2)&=& \beta \mathbf{p}_1+\mathbf{p}_2 \\
+            &=& \beta F^{\langle -1 \rangle }(\mathbf{q}_1)+F^{\langle -1 \rangle}(\mathbf{q}_2)
+            \end{eqnarray*}
+        </p>
+        <p>
+            Inciso 2.
+        </p>
+        <p>
+           Sabemos que 
+           \begin{eqnarray*}
+           (F^{\langle -1 \rangle }\circ F)(\mathbf{p})&=&  ( F\circ F^{\langle -1 \rangle })(\mathbf{p}) \\
+           &=&\mathbf{p}\\
+           &=&Id(\mathbf{p}) \\
+           \end{eqnarray*}
+           para todo \(\mathbf{p}\in \mathbb{R}^n\), donde \(Id\) es la función identidad. Por el
+           Ejercicio 3.33 y la unicidad de la representación de funciones lineales como 
+           multiplicación como matriz  concluimos \(AB=BA=I_n\), donde \(I_n\) es la matriz identidad.
+        </p>
+        </div>
+
+</div>
+
+
+
+<div class="info-box">
+    <h2 class="number-title"> Ejemplo </h2>
+    <p>
+        Sea \(f:\mathbb{R}^3 \to \mathbb{R}\) lineal. Escribamos la función como 
+        \[
+        f(x,y,z)=ax+by+cz
+        \]
+        Si \(c\ne 0\) existe una función \(g:\mathbb{R}^2 \to \mathbb{R}\) tal que 
+        \[
+        f(x,y,g(x,y))=0
+        \]
+        para todo \((x,y,z)\).
+    </p>
+    <p>
+        Si denotamos 
+        \[
+        N(f)=\{(x,y,z)\in \mathbb{R}^3: f(x,y,z)=0\}
+        \]
+        lo anterior se puede escribir como 
+        \[
+        \textrm{Gráfica}(g)\subseteq N(f).
+        \]
+    </p>
+
+</div>
+
+<div class="teorema-box">
+    <h2 class="number-title"> Teorema </h2>
+    <h3> Función implícita (para funciones lineales)</h3>
+    <p>
+        Sean \(f_1,f_2, \dots, f_m: \mathbb{R}^{k+m} \to \mathbb{R}\) funciones lineales.
+        Vamos a denotar los puntos de \(\mathbb{R}^{k+m}\) como \((\mathbf{x},\mathbf{y})\)
+        con \(\mathbf{x}=(x_1,\dots, x_k), \mathbf{y}=(y_1,\dots, y_m)\).
+    </p>
+    <p>
+        Por el Teorema de representación de Riesz, para toda función \(f_i\) podemos escribir 
+        \[
+        f_i(x_1,\dots, x_k,y_1,\dots, y_m)=\sum_{r=1}^k a_{i,r}x_r+ \sum_{s=1}^m b_{i,s}y_s
+        \]
+        Denotemos \(B=[b_{i,j}]\), una  matriz de \(m\times m\).
+    </p>
+    <p>
+        Si \(\det(B)\ne 0\) entonces existen funciones 
+        \[
+        g_i:\mathbb{R}^k \to \mathbb{R}
+        \]
+        \(i=1,2,\dots, m\), tales que 
+        \[
+        y_i=g_i(x_1,\dots, x_k)
+        \]
+        y además 
+        \[
+        f_i(\mathbf{x},g_1(\mathbf{x}), \dots, g_m(\mathbf{x}))=0
+        \]
+        para todo \(\mathbf{x}\) y para toda \(i=1,\dots, m\).
+    </p>
+    <p>
+        En otras palabras la intersección
+        \[
+        \textrm{Gráfica}(G)\subseteq \cap_{i=1}^m N(f_i)
+        \]
+        donde \(G(\mathbf{x})=(g_1(\mathbf{x}),\dots, g_m(\mathbf{x}))\).
+    </p>
+    <p>
+        Recordar
+        \[
+        N(f)=\{(\mathbf{x},\mathbf{y}): f(\mathbf{x},\mathbf{y})=0 \}
+        \]
+    </p>
+
+</div>
+
+
+
+
+<div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        <p>
+            Para las siguientes 	funciones, describe los conjuntos de nivel para los valores dados.
+        </p>
+	
+	<ol>
+        <li>
+            $f(x,y)=x^2+y^2$, $c=-1,0,1.$
+        </li>
+        <li>
+            $f(x,y)=2x^2+4y^2$, $c=-2,0,2$.
+        </li>
+        <li>
+            $f(x,y)=x^2-y^2$, $c=-3,0,3$.
+        </li>
+        <li>
+            $f(x,y)=5x+7y$, $c=-5,0,7$.
+        </li>
+        <li>
+            $f(x,y)=(x+y)^2$, $c=-4,0,4$.
+        </li>
+        <li>
+            $f(x,y)=(2x-y)^2$, $c=-1,0,2$.
+        </li>
+        <li>
+            $f(x,y)=y+\log(x^2)$, $c=-3,0,3$.
+        </li>
+        <li>
+            $f(x,y)=y+3e^x$, $c=-2,0,2$.
+        </li>
+        <li>
+            $f(x,y)=\min\{|x|,|y| \}$, $c=0,1,2$.
+        </li>
+</ol>
+</div>
+
+	
+	<div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        <p>
+            Para las siguientes funciones, describe los conjuntos de nivel para los valores dados.
+        </p>
+        <ol>
+            <li>
+                $f(x,y,z)=x^2+y^2$, $c=-1,0,1$.
+            </li>
+            <li>
+                $f(x,y,z)=x^2+y^2+z^2$, $c=-1,0,1$.
+            </li>
+            <li>
+                $f(x,y,z)=x^2+y^2-z^2$, $c=-2,0,2$.
+            </li>
+            <li>
+                $f(x,y,z)=xyz$, $c=-4,0,4$.
+            </li>
+            <li>
+                $f(x,y,z)=\log(x)+\log(y)+\log(z)$, $c=-4,0,4.$
+            </li>
+            <li>
+                $f(x,y,z)=e^{x^2}e^{y^2}e^{z^2}$, $c=-5,0,5$.
+            </li>
+            <li>
+                $f(x,y,z)=\max\{ |x|, |y|, |z| \}$, $c=-2,0,2$.
+            </li>
+            <li>
+                $f(x,y,z)=2x-y+3z$, $c=-1,0,1$.
+            </li>
+        </ol>
+ </div>
+
+	
+	<div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        <p>
+            Usa coordenadas polares para describir las curvas de nivel de la función dada por
+            $$
+            f(x,y)=\left\{
+            \begin{array}{cc}
+            \frac{2xy}{x^2+y^2} & (x,y)\ne (0,0)\\
+            0 & (x,y)=(0,0).
+            \end{array}
+            \right.
+            $$
+        </p>
+	</div>
+
+	
+	<div class="ejercicio-box">
+         <h2 class="number-title"> Ejercicio </h2> 
+         <p>
+            Construye una función $f(x,y)$, tal que el conjunto de nivel para $c=1$ consiste en dos "piezas". 
+         </p>
+    </div>
+	
+
+	<div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        <p>
+            Construye una función $f(x,y)$, tal que el conjunto de nivel para $c=0$ consiste 
+            en una cantidad infinita de "piezas".
+        </p>
+	</div>
+
+    	<div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        <p>
+            Para cada una de las siguientes trayectorias, da un bosquejo de la curva que generan.
+            <ol>
+                <li>
+                    $\gamma(t)=(\cos(t), \sen(t))$, $t\in \mathbb{R}$.
+                </li>
+                <li>
+                    $\gamma(t)=(\cos(t), \sen(t), t)$, $t\in \mathbb{R}$.
+                </li>
+                <li>
+                    $\gamma(t)=(t,t^2)$, $t\in \mathbb{R}$.
+                </li>
+                <li>
+                    $\gamma(t)=(\cos(t), \sen(t), e^t)$, $t\in \mathbb{R}$.
+                </li>
+                <li>
+                    $\gamma(t)=2(\sen(\pi/4)\cos(t), \sen(\pi/4)\sen(t), \cos(\pi/4))$, $t\in \mathbb{R}$.
+                </li>
+            </ol>
+        </p>
+	</div>
+
+
+
+    	<div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        <p>
+            Dibuja cada uno de los siguientes campos vectoriales.
+        </p>
+	
+	<ol>
+        <li>
+            $F(x,y)=(x,y)$, $(x,y)\in \mathbb{R}^2$,
+        </li>
+        <li>
+            $F(x,y)=\frac{1}{\|(x,y)\|}(x,y)$, $(x,y) \ne (0,0)$.
+        </li>
+        <li>
+            $F(x,y)=(-y,x)$, $(x,y)\in \mathbb{R}^2$.
+        </li>
+        <li>
+            $F(x,y,z)=\frac{-1}{\|(x,y,z)\|^3}(x,y,z)$, $(x,y,z)\ne (0,0,0)$.
+        </li>
+	</ol>
+    </div>
+		
+	
+	<div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        <p>
+            La fuerza de gravedad sobre una particula $p\in \mathbb{R}^3$, ejercida por una masa en el origen, es un multiplo  negativo del campo vectorial
+            $$
+            G(p)=\frac{1}{\|p\|^3}p, \quad p\ne 0.	
+            $$
+            
+            Fija un punto $p_0\ne 0$ y considera puntos cercano a $p_0$,  los cuales expresamos de la forma
+            $p=p_0+u$, donde $u$ se piensa como un vector de norma pequena. Para dichos puntos consideramos
+            dos aproximaciones de $G$
+                $$
+                G_1(p)=G(p_0+u)=G(p_0)+L_1(u)
+                $$
+         
+                con $L_1(u)=\frac{1}{\|p_0\|^3}u $ y 
+                $$ 
+                G_2(p)=G(p_0+u)=G(p_0)+ L_2(u)
+                $$	
+                con $L_2(u)=\frac{1}{\|p_0\|^2}u-\frac{3}{\|p_0\|^5} \langle p_0,u \rangle p_0$.
+        </p>
+        <p>
+            <ol>
+                <li>
+                    Demuestra que $L_1$ y $L_2$ son funciones lineales.
+                </li>
+                <li>
+                    Toma $p_0=(1,0,0)$ y $u=(\varepsilon,0,0)$, para $\varepsilon >0$. Muestra que los errores relativos son 
+                    $$
+                    \frac{\|G(p)-G_1(p)\| }{\| G(p)\|} = 3\varepsilon^2+3\varepsilon+\varepsilon^3, \quad 	\frac{\|G(p)-G_2(p)\| }{\| G(p)\|} =\varepsilon^3
+                    $$
+                </li>
+            </ol>
+            
+            
+        </p>
+    </div>
+
+
+
+   <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+    <p>
+        Supon que $f:\mathbb{R}^2 \to \mathbb{R}$ es lineal y que $f(0,1)=3, f(1,1)=-1$. Calcula
+    </p>
+   <ol>
+    <li>
+        $f(1,5)$,
+    </li>
+    <li>
+        $f(2,3)$,
+    </li>
+    <li>
+        $f(-1,0)$.
+    </li>
+   </ol>
+   <button class="respButton hvr-grow "> Solución inciso 1</button>
+   <div class="resp-box">
+    <p>
+        La idea es escrbir \((1,5)\) como una suma de la forma 
+        \[
+        (1,5)=a(0,1)+b(1,1)
+        \]
+        Resolviendo el sistema anterior tenemos 
+        \begin{eqnarray*}
+            1=b \\
+            5=a+b
+        \end{eqnarray*}
+        por lo tanto \(b=1\) y \(a=4\). Con esta información y usando la linealidad de \(f\) obtenemos 
+        \[
+        f(1,5)=f(a(0,1)+b(1,1))=af(0,1)+b(1,1)=4(3)+ 1(-1)=11.
+        \]
+    </p>
+
+   </div>
+   </div>
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+        Demuestra que si $F$ es una función lineal, $F(0)=0$.
+    </p>
+</div>
+
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+        Demuestra que si $F$ es una función lineal y \(u,v\in \ker(F)\), \(\alpha \in \mathbb{R}\)
+        entonces,  \(\alpha u +v \in \ker(F)\).
+    </p>
+</div>
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+    <p> 
+        Sea $\sigma$ una permutación del conjunto $\{1,2,3\}$. Define $F:\mathbb{R}^3\to \mathbb{R}^3$ por
+        $F(p_1,p_2,p_3)=(p_{\sigma(1)}, p_{\sigma(2)}, p_{\sigma(3)})$. Prueba que $F$ es una función lineal.        
+    </p>
+</div>
+
+
+
+
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title" id="Ejer:CoincidenciaLinealesEnBase"> Ejercicio </h2> 
+    <p>
+        Sean $F,G: \mathbb{R}^3 \to \mathbb{R}^m$ dos funciones
+        lineales tales que $F(\hat{i})=G(\hat{i})$,
+        $F(\hat{j})=G(\hat{j})$ y $F(\hat{k})=G(\hat{k})$. Demuestra que $F=G$.        
+    </p>
+    <!-- <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            Para probar la igualdad de las funciones debemos de probar que para todo 
+            punto \(p\in \mathbb{R}^3\), \(F(p)=G(p)\). Para probarlo escribirmos a 
+            \(p\) como  un combinación lineal de los vectores \(\{\hat{i},\hat{j},\hat{k} \}\)
+            y aplicamos \(F\) y \(G\) (recordando que ambas son lineales)
+            \begin{eqnarray*}
+            p=p_1\hat{i}+p_2\hat{j}+p_3\hat{k} & \Rightarrow & F(p)=p_1F(\hat{i})+p_2F(\hat{j})+p_3F(\hat{k})\\
+             & \Rightarrow & G(p)=p_1G(\hat{i})+p_2G(\hat{j})+p_3G(\hat{k})
+            \end{eqnarray*}
+            Finalmente usando \(F(\hat{i})=G(\hat{i}), F(\hat{j})=G(\hat{j})\) y 
+            \(F(\hat{k})=G(\hat{k})\) concluimos \(F(p)=G(p)\).
+        </p>
+
+    </div>-->
+</div>
+
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+        Con junto $\{\mathbf{v}_i \}_{i=1}^l \subset \mathbb{R}^n$ se dice que genera a $\mathbb{R}^n$, si para
+        todo $\mathbf{p}\in \mathbb{R}^n$, existen escalares $\alpha_1,\dots, \alpha_l$ tales que
+        $$
+        \mathbf{p}=\sum_{i=1}^l \alpha_i \mathbf{v}_i.
+        $$
+        Nota: se puede probar que si el conjunto $\{\mathbf{v}_i \}_{i=1}^l \subset \mathbb{R}^n$
+        genera a $\mathbb{R}^n$, entonces $ l \geq  n$.
+    </p>
+
+    </p>
+    <p>
+        Sea $F,G:\mathbb{R}^n \to \mathbb{R}^m$, dos funciones lineales y sea
+        $\{\mathbf{v}_i\}_{i=1}^l \subset \mathbb{R}^n$ un conjunto generador. 
+        Si $F(\mathbf{v}_i)=G(\mathbf{v}_i)$,
+        para todo $i=1,\dots, l$, entonces $F=G$.        
+    </p> 
+</div>
+
    
    
    <div class="ejercicio-box"> 
@@ -508,117 +1332,9 @@
    </div>
 </div>
 
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2>
-    <p>
-        Sea $M$ una matriz de $m\times n$. Prueba que
-        $$
-        M(\alpha \mathbf{p}+\mathbf{q})=\alpha M\mathbf{p}	+ M\mathbf{q}.
-        $$        
-        Por lo tanto, la multiplicación de una matriz por un vector induce una función lineal.
-    </p> 
-    <button class="respButton hvr-grow "> Solución</button>
-    <div class="resp-box">
-        <p>
-            Para probar la identidad \(M(\alpha \mathbf{p}+\mathbf{q})=\alpha M\mathbf{p}	+ M\mathbf{q}\)
-            debemos probarla entrada por entrada, pues son vectores.
-        </p>
-        <p>
-            La entrada \(i\) de \(M(\alpha \mathbf{p}+\mathbf{q}) \) es 
-            \[
-                \sum_{r=1}^m M_{i,r}(\alpha p_i+ q_i )=\alpha \left(\sum_{r=1}^n M_{i,r} p_i  \right)+
-                \sum_{r=1}^n M_{i,r}q_i.
-            \]
-        </p>
-        <p>
-            Por otro lado, la entrada \(i\) de \(\alpha M\mathbf{p}	+ M\mathbf{q}\) es 
-            \[
-            \alpha \left( \sum_{r=1}^n M_{i,r} p_i\right)	+ \sum_{r=1}^n M_{i,r}q_i.
-            \]
-            Comparando éstas dos últimas ecuaciones obtenemos el resultado.
-        </p>
-
-    </div>
-</div>
 
 
-<div class="ejercicio-box"> 
-    <h2 class="number-title" id="Ejer:UnicidadMatrizFunLineal"> Ejercicio </h2>
-    <p>
-        Sean $A,B$ dos matrices de $m \times n$. Demuestra que si $A\mathbf{p}=B\mathbf{p}$,
-        para todo $\mathbf{p}\in \mathbb{R}^n$, entonces $A=B$.         
-    </p> 
-    <p>
-        Sugerencia: ve tomando $\mathbf{p}=\mathbf{e}_i$, $i=1,\dots, n$.
-    </p>
-
-    <button class="respButton hvr-grow "> Solución</button>
-    <div class="resp-box">
-        <p>
-            Fijamos indices \(i,j\). Ya que $A\mathbf{p}=B\mathbf{p}$ se vale para todo \(\mathbf{p}\), tomando 
-            \(\mathbf{p}=\mathbf{e}_j\) llegamos a la entrada \(i\) del vector \(A\mathbf{e}_j\) es
-            \[
-            \sum_{r=1}^n A_{i,r}(\mathbf{e}_{j})_r
-            \]
-            donde \((\mathbf{e}_j)_r\) denota la entrada \(r\) del vector \(\mathbf{e}_j\).
-            Por lo tanto \((\mathbf{e}_j)_r=0\) para todo \(r\ne j\) y \((\mathbf{e}_j)_j=1\). Se sigue que  
-            \[
-            \sum_{r=1}^n A_{i,r}(\mathbf{e}_{j})_r=A_{i,j}
-            \]
-            Finalmente ya que \(A\mathbf{e}_j=B\mathbf{e}_j\) para toda \(j\) obtenemos que 
-            \(A_{i,j}=B_{i,j}\) y por lo tanto \(A=B\).
-
-        </p>
-
-    </div>
-</div>
-
-
-<div class="teorema-box"> 
-    <h2 class="number-title" id="Thm:MatrixRepresentation"> Teorema </h2> 
-    <p>
-        Si 
-        $F:\mathbb{R}^n \to \mathbb{R}^m$ es lineal, entonces existe una única matriz $M$, de $m\times n$, 
-        tal que 
-        $$F(\mathbf{p})=M\mathbf{p},$$ 
-        para todo $\mathbf{p}\in \mathbb{R}^n$.        
-    </p>
-    <button class="respButton hvr-grow "> Solución</button>
-    <div class="resp-box">
-        <p>
-            Por el <a href="#Ejer:PrelimMatrixFormLinearFunct">Lema 3.12</a> existen 
-            vectores \(\mathbf{v},\dots, \mathbf{v}_n \in \mathbb{R}^m\) tales que 
-            \[
-            F(\mathbf{p})=\sum_{r=1}^n p_r \mathbf{v}_r
-            \]
-            Si escribimos las entrdas de \(\mathbf{v}_r\) como 
-            \[
-            \mathbf{v}_r=(v_{1,r}, v_{2,r},\dots, v_{n,r})
-            \]
-            tenemos que la entrada \(i\) del vector \(F(\mathbf{p})\) es 
-            \begin{equation}\label{Eqn:Aux1MatrixFunLineal}
-            \textrm{entrada \(i\)}\left(\sum_{r=1}^n p_r \mathbf{v}_r \right)= 
-            \sum_{r=1}^n p_r v_{i,r}
-            \end{equation}
-            Si formamos la matrix \(M\) cuya entrada \(i,j\) es \(v_{i,j}\) obtenemos que 
-            la entrada  \(i\) de \(M\mathbf{p}\) es 
-            \begin{equation}\label{Eqn:Aux2MatrixFunLineal}
-            \sum_{r=1}^n M_{i,r}p_r=\sum_{r=1}^n v_{i,r}p_r
-            \end{equation}
-            Comparando las ecuaciones \eqref{Eqn:Aux1MatrixFunLineal}
-            y \eqref{Eqn:Aux2MatrixFunLineal} obtenemos que todas las 
-            entradas de \(F(\mathbf{p})\) y \(M\mathbf{p}\) son iguales por lo 
-            tanto \(F(\mathbf{p})=M\mathbf{p}\) para toda \(\mathbf{p}\in \mathbb{R}^n\).
-        </p>
-        <p>
-            La unicidad se sigue directamente del <a href="#Ejer:UnicidadMatrizFunLineal">Ejercicio 3.16</a>.
-        </p>
-    </div>
-    
-</div>
-
-
-<div class="definicion-box">
+<!-- <div class="definicion-box">
     <h2 class="number-title"> Definición </h2>    
     <p>
         Un vector \(\mathbb{p}\in \mathbb{R}^n\) es combinación lineal de 
@@ -752,7 +1468,7 @@
         </p>
     </div>
 
-</div>
+</div>-->
 
 <div class="ejercicio-box">
     <h2 class="number-title"> Ejercicio</h2>
@@ -773,7 +1489,7 @@
         </li>
     </ol>
 
-    <button class="respButton hvr-grow "> Solución</button>
+    <!-- <button class="respButton hvr-grow "> Solución</button>
     <div class="resp-box">
         <p>
             Empezaremos con el primer inciso. Denotaremos $v_1 = (1,-1,1)$ y $v_2 = (1,1,1)$. Dado
@@ -853,14 +1569,14 @@
             F((-3,2)) = F(-(1,-1) - (2,-1)) = -(1,0) - (0,1) = (-1,-1) \neq (1,1) = F((-3,2)).
             \end{equation*}
         </p>
-    </div>
+    </div>-->
 
 </div>
 
 
 
 
-<div class="ejercicio-box">
+<!-- <div class="ejercicio-box">
     <h2 class="number-title"> Ejercicio </h2>
     <p>
         Prueba que si \(\{\mathbf{u},\mathbf{v}, \mathbf{w}\} \subset \mathbb{R}^n\) es un 
@@ -892,7 +1608,7 @@
         </p>
     </div>
 
- </div>   
+ </div>   -->
 
 <div class="ejercicio-box"> 
     <h2 class="number-title"> Ejercicio </h2>
@@ -1144,16 +1860,15 @@
 
 
 
-<div class="definicion-box">
-    <h2 class="number-title"> Definición </h2> 
-     Dado un vector $w\ne 0$, la proyección sobre la recta generada por $w$,  está dada por
+ <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+        Dado un vector $w\ne 0$, la proyección sobre la recta generada por $w$,  está dada por
      $$
      P_w(v)=\frac{\langle v, w \rangle }{\|w\|^2}w.
      $$
      También se llama la proyección ortogonal  a la recta generada por \(w\).
-   </div>
-
- <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio </h2>
+    </p>
     <p>
         Demuestra que:
     </p> 
@@ -1187,28 +1902,9 @@
    </ol>
 </div>
 
+
 <div class="ejercicio-box">
-    <h2 class="number-title"> Ejercicio </h2>
-    <p>
-        Denotemos 
-        \[
-        V=\{f:\mathbb{R}^n\to \mathbb{R}: f \textrm{ es lineal} \}
-        \]
-    </p>
-    <ol>
-        <li>
-            Prueba que \(V\) es un espacio vectorial.
-        </li>
-        <li>
-            Prueba que \(V\) es isomorfo a \(\mathbb{R}^n\). Es decir, 
-            existe una biyección \(\Phi: V \to \mathbb{R}^n\) que es lineal.
-        </li>
-    </ol>
-
-</div>
-
-<div class="definicion-box">
-    <h2 class="number-title"> Definición </h2>
+    <h2 class="number-title"> Ejercicio</h2>
     <p>
         Para un vector \(w \ne 0\) definimos la reflexión con respecto a la recta generada por 
         \(w\) como 
@@ -1217,10 +1913,6 @@
         \]
         
     </p>
-    </div>
-
-<div class="ejercicio-box">
-    <h2 class="number-title"> Ejercicio</h2>
     <p>
         <ol>
             <li>
@@ -1253,57 +1945,28 @@
 
 </div>
 
-<div class="ejercicio-box"> 
+
+<div class="ejercicio-box">
     <h2 class="number-title"> Ejercicio </h2>
     <p>
-        Sean $F:\mathbb{R}^n \to \mathbb{R}^m$ y $G:\mathbb{R}^m \to \mathbb{R}^k$ dos funciones lineales,
-        demuestra que la composición $G\circ F$  también es lineal.        
-    </p> 
-    <button class="respButton hvr-grow "> Solución</button>
-    <div class="resp-box">
-    <p>
-        Directamente de la definición 
-        \begin{eqnarray*}
-        (G\circ F)(\alpha \mathbf{p}+\mathbf{q})&=& G(F(\alpha \mathbf{p}+\mathbf{q})) \\
-        &=& G(\alpha F(\mathbf{p})+F(\mathbf{q})) \\
-        &=& \alpha G(F(\mathbf{p}))+ G(F(\mathbf{q}))
-        \end{eqnarray*}
-    </p>
-    </div>
-
-</div>
-
-<div class="definicion-box">
-    <h2 class="number-title"> Definición </h2> 
-    <p>
-        Para matrices $A$ de $m \times n$, $B$ de $k \times m$, el producto, denotado
-        $BA$, es la matriz de $k\times n$ con entradas
-        $$
-        (BA)_{i,j}=\sum_{l=1}^m B_{il}A_{lj}
-        $$
-        
-    </p>
-    <p>
-        Por ejemplo 
+        Denotemos 
         \[
-        \left[ \begin{array}{cc} 
-        b_{1,1} & b_{1,2}  \\
-        b_{2,1} & b_{2,2} \\
-        b_{3,1} & b_{3,2} 
-         \end{array}\right]
-         \left[\begin{array}{cc}
-        a_{1,2} & a_{1,2} \\
-        a_{2,1} & a_{2,2}
-         \end{array}\right]
-         =
-         \left[ \begin{array}{cc}
-        b_{1,1}a_{1,2}+b_{1,2}a_{2,1} & b_{1,1}a_{1,2}+b_{1,2}a_{2,2} \\
-        b_{2,1}a_{1,2}        + b_{2,2}a_{2,1} &  b_{2,1}a_{1,2} +  b_{2,2}a_{2,2} \\
-        b_{3,1}a_{1,2}        + b_{3,2}a_{2,1} &  b_{3,1}a_{1,2} +  b_{3,2}a_{2,2} \\
-         \end{array}\right]
+        V=\{f:\mathbb{R}^n\to \mathbb{R}: f \textrm{ es lineal} \}
         \]
     </p>
+    <ol>
+        <li>
+            Prueba que \(V\) es un espacio vectorial.
+        </li>
+        <li>
+            Prueba que \(V\) es isomorfo a \(\mathbb{R}^n\). Es decir, 
+            existe una biyección \(\Phi: V \to \mathbb{R}^n\) que es lineal.
+        </li>
+    </ol>
+
 </div>
+
+
 
 
 <div class="ejercicio-box"> 
@@ -1428,62 +2091,6 @@
 </div>
 
 
-<div class="teorema-box"> 
-    <h2 class="number-title"> Teorema </h2>
-    <p>
-        Considera las funciones lineales $F:\mathbb{R}^n \to \mathbb{R}^m, G:\mathbb{R}^m \to \mathbb{R}^k$. Sean
-        $A,B$ matrices tales que $F(\mathbf{p})=A\mathbf{p}, G(\mathbf{p})=B\mathbf{p}$.  
-        
-        Demuestra
-        que $(G\circ F)(\mathbf{p})=(BA)\mathbf{p}$, para toda $\mathbf{p}$. 
-    
-    </p>
-    <button class="respButton hvr-grow "> Solución</button>
-    <div class="resp-box">
-    <div>
-        <p>
-            Denotar $q=Ap \in \mathbb{R}^m$. Entonces $G\circ F(p)=G(F(p))=B(Ap)=B(q)$. 
-        </p>
-        <p>
-            Para $i=1,\dots, k$, fijo
-            \begin{eqnarray*}
-            (Bq)_i&=&\sum_{s=1}^m B_{i,s}q_s \\
-            &=& \sum_{s=1}^m B_{i,s}\left( \sum_{r=1}^n A_{s,r}p_r \right)\\
-            &=&\sum_{s=1}^k\sum_{r=1}^m B_{i,s}A_{s,r}p_r\\
-            &=&\sum_{r=1}^m \left( \sum_{s=1}^k B_{i,s}A_{s,r}  \right)p_r \\
-            &=&\sum_{r=1}^m (BA)_{i,r}p_r \\
-            &=& (BA p)_i
-            \end{eqnarray*}
-        </p>
-    </div>    
-    </div>
-</div>
-
-
-<div class="definicion-box">
-    <h2 class="number-title"> Definición </h2> 
-    <p>
-        Una función lineal $F:\mathbb{R}^n \to \mathbb{R}^n$ se llama invertible si es inyectiva
-        y suprayectiva, es decir, una biyección. 
-    </p>
-    <p>
-        Como consecuencia existe una función,
-        que vamos a denotar $F^{\langle -1 \rangle }:\mathbb{R}^n \to \mathbb{R}^n$,
-        que satisface $F\circ F^{\langle -1 \rangle }(\mathbf{q})=\mathbf{q}$, 
-        $F^{\langle -1 \rangle }\circ F(\mathbf{p})=\mathbf{p}$, para todas $\mathbf{p}$, $\mathbf{q}$.
-    </p>
-    <p>
-        Nota: para encontrar la regla de correspondencia de \(F^{\langle -1 \rangle }\)
-        se plantea la ecuación 
-        \[
-        F(\mathbf{p})=\mathbf{q}
-        \]
-        y se revuelve para  las coordenadas de \(\mathbf{p}\) en términos de las 
-        coordenadas de \(\mathbf{q}\).
-    </p>
-
-</div>
-
 
 <div class="ejercicio-box"> 
     <h2 class="number-title"> Ejercicio </h2>
@@ -1543,86 +2150,8 @@
 </div>
 
 
-<div class="teorema-box"> 
-    <h2 class="number-title"> Teorema </h2>
-    <p>
-        Sea $F:\mathbb{R}^n \to \mathbb{R}^n$ una función lineal e invertible. 
-    </p> 
-<ol>
-    <li>
-        Demuestra que $F^{\langle -1 \rangle}$ es lineal.
-    </li>
-    <li>
-        Sea $A$ matriz asociada a $F$ y $B$ la matriz asociada a $F^{\langle -1 \rangle }$. Demuestra
-        que $AB=BA=I_n$.
-    </li>
-</ol>
-        <button class="respButton hvr-grow "> Solución</button>
-        <div class="resp-box">  
-        <p>
-            Inciso 1.
-        </p>
-        <p>
-            Debemos de probar 
-            \[
-            F^{\langle -1 \rangle }(\beta \mathbf{q}_1+\mathbf{q}_2) =
-            \beta F^{\langle -1 \rangle }(\mathbf{q}_1)+F^{\langle -1 \rangle}(\mathbf{q}_2)
-            \]
-            Denotamos \(F^{\langle -1 \rangle}(\mathbf{q}_i)=\mathbf{p}_i\), \(i=1,2\). 
-            Por definición \(\mathbf{p}_i\) es el 
-            único punto que satisface 
-            \(F(\mathbf{p}_i)=\mathbf{q}_i\). De lo anterior y 
-            de la linealidad de \(F\) se sigue que 
-            \begin{eqnarray*}
-            F(\beta \mathbf{p}_1+\mathbf{p}_2)=\beta F(\mathbf{p}_1)+ F(\mathbf{p}_2)=\beta \mathbf{q}_1+\mathbf{q}_2
-            \end{eqnarray*}
-            Por lo tanto, por la definición de \(F^{\langle -1 \rangle}\), llegamos a 
-            \begin{eqnarray*}
-            F^{\langle -1 \rangle}(\beta \mathbf{q}_1+\mathbf{q}_2)&=& \beta \mathbf{p}_1+\mathbf{p}_2 \\
-            &=& \beta F^{\langle -1 \rangle }(\mathbf{q}_1)+F^{\langle -1 \rangle}(\mathbf{q}_2)
-            \end{eqnarray*}
-        </p>
-        <p>
-            Inciso 2.
-        </p>
-        <p>
-           Sabemos que 
-           \begin{eqnarray*}
-           (F^{\langle -1 \rangle }\circ F)(\mathbf{p})&=&  ( F\circ F^{\langle -1 \rangle })(\mathbf{p}) \\
-           &=&\mathbf{p}\\
-           &=&Id(\mathbf{p}) \\
-           \end{eqnarray*}
-           para todo \(\mathbf{p}\in \mathbb{R}^n\), donde \(Id\) es la función identidad. Por el
-           Ejercicio 3.33 y la unicidad de la representación de funciones lineales como 
-           multiplicación como matriz  concluimos \(AB=BA=I_n\), donde \(I_n\) es la matriz identidad.
-        </p>
-        </div>
-
-</div>
 
 
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2>
-    <p>
-        La función determinante tiene la siguiente identidad: $\det(AB)=\det(A)\det(B)$. Usando 
-        ésta propiedad y el hecho de que $\det(I_n)=1$ demuestra que si $A$ es invertible
-        entonces $\det(A)\ne 0$ y $\det(A^{-1})=\det(A)^{-1}$.
-    </p> 
-</div>
-
-
-<div class="teorema-box">
-    <h2 class="number-title"> Teorema </h2>
-    <h3> Función inversa (para funciones lineales)</h3>
-    <p>
-        Sea \(F:\mathbb{R}^n \to \mathbb{R}^n\) una función lineal y \(A\) la matriz tal que 
-        \(F(\mathbf{p})=A\mathbf{p}\), para todo \(\mathbf{p}\in \mathbb{R}^n\).
-    </p>
-    <p>
-        La función \(F\) es invertible sii \(\det(A)\ne 0\).
-    </p>
-
-</div>   
 
 <div class="ejercicio-box"> 
     <h2 class="number-title"> Ejercicio </h2> 
@@ -1811,80 +2340,10 @@
 
 </div>
 
-<div class="ejercicio-box">
-    <h2 class="number-title"> Ejercicio </h2>
-    <p>
-        Sea \(f:\mathbb{R}^3 \to \mathbb{R}\) lineal. Escribamos la función como 
-        \[
-        f(x,y,z)=ax+by+cz
-        \]
-        Si \(c\ne 0\) existe una función \(g:\mathbb{R}^2 \to \mathbb{R}\) tal que 
-        \[
-        f(x,y,g(x,y))=0
-        \]
-        para todo \((x,y,z)\).
-    </p>
-    <p>
-        Si denotamos 
-        \[
-        N(f)=\{(x,y,z)\in \mathbb{R}^3: f(x,y,z)=0\}
-        \]
-        lo anterior se puede escribir como 
-        \[
-        \textrm{Gráfica}(g)\subseteq N(f).
-        \]
-    </p>
 
-</div>
-
-<div class="teorema-box">
-    <h2 class="number-title"> Teorema </h2>
-    <h3> Función implícita (para funciones lineales)</h3>
-    <p>
-        Sean \(f_1,f_2, \dots, f_m: \mathbb{R}^{k+m} \to \mathbb{R}\) funciones lineales.
-        Vamos a denotar los puntos de \(\mathbb{R}^{k+m}\) como \((\mathbf{x},\mathbf{y})\)
-        con \(\mathbf{x}=(x_1,\dots, x_k), \mathbf{y}=(y_1,\dots, y_m)\).
-    </p>
-    <p>
-        Por el Teorema de representación de Riesz, para toda función \(f_i\) podemos escribir 
-        \[
-        f_i(x_1,\dots, x_k,y_1,\dots, y_m)=\sum_{r=1}^k a_{i,r}x_r+ \sum_{s=1}^m b_{i,s}y_s
-        \]
-        Denotemos \(B=[b_{i,j}]\), una  matriz de \(m\times m\).
-    </p>
-    <p>
-        Si \(\det(B)\ne 0\) entonces existen funciones 
-        \[
-        g_i:\mathbb{R}^k \to \mathbb{R}
-        \]
-        \(i=1,2,\dots, m\), tales que 
-        \[
-        y_i=g_i(x_1,\dots, x_k)
-        \]
-        y además 
-        \[
-        f_i(\mathbf{x},g_1(\mathbf{x}), \dots, g_m(\mathbf{x}))=0
-        \]
-        para todo \(\mathbf{x}\) y para toda \(i=1,\dots, m\).
-    </p>
-    <p>
-        En otras palabras la intersección
-        \[
-        \textrm{Gráfica}(G)\subseteq \cap_{i=1}^m N(f_i)
-        \]
-        donde \(G(\mathbf{x})=(g_1(\mathbf{x}),\dots, g_m(\mathbf{x}))\).
-    </p>
-    <p>
-        Recordar
-        \[
-        N(f)=\{(\mathbf{x},\mathbf{y}): f(\mathbf{x},\mathbf{y})=0 \}
-        \]
-    </p>
-
-</div>
    
 
-<div class="definicion-box">
+<!-- <div class="definicion-box">
     <h2 class="number-title"> Definición </h2> 
     <p>
         Por $M$ denotamos un plano en $\mathbb{R}^n$. Vamos a dar dos definiciones de la 
@@ -2142,10 +2601,10 @@
         \mathbf{u}\times \mathbf{v}$
         y sea $P_\mathbf{w}:\mathbb{R}^3 \to \mathbb{R}^3$ la proyección ortogonal a la línea recta generada por
         $\mathbf{w}$. Demuestra que $\mathbf{p}-P_\mathbf{w}(\mathbf{p})$ está en $M$.
-        <!--<p>
+        <p>
             Sugerencia: primera demuestra que $p-P_w(p)$ es ortogonal a $u\times v$ y después usa el ejercicio 
             \ref{Ejer:BaseConProductoCruz} para concluir que $p-P_w(p)$ está en $M$.
-        </p> -->
+        </p> 
         
         
     </li>
@@ -2268,7 +2727,7 @@
     </p>
 </div>
 
-</div>
+</div>-->
 
 
  </body>
