@@ -1,0 +1,2540 @@
+<!DOCTYPE html PUBLIC >
+
+<html lang="es">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
+
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1],
+            id: "\\operatorname{id}",
+          },
+          tags: "ams", /* this part is for numbered equations */
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+      };
+    </script>
+
+    <!-- This part is for using single $ for latex input, instead of \(\) -->
+    <!--<script>
+        MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>-->
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../style.css" />
+
+    <!-- This part restart counter of cards to start at n+1 -->
+    <style>
+        body.number-title{
+          counter-reset: sectionCounter 2 cardCounter ;
+        }
+        h1.number-title{
+          counter-reset: sectionCounter 2 cardCounter ;
+        }
+      </style>
+  
+    <!-- Top Menu  -->
+
+
+        <header class="main-header">
+          <h1> Cálculo TRES </h1>
+         <nav class="top-nav">
+           <ul>
+              <li> <a href="../Home.html"> Inicio  </a> </li>
+              <li> <a href="../InfoPrimerDia.html"> Información general </a> </li>
+              <li> <a href="../Secciones.html"> Secciones  </a> </li>
+              <li> <a href="../ExternalLinks.html"> Links </a> </li>
+              
+            </ul>
+          </nav>
+          <label class="switch">
+            <input type="checkbox" onclick="myFunction()">
+            <span class="slider"></span>
+          </label>
+        </header>
+
+      <!-- This part is for title in tab-->
+      <title id="Sec"> § 3 </title>
+    
+  </head>
+
+ <body class="fondo-body" >
+
+
+   <h1 class="number-title flexbox"> Funciones de varias variables </h1> 
+   <!-- this part is for next and prev sections -->
+   <button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>
+   <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
+
+
+
+
+
+    <div class="info-box">
+        <h2 class="number-title"> Introducción </h2>
+        <p>
+            Una parte importante del cálculo es analizar funciones para obtener 
+            información sobre ellas. Como ahora tenemos funciones de varias variables 
+            las combinaciones son numerosas:
+            <ol>
+                <li>
+                    funciones que mandan vectores a números (por ejemplo, la temperatura en cada punto del espacio).
+                </li>
+                <li>
+                    funciones que mandan números a vectores (por ejemplo, la trayectoria de una nave espacial con respecto al tiempo).
+                </li>
+                <li>
+                    funciones que mandan vectores a vectores (por ejemplo, la fuerza de un campo magnético en cada punto del espacio).
+                </li>
+            </ol>
+        </p>
+        <p>
+            Además, las gráficas, que en cálculo de una variable eran tan útiles van perdiendo 
+            terreno cuando el número de variables aumenta por lo que se necesitan algunas ideas 
+            para visualizar dichas funciones. 
+        </p>
+        <p>
+            En esta sección vamos a ver algunos ejemplos de funciones y herramientas para un estudio básico.
+        </p>
+    </div>
+
+
+    <div class="definicion-box"> 
+        <h2 class="number-title"> Definición </h2>
+        <p>
+            Una función escalar (o que toma valores reales) es simplemente una función 
+            \(f:D\to \mathbb{R}\) donde \(D\) es un subconjunto de algún \(\mathbb{R}^n\).
+        </p>
+        <h3>
+            Gráfica
+        </h3>
+        <p>
+            Si \(f:D\subseteq \mathbb{R}^n \to \mathbb{R}\) es una función escalar su gráfica 
+            se define como el subconjunto de \(\mathbb{R}^{n+1}\) dado por 
+            \[
+            \textrm{Gráfica}(f)=\{(x,f(x)): x\in D\}
+            \]
+
+        </p>
+        <ul>
+            <li>
+                        <p>
+            En el caso de funciones de una variable, \(n=1\), por lo que 
+            la gráfica es un subconjunto de  \(\mathbb{R}^2\) y es la gráfica que conocemos 
+            de cálculo 1 y 2.
+            <p>
+                <div class="flexbox" >
+                <img src="./Images/S3-Img2.png" alt="dimension2" width="40%" height="auto" >
+              </div>
+            </p>
+        </p>
+            </li>
+            <li>
+            <p>
+            Para funciones de dos variables, \(n=2\), por lo que la gráfica es un 
+            subconjunto de \(\mathbb{R}^3\) y la gráfica se conoce como una superficie.
+            <p>
+                <div class="flexbox" >
+                <img src="./Images/S3-Img3.png" alt="dimension3" width="40%" height="auto" >
+              </div>
+            </p>
+        </p>
+
+            </li>
+            <li>
+            <p>
+            Para funciones de tres variables la gráfica es un subconjunto de \(\mathbb{R}^4\) por lo 
+            que ya no es posible dibujar la gráfica. Asi que para funciones de  tres o más variables 
+            las gráficas, como una herramienta visual, dejan de ser útiles.
+            </p>
+            </li>
+        </ul>
+        
+                
+        <h3>
+            Conjuntos de nivel
+        </h3>
+        <p>
+            Ya que las gráficas dejan de ser prácticas en dimensión 3 o más el siguiente recurso 
+            es ver los conjuntos de nivel. 
+        </p>
+        <p>
+            Dada una función $f:D\subseteq \mathbb{R}^n \to \mathbb{R}$, el conjunto de nivel, correspondiente 
+            al valor  $c\in \mathbb{R}$, es el subconjunto de \(\mathbb{R}^n\) dado por:
+            $$
+            N_c(f)=\{ p\in D: f(p)=c \}	
+            $$
+        </p>
+        <ul>
+            <li>
+            <p>
+            Para funciones de dos variables, $D\subseteq \mathbb{R}^2$, y los conjuntos de nivel se llaman curvas de 
+            nivel. Por ejemplo para \(f(x,y)=x^2+xy-y^2\) la gráfica y las 
+            curvas de nivel se ven:
+            <p>
+                <div class="flexbox" >
+                <img src="./Images/S3-Img4.png" alt="curvasygrafica" width="40%" height="auto" >
+              </div>
+            </p>
+
+        </p>
+        <p>
+            Observación: las curvas de nivel se obtienen al cortar la gráfica con planos 
+            paralelos al plano \(xy\).
+        </p>
+            </li>
+            <li>
+            <p>
+            Para funciones de tres variables, $D\subseteq \mathbb{R}^3$, y los conjuntos de 
+            nivel  se llaman superficies de nivel. Por ejemplo 
+            para \(f(x,y,z)=x^2-y^3-zy\) algunas superficies de nivel se ven:
+            </p>
+            <p>
+                <div class="flexbox" >
+                <img src="./Images/S3-Img5.png" alt="superficiesnivel" width="40%" height="auto" >
+              </div>
+            </p>
+            </li>
+            <li>
+                Para cuatro o más variables los subconjuntos de nivel no se puede dibujar pues 
+                son subconjuntos de espacios de dimensión cuatro o mayor.
+            </li>
+        </ul>
+	</div>
+
+
+
+
+	<div class="definicion-box"> 
+        <h2 class="number-title"> Definición </h2>
+        <p>
+            Otro tipo de funciones son las que a mandan números a vectores. Dentro de 
+            estas las más comunes son las trayectorias parametrizadas.
+        </p>
+        <p>
+            Una trayectoria parametrizada en \(\mathbb{R}^n\) es una función $\gamma:I \to \mathbb{R}^n$, donde $I \subseteq \mathbb{R}$ es un intervalo. 
+            Dada una trayectoria $\gamma$ la curva generada por \(\gamma\) (también conocida 
+            como traza) es el subconjunto de \(\mathbb{R}^n\) dado por: 
+            $$
+            \textrm{Traza}(\gamma)=\{ \gamma(t): t\in I\} 
+            $$        
+        </p>
+        <ul>
+            <li>
+            <p>
+            En dimensión dos una curva parametrizada tiene 
+            una regla de correspondencia que se ve como \(\gamma(t)=(x(t),y(t))\), donde 
+            \(x,y:I \to \mathbb{R}\) son dos funciones. 
+            </p>
+            <p>
+            Por ejemplo, \(\gamma(t)=(\cos(t),\sen(t))\), \(t\in [0,2\pi]\),
+            dibuja un círculo de radio 1 (o también se dice que tiene una traza que es un 
+            círculo de radio 1). Nota: como los intervalos en \(\mathbb{R}\) tienen una 
+            dirección natural (de izquierda a derecha) ésto induce una orientación 
+            en la curva parametrizada. En el ejemplo anterior el círculo se recorre 
+            en el sentido contrario a las manecillas del reloj.
+            <p>
+                <div class="flexbox" >
+                <img src="./Images/S3-Img6.png" alt="circulounitario" width="40%" height="auto" >
+              </div>
+            </p>
+            
+            </li>
+            <li>
+            <p>
+            En dimensión tres una curva parametrizada tiene 
+            una regla de correspondencia que se ve como \(\gamma(t)=(x(t),y(t),z(t))\), donde 
+            \(x,y,z:I \to \mathbb{R}\) son dos funciones. 
+            </p>
+            <p>
+            Por ejemplo, \(\gamma(t)=(\cos(t),\sen(t),\cos(t))\), \(t\in [0,2\pi]\),
+            dibuja una espiral. Nota: la misma idea de orientación se tiene presente 
+            en dimensión 3, asi que ésta espiral "sube".
+            <p>
+                <div class="flexbox" >
+                <img src="./Images/S3-Img7.png" alt="espiral" width="40%" height="auto" >
+              </div>
+            </p>
+            
+            </li>
+            <li>
+                Para curvas en cuatro o más dimensiones la traza ya no se puede dibujar.
+            </li>
+        </ul>
+        
+	
+	</div>	
+	
+
+
+    <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+            Por último están las funciones que mandan vectores en vectores. También 
+            llamadas funciones vectoriales o campos vectoriales, \(F:D\subseteq \mathbb{R}^m \to \mathbb{R}^n\).
+            Vairando los valores de las dimensiones del dominio y codominio 
+            se puede ver que estas funciones incluyen todas las anteriores.
+        </p>
+        <p>
+            A continuación mencionamos algunos ejemplos.
+        </p>
+        <ol>
+            <li>
+                <p>
+                    Cambios de coordenadas.
+                </p>
+                <p>
+                    Funciones que en las que el dominio y codominio tienen la misma dimensión. La idea 
+                    es que transforman la forma de representar los puntos y tienen una función inversa 
+                    que permite regresar a las coordeandas originales.
+                </p>
+                <p>
+                    Coordenadas polares. 
+                    \[ 
+                    T: [0,\infty)\times [0,2\pi) \to \mathbb{R}^2, \,
+                    T(r,\theta)=(r\cos(\theta), r\sen(\theta))
+                    \]
+                    con inversa  
+                    \[
+                    S:\mathbb{R}^2\to  [0,\infty)\times [0,2\pi) , \, S(x,y)=( \sqrt{x^2+y^2},\theta)
+                    \]
+                    donde \(\theta\) es el ángulo de \((x,y)\) con el eje \(x\).
+
+                </p>
+                <p>
+                    Coordenas cilíndricas.
+                </p>
+                <p>
+                    \[
+                    T:[0,\infty)\times [0,2\pi) \times \mathbb{R} \to \mathbb{R}^3, \, 
+                    T(r,\theta,z)=(r\cos(\theta),r\sen(\theta),z)
+                    \]
+                    con inversa 
+                    \[
+                    S:\mathbb{R}^3 \to [0,\infty)\times [0,2\pi) \times \mathbb{R},\,
+                    S(x,y,z)=(\sqrt{x^2+y^2}, \theta, z)
+                    \]
+                    donde \(\theta\) es el ángulo del punto \((x,y)\) con el eje \(x\).
+                </p>
+            </li>
+
+        </ol>
+
+
+    </div>
+
+
+
+
+
+
+
+    
+
+   <div class="definicion-box">
+    <h2 class="number-title">Definición  </h2>
+    <p>
+        Una función $F:\mathbb{R}^n \to \mathbb{R}^m$ se llama lineal si, para todo $\alpha \in \mathbb{R}$
+        y todos $p,q\in \mathbb{R}^n$
+        $$
+        F(\alpha p +q)=\alpha F(p)+F(q).
+        $$
+    </p>
+
+   </div>
+
+
+
+
+
+
+   <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+    <p>
+        Supon que $f:\mathbb{R}^2 \to \mathbb{R}$ es lineal y que $f(0,1)=3, f(1,1)=-1$. Calcula
+    </p>
+   <ol>
+    <li>
+        $f(1,5)$,
+    </li>
+    <li>
+        $f(2,3)$,
+    </li>
+    <li>
+        $f(-1,0)$.
+    </li>
+   </ol>
+   <button class="respButton hvr-grow "> Solución inciso 1</button>
+   <div class="resp-box">
+    <p>
+        La idea es escrbir \((1,5)\) como una suma de la forma 
+        \[
+        (1,5)=a(0,1)+b(1,1)
+        \]
+        Resolviendo el sistema anterior tenemos 
+        \begin{eqnarray*}
+            1=b \\
+            5=a+b
+        \end{eqnarray*}
+        por lo tanto \(b=1\) y \(a=4\). Con esta información y usando la linealidad de \(f\) obtenemos 
+        \[
+        f(1,5)=f(a(0,1)+b(1,1))=af(0,1)+b(1,1)=4(3)+ 1(-1)=11.
+        \]
+    </p>
+
+   </div>
+   </div>
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+        Demuestra que si $F$ es una función lineal, $F(0)=0$.
+    </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            Usando que \(F\) abre sumas: 
+            \[
+            F(0)=F(0+0)=F(0)+F(0) \Rightarrow 0=F(0).
+            \]
+        </p>
+
+    </div>
+</div>
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+    <p> 
+        Sea $\sigma$ una permutación del conjunto $\{1,2,3\}$. Define $F:\mathbb{R}^3\to \mathbb{R}^3$ por
+        $F(p_1,p_2,p_3)=(p_{\sigma(1)}, p_{\sigma(2)}, p_{\sigma(3)})$. Prueba que $F$ es una función lineal.        
+    </p>
+</div>
+
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title" id="Ejer:RieszR3"> Ejercicio </h2> 
+    <p>
+        El <a href="./S1.html#Ejer:PropiedadesProdInt"> Ejercicio 1.22</a> prueba que, dado un vector fijo \(v\in \mathbb{R}^3\), 
+        la función \(f:\mathbb{R}^3 \to \mathbb{R}\) dada por 
+        \[
+        f(p)=\langle v.p\rangle
+        \]
+        es lineal. Este ejercicio prueba que toda función lineal de \(\mathbb{R}^3 \) a \(\mathbb{R}\)
+        se puede escribir de esta forma.
+    </p>
+    <p>
+        Sea $f:\mathbb{R}^3 \to \mathbb{R}$ una función lineal. Demuestra que existe un vector
+        $v\in \mathbb{R}^3$ tal que $f(p)=\langle v, p \rangle$, para toda $p\in \mathbb{R}^3$.
+    </p>
+    <p>
+        Sugerencia: $v=(f(\hat{i}), f(\hat{j}), f(\hat{k}))$. 
+    </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+    <p>
+        Para \(p=(p_1,p_2,p_3)\in \mathbb{R}\) arbitrario escribimos
+        \[
+        p=p_1\hat{i}+p_2\hat{k}+p_3\hat{k}
+        \]
+        Usando la linealidad de \(f\) obtenemos 
+        \[
+            f(p)=p_1f(\hat{i})+p_2f(\hat{j})+p_3f(\hat{k})
+        \]
+        Finalmente notamos que la última expresión se puede escribir como un producto interior 
+        \[
+        p_1f(\hat{i})+p_2f(\hat{j})+p_3f(\hat{k})=\langle (p_1,p_2,p_3), (f(\hat{i}),f(\hat{j}),f(\hat{k}))
+        \]
+        por lo que \(f(p)=\langle p, v \rangle\), con \(v=(f(\hat{i}),f(\hat{j}),f(\hat{k})\).
+    </p>
+
+</div>
+</div>
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title" id="Ejer:UnicidadRieszR3"> Ejercicio </h2>
+    <p>
+        Sean $u,v\in \mathbb{R}^3$ dos vectores con la pripiedad de que $\langle v,p \rangle = \langle u,p \rangle$
+        para toda $p\in \mathbb{R}^3$. Demuestra que $u=v$.  
+    </p>
+    <p>
+        Nota: dada una función lineal, \(f:\mathbb{R}^3\to \mathbb{R}\), el <a href="#Ejer:RieszR3">Ejercicio 3.5</a>
+        asegura que existe \(v\in \mathbb{R}\) tal que \(f(p)=\langle p, v\rangle\). Como consecuencia de 
+        éste ejercicio obtenemos que dicho vector \(v\) es único.
+    </p>  
+
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            Supongamos que \(\langle v,p\rangle = \langle u,p\rangle \) para todo punto \(p\in \mathbb{R}\). 
+            Usando las propiedades del producto interior lo anterior es equivalente a 
+            \(\langle v-u, p \rangle =0\) para todo \(p\). En particular, tomando \(p=v-u\) llegamos a 
+            \[
+            0=\langle v-u , v-u \rangle =\|v-u\|^2
+            \]
+            y por las propiedades de la norma conclimos que \(u=v\).
+        </p>
+    </div>
+    
+</div>
+
+
+
+
+<div class="teorema-box"> 
+    <h2 class="number-title" id="Ejer:TeoRiesz"> Teorema </h2> 
+    <h3> Teorema de Riesz en $\mathbb{R}^n$ </h3>
+    <p> 
+        Este Teorema generaliza  el ejericio anterior.
+        Es decir, demuestra que para toda función lineal  $f:\mathbb{R}^n \to \mathbb{R}$
+        existe un único vector $v\in \mathbb{R}^n$ tal que $f(p)=\langle v, p \rangle$, para todo $p$.        
+    </p> 
+    <button class="respButton hvr-grow ">Demostración </button>
+    <div class="resp-box"> 
+        <p>
+            Existencia.
+        </p>
+        <p>
+            Por \(\{ \mathbb{e}_i \}_{i=1}^n\) denotamos la base canónica de \(\mathbb{R}^n\). Escribiendo 
+            \(p\) como combinación lineal de los \(\{\mathbb{e}\}_{i=1}^n\) tenemos 
+            \[
+            p=\sum_{i=1}^n p_i \mathbb{e}_i
+            \]
+            Aplicando \(f\) en ambos lados y suando la linealidad obtenemos
+            \begin{eqnarray*} 
+                f(p)=\sum_{i=1}^n p_i f(\mathbb{e}_i)
+            \end{eqnarray*}
+            la cual se puede escribir como un producto interior 
+            \[
+            \langle p, v\rangle 
+            \]
+            si tomamos \(v=(f(\mathbb{e}_1), f(\mathbb{e}_2),\dots, f(\mathbb{e}_n)\).
+        </p>
+        <p>
+            Unicidad.
+        </p>
+        <p>
+            Supongamos que existe un \(u\in \mathbb{R}^n\) tal que 
+            \[
+            f(p)=\langle v, p \rangle = \langle u, p \rangle
+            \]
+            para todo \(p\in \mathbb{R}^n\). Lo anterior se puede escribir como 
+            \[
+            \langle v-u,p\rangle=0, 
+            \]
+             para todo \(p\). Finalmente tomando \(p=v-u\) obtenemos \(\|v-u\|=0\), 
+             por lo tanto \(u=v\).
+        </p>
+    </div>
+</div>
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title" id="Ejer:CoincidenciaLinealesEnBase"> Ejercicio </h2> 
+    <p>
+        Sean $F,G: \mathbb{R}^3 \to \mathbb{R}^m$ dos funciones
+        lineales tales que $F(\hat{i})=G(\hat{i})$,
+        $F(\hat{j})=G(\hat{j})$ y $F(\hat{k})=G(\hat{k})$. Demuestra que $F=G$.        
+    </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            Para probar la igualdad de las funciones debemos de probar que para todo 
+            punto \(p\in \mathbb{R}^3\), \(F(p)=G(p)\). Para probarlo escribirmos a 
+            \(p\) como  un combinación lineal de los vectores \(\{\hat{i},\hat{j},\hat{k} \}\)
+            y aplicamos \(F\) y \(G\) (recordando que ambas son lineales)
+            \begin{eqnarray*}
+            p=p_1\hat{i}+p_2\hat{j}+p_3\hat{k} & \Rightarrow & F(p)=p_1F(\hat{i})+p_2F(\hat{j})+p_3F(\hat{k})\\
+             & \Rightarrow & G(p)=p_1G(\hat{i})+p_2G(\hat{j})+p_3G(\hat{k})
+            \end{eqnarray*}
+            Finalmente usando \(F(\hat{i})=G(\hat{i}), F(\hat{j})=G(\hat{j})\) y 
+            \(F(\hat{k})=G(\hat{k})\) concluimos \(F(p)=G(p)\).
+        </p>
+
+    </div>
+</div>
+
+
+
+<div class="definicion-box">
+    <h2 class="number-title"> Definición </h2> 
+    <p>
+        Con junto $\{\mathbf{v}_i \}_{i=1}^l \subset \mathbb{R}^n$ se dice que genera a $\mathbb{R}^n$, si para
+        todo $\mathbf{p}\in \mathbb{R}^n$, existen escalares $\alpha_1,\dots, \alpha_l$ tales que
+        $$
+        \mathbf{p}=\sum_{i=1}^l \alpha_i \mathbf{v}_i.
+        $$
+        Nota: se puede probar que si el conjunto $\{\mathbf{v}_i \}_{i=1}^l \subset \mathbb{R}^n$
+        genera a $\mathbb{R}^n$, entonces $ l \geq  n$.
+    </p>
+
+</div>
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+    <p>
+        En $\mathbb{R}^n$ considera los vectores $\{ \mathbf{e}_i\}_{i=1}^n$, tal que
+        $\mathbf{e}_i$ tiene todas sus entradas iguales a cero, excepto en la entrada $i$ donde tiene un $1$. Prueba que 
+        el conjunto $\{\mathbf{e}_i\}_{i=1}^n$ genera a $\mathbb{R}^n$.
+    </p>
+</div>
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+        Este ejercicio generaliza el ejercicio <a href="#Ejer:CoincidenciaLinealesEnBase"> Ejercicio 3.8</a>
+    </p>
+    <p>
+        Sea $F,G:\mathbb{R}^n \to \mathbb{R}^m$, dos funciones lineales y sea
+        $\{\mathbf{v}_i\}_{i=1}^l \subset \mathbb{R}^n$ un conjunto generador. 
+        Si $F(\mathbf{v}_i)=G(\mathbf{v}_i)$,
+        para todo $i=1,\dots, l$, entonces $F=G$.        
+    </p> 
+</div>
+
+    <div class="lema-box"> 
+    <h2 class="number-title" id="Ejer:PrelimMatrixFormLinearFunct"> Lema </h2> 
+    <p>
+        Sea $F:\mathbb{R}^n\to \mathbb{R}^m$ una función lineal. Demuestra que existen vectores
+        $\mathbf{v}_1,\dots,\mathbf{v}_n\in \mathbb{R}^n$ tales que, para todo $\mathbf{p}\in \mathbb{R}^n$
+        $$
+        F(\mathbf{p})=p_1\mathbf{v}_1+p_2\mathbf{v}_2 +\cdots + p_n\mathbf{v}_n.
+        $$
+     
+    </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            Escribiendo \(\mathbf{p}\) como combinación lineal de los vectores canónicos 
+            \[
+            \mathbf{p}=p_1\mathbf{e}_1+\cdots + p_n \mathbf{e}_n
+            \]
+            y aplicando \(F\) obtenemos (usando la linealidad) que 
+            \[
+            F(\mathbf{p})=p_1F(\mathbf{e}_1)+\cdots + p_n F(\mathbf{e}_n).
+            \]
+            Tomando los vectores \(\mathbf{v}_i:=F(\mathbf{e}_i)\) concluimos 
+            \[
+            F(\mathbf{p})=p_1\mathbf{v}_1+\cdots + p_n \mathbf{v}_n.
+            \]
+        </p>
+
+    </div>
+</div>
+
+   
+   
+   <div class="definicion-box">
+    <h2 class="number-title"> Definición </h2> 
+    <p>
+        Dada $A$ una matriz de  $m \times n$ y un vector $\mathbf{p}\in \mathbb{R}^n $, 
+        definimos la multiplicación
+        $A \mathbf{p}$, como el vector en $\mathbb{R}^m$ cuya entrada $i$ está dado por
+        $$
+        \sum_{r=1}^n A_{i,r}p_r
+        $$
+        Es decir
+        $$
+        \left[
+        \begin{array}{ccc}
+        A_{1,1} & \cdots & A_{1,n} \\
+        \vdots & \vdots & \vdots  \\
+        A_{m,1}& \cdots & A_{m,n}
+        \end{array}
+        \right]
+        \left[
+        \begin{array}{c}
+        p_1 \\
+        \vdots \\
+        p_n
+        \end{array}
+        \right]
+        =
+        \left[
+        \begin{array}{c}
+        \sum_{j=1}^n A_{1,j}p_j \\
+        \vdots \\
+        \sum_{j=1}^n A_{m,j}p_j
+        \end{array}
+        \right]       
+        $$     
+    </p>
+   </div>
+   
+   
+   <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+    <p>
+        Escribe las siguientes expresiones como productos de la forma $Ap$, donde $A$ es una matriz y $p$ un 
+        vector columna.     
+    </p>
+   <ol>
+    <li>
+        $$
+        \left[
+        \begin{array}{cc}
+        p_1+p_2 \\
+        p_1-p_2
+        \end{array}
+        \right]	
+        $$
+        para $p\in \mathbb{R}^2$.
+    </li>
+    <li>
+        $2p_1+p_3$, para  $p\in \mathbb{R}^3$.
+    </li> 
+    <li>
+        $2p_1+p_3$, para $p\in \mathbb{R}^4$.
+    </li>
+    <li>
+        $$
+        \left[
+        \begin{array}{c}
+        p_1-2p_2 \\
+        p_3+4p_4 \\
+        p_1+p_2+p_3+p_4
+        \end{array}
+        \right]
+        $$
+        para $p\in \mathbb{R}^4$.     
+    </li>
+    <li>
+        $$
+        \left[
+        \begin{array}{c}
+        0 \\
+        p_1-2p_3\\
+        p_3 \\
+        p_3-p_1
+        \end{array}
+        \right]
+        $$       
+           con $p\in\mathbb{R}^3$.
+    </li>
+   </ol>
+   <button class="respButton hvr-grow "> Solución inciso 1</button>
+
+   <div class="resp-box">
+    
+    <p>
+        En el primer renglón, \(p_1+p_2\), \(p_1\) contribuye 1 y \(p_2\) también. Por lo tanto el primer 
+        renglón de \(A\) debe ser \((1,1)\). El segundo renglón es \(p_1-p_2\) por lo que \(p_1\) contribuye 1
+        y \(p_2\) un -1, por lo que el segundo renglón de \(A\) debe ser \((1,-1)\). 
+    </p>
+    <p>
+        Un cálculo directo prueba que 
+        \[
+        \left[
+        \begin{array}{cc}
+        1  & 1 \\
+        1& -1
+        \end{array}
+        \right]  
+        \left[ 
+        \begin{array}{cc}
+        p_1 \\
+        p_2
+        \end{array}
+        \right]
+        =
+        \left[
+        \begin{array}{cc}
+        p_1+p_2 \\
+        p_1-p_2
+        \end{array}
+        \right]	
+        \]
+        para todo \(p\in \mathbb{R}^2\).
+    </p>
+
+   </div>
+</div>
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+        Sea $M$ una matriz de $m\times n$. Prueba que
+        $$
+        M(\alpha \mathbf{p}+\mathbf{q})=\alpha M\mathbf{p}	+ M\mathbf{q}.
+        $$        
+        Por lo tanto, la multiplicación de una matriz por un vector induce una función lineal.
+    </p> 
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            Para probar la identidad \(M(\alpha \mathbf{p}+\mathbf{q})=\alpha M\mathbf{p}	+ M\mathbf{q}\)
+            debemos probarla entrada por entrada, pues son vectores.
+        </p>
+        <p>
+            La entrada \(i\) de \(M(\alpha \mathbf{p}+\mathbf{q}) \) es 
+            \[
+                \sum_{r=1}^m M_{i,r}(\alpha p_i+ q_i )=\alpha \left(\sum_{r=1}^n M_{i,r} p_i  \right)+
+                \sum_{r=1}^n M_{i,r}q_i.
+            \]
+        </p>
+        <p>
+            Por otro lado, la entrada \(i\) de \(\alpha M\mathbf{p}	+ M\mathbf{q}\) es 
+            \[
+            \alpha \left( \sum_{r=1}^n M_{i,r} p_i\right)	+ \sum_{r=1}^n M_{i,r}q_i.
+            \]
+            Comparando éstas dos últimas ecuaciones obtenemos el resultado.
+        </p>
+
+    </div>
+</div>
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title" id="Ejer:UnicidadMatrizFunLineal"> Ejercicio </h2>
+    <p>
+        Sean $A,B$ dos matrices de $m \times n$. Demuestra que si $A\mathbf{p}=B\mathbf{p}$,
+        para todo $\mathbf{p}\in \mathbb{R}^n$, entonces $A=B$.         
+    </p> 
+    <p>
+        Sugerencia: ve tomando $\mathbf{p}=\mathbf{e}_i$, $i=1,\dots, n$.
+    </p>
+
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            Fijamos indices \(i,j\). Ya que $A\mathbf{p}=B\mathbf{p}$ se vale para todo \(\mathbf{p}\), tomando 
+            \(\mathbf{p}=\mathbf{e}_j\) llegamos a la entrada \(i\) del vector \(A\mathbf{e}_j\) es
+            \[
+            \sum_{r=1}^n A_{i,r}(\mathbf{e}_{j})_r
+            \]
+            donde \((\mathbf{e}_j)_r\) denota la entrada \(r\) del vector \(\mathbf{e}_j\).
+            Por lo tanto \((\mathbf{e}_j)_r=0\) para todo \(r\ne j\) y \((\mathbf{e}_j)_j=1\). Se sigue que  
+            \[
+            \sum_{r=1}^n A_{i,r}(\mathbf{e}_{j})_r=A_{i,j}
+            \]
+            Finalmente ya que \(A\mathbf{e}_j=B\mathbf{e}_j\) para toda \(j\) obtenemos que 
+            \(A_{i,j}=B_{i,j}\) y por lo tanto \(A=B\).
+
+        </p>
+
+    </div>
+</div>
+
+
+<div class="teorema-box"> 
+    <h2 class="number-title" id="Thm:MatrixRepresentation"> Teorema </h2> 
+    <p>
+        Si 
+        $F:\mathbb{R}^n \to \mathbb{R}^m$ es lineal, entonces existe una única matriz $M$, de $m\times n$, 
+        tal que 
+        $$F(\mathbf{p})=M\mathbf{p},$$ 
+        para todo $\mathbf{p}\in \mathbb{R}^n$.        
+    </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            Por el <a href="#Ejer:PrelimMatrixFormLinearFunct">Lema 3.12</a> existen 
+            vectores \(\mathbf{v},\dots, \mathbf{v}_n \in \mathbb{R}^m\) tales que 
+            \[
+            F(\mathbf{p})=\sum_{r=1}^n p_r \mathbf{v}_r
+            \]
+            Si escribimos las entrdas de \(\mathbf{v}_r\) como 
+            \[
+            \mathbf{v}_r=(v_{1,r}, v_{2,r},\dots, v_{n,r})
+            \]
+            tenemos que la entrada \(i\) del vector \(F(\mathbf{p})\) es 
+            \begin{equation}\label{Eqn:Aux1MatrixFunLineal}
+            \textrm{entrada \(i\)}\left(\sum_{r=1}^n p_r \mathbf{v}_r \right)= 
+            \sum_{r=1}^n p_r v_{i,r}
+            \end{equation}
+            Si formamos la matrix \(M\) cuya entrada \(i,j\) es \(v_{i,j}\) obtenemos que 
+            la entrada  \(i\) de \(M\mathbf{p}\) es 
+            \begin{equation}\label{Eqn:Aux2MatrixFunLineal}
+            \sum_{r=1}^n M_{i,r}p_r=\sum_{r=1}^n v_{i,r}p_r
+            \end{equation}
+            Comparando las ecuaciones \eqref{Eqn:Aux1MatrixFunLineal}
+            y \eqref{Eqn:Aux2MatrixFunLineal} obtenemos que todas las 
+            entradas de \(F(\mathbf{p})\) y \(M\mathbf{p}\) son iguales por lo 
+            tanto \(F(\mathbf{p})=M\mathbf{p}\) para toda \(\mathbf{p}\in \mathbb{R}^n\).
+        </p>
+        <p>
+            La unicidad se sigue directamente del <a href="#Ejer:UnicidadMatrizFunLineal">Ejercicio 3.16</a>.
+        </p>
+    </div>
+    
+</div>
+
+
+<div class="definicion-box">
+    <h2 class="number-title"> Definición </h2>    
+    <p>
+        Un vector \(\mathbb{p}\in \mathbb{R}^n\) es combinación lineal de 
+        los vectores \(\{\mathbf{v}_1,\dots, \mathbf{v}_k \}\) si existen 
+        escalares \(a_1,\dots, a_k\in \mathbb{R}^n\) tales que 
+        \[
+        \mathbf{p}=\sum_{i=1}^k a_i \mathbf{v}_i.
+        \]
+    </p>
+</div>
+
+
+</div>
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+        Denotemos
+        \begin{eqnarray*}
+        \mathbf{v}_1=(1,1,-2,1),
+        \mathbf{v}_2=(3,0,4,-1),
+        \mathbf{v}_3=(-1,2,5,2)
+        \end{eqnarray*}
+        y
+        \begin{eqnarray*}
+        \alpha=(4,-5,9,-7), \gamma=(3,1,-4,4). 
+        \end{eqnarray*}
+    </p>
+    <p>
+        ¿Cuál de los vectores \(\alpha, \beta\) son combinación lineal de los vectores \(\mathbf{v}_1,
+        \mathbf{v}_2, \mathbf{v}_3\) ?
+    </p>
+
+    <button class="respButton hvr-grow "> Solución inciso 1</button>
+    <div class="resp-box">
+        <p>
+            Se desarrollará el ejercicio únicamente para $\alpha$. $\alpha$ es combinación lineal
+            de $v_1,v_2, v_3$ si y sólo si existen $a,b,c \in \mathbb{R}$ tales que
+            \begin{equation*}
+            a(1,1,-2,1) + b(3,0,4,-1) + c(-1,2,5,2) = (4,-5,9,-7),
+            \end{equation*}
+            o equivalentemente, si el siguiente sistema de ecuaciones tiene solución $a,b,c \in \mathbb{R}$
+            \begin{align*}
+            a + 3b - c =& 4, \\
+            a + 2c =& -5,\\
+            -2a + 4b + 5c =& 9,\\
+            a - b + 2c =& -7.
+            \end{align*}
+        </p>
+        <p>
+            Empezaremos por considerar únicamente las primeras tres ecuaciones del sistema, y una vez que
+            se obtenga solución para $a,b,c$ se verificará que dicha solución sea compatible con la cuarta ecuación.
+            Note que las primeras tres ecuaciones pueden representarse por medio de la siguiente ecuación matricial:
+
+            \begin{equation*}
+            \begin{pmatrix}
+            1 & 3 & -1\\
+            1 & 0 & 2 \\
+            -2 & 4 & 5
+            \end{pmatrix}
+            \begin{pmatrix}
+            a\\ b \\ c
+            \end{pmatrix} = 
+            \begin{pmatrix}
+            4 \\ -5 \\ 9
+            \end{pmatrix}
+            \end{equation*}
+
+            y que nosotros representaremos por medio de una única matriz como
+
+            \begin{equation*}
+            \begin{pmatrix}
+            1 & 3 & -1 & 4\\
+            1 & 0 & 2 & -5\\
+            -2 & 4 & 5 & 9
+            \end{pmatrix}
+            \end{equation*}
+
+            Denotaremos por $l_1, l_2, l_3$ a las ecuaciones 1, 2 y 3, respectivamente, o en su defecto a la
+            fila correspondiente en la matriz anterior para denotar la suma, resta o multiplicación de éstas.
+            Comenzamos por sumar $l_1$ y $l_2$ a $l_3$ para obtener
+
+            \begin{equation*}
+            \begin{pmatrix}
+            1 & 3 & -1 & 4\\
+            1 & 0 & 2 & -5\\
+            0 & 7 & 6 & 8
+            \end{pmatrix},
+            \end{equation*}
+            ahora restamos $l_1$ a $l_2$
+            \begin{equation*}
+            \begin{pmatrix}
+            1 & 3 & -1 & 4\\
+            0 & -3 & 3 & -9\\
+            0 & 7 & 6 & 8
+            \end{pmatrix},
+            \end{equation*}
+
+            multiplicamos $l_2$ por $-1/3$
+
+            \begin{equation*}
+            \begin{pmatrix}
+            1 & 3 & -1 & 4\\
+            0 & 1 & -1 & 3\\
+            0 & 7 & 6 & 8
+            \end{pmatrix},
+            \end{equation*}
+
+            restamos $7l_2$ a $l_3$
+
+            \begin{equation*}
+            \begin{pmatrix}
+            1 & 3 & -1 & 4\\
+            0 & 1 & -1 & 3\\
+            0 & 0 & 13 & -13
+            \end{pmatrix},
+            \end{equation*}
+
+            multiplicamos $l_3$ por $1/13$ y obtenemos el siguiente sistema equivalente al original:
+
+            \begin{align*}
+            a + 3b - c =& 4\\
+            b - c =& 3\\
+            c =& -1
+            \end{align*}
+
+            De este sistema es fácil deducir que $c=-1, b=2, a = -3$ y finalmente verificamos que
+            \begin{equation*}
+            -3(1,1,-2,1) + 2(3,0,4,-1) + -1(-1,2,5,2) = (4,-5,9,-7),
+            \end{equation*}
+            por lo que $\alpha$ es combinación lineal de $v_1,v_2,v_3$.
+        </p>
+    </div>
+
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2>
+    <ol>
+        <li>
+            ¿Existe una función lineal \(F:\mathbb{R}^3\to \mathbb{R}^2\) que satisface 
+            \(F(1,-1,1)=(1,0), F(1,1,1)=(0,1)\) ?
+        </li>
+        <li>
+            Si 
+            \begin{eqnarray*}
+            \mathbf{v}_1=(1,-1), \mathbf{u}_1=(1,0)\\
+            \mathbf{v}_2=(2,-1), \mathbf{u}_2=(0,1)\\
+            \mathbf{v}_3=(-3,2), \mathbf{u}_3=(1,1)
+            \end{eqnarray*}
+            ¿existe una función lineal \(F:\mathbb{R}^2 \to \mathbb{R}^2\)
+            tal que \(F(\mathbf{v}_i)=\mathbf{u}_i\), i=1,2 ?
+        </li>
+    </ol>
+
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            Empezaremos con el primer inciso. Denotaremos $v_1 = (1,-1,1)$ y $v_2 = (1,1,1)$. Dado
+            que el producto por una matriz $A$ es una transformación lineal se construirá una matriz
+            $A$ que cumpla que $Av_1 = (1,0)$ y $Av_2=(0,1)$. Empezaremos por obtener un tercer vector
+            linealmente independiente de $v_1,v_2$. Sea $v_3 = 1/2 (v_1 \times v_2)=(-1,0,1)$, para
+            facilitar los cálculos $A$ se construirá de manera que $F(v_3) = Av_3 = 0$. Ahora buscamos las combinaciones
+            lineales requeridas para obtener a los vectores canónicos a partir de $v_1,v_2,v_3$, los sistemas
+            de ecuaciones por resolver son de la forma
+
+            \begin{equation*}
+            e_i = a(1,-1,1) + b(1,1,1) + c(-1,0,1).
+            \end{equation*}
+            Escribimos el primero como
+            \begin{align*}
+            1 =& a + b -c,\\
+            0 =& -a + b,\\
+            0 =& a + b + c
+            \end{align*}
+            De la segunda ecuación $a=b$. Sustituyendo en la primera tenemos que $c=2a - 1$ y sustituyendo
+            en la tercera se tiene que $a=1/4=b$ y $c=-1/2$. Usando esta información tenemos que
+            \begin{equation*}
+            F(e_1) = F(1/4v_1 + 1/4v_2 - 1/2 v_3) = 1/4F(v_1) + 1/4F(v_2) - 1/2F(v_3) = (1/4,1/4).
+            \end{equation*}
+
+            El segundo sistema se escribe como
+            \begin{align*}
+            0 =& a + b -c,\\
+            1 =& -a + b,\\
+            0 =& a + b + c
+            \end{align*}
+
+            Restando la primera y última ecuación se tiene que $c=0$, sustituyendo en la segunda $a+b = 0$ y
+            sustituyendo en la tercera $b = 1/2$ y $a=-1/2$. Por lo tanto
+            \begin{equation*}
+            F(e_2) = F( -1/2v_1 + 1/2 v_2) = (-1/2,1/2).
+            \end{equation*}
+
+            De manera similar construimos nuestro tercer sistema de la forma
+            \begin{align*}
+            0 =& a + b -c,\\
+            0 =& -a + b,\\
+            1 =& a + b + c
+            \end{align*}
+
+            De la segunda ecuación $a=b$, sustituyendo en la primera $c=2a$ y sustituyendo en la tercera
+            $a=1/4=b$ y $c=1/2$, así
+            \begin{equation*}
+            F(e_3) = 1/4 F(v_1) + 1/4F(v_2) + 1/2F(v_3) = (1/4,1/4).
+            \end{equation*}
+        </p>
+        <p>
+            Sabemos ahora que la matriz la podemos construir colocando en la i-ésima columna el vector
+            correspondiente a $F(e_i)$, por lo que la matriz buscada es
+            \begin{equation*}
+            A =
+            \begin{pmatrix}
+            1/4 & -1/2 & 1/4\\
+            1/4 & 1/2 & 1/4\\
+            \end{pmatrix}
+            \end{equation*}
+            y se verifica que $Av_1 = (1,0)$ y $Av_2= (0,1)$, por lo que la transformación lineal
+            $Tp = Ap$ cumple lo deseado.
+        </p>
+
+        <p>
+            Para el segundo inciso veremos que no existe tal transformación lineal. Notemos primero
+            que el vector $(-3,2)$ es combinación lineal de $(1,-1)$ y $(2,-1)$, para ello resolvemos
+            el sistema
+            \begin{align*}
+            a + 2b =& -3\\
+            -a -b =& 2,
+            \end{align*}
+            de la primera ecuación $a = -3 - 2b$ y sustituyendo en la segunda se concluye que $b=-1$ y
+            $a = -1$. Si existiera tal función fuera lineal entonces
+            \begin{equation*}
+            F((-3,2)) = F(-(1,-1) - (2,-1)) = -(1,0) - (0,1) = (-1,-1) \neq (1,1) = F((-3,2)).
+            \end{equation*}
+        </p>
+    </div>
+
+</div>
+
+
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+        Prueba que si \(\{\mathbf{u},\mathbf{v}, \mathbf{w}\} \subset \mathbb{R}^n\) es un 
+        conjunto linealmente independiente entonces el conjunto 
+        \(\{\mathbf{u}+\mathbf{v}+\mathbf{w},\mathbf{u}-\mathbf{v},-\mathbf{u}-\mathbf{v}-2\mathbf{w}\}\)
+        también es linealmente independiente.
+    </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            Supongamos que $a_1,a_2,a_3 \in \mathbb{R}$ son tales que
+            \begin{equation*}
+            a_1(u + v + w) + a_2(u - v) + a_3(-u -v - 2w) = 0,
+            \end{equation*}
+            utilizando la asociatividad y distributividad de las operaciones obtenemos
+            la ecuación equivalente
+            \begin{equation*}
+            (a_1 + a_2 - a_3)u + (a_1 - a_2 - a_3)v + (a_1 - 2a_3)w = 0.
+            \end{equation*}
+            Por hipótesis los vectores $\{u,v,w\}$ son l.i., por lo que
+            \begin{align*}
+            a_1 + a_2 - a_3 =& 0,\\
+            a_1 - a_2 - a_3 =& 0,\\
+            a_1 - 2a_3 =& 0,
+            \end{align*}
+            y al resolver este sistema se encuentra que $a_1,a_2,a_3 = 0$. Dado que la única combinación
+            lineal por la que se obtiene el vector $0$ es la trivial, se concluye que el conjunto
+            $\{u+v + w, u-v,-u-v-2w\}$ es linealmente independiente.
+        </p>
+    </div>
+
+ </div>   
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+        Considera la función identidad $\id:\mathbb{R}^n \to \mathbb{R}^n$, 
+        $\id(\mathbf{p})=\mathbf{p}$. Demuestra que la matriz asociada a $\id$ es la matriz 
+        que consiste de $0$'s, excepto en la diagonal donde tiene $1$'s. A dicha matriz la denotamos $I_n$.
+    </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            Para $id: \mathbb{R}^n \to \mathbb{R}^n$ y $p = \begin{pmatrix}
+            p_1 \\
+            p_2 \\
+            \vdots \\
+            p_n
+            \end{pmatrix} \in \mathbb{R}^n$. En primer lugar notamos que $id$ es una transformación lineal:
+            \begin{equation*}
+            id(\alpha p + q) = \alpha p + q = \alpha id(p) + id(q).
+            \end{equation*}
+            Seguido de ello calculamos
+            \begin{equation*}
+            I_n p =
+            \begin{pmatrix}
+            1 & 0 & ... & 0 \\
+            0 & 1 & ... & 0 \\
+            &   & \ddots & \\
+            0 & 0 & ... & 1
+            \end{pmatrix}
+            \begin{pmatrix}
+            p_1 \\
+            p_2 \\
+            \vdots \\
+            p_n
+            \end{pmatrix}
+            = \begin{pmatrix}
+            p_1 \\
+            p_2 \\
+            \vdots \\
+            p_n
+            \end{pmatrix} = id(p).
+            \end{equation*}
+            Por el <a href="#Thm:MatrixRepresentation">Teorema</a> $I_n$ es la (única) matriz asociada a la
+            transformación $id$.
+        </p>
+    </div>
+</div>
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title" id="Ej:RotationFixedPoint"> Ejercicio </h2> 
+    <p>
+        Considera $\theta\in [0, 2\pi)$ y la matriz 
+        $$
+        M=\left[
+        \begin{array}{cc}
+        \cos(\theta ) & -\sen(\theta) \\
+        \sen(\theta) & \cos(\theta)
+        \end{array}
+        \right]
+        $$
+    </p>
+
+<ol>
+    <li>
+        Tome el vector en el circulo unitario $u=(\cos(\varphi), \sen(\varphi))$. Demuestra que
+        $$
+        Mu=\left[
+        \begin{array}{c}
+        \cos(\theta+\varphi) \\
+        \sen(\theta+\varphi)
+        \end{array}
+        \right]
+        $$        
+        Por lo tanto, la matriz $M$ representa la transformación que es rotar el plano un ángulo $\theta$
+        (asi que las rotaciones son funciones lineales).
+        
+    </li>
+    <li>
+        Dado cualquier vector $u\in \mathbb{R}^2$, usa coordenadas polares para escribir 
+        $u=(r\cos(\varphi), r\sen(\varphi))$, con $r\geq 0$ y $\varphi\in [0,2\pi)$. 
+        Demuestra que si $Mu=u$ entonces $u=0$.
+    </li>
+</ol>
+
+<button class="respButton hvr-grow "> Solución</button>
+<div class="resp-box">
+    <p>
+        Comenzaremos por recordar las identidades para suma de ángulos del seno y coseno:
+        \begin{align*}
+        \sen(\alpha + \beta) =& \sen (\alpha) \cos (\beta) + \cos (\alpha) \sen (\beta),\\
+        \cos(\alpha + \beta) =& \cos (\alpha) \cos (\beta) - \sen (\alpha) \sen (\beta) .
+        \end{align*}
+    </p>
+        <ol>
+            <li>
+                Usando las ecuaciones anteriores tenemos que
+                \begin{equation*}
+                Mu =
+                \begin{pmatrix}
+                \cos(\theta) & -\sen(\theta) \\
+                \sen(\theta) & \cos(\theta)
+                \end{pmatrix}
+                \begin{pmatrix}
+                \cos(\varphi)\\
+                \sen(\varphi)
+                \end{pmatrix} =
+                \begin{pmatrix}
+                \cos(\theta)\cos(\varphi) - \sen(\theta)\sen(\varphi)\\
+                \sen(\theta)\cos(\varphi) + \cos(\theta)\sen(\varphi)
+                \end{pmatrix}=
+                \begin{pmatrix}
+                \cos(\theta + \varphi)\\
+                \sen(\theta + \varphi)
+                \end{pmatrix}
+                \end{equation*}
+                Evidentemente la suma de un ángulo constante a la representación de un vector
+                en coordenadas polares significa una rotación por dicho ángulo. El hecho de que
+                la función se pueda escribir como el producto por una matriz asegura también
+                que es una transformación lineal.
+            </li>
+            <li>
+                Notemos que si $\theta=0$ entonces $M=I_n$ y $Mu = u$ para todo $u \in \mathbb{R}^2$,
+                para que el resultado sea el deseado es necesario restringir $0 < \theta < 2\pi$. Con
+                esta aclaración, si $u=(r \cos (\varphi), r \sen(\varphi))$ entonces
+                \begin{equation*}
+                Mu = \begin{pmatrix}
+                \cos(\theta) & -\sen(\theta) \\
+                \sen(\theta) & \cos(\theta)
+                \end{pmatrix}
+                \begin{pmatrix}
+                r\cos(\varphi)\\
+                r\sen(\varphi)
+                \end{pmatrix} =
+                \begin{pmatrix}
+                r\cos(\theta + \varphi)\\
+                r\sen(\theta + \varphi)
+                \end{pmatrix}
+                \end{equation*}
+                Si $u=0$ entonces claramente $Mu = 0$, por otro lado, si $u \neq 0$ entonces al
+                escribirlo en coordenadas polares necesariamente $r \neq 0$ y tenemos que
+                \begin{equation*}
+                \begin{pmatrix}
+                \cos(\varphi)\\
+                \sen(\varphi)
+                \end{pmatrix} =
+                \begin{pmatrix}
+                \cos(\theta + \varphi)\\
+                \sen(\theta + \varphi)
+                \end{pmatrix},
+                \end{equation*}
+                sin embargo, como el periodo de las funciones trigonométricas es $2\pi$  y $0 < \theta < 2\pi$
+                entonces la identidad anterior no puede satisfacerse, con lo que concluimos que
+                necesariamente $r=0$ y por lo tanto $u=0$.
+            </li>
+        </ol>
+</div>
+</div>
+
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+        Sean $u,v, w \in \mathbb{R}^2$ tres
+        puntos en el circulo unitario tal que lo dividen en tres arcos de circunferencia cada uno de la misma longitud.
+        <ol>
+         <li>
+             Prueba que la transformación que rota a el plano un ángulo $2\pi/3$ (en cualquier dirección)
+             deja al vector $u+v+w$ fijo. De lo anterior concluye que $u+v+w=0$.
+         </li>
+         <li>
+             Usando el inciso anterior prueba que, para todo ángulo $\theta$
+             \begin{eqnarray*}
+             \sen(\theta)+\sen(\theta+2\pi/3)+\sen(\theta+4\pi/3)&=&0, \\
+             \cos(\theta)+\cos(\theta+2\pi/3)+\cos(\theta+4\pi/3)&=&0 .
+             \end{eqnarray*}   
+         </li>
+         <li>
+             Generaliza el inciso anterior para demostrar
+             \begin{eqnarray*}
+             \sum_{k=1}^n \cos(\theta+ 2\pi k/n)=0, \quad  \sum_{k=1}^n \sen(\theta +2\pi k /n)=0.
+             \end{eqnarray*}
+         </li>
+        </ol>
+    </p>
+
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <ol>
+            <li>
+                <p>
+
+                    Si $u,v,w$ son tres puntos en la circunferencia unitaria que la dividen en tres arcos de la misma
+                    longitud entonces sin pérdida de generalidad podemos describirlos como
+                    \begin{align*}
+                    u =& (\cos (\varphi), \sen(\varphi)),\\
+                    v =& (\cos (\varphi + 2\pi/3), \sen(\varphi+2\pi/3)),\\
+                    w =& (\cos (\varphi + 4\pi/3), \sen(\varphi+4\pi/3)),\\
+                    \end{align*}
+                    para algún $\varphi \in [0,2\pi)$. Se trabajará con el caso de una rotación de $\theta = 2\pi/3$ en sentido
+                    levógiro, el caso opuesto, cuando se rota por el mismo ángulo en el sentido de las manecillas del
+                    reloj, se puede escribir como una rotación por $4\pi/3$ en el sentido opuesto a las manecillas del
+                    reloj y se verá que es completamente análogo.
+                </p>
+                <p>
+                    Sea
+                    $M=\begin{pmatrix}
+                    \cos(\theta) & -\sen(\theta) \\
+                    \sen(\theta) & \cos(\theta)
+                    \end{pmatrix}$
+                    la matriz asociada a la rotación por $\theta = 2\pi/3$, por ser una transformación lineal se tiene que
+                    \begin{align*}
+                    M(u+v+w) =& Mu + Mv + Mw\\
+                    =& (\cos (\varphi + 2\pi/3), \sen(\varphi+2\pi/3)) + (\cos (\varphi+4\pi/3), \sen(\varphi+4\pi/3)) + \\ &(\cos (\varphi+6\pi/3), \sen(\varphi+6\pi/3)),\\
+                    =& (\cos (\varphi + 2\pi/3), \sen(\varphi+2\pi/3)) + (\cos (\varphi+4\pi/3), \sen(\varphi+4\pi/3)) + \\ &(\cos (\varphi), \sen(\varphi)),\\
+                    =& v + w + u.
+                    \end{align*}
+                    Como $0 <\theta<2\pi$ entonces el <a href="#Ej:RotationFixedPoint">Ejercicio</a> garantiza que $u+v+w=0$.
+                </p>
+            </li>
+            <li>
+                Sustituyendo $\theta$ por $\varphi$ y recordando que el periodo de las funciones trigonométricas nos
+                permite trabajar en el dominio $[0,2\pi)$ basta notar que la primera ecuación es la segunda coordenada
+                del vector $u+v+w$ y la segunda ecuación corresponde a la primera entrada del mismo vector, como $u+v+w=0$
+                entonces cada una de sus entradas se anula.
+            </li>
+            <li>
+                El último inciso también se puede resolver por medio de un argumento geométrico. Dado $n \in \mathbb{N}$
+                empezamos por considerar $n$ puntos en la circunferencia unitaria que la dividan en arcos de la misma longitud.
+                Los denotaremos como $u_1, u_2, \ldots, u_n$ y sin pérdida de generalidad los podemos escribir en coordenadas
+                polares de la forma
+                \begin{align*}
+                u_1 =& (\cos(\varphi), \sen(\varphi)),\\
+                u_k =& (\cos(\varphi+ 2\pi(k-1)/n), \sen(\varphi+2\pi(k-1)/n)),\\
+                u_n =& (\cos(\varphi + 2\pi(n-1)/n), \sen(\varphi + 2\pi(n-1)/n)).
+                \end{align*}
+                Si ahora consideramos una rotación por $\theta = 2\pi/n$ y la denotamos por $M$ entonces de manera análoga
+                al primer inciso vamos a tener que
+                \begin{equation*}
+                M(u_1 + u_2 + \ldots + u_n) = u_1 + u_2 + \ldots + u_n,
+                \end{equation*}
+                así que nuevamente concluimos que $u_1 + \ldots + u_n=0$ y las sumas de senos  y cosenos presentadas en el
+                ejercicio no son sino la primera y segunda coordenada del vector $u_1 + \ldots + u_n$.
+            </li>
+        </ol>
+    </div>
+</div>
+
+
+
+
+<div class="definicion-box">
+    <h2 class="number-title"> Definición </h2> 
+     Dado un vector $w\ne 0$, la proyección sobre la recta generada por $w$,  está dada por
+     $$
+     P_w(v)=\frac{\langle v, w \rangle }{\|w\|^2}w.
+     $$
+     También se llama la proyección ortogonal  a la recta generada por \(w\).
+   </div>
+
+ <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio </h2>
+    <p>
+        Demuestra que:
+    </p> 
+   <ol>
+    <li>
+        $P_w$ es una función lineal.
+    </li>
+    <li>
+        $P_w(w)=w$.
+    </li>
+    <li>
+        Considera las proyecciones  $P_w:\mathbb{R}^2 \to \mathbb{R}^2$, con
+        $w=(1,0)$ y $w=(0,1)$. Encuentra  las matrices de $2\times 2$ asociadas a estas funciones lineales.
+    </li>
+    <li>
+        Demuestra que, para todo $v$, $P_w(v)$ es ortogonal a $v-P_w(v)$.
+    </li>
+    <li>
+        Denotemos \(L\) la recta generada por \(w\) y fijemos \(q\in L\). Por \(L'\) denotamos 
+        la recta que pasa por \(q\) y que es perpendicular a \(L\). Prueba que para toda 
+        \(p\in L'\), \(P_w(p)=q\).
+    </li>
+    <li>
+        Demuestra que el mínimo de $\| tw - v  \|$, variando $t\in \mathbb{R}$, se alcanza precisamente
+        cuando $t=\frac{\langle v, w \rangle }{\|w\|^2}$. 
+        <p>
+            Lo anterior se puede interpretar diciendo que  la proyección ortogonal
+            de $v$ en $w$ es el punto más cercano a $v$ que cae dentro de la recta generada por $w$.
+        </p>
+    </li>
+   </ol>
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+        Denotemos 
+        \[
+        V=\{f:\mathbb{R}^n\to \mathbb{R}: f \textrm{ es lineal} \}
+        \]
+    </p>
+    <ol>
+        <li>
+            Prueba que \(V\) es un espacio vectorial.
+        </li>
+        <li>
+            Prueba que \(V\) es isomorfo a \(\mathbb{R}^n\). Es decir, 
+            existe una biyección \(\Phi: V \to \mathbb{R}^n\) que es lineal.
+        </li>
+    </ol>
+
+</div>
+
+<div class="definicion-box">
+    <h2 class="number-title"> Definición </h2>
+    <p>
+        Para un vector \(w \ne 0\) definimos la reflexión con respecto a la recta generada por 
+        \(w\) como 
+        \[
+        R_w(v)= 2P_w(v)-v
+        \]
+        
+    </p>
+    </div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2>
+    <p>
+        <ol>
+            <li>
+                \(R_w\) es una función lineal.
+            </li>
+            <li>
+                para todo \(p\) en la recta generada por \(w\), \(R_w(p)=p\).
+            </li>
+            <li>
+                para todo \(v\), \(\|R_w(v)\|=\|v\|\).
+            </li>
+            <li>
+                para todo \(v\), \(\langle R_w(v),w\rangle = \langle v,w \rangle  \). 
+                <p>
+                    Usando 
+                    la fórmula \(\langle p,q \rangle = \|p\|\|q\|\cos(\theta)\) lo anterior
+                    se interpreta como que el ángulo entre \(R_w(v)\) y \(w\) 
+                    y \(v\) y \(w\) son iguales. Por lo tanto \(R_w(v)\) es la reflexión con 
+                    respecto a la recta generada por \(w\).
+                </p>
+            </li>
+            <li>
+                Para \(w=(1,1,1)\in \mathbb{R}^3\) encuentra la matriz asociada a 
+                \(R_w\). 
+            </li>
+    
+        </ol>
+    
+    </p>
+
+</div>
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+        Sean $F:\mathbb{R}^n \to \mathbb{R}^m$ y $G:\mathbb{R}^m \to \mathbb{R}^k$ dos funciones lineales,
+        demuestra que la composición $G\circ F$  también es lineal.        
+    </p> 
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+    <p>
+        Directamente de la definición 
+        \begin{eqnarray*}
+        (G\circ F)(\alpha \mathbf{p}+\mathbf{q})&=& G(F(\alpha \mathbf{p}+\mathbf{q})) \\
+        &=& G(\alpha F(\mathbf{p})+F(\mathbf{q})) \\
+        &=& \alpha G(F(\mathbf{p}))+ G(F(\mathbf{q}))
+        \end{eqnarray*}
+    </p>
+    </div>
+
+</div>
+
+<div class="definicion-box">
+    <h2 class="number-title"> Definición </h2> 
+    <p>
+        Para matrices $A$ de $m \times n$, $B$ de $k \times m$, el producto, denotado
+        $BA$, es la matriz de $k\times n$ con entradas
+        $$
+        (BA)_{i,j}=\sum_{l=1}^m B_{il}A_{lj}
+        $$
+        
+    </p>
+    <p>
+        Por ejemplo 
+        \[
+        \left[ \begin{array}{cc} 
+        b_{1,1} & b_{1,2}  \\
+        b_{2,1} & b_{2,2} \\
+        b_{3,1} & b_{3,2} 
+         \end{array}\right]
+         \left[\begin{array}{cc}
+        a_{1,2} & a_{1,2} \\
+        a_{2,1} & a_{2,2}
+         \end{array}\right]
+         =
+         \left[ \begin{array}{cc}
+        b_{1,1}a_{1,2}+b_{1,2}a_{2,1} & b_{1,1}a_{1,2}+b_{1,2}a_{2,2} \\
+        b_{2,1}a_{1,2}        + b_{2,2}a_{2,1} &  b_{2,1}a_{1,2} +  b_{2,2}a_{2,2} \\
+        b_{3,1}a_{1,2}        + b_{3,2}a_{2,1} &  b_{3,1}a_{1,2} +  b_{3,2}a_{2,2} \\
+         \end{array}\right]
+        \]
+    </p>
+</div>
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+        Considera las funciones lineales $F,G:\mathbb{R}^2 \to \mathbb{R}^2$ dadas por
+        $$F(x,y)=(2x-y,x+y), G(x,y)=(x-y, 7x-3y).$$
+    </p>
+<ol>
+    <li>
+        Encuentra matrices $A, B$, tal que $F(p)=Ap, G(p)=Bp$, para toda $p\in \mathbb{R}^2$.
+    </li> 
+    <li>
+        Encuentra la regla de correspondencia de $G\circ F$. Encuentra $C$, la matriz tal que $G\circ F(p)=Cp$, para toda $p \in \mathbb{R}^2$.
+    </li>
+    <li>
+        Muestra que $C=BA$.
+    </li>
+</ol>
+<button class="respButton hvr-grow "> Solución</button>
+<div class="resp-box">
+<p>
+    Inciso 1.
+</p>
+<p>
+    Calculamos \(F(\mathbf{e}_i)\), \(i=1,2\) y los colocamos como columas.
+    \begin{eqnarray*}
+        F(\mathbf{e}_1)&=&(2,1)\\
+        F(\mathbf{e}_2)&=&(-1,1)
+    \end{eqnarray*}
+    por lo tanto 
+    \[
+    A=\left[
+        \begin{array}{cc}
+        2 & -1 \\
+        1 & 1
+        \end{array}
+    \right]
+    \]
+    es la matriz asociada a \(F\) respecto a la base canónica.
+</p>
+<p>
+    De  manera similar 
+    \begin{eqnarray*}
+        G(\mathbf{e}_1)&=&(1,7)\\
+        G(\mathbf{e}_2)&=&(-1,-3)
+    \end{eqnarray*}
+    por lo tanto 
+    \[
+    B=\left[
+        \begin{array}{cc}
+        1 & -1 \\
+        7 & -3
+        \end{array}
+    \right]
+    \]
+</p>
+<p>
+    Inciso 2.
+</p>
+<p>
+    Haciendo la composición directamente obtenemos 
+    \begin{eqnarray*}
+    (G\circ F)(x,y,z)&=&G(F(x,y,z)) \\
+    &=& =G(2x-y,x+y)\\
+    &=&((2x-y)-(x+y),7(2x-y)-3(x+y))\\
+    &=& (x-2y,11x-10y)
+    \end{eqnarray*}
+    evaluando en los vectores canónicos 
+    \begin{eqnarray*}
+        (G\circ F)(\mathbf{e}_1)&=&(1,11) \\
+        (G\circ F)(\mathbf{e}_2)&=&(-2,-10)
+    \end{eqnarray*}
+    por lo tanto 
+    \[
+    C=\left[ 
+    \begin{array}{cc}
+    1 & -2 \\
+    11 & -10
+    \end{array}
+    \right]
+    \]
+    
+</p>
+<p>
+    Inciso 3.
+</p>
+<p>
+    Multiplicando las matrices obtenemos 
+    \begin{eqnarray*}
+        BA&=& 
+        \left[
+        \begin{array}{cc}
+        1 & -1 \\
+        7 & -3
+        \end{array}
+        \right]
+        \left[
+        \begin{array}{cc} 
+        2 & -1 \\
+        1 & 1
+        \end{array}
+        \right] \\ 
+        &=&\left[
+        \begin{array}{cc}
+        2-1 & -1-1 \\
+         14-3 & -7-3 & 
+        \end{array}
+        \right]\\
+        &=&
+        \left[ 
+        \begin{array}{cc}
+        1 & -2 \\
+        11 & -10
+        \end{array}
+        \right]\\
+        &=&C
+    \end{eqnarray*}
+</p>
+</div>
+
+</div>
+
+
+<div class="teorema-box"> 
+    <h2 class="number-title"> Teorema </h2>
+    <p>
+        Considera las funciones lineales $F:\mathbb{R}^n \to \mathbb{R}^m, G:\mathbb{R}^m \to \mathbb{R}^k$. Sean
+        $A,B$ matrices tales que $F(\mathbf{p})=A\mathbf{p}, G(\mathbf{p})=B\mathbf{p}$.  
+        
+        Demuestra
+        que $(G\circ F)(\mathbf{p})=(BA)\mathbf{p}$, para toda $\mathbf{p}$. 
+    
+    </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+    <div>
+        <p>
+            Denotar $q=Ap \in \mathbb{R}^m$. Entonces $G\circ F(p)=G(F(p))=B(Ap)=B(q)$. 
+        </p>
+        <p>
+            Para $i=1,\dots, k$, fijo
+            \begin{eqnarray*}
+            (Bq)_i&=&\sum_{s=1}^m B_{i,s}q_s \\
+            &=& \sum_{s=1}^m B_{i,s}\left( \sum_{r=1}^n A_{s,r}p_r \right)\\
+            &=&\sum_{s=1}^k\sum_{r=1}^m B_{i,s}A_{s,r}p_r\\
+            &=&\sum_{r=1}^m \left( \sum_{s=1}^k B_{i,s}A_{s,r}  \right)p_r \\
+            &=&\sum_{r=1}^m (BA)_{i,r}p_r \\
+            &=& (BA p)_i
+            \end{eqnarray*}
+        </p>
+    </div>    
+    </div>
+</div>
+
+
+<div class="definicion-box">
+    <h2 class="number-title"> Definición </h2> 
+    <p>
+        Una función lineal $F:\mathbb{R}^n \to \mathbb{R}^n$ se llama invertible si es inyectiva
+        y suprayectiva, es decir, una biyección. 
+    </p>
+    <p>
+        Como consecuencia existe una función,
+        que vamos a denotar $F^{\langle -1 \rangle }:\mathbb{R}^n \to \mathbb{R}^n$,
+        que satisface $F\circ F^{\langle -1 \rangle }(\mathbf{q})=\mathbf{q}$, 
+        $F^{\langle -1 \rangle }\circ F(\mathbf{p})=\mathbf{p}$, para todas $\mathbf{p}$, $\mathbf{q}$.
+    </p>
+    <p>
+        Nota: para encontrar la regla de correspondencia de \(F^{\langle -1 \rangle }\)
+        se plantea la ecuación 
+        \[
+        F(\mathbf{p})=\mathbf{q}
+        \]
+        y se revuelve para  las coordenadas de \(\mathbf{p}\) en términos de las 
+        coordenadas de \(\mathbf{q}\).
+    </p>
+
+</div>
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+        Todas las siguientes funciones, \(F:\mathbb{R}^3 \to \mathbb{R}^3\),  son lineales e invertibles.
+        Resuelve el sistema de ecuaciones 
+        \[
+        (u,v,w)=F(x,y,z)
+        \]
+        para \(x,y,z\) (es decir, \(u,v,w\) son los datos y 
+        \(x,y,z\) las incógnitas) y así encuentra la regla de correspondencia de la inversa de \(F\)
+    </p>
+    
+    <ol>
+        <li>
+            $F(x,y,z)=(x+y+z, 2y-z, 5z)$. 
+        </li> 
+        <li>
+            $F(x,y,z)=(x + z, 2 x - y, y)$.
+        </li>
+        <li>
+            $F(x,y,z)=(2 x - y + z, -3 y + 4 z, 5 x - y)$.
+        </li>
+    </ol>
+    <p>
+        Observación: la función inversa de una función lineal también es lineal. Lo anterior 
+        se probará más adelante.
+    </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+    <p>
+        Inciso 1.
+    </p>
+    <p>
+        Planteamos el sistema de ecuaciones, \((u,v,w)=F(x,y,z)\) ,  y los resolvemos 
+        \begin{eqnarray*}
+             x+y+z&=& u \\
+             2y-z  &=& v \\
+             5z &=& w  \\
+            &\Rightarrow & \\
+              x &=& u-y-z \\
+             y  &=& \frac{v}{2}+\frac{z}{2}   \\
+             z&=&\frac{w}{5} \\
+             & \Rightarrow & \\
+             x &=& u-\frac{v}{2}-\frac{(w/5)}{2}-\frac{w}{5}= u-\frac{v}{2}-\frac{3w}{10} \\
+             y &=& \frac{v}{2}+\frac{(w/5)}{2} = \frac{v}{2}+ \frac{w}{10}\\
+             z&=&\frac{w}{5}
+        \end{eqnarray*}
+        Por lo tanto 
+        \begin{eqnarray*}
+            F^{\langle -1 \rangle}(u,v,w)&=& (x,y,z) \\
+            &=& (u-\frac{v}{2}-\frac{3w}{10}, \frac{v}{2}+ \frac{w}{10} , \frac{w}{5})
+        \end{eqnarray*}
+    </p>
+    </div>
+
+</div>
+
+
+<div class="teorema-box"> 
+    <h2 class="number-title"> Teorema </h2>
+    <p>
+        Sea $F:\mathbb{R}^n \to \mathbb{R}^n$ una función lineal e invertible. 
+    </p> 
+<ol>
+    <li>
+        Demuestra que $F^{\langle -1 \rangle}$ es lineal.
+    </li>
+    <li>
+        Sea $A$ matriz asociada a $F$ y $B$ la matriz asociada a $F^{\langle -1 \rangle }$. Demuestra
+        que $AB=BA=I_n$.
+    </li>
+</ol>
+        <button class="respButton hvr-grow "> Solución</button>
+        <div class="resp-box">  
+        <p>
+            Inciso 1.
+        </p>
+        <p>
+            Debemos de probar 
+            \[
+            F^{\langle -1 \rangle }(\beta \mathbf{q}_1+\mathbf{q}_2) =
+            \beta F^{\langle -1 \rangle }(\mathbf{q}_1)+F^{\langle -1 \rangle}(\mathbf{q}_2)
+            \]
+            Denotamos \(F^{\langle -1 \rangle}(\mathbf{q}_i)=\mathbf{p}_i\), \(i=1,2\). 
+            Por definición \(\mathbf{p}_i\) es el 
+            único punto que satisface 
+            \(F(\mathbf{p}_i)=\mathbf{q}_i\). De lo anterior y 
+            de la linealidad de \(F\) se sigue que 
+            \begin{eqnarray*}
+            F(\beta \mathbf{p}_1+\mathbf{p}_2)=\beta F(\mathbf{p}_1)+ F(\mathbf{p}_2)=\beta \mathbf{q}_1+\mathbf{q}_2
+            \end{eqnarray*}
+            Por lo tanto, por la definición de \(F^{\langle -1 \rangle}\), llegamos a 
+            \begin{eqnarray*}
+            F^{\langle -1 \rangle}(\beta \mathbf{q}_1+\mathbf{q}_2)&=& \beta \mathbf{p}_1+\mathbf{p}_2 \\
+            &=& \beta F^{\langle -1 \rangle }(\mathbf{q}_1)+F^{\langle -1 \rangle}(\mathbf{q}_2)
+            \end{eqnarray*}
+        </p>
+        <p>
+            Inciso 2.
+        </p>
+        <p>
+           Sabemos que 
+           \begin{eqnarray*}
+           (F^{\langle -1 \rangle }\circ F)(\mathbf{p})&=&  ( F\circ F^{\langle -1 \rangle })(\mathbf{p}) \\
+           &=&\mathbf{p}\\
+           &=&Id(\mathbf{p}) \\
+           \end{eqnarray*}
+           para todo \(\mathbf{p}\in \mathbb{R}^n\), donde \(Id\) es la función identidad. Por el
+           Ejercicio 3.33 y la unicidad de la representación de funciones lineales como 
+           multiplicación como matriz  concluimos \(AB=BA=I_n\), donde \(I_n\) es la matriz identidad.
+        </p>
+        </div>
+
+</div>
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+        La función determinante tiene la siguiente identidad: $\det(AB)=\det(A)\det(B)$. Usando 
+        ésta propiedad y el hecho de que $\det(I_n)=1$ demuestra que si $A$ es invertible
+        entonces $\det(A)\ne 0$ y $\det(A^{-1})=\det(A)^{-1}$.
+    </p> 
+</div>
+
+
+<div class="teorema-box">
+    <h2 class="number-title"> Teorema </h2>
+    <h3> Función inversa (para funciones lineales)</h3>
+    <p>
+        Sea \(F:\mathbb{R}^n \to \mathbb{R}^n\) una función lineal y \(A\) la matriz tal que 
+        \(F(\mathbf{p})=A\mathbf{p}\), para todo \(\mathbf{p}\in \mathbb{R}^n\).
+    </p>
+    <p>
+        La función \(F\) es invertible sii \(\det(A)\ne 0\).
+    </p>
+
+</div>   
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+    <p>
+        Verifica que 
+        $$
+        \left[
+        \begin{array}{cc}
+        a & b \\
+        c & d
+        \end{array}
+        \right] 
+        \left[
+        \begin{array}{cc}
+        d & -b \\
+        -c & a
+        \end{array}
+        \right]=
+        \left[
+        \begin{array}{cc}
+        ab-bc & 0 \\
+        0 & ab-bc 
+        \end{array}
+        \right]
+        $$
+        
+        Concluye que una matriz de $2 \times 2$ es invertible sii su determinante es distinto de cero y
+        $$
+        \left[
+        \begin{array}{cc}
+        a & b \\
+        c & d
+        \end{array}
+        \right]^{-1} 
+        =\frac{1}{ad-bc}\left[
+        \begin{array}{cc}
+        d & -b \\
+        -c & a
+        \end{array}
+        \right]
+        $$
+        
+    </p>
+</div>
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+        Con ayuda del ejercicio encuentra las inversas de las siguientes funciones.
+        <ol>
+            <li>
+                $F(x,y)=(2x-y, x+5y)$
+            </li>
+            <li>
+                $F(x,y)=(x+y, x-y)$
+            </li>
+            <li>
+                $F(x,y)=(5x+7y, y)$
+            </li>
+        </ol>	
+    </p> 		
+</div>
+
+
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:NormaMatriz"> Ejercicio </h2>
+    <p>
+        Dada una matriz \(A=[A_{i,j}]\) de \(n\times n\) definimos 
+        \[
+        \|A\|_2 = \left( \sum_{i,j=1}^n A_{i,j}^2 \right)^{1/2}
+        \]
+        Prueba que para todo \(\mathbf{p}\in \mathbb{R}^n\)
+        \[
+        \|A\mathbf{p}\|\leq \|A\|_2 \|\mathbf{p}\|.
+        \]
+    </p>
+    <button class="respButton hvr-grow "> Solución</button>
+         <div class="resp-box">
+
+    <p>
+        La entrada \(i\) del vector  \(A\mathbf{p}\) está dada por 
+        \[
+        \sum_{r=1}^n A_{i,r}p_r
+        \]
+        y por Cauchy-Schwartz tenemos 
+        \begin{eqnarray*}
+        \left( \sum_{r=1}^n A_{i,r}p_r  \right)^2 & \leq & \left( \sum_{r=1}^n A_{i,r}^2\right)\left(\sum_{r=1}^n p_r^2 \right) \\
+        &=&\left( \sum_{r=1}^n A_{i,r}^2\right)\|\mathbf{p}\|^2
+        \end{eqnarray*}
+        Por lo tanto 
+        \begin{eqnarray*}
+            \left\| A\mathbf{p} \right\|^2&=& \sum_{i=1}^n \left( \sum_{r=1}^n A_{i,r}p_r  \right)^2  \\
+            &\leq & \sum_{i=1}^n \left( \sum_{r=1}^n A_{i,r}^2 \right)\|\mathbf{p}\|^2 \\
+            &=& \left( \sum_{i=1}^n\sum_{r=1}^n A_{i,r}^2 \right)\|\mathbf{p}\|^2 \\
+            &=& \|A\|_2^2\|\mathbf{p}\|^2
+        \end{eqnarray*}
+        sacando raíz en ambos lados llegamos a 
+        \[
+        \|A\mathbf{p}\| \leq \|A\|_2 \|\mathbf{p}\|.
+        \]
+    </p>
+    </div>
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+        Sea \(F:\mathbb{R}^n \to \mathbb{R}^n\) una función lineal a invertible.
+    </p>
+    <p>
+        Por \(B_r(0)\) denotamos la bola con centro en \(0\) y radio \(r\). 
+    </p>
+    <p>
+        Prueba que exsite un \(r>0\) tal que 
+        \[
+        B_r(0)\subseteq F(B_1(0)).
+        \]
+        Notación: \(F(B_1(0)):=\{ F(\mathbf{p}): \mathbf{p}\in B_1(0) \}\), es decir, la imagen directa
+        de \(B_1(0)\) bajo \(F\).
+    </p>
+    <p>
+        Más adelante, en el Teorema del mapeo abierto veremos que este ejercicio se generaliza.
+    </p>
+    <button class="respButton hvr-grow "> Solución</button>
+         <div class="resp-box">
+    <p>
+        Afirmamos que para \(r=\frac{1}{2\|A^{-1}\|_2}\) satisface lo que pide el ejercicio
+        (donde \(A\) es la matriz que representa a \(F\)). Acontinuación explicamos ésta elección.
+    </p>
+    <p>
+        Para probar la contención \(B_r(0)\subseteq F(B_1(0))\) primero notamos que al ser 
+        \(F\) invertible, para todo \(\mathbf{q}\in B_1(0)\) existe un 
+        \(\mathbf{p}\) tal que \(\mathbf{q}=F(\mathbf{p})\). Lo que debemos de asegurar es que 
+        dicho \(\mathbf{p}\) debe de tener \(\|\mathbf{p}\| < 1\).
+    </p>
+    <div class="flexbox">
+        <img src="./Images/S3-Img1.png" alt="ImagenAbierta" width="50%" height="auto">
+      </div>
+    <p>
+        Sea \(A\) la matriz que representa a \(F\). Ya que \(F(\mathbf{p})=\mathbf{q}\)
+        y al ser \(A\) invertible tenemos que \(\mathbf{p} =A^{-1}\mathbf{q}\). Por lo que 
+        la condición \(\|\mathbf{p}\|< 1\) se puede escribir 
+        \[
+        \|A^{-1}\mathbf{q}\| < 1
+        \]
+        Entonces si podemos encontrar una  \(r > 0\) que satisfaga:
+        \[
+        \|\mathbf{q}\| < r \Rightarrow \| A^{-1}\mathbf{q}\| < 1
+        \]
+        habremos terminado.
+    </p>
+    <p>
+        Pero 
+        \[
+        \| A^{-1}\mathbf{p}\| \leq \|A^{-1}\|_2 \|\mathbf{q}\| 
+        \]
+        y si tomamos \(r=\frac{1}{ 2 \|A^{-1}\|_2 }\) obtenemos 
+        \[
+        \| A^{-1}\mathbf{p}\| \leq \|A^{-1}\|_2 \|\mathbf{q}\|  < \|A^{-1}\|_2 r= \frac{1}{2} < 1
+        \]
+    </p>
+</div>
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+        Una matriz \(U\) de \(n\times n\) se llama ortogonal si 
+        \[
+        UU^t=I=U^tU
+        \]
+    </p>
+    <p>
+        Sea \(U\) una matriz ortogonal de \(2\times 2\) y define 
+        \(F:\mathbb{R}^2 \to \mathbb{R}^2\) dada por \( F(\mathbf{p})=U\mathbf{p}\).
+    </p>
+    <p>
+        Prueba que 
+        \[
+        F(B_1(0))=B_1(0)
+        \]
+    </p>
+
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+        Sea \(f:\mathbb{R}^3 \to \mathbb{R}\) lineal. Escribamos la función como 
+        \[
+        f(x,y,z)=ax+by+cz
+        \]
+        Si \(c\ne 0\) existe una función \(g:\mathbb{R}^2 \to \mathbb{R}\) tal que 
+        \[
+        f(x,y,g(x,y))=0
+        \]
+        para todo \((x,y,z)\).
+    </p>
+    <p>
+        Si denotamos 
+        \[
+        N(f)=\{(x,y,z)\in \mathbb{R}^3: f(x,y,z)=0\}
+        \]
+        lo anterior se puede escribir como 
+        \[
+        \textrm{Gráfica}(g)\subseteq N(f).
+        \]
+    </p>
+
+</div>
+
+<div class="teorema-box">
+    <h2 class="number-title"> Teorema </h2>
+    <h3> Función implícita (para funciones lineales)</h3>
+    <p>
+        Sean \(f_1,f_2, \dots, f_m: \mathbb{R}^{k+m} \to \mathbb{R}\) funciones lineales.
+        Vamos a denotar los puntos de \(\mathbb{R}^{k+m}\) como \((\mathbf{x},\mathbf{y})\)
+        con \(\mathbf{x}=(x_1,\dots, x_k), \mathbf{y}=(y_1,\dots, y_m)\).
+    </p>
+    <p>
+        Por el Teorema de representación de Riesz, para toda función \(f_i\) podemos escribir 
+        \[
+        f_i(x_1,\dots, x_k,y_1,\dots, y_m)=\sum_{r=1}^k a_{i,r}x_r+ \sum_{s=1}^m b_{i,s}y_s
+        \]
+        Denotemos \(B=[b_{i,j}]\), una  matriz de \(m\times m\).
+    </p>
+    <p>
+        Si \(\det(B)\ne 0\) entonces existen funciones 
+        \[
+        g_i:\mathbb{R}^k \to \mathbb{R}
+        \]
+        \(i=1,2,\dots, m\), tales que 
+        \[
+        y_i=g_i(x_1,\dots, x_k)
+        \]
+        y además 
+        \[
+        f_i(\mathbf{x},g_1(\mathbf{x}), \dots, g_m(\mathbf{x}))=0
+        \]
+        para todo \(\mathbf{x}\) y para toda \(i=1,\dots, m\).
+    </p>
+    <p>
+        En otras palabras la intersección
+        \[
+        \textrm{Gráfica}(G)\subseteq \cap_{i=1}^m N(f_i)
+        \]
+        donde \(G(\mathbf{x})=(g_1(\mathbf{x}),\dots, g_m(\mathbf{x}))\).
+    </p>
+    <p>
+        Recordar
+        \[
+        N(f)=\{(\mathbf{x},\mathbf{y}): f(\mathbf{x},\mathbf{y})=0 \}
+        \]
+    </p>
+
+</div>
+   
+
+<div class="definicion-box">
+    <h2 class="number-title"> Definición </h2> 
+    <p>
+        Por $M$ denotamos un plano en $\mathbb{R}^n$. Vamos a dar dos definiciones de la 
+        proyección ortogonal al plano $M$, ambas equivalentes. Dado un punto cualquiera 
+        $p\in \mathbb{R}^n$, la proyección ortogonal a $M$ es:
+        <ol>
+            <li>
+                Analítica:  es el punto  de $M$  más cercano a $p$. 
+            </li>
+            <li>
+                Geométrica: es el punto de $M$  tal que el vector que lo une con $p$ es ortogonal a $M$.
+            </li>
+        </ol>
+    </p>
+
+</div>
+
+
+   <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+        En este ejercicio vamos a considerar a  la proyección ortogonal como el punto que minimiza la distancia.
+    </p> 
+    <p>
+        Sea $M \subset \mathbb{R}^3$ un plano que pasa por el origen y sean $\mathbf{u},\mathbf{v} \in M$ dos vectores distintos 
+        de cero y ortogonales. Asi pues, los puntos en el plano $M$ se pueden escribir
+        $$
+        s\mathbf{u}+t\mathbf{v}, \quad s,t \in \mathbb{R}.
+        $$
+        
+     </p>
+   
+<ol>
+    <li>
+        Prueba que 
+        \begin{eqnarray*}
+        \min_{s,t \in \mathbb{R}} \| s\mathbf{u} + t\mathbf{v}-\mathbf{p}\|^2=
+        \|\mathbf{p}\|^2-\frac{\langle \mathbf{u},\mathbf{p} \rangle^2}{\|\mathbf{u}\|^2}
+        -\frac{\langle \mathbf{v},\mathbf{p} \rangle^2}{\|v\|^2}
+        \end{eqnarray*}
+        y el mínimo se alcanza en un único punto $(s_0,t_0)$, con  
+        $$
+        s_0=\frac{\langle \mathbf{u},\mathbf{p} \rangle }{\|\mathbf{u}\|^2}, 
+        \quad 
+        t_0=\frac{\langle \mathbf{v},\mathbf{p}\rangle}{\|\mathbf{v}\|^2}
+        $$	
+    </li>
+    <li>
+        Dado $\mathbf{p}\in \mathbb{R}^3$ denota $P(\mathbf{p})$ al punto de $M$ más cercano a $\mathbf{p}$. 
+        Usando el inciso anterior
+        concluye que la fórmula para obtener $P(\mathbf{p})$ es:
+                    
+               \begin{equation}\label{Eqn:FormulaProyOrt}
+               P(\mathbf{p})=\frac{\langle \mathbf{u}, \mathbf{p} \rangle}
+               {\|\mathbf{u}\|^2}\mathbf{u} +\frac{\langle \mathbf{v},\mathbf{p} \rangle}{\|\mathbf{v}\|^2}\mathbf{v}
+               \end{equation}
+            
+    </li>
+    <li>
+        Demuestra que $P$ es una transformación lineal.
+    </li>
+    <li>
+        Demuestra que $\mathbf{p}-P(\mathbf{p})$ es perpendicular a todo punto del plano generado 
+        por $\mathbf{u}$ y $\mathbf{v}$.
+        <p>
+            Nota que este inciso muestra que las definiciones geométrica y analítica de 
+            la proyección otogonal 
+            coinciden.
+        </p>
+    </li>
+    <li>
+        Si se toman $\mathbf{u}=(1,0,0), \mathbf{v}=(0,1,0)\in \mathbb{R}^3$, prueba que la proyección sobre 
+        el plano generado por $\mathbf{u}$ y $\mathbf{v}$ 	está dada por $P(x,y,z)=(x,y,0)$ y encuentra la matriz asociada a 
+        ésta.
+    </li>
+</ol>
+<button class="respButton hvr-grow "> Solución inciso 1</button>
+<div class="resp-box">
+<p>
+    Inciso 1.
+</p>
+<p>
+    Sea $p\in \mathbb{R}^3$ arbitrario. Usando las propiedades del producto interior tenemos  
+    \begin{eqnarray*}
+    \| s\mathbf{u}+t\mathbf{v} - \mathbf{p}\|^2 &=& 
+    \langle s\mathbf{u}+t\mathbf{v}-\mathbf{p},
+     s\mathbf{u}+t\mathbf{v}-\mathbf{p} \rangle \\
+    &=& s^2\|\mathbf{u}\|^2+t^2\|\mathbf{v}\|^2+ \|\mathbf{p} \|^2 \\
+    &+& 2st \langle \mathbf{u},\mathbf{v} \rangle- 2s \langle \mathbf{u},\mathbf{p} \rangle - 
+    2t \langle \mathbf{v},\mathbf{p} \rangle \\
+    &=& s^2\|\mathbf{u}\|^2+t^2\|\mathbf{v}\|^2+ \|\mathbf{p} \|^2 \\
+    &-& 2s \langle \mathbf{u},\mathbf{p} \rangle - 
+    2t \langle \mathbf{v},\mathbf{p} \rangle
+    \end{eqnarray*}
+</p>
+<p>
+    Completando el cuadrado en \(s\) y \(t\) obtenemos 
+    \begin{eqnarray*}
+    \| s\mathbf{u}+t\mathbf{v} - \mathbf{p}\|^2 &=&  
+    \left( s \|\mathbf{u}\| - \frac{\langle \mathbf{u},\mathbf{p} \rangle}{\|\mathbf{u}\|}  \right)^2 \\
+    &+&\left( t \|\mathbf{v}\| - \frac{\langle \mathbf{v},\mathbf{p} \rangle}{\|\mathbf{v}\|}  \right)^2  \\
+    &+&  \|\mathbf{p}\|^2-\frac{\langle \mathbf{u},\mathbf{p} \rangle^2}{\|\mathbf{u}\|^2}
+    -\frac{\langle \mathbf{v},\mathbf{p} \rangle^2}{\|\mathbf{v}\|^2}
+    \end{eqnarray*}
+</p>
+<p>
+    Para terminar la prueba de 
+    $$
+        \min_{s,t \in \mathbb{R}}\| su+tv - p\|^2=\|p\|^2-\frac{\langle u,p \rangle^2}{\|u\|^2}-\frac{\langle v,p \rangle^2}{\|v\|^2}
+    $$
+    podemos usar dos argumentos.
+</p>
+<p>
+    El geométrico.
+</p>
+<p>
+    Por la ecuación anterior la gráfica de la función \(f(s,t)=\|s\mathbf{u}+t\mathbf{v}-\mathbf{p}\|^2\)
+    es un paraboloide con vértica en el punto \((s_0,t_0)\) donde se satisfacen 
+    \begin{eqnarray*}
+    s_0\|\mathbf{u}\|-\frac{\langle \mathbf{u}, \mathbf{p} \rangle}{\|\mathbf{u}\|^2} =0 \\
+    t_0\|\mathbf{v}\|-\frac{\langle \mathbf{v}, \mathbf{p} \rangle }{\|\mathbf{v}\|^2} =0
+    \end{eqnarray*}
+    es decir 
+    \begin{eqnarray*}
+    s_0=\frac{\langle \mathbf{u}, \mathbf{p} \rangle }{\|\mathbf{u}\|^2} \\
+    t_0=\frac{\langle \mathbf{v}, \mathbf{p} \rangle }{\|\mathbf{v}\|^2}
+    \end{eqnarray*}
+    y por lo tanto el mínimo se alcanza únicamente en el punto  \((s_0,t_0)\) y el mínimo es el 
+    término constante del paraboloide, es decir 
+    $$
+        \min_{s,t \in \mathbb{R}}\| su+tv - p\|^2=\|p\|^2-\frac{\langle u,p \rangle^2}{\|u\|^2}-\frac{\langle v,p \rangle^2}{\|v\|^2}
+    $$
+</p>
+<p>
+    El analítico.
+</p>
+<p>
+    En la ecuación 
+    \begin{eqnarray*}
+    \| s\mathbf{u}+t\mathbf{v} - \mathbf{p}\|^2 &=&  
+    \left( s \|\mathbf{u}\| - \frac{\langle \mathbf{u},\mathbf{p} \rangle}{\|\mathbf{u}\|}  \right)^2 \\
+    &+&\left( t \|\mathbf{v}\| - \frac{\langle \mathbf{v},\mathbf{p} \rangle}{\|\mathbf{v}\|}  \right)^2  \\
+    &+&  \|\mathbf{p}\|^2-\frac{\langle \mathbf{u},\mathbf{p} \rangle^2}{\|\mathbf{u}\|^2}
+    -\frac{\langle \mathbf{v},\mathbf{p} \rangle^2}{\|\mathbf{v}\|^2}
+    \end{eqnarray*}
+    los dos primeros términos son no negativos  por lo tanto 
+    \begin{eqnarray*}
+    \| s\mathbf{u}+t\mathbf{v} - \mathbf{p}\|^2 &\geq  &  
+    &+&  \|\mathbf{p}\|^2-\frac{\langle \mathbf{u},\mathbf{p} \rangle^2}{\|\mathbf{u}\|^2}
+    -\frac{\langle \mathbf{v},\mathbf{p} \rangle^2}{\|\mathbf{v}\|^2}
+    \end{eqnarray*}
+    con igualdad si y sólo si 
+    \begin{eqnarray*} 
+    \left( s \|\mathbf{u}\| - \frac{\langle \mathbf{u},\mathbf{p} \rangle}{\|\mathbf{u}\|}  \right)^2 =0 \\
+    \left( t \|\mathbf{v}\| - \frac{\langle \mathbf{v},\mathbf{p} \rangle}{\|\mathbf{v}\|}  \right)^2 =0
+    \end{eqnarray*}
+    es decir si y sólo si 
+    \begin{eqnarray*}
+    s=\frac{\langle \mathbf{u}, \mathbf{p} \rangle }{\|\mathbf{u}\|^2} \\
+    t=\frac{\langle \mathbf{v}, \mathbf{p} \rangle }{\|\mathbf{v}\|^2}
+    \end{eqnarray*}
+    Por lo tanto 
+    $$
+        \min_{s,t \in \mathbb{R}}\| su+tv - p\|^2=\|p\|^2-\frac{\langle u,p \rangle^2}{\|u\|^2}-\frac{\langle v,p \rangle^2}{\|v\|^2}
+    $$
+    y se alcanza únicamente en el punto 
+    \begin{eqnarray*}
+    s_0=\frac{\langle \mathbf{u}, \mathbf{p} \rangle }{\|\mathbf{u}\|^2} \\
+    t_0=\frac{\langle \mathbf{v}, \mathbf{p} \rangle }{\|\mathbf{v}\|^2}
+    \end{eqnarray*}
+</p>
+</div>
+<button class="respButton hvr-grow "> Solución inciso 2</button>
+<div class="resp-box">
+<p>
+    Inciso 2.
+</p>
+<p>
+    Por definición \(P(\mathbf{p})\) es precisamente el punto en el plano tal que 
+    \[
+    \min_{s,t\in \mathbb{R}}\|s\mathbf{u}+t\mathbf{v} - \mathbf{p}\|=\|P(\mathbf{p})-\mathbf{p} \|
+    \]
+    ya que el mínimo se alcanza en un único punto debemos de tener 
+    \[
+    P(\mathbf{p})=\frac{\langle \mathbf{u}, \mathbf{p} \rangle }{\|\mathbf{u}\|^2} \mathbf{u}+
+    \frac{\langle \mathbf{v}, \mathbf{p} \rangle }{\|\mathbf{v}\|^2} \mathbf{u}
+    \]
+</p>
+</div>
+<button class="respButton hvr-grow "> Solución inciso 3</button>
+<div class="resp-box">
+<p>
+    Inciso 3.
+</p>
+<p>
+    Sabemos que las proyecciones sobre las rectas por el origen 
+    \begin{eqnarray*}
+        P_u(\mathbf{p})=\frac{\langle \mathbf{u}, \mathbf{p}\rangle }{\|\mathbf{u}\|^2} u \\
+        P_v(\mathbf{p})=\frac{\langle \mathbf{v}, \mathbf{p}\rangle }{\|\mathbf{v}\|^2} u \\
+    \end{eqnarray*}
+    son lineales y como \(P=P_u+P_v\) obtenemos que \(P\) es lineal.
+</p>
+</div>
+<button class="respButton hvr-grow "> Solución inciso 4</button>
+<div class="resp-box">
+<p>
+    Inciso 4.
+</p>
+<p>
+    Tomamos un punto arbitrario en el plano y tenemos que probar que el producto punto con 
+    con \(\mathbf{p}-P(\mathbf{p})\) es cero.
+    \begin{eqnarray*}
+    \langle s\mathbf{u}+t\mathbf{v} , \mathbf{p}-P(\mathbf{p}) \rangle &=& 
+    s\langle \mathbf{u}, \mathbf{p} \rangle 
+    +t \langle \mathbf{v}, \mathbf{p}\rangle \\
+    &-&s\langle \mathbf{u}, P(\mathbf{p}) \rangle \\
+    &-&t \langle \mathbf{v}, P(\mathbf{p}) \rangle \\
+    &=&s\langle \mathbf{u}, \mathbf{p} \rangle 
+    +t \langle \mathbf{v}, \mathbf{p}\rangle \\ 
+    &-& s\langle \mathbf{u}, 
+    \frac{\langle \mathbf{u},\mathbf{p}\rangle }{\|\mathbf{u}\|^2}\mathbf{u} 
+    +\frac{\langle \mathbf{v},\mathbf{p}\rangle }{\|\mathbf{v}\|^2}\mathbf{v} \rangle \\
+    &-&t \langle \mathbf{v},
+    \frac{\langle \mathbf{u},\mathbf{p}\rangle }{\|\mathbf{u}\|^2}\mathbf{u} 
+    +\frac{\langle \mathbf{v},\mathbf{p}\rangle }{\|\mathbf{v}\|^2}\mathbf{v} \rangle
+     \rangle \\
+     &=&s\langle \mathbf{u}, \mathbf{p} \rangle 
+    +t \langle \mathbf{v}, \mathbf{p}\rangle \\
+    &-& s\langle \mathbf{u}, \mathbf{p} \rangle 
+    -t \langle \mathbf{v}, \mathbf{p}\rangle \\ 
+    &=&0
+    \end{eqnarray*}
+    donde en la pernúltima igualdad usamos que 
+    \(\mathbf{u}\) y \(\mathbf{v}\) son ortogonales.
+</p>
+</div>
+</div>
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+        En este ejercicio vamos a considerar la definición geométrica de la  proyección ortogonal.
+    </p> 
+    <p>
+        Sea $M \subset \mathbb{R}^3$ un plano que pasa por el origen y $p\in \mathbb{R}^3$ un punto 
+        fijo y arbitrario.
+        
+    </p>
+
+ 
+<ol>
+    <li>
+        Sean $\mathbf{u},\mathbf{v}\in M$ dos vectores ortogonales y unitarios. Denota $\mathbf{w}=
+        \mathbf{u}\times \mathbf{v}$
+        y sea $P_\mathbf{w}:\mathbb{R}^3 \to \mathbb{R}^3$ la proyección ortogonal a la línea recta generada por
+        $\mathbf{w}$. Demuestra que $\mathbf{p}-P_\mathbf{w}(\mathbf{p})$ está en $M$.
+        <!--<p>
+            Sugerencia: primera demuestra que $p-P_w(p)$ es ortogonal a $u\times v$ y después usa el ejercicio 
+            \ref{Ejer:BaseConProductoCruz} para concluir que $p-P_w(p)$ está en $M$.
+        </p> -->
+        
+        
+    </li>
+    <li>
+        Demuestra que el vector que une $\mathbf{p}$ con $\mathbf{p}-P_w(\mathbf{p})$  es ortogonal a todo punto del plano $M$. Por lo 
+        tanto, usando la definición geométrica de la proyección ortogonal, $\mathbf{p}-P_w(\mathbf{p})$ es 
+        la proyección ortogonal de $\mathbf{p}$ en  $M$. 
+    </li>
+    <li>
+        Define $P(\mathbf{p})=\mathbf{p}-P_w(\mathbf{p})$. Demuestra que $P:\mathbb{R}^3 \to \mathbb{R}^3$ es una función lineal.
+    </li>
+    <li>
+        Demuestra que $P(\mathbf{p})$ es el punto del plano $M$ más cerca a $p$, es decir, 
+        $$
+        \| \mathbf{p}-P(\mathbf{p})\| \ \leq \| \mathbf{p}-\mathbf{q}\|
+        $$ 
+        para todo punto $\mathbf{q} \in M$.
+        
+        <p>
+            Sugerencia: nota que $\mathbf{p}-P(\mathbf{p})$ y $P(\mathbf{p})-\mathbf{q}$ son ortogonales y después usa el Teorema de Pitágoras.
+        </p>        
+        
+    </li>
+    
+    <li>
+        Concluye, usando la fórmula \eqref{Eqn:FormulaProyOrt}, que  si $\mathbf{u}$ y $\mathbf{v}$ son vectores 
+        unitarios, ortogonales en \(M\) y si $\mathbf{w}=\mathbf{u}\times \mathbf{v}$, entonces para todo
+        $\mathbf{p}\in \mathbb{R}^3$ se cumple
+        $$
+        \mathbf{p}=\langle \mathbf{p}, \mathbf{u} \rangle \mathbf{u} + \langle \mathbf{p}, \mathbf{v} \rangle \mathbf{v} + \langle \mathbf{p}, \mathbf{w} \rangle \mathbf{w}.
+        $$	
+    </li>
+</ol>
+
+<button class="respButton hvr-grow "> Solución inciso 1</button>
+<div class="resp-box">
+    <p>
+        Usando la ecuación normal del plano tenemos que un punto $q$ pertenece a $M$ si y sólo si
+        $\langle n, q \rangle = 0$ con $n$ un vector normal al plano $M$. En este caso, como $M$ es generado
+        por los vectores $u, v$ y $w=u \times v$ entonces $w$ es un vector normal a $M$, asímismo es un vector
+        unitario, $\|u \times v\| = \|u\| \|v\| \sen(\theta)$, por lo que no será necesario dividir entre $\|w\|^2$
+        al calcular $P_w$.
+    </p>
+    <p>
+        Tenemos que
+        \begin{align*}
+        \langle p- P_w(p),w \rangle =& \langle p, w \rangle - \langle P_w(p), w \rangle,\\
+        =& \langle p, w \rangle - \langle \langle p,w \rangle w, w\rangle,\\
+        =& \langle p, w\rangle - \langle p,w  \rangle = 0,
+        \end{align*}
+        por lo tanto $p - P_w(p) \in M$.
+    </p>
+</div>
+
+<button class="respButton hvr-grow "> Solución inciso 2</button>
+<div class="resp-box">
+    <p>
+        El vector que une a $p$ con $p-P_w(p)$ es $p - (p-P_w(p)) = P_w(p) = \langle p, w\rangle w$. Dado que
+        todo punto en el plano $M$ es de la forma $tu + sv$ para algunos $t,s \in \mathbb{R}$ entonces
+        \begin{equation*}
+        \langle tu + sv, \langle p, w \rangle w\rangle = \langle p,w \rangle (t\langle u,w\rangle + s\langle v,w \rangle),
+        \end{equation*}
+        y como $w = u \times v$ entonces es ortogonal a ambos vectores y $\langle tu + sv, P_w(p)=0$, es decir,
+        es ortogonal a todo punto del plano $M$.
+    </p>
+</div>
+
+<button class="respButton hvr-grow "> Solución inciso 3</button>
+<div class="resp-box">
+    <p>
+        Como $P_w$ es una función lineal, entonces dados $p,q \in \mathbb{R}^3$
+        y $\alpha \in \mathbb{R}$ se tiene que
+        \begin{equation*}
+        P(\alpha p + q) = (\alpha p + q) - P_w(\alpha p + q) = \alpha (p - P_w(p)) + (q - P_w(q)) = \alpha P(p) + P(q).
+        \end{equation*}
+    </p>
+</div>
+
+<button class="respButton hvr-grow "> Solución inciso 4</button>
+<div class="resp-box">
+    <p>
+        Empezamos por desarrollar las expresiones $p - P(p)$ y $P(p)-q$:
+        \begin{align*}
+        p - P(p) =& P_w(p),\\
+        P(p) - q =& p - P_w(p) - q.
+        \end{align*}
+        Veamos ahora que éstos son ortogonales
+        \begin{align*}
+        \langle p- P(p), P(p) - q\rangle =& \langle P_w(p), p- P_w(p) - q \rangle,\\
+        =& \langle P_w(p), p \rangle - \langle P_w(p), P_w(p)\rangle - \langle P_w(p),q \rangle, \\
+        =& \langle \langle p,w \rangle w, p\rangle - \langle \langle p,w \rangle w, \langle p , w \rangle w \rangle - \langle \langle p,w \rangle w , q \rangle,\\
+        =& \langle p,w \rangle \langle w,p \rangle - \langle p,w\rangle \langle p,w \rangle \|w\|^2 - \langle p,w \rangle \langle w,q \rangle,\\
+        =& \langle p,w\rangle ^2 - \langle p,w\rangle ^2 - \langle p,w\rangle \langle w,q \rangle,\\
+        =& 0,
+        \end{align*}
+        pues por el segundo inciso $q$ y $w$ son ortogonales.
+    </p>
+    <p>
+        Por el Teorema de Pitágoras se tiene que
+        \begin{equation*}
+        \|p - P(p)\|^2 + \|P(p) - q\|^2 = \|p-q\|^2,
+        \end{equation*}
+        como $\|P(p) - q\|^2 \geq 0$ entonces
+        \begin{equation*}
+        \|p - P(p)\|^2 \leq \|p-q\|^2,
+        \end{equation*}
+        y la desigualdad deseada se obtiene al tomar la raíz cuadrada de ambos lados.
+    </p>
+</div>
+
+<button class="respButton hvr-grow "> Solución inciso 5</button>
+<div class="resp-box">
+    <p>
+        Nuevamente, como $u,v$ son unitarios entonces podemos ignorar las normas al cuadrado
+        en la la fórmula \eqref{Eqn:FormulaProyOrt} para $P(p)$. Como $P(p) = p-P_w(p)$ entonces
+        \begin{equation*}
+        \langle u, p \rangle u + \langle v, p \rangle v = p - \langle w, p \rangle w,
+        \end{equation*}
+        y basta despejar el término $\langle w , p \rangle w$ para obtener la expresión deseada.
+    </p>
+</div>
+
+</div>
+
+
+ </body>
