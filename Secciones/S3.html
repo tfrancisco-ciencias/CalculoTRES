@@ -674,7 +674,7 @@
         $$F(\mathbf{p})=M\mathbf{p},$$ 
         para todo $\mathbf{p}\in \mathbb{R}^n$.        
     </p>
-    <button class="respButton hvr-grow "> Solución</button>
+    <!-- <button class="respButton hvr-grow "> Solución</button>
     <div class="resp-box">
         <p>
             Por el <a href="#Ejer:PrelimMatrixFormLinearFunct">Lema 3.12</a> existen 
@@ -704,7 +704,7 @@
         <p>
             La unicidad se sigue directamente del <a href="#Ejer:UnicidadMatrizFunLineal">Lema anterior </a>.
         </p>
-    </div>
+    </div>-->
     
 </div>
 
@@ -966,6 +966,23 @@
 
 </div>-->
 
+<div class="info-box">
+    <h2 class="number-title"> Ejemplo (función implícita)</h2>
+    
+    <p>
+        Sea \(F:\mathbb{R}^4 \to \mathbb{R}\) dada por 
+        \[
+        F(x_1,x_2,y_1,y_2)=(x_1-x_2+2y_1-y_2, 3x_1-x_2+y_1+y_2).
+        \]
+    </p>
+    <p>
+        Queremos entender mejor el kernel de \(F\):
+        \[
+        \ker(F)=\{(x_1,x_2,y_1,y_2)\in \mathbb{R}^4: F(x_1,x_2,y_1,y_2)=(0,0,0,0)\}
+        \]
+    </p>
+</div>
+
 
 
 <div class="teorema-box">
@@ -988,11 +1005,11 @@
         \[
         f_i(x_1,\dots, x_k,y_1,\dots, y_m)=\sum_{r=1}^k a_{i,r}x_r+ \sum_{s=1}^m b_{i,s}y_s
         \]
-        Denotemos \(B=-[b_{i,j}]\), una  matriz de \(m\times m\)
-        y \(A=[b_{i,j}]\) una matriz de \(m\times k\).
+        Denotemos \(B=[-b_{i,j}]\), una  matriz de \(m\times m\)
+        y \(A=[a_{i,j}]\) una matriz de \(m\times k\).
     </p>
     <p>
-        Si \(\det(B)\ne 0\), definimos \(G(x)=-B^{-1}Ax\) y entonces 
+        Si \(\det(B)\ne 0\), definimos \(G(x)=B^{-1}Ax\) y entonces 
         \[
         \ker(F)=\{(x,y): F(x,y)=0\}=\{(x,G(x)): x\in \mathbb{R}^k\}
         \]
@@ -1012,7 +1029,24 @@
         \]
         para todo \(\mathbf{x}\) y para toda \(i=1,\dots, m\).
     </p>
-    
+    <button class="respButton hvr-grow "> Demostración </button>
+   <div class="resp-box">
+    <p>
+        Sea \((x,y)\in \ker(F)\) fijo y arbitrario. Entonces 
+        \begin{eqnarray*} 
+        F(x,y)=0 & \Leftrightarrow & f_i(x,y)=0, \quad \forall \, i=1,\dots, m \\
+        & \Leftrightarrow & \sum_{r=1}^k a_{i,r}x_r + \sum_{s=1}^m b_{i,s}y_s=0,\quad \forall \, i=1,\dots, m \\
+        & \Leftrightarrow & \sum_{r=1}^k a_{i,r}x_r=\sum_{s=1}^m -b_{i,s}y_s, \quad \forall \, i=1,\dots, m \\
+        & \Leftrightarrow & Ax = B y \\
+        & \Leftrightarrow & B^{-1}A x=y \\
+        & \Leftrightarrow & G(x)=y 
+        \end{eqnarray*}
+    </p>
+    donde \(A=[a_{i,j}]\) es una matriz de \(m\times k\), \(B=[-b_{i,j}]\)
+    es una matriz de \(m\times m\) y \(G(x)=B^{-1}Ax\).
+
+    </div>
+
     
 </div>
 
