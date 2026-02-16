@@ -972,7 +972,14 @@
     <h2 class="number-title"> Teorema </h2>
     <h3> Función implícita (para funciones lineales)</h3>
     <p>
-        Sean \(f_1,f_2, \dots, f_m: \mathbb{R}^{k+m} \to \mathbb{R}\) funciones lineales.
+        Sea \(F:\mathbb{R}^{k+m} \to \mathbb{R}^m\) una función lineal. Como \(F\)
+        es lineal podemos escribir sus funciones coordenadas como 
+        \[
+        F=(f_1,\dots, f_m),
+        \]
+        donde \(f_1,f_2, \dots, f_m: \mathbb{R}^{k+m} \to \mathbb{R}\) son funciones lineales.
+    </p>
+    <p>
         Vamos a denotar los puntos de \(\mathbb{R}^{k+m}\) como \((\mathbf{x},\mathbf{y})\)
         con \(\mathbf{x}=(x_1,\dots, x_k), \mathbf{y}=(y_1,\dots, y_m)\).
     </p>
@@ -981,10 +988,17 @@
         \[
         f_i(x_1,\dots, x_k,y_1,\dots, y_m)=\sum_{r=1}^k a_{i,r}x_r+ \sum_{s=1}^m b_{i,s}y_s
         \]
-        Denotemos \(B=[b_{i,j}]\), una  matriz de \(m\times m\).
+        Denotemos \(B=-[b_{i,j}]\), una  matriz de \(m\times m\)
+        y \(A=[b_{i,j}]\) una matriz de \(m\times k\).
     </p>
     <p>
-        Si \(\det(B)\ne 0\) entonces existen funciones 
+        Si \(\det(B)\ne 0\), definimos \(G(x)=-B^{-1}Ax\) y entonces 
+        \[
+        \ker(F)=\{(x,y): F(x,y)=0\}=\{(x,G(x)): x\in \mathbb{R}^k\}
+        \]
+        
+        Si escribimos \(G\) en sus funciones coordenadas como \(G=(g_1,\dots, g_m)\)
+        lo anterior se puede escribir como que existen funciones lineales
         \[
         g_i:\mathbb{R}^k \to \mathbb{R}
         \]
@@ -998,20 +1012,8 @@
         \]
         para todo \(\mathbf{x}\) y para toda \(i=1,\dots, m\).
     </p>
-    <p>
-        En otras palabras la intersección
-        \[
-        \textrm{Gráfica}(G)\subseteq \cap_{i=1}^m N(f_i)
-        \]
-        donde \(G(\mathbf{x})=(g_1(\mathbf{x}),\dots, g_m(\mathbf{x}))\).
-    </p>
-    <p>
-        Recordar
-        \[
-        N(f)=\{(\mathbf{x},\mathbf{y}): f(\mathbf{x},\mathbf{y})=0 \}
-        \]
-    </p>
-
+    
+    
 </div>
 
 
