@@ -410,7 +410,7 @@
     
 
    <div class="definicion-box">
-    <h2 class="number-title">Definición  </h2>
+    <h2 class="number-title"> Definición  </h2>
     <p>
         Una función $F:\mathbb{R}^n \to \mathbb{R}^m$ se llama lineal si, para todo $\alpha \in \mathbb{R}$
         y todos $p,q\in \mathbb{R}^n$
@@ -419,6 +419,31 @@
         $$
     </p>
 
+   </div>
+
+   <div class="info-box" >
+    <h2 class="number-title"> Ejemplo </h2>
+    <p>
+        Para \(i=1,\dots, n\), sea \(\pi_i:\mathbb{R}^n \to \mathbb {R}\) 
+        la función dada por 
+        \[
+        \pi_i(x_1,\dots, x_n)=x_i
+        \]
+        Llamamos a \(\pi_i\) la proyección en la \(i\)-ésima coordenada. 
+    </p>
+    <p>
+        Entonces, para todo \(i=1,\dots, n\), \(\pi_i\) es una función lineal.
+    </p>
+
+    <p>
+        Tomemos \(x=(x_1,\dots, x_n), y=(y_1,\dots, y_n)\in \mathbb{R}^n\) y \(\alpha \in \mathbb{R}\).
+        Usando que \(\alpha x+ y= (\alpha x_1+y_1, \dots, \alpha x_n+y_n)\) tenemos que 
+        \begin{eqnarray*} 
+        \pi_i(\alpha x + y)&=&\pi_i((\alpha x_1+y_1, \dots, \alpha x_n+y_n))\\
+        &=& \alpha x_i+y_i \\
+        &=& \alpha \pi_i(x)+\pi_i(y)
+        \end{eqnarray*}
+    </p>
    </div>
 
    <div class="definicion-box">
@@ -483,7 +508,7 @@
 </div>
 
 
- <div class="lema-box"> 
+ <!-- <div class="lema-box"> 
     <h2 class="number-title" id="Ejer:PrelimMatrixFormLinearFunct"> Lema </h2> 
     <p>
         Sea $F:\mathbb{R}^n\to \mathbb{R}^m$ una función lineal. Demuestra que existen vectores
@@ -511,26 +536,26 @@
         </p>
 
     </div>
-</div>
+</div>-->
 
    
    
    <div class="definicion-box">
     <h2 class="number-title"> Definición </h2> 
     <p>
-        Dada $A$ una matriz de  $m \times n$ y un vector $\mathbf{p}\in \mathbb{R}^n $, 
+        Dada $A=[a_{i,j}]$ una matriz de  $m \times n$ y un vector $\mathbf{p}\in \mathbb{R}^n $, 
         definimos la multiplicación
         $A \mathbf{p}$, como el vector en $\mathbb{R}^m$ cuya entrada $i$ está dado por
         $$
-        \sum_{r=1}^n A_{i,r}p_r
+        (A\mathbf{p})_i=\sum_{r=1}^n a_{i,r}p_r
         $$
         Es decir
         $$
         \left[
         \begin{array}{ccc}
-        A_{1,1} & \cdots & A_{1,n} \\
+        a_{1,1} & \cdots & a_{1,n} \\
         \vdots & \vdots & \vdots  \\
-        A_{m,1}& \cdots & A_{m,n}
+        a_{m,1}& \cdots & a_{m,n}
         \end{array}
         \right]
         \left[
@@ -543,9 +568,9 @@
         =
         \left[
         \begin{array}{c}
-        \sum_{j=1}^n A_{1,j}p_j \\
+        \sum_{j=1}^n a_{1,j}p_j \\
         \vdots \\
-        \sum_{j=1}^n A_{m,j}p_j
+        \sum_{j=1}^n a_{m,j}p_j
         \end{array}
         \right]       
         $$     
@@ -553,7 +578,7 @@
    </div>
    
 
-<div class="lema-box"> 
+<!-- <div class="lema-box"> 
     <h2 class="number-title"> Lema </h2>
     <p>
         Sea $M$ una matriz de $m\times n$. Prueba que
@@ -584,7 +609,7 @@
         </p>
 
     </div>
-</div>
+</div>-->
 
 
 <div class="lema-box"> 
@@ -617,6 +642,27 @@
 
     </div>
 </div>
+
+<div class="lema-box"> 
+    <h2 class="number-title"> Lema  </h2>
+    <p>
+        Sean $F:\mathbb{R}^n \to \mathbb{R}^m$ y $G:\mathbb{R}^m \to \mathbb{R}^k$ dos funciones lineales,
+        demuestra que la composición $G\circ F$  también es lineal.        
+    </p> 
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+    <p>
+        Directamente de la definición 
+        \begin{eqnarray*}
+        (G\circ F)(\alpha \mathbf{p}+\mathbf{q})&=& G(F(\alpha \mathbf{p}+\mathbf{q})) \\
+        &=& G(\alpha F(\mathbf{p})+F(\mathbf{q})) \\
+        &=& \alpha G(F(\mathbf{p}))+ G(F(\mathbf{q}))
+        \end{eqnarray*}
+    </p>
+    </div>
+
+</div>
+
 
 
 <div class="teorema-box"> 
@@ -666,10 +712,10 @@
 <div class="definicion-box">
     <h2 class="number-title"> Definición </h2> 
     <p>
-        Para matrices $A$ de $m \times n$, $B$ de $k \times m$, el producto, denotado
+        Para matrices $A=[a_{i,j}]$ de $m \times n$, $B=[b_{r,s}]$ de $k \times m$, el producto, denotado
         $BA$, es la matriz de $k\times n$ con entradas
         $$
-        (BA)_{i,j}=\sum_{l=1}^m B_{il}A_{lj}
+        (BA)_{i,j}=\sum_{l=1}^m b_{i,l}a_{l,j}
         $$
         
     </p>
@@ -696,25 +742,6 @@
 </div>
 
 
-<div class="lema-box"> 
-    <h2 class="number-title"> Lema  </h2>
-    <p>
-        Sean $F:\mathbb{R}^n \to \mathbb{R}^m$ y $G:\mathbb{R}^m \to \mathbb{R}^k$ dos funciones lineales,
-        demuestra que la composición $G\circ F$  también es lineal.        
-    </p> 
-    <button class="respButton hvr-grow "> Solución</button>
-    <div class="resp-box">
-    <p>
-        Directamente de la definición 
-        \begin{eqnarray*}
-        (G\circ F)(\alpha \mathbf{p}+\mathbf{q})&=& G(F(\alpha \mathbf{p}+\mathbf{q})) \\
-        &=& G(\alpha F(\mathbf{p})+F(\mathbf{q})) \\
-        &=& \alpha G(F(\mathbf{p}))+ G(F(\mathbf{q}))
-        \end{eqnarray*}
-    </p>
-    </div>
-
-</div>
 
 <div class="teorema-box"> 
     <h2 class="number-title"> Teorema </h2>
@@ -751,37 +778,150 @@
 <div class="definicion-box">
     <h2 class="number-title"> Definición </h2> 
     <p>
-        Una función lineal $F:\mathbb{R}^n \to \mathbb{R}^n$ se llama invertible si es inyectiva
+        Sean \(X\) y \(Y\) dos conjuntos no vacíos. Una función  $F:X \to Y$ se llama invertible si es inyectiva
         y suprayectiva, es decir, una biyección. 
     </p>
     <p>
         Como consecuencia existe una función,
-        que vamos a denotar $F^{\langle -1 \rangle }:\mathbb{R}^n \to \mathbb{R}^n$,
-        que satisface $F\circ F^{\langle -1 \rangle }(\mathbf{q})=\mathbf{q}$, 
-        $F^{\langle -1 \rangle }\circ F(\mathbf{p})=\mathbf{p}$, para todas $\mathbf{p}$, $\mathbf{q}$.
-    </p>
-    <p>
-        Nota: para encontrar la regla de correspondencia de \(F^{\langle -1 \rangle }\)
-        se plantea la ecuación 
-        \[
-        F(\mathbf{p})=\mathbf{q}
-        \]
-        y se revuelve para  las coordenadas de \(\mathbf{p}\) en términos de las 
-        coordenadas de \(\mathbf{q}\).
+        que vamos a denotar $F^{(-1) }:Y \to X$,
+        que satisface 
+        \begin{eqnarray*} 
+        F^{(-1 ) }\circ F(x)=x\\
+        F\circ F^{(-1) }(y)=y
+        \end{eqnarray*} 
+        para todas $x\in X$, $y\in Y$.
     </p>
 
 </div>
 
 
-
 <div class="lema-box"> 
+    <h2 class="number-title"> Lema </h2>
+    <p>
+        Sea \(F:\mathbb{R}^n \to \mathbb{R}^m\) una función lineal.
+    </p> 
+    <p>
+        \(F\) es inyectiva si y sólo si \(\ker(F)=\{0\}\)
+    </p>
+    <p>
+        Nota: para probar que \(\ker(F)=\{0\}\) es suficiente probar la siguiente 
+        implicación: \(F(p)=0 \Rightarrow p=0\).
+    </p>
+</div>
+
+
+<!-- <div class="lema-box"> 
     <h2 class="number-title"> Lema </h2>
     <p>
         La función determinante tiene la siguiente identidad: $\det(AB)=\det(A)\det(B)$. Usando 
         ésta propiedad y el hecho de que $\det(I_n)=1$ demuestra que si $A$ es invertible
         entonces $\det(A)\ne 0$ y $\det(A^{-1})=\det(A)^{-1}$.
     </p> 
+</div>-->
+
+
+<div class="info-box">
+    <h2 class="number-title"> Ejemplo </h2>
+    <p>
+        La función \(F:\mathbb{R}^3 \to \mathbb{R}^3\) lineal dada por 
+        \(F(x,y,z)=(3x,y+2z,-y+2z)\), es invertible. 
+    </p>
 </div>
+
+
+<div class="prop-box">
+    <h2 class="number-title"> Proposición</h2>
+    <p>
+        Si \(F:\mathbb{R}^n \to \mathbb{R}^n\) es lineal e invertible 
+        entonces \(F^{(-1)}\) es invertible. 
+    </p>
+</div>
+
+
+<div class="definicion-box">
+    <h2 class="number-title"> Definición </h2>
+    <p>
+        La matriz identidad de dimensión \(n\) es la matriz de \(n\times n\) 
+        cuyas entradas son todas cero, excepto en la diagonal donde tiene sólo 
+        unos.
+    </p>
+    <p>
+        Ejemplos 
+        \[
+        \left[ 
+        \begin{array}{cc} 
+        1 & 0 \\
+        0 & 1
+        \end{array}
+        \right],
+         \,
+
+        \left[ 
+        \begin{array}{ccc} 
+        1 & 0 & 0 \\
+        0 & 1 & 0 \\
+        0 & 0 & 1
+        \end{array}
+        \right].
+        \]
+    </p>
+    <p>
+        Si \(I\) denota la matriz identidad de \(n\times n\), 
+        entonces para todo \(p\in \mathbb{R}^n\), \(Ip=p\).
+    </p>
+</div>
+
+
+<div class="definicion-box">
+    <h2 class="number-title"> Definición</h2>
+    <p>
+        Sea \(A\) una matriz de \(n\times n\). Decimos que \(A\) 
+        es invertible si existe una matriz \(B\) de \(n\times n\) tal que 
+        \[
+        AB=I=BA
+        \]
+        Nota: tal matriz es única y se denota como \(A^{(-1)}\). Entonces la ecuación 
+        anterior queda:
+        \[
+        AA^{(-1)}=I=A^{(-1)}A.
+        \]
+    </p>
+</div>
+
+
+<div class="prop-box">
+    <h2 class="number-title"> Proposición </h2>
+    <p>
+        Sea \(F:\mathbb{R}^n \to \mathbb{R}^n\) una 
+        función lineal e invertible y \(F^{(-1)}:\mathbb{R}^n \to \mathbb{R}^n\)
+        su función inversa. Si \(A\) es la matriz asociada a \(F\) entonces 
+        \(A\) es invertible y \(A^{(-1)}\) es la matriz asociada a \(F^{(-1)}\).
+    </p>
+</div>
+
+
+<div class="teorema-box">
+    <h2 class="number-title"> Teorema </h2>
+    <p>
+        Sea \(A\) una matriz de \(n\times n\). 
+    </p>
+    <p>
+        \(A\) es invertible si y sólo si \(\det(A)\ne 0\).
+    </p>
+    <p>
+        Nota: La fórmula para calcular \(A^{-1}\) es 
+        \[
+        A^{(-1)}=\frac{1}{\det(A)}Adj(A)
+        \]
+        donde \(Adj(A)\) es la matriz de \(n\times n\) con entradas 
+        \[
+        (Adj(A))_{i,j}=(-1)^{i+j}\det(A(j|i))
+        \]
+        donde \(A(j|i)\) denota la matriz de \((n-1)\times (n-1)\) 
+        que se obtiene borrando el \(j\)-ésimo renglón y la \(i\)-ésima columna. 
+    </p>
+</div>
+
 
 
 <div class="teorema-box">
@@ -799,66 +939,8 @@
 
 
 
-<div class="teorema-box"> 
-    <h2 class="number-title"> Teorema </h2>
-    <p>
-        Sea $F:\mathbb{R}^n \to \mathbb{R}^n$ una función lineal e invertible. 
-    </p> 
-<ol>
-    <li>
-        Demuestra que $F^{\langle -1 \rangle}$ es lineal.
-    </li>
-    <li>
-        Sea $A$ matriz asociada a $F$ y $B$ la matriz asociada a $F^{\langle -1 \rangle }$. Demuestra
-        que $AB=BA=I_n$.
-    </li>
-</ol>
-        <button class="respButton hvr-grow "> Solución</button>
-        <div class="resp-box">  
-        <p>
-            Inciso 1.
-        </p>
-        <p>
-            Debemos de probar 
-            \[
-            F^{\langle -1 \rangle }(\beta \mathbf{q}_1+\mathbf{q}_2) =
-            \beta F^{\langle -1 \rangle }(\mathbf{q}_1)+F^{\langle -1 \rangle}(\mathbf{q}_2)
-            \]
-            Denotamos \(F^{\langle -1 \rangle}(\mathbf{q}_i)=\mathbf{p}_i\), \(i=1,2\). 
-            Por definición \(\mathbf{p}_i\) es el 
-            único punto que satisface 
-            \(F(\mathbf{p}_i)=\mathbf{q}_i\). De lo anterior y 
-            de la linealidad de \(F\) se sigue que 
-            \begin{eqnarray*}
-            F(\beta \mathbf{p}_1+\mathbf{p}_2)=\beta F(\mathbf{p}_1)+ F(\mathbf{p}_2)=\beta \mathbf{q}_1+\mathbf{q}_2
-            \end{eqnarray*}
-            Por lo tanto, por la definición de \(F^{\langle -1 \rangle}\), llegamos a 
-            \begin{eqnarray*}
-            F^{\langle -1 \rangle}(\beta \mathbf{q}_1+\mathbf{q}_2)&=& \beta \mathbf{p}_1+\mathbf{p}_2 \\
-            &=& \beta F^{\langle -1 \rangle }(\mathbf{q}_1)+F^{\langle -1 \rangle}(\mathbf{q}_2)
-            \end{eqnarray*}
-        </p>
-        <p>
-            Inciso 2.
-        </p>
-        <p>
-           Sabemos que 
-           \begin{eqnarray*}
-           (F^{\langle -1 \rangle }\circ F)(\mathbf{p})&=&  ( F\circ F^{\langle -1 \rangle })(\mathbf{p}) \\
-           &=&\mathbf{p}\\
-           &=&Id(\mathbf{p}) \\
-           \end{eqnarray*}
-           para todo \(\mathbf{p}\in \mathbb{R}^n\), donde \(Id\) es la función identidad. Por el
-           Ejercicio 3.33 y la unicidad de la representación de funciones lineales como 
-           multiplicación como matriz  concluimos \(AB=BA=I_n\), donde \(I_n\) es la matriz identidad.
-        </p>
-        </div>
 
-</div>
-
-
-
-<div class="info-box">
+<!-- <div class="info-box">
     <h2 class="number-title"> Ejemplo </h2>
     <p>
         Sea \(f:\mathbb{R}^3 \to \mathbb{R}\) lineal. Escribamos la función como 
@@ -882,7 +964,9 @@
         \]
     </p>
 
-</div>
+</div>-->
+
+
 
 <div class="teorema-box">
     <h2 class="number-title"> Teorema </h2>
