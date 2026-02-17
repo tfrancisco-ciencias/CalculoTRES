@@ -575,6 +575,35 @@
         \right]       
         $$     
     </p>
+    <p>
+        Observación: podemos escribir la suma \(\sum_{j=1}^n a_{1,j}p_j\)
+        como \(A(1:)\cdot \mathbf{p}\). En general, para cualquier \(i=1,\dots, m\)
+        podemos escribir \(\sum_{j=1}^n a_{i,j}p_j=A(i:)\cdot \mathbf{p}\). Entonces 
+        podemos reescribir el producto \(A\mathbf{p}\) como:
+        \[
+        \left[
+        \begin{array}{ccc}
+        a_{1,1} & \cdots & a_{1,n} \\
+        \vdots & \vdots & \vdots  \\
+        a_{m,1}& \cdots & a_{m,n}
+        \end{array}
+        \right]
+        \left[
+        \begin{array}{c}
+        p_1 \\
+        \vdots \\
+        p_n
+        \end{array}
+        \right]
+        =\left[
+        \begin{array}{c}
+        A(1:)\cdot \mathbf{p} \\
+        \vdots \\
+        A(m:)\cdot \mathbf{p}
+        \end{array}
+        \right]
+        \]
+    </p>
    </div>
    
 
@@ -612,39 +641,9 @@
 </div>-->
 
 
-<div class="lema-box"> 
-    <h2 class="number-title" id="Ejer:UnicidadMatrizFunLineal"> Lema  </h2>
-    <p>
-        Sean $A,B$ dos matrices de $m \times n$. Demuestra que si $A\mathbf{p}=B\mathbf{p}$,
-        para todo $\mathbf{p}\in \mathbb{R}^n$, entonces $A=B$.         
-    </p> 
-    <p>
-        Sugerencia: ve tomando $\mathbf{p}=\mathbf{e}_i$, $i=1,\dots, n$.
-    </p>
-
-    <button class="respButton hvr-grow "> Solución</button>
-    <div class="resp-box">
-        <p>
-            Fijamos indices \(i,j\). Ya que $A\mathbf{p}=B\mathbf{p}$ se vale para todo \(\mathbf{p}\), tomando 
-            \(\mathbf{p}=\mathbf{e}_j\) llegamos a la entrada \(i\) del vector \(A\mathbf{e}_j\) es
-            \[
-            \sum_{r=1}^n A_{i,r}(\mathbf{e}_{j})_r
-            \]
-            donde \((\mathbf{e}_j)_r\) denota la entrada \(r\) del vector \(\mathbf{e}_j\).
-            Por lo tanto \((\mathbf{e}_j)_r=0\) para todo \(r\ne j\) y \((\mathbf{e}_j)_j=1\). Se sigue que  
-            \[
-            \sum_{r=1}^n A_{i,r}(\mathbf{e}_{j})_r=A_{i,j}
-            \]
-            Finalmente ya que \(A\mathbf{e}_j=B\mathbf{e}_j\) para toda \(j\) obtenemos que 
-            \(A_{i,j}=B_{i,j}\) y por lo tanto \(A=B\).
-
-        </p>
-
-    </div>
-</div>
 
 <div class="lema-box"> 
-    <h2 class="number-title"> Lema  </h2>
+    <h2 class="number-title" id="ComposicionLineales"> Lema  </h2>
     <p>
         Sean $F:\mathbb{R}^n \to \mathbb{R}^m$ y $G:\mathbb{R}^m \to \mathbb{R}^k$ dos funciones lineales,
         demuestra que la composición $G\circ F$  también es lineal.        
@@ -664,6 +663,38 @@
 </div>
 
 
+<div class="lema-box"> 
+    <h2 class="number-title" id="Ejer:UnicidadMatrizFunLineal"> Lema  </h2>
+    <p>
+        Sean $A,B$ dos matrices de $m \times n$. Demuestra que si $A\mathbf{p}=B\mathbf{p}$,
+        para todo $\mathbf{p}\in \mathbb{R}^n$, entonces $A=B$.         
+    </p> 
+    <p>
+        Sugerencia: ve tomando $\mathbf{p}=\mathbf{e}_i$, $i=1,\dots, n$, donde \(\{\mathbf{e}_i\}_{i=1}^n\)
+        es la base canónica.
+    </p>
+
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            Fijamos indices \(i,j\). Ya que $A\mathbf{p}=B\mathbf{p}$ se vale para todo \(\mathbf{p}\), tomando 
+            \(\mathbf{p}=\mathbf{e}_j\) llegamos a la entrada \(i\) del vector \(A\mathbf{e}_j\) es
+            \[
+            \sum_{r=1}^n a_{i,r}(\mathbf{e}_{j})_r
+            \]
+            donde \((\mathbf{e}_j)_r\) denota la entrada \(r\) del vector \(\mathbf{e}_j\).
+            Por lo tanto \((\mathbf{e}_j)_r=0\) para todo \(r\ne j\) y \((\mathbf{e}_j)_j=1\). Se sigue que  
+            \[
+            \sum_{r=1}^n a_{i,r}(\mathbf{e}_{j})_r=a_{i,j}
+            \]
+            Finalmente ya que \(A\mathbf{e}_j=B\mathbf{e}_j\) para toda \(j\) obtenemos que 
+            \(a_{i,j}=b_{i,j}\) y por lo tanto \(A=B\).
+
+        </p>
+
+    </div>
+</div>
+
 
 <div class="teorema-box"> 
     <h2 class="number-title" id="Thm:MatrixRepresentation"> Teorema </h2> 
@@ -674,9 +705,62 @@
         $$F(\mathbf{p})=M\mathbf{p},$$ 
         para todo $\mathbf{p}\in \mathbb{R}^n$.        
     </p>
-    <!-- <button class="respButton hvr-grow "> Solución</button>
+    <button class="respButton hvr-grow "> Solución</button>
     <div class="resp-box">
+
         <p>
+            Para \(i=1,\dots, m\), sea \(\pi_i:\mathbb{R}^m \to \mathbb{R}\), 
+            la proyección en la \(i\)-ésima coordenada. Si definimos 
+            \(f_i=\pi_i \circ F\) entonces, podemos escribir \(F\) como:
+            \[
+            F=(f_1,\dots , f_m).
+            \]
+        </p>
+        <p>
+            Como \(F\) y \(\pi_i\)
+            son lineales, por el <a href="#ComposicionLineales"> Lema 3.10</a> la función 
+            \(f_i\) es lineal. Entonces por el <a referrerpolicy="#Ejer:TeoRiesz"> Teorema de Riesz</a> existen 
+            vectores \(\mathbf{v}_i\in \mathbb{R}^n\) tal que \(f_i(\mathbf{p})=\mathbf{v}_i\cdot \mathbf{p}\).
+        </p>
+        <p>
+            Ahora construimos la matriz \(M\) tal que el \(i\)-ésimo renglón son las entradas
+            de \(\mathbf{v}_i\). En la notación de matrices usada  en <a href="./S2.html#NotacionMatrices"> Notación 2.1</a>
+            se escribe como \(M(i:)=\mathbf{v}_i\), \(i=1,\dots, m\).    
+        </p>
+        <p>
+            Finalmente 
+            \begin{eqnarray*} 
+            Mp&=&\left[ 
+            \begin{array}{c} 
+              M(1:)\cdot \mathbf{p} \\
+              \vdots \\
+               M(m:)\cdot \mathbf{p} 
+            \end{array}
+            \right]\\
+            &=&\left[ 
+            \begin{array}{c} 
+              \mathbf{v}_1 \cdot \mathbf{p} \\
+              \vdots \\
+               \mathbf{v}_m \cdot \mathbf{p} 
+            \end{array}
+            \right]\\
+            &=& \left[ 
+            \begin{array}{c} 
+              f_1(\mathbf{p}) \\
+              \vdots \\
+               f_m (\mathbf{p}) 
+            \end{array}
+            \right] \\
+            &=&F(\mathbf{p})
+            \end{eqnarray*}
+        </p>
+
+        <p>
+            La unicidad se sigue directamente del <a href="#Ejer:UnicidadMatrizFunLineal">Lema anterior </a>.
+        </p>
+
+    </div>
+    <!--     <p>
             Por el <a href="#Ejer:PrelimMatrixFormLinearFunct">Lema 3.12</a> existen 
             vectores \(\mathbf{v},\dots, \mathbf{v}_n \in \mathbb{R}^m\) tales que 
             \[
@@ -701,10 +785,8 @@
             entradas de \(F(\mathbf{p})\) y \(M\mathbf{p}\) son iguales por lo 
             tanto \(F(\mathbf{p})=M\mathbf{p}\) para toda \(\mathbf{p}\in \mathbb{R}^n\).
         </p>
-        <p>
-            La unicidad se sigue directamente del <a href="#Ejer:UnicidadMatrizFunLineal">Lema anterior </a>.
-        </p>
-    </div>-->
+        
+    -->
     
 </div>
 
@@ -807,6 +889,23 @@
         Nota: para probar que \(\ker(F)=\{0\}\) es suficiente probar la siguiente 
         implicación: \(F(p)=0 \Rightarrow p=0\).
     </p>
+
+    <button class="respButton hvr-grow "> Demostración </button>
+    <div class="resp-box">
+    <p>
+        \(\Rightarrow\) Hipótesis:  \(F\) es inyectiva. Debemos 
+        probar que \(\ker(F)=\{0\}\). Sea \(v\in \ker(F)\), entonces 
+        \(F(v)=0\). Ahora, al ser \(F\) lineal se tiene que \(F(0)=0\), entonces 
+        por la inyectividad \(v=0\). Por lo tanto \(\ker(F)=\{0\}\).  
+    </p>
+    <p>
+        \(\Leftarrow\) Hipótesis: \(\ker(F)=\{0\}\). Debemos probar que 
+        \(F\) es inyectivva. Supongamos que \(F(v)=F(w)\). Por la linealidad de 
+        \(F\) se sigue que \(0=F(v)-F(w)=F(v-w)\), por lo que \(v-w\in \ker(F)\). 
+        Pero como \(\ker(F)=\{0\}\), se sigue que \(v-w=0\) por lo que \(v=w\). Concluimos 
+        que \(F\) es inyectiva.
+    </p>
+    </div>
 </div>
 
 
@@ -833,7 +932,7 @@
     <h2 class="number-title"> Proposición</h2>
     <p>
         Si \(F:\mathbb{R}^n \to \mathbb{R}^n\) es lineal e invertible 
-        entonces \(F^{(-1)}\) es invertible. 
+        entonces \(F^{(-1)}\) es lineal. 
     </p>
 </div>
 
