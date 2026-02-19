@@ -999,6 +999,59 @@
         Si \(F:\mathbb{R}^n \to \mathbb{R}^n\) es lineal e invertible 
         entonces \(F^{(-1)}\) es lineal. 
     </p>
+    <button class="respButton hvr-grow "> Demostración </button>
+    <div class="resp-box">
+    <p>
+        Como \( F \) es invertible, existe una función inversa 
+        \( F^{-1}: \mathbb{R}^n \to \mathbb{R}^n \). 
+    </p>
+    <p>
+        Para demostrar que \( F^{-1} \) es lineal, debemos probar que:
+       \[ F^{-1}(\alpha u + v) = \alpha F^{-1}(u) + F^{-1}(v) \]
+       para cualquier \( \alpha \in \mathbb{R} \) y \( u, v \in \mathbb{R}^n \).
+    </p>
+    <p>
+    Dado que \( F \) es suprayectiva, existen vectores \( p, q, p' \in \mathbb{R}^n \) tales que:
+    \begin{eqnarray*}
+         F(p) &=& u \\
+         F(q) &=& v \\
+         F(p') &=& \alpha u + v \\
+    \end{eqnarray*}
+    </p>
+    <p>
+    Por la definición de función inversa, tenemos que:
+    \begin{eqnarray*} 
+    F^{-1}(u) &=& F^{-1}(F(p)) = p \\
+    F^{-1}(v) &=& F^{-1}(F(q)) = q \\
+    F^{(-1)}(\alpha u +v)&=& F^{(-1)}(F(p'))= p'
+    \end{eqnarray*}
+    </p>
+    <p>
+    De lo cual se sigue que:
+    \begin{equation}
+    \alpha F^{-1}(u) + F^{-1}(v) = \alpha p + q 
+    \end{equation}
+    </p>
+
+    <p>
+        Ahora, como \( F \) es una transformación lineal, sabemos que:
+        \[ F(\alpha p + q) = \alpha F(p) + F(q) \]
+        Sustituyendo los valores de \( u \) y \( v \):
+        \[ F(\alpha p + q) = \alpha u + v \]
+        ahora aplicamos \(F^{(-1)}\) en ambos lados 
+        de la ecuación anterior para obtener  
+        \begin{eqnarray}
+        \alpha p + q= F^{(-1)}(F(\alpha p +q))= F^{(-1)}(\alpha u + v) 
+        \end{eqnarray}
+    </p>
+    <p>
+        Comparando (4) y (5) concluimos:
+        \[
+        \alpha F^{(-1)}(u)+F^{(-1)}(v)=F^{(-1)}(\alpha u + v)
+        \]
+    </p>
+    </div>
+    
 </div>
 
 
@@ -1065,6 +1118,36 @@
         su función inversa. Si \(A\) es la matriz asociada a \(F\) entonces 
         \(A\) es invertible y \(A^{(-1)}\) es la matriz asociada a \(F^{(-1)}\).
     </p>
+    <button class="respButton hvr-grow "> Demostración </button>
+    <div class="resp-box">
+    <p>
+        Por el teorema anterior \( F^{-1} \) es lineal, por lo tanto 
+        existe una matriz \( B \) de \( n \times n \) tal que:
+       \[ F^{-1}(q) = Bq, \quad \forall q \in \mathbb{R}^n \]
+    </p>
+    <p>
+        Ahora, por definición de función inversa:
+        <ol>
+            <li>
+                Para cualquier \( q \in \mathbb{R}^n \):
+            \[ q = I q = (F \circ F^{-1})(q) = F(F^{-1}(q)) = F(Bq) = A(Bq) = (AB)q \]
+            De donde se sigue que \( AB = I \).
+            </li>
+            <li>
+                Para cualquier \( p \in \mathbb{R}^n \):
+            \[ p = I p = (F^{-1} \circ F)(p) = F^{-1}(F(p)) = F^{-1}(Ap) = B(Ap) = (BA)p \]
+            De donde se sigue que \( BA = I \).
+            </li>
+        </ol>
+    </p>
+    <p>
+         Como \( AB = I \) y \( BA = I \), entonces la matriz \( A \) es invertible y su inversa es 
+         \( B \). Es decir: \[ A^{-1} = B \].
+    </p>
+    <p>
+            Por lo tanto, \( A^{-1} \) es la matriz asociada a la función \( F^{-1} \).
+    </p>
+    </div>
 </div>
 
 
@@ -1148,6 +1231,75 @@
         \[
         \ker(F)=\{(x_1,x_2,y_1,y_2)\in \mathbb{R}^4: F(x_1,x_2,y_1,y_2)=(0,0,0,0)\}
         \]
+    </p>
+    <p>
+    <p><i>Representación Matricial</i></p>
+        
+        <p>
+                    El sistema \( F(x_1, x_2, y_1, y_2) = (0, 0) \) equivale a:
+            \begin{align*}
+            x_1 - x_2 + 2y_1 - y_2 &= 0 \\
+            3x_1 - x_2 + y_1 + y_2 &= 0
+            \end{align*}
+        </p>
+        <p>
+        Reordenando para dejar las variables \( x \) de un lado y las \( y \) del otro:
+        \begin{align*}
+        x_1 - x_2 &= -2y_1 + y_2 \\
+        3x_1 - x_2 &= -y_1 - y_2
+        \end{align*}
+        </p>
+        <p>
+                En forma matricial:
+            \[ 
+            \underbrace{\begin{bmatrix} 1 & -1 \\ 3 & -1 \end{bmatrix}}_{A} 
+            \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = 
+            \underbrace{\begin{bmatrix} -2 & 1 \\ -1 & -1 \end{bmatrix}}_{B} 
+            \begin{bmatrix} y_1 \\ y_2 \end{bmatrix} 
+            \]
+        </p>
+    </p>
+    <p>
+        <p>
+            <i> Resolución mediante Matriz Inversa</i>
+        </p>
+        <p>
+            Para despejar \( \begin{bmatrix} y_1 \\ y_2 \end{bmatrix} \), multiplicamos por la inversa de \( B \).
+            Primero, calculamos el determinante de \( B \):
+            \[ \det(B) = 2 - (-1) = 3 \]
+
+            La matriz inversa \( B^{-1} \) es:
+            \[ B^{-1} = \frac{1}{3} \begin{bmatrix} -1 & -1 \\ 1 & -2 \end{bmatrix} \]
+
+        </p>
+        <p>
+                Entonces:
+               \[ \begin{bmatrix} y_1 \\ y_2 \end{bmatrix} = 
+               B^{-1} A \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \]
+        </p>
+        <p>
+            Calculamos el producto \( B^{-1} A\):
+           \[ B^{-1} A = \frac{1}{3} \begin{bmatrix} -1 & -1 \\ 1 & -2 \end{bmatrix} \begin{bmatrix} 1 & -1 \\ 3 & -1 \end{bmatrix} = 
+           \frac{1}{3} \begin{bmatrix} -4 & 2 \\ -5 & 1 \end{bmatrix} \]
+        </p>
+    </p>
+    
+    <p>
+        Por lo tanto:
+        \begin{align*}
+        y_1 &= -\frac{4}{3} x_1 + \frac{2}{3}x_2 \\
+        y_2 &= -\frac{5}{3} x_1 +\frac{1}{3}x_2
+        \end{align*}
+    </p>
+    <p>
+        <i>Conclusión del Kernel</i>
+    <p>
+        <p>
+            Los elementos del núcleo tienen la forma:
+           \[ \ker(F) = \left\{ \left( x_1,x_2, -\frac{4}{3} x_1 + \frac{2}{3}x_2, -\frac{5}{3} x_1 +\frac{1}{3}x_2 \right) \mid x_1, x_2 \in 
+           \mathbb{R} \right\} \]
+        </p>
+        
     </p>
 </div>
 
