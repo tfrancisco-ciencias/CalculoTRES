@@ -925,6 +925,71 @@
         La función \(F:\mathbb{R}^3 \to \mathbb{R}^3\) lineal dada por 
         \(F(x,y,z)=(3x,y+2z,-y+2z)\), es invertible. 
     </p>
+    <p>
+        <i>Inyectividad.</i>
+    </p>
+    <p>
+      Para demostrar que \( F \) es inyectiva, debemos verificar que 
+      \( F(x, y, z) = \mathbf{0} \implies (x, y, z) = \mathbf{0} \).
+       Supongamos que \( F(x, y, z) = (0, 0, 0) \). Esto nos da el siguiente 
+       sistema de ecuaciones:
+       \begin{eqnarray} 
+        3x &=& 0 \implies x = 0  \\
+        y + 2z &=& 0 \\
+        -y + 2z &=& 0 
+       \end{eqnarray}
+    </p>
+    <p>
+        Sumando las ecuaciones (2) y (3):
+       \[ (y + 2z) + (-y + 2z) = 0 + 0 \implies 4z = 0 \implies z = 0 \]
+    </p>
+    <p>
+    Sustituyendo \( z = 0 \) en la ecuación (2):
+    \[ y + 2(0) = 0 \implies y = 0 \]
+    </p>
+    <p>
+    Como la única solución es \( (x, y, z) = (0, 0, 0) \), la función es 
+    <i>inyectiva.</i>
+    </p>
+    <p>
+        <i>Suprayectividad</i>
+    </p>
+    <p>
+    Sea \( \mathbf{g} = (u, v, w) \in \mathbb{R}^3 \). Debemos demostrar que existe \( (x, y, z) \in \mathbb{R}^3 \) tal que:
+    \[ F(x, y, z) = (u, v, w) \]
+
+        Igualando componentes:
+        \begin{eqnarray*}
+             3x &=& u \implies x = \frac{1}{3}u \\
+             y + 2z &=& v \\
+             -y + 2z &=& w 
+        \end{eqnarray*}
+
+    </p>
+
+    <p>
+        Para hallar \( z \), sumamos las dos últimas ecuaciones:
+       \[ 4z = v + w \implies z = \frac{v + w}{4} \]
+    </p>    
+
+    <p>
+    Para hallar \( y \), despejamos de la segunda ecuación:
+    \[ y = v - 2z = v - 2\left(\frac{v + w}{4}\right) = v - \frac{v + w}{2} 
+    = \frac{2v - v - w}{2} \implies y = \frac{v - w}{2} \]
+    </p>
+    <p>
+        Dado que para cualquier vector \( (u, v, w) \) existe una preimagen, 
+        la función es <i>suprayectiva.</i>
+    </p>
+    <p>
+            <i>Función Inversa</i>
+    </p>
+    <p>
+        Al ser la función biyectiva, existe la función inversa 
+        \( F^{-1}: \mathbb{R}^3 \to \mathbb{R}^3 \), la cual, según 
+        los despejes anteriores, está dada por:
+       \[ F^{-1}(u, v, w) = \left( \frac{1}{3}u, \frac{v - w}{2}, \frac{v + w}{4} \right) \]
+    </p>
 </div>
 
 
