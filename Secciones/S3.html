@@ -1153,6 +1153,137 @@
     
 </div>
 
+<div class="info-box">
+    <h2 class="number-title"> Ejemplo </h2>
+    <h3> Dirección de crecimiento más rápido </h3>
+    <p>
+        Considere la función \(f: \mathbb{R}^3 \to \mathbb{R}\) dada por:
+        \[ f(x,y,z) = x - y + 2z \]
+        <i>Pregunta:</i> ¿En qué dirección del espacio crece más rápido la función?
+    </p>
+
+   <p>
+    Empezamos analizando los <i>conjuntos de nivel.</i>
+   </p>
+   <ol>
+    <li>
+         <p>
+            <i>El conjunto de nivel 0 (el Kernel):</i>
+         </p>
+           <p>
+            Al ser \(f\) lineal, el conjunto de nivel 0 es el núcleo (kernel) de \(f\):
+            \[ N_0(f) = \ker(f) = \{ (x,y,z) \in \mathbb{R}^3 \mid x - y + 2z = 0 \} \]
+           La ecuación \(x - y + 2z = 0\) define un \textbf{plano} que pasa por el origen.
+           </p> 
+    </li>
+    <li>
+        <p>
+            <i>Conjuntos de nivel \(c \neq 0\):</i>
+        </p>
+        <p>
+          Para \(c \neq 0\), el conjunto de nivel \(N_c(f)\) es una traslación del kernel.
+          Específicamente, si elegimos un vector particular \(v_c \in \mathbb{R}^3\) que satisfaga \(f(v_c) = c\), entonces:
+         \[ N_c(f) = \{ v + v_c \mid v \in \ker(f) \} \]
+        </p>
+        <p>
+            <i>Justificación:</i>
+        </p>
+        <p>
+            \(\subseteq ] \) Sea \(p \in N_c(f)\), esto implica que \(f(p) = c\).
+            Como sabemos que \(f(v_c) = c\), tenemos por linealidad:
+            \[ f(p) - f(v_c) = c - c = 0 \implies f(p - v_c) = 0 \]
+            Por lo tanto, el vector diferencia \(v := p - v_c\) pertenece al \(\ker(f)\).
+            De aquí despejamos \(p = v + v_c\), donde \(v \in \ker(f)\).
+        </p>
+        <p>
+            \(\supseteq ]\) Recíprocamente, si \(v \in \ker(f)\), entonces:
+             \[ f(v + v_c) = f(v) + f(v_c) = 0 + c = c \implies v + v_c \in N_c(f) \]
+        </p>
+    </li>
+    <li>
+       <p>
+            <i>Intuición Geométrica</i>
+       </p> 
+        <p>
+               Notamos que las superficies de nivel \(N_c(f)\) son 
+               <i>planos paralelos</i> que rebanan el espacio. 
+        </p>
+        <ol>
+            <li>
+                    Si nos movemos sobre los conjuntos de nivel, 
+                    los valores de \(f\) <b>no cambian</b> (son constantes igual a \(c\)).
+            </li>
+            <li>
+                    Intuitivamente, si nos movemos en la dirección <b>perpendicular</b> 
+                    a las superficies de nivel, la función "debería" variar más rápido.
+            </li>
+        </ol>
+        <p>
+            Si escribimos la ecuación del kernel como un producto punto:
+            \[ 0 = x - y + 2z = (1, -1, 2) \cdot (x, y, z) \]
+            tenemos que el vector \(n = (1, -1, 2)\) es <b>perpendicular</b> (normal) 
+            al plano del Kernel (y por tanto a todos los planos de nivel).
+        </p>
+        <p>
+            Al normalizarlo, obtenemos la dirección unitaria:
+           \[ u = \frac{n}{\|n\|} = \frac{1}{\sqrt{1^2 + (-1)^2 + 2^2}} (1, -1, 2) = \frac{1}{\sqrt{6}}(1, -1, 2) \]
+        </p>
+    </li>
+        <li>
+            <i>Conclusión preliminar:</i>
+            <p>
+                Por el momento no hemos probado formalmente que esta sea 
+                la dirección de máximo crecimiento, 
+                pero la intuición geométrica sugiere que para 
+                aumentar el valor de \(f\) lo más rápido posible, 
+                debemos movernos en la dirección de este vector normal.
+            </p>
+        </li>
+        <li>
+            <i>Derivada direccional </i>
+            <p>
+                Para formalizar la idea anterior, necesitamos definir 
+                cómo cambia una función en una dirección arbitraria.
+            </p>
+            <p>
+            <b>Definicion [Derivada Direccional]</b>
+            </p>
+            <p>
+             Sea \(f: U \subseteq \mathbb{R}^n \to \mathbb{R}\) y \(p \in U\). 
+            Sea \(v \in \mathbb{R}^n\) un vector (usualmente unitario).
+           La <i>derivada direccional</i> de \(f\) en el punto \(p\) en la dirección \(v\), 
+           denotada como \(D_v f(p)\) o \(\frac{\partial f}{\partial v}(p)\), 
+           se define como el límite:
+           \[ D_v f(p) = \lim_{t \to 0} \frac{f(p + tv) - f(p)}{t} \]
+           (siempre que este límite exista).
+            </p>
+            <p>
+                En nuestro ejemplo la función es lineal y la derivada direccional se simplifica
+                significativamente, para \(t\ne 0\):
+                \[
+                \frac{f(p + tv) - f(p)}{t} =\frac{f(p)+tf(v)-f(p)}{t}=\frac{tf(v)}{t}=f(v)
+                \]
+            </p>
+            <p>
+                Asi que \(D_vf(p)=f(v)\), para todo punto \(p\).
+            </p>
+            <p>
+                Si escribimos el vector en coordenadas \(v=(x,y,z)\), encontrar la dirección 
+                de crecimiento más rápido se traduce al siguiente problema:
+                <p>
+                    maximizar \(D_vf(p)=f(x,y,z)=x-y+2z\) bajo las condiciones \(x^2+y^2+z^2=1\).
+                </p>
+                
+            </p>
+            <p>
+                Nuestro trabajo previo e intuición dice que éste máximo se alcanza en 
+                \(u=\frac{1}{\sqrt{6}}(1, -1, 2)\). Nuestro trabajo, para el resto del curso, es
+                entender a usar las herramientas necesarias para probar esto (entre otras cosas).
+            </p>
+        </li>    
+
+   </ol>
+</div>
 
 
 
