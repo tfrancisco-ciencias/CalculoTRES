@@ -814,14 +814,54 @@
             \]
             los cuales caen dentro del área de cálculo 1 y 2.
         </p>
+        
         <p>
             Por ejemplo \(\lim_{t\to t_0} (\cos(t),\sen(t))=(\cos(t_0),\sen(t_0))\). Asi pues 
             en cierto sentido los límites de las curvas parametrizadas son "sencillos". Por esta
             simplicidad va a ser posible definir curvas diferenciables inmediatamente.
         </p>
-
+        <p>
+            Nota: si la curva parametrizada tiene codominio \(\mathbb{R}^2\) o \(\mathbb{R}^3\) 
+            las funciones coordenadas suelen denotarse:
+            \[
+            \gamma(t)=(x(t),y(t)) \quad \textrm{ó} \quad \gamma(t)=(x(t),y(t),z(t)).
+            \]
+        </p>
     </div>
 
+    <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+            Sea \(\gamma: (a,b)\to \mathbb{R}^n\) una curva parametrizada con funciones 
+            coordenadas 
+            \[\gamma=(\gamma_1,\dots, \gamma_n).\]
+        </p>
+        <p>
+            Dado \(t_0\in (a,b)\) definimos la derivada de \(\gamma\) en \(t_0\) como 
+            \[
+            \lim_{t\to t_0} \frac{1}{t-t_0}(\gamma(t)-\gamma(t_0))
+            \]
+            siempre que dicho límite exista. Denotamos el límite anterior  como 
+            \(\gamma'(t_0)\). Nota que \(\gamma'(t_0)\) es un vector en \(\mathbb{R}^n\). También decimos que \(\gamma\)
+            es diferenciable o tiene derivada en \(t_0\).
+         </p>
+         <p>
+            Al vector \(\gamma'(t_0)\) también se le llama el vector tangente a \(\gamma\) en \(t_0\).
+         </p>
+         <p>
+            Observación: aplicando  la <a href="#Ejer:CaracterizacionLimitesVect">Proposición 4.8 </a> 
+            directamente resulta que \(\gamma\) es diferenciable en \(t_0\) si y sólo si 
+            cada función coordenada \(\gamma_i\) es diferenciable en \(t_0\) y además, de existir la derivada
+            se tiene que: 
+            \[
+            \gamma'(t_0)=(\gamma_1'(t_0),\dots, \gamma_n'(t_0)).
+            \]
+         </p>
+         <p>
+            Por ejemplo, si \(\gamma(t)=(\cos(t),\sen(t))\) entonces 
+            \(\gamma'(t)=(-\sen(t),\cos(t))\), para todo \(t\in \mathbb{R}\).
+         </p>
+    </div>
 
     <div class="definicion-box">
     <h2 class="number-title"> Definición </h2>
