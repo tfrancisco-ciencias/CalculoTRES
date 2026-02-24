@@ -312,6 +312,33 @@
     
 </div>
 
+<div class="info-box">
+    <h2 class="number-title"> Ejemplo </h2>
+    <p>
+        Para toda \(i=1,\dots, n\), sea \(\pi_i:\mathbb{R}^n \to \mathbb{R}\) 
+        la proyección en la coordenada \(i\). Entonces 
+        \[
+        \lim_{w\to v}\pi_i(w)=\pi_i(v)
+        \]
+    </p>
+    <p>
+        Razón: por un ejercicio anterior tenemos que si \(p=(p_1,\dots, p_n)\) entonces, para todo \(i\):  
+        \begin{equation}\label{Eqn:AuxContinudadProyecciones}
+        |p_i| \leq \|p\|.
+        \end{equation}
+        Con ésta desigualdad vamos a probar \(\lim_{w\to v}\pi_i(w)=\pi_i(v)\).
+    </p>
+    <p>
+        Sea \(\varepsilon >0\). Tomando \(\delta = \varepsilon\) y un vector \(w\) con 
+        \(\|w-v\| < \delta = \varepsilon\) resulta que 
+        \[
+        |\pi_i(w) - \pi_i(v)\|=|w_i-v_i| \leq \| w-v\| < \varepsilon.
+        \]
+        Donde la  desigualdad sale de \(\eqref{Eqn:AuxContinudadProyecciones}\)
+        tomando \(p=w-v\).
+    </p>
+</div>
+
     	
 <div class="nota-box">
     <h2 class="number-title" id="LeyesLimites"> Leyes de los límites </h2>
@@ -352,6 +379,44 @@
             \]
         </li>
     </ol>
+
+</div>
+
+<div class="lema-box">
+    <h2 class="number-title"> Corolario </h2>
+    <p>
+        Un monomio en las variables \(x_1,\dots, x_n\) es una expresión de la forma 
+        \[
+        x_{i_1}^{k_1}\cdots x_{i_s}^{k_s}
+        \]
+        para alguna elección de índices \(1\leq i_1,\dots, i_s \leq n\) y pontencias 
+        \(k_1,\dots, k_s \in \mathbb{N}\).
+    </p>
+    <p>
+        En polinomio en las variables \(x_1,\dots, x_n\) es una combinación lineal 
+        de monomios. Por ejemplo 
+        \[
+        p(x,y)=xy+5x^2y-2y^2, \quad p(x,y,z)=7xyz - x^2y + 2x^2+2x^2y+z+3 .
+        \]
+    </p>
+    <p>
+        Una función racinoal en las variables \(x_1,\dots, x_n\) es un cociente 
+        de polinomios de varias variables. Por ejemplo 
+        \[
+        r(x,y)=\frac{3x}{y}, \quad r(x,y,z)=\frac{3x^2-2xy+5z}{2xyz+y^2-3xzy^2}.
+        \]
+    </p>
+    <p>
+        Para todo polonomio en \(x_1,\dots, x_n\) variables 
+        \[
+        \lim_{(x_1,\dots, x_n) \to (y_1,\dots, y_n)}p(x_1,\dots, x_n)=p(y_1,\dots, y_n).
+        \]
+        Para toda función racional en las variables \((x_1,\dots, x_n)\), 
+        si el denominador no se anula en \((y_1,\dots, y_n)\) entonces 
+        \[
+        \lim_{(x_1,\dots, x_n) \to (y_1,\dots, y_n)}r(x_1,\dots, x_n)=r(y_1,\dots, y_n).
+        \]
+    </p>
 
 </div>
 
