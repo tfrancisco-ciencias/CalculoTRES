@@ -898,6 +898,23 @@
 
     </div>
 
+
+    <div class="info-box">
+        <h2 class="number-title"> Ejemplo </h2>
+        <p>
+            Considera un el círculo de radio \(r\) parametrizado por 
+            \(\gamma(t)=r(\cos(t),\sen(t))\).
+        </p>
+        <p>
+            Entonces \(\gamma'(t)=r(-\sen(t),\cos(t))\). Entonces 
+            \[
+            \gamma(t)\cdot \gamma'(t)=-r^2\sen(t)\cos(t)+r^2\sen(t)\cos(t)=0
+            \]
+            Por lo tanto \(\gamma\) y \(\gamma'\) son ortogonales. Esto refleja que 
+            la recta tangente en un punto a una circunferencia es perpendicular al radio.
+        </p>
+    </div>
+
     <div class="info-box">
         <h2 class="number-title"> Ejemplo </h2>
         <h3> Segunda ley de Newton en órbitas circulares</h3>
@@ -1453,37 +1470,6 @@
 </div>
 
 
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2> 
-        <p>
-            Sea \(A\) una matriz de 
-            \(n\times n\) y \(p_0\in \mathbb{R}^n\). Demuestra que, $\lim_{p\to p_0}Ap=Ap_0$. 
-        </p> 
-        
-</div>
-
-
-
-<div class="ejercicio-box"> 
-    <h2 class="number-title" id="Ejer:LimiteCocienteDifLinealEnCero"> Ejercicio </h2> 
-        <p>
-            Sea $F:\mathbb{R}^n \to \mathbb{R}^m$ una función lineal. Supongamos que
-            $$
-            \lim_{p\to 0} \frac{\|F(p)\|}{\|p\|}=0.
-            $$
-            Demuestra que $F$ es la función constante cero.
-        </p>
-        <p>
-            Sugerencia: considera límtes a lo largo de rectas por origen de la forma $p=te_i$, donde $t\in \mathbb{R}$
-            y $e_i$ es vector canónico.            
-        </p> 
-</div>
-
-
-
-
-
-
 
 
 <div class="ejercicio-box">
@@ -1603,7 +1589,75 @@
 </div>
 
 
+<div class="ejercicio-box"> 
+    <h2 class="number-title" id="Ejer:LimiteCocienteDifLinealEnCero"> Ejercicio </h2> 
+        <p>
+            Sea $F:\mathbb{R}^n \to \mathbb{R}^m$ una función lineal. Supongamos que
+            $$
+            \lim_{p\to 0} \frac{\|F(p)\|}{\|p\|}=0.
+            $$
+            Demuestra que $F$ es la función constante cero.
+        </p>
+        <p>
+            Sugerencia: considera límtes a lo largo de rectas por origen de la forma $p=te_i$, donde $t\in \mathbb{R}$
+            y $e_i$ es vector canónico.            
+        </p> 
+</div>
 
+
+
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+        <p>
+            Sea \(A\) una matriz de 
+            \(n\times n\) y \(p_0\in \mathbb{R}^n\). Demuestra que, $\lim_{p\to p_0}Ap=Ap_0$. 
+        </p> 
+        
+</div>
+
+
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+        Encuentra las rectas tangentes a las curvas en los puntos dados.
+    </p>
+    <ol>
+        <li>
+            \(\gamma(t)=(\cos(5\pi t),\sen(3\pi t), t^2)\) en \(t=1\).
+        </li>
+        <li>
+            \(\gamma(t)=(t^2-t, t^3-1, \sen(t))\), en \(t=0\).
+        </li>
+        <li>
+            \(\gamma(t)=(e^{2t+1}, \ln(t^2+1), e^{5t})\), en \(t=1\).
+        </li>
+        <li>
+            \(\gamma(t)=(6e^t, \cos(t), 2t^2)\), en \(t=0\).
+        </li>
+    </ol>
+
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+        Considera la espiral dada por \(\gamma(t)=(e^t\cos(t),e^t\sen(t))\). Prueba que 
+        el ángulo entre \(\gamma(t)\) y \(\gamma'(t)\) es constante.
+    </p>
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+        Sea \(\gamma:(a,b)\to \mathbb{R}^3\) una curva parametrizada diferenciable contenida 
+        en una esfera. Prueba que en todo punto de la curva \(\gamma(t)\)
+        es perpendicular a \(\gamma'(t)\).
+    </p>
+</div>
 
 <div class="ejercicio-box"> 
 <h2 class="number-title"> Ejercicio </h2> 
