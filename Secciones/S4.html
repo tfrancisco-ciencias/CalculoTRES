@@ -208,7 +208,7 @@
     </p>
     <p>
             <div class="flexbox">
-             <img src="./Images/S4-img2.png" alt="EjemploLimitesSobreRectas" width="40%" height="auto">
+             <img src="./Images/S4-Img2.png" alt="EjemploLimitesSobreRectas" width="40%" height="auto">
            </div>
         </p>
     <p>
@@ -846,11 +846,13 @@
             es diferenciable o tiene derivada en \(t_0\).
          </p>
          <p>
-            Al vector \(\gamma'(t_0)\) también se le llama el vector tangente a \(\gamma\) o el vector 
-            velocidad en \(t_0\).
+            Al vector \(\gamma'(t_0)\) también se le llama el vector 
+            velocidad en \(t_0\). La rapidez de \(\gamma\) en \(t_0\)
+            se define como la norma del vector velocidad, es decir \(\| \gamma'(t_0)\|\).
          </p>
+        
          <p>
-            Si asi vez, las funciones coordenadas de \(\gamma'\) son diferenciables en \(t_0\)
+            Si asu vez, las funciones coordenadas de \(\gamma'\) son diferenciables en \(t_0\)
             podemos volver a tomar la derivada y obtener la segunda derivada en \(t_0\), denotada 
             \(\gamma''(t_0)\), también conocida como la aceleración de \(\gamma\) en \(t_0\).    
         </p>
@@ -870,7 +872,30 @@
             \gamma''(t_0)=(\gamma_1''(t_0),\dots, \gamma_n''(t_0)).
             \]
          </p>
+         <p>
+            Decimos que la curva es diferenciable en \((a,b)\) si \(\gamma'(t)\) existe 
+            para toda \(t\in (a,b)\).
+         </p>
          
+    </div>
+
+    <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2> 
+        <p>
+            Sea \(\gamma:(a,b)\to \mathbb{R}\) una curva parametrizada diferenciable en 
+            \((a,b)\). Decimos que \(\gamma\) es regular si para toda \(t\in (a,b)\), 
+            \(\gamma'(t)\ne 0\) para toda \(t\in (a,b)\).
+        </p>
+        <p>
+            Si \(\gamma\) es una curva regular el vector tangente a la curva en 
+            \(t_0\) es \(\gamma'(t_0)\). La forma paramétrica de la 
+            recta tangente a \(\gamma\) en el punto 
+            \(t_0\) está dada por 
+            \[
+            \gamma(t_0)+(t-t_0) \gamma'(t_0), \quad t\in \mathbb{R}.
+            \]
+        </p>
+
     </div>
 
     <div class="info-box">
@@ -927,18 +952,32 @@
 
             </p>
 
-
- 
-
-
-
-
-
-
-
         </p>
 
+    </div> 
+
+    <div class="prop-box">
+        <h2 class="number-title"> Proposición</h2>
+        <p>
+            Sean \(\beta, \gamma: (a,b)\to \mathbb{R}^n\) dos curvas diferenciables, 
+            \(f:(a,b)\to \mathbb{R}\) una función diferenciable y \( a \in \mathbb{R}\).
+        </p>
+        <p>
+            Entonces:
+            <ol>
+                <li>
+                    \( (a \beta + \gamma )'=a \beta '+ \gamma' \).
+                </li>
+                <li>
+                    \((f\gamma)'= f\gamma '+ f'\gamma\).
+                </li>
+                <li>
+                    \((\beta \cdot \gamma)' = \beta \cdot \gamma'+ \beta '\cdot \gamma\).
+                </li>
+            </ol>
+        </p>
     </div>
+
 
     <div class="definicion-box">
     <h2 class="number-title"> Definición </h2>
