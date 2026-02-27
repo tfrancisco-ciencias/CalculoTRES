@@ -81,1031 +81,843 @@
   </head>
   <body class="fondo-body" >
 
-    <h1 class="number-title flexbox"> Diferenciabilidad </h1> 
-<!-- this part is for next and prev sections -->
+    <h1 class="number-title flexbox"> Derivadas parciales y continuidad </h1> 
+    <!-- this part is for next and prev sections -->
 <button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>
 <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
 
- 
-    <div class="definicion-box"> 
-        <h2 class="number-title" id="Def:DerivadaR2"> Definición </h2>
-        <p>
-            Sea $U\subseteq\mathbb{R}^2$ un abierto y $f:U\to \mathbb{R}$ una función.
-        </p>
-        <p>
-            Dado un punto $(x_0,y_0)\in U$, decimos que $f$ es diferenciable en $(x_0,y_0)$ si,
-            existe una función lineal $T:\mathbb{R}^2 \to \mathbb{R}$, tal que
-            $$
-            \lim_{(x,y)\to (x_0,y_0)} \frac{f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)  }{\|(x-x_0,y-y_0)\|}=0
-            $$
-            
-            Si es así, la función lineal $T$ se llama la derivada de $f$ en $(x_0,y_0)$ y la vamos
-            a denotar $D_{(x_0,y_0)}f$.
-        </p>
-        <p>
-          Notas:
-        </p>
-        <ol>
-          <li>
-            Lo más importante que uno debe darse cuenta es que, ahora, la derivada
-            valuada en un punto dado es una función lineal, no un número. Además pesnado que las 
-            funciones lineales se representan con matrices también podemos decir que ahora la derivada no 
-            es un número si no una matriz. 
-          </li>
-          <li>
-            Con esta definición uno tiene que proponer la función \(T\) que va a ser la derivada. Más adelante
-            se verá una forma sistemática de proponerla (y la cual involucra las derivadas parciales). 
-          </li>
-          <li>
-            Ya que el límite de una cantidad es cero si y sólo si su valor absoluto tiende a cero, el límite en la definición 
-            también puede escribirse como 
-            $$
-            \lim_{(x,y)\to (x_0,y_0)} \frac{|f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0))  |}{\|(x-x_0,y-y_0)\|}=0
-            $$
-            El valor absoluto tiende a hacer la prueba de los límites más sencilla.
-          </li>
-          <li>
-            Similarmente al caso uno-dimensional el cociente diferencial es la expresión 
-            \[
-            \frac{f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)  }{\|(x-x_0,y-y_0)\|}
-            \]
-          </li>
-          <li>
-            Otra forma equivalente de escribir el límite es 
-            $$
-            \lim_{ (h,k)\to (0,0)} \frac{|f(x_0+h,y_0+k)-f(x_0,y_0)-T(h,k))  |}{\|(h,k)\|}=0
-            $$
-            Para pasar de una a la otra se usa el cambio de variable \((h,k)=(x,y)-(x_0,y_0)\).
-
-          </li>
-          <li>
-            Para calcular la derivada usando sólo la definición se hacen tres pasos:
-            (1) se propone la derivada (la función \(T\) en la notación de arriba); (2) se escribe el 
-            cociente diferencial y se trata de simplificar;(3) se prueba que el cociente diferencial tiende a cero.
-          </li>
-        </ol>
-        
-   </div>
-
   
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2> 
-    <p>
-        Demuestra que toda función constante $f:\mathbb{R}^2 \to \mathbb{R}$
-        es diferenciable en todo punto $(x_0,y_0)$. Es más, demuestra que $D_{(x_0,y_0)}f$
-        es la función constante cero.
-    </p>
-    <!--<p>
-      Supongamos que la función es constante igual a \(c\).
-    </p>
-    <p>
-      Proponemos (en este caso nos proponen) a la derivada: denotamos \(T\)  a la función cero. 
-    </p>
-    <p>
-      Escribimos el cociente diferencial y simplificamos:
-      \begin{eqnarray*} 
-      \frac{f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)  }{\|(x-x_0,y-y_0)\|}&=&\frac{c-c-0}{\|(x-x_0,y-y_0)\|}\\
-      &=& 0
-      \end{eqnarray*}
-      Nota: la última igualdad es cero pues para el cociente diferencial siempre se asume que 
-      \((x,y)\ne (x_0,y_0)\) (pues se va a tomar el límite cuando \((x,y)\to (x_0,y_0)\)).
-    </p>
-    <p>
-      Finalmente, tomamos el límite del cociente diferencial:
-      \begin{eqnarray*} 
-      \lim_{(x,y)\to (x_0,y_0)}\frac{f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)  }{\|(x-x_0,y-y_0)\|}
-      &=&\lim_{(x,y)\to (x_0,y_0)}0\\
-      &=&0.
-      \end{eqnarray*}
+    <div class="definicion-box"><h2 class="number-title">  Definición</h2>
+        <p>
+            Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$ y $f:U \to \mathbb{R}$.
+            Decimos que la función $f$ es continua en un punto $q \in U$ si
+            $$
+            \lim_{p\to q} f(p)=f(q).
+            $$        
+        </p>
+        
+  </div>
 
+
+
+
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Sea \(f:\mathbb{R}^n \to \mathbb{R}\) una función lineal. Prueba que \(f\) es continua en 
+        todo punto de \(\mathbb{R}^n\).
     </p>
     <p>
-      Por lo tanto la función es diferenciable y la derivada en todo punto es la función cero.
-    </p>-->
+        Sugerencia: usa el <a href="./S3.html#Ejer:TeoRiesz">Teorema de Riesz</a>.
+    </p>
+    <button class="respButton hvr-grow "> Solución </button>
+    <div class="resp-box">
+        <p>
+            Debemos de probar que para todo \(q\in \mathbb{R}^n\), 
+            \[
+            \lim_{p\to q}f(p)=f(q).
+            \]
+        </p>
+        <p>
+            Por el <a href="./S3.html#Ejer:TeoRiesz">Teorema de Riesz</a> sabemos que existe un 
+            vector \(p_0\in \mathbb{R}^n\) tal que 
+            \[
+            f(p)=\langle p, p_0 \rangle, \quad \forall  p\in \mathbb{R}^n
+            \]
+            Por lo tanto tenemos que 
+            \begin{eqnarray*} 
+            |f(p)-f(q)|&=&|\langle p,p_0\rangle -\langle q,p_0\rangle |\\
+            &=& |\langle p-q, p_0\rangle| \\
+            &\leq & \|p-q\| \|p_0\|
+            \end{eqnarray*}
+            donde la última desigualdad se debe a l adesigualdad de Cauchy-Schwartz.
+        </p>
+        <p>
+            Finalmente, dado \(\varepsilon > 0\) si tomamos \(\delta=\frac{\varepsilon}{1+\|p_0\|}\) 
+            entonces para todo \(p\) con \(0< \|p-q\|< \delta \) se cumple que 
+            \[
+            |f(p)-f(q)|\leq \|p-q\|\|p_0\| <  \delta \|p_0| < \varepsilon.
+            \]
+            Por lo tanto \(\lim_{p\to q}f(p)=f(q)\).
+        </p>
+        
+
+    </div>
 </div>
 
+<div class="nota-box">
+    <h2 class="number-title"> Nota </h2>
+    <p>
+        Por el ejercicio anterior, las proyecciones \(f_1,f_2:\mathbb{R}^2\to \mathbb{R}\) 
+        \[
+        f_1(x,y)=x, f_2(x,y)=y 
+        \] 
+        son continuas 
+        en todo \(\mathbb{R}^2\). Por la <a href="./S5.html#LeyesLimites">Ley del producto para límites</a> se sigue que para todo 
+        \(n\in \mathbb{N}\):
+        \begin{eqnarray*}
+        \lim_{(x,y)\to (x_0,y_0)} f_1^n(x,y)=(\lim_{(x,y)\to (x_0,y_0)} f_1(x,y))^n=x_0^n=f_1^n(x_0,y_0) \\
+        \lim_{(x,y)\to (x_0,y_0)} f_2^n(x,y)=(\lim_{(x,y)\to (x_0,y_0)} f_2(x,y))^n=y_0^n=f_2^n(x_0,y_0) \\
+        \end{eqnarray*}
+    </p>
+    <p>
+        Por lo tanto, las funciones \(f_1(x,y)=x^n, f_2^n(x,y)=y^n\) son continuas en todo 
+        \(\mathbb{R}^2\). De manera similar otra aplicación de la ley del producto para límites implica que 
+        las funciones \(f(x,y)=x^ny^m\), \(n,m\in \mathbb{N}\), son continuas en todo \(\mathbb{R}^2\).
+        Finalmente, usando la ley de la suma para límites concluimos que los polinimios 
+        \[
+        p(x,y)=\sum_{n=0}^N\sum_{m=0}^M a_{n,m}x^ny^m
+        \]
+        son continuas en todo \(\mathbb{R}^2\).
+    </p>
+    <p>
+        Nota: de manera similar se tiene que todo polinomio en más de dos variables es continuo en todo punto del espacio.
+    </p>
 
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2> 
+</div>
+
+<div class="prop-box">
+    <h2 class="number-title" id="Prop:ComposicionCont"> Proposición</h2>
     <p>
-        Sea $f:\mathbb{R}^2 \to \mathbb{R}$ una función lineal. Demuestra
-        que $f$ es diferenciable en todo punto $(x_0,y_0)$. Es más, demuestra
-        que $D_{(x_0,y_0)}f=f$.
-    </p>
-    <!-- 
-    <p>
-      Proponemos a la derivada: denotamos \(T=f\). 
+        La composición de funciones continuas es continua.
     </p>
     <p>
-      Escribimos el cociente diferencial y simplificamos: 
-      \begin{eqnarray*} 
-      \frac{f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)}{\|(x-x_0,y-y_0)\|}&=&\frac{f(x-x_0,y-y_0)-f(x-x_0,y-y_0)}{\|(x,y)-(x_0,y_0)\|}\\
-      &=& 0
-      \end{eqnarray*}
-      donde en la primera igualdad se usa que \(f\) es lineal.
+        En específico, supongamos que tenemos funciones \(f: D \to \mathbb{R}^m \),
+        \(g: E \to \mathbb{R}^d\), donde \(D\subseteq \mathbb{R}^n, E\subseteq \mathbb{R}^m\) y 
+        \(f(D)\subseteq E\) (para que la composición \(g\circ f\) está definida).
     </p>
     <p>
-      Límite del cociente diferencial:
-      \begin{eqnarray*} 
-      \lim_{(x,y)\to (x_0,y_0)}\frac{f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)  }{\|(x-x_0,y-y_0)\|}
-      &=&0.
-      \end{eqnarray*}
+        Si \(f\) es continua en \(p_0\in D\) y \(g\) es continua en \(f(p_0)\in E\) entonces 
+        \(g\circ f\) es continua en \(p_0\). Es decir 
+        \[
+        \lim_{p\to p_0} (g\circ f)(p)=(g\circ f)(p_0)
+        \]
+        Lo anterior también se puede escribir como 
+        \[
+        \lim_{p\to p_0} g(f(p))=g(\lim_{p\to p_0} f(p))
+        \]
+        lo cual se abrevia diciendo que las funciones continuas meten el límite.
     </p>
-    <p>
-      Por lo tanto la función es diferenciable y en todo punto la derivada es la función \(f\).
-    </p>
-    -->
+
+
 </div>
 
 
 <div class="nota-box">
-    <h2 class="number-title"> Nota</h2>
-    <ol>
-        <li>
-            Cuando escribimos  $D_{(x_0,y_0)}f$ es importante notar que se representa
-            a una función lineal, la cual puede ser evaluada en un punto $(x,y)$, lo cual
-            se denota $(D_{(x,_0,y_0)}f)(x,y)$.
-        </li>
-        <li>
-            ya que $D_{(x_0,y_0)}f$ es una función lineal que va de $\mathbb{R}^2$ a $\mathbb{R}$,
-            sabemos (ver <a href="./S3.html#Ejer:TeoRiesz">Teorema de Riesz</a> ) que existe
-            un vector $(a,b)$ tal que
-            $$
-            (D_{(x_0,y_0)}f)(x,y)=\langle (a,b), (x,y)\rangle=ax+by. 
-            $$
-            Por esto, el vector renglón $[a,b]$ es la matriz que
-            representa a $D_{(x_0,y_0)}f$. Aveces se identifica la
-            transformación lineal  con su matriz y se escribe
-            $D_{(x_0,y_0)}f=[a,b]$.
-        </li>
-        <li>
-            También se pueden encontrar con  la notación $Df(x_0,y_0)$, para
-            indicar la defivada de $f$ en el punto $(x_0,y_0)$. Con esta notación,
-            el evaluar la derivda en el punto $(x,y)$ se denota $Df(x_0,y_0)(x,y)$.
-        </li>
-  </ol>
-</div>  
-  
-  
-
-          
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2>  
+    <h2 class="number-title"> Algebra de las funciones continuas  </h2>
     <p>
-        Considera la función, $f(x,y)=x^2+y^2$.
+        Similarmente a los polinomios, si las funciones \(f, g : U \to \mathbb{R}\) son funciones continuas 
+        en un punto \(p_0\in U\), las <a href="./S5.html#LeyesLimites">Leyes de los límites</a> implican que 
+        las funciones
+        <ol>
+            <li>
+                combinaciones lineales: \(\alpha f + g\), \(\alpha \in \mathbb{R}\),
+            </li>
+            <li>
+                productos: \(fg\),
+            </li>
+            <li>
+              divisiones: \(f/g\), con \(g(p_0)\ne 0\),
+            </li>
+        </ol>  
+        son todas continuas en \(p_0\). 
     </p>
     <p>
-        Fija un punto $(x_0,y_0)$ en $\mathbb{R}^2$ y considera la transformación lineal
-        $T:\mathbb{R}^2 \to \mathbb{R}$ dada por $T(x,y)=2x_0x+2y_0y$.      
-    </p>
-    <p>
-        Prueba que
-        $$
-        \lim_{(x,y)\to (x_0,y_0)} \frac{|f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)|}{\| (x-x_0,y-y_0)\|}=0
-        $$      
-        Concluye que $f$ es diferenciable en $(x_0,y_0)$ con $D_{(x_0,y_0)}f=T$ y
-        la matriz renglón $[2x_0, 2y_0]$ representa a $D_{(x_0,y_0)}f$.
-    </p>
-    <button class="respButton hvr-grow "> Solución</button>
-    <div class="resp-box">
-    <p>
-      Paso 1: Proponer la derivada, en este caso \(T(x,y)=2x_0x+2y_0y\).
-    </p>
-    <p>
-      Paso 2: Cociente diferencial 
-      \begin{eqnarray*} 
-        & & \frac{f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)}{\|(x-x_0,y-y_0)\|} \\
-        &=& \frac{x^2+y^2-x_0^2-y_0^2-2x_0(x-x_0)-2y_0(y-y_0)}{\|(x-x_0,y-y_0)\|}\\
-        &=&\frac{x^2+y^2-x_0^2-y_0^2-2xx_0+2x_0^2-2yy_0+2y_0^2}{\|(x-x_0,y-y_0)\|}\\
-        &=&\frac{x^2+y^2-2xx_0+x_0^2-2yy_0+2y_0^2}{\|(x-x_0,y-y_0)\|}\\
-        &=& \frac{(x-x_0)^2+(y-y_0)^2}{\sqrt{(x-x_0)^2+(y-y_0)^2}} \\
-        &=& \sqrt{(x-x_0)^2+(y-y_0)^2}\\
-        &=& \|(x-x_0,y-y_0)\|
-      \end{eqnarray*}
-    </p>
-    <p>
-      Paso 3: límite del cociente diferencial 
-      \[
-      \lim_{(x,y)\to 0}\frac{f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)}{\|(x-x_0,y-y_0)\|}=\lim_{(x,y)\to 0}\|(x-x_0,y-y_0)\|=0.
-      \]
-    </p>
-    </div>
+        Así pues, muchas de las operaciones elementales entre funciones arrojan funciones continuas. Otras 
+        operaciones como raíces, logaritmo y exponenciación también toman funciones continuas y producen 
+        funciones continuas. Lo anterior se sigue de la <a href="#Prop:ComposicionCont">Proposición 9.4</a>. 
+        Por ejemplo, si \(f\) es continua en \(p_0\) y \(f(p_0) > 0\) entonces la función 
+        \(\ln(f(p))\) es continua en \(p_0\).
 </div>
-
-  
-  
-  
-  
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2> 
-    <p>
-        Considera la función $f(x,y)=xy$. Fija $(x_0,y_0)\in \mathbb{R}^2$ y considera la función lineal $T:\mathbb{R}^2 \to \mathbb{R}$
-        dada por $T(x,y)=y_0x+x_0y$.
-    </p>
-    <p>
-        Prueba que
-        $$
-        \lim_{(x,y)\to (x_0,y_0)} \frac{|f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)|}{\| (x-x_0,y-y_0)\|}=0
-        $$
-        
-        Hint: primero prueba
-        $$
-        f(x,y)-f(x_0,y_0)- T(x-x_0,y-y_0) = (x-x_0)(y-y_0)
-        $$
-      
-        Concluye que $f$ es diferenciable en todo punto $(x_0,y_0)$, $D_{(x_0,y_0)}f=T$ y la
-        matriz renglón $[y_0, x_0]$ representa a $D_{(x_0,y_0)}f$.      
-    </p>
-    <button class="respButton hvr-grow "> Solución</button>
-    <div class="resp-box">
-    <p>
-      Paso 1: proponemos la derivada, \(T(x,y)=y_0x+x_0y\).
-    </p>
-    <p>
-      Paso 2: cociente diferencial,
-      \begin{eqnarray*} 
-      & & \frac{f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)}{\|(x-x_0,y-y_0)\|} \\
-      &=& \frac{xy-x_0y_0-y_0(x-x_0)-x_0(y-y_0)}{\|(x-x_0,y-y_0)\|}\\
-      &=& \frac{xy-x_0y_0-y_0x+y_0x_0-x_0y+x_0y_0}{\|(x-x_0,y-y_0)\|}\\
-      &=& \frac{xy-y_0x-x_0y+x_0y_0}{\|(x-x_0,y-y_0)\|}\\
-      &=& \frac{x(y-y_0)-x_0(y-y_0)}{\|(x-x_0,y-y_0)\|}\\
-      &=& \frac{(x-x_0)(y-y_0)}{\|(x-x_0,y-y_0)\|}
-      \end{eqnarray*}
-    </p>
-    <p>
-      Paso 3: límite del cociente diferencial.
-    </p>
-    <p>
-      Tomando el valor absoluto del cociente diferencial y usando la identidad \(|ab|\leq (a^2+b^2)/2\) llegamos a 
-      \begin{eqnarray*} 
-      \frac{|(x-x_0)(y-y_0)|}{\|(x-x_0,y-y_0)\|}&\leq & \frac{1}{2}((x-x_0)^2+(y-y_0)^2)\frac{1}{\|(x-x_0,y-y_0)\|} \\
-      &=& \frac{1}{2}\sqrt{(x-x_0)^2+(y-y_0)^2} 
-      \end{eqnarray*}
-    </p>
-    <p>
-      Por lo tanto podemos acotar el valor absoluto del cociente diferencial  por 
-      \begin{eqnarray*} 
-      0\leq  \frac{|f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)|}{\|(x-x_0,y-y_0)\|} \leq \frac{1}{2}\sqrt{(x-x_0)^2+(y-y_0)^2} 
-      \end{eqnarray*}
-      y aplicando la ley del Sandwich para los límites obtenemos que 
-      \begin{eqnarray*} 
-      \lim_{(x,y)\to 0}\frac{|f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)|}{\|(x-x_0,y-y_0)\|} =0 
-      \end{eqnarray*}
-    </p>
-    </div>
-</div>
-
-
 
 <div class="ejercicio-box"> 
-  <h2 class="number-title"> Ejercicio </h2> 
-  <p>
-      Considera la función $f(x,y)=x^3+y^3$. Fija $(x_0,y_0)\in \mathbb{R}^2$ y considera la función lineal $T:\mathbb{R}^2 \to \mathbb{R}$
-      dada por $T(x,y)=3x_0^2x+3y_0^2y$.
-  </p>
-  <p>
-      Prueba que
-      $$
-      \lim_{(x,y)\to (x_0,y_0)} \frac{|f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)|}{\| (x-x_0,y-y_0)\|}=0
-      $$
-    
-    
-      Concluye que $f$ es diferenciable en todo punto $(x_0,y_0)$, $D_{(x_0,y_0)}f=T$ y la
-      matriz renglón $[3y_0^2, 3x_0^2]$ representa a $D_{(x_0,y_0)}f$.      
-  </p>
-  </div>
-
-
-
-<div class="prop-box">
-  <h2 class="number-title"> Proposición</h2>
-  <p>
-    De existir, la derivada es única.
-  </p>
-  <p>
-    Es decir, si \(f:U\to \mathbb{R}\) es una función definida en un abierto de \(\mathbb{R}^2\), \((x_0,y_0)\in U\)
-    y existen dos funciones lineales \(S,T:\mathbb{R}^2\to \mathbb{R}\) que satisfacen
-    \begin{eqnarray*} 
-    \lim_{h,k)\to (0,0)} \frac{f(x_0+h,y_0+k)-f(x_0,y_0)-T(h,k)}{\| (h,k)\|}=0 \\
-    \lim_{(h,k)\to (0,0)} \frac{f(x_0+h,y_0+k)-f(x_0,y_0)-S(h,k)}{\| (h,k)\|}=0 
-    \end{eqnarray*}
-    entonces \(S=T\).
-  </p>
-  <button class="respButton hvr-grow "> Solución</button>
-  <div class="resp-box">
-  <p>
-    Ya que los límites arriba existen entonces el límite de la resta es la resta de los límites, por lo tanto 
-    \begin{eqnarray*} 
-    0=\lim_{(x,y)\to (0,0)}\left( \frac{-T(h,k)+S(h,k)}{\| (h,k)\|}\right) 
-    \end{eqnarray*}
-    Para obtener la identidad anterior notar que se tiene el mismo denominador en ambos límites y que el término 
-    \(f(x_0+h,y_0+k)-f(x_0,y_0)\) se cancela.
-  </p>
-  <p>
-    Si definimos una  función lineal como \(F=-T+S\) lo anterior se puede escribir 
-    \[
-    \lim_{(h,k)\to (0,0)}\frac{F(h,k)}{\|(h,k)\|}=0
-    \]
-  </p>
-  <p>
-    Si aplicamos el <a href="./S5.html#Ejer:LimiteCocienteDifLinealEnCero">Ejercicio 5.19</a> podemos conlcuir que \(F=0\) y por lo tanto \(S=T\).
-  </p>
-  </div>
-
-</div>
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-  <p>
-    Sean \(f,g:U\to \mathbb{R}\) dos funciones definidas en un abierto de \(\mathbb{R}^2\) y \((x_0,y_0)\in U\).
-    Sea \(\alpha \in \mathbb{R}\) un escalar fijo.
-  </p>
-  <p>
-    Si \(f\) y \(g\) son diferenciables en \((x_0,y_0)\) entonces la función 
-    \(\alpha f + g\) es diferenciable en \((x_0,y_0)\) y 
-    \[
-    D_{(x_0,y_0)}(\alpha f + g)=\alpha D_{(x_0,y_0)}f+ D_{(x_0,y_0)}g
-    \]
-  </p>
-
+    <h2 class="number-title" id="Ejer:ContinuidadFunLipschitz"> Ejercicio  </h2>
+    <p>
+        Sea $U\ne \emptyset$ un abierto de $\mathbb{R^n}$ y  $f:U \to \mathbb{R}$.
+    </p>
+    <p>
+        Supón que $p_0\in U$ satisface que existe una bola $B_r(p_0)\subset U$ y una constante $k>0$
+        tal que $|f(p)-f(p_0)|\leq k \|p-p_0 \|$, para toda $p\in B_r(p_0)$.      
+    </p>
+    <p>
+        Demuestra que $f$ es continua en $p_0$.
+    </p>
 </div>
   
 
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-  <p>
-    Sean \(A :(a,b)\to \mathbb{R}, B:(c,d)\to \mathbb{R}\) dos funciones diferenciables en todo el intervalo.
-  </p>
-  <!--<p>
-    Define \(F:(a,b)\times (c,d)\) por \(F(x,y)=f(x)g(y)\). Demuestra que \(F\) es diferenciable en todo 
-    punto  \((x_0,y_0)\in (a,b)\times (c,d)\) y la derivada está dada por 
-    \[
-    (D_{(x_0,y_0)}F)(x,y)=f'(x_0)g(y_0)x+ f(y_0)g'(x_0)y.
-    \]
-  </p>-->
-  <p>
-    Define \(G:(a,b)\times (c,d)\) por \(G(x,y)=A(x)+B(y)\). Demuestra que \(G\) es diferenciable en todo 
-    punto  \((x_0,y_0)\in (a,b)\times (c,d)\) y la derivada está dada por 
-    \[
-    (D_{(x_0,y_0)}G)(x,y)=A'(x_0)x+ B'(x_0)y.
-    \]
-  </p>
 
-</div>
-
+  
 <div class="prop-box"> 
-    <h2 class="number-title" id="Ejer:ParcialesYDerivada"> Proposición  </h2> 
+    <h2 class="number-title" id="Prop:DifImplicaCont"> Proposición </h2> 
     <p>
-        Sea $U$ un abierto en $\mathbb{R}^2$ y $f:U\to \mathbb{R}$. Considera un punto
-        $(x_0,y_0)\in U$. Supon que $f$ es diferenciable en $(x_0,y_0)$. Sea $T:\mathbb{R}^2 \to \mathbb{R}$
-        la función lineal tal que
-        \begin{equation}\label{Eqn:LimiteDerivadaEjer}
-        \lim_{(h,k)\to (0,0)}\frac{|f(x_0+h,y_0+k)-f(x_0,y_0)-T(h, k)|}{\| (h,k) \|}=0.
-        \end{equation}      
-    </p>
-    
-    <p>
-      Entonces las derivadas parciales \(\partial_xf(x_0,y_0), \partial_yf(x_0,y_0)\) existen y 
-      \[
-      T(x,y)=\partial_xf(x_0,y_0)x + \partial_yf(x_0,y_0)y, \forall (x,y)\in \mathbb{R}^2
-      \]
+        Sea $U\ne \emptyset$ un conjunto abierto en $\mathbb{R}^n$, $p_0\in U$
+        y $f: U \to \mathbb{R}$.
+      
     </p>
     <p>
-
-      En otras palabras, la representación de $D_{(x_0,y_0)}f$ como matriz, es la matriz renglón dada por:
-      $$
-      \left[
-      \begin{array}{cc} 
-       \partial_xf(x_0,y_0) &  \partial_yf(x_0,y_0) 
-      \end{array}
-      \right]
-      $$
-      y 
-      \[
-      D_{(x_0,y_0)}f(x,y)=\partial_xf(x_0,y_0)x + \partial_yf(x_0,y_0)y.
-      \]
+        Si $f$ es diferenciable en $p_0$ entonces
+        $f$ es continua en $p_0$. 
+    </p>
+    <p>
+        Nota: el reverso no es cierto. Por ejemplo en dimensión 1 un 
+        contra-ejemplo es la función valor absoluto; en dimensión 2 
+        un contra-ejemplo está dado en el <a href="./S8.html#Ejer:ExistenParcialesPeroNoDif"> Ejercicio 8.13</a>.
     </p>
     <button class="respButton hvr-grow "> Demostración</button>
     <div class="resp-box">
-    <p>
-        Como $T$ es lineal sabemos que existen $a,b$ tales que $T(x,y)=ax+by$ 
-        (ver <a href="./S3.html#Ejer:TeoRiesz">Teorema de Riesz</a> ).
-    </p>
-
-    <p>
-      Como el límite \eqref{Eqn:LimiteDerivadaEjer} es cero, tomando
-      la trayectoria de la forma  $\gamma(h)=(h,0)$, $h \in \mathbb{R}$, 
-      tenemos que 
-      \begin{eqnarray*}
-      0&=&\lim_{ h \to 0} \frac{|f(x_0+h,y_0)-f(x_0,y_0)-T(h,0)| }{\|(h,0)\|} \\
-      &=& \lim_{h\to 0}\frac{|f(x_0+h,y_0)-f(x_0,y_0)-ah|}{|h|} \\
-      &=& \lim_{h\to 0}\left| \frac{f(x_0+h,y_0)-f(x_0,y_0)-ah}{h} \right| \\
-      &=& \lim_{h\to 0}\left| \frac{f(x_0+h,y_0)-f(x_0,y_0)}{h}-a \right| \\
-      \end{eqnarray*}
-      implica que $\partial_xf(x_0,y_0)$ existe y $\partial_xf(x_0,y_0)=a$.
-    </p>
-    <p>
-      Como el límite \eqref{Eqn:LimiteDerivadaEjer} es cero, tomando
-      la trayectoria de la forma  $\gamma(k)=(0,k)$, $k  \in \mathbb{R}$, 
-      tenemos que 
-      \begin{eqnarray*}
-      0&=&\lim_{k\to 0} \frac{|f(x_0,y_0+k)-f(x_0,y_0)-T(0,k)| }{\|(0,k)\|} \\
-      &=& \lim_{k\to 0}\frac{|f(x_0,y_0+k)-f(x_0,y_0)-bk|}{|k|} \\
-      &=& \lim_{k\to 0}\left| \frac{f(x_0,y_0+k)-f(x_0,y_0)-bk}{k} \right| \\
-      &=& \lim_{k\to 0}\left| \frac{f(x_0,y_0+k)-f(x_0,y_0)}{k}-b \right| \\
-      \end{eqnarray*}
-      implica que $\partial_yf(x_0,y_0)$ existe y $\partial_yf(x_0,y_0)=b$.
-    </p>
-    </div>    
-</div>
-
-  <div class="nota-box"> 
-    <h2 class="number-title"> Nota </h2>
-    <p>
-      La <a href="#Ejer:ParcialesYDerivada">Proposición </a> anterior prueba que
-      \[
-      \textrm{\(f\) diferenciable en \((x_0,y_0)\)} \Rightarrow \textrm{\(\partial_xf(x_0,y_0),\partial_yf(x_0,y_0)\) existen}
-      \]
-      pero la implicación en reversa no siempre es cierto 
-      (ver ejercicio siguiente). 
-    </p>
-
-  </div>
-
-
-
-<div class="ejercicio-box"> 
-  <h2 class="number-title" id="Ejer:ExistenParcialesPeroNoDif"> Ejercicio </h2> 
-  <p>
-      La <a href="#Ejer:ParcialesYDerivada">Proposición 8.9</a> muestra que las derivadas parciales y la derivada
-      están muy relacionadas, pero éste ejercicio muestra que no son equivalentes. Es decir,
-      una función puede admitir derivadas parciales sin ser diferenciable.      
-  </p>
-  <p>
-      Considera la función
-      $$
-      f(x,y)=\left\{
-        \begin{array}{cc}
-          \frac{xy^2}{x^2+y^2} & (x,y)\ne (0,0) \\
-          0 & (x,y)=(0,0)
-        \end{array}
-      \right.
-        $$
-              <ol>
-                <li>
-                    Demuestra, usando la definición de límite de las derivas parciales,
-                    que $\partial_xf(0,0)=0=\partial_yf(0,0)$.
-                </li>
-                <li>
-                    Demuestra que $f$ no es diferenciable en $(0,0)$.
-                </li>
-              </ol>
-  </p>
-  <button class="respButton hvr-grow "> Solución </button>
-  <div class="resp-box">
-  <p>
-    Inciso 1.
-  </p>
-  <p>
-    Usando la definición de límite de las parciales tenemos 
-    \begin{eqnarray*} 
-      \partial_xf(0,0)&=&\lim_{h\to 0} \frac{f(h,0)-f(0,0)}{h} \\
-      &=& \lim_{h\to 0} \frac{\frac{(h)(0)}{h^2+0}}{h}\\
-      &=&0
-    \end{eqnarray*}
-    \begin{eqnarray*} 
-    \partial_yf(0,0)&=&\lim_{k\to 0} \frac{f(0,k)-f(0,0)}{k} \\
-    &=& \lim_{k\to 0} \frac{\frac{(0)(k^2)}{0+k^2}}{k}\\
-    &=&0
-    \end{eqnarray*}
-  </p>
-  <p>
-    Inciso 2.
-  </p>
-  <p>
-    Supongamos que \(f\) es diferenciable en \((0,0)\). Entonces existe una función lineal 
-    \(T:\mathbb{R}^2\to \mathbb{R}\) tal que 
-    \begin{eqnarray*}
-    \lim_{(h,k)\to 0} \frac{f(h,k)-f(0,0)-T(h,k)}{\|(h,k)\|}
-    &=&0.
-    \end{eqnarray*}
     
-    Por la <a href="#Ejer:ParcialesYDerivada">Proposición </a> y el inciso anterior,
-    \[
-    T(h,k)=\partial_xf(0,0)h+\partial_yf(0,0)k=0
-    \]
-    Se sigue que \(T=0\) y como \(f(0,0)=0\) llegamos a 
-    \begin{eqnarray*} 
-    \lim_{(h,k)\to 0} \frac{f(h,k)}{\|(h,k)\|}=0
-    \end{eqnarray*}
-
-  </p>
-  <p>
-    Tomando puntos de la forma \((h,k)=(mk, k)\) con \(k>0\) y \(m\in \mathbb{R}\) obtenemos 
-    \begin{eqnarray*} 
-    \frac{f(h,k)}{\|(h,k)\|}&=& \frac{\frac{(mk)(k^2)}{m^2k^2+k^2}}{\sqrt{m^2k^2+k^2}} \\
-    &=& \frac{\frac{mk^3}{k^2(m^2+1)}}{k\sqrt{m^2+1}}\\
-    &=& \frac{m}{(m^2+1)\sqrt{m^2+1}}
-    \end{eqnarray*}
-  </p>
-  <p>
-    Tomando \(m=0\) obtenemos que 
-    \begin{eqnarray*} 
-    \lim_{(h,k)\to 0} \frac{f(h,k)}{\|(h,k)\|}=0
-    \end{eqnarray*}
-    pero tomando \(m=1\) obtenemos 
-    \begin{eqnarray*} 
-    \lim_{(h,k)\to 0} \frac{f(h,k)}{\|(h,k)\|}=\frac{1}{2\sqrt{2}}
-    \end{eqnarray*}
-    por lo tanto el límite 
-    \begin{eqnarray*} 
-    \lim_{(h,k)\to 0} \frac{f(h,k)}{\|(h,k)\|}=0
-    \end{eqnarray*}
-    no existe, una contradicción.
-  </p>
-  <p>
-    Concluimos que \(f\) no es diferenciable en \((0,0)\).
-  </p>
-  </div>
-</div>        
-
-
-  <div class="definicion-box"> 
-    <h2 class="number-title"> Definición </h2>
-    <p>
-        Dada una función $f:U\to \mathbb{R}$ y un punto $(x_0,y_0)\in U$, el gradiente de
-        $f$ en $(x_0,y_0)$,
-        denotado $\nabla_{(x_0,y_0)}f$ se define como el vector formado por todas las derivadas parciales.
+    <!--<p>
+        Sugerencia: considera la aproximación lineal de $f$ cerca de $p_0$:
         $$
-        \nabla_{(x_0,y_0)}f= (\partial_xf(x_0,y_0), \partial_yf(x_0,y_0)  )
+        f(p)=f(p_0)+\langle \nabla_{p_0}f, p-p_0 \rangle +E(p). 
         $$
-        siempre y cuando las parciales existan.
-    </p>
-    <p>
-        En otras palabras, si $f$ es diferenciable en $(x_0,y_0)$ tenemos que la derivada 
-        en el punto \((x,y)\) se calcula como :
-        $$(D_{(x_0,y_0)}f)(x,y)= \langle \nabla_{(x_0,y_0)}f, (x,y) \rangle=\partial_xf(x_0,y_0)x+\partial_yf(x_0,y_0)y, \quad \forall (x,y)\in \mathbb{R}^2 $$    
-    </p>
-  </div>
-
-
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2> 
-    <p>
-        Para cada una de las siguientes funciones calcula el gradiente.
-        <ol>
-          <li>
-              $f(x,y)=\frac{xy}{(x^2+y^2)^{1/2}}$
-          </li>
-          <li>
-              $f(x,y)=\log(x^2+y^2)$
-          </li>
-          <li>
-              $f(x,y)=\frac{x}{y}+\frac{y}{x}$
-          </li>
-        </ol>
-    </p>
-</div>
-
-
-  <div class="definicion-box"> 
-    <h2 class="number-title" id="Def:PlanoTangente"> Definición </h2>
-    
-    <p>
-        Sea $U$ un abierto de $\mathbb{R}^2$, $(x_0,y_0)\in U$ y $f:U\to \mathbb{R}$ una función
-        diferenciable en $p_0$. El plano tangente a la gráfica de $f$ en el punto $(x_0,y_0)$ se define como
-        el plano cuya ecuación está dada por:
-        $$
-        z=f(x_0,y_0)+[\partial_xf(x_0,y_0)](x-x_0)+[\partial_yf(x_0,y_0)]
-        (y-y_0)
-        $$
-        Nota: de la ecuación se tiene que el vector normal al plano tangente es
-        $$N=(\partial_xf(x_0,y_0), \partial_yf(x_0,y_0), -1)$$
-    </p>
-  </div>
-  
-
-  <div class="nota-box">
-    <h2 class="number-title"> Nota </h2>
-    <p>
-      La idea tras la definición del plano tangente en un punto \((x_0,y_0)\) es que es el plano que 
-      más se aproxima a la función cerca del punto \((x_0,y_0)\).
-    </p>
-    <p>
-      Para tratar de justificar lo anterior consideramos las curvas 
-      \[
-      \gamma(t)=(x_0+t,y_0,f(x_0+t,y_0)), \delta(t)=(x_0,y_0+t, f(x_0,y_0+t))
-      \]
-    </p>
-    <p>
-      Estas curvas se dibujan sobre la gráfica de \(f\) y en \(t=0\) pasan 
-      por \((x_0,y_0,f(x_0,y_0))\), el punto de tangencia del plano tangente.  Si notamos, los cocientes diferenciales 
-      \[
-        \frac{\gamma(t)-\gamma(0)}{t}, \frac{\delta(t)-\delta(0)}{t}
-      \]
-      dan rectas secantes a la gráfica así que cuando tomamos el límite cuando \(t\to 0\) la idea es que 
-      estos límites dan vectores tangentes a la gráfica.
-    </p>
-    <p>
-      Calculando los límites 
-      \[
-      \lim_{t\to 0}\frac{\gamma(t)-\gamma(0)}{t}, \lim_{t\to 0}\frac{\delta(t)-\delta(0)}{t}
-      \]
-      llegamos a que son iguales a 
-      \[
-      (1,0,\partial_xf(x_0,y_0)), (0,1,\partial_{y}f(x_0,y_0))
-      \]
-      estos vectores son los vectores directores para el plano tangente a la gráfica.
-    </p>
-    <p>
-      En forma paramétrica tenemos que el plano esta dado por 
-      \[
-      (x_0,y_0,f(x_0,y_0))+t(1,0,\partial_xf(x_0,y_0))+s(0,1,\partial_yf(x_0,Y_0))
-      \]
-      de la cual se obtiene la forma 
-      \[
-      z=f(x_0,y_0)+[\partial_xf(x_0,y_0)](x-x_0)+[\partial_yf(x_0,y_0)]
-      \]
-    </p>
-
-  </div>
-
-  <div class="ejercicio-box">
-    <h2 class="number-title"> Ejercicio </h2>
-    <p>
-      Considera la función \(f(x,y)=\sqrt{|xy|}\).
-    </p>
-    <p>
-      Prueba que las derivadas parciales \(\partial_xf(0,0)\), \(\partial_yf(0,0)\) existen.
-    </p>
-    <p>
-      ¿La gráfica de \(f\) tiene un plano tangente en el \((0,0)\)?
-    </p>
-
-  </div>
-
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2> 
-    <p>
-        Para cada una de las siguientes superficies encuentra la
-        ecuación del plano tangente en el punto indicado (puedes asumir que la función es 
-        diferenciable en el punto indicado).
-        <ol>
-          <li>
-              $z=x^2+y^3$ en $(1,2,9)$.
-          </li>
-          <li>
-              $z=e^{x^2+xy}$ en $(0,1,1)$.
-          </li>
-          <li>
-              $x^2+y^2+z^2=1$ en $(1/\sqrt{3}, 1/\sqrt{3}), 1/\sqrt{3})$.
-          </li>
-          <li>
-              $x^2+y^2-z^2=1$ en $(1,2,-2)$.
-          </li>
-          <li>
-            \(z=\sqrt{xy}\) en \((1,1,1)\).
-          </li>
-        </ol>
-    </p>
-    <button class="respButton hvr-grow "> Solución 3</button>
-    <div class="resp-box">
+        Demuestra que  $\lim_{p\to p_0} \langle \nabla_{p_0}f, p-p_0\rangle=0$ y $\lim_{p\to p_0}E(p)=0$.
+      
+    </p>-->
+    <div>
         <p>
-            De la ecuación $x^2 + y^2 + z^2 =1$ deducimos que $z = \sqrt{1-x^2 - y^2}$, como
-            se pide trabajar en el punto para el cual $z=1/\sqrt{3}$ entonces tomaremos el valor
-            positivo de la raíz cuadrada. Escribimos ahora $f(x,y) = \sqrt{1-x^2 - y^2}$ y por
-            hipótesis se tiene que $f$ es diferenciable en el punto, en particular se sabe que si
-            es diferenciable entonces existen las derivadas parciales en dicho punto:
-            \begin{align*}
-            \partial_x f =& \frac{1}{2} \frac{1}{\sqrt{1-x^2-y^2}}-2x, \\
-            =& \frac{-x}{\sqrt{1-x^2-y^2}},\\
-            \partial_y f =& \frac{-x}{\sqrt{1-x^2-y^2}},
-            \end{align*}
-            Evaluando en el punto $(1/\sqrt{3},1/\sqrt{3})$ se tiene que $\partial_x f(x_0,y_0)=-1$ y
-            $\partial_y f(x_0,y_0) = -1$.
+            Debemos de probar que 
+            \[
+                \lim_{p\to p_0} f(p)=f(p_0)
+            \]
+            Pero, al ser \(f\) diferenciable sabemos que 
+            \[
+            \lim_{p\to p_0} \frac{f(p)-f(p_0)-T(p-p_0)}{\|p-p_0\|}=0
+            \]
+            donde \(T(x_1,\dots, x_n)=\sum_{i=1}^n (\partial_{p_i}f(p_0))x_i\).
         </p>
         <p>
-            Si ahora sustituimos en la ecuación del plano tangente al punto $(1/\sqrt{3},1/\sqrt{3})$ tenemos
-            \begin{align*}
-            z=& f(x_0,y_0) + \partial_x f(x_0,y_0)(x-x_0) + \partial_y f(x_0,y_0)(y-y_0),\\
-            =& \frac{1}{\sqrt{3}}+ (\frac{1}{\sqrt{3}}-x) + (\frac{1}{\sqrt{3}}-y),\\
-            =& \sqrt{3} -x - y.
-            \end{align*}
-            Adicionalmente, este plano se puede caracterizar como aquel que pasa por el punto
-            $(1/\sqrt{3}, 1/\sqrt{3}), 1/\sqrt{3})$ y es normal al vector $N=(-1,-1,-1)$.
-        </p>
-    </div>
-    <button class="respButton hvr-grow "> Solución 5</button>
-    <div class="resp-box">
-        <p>
-            Empezamos por escribir $z=f(x,y)=\sqrt{xy}$. Podemos calcular las derivadas parciales,
-            \begin{align*}
-            \partial_x f =& \frac{1}{2}\frac{1}{\sqrt{xy}}y,\\
-            =& \frac{y}{2\sqrt{xy}},\\
-            \partial_y f =& \frac{x}{2\sqrt{xy}}.
-            \end{align*}
-            Al evaluar en el punto $(1/2,1/2)$ tenemos que $\partial_x f(x_0,y_0) =1/2 = \partial_y f(x_0,y_0)$.
-            Con ello podemos deducir que el plano tangente al punto (1,1,1) de la superficie está caracterizado
-            por su vector normal $N=(1/2,1/2,-1)$, o bien por la ecuación
-            \begin{equation*}
-            z = 1 + 1/2(x-1) + 1/2(y-1) = \frac{1}{2}x + \frac{1}{2}y.
-            \end{equation*}
-        </p>
-    </div>
-</div>
-
-
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2> 
-    <p>
-        ¿ En dónde cruza al eje $z$
-          el plano tangente a $z=2e^{x-y}$ en $(1,1,2)$ ?       
-    </p>
-</div>
-
-
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2> 
-    <p>
-        Considera la superficie $z^2-x^2-y^2=0$ y sea $(x_0,y_0,z_0)\ne(0,0,0)$ un 
-        punto en la superficie. Demuestra que el plano tangente a la superficie
-        que pasa por $(x_0,y_0,z_0)$ pasa por el origen y forma un ángulo de $45$
-        con el eje $z$.
-    </p>
-    <button class="respButton hvr-grow "> Solución</button>
-    <div class="resp-box">
-        <p>
-            De la ecuación que define a la superficie se tiene que $z= \sqrt{x^2 + y^2}=f(x,y)$,
-            dicha función es diferenciable si $(x,y) \neq (0,0)$. Empezamos por calcular las
-            derivadas parciales
-            \begin{align*}
-            \partial_x f =& \frac{1}{2}\frac{2x}{\sqrt{x^2 + y^2}},\\
-            =& \frac{x}{\sqrt{x^2+y^2}},\\
-            \partial_y f =& \frac{y}{\sqrt{x^2+y^2}},
-            \end{align*}
-            que en el punto $(x_0,y_0)$ están dadas por $\frac{x_0}{\sqrt{x_0^2+y_0^2}}$ y
-            $\frac{y_0}{\sqrt{x_0^2+y_0^2}}$, respectivamente. Al sustituir estos valores en la
-            ecuación del plano tangente a la superficie tenemos que
-            \begin{equation*}
-            z = \sqrt{x_0^2 + y_0^2} + \frac{x_0}{\sqrt{x_0^2+y_0^2}}(x-x_0) + \frac{y_0}{\sqrt{x_0^2+y_0^2}}(y-y_0),\\
-            \end{equation*}
-            y notamos que al sustituir $x=0,y=0$ se tiene
-            \begin{equation*}
-            z = \sqrt{x_0^2 + y_0^2} + \frac{-x_0^2}{\sqrt{x_0^2 + y_0^2}} + \frac{-y_0^2}{\sqrt{x_0^2 + y_0^2}} = 0.
-            \end{equation*}
-            De ésto se concluye que el punto $(0,0,0)$ satisface la ecuación del plano y por lo tanto pertenece a él.
-        </p>
-        <p>
-            Recordemos que el ángulo entre el plano y el eje $z$ es el ángulo entre el vector normal al plano y el eje $z$.
-            De los cálculos presentados anteriormente se tiene que el plano tiene vector normal
-            $N=\left(\frac{x_0}{\sqrt{x_0^2 + y_0^2}},\frac{y_0}{\sqrt{x_0^2 + y_0^2}},-1\right)$. Por un lado $\langle N, (0,0,1)\rangle = -1$,
-            por otro lado también se sabe que
-            \begin{align*}
-            \langle N, (0,0,1)\rangle =& \|N\|\|(0,0,1)\| \cos(\theta),\\
-            =& \sqrt{ \frac{x_0^2 + y_0^2}{x_0^2 + y_0^2} + 1} \cos(\theta),\\
-            =& \sqrt{2} \cos(\theta),
-            \end{align*}
-            de donde $\cos(\theta) = \frac{-1}{\sqrt{2}}$ y por lo tanto $\theta = \pm \frac{3\pi}{4}$, y en ambos casos el ángulo complementario
-            es $\frac{\pi}{4}$. Como siempre se puede considerar un ángulo menor o igual a $\frac{\pi}{2}$ nos quedamos con éste último y concluye
-            la prueba.
-        </p>
-        <p>
-            Observación: De manera implícita supusimos que $y_0 \geq 0$, si ocurriera que $y_0<0$ entonces es necesario definir
-            $f(x,y) = -\sqrt{x^2+y^2}$ y se puede seguir el mismo procedimiento, ya que en la primera parte del ejercicio las derivadas parciales
-            también cambian de signo y en la segunda parte el nuevo vector normal al plano nos brinda directamente que $\cos(\theta) = \frac{1}{\sqrt{2}}$.
-        </p>
-    </div>
-  </div>
-
-
-    
-    <div class="definicion-box"> 
-        <h2 class="number-title" id="Def:DerivadaRn"> Definición </h2>
-        <p>
-          <p>
-            La <a href="#Def:DerivadaR2">Definición 8.1</a> se aplica para funciones con dominio en \(\mathbb{R}^2\)
-            pero la definición es prácticamente la misma para funciones en dimensiones más grandes, simplemente 
-            se tienen límites en \(\mathbb{R}^n\) por lo que los puntos tienen más coordenadas, no sólo 
-            \(x,y\). Por ejemplo si \(p\in \mathbb{R}^3\), \(p=(x,y,z)\) y en general para 
-            \(p\in \mathbb{R}^n\), \(p=(x_1,\dots, x_n)\) ó \(p=(p_1,\dots, p_n)\).
-          </p>
-        </p>
-        <p>
-            Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$,  $f:U \to \mathbb{R}$ una
-            función y $p_0\in U$. Decimos que $f$ es diferenciable en $p_0$ si 
-            existe una transformación lineal $T:\mathbb{R}^n \to \mathbb{R}$ tal que
+            Pero es claro que 
+            \[
+            \lim_{p\to p_0}\|p-p_0\|=0
+            \]
+            así que por la ley del producto para límites 
             \begin{eqnarray*}
-            \lim_{ v \to 0} \frac{|f(p_0+v)-f(p_0)-T(v)|}{\| v\|}=0. 
+            0&=&\left(\lim_{p\to p_0} \|p-p_0\|\right)\left( \lim_{p\to p_0} \frac{f(p)-f(p_0)-T(p-p_0)}{\|p-p_0\|} \right) \\
+             &=& \lim_{p\to p_0} \left( \|p-p_0\|\frac{f(p)-f(p_0)-T(p-p_0)}{\|p-p_0\|}\right) \\
+             &=& \lim_{p\to p_0} (f(p)-f(p_0)-T(p-p_0))
             \end{eqnarray*}
-            o equivalentemente 
-            $$
-            \lim_{p\to p_0} \frac{|f(p)-f(p_0)-T(p-p_0)|}{\|p-p_0\|}=0.
-            $$
-            A la transformación lineal $T$ se le llama la derivada de $f$ en $p_0$
-            y se le denota $D_{p_0}f$.
+        </p>
+        <p>
+            Ahora, por el <a>Ejercicio 9.2</a> 
+            \[
+            \lim_{p\to p_0}T(p-p_0)=T(p_0-p_0)=T(0)=0
+            \]
+            donde usamos \(T(0)=0\), al ser \(T\) función lineal.
+        </p>
+        <p>
+            Se sigue de las leyes de los límites para sumas tenemos 
+            \begin{eqnarray*} 
+            0&=&\lim_{p\to p_0} (f(p)-f(p_0)-T(p-p_0))+ \lim_{p\to p_0}(T(p-p_0)) \\
+            &=& \lim_{p\to p_0} (f(p)-f(p_0)-T(p-p_0)+T(p-p_0))\\
+            &=& \lim_{p\to p_0} (f(p)-f(p_0))
+            \end{eqnarray*}
+            lo que es equivalente a \(\lim_{p\to p_0} f(p)=f(p_0)\).
         </p>
     </div>
-
-
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2> 
-    <p>
-        Este ejercicio generaliza la <a>Proposición 8.7</a> pues muestra que si $f$ es diferenciable en $p_0$, todas
-        las derivdas parciales en $p_0$ existen.
-    </p>
-    <p>
-        Sea $U\neq \emptyset $ un abierto de $\mathbb{R}^n$, $p_0\in U$ y $f:U\to \mathbb{R}$.
-    </p>
-    <p>
-        Supon que $f$ es diferenciable en $p_0$ y sea $T:\mathbb{R}^n \to \mathbb{R}$
-        la derivada de $f$ en $p_0$, es decir, $T$ satisface
-        \begin{eqnarray}
-        \lim_{ v \to 0} \frac{|f(p_0+v)-f(p_0)-T(v)|}{\| v\|}=0. \label{Eqn:AuxDifImplicaParciales}
-        \end{eqnarray}
-    </p>
-    <p>
-      Prueba que todas las derivadas parciales existen en \(p_0\) y además 
-      \[
-      T(x_1,\dots, x_n)=\sum_{i=1}^n \partial_{p_i}f(p_0)x_i
-      \]
-    </p>
-    <button class="respButton hvr-grow "> Demostración</button>
-    <div class="resp-box">
-    <p>
-      Recuerda que al ser $T$ lineal, existe un vector  $a=(a_1,\dots, a_n )\in \mathbb{R}^n$ tal que
-      $$
-      T(x_1,\dots, x_n)=\sum_{i=1}a_ix_i \quad  \forall (x_1,\dots, x_n)\in \mathbb{R}^n.
-      $$
-  
-      Tomando $v=\gamma(h)$ de la forma $\gamma(h)=he_j$, $h\ne 0$ (con $j$ fijo) el límite 
-      \eqref{Eqn:AuxDifImplicaParciales} implica que 
-      \begin{eqnarray*} 
-        0&=&\lim_{h\to 0} \frac{|f(p_0+he_j)-f(p_0)-T(he_i)|}{\|he_j\|}\\
-        &=& \lim_{h\to 0} \left| \frac{f(p_0+he_j)-f(p_0)-hT(e_j)|}{h} \right\| \\
-        &=& \lim_{h\to 0}\left| \frac{f(p_0+he_j)-f(p_0)}{t}-a_j  \right|
-      \end{eqnarray*}
-
-    </p>
-    <p>
-      Por lo tanto el límite anterior implica que \(\partial_{p_j}f(p_0)\) existe y es igual a \(a_j\).
-     </p>
-    <p>
-        Por lo tanto, usando la notación de la derivda como $T=D_{p_0}f$, resulta que
-        la derivada es la transformación lineal inducida  por el gradiente en $p_0$, es decir
-        $$
-        (D_{p_0}f)(x_1,\dots, x_n)=\sum_{i=1}^n \partial_{p_i}f(p_0)x_i \quad \forall (x_1,\dots, x_n)\in \mathbb{R}^n.
-        $$
-    </p>
     </div>
 </div>
 
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2> 
-    <p>
-        Sea$f:\mathbb{R}^n\to \mathbb{R}$
-        una función diferenciable en todo punto de $\mathbb{R}^n$.¿  Tiene sentido la fórmula
-        $$
-        \nabla_{p_0+p_0'}f=\nabla_{p_0}f+\nabla_{p_0'}f ?
-        $$  
-    </p> 
-  </div>
  
 
-    <div class="ejercicio-box">
-      <h2 class="number-title"> Ejercicio </h2>
-      <p>
-        La definición de derivada en 1-dimensión es 
+
+  <div class="definicion-box">
+    <h2 class="number-title">  Definición</h2>
+    <p>
+        Sea $U\ne \emptyset$ un subconjunto abierto de $\mathbb{R}^n$
+        y $f:U\to \mathbb{R}$. Decimos que $f$ es de clase
+        $C^1$ en $U$, si todas las derivadas parciales existen y son
+        continuas en todo punto de $U$.
+    </p>
+    <p>
+        Por ejemplo, un polinomio en varias variables es clase \(C^1\) pues 
+        sus derivadas parciales vuelven a ser polinomios, los cuales son funciones 
+        continuas.
+    </p>
+  </div>
+
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Considera la función de una variable
+        $$
+        f(x)=\left\{\begin{array}{cc}
+                      x^2\sen(1/x) & x\ne 0 \\
+                      0 & x=0
+                    \end{array}
+                  \right.
+                  $$
+                  
+        Demuestra
+        que para todo $x$, $f'(x)$ existe pero la función $f'(x)$ no es continua. Por
+        lo tanto, ésta función es un ejemplo de una función diferenciable, que no
+        es clase $C^1$.
+      
+    </p>
+</div>
+
+  
+<div class="teorema-box"> 
+    <h2 class="number-title" id="Ejer:C1ImplicaDif"> Teorema </h2> 
+    <p>
+        Toda función de dos variables clase $C^1$ es diferenciable.
+    </p>
+    <p>
+        En concreto, sea $U\ne \emptyset$ un subconjunto abierto de $\mathbb{R}^2$ y $f:U \to \mathbb{R}$
+        una función clase $C^1$ en $U$. Entonces para todo $(x_0,y_0)\in U$, 
+        \(f\) es diferenciable en \((x_0,y_0)\). 
+    </p>
+    <button class="respButton hvr-grow "> Demostración</button>
+    <div class="resp-box">
+    <p>
+        Recordemos que para probar que \(f\) es diferenciable en \((x_0,y_0)\) debemos de probar que 
+        existe una función lineal \(T:\mathbb{R}^2 \to \mathbb{R}\) tal que 
         \[
-        \lim_{h\to 0} \frac{f(x+h)-f(x)}{h}
+        \lim_{(h,k)\to 0} \frac{f(x_0+h,y+0+k)-f(x_0,y_0)-T(h,k)}{\|(h,k)\|}=0.
         \]
-      </p>
-      <p>
-        Si copiamos esta definición para funciones en dos variables y tomamos la norma 
-        en el denominador (para que tenga sentido) tenemos 
-        \begin{equation}\label{Eqn:AuxLimiteMaloDerivada}
-        \lim_{(h,k)\to 0} \frac{f(x+h,y+k)-f(x,y)}{\|(h,k)\|}
+    </p>
+    <p>
+        Ya que las derivadas parciales existen la <a href="./S8.html#Ejer:ParcialesYDerivada">Proposición 8.11</a> sugiere que la 
+        transformación lineal es 
+        \[
+        T(x,y)=\partial_xf(x_0,y_0)x+\partial_yf(x_0,y_0)y
+        \]
+        Nota: NO podemos aplicar directamente la Proposición 8.11 pues no sabemos que la 
+        función \(f\) es diferenciable PERO sí nos sugiere cuál transformación lineal 
+        debemos de considerar.
+    </p>
+    <p>
+        Así pues debemos de probar que 
+        \begin{equation}\label{Eqn:AuxC2ImpliDif}
+        \lim_{(h,k)\to 0} \frac{f(x_0+h,y_0+k)-f(x_0,y_0)-\partial_xf(x_0,y_0)h-\partial_yf(x_0,y_0)k}{\|(h,k)\|}=0
         \end{equation}
-      </p>
-      <p>
-        Este ejercicio muestra que esta definición no sirve para la derivada.
-      </p>
-      <p>
-        Prueba que para la función \(f(x,y)=x^2+y^2\), si tomamos un  
-        \((x,y)\ne 0 \),  el límite \eqref{Eqn:AuxLimiteMaloDerivada} no existe.
-      </p>
+    </p>
+    <p>
+        Al ser \(U\) abierto podemos tomar $r>0$ tal que
+        $B_r(x_0,y_0)\subset U$. Denotamos $(h,k)$ un vector cualquiera con $\|(h,k)\| < r$.
+    </p>
 
-    </div>
-
-    <div class="ejercicio-box">
-      <h2 class="number-title"> Ejercicio</h2>
-      <p>
-        Sean \(f:(a,b)\to \mathbb{R}, g:(c,d)\to \mathbb{R}\) dos funciones diferenciables.
-      </p>
-      <p>
-        Define \(F:(a,b)\times (c,d)\to \mathbb{R}\) dada por \(F(x,y)=f(x)g(y)\). Entonces 
-        \(F\) es diferenciable en todo punto de \((a,b)\times (c,d)\) y la derivada en el 
-        punto \((x_0,y_0)\in (a,b)\times (c,d)\) está dada por 
-        \[
-        D_{(x_0,y_0)}F(x,y)=f'(x_0)g(y_0)x+f(x_0)g'(y_0)y. 
-        \]
-      </p>
-      <button class="respButton hvr-grow "> Solución</button>
-      <div class="resp-box">
-          <p>
-              Definimos $T(x,y) = f'(x_0)g(y_0)x+f(x_0)g'(y_0)y$ y comenzamos por escribir
-              el cociente diferencial
-              \begin{equation*}
-              \frac{F(x,y) - F(x_0,y_0) - T(x-x_0,y-y_0)}{\|(x-x_0,y-y_0\|} =
-              \frac{f(x)g(y) - f(x_0)g(y_0) - f'(x_0)g(y_0)(x-x_0) - f(x_0)g'(y_0)(y-y_0)}{\|(x-x_0,y-y_0)\|}.
-              \end{equation*}
-              Dado que se busca el límite cuando $(x,y) \to (x_0,y_0)$ hay que considerar puntos en una vecindad
-              de $(x_0,y_0)$, pero distintos de éste. Así, consideraremos tres casos: $x_0=x$ y $y_0 \neq y$,
-              $x_0 \neq x$ y $y_0 = y$, y finalmente $x_0 \neq x$ y $y_0 \neq y$. En lo que sigue aplicaremos
-              valor absoluto al numerador del cociente.
-          </p>
-          <p>
-              En el primer caso el cociente diferencial se reduce a la expresión
-              \begin{align*}
-              \frac{|f(x_0)g(y) - f(x_0)g(y_0) - f(x_0)g'(y_0)(y-y_0)|}{|y-y_0|} =& \left|\frac{f(x_0)[g(y)-g(y_0)]-f(x_0)g'(y_0)(y-y_0)}{y-y_0}\right|,\\
-              =& |f(x_0)|\left |\frac{g(y) - g(y_0)}{y-y_0} - g'(y_0)\right|.
-              \end{align*}
-              En el segundo caso se tiene una expresión similar,
-              \begin{align*}
-              \frac{|f(x)g(y_0) - f(x_0)g(y_0) - f'(x_0)g(y_0)(x-x_0)|}{|x-x_0|} =& \left| \frac{g(y_0)[f(x)-f(x_0) - f'(x_0)](x-x_0)}{x-x_0} \right|,\\
-              =& |g(y_0)| \left|\frac{f(x)-f(x_0}{x-x_0} - f'(x_0) \right|.
-              \end{align*}
-              Para $\epsilon >0$ notamos que si $f(x_0)=0$ entonces para cualquier $\delta > 0$ se tiene que si $0 < |y-y_0| < \delta$ entonces
-              \begin{equation*}
-              |f(x_0)|\left |\frac{g(y) - g(y_0)}{y-y_0} - g'(y_0)\right| < \epsilon,
-              \end{equation*}
-              si $f(x_0) \neq 0$ entonces como $g$ es diferenciable en $y_0$ existe $\delta_1 > 0$ tal que si $0 < |y-y_0| < \delta_1$ entonces
-              $\left|\frac{g(y) - g(y_0)}{y-y_0} - g'(y_0)\right| < \frac{\epsilon}{|f(x_0)|}$ y el primer cociente queda acotado por $\epsilon$.
-              De manera similar, si $g(y_0) \neq 0$ entonces existe $\delta_2>0$ tal que si $0 < |x-x_0| < \delta_2$ entonces el segundo cociente
-              queda acotado por $\epsilon$.
-          </p>
-          <p>
-              Finalmente trabajaremos con el caso en que $x_0 \neq x$ y $y_0 \neq y$, al numerador del cociente diferencial agregaremos la expresión
-              $-f(x)g(y_0) + f(x)g(y_0)$:
-              \begin{align*}
-              \frac{|f(x)g(y) - f(x_0)g(y_0) - f'(x_0)g(y_0)(x-x_0) - f(x_0)g'(y_0)(y-y_0)|}{\|(x-x_0,y-y_0)\|}=\\
-              \frac{|f(x)g(y) - f(x)g(y_0) + f(x)g(y_0) -f(x_0)g(y_0) - f'(x_0)g(y_0)(x-x_0) - f(x_0)g'(y_0)(y-y_0)|}{\|(x-x_0,y-y_0)\|} \leq\\
-              \frac{|f(x)[g(y) - g(y_0)] + g(y_0)[f(x) -f(x_0)] - f'(x_0)g(y_0)(x-x_0) - f(x_0)g'(y_0)(y-y_0)|}{\|(x-x_0,y-y_0)\|} \leq\\
-              \frac{|f(x)[g(y) - g(y_0)] - f(x_0)g'(y_0)(y-y_0)|}{\|(x-x_0,y-y_0)\|} + \frac{|g(y_0)[f(x) -f(x_0)] - f'(x_0)g(y_0)(x-x_0)|}{\|(x-x_0,y-y_0)\|},
-              \end{align*}
-              Como $|x-x_0|,|y-y_0| \leq \|(x-x_0,y-y_0\|$ y ninguno se anula entonces podemos acotar superiormente la última expresión por
-              \begin{align*}
-              \frac{|f(x)[g(y) - g(y_0)] - f(x_0)g'(y_0)(y-y_0)|}{|y-y_0|} + \frac{|g(y_0)[f(x) -f(x_0)] - f'(x_0)g(y_0)(x-x_0)|}{|x-x_0|}=\\
-              \left|\frac{f(x)[g(y) - g(y_0)] - f(x_0)g'(y_0)(y-y_0)}{y-y_0}\right| + \left|\frac{g(y_0)[f(x) -f(x_0)] - f'(x_0)g(y_0)(x-x_0)}{x-x_0}\right| =\\
-              \left|\frac{f(x)[g(y) - g(y_0)]}{y-y_0}- f(x_0)g'(y_0)\right| + \left|\frac{g(y_0)[f(x) -f(x_0)]}{x-x_0} - f'(x_0)g(y_0)\right|=\\
-              \left|\frac{f(x)[g(y) - g(y_0)]}{y-y_0}- f(x_0)g'(y_0)\right| + |g(y_0)|\left|\frac{[f(x) -f(x_0)]}{x-x_0} - f'(x_0)\right|.
-              \end{align*}
-              Analicemos cada uno de estos sumandos. Si $g(y_0)\neq 0$ como $f$ es diferenciable en $x_0$ entonces existe $\delta_3 > 0$ tal que
-              si $0<|x-x_0|< \delta_3$ entonces $|g(y_0)|\left|\frac{g(y_0)[f(x) -f(x_0)]}{x-x_0} - f'(x_0)\right|< |g(y_0)| \frac{\epsilon}{2 |g(x_0)|} = \epsilon/2$,
-              si $g(y_0)=0$ se puede tomar $\delta_3$ como cualquier número real positivo.
-          </p>
-          <p>
-              También se tiene que
-              \begin{align*}
-              \left|\frac{f(x)[g(y) - g(y_0)]}{y-y_0}- f(x_0)g'(y_0)\right| = \\
-              \left|\frac{f(x)[g(y) - g(y_0)]}{y-y_0}- \frac{f(x_0)[g(y) - g(y_0)]}{y-y_0} + \frac{f(x_0)[g(y) - g(y_0)]}{y-y_0} - f(x_0)g'(y_0)\right| \leq \\
-              |f(x)-f(x_0)|\left|\frac{g(y) - g(y_0)}{y-y_0}\right| +  |f(x_0)| \left|\frac{g(y) - g(y_0)}{y-y_0} - g'(y_0)\right| \leq\\
-              |f(x)-f(x_0)|\left(\left|\frac{g(y) - g(y_0)}{y-y_0} - g'(y_0)\right| + |g'(y_0)|\right) +  |f(x_0)| \left|\frac{g(y) - g(y_0)}{y-y_0} - g'(y_0)\right|
-              \end{align*}
-              De manera análoga se sabe que existe $\delta_4>0$ tal que si $0< |y-y_0|<\delta_4$ entonces $|f(x_0)| \left|\frac{g(y) - g(y_0)}{y-y_0} - g'(y_0)\right| < \epsilon/4$,
-              por continuidad de $f$ existe $\delta_5>0$ tal que si $0<|x-x_0|<\delta_5$ entonces $|f(x)-f(x_0)||g'(y_0)| < \epsilon/8$ y existen $\delta_6,\delta_7>0$
-              tales que si $0<|x-x_0|<\delta_6$, $0<|y-y_0|<\delta_7$ entonces $|f(x)-f(x_0)|< \sqrt{\epsilon/8}$ y
-              $\left|\frac{g(y) - g(y_0)}{y-y_0} - g'(y_0)\right|<\sqrt{\epsilon/8}$ respectivamente. Basta tomar $\delta = \min (\delta_1,\ldots,\delta_7) >0$ y si
-              $0< \|(x-x_0,y-y_0)\|< \delta$, en particular $|x-x_0|,|y-y_0|\leq \delta_i$ para cada $i$ y en cada uno de los casos anteriores el cociente diferencial
-              es acotado por $\epsilon$, es decir,
-              \begin{equation*}
-              \lim_{(x,y) \to (x_0,y_0)} \frac{F(x,y) - F(x_0,y_0) - T(x-x_0,y-y_0)}{\|(x-x_0,y-y_0\|} = 0.
-              \end{equation*}
-          </p>
+    <p>
+        Ahora empezamos analizando el cociente diferencial. Podemos re-escribir 
+        la primera parte del cociente diferencial de la siguiente forma
+        \begin{eqnarray*}
+          f(x_0+h,y_0+k)-f(x_0,y_0)&=&f(x_0+h, y_0+k)-f(x_0+h, y_0) \\
+                                       &+& f(x_0+h, y_0)-f(x_0,y_0)
+        \end{eqnarray*}
+    </p>
+    
+    <p>
+        Ahora, aplicando el Teorema del valor medio para la derivada tenemos que existen puntos 
+        \(\overline{x}\), entre \(x_0\) y \(x_0+h\) y \(\overline{y}\), entre \(y_0\) y \(y_0+k\) tal que 
+        \begin{eqnarray*} 
+        f(x_0+h, y_0+k)-f(x_0+h, y_0)&=&\partial_yf(x_0+h,\overline{y})k \\
+        f(x_0+h, y_0)-f(x_0,y_0)&=&\partial_xf(\overline{x},y_0)h
+        \end{eqnarray*}
+        por lo que podemos escribir la primera parte del cociente diferencial como: 
+        $$
+        f(x_0+h,y_0+k)-f(x_0,y_0)=\partial_yf(x_0+h,\overline{y})k+ \partial_xf(\overline{x},y_0)h.
+        $$
+    </p>
+    <div class="flexbox">
+        <img src="./Images/S9-Img1.png" alt="ParcialesContinuasImplicaDif" width="40%" height="auto">
       </div>
-    </div>
+    <p>
+        Se sigue que 
+        \begin{eqnarray*}
+         & & \frac{|f(x_0+h,y_0+k)-f(x_0,y_0)- \partial_xf(x_0,y_0)h-\partial_yf(x_0,y_0)k|}{\|h\|} \\
+         &\leq & \frac{|\partial_xf(\overline{x},y_0)- \partial_xf(x_0,y_0)||h|}{\|(h,k)\|}
+         +\frac{|\partial_yf(x_0+h,\overline{y})-\partial_yf(x_0,y_0)||k|}{\|h\|} \\
+        &\leq & |\partial_xf(\overline{x}, y_0)-\partial_xf(x_0,y_0)|
+        + |\partial_yf(x_0+h,\overline{y})-\partial_yf(x_0,y_0)|
+        \end{eqnarray*}
+    </p>
+    <p>
+        En este punto es donde usamos la continuidad de las parciales. Como ambas parciales son 
+        continuas en \((x_0,y_0)\) existe un \(\delta > 0\) tal que si \(\|(\overline{h},\overline{k})\| < \delta\)
+        entonces 
+        \begin{eqnarray*}  
+        |\partial_xf(x_0+\overline{h},y_0+\overline{k})-\partial_xf(x_0,y_0)|< \varepsilon/2 \\
+        |\partial_yf(x_0+\overline{h},y_0+\overline{k})-\partial_yf(x_0,y_0)|< \varepsilon/2
+        \end{eqnarray*}
+    </p>
+    <p>
+        Ahora, si el vector \((h,k)\) lo tomamos para que satisfaga \(\|(h,k)\|<\delta \) podemos 
+        asegurar que 
+        \begin{eqnarray*} 
+        |\partial_xf(\overline{x}, y_0)-\partial_xf(x_0,y_0)| < \varepsilon/2 \\
+        |\partial_yf(x_0+h,\overline{y})-\partial_yf(x_0,y_0)| <\varepsilon/2
+        \end{eqnarray*}
+        (para la primera desigualdad tomar \(\overline{h}=\overline{x}-x_0, \overline{k}=0\), 
+        para la segunda tomar \(\overline{h}=0, \overline{k}=\overline{y}-y_0\)).
+        
+    </p>
+    <p>
+        Concluyendo, si \(\|(h,k)\|<\delta\) entonces 
+        \[
+        \frac{|f(x_0+h,y_0+k)-f(x_0,y_0)-\partial_xf(x_0,y_0)h-\partial_yf(x_0,y_0)k|}{\|(h,k)\|} < \varepsilon
+        \]
+        probando \eqref{Eqn:AuxC2ImpliDif}.
+    </p>
+    
+</div>
+</div>
+
+
+<div class="teorema-box"> 
+    <h2 class="number-title" id="Teo:C1ImplicaDif"> Teorema </h2> 
+    <p>
+        El teorema anterior se generaliza a más variables. 
+    </p>
+    <p>
+        Sea $U\ne \emptyset$
+        es un conjunto abierto de $\mathbb{R}^n$ y
+          $f:U\to \mathbb{R}$, de clase $C^1$ en $U$. Entonces $f$ es diferenciable en todo punto 
+          de  $U$.
+    </p>
+</div>
+
+
+
+
 
     <div class="ejercicio-box"> 
-      <h2 class="number-title"> Ejercicio</h2> 
-      <p>
-          Para las siguientes funciones encuntras las derivadas parciales hasta orden 2.
-  
-          <ol>
-              <li>
-                  $f(x,y)=d+a_1x+b_1y+cxy+a_2x^2+b_2y^2$, donde $a_i,b_i,c,d$ son constantes.
-              </li>
-              <li>
-                  $f(x,y,z)=\sqrt{x^2+y^2+z^2}$.
-              </li>
-              <li>
-                  $f(p)=\langle q, p \rangle$, donde $q\in \mathbb{R}^n$ es un vector fijo.  
-              </li>
-              <li>
-                  $f(p)=\sum_{i=1}^n p_i^2$.
-              </li>
-          </ol>
-      </p>
-  </div>
-  
-  
-</body>
+        <h2 class="number-title"> Ejercicio</h2> 
+        <p>
+            Para las siguientes funciones, usa el criterio
+            de las derivadas parciales para encontrar  un dominio
+            para el cual la función sea diferencible en
+            todo punto del dominio.
+
+            <ol>
+                <li>
+                    $f(x,y)=e^{\sqrt{x^2+y^2}}$.
+                </li>
+                <p>
+
+                </p>
+                <li>
+                    \(f(x,y)=\frac{x}{y}+\frac{y}{x}\).
+                </li>
+                <p>
+                    
+                </p>
+                <li>
+                    \(f(x,y)=\sen^{-1}(x-y)\).
+                </li>
+                <p>
+                    
+                </p>
+                <li>
+                    $f(x,y)=\log(e^{\sqrt[4]{(x-1)^2+(y-2)^2}}+e^{\sqrt{(x-5)^2+(y-6)^2}})$.
+                </li>
+                <p>
+                    
+                </p>
+                <li>
+                    $f(x,y)=\log(1+\sqrt{(x-1)^2+(y+1)^2})$.
+                </li>
+                <p>
+                    
+                </p>
+                <li>
+                    \(f(x,y)=3x^{0.1}y^{\pi}\).
+                </li>
+                <p>
+                    
+                </p>
+                <li>
+                    \(f(x,y)=x^y y^x\).
+                </li>
+                <p>
+                    
+                </p>
+                <li>
+                    \(f(x,y,z)=\frac{z}{x+y+z}\).
+                </li>
+                <p>
+                    
+                </p>
+                <li>
+                    \(f(x,y,z)=\sqrt{\sen^2(x)+\sen^2(y)+\sen^2(z)}\).
+                </li>
+                <p>
+                    
+                </p>
+                <li>
+                    \(f(x_1,\dots, x_n)=\sum_{i=1}^n \frac{1}{x_i}\).
+                </li>
+            </ol>
+            
+        </p>
+   </div>            
+
+
+   
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Para cada una de las siguientes funciones
+        calcula $\partial_{x}\partial_yf(x,y)$ y $\partial_y\partial_xf(x,y)$.
+        ¿ Qué notas ?
+        <ol>
+            <li>
+                $f(x,y)=x^2+xy^2+y^3$
+            </li>
+            <li>
+                $f(x,y)=\log(x^2+y^4)$
+            </li>
+            <li>
+                $f(x,y)=e^{3x+2xy+y^2}$                 
+            </li>
+        </ol>
+    </p>
+</div>
+
+
+<div class="definicion-box">
+    <h2 class="number-title">  Definición</h2>
+    <p>
+        Sea $U$ un abierto de $\mathbb{R}^n$. Una función  $f:U \to \mathbb{R}$ se llama clase
+        $C^2$ si las derivadas parciales  desde orden 1 hasta orden dos existen y son continuas en todo $U$.        
+    </p>
+    <p>
+        De manear similar, es de clase $C^n$ si todas las derivadas pariacles desde orden 1 hasta orden $n$ existen
+        y son continuas en $U$.
+
+    </p>
+</div>
+
+<div class="teorema-box"> 
+    <h2 class="number-title"> Teorema </h2> 
+    <p>
+        Para toda función de clase \(C^2\), las derivadas parciales mixtas son iguales.
+    </p>
+    <p>
+        En concreto sea $f:U\subseteq \mathbb{R}^2\to \mathbb{R}$,
+        de clase $C^2$ es $U$. Entonces  $\partial_{xy}f=\partial_{yx}f$. 
+        
+    </p>
+    <button class="respButton hvr-grow "> Demostración</button>
+    <div class="resp-box">
+        <p>
+            Fijamos $(x_0,y_0)\in U$ arbitrario. Debemos de probar 
+            \[
+            \partial_{xy}f(x_0,y_0)=\partial_{yx}f(x_0,y_0).
+            \]
+        </p>
+        
+    <p>
+        Consideramos las funciones
+        $$
+        S(h,k)=f(x_0+h,y_0+k)-f(x_0+h,y_0)-f(x_0,y_0+k)+f(x_0,y_0)
+        $$
+        y
+        $$
+        G(x)=f(x,y_0+k)-f(x,y_0), \quad H(y)=f(x_0+h,y)-f(x_0,y)
+        $$
+        Con las definiciones anteriores se sigue que:
+        \begin{equation}\label{Eqn:Aux1ParcialesMixtas}
+        S(h,k)=G(x_0+h)-G(x_0)=H(y_0+k)-H(y_0).
+        \end{equation}
+    </p>
+    <p>
+        Usando el Teorema del valor medio para derivadas, aplicadas a las funciones 
+        \(G\) y \(H\) $\overline{x}$, entre $x_0$ y $x_0+h$
+        y un punto $\overline{y}$, entre $y_0$y $y_0+k$, tales que:
+        $$G(x_0+h)-G(x_0)=G'(\overline{x})h,\quad  H(y_0+k)-H(y_0)=H'(\overline{y})k$$
+    </p>
+    <p>
+        Substituyendo las identidades anteriores en \eqref{Eqn:Aux1ParcialesMixtas} obtenemos 
+        \begin{eqnarray*}
+        S(h,k)&=&\left( \partial_xf(\overline{x}, y_0+k)-\partial_xf(\overline{x}, y_0)  \right) h \\
+        &=&\left(\partial_yf(x_0+h,\overline{y})-\partial_yf(x_0, \overline{y}) \right)k
+        \end{eqnarray*}
+        
+    </p>
+    <p>
+        Aplicando de nuevo el Teorema del valor medio para las derivadas, pero 
+        ahora aplicado a las parciales \(\partial_xf, \partial_yf\), 
+        obtenemos que existen puntos  $\overline{\overline{y}}$, entre $y_0$ y $y_0+k$ y
+        $\overline{\overline{x}}$, entre $x_0$ y $x_0+h$ tales que
+        $$
+        S(h,k)=\partial_{yx}f(\overline{x}, \overline{\overline{y}})hk=\partial_{xy}f(\overline{\overline{x}}, \overline{y})hk
+        $$
+    </p>
+    <div class="flexbox">
+        <img src="./Images/S9-Img2.png" alt="ParcialesMixtas" width="40%" height="auto">
+      </div>
+    <p>
+        Si \(h\ne 0\) y \(k\ne 0\)  tenemos que 
+        \[
+        \frac{S(h,k)}{hk}=\partial_{yx}f(\overline{x},\overline{\overline{y}}),
+        \]
+        \[
+        \frac{S(h,k)}{hk}=\partial_{xy}f(\overline{\overline{x}},\overline{y}).
+        \]
+        Si ahora tomamos $(h,k)\to (0,0)$ y usamos que los puntos 
+        \(\overline{x},\overline{y},\overline{\overline{x}},\overline{\overline{y}}\) están entre 
+        \(x_0\) y \(x_0+h\), \(y_0\) y \(y_0+k\) y usando que \(\partial_{xy}f, \partial_{yx}f\)
+        son continuas en \((x_0,y_0)\) llegamos 
+        \begin{eqnarray*} 
+        \partial_{xy}f(x_0,y_0)=\lim_{(h,k)\to (0,0)} \partial_{yx}f(\overline{x},\overline{\overline{y}})=\lim_{(h,k)\to (0,0)}  \frac{S(h,k)}{hk}\\
+        \partial_{yx}f(x_0,y_0)=\lim_{(h,k)\to (0,0)} \partial_{yx}f(\overline{\overline{x}},\overline{y})=\lim_{(h,k)\to (0,0)}  \frac{S(h,k)}{hk}
+        \end{eqnarray*}
+        y por lo tanto \(\partial_{xy}f(x_0,y_0)=\partial_{yx}f(x_0,y_0)\).
+    </p>
+</div>
+</div>
+
+
+<div class="definicion-box">
+    <h2 class="number-title">  Definición</h2>
+    <p>
+        Una función $f:U\to \mathbb{R}$, definida en un abierto, se llama armónica en $U$ si las
+        derivadas parciales de segundo orden $\partial_x^2 f$ y $\partial_y^2 f$, existen y son continuas
+        en todo punto de $U$ (es decir, clase $C^1$ en $U$) y
+        $$
+        \partial_x^2f(x,y)+\partial_y^2f(x,y)=0
+        $$ 
+        para todo $(x,y)\in U$. 
+    </p>
+</div>
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2>
+    <p>
+        Para las siguientes funciones, determina cuales son armónicas.
+    </p> 
+
+<ol>
+    <li>
+        $f(x,y)=x^2-y^2$
+    </li>
+    <li>
+        $f(x,y)=e^y\cos(x)$
+    </li>
+    <li>
+        $f(x,y)=e^y\sen(x)$
+    </li>
+    <li>
+        $f(x,y)=\log(x^2+y^2)$
+    </li>
+    <li>
+        $f(x,y)=x^3-3x^2y-3yx^3+y^3$
+    </li>
+</ol>		       
+</div>
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Demuestra que toda función lineal $f:\mathbb{R}^2\to \mathbb{R}$ satisface
+        la ecuación $\partial_x^2f(x,y)+\partial_y^2f(x,y)=0$, para todo $(x,y)$.
+    </p>
+</div>
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Considera la función $f(x,y)=ax^2+by^2+cxy$, donde $a,b,c\in \mathbb{R}$ son
+        parámetros. Encuentra
+        los valores de $a$, $b$ y $c$ para los cuales
+    </p>
+<ol>
+    <li>
+        $\partial_x^2 f(x,y)+\partial_y^2f(x,y) >0$, para todo $(x,y)$,
+    </li>
+    <li>
+        $\partial_x^2f(x,y)+\partial_y^2f(x,y)=0$, para todo $(x,y)$,
+    </li>
+    <li>
+        $\partial_x^2f(x,y)+\partial_y^2f(x,y) < 0$, para todo $(x,y)$.
+    </li>
+</ol>
+</div>
+
+
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Usa el teorema de la igualdad de derivadas parciales mixtas
+        para dos variables para probar que si $f:\mathbb{R}^3\to \mathbb{R}$
+        es de clase $C^3$, entonces
+        $$
+        \partial^{3}_{xyz}f=\partial_{yzx}^3 f
+        $$
+    </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            Observe que el teorema de la igualdad de derivadas parciales mixtas para dos variables requiere una
+            función $g:U \subseteq \mathbb{R}^2 \to \mathbb{R}$ por lo que no se puede aplicar directamente
+            a nuestra función. Nuestra hipótesis indica que $f$ está definida en todo $\mathbb{R}^3$, al final
+            veremos que se puede considerar una función definida únicamente en un abierto de éste.
+        </p>
+        <p>
+            Sea $(x_0,y_0,z_0) \in \mathbb{R}^3$, definimos $F(x,z)=f(x,y_0,z)$, demostraremos que $F:\mathbb{R}^2 \to \mathbb{R}$
+            es de clase $C^2$ y además sus derivadas parciales respecto a $x$ y $z$ en el punto $(x_0,z_0)$ son las mismas que
+            las de $f$ en el punto $(x_0,y_0,z_0)$.
+
+            \begin{align*}
+            \partial_x F(x_0,z_0) =& \lim_{h \to 0} \frac{F(x_0 + h, z_0) - F(x_0,z_0)}{h},\\
+            =& \lim_{h \to 0} \frac{f(x_0 + h, y_0,z_0) - f(x_0,y_0,z_0)}{h},\\
+            =& \partial_x f(x_0,y_0,z_0).
+            \end{align*}
+            Realizando un proceso análogo obtenemos que $\partial_z F(x_0,z_0) = \partial_z f(x_0,y_0,z_0)$ y también podemos extender este
+            argumento a las derivadas parciales de orden 2. Recordemos que $f$ es de clase $C^3$ por lo que sus derivadas parciales de orden
+            menor o igual a 3 son todas continuas, dado que al fijar una de las variables la función sigue siendo continua entonces tenemos
+            que $F$ también es de clase $C^2$ y por lo tanto sus derivadas parciales mixtas de orden 2 son iguales,
+            $\partial_{zx}^2F(x_0,z_0) = \partial_{xz}^2F(x_0,z_0)$. Para concluir basta mencionar que $y_0$ es un número real arbitrario,
+            por lo que en general se tiene que $\partial_{zx}f(x,y,z) = \partial_{xz}f(x,y,z)$ y se concluye que
+            \begin{equation*}
+            \partial_{yzx}^3 f = \partial_y \partial_{zx}^2f = \partial_y \partial_{xz}^2 f = \partial_{yxz}^3 f.
+            \end{equation*}
+            Definimos ahora $G(x,y,z) = \partial_z f$, por hipótesis $f$ es de clase $C^3$ así que $G$ es de clase $C^2$ y aplicando el
+            resultado anterior sobre derivadas parciales mixtas de orden 2 podemos asegurar que
+            \begin{equation*}
+            \partial_{yxz}^3 f = \partial_{yx}^2G = \partial_{xy}^2G = \partial_{xyz}^3f
+            \end{equation*}
+        </p>
+        <p>
+            De la transitividad de la igualdad es inmediato que
+            \begin{equation*}
+            \partial^{3}_{xyz}f=\partial_{yzx}^3 f.
+            \end{equation*}
+        </p>
+    </div>
+</div>
+
+
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Considera  la función $g(x,t)=2+e^{-t}\sen(x)$,
+        $(t,x)\in \mathbb{R}^2$.
+    </p>
+
+<ol>
+    <li>
+        Demuestra que $g$ satiface la
+        ecuación del calor:
+        $$
+        \partial_t g= \partial_x^2g.
+        $$
+        Aquí $g(x,t)$, representa la temperatura de una varilla de metal
+        en la posición $x$ al tiempo $t$.
+    </li>
+    <li>
+        Esbozar la gráfica de $g$, para $t\geq 0$.
+    </li>
+    <li>
+        ¿ Qué sucede con $g(x,t)$ cuando $t\to \infty$ ?
+        Interpreta éste límite en términos del comportamiento del calor
+        en la varilla.
+    </li>
+</ol>
+</div>
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <h3> Bartle</h3>
+    <p>
+         Considera la función
+        $$
+        f(x,y)=\left\{
+        \begin{array}{cc}
+         \frac{xy^3-x^3y}{x^2+y^2} & (x,y)\ne (0,0)\\
+         0 & (x,y)=(0,0)
+        \end{array}
+        \right.
+        $$
+        Prueba
+        <ol>
+            <li>
+                $$
+                \partial_xf(x,y)=\left\{
+                 \begin{array}{cc}
+                   \frac{y^3-3x^2y}{x^2+y^2}- \frac{2x(xy^3-x^3y)}{(x^2+y^2)^2} & (x,y)\ne (0,0)\\
+                   0 & (x,y)=(0,0)
+                 \end{array}
+                \right.
+                $$
+            </li>
+            <li>
+                $$
+                \partial_y f(x,y)=\left\{
+                 \begin{array}{cc}
+                   \frac{3y^2x- x^3}{x^2+y^2}- \frac{2y(xy^3-x^3y)}{(x^2+y^2)^2} & (x,y)\ne (0,0)\\
+                   0 & (x,y)=(0,0)
+                 \end{array}
+                \right.
+                $$
+            </li>
+            <li>
+                $\partial_x \partial_yf(0,0)=-1$ y $\partial_y\partial_xf(0,0)=1$
+            </li>
+        </ol>
+    </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            Si $(x,y) \neq (0,0)$ entonces podemos tomar toda una vecindad tal que $B_r(x,y) \not\ni (0,0)$
+            y $(x+h,y), (x,y+k) \neq (0,0)$ si $0<|h|,|k| < r$, por lo tanto podemos calcular las derivadas
+            parciales en estos puntos con la regla de la cadena y el producto:
+            \begin{align*}
+            \partial_x f =& \partial_x \left[ \frac{xy^3}{x^2 + y^2} - \frac{x^3y}{x^2+y^2}\right],\\
+            =& \frac{y^3}{x^2 + y^2} + \frac{(-1)xy^3(2x)}{(x^2 + y^2)^2} - \left[\frac{3x^2y}{x^2 + y^2} + \frac{(-1)x^3y(2x)}{(x^2+y^2)^2}\right],\\
+            =& \frac{y^3-3x^2y}{x^2 + y^2} - \frac{2x(xy^3 - x^3y)}{(x^2+y^2)^2}.
+            \end{align*}
+
+            Para encontrar la derivada parcial en $(0,0)$ consideramos el cociente diferencial
+            \begin{align*}
+            \frac{f(h,0)-f(0,0)}{h} =& \frac{\frac{h(0)^3 - h^3(0)}{h^2+0^2} - 0}{h},\\
+            =& \frac{0}{h},
+            \end{align*}
+            y por lo tanto $\partial_x f(0,0) = 0$.
+        </p>
+        <p>
+            Para calcular la derivada parcial respecto a $y$ podemos repetir el proceso anterior, o bien, notar que $f(x,y) = -f(y,x)$ de donde
+            se desprende que si $(x,y) \neq (0,0)$ entonces
+            \begin{equation*}
+            \partial_y f(x,y) = \frac{3y^2x - x^3}{x^2 + y^2} - \frac{2y(xy^3 - x^3y)}{(x^2+y^2)^2},
+            \end{equation*}
+            y
+            \begin{equation*}
+            \partial_y f(0,0) = \lim_{k \to 0} \frac{\frac{(0)k^3 - (0)^3k}{0^2+k^2}}{k} = \lim_{k \to 0}\frac{0}{k}=0.
+            \end{equation*}
+        </p>
+
+        <p>
+            Para concluir calculamos la derivadas parciales mixtas:
+            \begin{align*}
+            \partial_x \partial_y f(0,0) =& \lim_{h \to 0} \frac{\partial_y f(h,0) - \partial_y f(0,0)}{h},\\
+            =& \lim_{h \to 0} \frac{\frac{3(0)^2h - h^3}{h^2 + 0^2}}{h},\\
+            =& \lim_{h \to 0} \frac{\frac{-h^3}{h^2}}{h},\\
+            =& -1.
+            \end{align*}
+            De manera análoga,
+            \begin{align*}
+            \partial_y \partial_x f(0,0) =& \lim_{k \to 0} \frac{\partial_x f(0,k) - \partial_x f(0,0)}{k},\\
+            =& \lim_{k \to 0} \frac{\frac{k^3 - 3(0)^2k}{0^2 + k^2} - \frac{2(0)((0)k^3 - (0)^3k)}{(0^2 + k^2)^2}}{k},\\
+            =& \lim_{k \to 0} \frac{\frac{k^3}{k^2}}{k},\\
+            =& 1
+            \end{align*}
+        </p>
+    </div>
+</div>
+
+
+
+
+ </body>

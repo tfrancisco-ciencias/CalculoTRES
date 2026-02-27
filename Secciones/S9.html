@@ -81,843 +81,614 @@
   </head>
   <body class="fondo-body" >
 
-    <h1 class="number-title flexbox"> Derivadas parciales y continuidad </h1> 
-    <!-- this part is for next and prev sections -->
+    <h1 class="number-title flexbox"> Aproximación lineal </h1> 
+<!-- this part is for next and prev sections -->
 <button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>
 <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
 
-  
+
+          
+    
     <div class="definicion-box"><h2 class="number-title">  Definición</h2>
         <p>
-            Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$ y $f:U \to \mathbb{R}$.
-            Decimos que la función $f$ es continua en un punto $q \in U$ si
-            $$
-            \lim_{p\to q} f(p)=f(q).
-            $$        
+            Sea $U\ne \emptyset $  un abierto de $\mathbb{R}^n$,
+            $p_0\in U$ y $f:U\to \mathbb{R}$ una función diferenciable en $p_0$.
+    
+            A la función
+            $$L_{p_0}(p)= f(p_0)+ \langle \nabla_{p_0}f, p-p_0 \rangle$$
+           
+            se le llama la aproximación
+            de orden 1 (o lineal) para $f$ alrededor de $p_0$. Por simplicidad nos 
+            referirnos al punto \(p_0\) como el punto de tangencia de la aproximación lineal.
+        </p>
+        <p>
+            Por ejemplo, en dimensión 2, \(p_0=(x_0,y_0), p=(x,y)\) por lo que  tenemos 
+            \[
+            L_{(x_0,y_0)}(x,y)= f(x_0,y_0)+\partial_xf(x_0,y_0)(x-x_0)+ \partial_yf(x_0,y_0)(y-y_0)
+            \]
+            por lo que la aproximación lineal en \(p_0\) es simplemente la función cuya gráfica 
+            es precisamente el plano tangente a la gráfica de \(f\) en \(p_0\)
+            (ver <a href="./S8.html#Def:PlanoTangente">Definición 8.16</a>).
+
+        </p>
+        Notas
+        <ol>
+            <li>
+                La idea es que, cerca del punto de tangencia (el punto \(p_0\) en la notación de arriba) la 
+                función y la aproximación lineal son muy parecidas. Así podemos utilizar la aproximación lineal 
+                para aproximar los valores de la  función cerca de \(p_0\).
+            </li>
+            <li>
+                La aproximación lineal dependen del punto de tangencia. Si tratamos de aproximar la 
+                función alrededor de dos puntos distintos las aproximaciones lineales serán distintas.
+            </li>
+            <li>
+                A diferencia de la función \(f\), el dominio de \(L_{p_0}\) es todo \(\mathbb{R}^n\).
+            </li>
+        </ol>
+        
+      </div>
+      
+
+      <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        <p>
+            Considera la función $f:\mathbb{R}^2 \to \mathbb{R}$
+            dada por $f(p)=\sqrt{x^2+y^2}$. Sus derivadas parciales  son
+            \begin{eqnarray*} 
+            \partial_xf(x,y)=\frac{x}{\sqrt{x^2+y^2}}, \quad \partial_yf(x,y)=\frac{y}{\sqrt{x^2+y^2}}
+            \end{eqnarray*} 
+            las cuales son continuas en todo punto \((x,y)\ne 0\). Por lo tanto 
+            \(f\) es diferenciable en todo punto distinto del origen.
+            
+        </p>
+        <p>
+            <ol>
+                <li>
+                    Demuestra que la  aproximación lineal de $f(x,y)=\sqrt{x^2+y^2}$,
+                    cerca del punto $(x_0,y_0)\ne (0,0)$ está dada por
+                    $$
+                    L(x,y)=r_0 +\frac{x_0}{r_0}(x-x_0)+\frac{y_0}{r_0}(y-y_0) 
+                    $$
+                    donde $r_0=\sqrt{x_0^2+y_0^2}$.
+                </li>
+                <li>
+                    Ya que el plano tangente se aproxima a la función cerca del punto de tangencia podemos 
+                    escribir 
+                    $$
+                    \sqrt{x^2+y^2}\approx r_0+\frac{x_0}{r_0}(x-x_0)+\frac{y_0}{r_0}(y-y_0)
+                    $$
+                    donde $(x,y)$ es un punto cercano a $(x_0,y_0)$.
+                </li>
+                <li>
+                    Usando lo anterior estima $\sqrt{(3.1)^2+(4.2)^2}$.
+                </li>
+            </ol>
+        </p>
+      </div>
+      
+      
+              
+    <div class="prop-box"> 
+        <h2 class="number-title" id="Ejer:AproxLineal"> Proposición </h2> 
+        <p>
+            Sea $U$ un abierto de $\mathbb{R}^n$,  $p_0\in U$ y $f:U\to \mathbb{R}$
+            una función diferenciable en $p_0$.
+        </p>
+        <p>
+            Existe una función $E_{p_0}(p)$, definida en una bola abierta centrada en \(p_0\), denotada $B_r(p_0)$, 
+            que satisface
+        </p>
+        <p>
+            <ol>
+                <li>
+                    para toda $p\in B_r(p_0)$, $f(p)=f(p_0)+\langle \nabla_{p_0}f, p-p_0 \rangle +E_{p_0}(p)$
+                </li>
+                <li>
+                    $\lim_{p\to p_0} \frac{|E_{p_0}(p)|}{\|p-p_0\|}=0$
+                </li>
+              </ol>
+        
+        </p>
+        <p>
+            Sugerencia: simplemente define $E_{p_0}(p):=f(p)-f(p_0)- \langle \nabla_{p_0}f, p-p_0 \rangle$
+            y prueba que el límite que se pide es cero.
+        </p>
+    </div>
+
+        
+        
+
+      
+      
+
+    <div class="prop-box"> 
+        <h2 class="number-title" id="Ejer:CaracterizacionAproxLineal"> Proposición </h2>
+        <p>
+            Este ejercicio es importante pues da un criterio para que una función sea diferenciable. 
+        </p>
+        <p>
+            El criterio
+            dice que si una función admite una aproximación lineal entonces es diferenciable.	
+        </p>
+        <p>
+            Sea $U$ un abierto de $\mathbb{R}^n$, $p_0\in U$ y $f:U\to \mathbb{R}$ una función.
+        </p>
+        <p>
+            Supongamos que existe una bola abierta $B_r(p_0)\subseteq U$,
+            una función $\tilde{E}:B_r(p_0) \to \mathbb{R}$
+            y una función lineal $T:\mathbb{R}^n \to \mathbb{R}$ que satisfacen
+    
+            <ol>
+                <li id="Hip:1">
+                    para $p\in B_r(p_0)$, $f(p)=f(p_0)+T(p-p_0)+\tilde{E}(p)$
+                </li>
+                <li id="Hip:2">
+                    $$
+                    \lim_{p \to p_0} \frac{|\tilde{E}(p)|}{\|p-p_0\|}=0
+                    $$
+                </li>
+            </ol>
+            Entonces $f$ es diferenciable en $p_0$ y $D_{p_0}f=T$.
         </p>
         
+    </div>
+
+      
+
+        
+      
+
+      <!-- <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        <p>
+            Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$, $p_0\in U$ y $f,g :U \to \mathbb{R}$
+            funciones diferenciables en $p_0$. Usando aproximaciones
+            lineales (ejercicio \ref{Ejer:CaracterizacionAproxLineal}) demuestra
+            que $cf+g$ es diferenciable (donde  $c\in \mathbb{R}$)
+            en $p_0$ y
+            $$
+            \nabla_{p_0}(cf+g)=c\nabla_{p_0} f+ \nabla_{p_0}g.
+            $$
+    
+        </p>
+      </div>-->
+
+    
+    
+
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+    <p>
+        Usando aproximaciones lineales  estima las siguientes cantidades
+    </p>
+    <ol>
+        <li>
+            $\sqrt{(9.1)(15.9)}$.
+        </li>
+        <li>
+            $\sqrt{(4.1)^2+(3.95)^2+(2.01)^2}$
+        </li>
+        <li>
+            $(2.01)^3+(1.99)^3-5(2.01)(1.99)$
+        </li>
+    </ol>
+ </div>
+
+  <!--<div class="ejercicio-box"> 
+    <h2 class="number-title" id="Ejer:DifProductoDos1D"> Ejercicio </h2> 
+    <p>
+        Sean $g:(a,b) \to \mathbb{R}$, \(h:(c,d)\to \mathbb{R}\) dos funciones diferenciables.
+    </p>
+    <p>
+        Fija
+        dos puntos $x_0\in (a,b), y_0\in (c,d)$ y  considera las aproximaciones lineales
+        de $g$ y $h$ alrededor de $x_0$ y $y_0$ respectivamente, es decir
+        \begin{equation}\label{Eqn:Ejer1DAproxLinealg}
+          g(x)=g(x_0)+g'(x_0)(x-x_0)+E_1(x)
+        \end{equation}
+        done   $\lim_{x\to x_0} \frac{|E_1(x)|}{|x-x_0|}=0$;
+        \begin{equation}\label{Eqn:Ejer1DAproxLinealh}
+          h(y)=h(y_0)+h'(y_0)(y-y_0)+E_2(y)
+        \end{equation}
+        donde  $\lim_{y\to y_0}\frac{|E_2(y)|}{|y-y_0|}=0$.
+    </p>
+    <p>
+        Considera la función de dos variables $f:(a,b)\times (c,d) \to \mathbb{R}$ dada por
+        $f(x,y)=g(x)h(y)$.
+        <ol>
+            <li>
+                Multiplica las ecuaciones \eqref{Eqn:Ejer1DAproxLinealg} y  \eqref{Eqn:Ejer1DAproxLinealg}
+                para probar que
+                $$
+                f(x,y)=f(x_0,y_0)+g'(x_0)h(y_0)(x-x_0)+g(x_0)h'(y_0)(y-y_0)+\tilde{E}(x,y)
+                $$
+                donde
+                \begin{eqnarray*}
+                \tilde{E}(x,y)&=&g'(x_0)h'(y_0)(x-x_0)(y-y_0)+E_1(x)E_2(y) \\
+                &+ & E_1(x)(h(y_0)+h'(y_0)(y-y_0))\\
+                 &+&E_2(y)(g(x_0)+g'(x_0)(x-x_0))
+                \end{eqnarray*}      
+            </li>
+            <li>
+                Demuestra que
+                $$
+                \lim_{(x,y)\to (x_0,y_0)}\frac{|\tilde{E}(x,y)|}{\|(x-x_0, y-y_0)\|}=0.
+                $$
+            </li>
+            <li>
+                Usando  la <a href="#Ejer:CaracterizacionAproxLineal">Proposición 10.4</a> concluye
+                que $f$ es diferenciable en $(x_0,y_0)$ y que
+                $$
+                \nabla_{(x_0,y_0)}f=( g'(x_0)h(y_0), g(x_0)h'(y_0)  )
+                $$
+            </li>
+            <li>
+                Usando el ejercicio anterior estima $\sen(\frac{\pi}{2}+\frac{\pi}{10})e^{0.1}$. 
+            </li>
+        </ol>
+    
+    </p>
+</div>-->
+    
+
+
+    
+    
+
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+    <p>
+        Sea $U$ un abierto de $\mathbb{R}^n$  y $g,h:U\to \mathbb{R}$ dos funciones.
+        Sea $p_0 \in U$ un punto tal que tanto $g$ como $h$ son diferenciables en $p_0$.
+    </p>
+    
+    <p>
+        Considera las aproximaciones lineales de $g$ y $h$ en $p_0$, es decir
+        \begin{equation}\label{Eqn:EjerAproxLinealg}
+          g(p)=g(p_0)+ \langle \nabla_{p_0}g, p-p_0 \rangle  + E_1(p)
+        \end{equation}
+        con $\lim_{p\to p_0}\frac{|E_1(p)|}{\|p-p_0\|}=0$ y
+        \begin{equation}\label{Eqn:EjerAproxLinealh}
+          h(p)=h(p_0)+\langle  \nabla_{p_0}h, p_k -p_0 \rangle + E_2(p)
+        \end{equation}
+        con $\lim_{p\to p_0}\frac{|E_2(p)|}{\|p-p_0\|}=0$.
+    </p>
+    <p>
+        Define $f(p)=g(p)h(p)$.
+        <ol>
+            <li>
+                Multiplicando las ecuaciones \eqref{Eqn:EjerAproxLinealg} y \eqref{Eqn:EjerAproxLinealh}
+                demuestra que
+                $$
+                f(p)= f(p_0)+ \langle h(p_0)\nabla_{p_0}g+ g(p_0)\nabla_{p_0}h, p-p_0 \rangle +\tilde{E}(p)
+                $$
+                donde
+                \begin{eqnarray*}
+                \tilde{E}(p)&=& \langle \nabla_{p_0}g, p-p_0\rangle \langle \nabla_{p_0}h,p-p_0  \rangle +E_1(p)E_2(p) \\
+                &+ & E_1(p)(h(p_0)+ \langle \nabla_{p_0}h, p-p_0 \rangle )\\
+                 &+&E_2(y)(g(p_0) + \langle \nabla_{p_0}g, p-p_0 \rangle)
+               \end{eqnarray*}
+          
+            </li>
+            <li>
+                Demuestra que $\lim_{p\to p_0} \frac{|\tilde{E}(p)|}{\|p-p_0 \|}=0$.
+            </li>
+            <li>
+                Usando  la <a href="#Ejer:CaracterizacionAproxLineal">Proposición 10.4</a> concluye que $f$ es diferenciable
+                en $p_0$ y que
+                $$
+                \nabla_{p_0}(gh)=g(p_0)\nabla_{p_0}h + h(p_0)\nabla_{p_0}g.
+                $$
+            </li>
+        </ol>
+    </p>
   </div>
+    
 
+    
 
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+    <p>
+        Considera  la función  $r:\mathbb{R}^3 \to \mathbb{R}$ dada por $r(x,y,z)=\|(x,y,z)\|$. Durante
+        este ejercicio vamos a suponer que $r$ es difeferenciable en todo punto $(x_0,y_0,z_0)\ne (0,0,0)$.
+    </p>
+    <p>
+        Por simplicidad vamos a denotar: $p_0=(x_0,y_0,z_0)$.
+        <ol>
+            <li>
+                Demuestra que $\nabla_{p_0}r$ es el  vector unitario, en la misma dirección que
+                $p_0$.
+            </li>
+            <li>
+                Demuestra que $\nabla_{p_0}(r^n)=[nr^{(n-2)}(x_0)]p_0$, donde $n \geq 1$ es un natural.
+            </li>
+            <li>
+                La fórmula del inciso anterio ¿ es válida si $n$ es un entero negativo?
+            </li>
+        </ol>
+    </p>
+  </div>
+    
+    
 
 
   <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
+    <h2 class="number-title"> Ejercicio </h2> 
     <p>
-        Sea \(f:\mathbb{R}^n \to \mathbb{R}\) una función lineal. Prueba que \(f\) es continua en 
-        todo punto de \(\mathbb{R}^n\).
+        Sea $U$ un abierto de $\mathbb{R}^n$  y $g:U\to \mathbb{R}$ dos funciones.
+        Sea $p_0 \in U$ un punto tal que $g$  son diferenciables en $p_0$ y \(g(p_0)\ne 0\).
     </p>
     <p>
-        Sugerencia: usa el <a href="./S3.html#Ejer:TeoRiesz">Teorema de Riesz</a>.
-    </p>
-    <button class="respButton hvr-grow "> Solución </button>
-    <div class="resp-box">
-        <p>
-            Debemos de probar que para todo \(q\in \mathbb{R}^n\), 
-            \[
-            \lim_{p\to q}f(p)=f(q).
-            \]
-        </p>
-        <p>
-            Por el <a href="./S3.html#Ejer:TeoRiesz">Teorema de Riesz</a> sabemos que existe un 
-            vector \(p_0\in \mathbb{R}^n\) tal que 
-            \[
-            f(p)=\langle p, p_0 \rangle, \quad \forall  p\in \mathbb{R}^n
-            \]
-            Por lo tanto tenemos que 
-            \begin{eqnarray*} 
-            |f(p)-f(q)|&=&|\langle p,p_0\rangle -\langle q,p_0\rangle |\\
-            &=& |\langle p-q, p_0\rangle| \\
-            &\leq & \|p-q\| \|p_0\|
-            \end{eqnarray*}
-            donde la última desigualdad se debe a l adesigualdad de Cauchy-Schwartz.
-        </p>
-        <p>
-            Finalmente, dado \(\varepsilon > 0\) si tomamos \(\delta=\frac{\varepsilon}{1+\|p_0\|}\) 
-            entonces para todo \(p\) con \(0< \|p-q\|< \delta \) se cumple que 
-            \[
-            |f(p)-f(q)|\leq \|p-q\|\|p_0\| <  \delta \|p_0| < \varepsilon.
-            \]
-            Por lo tanto \(\lim_{p\to q}f(p)=f(q)\).
-        </p>
-        
-
-    </div>
-</div>
-
-<div class="nota-box">
-    <h2 class="number-title"> Nota </h2>
-    <p>
-        Por el ejercicio anterior, las proyecciones \(f_1,f_2:\mathbb{R}^2\to \mathbb{R}\) 
+        Entonces \(g\) es diferenciable y 
         \[
-        f_1(x,y)=x, f_2(x,y)=y 
-        \] 
-        son continuas 
-        en todo \(\mathbb{R}^2\). Por la <a href="./S5.html#LeyesLimites">Ley del producto para límites</a> se sigue que para todo 
-        \(n\in \mathbb{N}\):
-        \begin{eqnarray*}
-        \lim_{(x,y)\to (x_0,y_0)} f_1^n(x,y)=(\lim_{(x,y)\to (x_0,y_0)} f_1(x,y))^n=x_0^n=f_1^n(x_0,y_0) \\
-        \lim_{(x,y)\to (x_0,y_0)} f_2^n(x,y)=(\lim_{(x,y)\to (x_0,y_0)} f_2(x,y))^n=y_0^n=f_2^n(x_0,y_0) \\
-        \end{eqnarray*}
-    </p>
-    <p>
-        Por lo tanto, las funciones \(f_1(x,y)=x^n, f_2^n(x,y)=y^n\) son continuas en todo 
-        \(\mathbb{R}^2\). De manera similar otra aplicación de la ley del producto para límites implica que 
-        las funciones \(f(x,y)=x^ny^m\), \(n,m\in \mathbb{N}\), son continuas en todo \(\mathbb{R}^2\).
-        Finalmente, usando la ley de la suma para límites concluimos que los polinimios 
-        \[
-        p(x,y)=\sum_{n=0}^N\sum_{m=0}^M a_{n,m}x^ny^m
+        \nabla_{p_0}\left(\frac{1}{g}\right)=-\frac{1}{g(p_0)^2}\nabla_{p_0}g.
         \]
-        son continuas en todo \(\mathbb{R}^2\).
-    </p>
-    <p>
-        Nota: de manera similar se tiene que todo polinomio en más de dos variables es continuo en todo punto del espacio.
-    </p>
-
-</div>
-
-<div class="prop-box">
-    <h2 class="number-title" id="Prop:ComposicionCont"> Proposición</h2>
-    <p>
-        La composición de funciones continuas es continua.
-    </p>
-    <p>
-        En específico, supongamos que tenemos funciones \(f: D \to \mathbb{R}^m \),
-        \(g: E \to \mathbb{R}^d\), donde \(D\subseteq \mathbb{R}^n, E\subseteq \mathbb{R}^m\) y 
-        \(f(D)\subseteq E\) (para que la composición \(g\circ f\) está definida).
-    </p>
-    <p>
-        Si \(f\) es continua en \(p_0\in D\) y \(g\) es continua en \(f(p_0)\in E\) entonces 
-        \(g\circ f\) es continua en \(p_0\). Es decir 
-        \[
-        \lim_{p\to p_0} (g\circ f)(p)=(g\circ f)(p_0)
-        \]
-        Lo anterior también se puede escribir como 
-        \[
-        \lim_{p\to p_0} g(f(p))=g(\lim_{p\to p_0} f(p))
-        \]
-        lo cual se abrevia diciendo que las funciones continuas meten el límite.
-    </p>
-
-
-</div>
-
-
-<div class="nota-box">
-    <h2 class="number-title"> Algebra de las funciones continuas  </h2>
-    <p>
-        Similarmente a los polinomios, si las funciones \(f, g : U \to \mathbb{R}\) son funciones continuas 
-        en un punto \(p_0\in U\), las <a href="./S5.html#LeyesLimites">Leyes de los límites</a> implican que 
-        las funciones
-        <ol>
-            <li>
-                combinaciones lineales: \(\alpha f + g\), \(\alpha \in \mathbb{R}\),
-            </li>
-            <li>
-                productos: \(fg\),
-            </li>
-            <li>
-              divisiones: \(f/g\), con \(g(p_0)\ne 0\),
-            </li>
-        </ol>  
-        son todas continuas en \(p_0\). 
-    </p>
-    <p>
-        Así pues, muchas de las operaciones elementales entre funciones arrojan funciones continuas. Otras 
-        operaciones como raíces, logaritmo y exponenciación también toman funciones continuas y producen 
-        funciones continuas. Lo anterior se sigue de la <a href="#Prop:ComposicionCont">Proposición 9.4</a>. 
-        Por ejemplo, si \(f\) es continua en \(p_0\) y \(f(p_0) > 0\) entonces la función 
-        \(\ln(f(p))\) es continua en \(p_0\).
-</div>
-
-<div class="ejercicio-box"> 
-    <h2 class="number-title" id="Ejer:ContinuidadFunLipschitz"> Ejercicio  </h2>
-    <p>
-        Sea $U\ne \emptyset$ un abierto de $\mathbb{R^n}$ y  $f:U \to \mathbb{R}$.
-    </p>
-    <p>
-        Supón que $p_0\in U$ satisface que existe una bola $B_r(p_0)\subset U$ y una constante $k>0$
-        tal que $|f(p)-f(p_0)|\leq k \|p-p_0 \|$, para toda $p\in B_r(p_0)$.      
-    </p>
-    <p>
-        Demuestra que $f$ es continua en $p_0$.
-    </p>
-</div>
-  
-
-
-  
-<div class="prop-box"> 
-    <h2 class="number-title" id="Prop:DifImplicaCont"> Proposición </h2> 
-    <p>
-        Sea $U\ne \emptyset$ un conjunto abierto en $\mathbb{R}^n$, $p_0\in U$
-        y $f: U \to \mathbb{R}$.
-      
-    </p>
-    <p>
-        Si $f$ es diferenciable en $p_0$ entonces
-        $f$ es continua en $p_0$. 
-    </p>
-    <p>
-        Nota: el reverso no es cierto. Por ejemplo en dimensión 1 un 
-        contra-ejemplo es la función valor absoluto; en dimensión 2 
-        un contra-ejemplo está dado en el <a href="./S8.html#Ejer:ExistenParcialesPeroNoDif"> Ejercicio 8.13</a>.
     </p>
     <button class="respButton hvr-grow "> Demostración</button>
-    <div class="resp-box">
+        <div class="resp-box">
+    <p>
+        Considera las aproximación  lineal de $g$ en $p_0$, es decir, 
+        \begin{equation}\label{Eqn:Aux2EjerAproxLinealg}
+          g(p)=g(p_0)+ \langle \nabla_{p_0}g, p-p_0 \rangle  + E(p)
+        \end{equation}
+        con $\lim_{p\to p_0}\frac{|E(p)|}{\|p-p_0\|}=0$.
+    </p>
+        
+            <p>
+                Ya que \(g(p_0)\ne 0\) y \(g\) es continua en \(p_0\) (al ser difernciable) existe un 
+                \(r>0 \) tal que \(g(p)\ne 0\) para todo \(p\in B_r(p_0)\). Así pues restringimos 
+                \(g\) a la bola \(B_r(p_0)\) para poder tomar \(\frac{1}{g(p)}\).
+            </p>
+            <ol>
+            <p>
+                Si 
+                dividimos  \eqref{Eqn:Aux2EjerAproxLinealg}  por \(g(p)g(p_0)\).
+                obtenemos que
+                \begin{equation}\label{Eqn:Aux3DifInversaMulti}
+                \frac{1}{g(p)}= \frac{1}{g(p_0)} - \frac{1}{g(p_0)g(p)}\langle \nabla_{p_0}g, p-p_0 \rangle -\frac{E(p)}{g(p_0)g(p)}
+                \end{equation}
+            </p>
+            <p>
+                Sumando el cero \(\frac{1}{g(p_0)^2}\langle \nabla_{p_0}g, p-p_0\rangle -\frac{1}{g(p_0)^2}\langle \nabla_{p_0}g, p-p_0\rangle \),
+                en la ecuación \eqref{Eqn:Aux3DifInversaMulti} se obtiene 
+                \begin{equation}\label{Eqn:Aux4DifInversaMulti}
+                \frac{1}{g(p)}= \frac{1}{g(p_0)}- \frac{1}{g(p_0)^2}\langle \nabla_{p_0}g, p-p_0 \rangle +\tilde{E}(p)
+                \end{equation}
+                donde 
+                \begin{eqnarray*}
+                \tilde{E}(p)&=& \frac{1}{g(p_0)}\langle \nabla_{p_0}g, p-p_0\rangle \left(\frac{1}{g(p_0)}-\frac{1}{g(p)} \right) \\
+                &+& \frac{E(p)}{g(p)g(p_0)}
+               \end{eqnarray*}
+            </p>
+            <p>
+                Ahora afirmamos que  $\lim_{p\to p_0} \frac{|\tilde{E}(p)|}{\|p-p_0 \|}=0$.
+            </p>
+            <p>
+                Escribimos el cociente anterior como 
+                \begin{eqnarray*}
+                \frac{\tilde{E}(p)}{\|p-p_0 \|}&=&\frac{E(p)}{g(p)g(p_0)\|p-p_0\|} \\
+                &+&  \frac{1}{g(p_0)} \frac{\langle \nabla_{p_0}g, p-p_0\rangle}{\|p-p_0\|}\left( \frac{1}{g(p)}-\frac{1}{g(p_0)}\right) 
+                \end{eqnarray*}
+                Para probar $\lim_{p\to p_0} \frac{|\tilde{E}(p)|}{\|p-p_0 \|}=0$ vamos a probar que el límite de cada sumando es cero.
+                <p>
+                    Para el primer sumando de la igualdad anterior, usando que  
+                    \(\lim_{p\to p_0}\frac{E(p)}{\|p-p_0\|}=0\) y \(\lim_{p\to p_0}\frac{1}{g(p)g(p_0)}=\frac{1}{g(p_0)^2}\), obtenemos 
+                    \[
+                    \lim_{p\to p_0}\frac{E(p)}{g(p)g(p_0)\|p-p_0\|}=\left( \lim_{p\to p_0}\frac{E(p)}{\|p-p_0\|} \right)\left(\lim_{p\to p_0}\frac{1}{g(p)g(p_0)} \right)=0
+                    \]
+                     
+                </p>
+                <p>
+                    Para el segundo sumando 
+                    usamos la desigualdad de Cauchy-Schwartz para llegar 
+                    \begin{eqnarray*} 
+                    \left| \frac{1}{g(p_0)}\right| \frac{|\langle \nabla_{p_0}g, p-p_0\rangle|}{\|p-p_0\|} 
+                    \left| \frac{1}{g(p_0)}-\frac{1}{g(p)|} \right| 
+                    &\leq& 
+                    \left| \frac{1}{g(p_0)}\right| \frac{\|\nabla_{p_0}g\| \|p-p_0\|}{\|p-p_0\|}\left| \frac{1}{g(p_0)}-\frac{1}{g(p)|} \right|  \\
+                    &\leq & \left| \frac{1}{g(p_0)}\right| \|\nabla_{p_0}g\| \left| \frac{1}{g(p_0)}-\frac{1}{g(p)|} \right| 
+                    \end{eqnarray*}
+                    Usando la continuidad de \(g\) tenemos \(\lim_{p\to p_0}\left| \frac{1}{g(p_0)}-\frac{1}{g(p)|} \right| =0\), por lo tanto 
+                    \[
+                    \lim_{p\to p_0} \left| \frac{1}{g(p_0)}\right| \frac{|\langle \nabla_{p_0}g, p-p_0\rangle|}{\|p-p_0\|} 
+                    \left| \frac{1}{g(p_0)}-\frac{1}{g(p)|} \right| =0
+                    \]
+                </p>
+            
+            </p>
+            <p>
+                Finalmente de la ecuación  \eqref{Eqn:Aux4DifInversaMulti}, el límite \(\lim_{p\to p_0}\frac{\tilde{E}(p)}{\|p-p_0\|}=0\) y 
+                la  <a href="#Ejer:CaracterizacionAproxLineal">Proposición 10.4</a> concluimos que $1/g$ es diferenciable
+                en $p_0$ y que
+                $$
+                \nabla_{p_0}\left(\frac{1}{g} \right)=-\frac{1}{g(p_0)^2}\nabla_{p_0}g
+                $$
+            </p>
+        </ol>
+        
     
-    <!--<p>
-        Sugerencia: considera la aproximación lineal de $f$ cerca de $p_0$:
-        $$
-        f(p)=f(p_0)+\langle \nabla_{p_0}f, p-p_0 \rangle +E(p). 
-        $$
-        Demuestra que  $\lim_{p\to p_0} \langle \nabla_{p_0}f, p-p_0\rangle=0$ y $\lim_{p\to p_0}E(p)=0$.
-      
-    </p>-->
-    <div>
-        <p>
-            Debemos de probar que 
-            \[
-                \lim_{p\to p_0} f(p)=f(p_0)
-            \]
-            Pero, al ser \(f\) diferenciable sabemos que 
-            \[
-            \lim_{p\to p_0} \frac{f(p)-f(p_0)-T(p-p_0)}{\|p-p_0\|}=0
-            \]
-            donde \(T(x_1,\dots, x_n)=\sum_{i=1}^n (\partial_{p_i}f(p_0))x_i\).
-        </p>
-        <p>
-            Pero es claro que 
-            \[
-            \lim_{p\to p_0}\|p-p_0\|=0
-            \]
-            así que por la ley del producto para límites 
-            \begin{eqnarray*}
-            0&=&\left(\lim_{p\to p_0} \|p-p_0\|\right)\left( \lim_{p\to p_0} \frac{f(p)-f(p_0)-T(p-p_0)}{\|p-p_0\|} \right) \\
-             &=& \lim_{p\to p_0} \left( \|p-p_0\|\frac{f(p)-f(p_0)-T(p-p_0)}{\|p-p_0\|}\right) \\
-             &=& \lim_{p\to p_0} (f(p)-f(p_0)-T(p-p_0))
-            \end{eqnarray*}
-        </p>
-        <p>
-            Ahora, por el <a>Ejercicio 9.2</a> 
-            \[
-            \lim_{p\to p_0}T(p-p_0)=T(p_0-p_0)=T(0)=0
-            \]
-            donde usamos \(T(0)=0\), al ser \(T\) función lineal.
-        </p>
-        <p>
-            Se sigue de las leyes de los límites para sumas tenemos 
-            \begin{eqnarray*} 
-            0&=&\lim_{p\to p_0} (f(p)-f(p_0)-T(p-p_0))+ \lim_{p\to p_0}(T(p-p_0)) \\
-            &=& \lim_{p\to p_0} (f(p)-f(p_0)-T(p-p_0)+T(p-p_0))\\
-            &=& \lim_{p\to p_0} (f(p)-f(p_0))
-            \end{eqnarray*}
-            lo que es equivalente a \(\lim_{p\to p_0} f(p)=f(p_0)\).
-        </p>
     </div>
-    </div>
-</div>
-
- 
-
-
-  <div class="definicion-box">
-    <h2 class="number-title">  Definición</h2>
-    <p>
-        Sea $U\ne \emptyset$ un subconjunto abierto de $\mathbb{R}^n$
-        y $f:U\to \mathbb{R}$. Decimos que $f$ es de clase
-        $C^1$ en $U$, si todas las derivadas parciales existen y son
-        continuas en todo punto de $U$.
-    </p>
-    <p>
-        Por ejemplo, un polinomio en varias variables es clase \(C^1\) pues 
-        sus derivadas parciales vuelven a ser polinomios, los cuales son funciones 
-        continuas.
-    </p>
   </div>
 
 
-
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-        Considera la función de una variable
-        $$
-        f(x)=\left\{\begin{array}{cc}
-                      x^2\sen(1/x) & x\ne 0 \\
-                      0 & x=0
-                    \end{array}
-                  \right.
-                  $$
-                  
-        Demuestra
-        que para todo $x$, $f'(x)$ existe pero la función $f'(x)$ no es continua. Por
-        lo tanto, ésta función es un ejemplo de una función diferenciable, que no
-        es clase $C^1$.
-      
-    </p>
-</div>
-
-  
-<div class="teorema-box"> 
-    <h2 class="number-title" id="Ejer:C1ImplicaDif"> Teorema </h2> 
-    <p>
-        Toda función de dos variables clase $C^1$ es diferenciable.
-    </p>
-    <p>
-        En concreto, sea $U\ne \emptyset$ un subconjunto abierto de $\mathbb{R}^2$ y $f:U \to \mathbb{R}$
-        una función clase $C^1$ en $U$. Entonces para todo $(x_0,y_0)\in U$, 
-        \(f\) es diferenciable en \((x_0,y_0)\). 
-    </p>
-    <button class="respButton hvr-grow "> Demostración</button>
-    <div class="resp-box">
-    <p>
-        Recordemos que para probar que \(f\) es diferenciable en \((x_0,y_0)\) debemos de probar que 
-        existe una función lineal \(T:\mathbb{R}^2 \to \mathbb{R}\) tal que 
-        \[
-        \lim_{(h,k)\to 0} \frac{f(x_0+h,y+0+k)-f(x_0,y_0)-T(h,k)}{\|(h,k)\|}=0.
-        \]
-    </p>
-    <p>
-        Ya que las derivadas parciales existen la <a href="./S8.html#Ejer:ParcialesYDerivada">Proposición 8.11</a> sugiere que la 
-        transformación lineal es 
-        \[
-        T(x,y)=\partial_xf(x_0,y_0)x+\partial_yf(x_0,y_0)y
-        \]
-        Nota: NO podemos aplicar directamente la Proposición 8.11 pues no sabemos que la 
-        función \(f\) es diferenciable PERO sí nos sugiere cuál transformación lineal 
-        debemos de considerar.
-    </p>
-    <p>
-        Así pues debemos de probar que 
-        \begin{equation}\label{Eqn:AuxC2ImpliDif}
-        \lim_{(h,k)\to 0} \frac{f(x_0+h,y_0+k)-f(x_0,y_0)-\partial_xf(x_0,y_0)h-\partial_yf(x_0,y_0)k}{\|(h,k)\|}=0
-        \end{equation}
-    </p>
-    <p>
-        Al ser \(U\) abierto podemos tomar $r>0$ tal que
-        $B_r(x_0,y_0)\subset U$. Denotamos $(h,k)$ un vector cualquiera con $\|(h,k)\| < r$.
-    </p>
-
-    <p>
-        Ahora empezamos analizando el cociente diferencial. Podemos re-escribir 
-        la primera parte del cociente diferencial de la siguiente forma
-        \begin{eqnarray*}
-          f(x_0+h,y_0+k)-f(x_0,y_0)&=&f(x_0+h, y_0+k)-f(x_0+h, y_0) \\
-                                       &+& f(x_0+h, y_0)-f(x_0,y_0)
-        \end{eqnarray*}
-    </p>
     
+   <!--<div class="ejercicio-box"> 
+    <h2 class="number-title" id="Ejer:AproxLinealReglaCadena"> Ejercicio </h2> 
     <p>
-        Ahora, aplicando el Teorema del valor medio para la derivada tenemos que existen puntos 
-        \(\overline{x}\), entre \(x_0\) y \(x_0+h\) y \(\overline{y}\), entre \(y_0\) y \(y_0+k\) tal que 
-        \begin{eqnarray*} 
-        f(x_0+h, y_0+k)-f(x_0+h, y_0)&=&\partial_yf(x_0+h,\overline{y})k \\
-        f(x_0+h, y_0)-f(x_0,y_0)&=&\partial_xf(\overline{x},y_0)h
-        \end{eqnarray*}
-        por lo que podemos escribir la primera parte del cociente diferencial como: 
-        $$
-        f(x_0+h,y_0+k)-f(x_0,y_0)=\partial_yf(x_0+h,\overline{y})k+ \partial_xf(\overline{x},y_0)h.
-        $$
+        Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$, $p_0\in U $ y $g:U \to \mathbb{R}$
+        una función diferenciable en $p_0$.
+        <ol>
+            <li>
+                Demuestra que existe una bola $B_r(p_0)$, una función
+                $F:B_{r}(p_0) \to \mathbb{R}$ tal que
+            </li>    
+          <ol>
+            <li>
+                para toda $p\in B_r(p_0)$, $g(p)=g(p_0)+\langle \nabla_{p_0}g, p-p_0\rangle +\|p-p_0\|F(p)$,
+            </li>
+            <li>
+                $\lim_{p\to p_0}F(p)=0$,
+            </li>
+            <p>
+                Sugerencia: si $E$ es la función error de la aproximación lineal de $g$ en $p_0$ define:
+                $$
+                F(p)=\left\{
+                  \begin{array}{cc}
+                    \frac{E(p)}{\|p-p_0\|} & p\ne p_0 \\
+                    0 & p=p_0.
+                  \end{array}
+                \right.
+                $$
+            </p>
+          </ol>
+            <li>
+                Demuestra que existe una bola $B_s(p_0)$ tal que para toda $p\in B_s(p_0)$,
+                $\|F(p)\|\leq 1/2$.
+                <p>
+                    Sugerencia: en la definición $\varepsilon,\delta$ del límite $\lim_{p\to p_0}F(p)=0$
+                    toma $\varepsilon =1/2$.
+                </p>
+            </li>
+            <li>
+                Demuestra que  para toda $p\in B_s(p_0)$
+                $$
+                |g(p)-g(p_0)|\leq \|p-p_0\| (\|\nabla_{p_0}g\|+1/2).
+                $$
+                <p>
+                    Sugerencia: usa el inciso anterior y la desigualdad de Cacuchy-Schwartz.          
+                </p>
+            </li>
+        </ol>    
     </p>
-    <div class="flexbox">
-        <img src="./Images/S9-Img1.png" alt="ParcialesContinuasImplicaDif" width="40%" height="auto">
-      </div>
-    <p>
-        Se sigue que 
-        \begin{eqnarray*}
-         & & \frac{|f(x_0+h,y_0+k)-f(x_0,y_0)- \partial_xf(x_0,y_0)h-\partial_yf(x_0,y_0)k|}{\|h\|} \\
-         &\leq & \frac{|\partial_xf(\overline{x},y_0)- \partial_xf(x_0,y_0)||h|}{\|(h,k)\|}
-         +\frac{|\partial_yf(x_0+h,\overline{y})-\partial_yf(x_0,y_0)||k|}{\|h\|} \\
-        &\leq & |\partial_xf(\overline{x}, y_0)-\partial_xf(x_0,y_0)|
-        + |\partial_yf(x_0+h,\overline{y})-\partial_yf(x_0,y_0)|
-        \end{eqnarray*}
-    </p>
-    <p>
-        En este punto es donde usamos la continuidad de las parciales. Como ambas parciales son 
-        continuas en \((x_0,y_0)\) existe un \(\delta > 0\) tal que si \(\|(\overline{h},\overline{k})\| < \delta\)
-        entonces 
-        \begin{eqnarray*}  
-        |\partial_xf(x_0+\overline{h},y_0+\overline{k})-\partial_xf(x_0,y_0)|< \varepsilon/2 \\
-        |\partial_yf(x_0+\overline{h},y_0+\overline{k})-\partial_yf(x_0,y_0)|< \varepsilon/2
-        \end{eqnarray*}
-    </p>
-    <p>
-        Ahora, si el vector \((h,k)\) lo tomamos para que satisfaga \(\|(h,k)\|<\delta \) podemos 
-        asegurar que 
-        \begin{eqnarray*} 
-        |\partial_xf(\overline{x}, y_0)-\partial_xf(x_0,y_0)| < \varepsilon/2 \\
-        |\partial_yf(x_0+h,\overline{y})-\partial_yf(x_0,y_0)| <\varepsilon/2
-        \end{eqnarray*}
-        (para la primera desigualdad tomar \(\overline{h}=\overline{x}-x_0, \overline{k}=0\), 
-        para la segunda tomar \(\overline{h}=0, \overline{k}=\overline{y}-y_0\)).
-        
-    </p>
-    <p>
-        Concluyendo, si \(\|(h,k)\|<\delta\) entonces 
-        \[
-        \frac{|f(x_0+h,y_0+k)-f(x_0,y_0)-\partial_xf(x_0,y_0)h-\partial_yf(x_0,y_0)k|}{\|(h,k)\|} < \varepsilon
-        \]
-        probando \eqref{Eqn:AuxC2ImpliDif}.
-    </p>
-    
-</div>
-</div>
+  </div>
+-->
 
-
-<div class="teorema-box"> 
-    <h2 class="number-title" id="Teo:C1ImplicaDif"> Teorema </h2> 
-    <p>
-        El teorema anterior se generaliza a más variables. 
-    </p>
-    <p>
-        Sea $U\ne \emptyset$
-        es un conjunto abierto de $\mathbb{R}^n$ y
-          $f:U\to \mathbb{R}$, de clase $C^1$ en $U$. Entonces $f$ es diferenciable en todo punto 
-          de  $U$.
-    </p>
-</div>
-
-
-
-
-
-    <div class="ejercicio-box"> 
-        <h2 class="number-title"> Ejercicio</h2> 
+<!--    <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2>  
         <p>
-            Para las siguientes funciones, usa el criterio
-            de las derivadas parciales para encontrar  un dominio
-            para el cual la función sea diferencible en
-            todo punto del dominio.
+            Considera la función  $t\mapsto 1/t$, definida para $t\in \mathbb{R}, t\ne 0$.
 
             <ol>
-                <li>
-                    $f(x,y)=e^{\sqrt{x^2+y^2}}$.
-                </li>
-                <p>
+              <li>
+                  Prueba que,  dado $t_0\ne 0$ fijo y arbitrario, existe $s>0$ tal que para toda $t\in B_s(t_0)$  
+                  $$
+                  \frac{1}{t}=\frac{1}{t_0}-\frac{1}{t_0^2}(t-t_0)+|t-t_0|F_1(t)
+                  $$
+                  donde $\lim_{t\to t_0} |F_1(t)| =0$.
+              </li>
+              <li>
+                  Sean $a,b\in \{1,2,3,4,5,6,7,8,9\}$ tal que $a+b=10$. Usa el inciso anterior para
+                  probar que el inverso multiplicativo de $1.a$ es aproximadamente $0.b$.
+              </li>
+          </ol>
+          
+        </p>
+    </div>
 
-                </p>
-                <li>
-                    \(f(x,y)=\frac{x}{y}+\frac{y}{x}\).
-                </li>
-                <p>
-                    
-                </p>
-                <li>
-                    \(f(x,y)=\sen^{-1}(x-y)\).
-                </li>
-                <p>
-                    
-                </p>
-                <li>
-                    $f(x,y)=\log(e^{\sqrt[4]{(x-1)^2+(y-2)^2}}+e^{\sqrt{(x-5)^2+(y-6)^2}})$.
-                </li>
-                <p>
-                    
-                </p>
-                <li>
-                    $f(x,y)=\log(1+\sqrt{(x-1)^2+(y+1)^2})$.
-                </li>
-                <p>
-                    
-                </p>
-                <li>
-                    \(f(x,y)=3x^{0.1}y^{\pi}\).
-                </li>
-                <p>
-                    
-                </p>
-                <li>
-                    \(f(x,y)=x^y y^x\).
-                </li>
-                <p>
-                    
-                </p>
-                <li>
-                    \(f(x,y,z)=\frac{z}{x+y+z}\).
-                </li>
-                <p>
-                    
-                </p>
-                <li>
-                    \(f(x,y,z)=\sqrt{\sen^2(x)+\sen^2(y)+\sen^2(z)}\).
-                </li>
-                <p>
-                    
-                </p>
-                <li>
-                    \(f(x_1,\dots, x_n)=\sum_{i=1}^n \frac{1}{x_i}\).
-                </li>
+
+        <div class="ejercicio-box"> 
+            <h2 class="number-title" id="Ejer:ReglaCadenaInversoMult"> Ejercicio </h2> 
+            <p>
+                Este ejercicio muestra que si $g$ es diferenciable, y distinta de cero, 	entonces
+                $1/g$ es diferenciable.            	
+            </p>
+            <p>
+                Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$ y $p_0\in U$.
+                <ol>
+                   <li>
+                       Sea $g:U\to \mathbb{R}$, diferenciable en $p_0$ con $g(p_0)\ne 0$. Demuestra
+                       que existe una bola $B_r(p_0)$, tal que para toda
+                       $p\in B_r(p_0)$
+                       $$
+                       \frac{1}{g(p)}=\frac{1}{g(p_0)} -\frac{1}{g(p_0)^2}(g(p)-g(p_0))+ |g(p)-g(p_0)|F_1(g(p))
+                       $$
+                       donde $\lim_{t\to g(p_0)}|F_1(t)|=0$.
+                   </li>
+                   <li>
+                       Demuestra que, para todo $p\in B_r(p_0)$, $p\ne p_0$
+                       \begin{eqnarray*}
+                         \frac{1}{g(p)}=\frac{1}{g(p_0)}+ \langle \frac{-1}{g(p_0)^2}\nabla_{p_0}g, p-p_0\rangle 
+                                         +\|p-p_0\| \tilde{F}(p)
+                       \end{eqnarray*}
+                       donde
+                       $$
+                       \tilde{F}(p)=-\frac{1}{g(p_0)^2}F_2(p)+ \frac{|g(p)-g(p_0)|}{\|p-p_0\|}F_1(g(p)).
+                       $$
+                       y $F_2$ es una función que satisface $\lim_{p\to p_0}F_2(p)=0$.
+                       <p>
+                           Sugerencia: usa el inciso anterior y ejercicio \ref{Ejer:AproxLinealReglaCadena}
+                           para reescribir $g(p)-g(p_0)$.          
+                       </p>
+                   </li>
+                   <li>
+                       Demuestra que $\tilde{F}$, la función del inciso anterior satisface $\lim_{p\to p_0}\tilde{F}(p)=0$.
+                   </li>
+                   <li>
+                       Concluye, del ejercicio \ref{Ejer:CaracterizacionAproxLineal}, que la función $p\mapsto 1/g(p)$
+                       es diferenciable en $p_0$ con
+                       $$
+                       \nabla_{p_0}(1/g)= -\frac{1}{g(p_0)^2}\nabla_{p_0}g.
+                       $$
+                   </li>
+               </ol>
+            </p>
+         </div>    
+
+      
+    
+    <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        <p>
+            Este ejercicio generaliza el ejercicio \ref{Ejer:ReglaCadenaInversoMult}.
+        </p>
+        <p>
+            Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$, $p_0\in U$ y
+            $g:U \to \mathbb{R}$ una función diferenciable.
+        </p>
+        <p>
+            Asume que $u:I \to \mathbb{R}$ es una función de una variable
+            definida y diferenciable en todo punto del  intervalo $I$ que satisface $g(U)\subset I$.
+      
+            <ol>
+              <li>
+                  Fija $t_0\in I$. Prueba que existe una bola  $B_s(t_0)$, tal que, para toda
+                  $t\in B_s(t_0)$
+                  $$
+                  u(t)=u(t_0)+u'(t_0)(t-t_0)+|t-t_0|F_1(t)
+                  $$
+                  donde $F_1$ es una función que satisface $\lim_{t\to t_0}|F_1(t)|=0$.
+              </li>
+              <li>
+                  Demuestra que existe una bola $B_r(p_0)$ tal que, para toda $p\in B_r(p_0)$
+                  $$
+                  u(g(p))=u(g(p_0))+ u'(g(p_0))(g(p)-g(p_0))+\|g(p)-g(p_0)\| F_1(g(p))
+                  $$
+                  donde $F$ es una función que satisface $\lim_{p\to p_0}F(g(p))=0$.
+              </li>
+              <li>
+                  Demuestra que, para toda $p\in B_r(p_0)$, $p\ne p_0$:
+                  $$
+                  u(g(p))=u(g(p_0))+ u'(g(p_0))\langle \nabla_{p_0}g, p-p_0\rangle+ \|p-p_0\|\tilde{F}(p)
+                  $$
+                  donde
+                  $$
+                  \tilde{F}(p)=u'(g(p_0))F_2(p)+\frac{|g(p)-g(p_0)|}{||p-p\|}F_1(g(p))
+                  $$
+                  y $F_2$ es una función que satisface $\lim_{p\to p_0}F_2(p)=0$.            
+              </li>
+              <li>
+                  Concluye que $u\circ g$ es diferenciable y $\nabla_{p_0} (u \circ g)= u'(g(p_0))\nabla_{p_0} g$.
+              </li>
             </ol>
+      
+        </p>
+    </div>-->
+      
             
-        </p>
-   </div>            
 
-
-   
-
-
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-        Para cada una de las siguientes funciones
-        calcula $\partial_{x}\partial_yf(x,y)$ y $\partial_y\partial_xf(x,y)$.
-        ¿ Qué notas ?
-        <ol>
-            <li>
-                $f(x,y)=x^2+xy^2+y^3$
-            </li>
-            <li>
-                $f(x,y)=\log(x^2+y^4)$
-            </li>
-            <li>
-                $f(x,y)=e^{3x+2xy+y^2}$                 
-            </li>
-        </ol>
-    </p>
-</div>
-
-
-<div class="definicion-box">
-    <h2 class="number-title">  Definición</h2>
-    <p>
-        Sea $U$ un abierto de $\mathbb{R}^n$. Una función  $f:U \to \mathbb{R}$ se llama clase
-        $C^2$ si las derivadas parciales  desde orden 1 hasta orden dos existen y son continuas en todo $U$.        
-    </p>
-    <p>
-        De manear similar, es de clase $C^n$ si todas las derivadas pariacles desde orden 1 hasta orden $n$ existen
-        y son continuas en $U$.
-
-    </p>
-</div>
-
-<div class="teorema-box"> 
-    <h2 class="number-title"> Teorema </h2> 
-    <p>
-        Para toda función de clase \(C^2\), las derivadas parciales mixtas son iguales.
-    </p>
-    <p>
-        En concreto sea $f:U\subseteq \mathbb{R}^2\to \mathbb{R}$,
-        de clase $C^2$ es $U$. Entonces  $\partial_{xy}f=\partial_{yx}f$. 
-        
-    </p>
-    <button class="respButton hvr-grow "> Demostración</button>
-    <div class="resp-box">
-        <p>
-            Fijamos $(x_0,y_0)\in U$ arbitrario. Debemos de probar 
-            \[
-            \partial_{xy}f(x_0,y_0)=\partial_{yx}f(x_0,y_0).
-            \]
-        </p>
-        
-    <p>
-        Consideramos las funciones
-        $$
-        S(h,k)=f(x_0+h,y_0+k)-f(x_0+h,y_0)-f(x_0,y_0+k)+f(x_0,y_0)
-        $$
-        y
-        $$
-        G(x)=f(x,y_0+k)-f(x,y_0), \quad H(y)=f(x_0+h,y)-f(x_0,y)
-        $$
-        Con las definiciones anteriores se sigue que:
-        \begin{equation}\label{Eqn:Aux1ParcialesMixtas}
-        S(h,k)=G(x_0+h)-G(x_0)=H(y_0+k)-H(y_0).
-        \end{equation}
-    </p>
-    <p>
-        Usando el Teorema del valor medio para derivadas, aplicadas a las funciones 
-        \(G\) y \(H\) $\overline{x}$, entre $x_0$ y $x_0+h$
-        y un punto $\overline{y}$, entre $y_0$y $y_0+k$, tales que:
-        $$G(x_0+h)-G(x_0)=G'(\overline{x})h,\quad  H(y_0+k)-H(y_0)=H'(\overline{y})k$$
-    </p>
-    <p>
-        Substituyendo las identidades anteriores en \eqref{Eqn:Aux1ParcialesMixtas} obtenemos 
-        \begin{eqnarray*}
-        S(h,k)&=&\left( \partial_xf(\overline{x}, y_0+k)-\partial_xf(\overline{x}, y_0)  \right) h \\
-        &=&\left(\partial_yf(x_0+h,\overline{y})-\partial_yf(x_0, \overline{y}) \right)k
-        \end{eqnarray*}
-        
-    </p>
-    <p>
-        Aplicando de nuevo el Teorema del valor medio para las derivadas, pero 
-        ahora aplicado a las parciales \(\partial_xf, \partial_yf\), 
-        obtenemos que existen puntos  $\overline{\overline{y}}$, entre $y_0$ y $y_0+k$ y
-        $\overline{\overline{x}}$, entre $x_0$ y $x_0+h$ tales que
-        $$
-        S(h,k)=\partial_{yx}f(\overline{x}, \overline{\overline{y}})hk=\partial_{xy}f(\overline{\overline{x}}, \overline{y})hk
-        $$
-    </p>
-    <div class="flexbox">
-        <img src="./Images/S9-Img2.png" alt="ParcialesMixtas" width="40%" height="auto">
-      </div>
-    <p>
-        Si \(h\ne 0\) y \(k\ne 0\)  tenemos que 
-        \[
-        \frac{S(h,k)}{hk}=\partial_{yx}f(\overline{x},\overline{\overline{y}}),
-        \]
-        \[
-        \frac{S(h,k)}{hk}=\partial_{xy}f(\overline{\overline{x}},\overline{y}).
-        \]
-        Si ahora tomamos $(h,k)\to (0,0)$ y usamos que los puntos 
-        \(\overline{x},\overline{y},\overline{\overline{x}},\overline{\overline{y}}\) están entre 
-        \(x_0\) y \(x_0+h\), \(y_0\) y \(y_0+k\) y usando que \(\partial_{xy}f, \partial_{yx}f\)
-        son continuas en \((x_0,y_0)\) llegamos 
-        \begin{eqnarray*} 
-        \partial_{xy}f(x_0,y_0)=\lim_{(h,k)\to (0,0)} \partial_{yx}f(\overline{x},\overline{\overline{y}})=\lim_{(h,k)\to (0,0)}  \frac{S(h,k)}{hk}\\
-        \partial_{yx}f(x_0,y_0)=\lim_{(h,k)\to (0,0)} \partial_{yx}f(\overline{\overline{x}},\overline{y})=\lim_{(h,k)\to (0,0)}  \frac{S(h,k)}{hk}
-        \end{eqnarray*}
-        y por lo tanto \(\partial_{xy}f(x_0,y_0)=\partial_{yx}f(x_0,y_0)\).
-    </p>
-</div>
-</div>
-
-
-<div class="definicion-box">
-    <h2 class="number-title">  Definición</h2>
-    <p>
-        Una función $f:U\to \mathbb{R}$, definida en un abierto, se llama armónica en $U$ si las
-        derivadas parciales de segundo orden $\partial_x^2 f$ y $\partial_y^2 f$, existen y son continuas
-        en todo punto de $U$ (es decir, clase $C^1$ en $U$) y
-        $$
-        \partial_x^2f(x,y)+\partial_y^2f(x,y)=0
-        $$ 
-        para todo $(x,y)\in U$. 
-    </p>
-</div>
-
-
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2>
-    <p>
-        Para las siguientes funciones, determina cuales son armónicas.
-    </p> 
-
-<ol>
-    <li>
-        $f(x,y)=x^2-y^2$
-    </li>
-    <li>
-        $f(x,y)=e^y\cos(x)$
-    </li>
-    <li>
-        $f(x,y)=e^y\sen(x)$
-    </li>
-    <li>
-        $f(x,y)=\log(x^2+y^2)$
-    </li>
-    <li>
-        $f(x,y)=x^3-3x^2y-3yx^3+y^3$
-    </li>
-</ol>		       
-</div>
-
-
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-        Demuestra que toda función lineal $f:\mathbb{R}^2\to \mathbb{R}$ satisface
-        la ecuación $\partial_x^2f(x,y)+\partial_y^2f(x,y)=0$, para todo $(x,y)$.
-    </p>
-</div>
-
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-        Considera la función $f(x,y)=ax^2+by^2+cxy$, donde $a,b,c\in \mathbb{R}$ son
-        parámetros. Encuentra
-        los valores de $a$, $b$ y $c$ para los cuales
-    </p>
-<ol>
-    <li>
-        $\partial_x^2 f(x,y)+\partial_y^2f(x,y) >0$, para todo $(x,y)$,
-    </li>
-    <li>
-        $\partial_x^2f(x,y)+\partial_y^2f(x,y)=0$, para todo $(x,y)$,
-    </li>
-    <li>
-        $\partial_x^2f(x,y)+\partial_y^2f(x,y) < 0$, para todo $(x,y)$.
-    </li>
-</ol>
-</div>
-
-
-
-
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-        Usa el teorema de la igualdad de derivadas parciales mixtas
-        para dos variables para probar que si $f:\mathbb{R}^3\to \mathbb{R}$
-        es de clase $C^3$, entonces
-        $$
-        \partial^{3}_{xyz}f=\partial_{yzx}^3 f
-        $$
-    </p>
-    <button class="respButton hvr-grow "> Solución</button>
-    <div class="resp-box">
-        <p>
-            Observe que el teorema de la igualdad de derivadas parciales mixtas para dos variables requiere una
-            función $g:U \subseteq \mathbb{R}^2 \to \mathbb{R}$ por lo que no se puede aplicar directamente
-            a nuestra función. Nuestra hipótesis indica que $f$ está definida en todo $\mathbb{R}^3$, al final
-            veremos que se puede considerar una función definida únicamente en un abierto de éste.
-        </p>
-        <p>
-            Sea $(x_0,y_0,z_0) \in \mathbb{R}^3$, definimos $F(x,z)=f(x,y_0,z)$, demostraremos que $F:\mathbb{R}^2 \to \mathbb{R}$
-            es de clase $C^2$ y además sus derivadas parciales respecto a $x$ y $z$ en el punto $(x_0,z_0)$ son las mismas que
-            las de $f$ en el punto $(x_0,y_0,z_0)$.
-
-            \begin{align*}
-            \partial_x F(x_0,z_0) =& \lim_{h \to 0} \frac{F(x_0 + h, z_0) - F(x_0,z_0)}{h},\\
-            =& \lim_{h \to 0} \frac{f(x_0 + h, y_0,z_0) - f(x_0,y_0,z_0)}{h},\\
-            =& \partial_x f(x_0,y_0,z_0).
-            \end{align*}
-            Realizando un proceso análogo obtenemos que $\partial_z F(x_0,z_0) = \partial_z f(x_0,y_0,z_0)$ y también podemos extender este
-            argumento a las derivadas parciales de orden 2. Recordemos que $f$ es de clase $C^3$ por lo que sus derivadas parciales de orden
-            menor o igual a 3 son todas continuas, dado que al fijar una de las variables la función sigue siendo continua entonces tenemos
-            que $F$ también es de clase $C^2$ y por lo tanto sus derivadas parciales mixtas de orden 2 son iguales,
-            $\partial_{zx}^2F(x_0,z_0) = \partial_{xz}^2F(x_0,z_0)$. Para concluir basta mencionar que $y_0$ es un número real arbitrario,
-            por lo que en general se tiene que $\partial_{zx}f(x,y,z) = \partial_{xz}f(x,y,z)$ y se concluye que
-            \begin{equation*}
-            \partial_{yzx}^3 f = \partial_y \partial_{zx}^2f = \partial_y \partial_{xz}^2 f = \partial_{yxz}^3 f.
-            \end{equation*}
-            Definimos ahora $G(x,y,z) = \partial_z f$, por hipótesis $f$ es de clase $C^3$ así que $G$ es de clase $C^2$ y aplicando el
-            resultado anterior sobre derivadas parciales mixtas de orden 2 podemos asegurar que
-            \begin{equation*}
-            \partial_{yxz}^3 f = \partial_{yx}^2G = \partial_{xy}^2G = \partial_{xyz}^3f
-            \end{equation*}
-        </p>
-        <p>
-            De la transitividad de la igualdad es inmediato que
-            \begin{equation*}
-            \partial^{3}_{xyz}f=\partial_{yzx}^3 f.
-            \end{equation*}
-        </p>
-    </div>
-</div>
-
-
-
-
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-        Considera  la función $g(x,t)=2+e^{-t}\sen(x)$,
-        $(t,x)\in \mathbb{R}^2$.
-    </p>
-
-<ol>
-    <li>
-        Demuestra que $g$ satiface la
-        ecuación del calor:
-        $$
-        \partial_t g= \partial_x^2g.
-        $$
-        Aquí $g(x,t)$, representa la temperatura de una varilla de metal
-        en la posición $x$ al tiempo $t$.
-    </li>
-    <li>
-        Esbozar la gráfica de $g$, para $t\geq 0$.
-    </li>
-    <li>
-        ¿ Qué sucede con $g(x,t)$ cuando $t\to \infty$ ?
-        Interpreta éste límite en términos del comportamiento del calor
-        en la varilla.
-    </li>
-</ol>
-</div>
-
-
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <h3> Bartle</h3>
-    <p>
-         Considera la función
-        $$
-        f(x,y)=\left\{
-        \begin{array}{cc}
-         \frac{xy^3-x^3y}{x^2+y^2} & (x,y)\ne (0,0)\\
-         0 & (x,y)=(0,0)
-        \end{array}
-        \right.
-        $$
-        Prueba
-        <ol>
-            <li>
-                $$
-                \partial_xf(x,y)=\left\{
-                 \begin{array}{cc}
-                   \frac{y^3-3x^2y}{x^2+y^2}- \frac{2x(xy^3-x^3y)}{(x^2+y^2)^2} & (x,y)\ne (0,0)\\
-                   0 & (x,y)=(0,0)
-                 \end{array}
-                \right.
-                $$
-            </li>
-            <li>
-                $$
-                \partial_y f(x,y)=\left\{
-                 \begin{array}{cc}
-                   \frac{3y^2x- x^3}{x^2+y^2}- \frac{2y(xy^3-x^3y)}{(x^2+y^2)^2} & (x,y)\ne (0,0)\\
-                   0 & (x,y)=(0,0)
-                 \end{array}
-                \right.
-                $$
-            </li>
-            <li>
-                $\partial_x \partial_yf(0,0)=-1$ y $\partial_y\partial_xf(0,0)=1$
-            </li>
-        </ol>
-    </p>
-    <button class="respButton hvr-grow "> Solución</button>
-    <div class="resp-box">
-        <p>
-            Si $(x,y) \neq (0,0)$ entonces podemos tomar toda una vecindad tal que $B_r(x,y) \not\ni (0,0)$
-            y $(x+h,y), (x,y+k) \neq (0,0)$ si $0<|h|,|k| < r$, por lo tanto podemos calcular las derivadas
-            parciales en estos puntos con la regla de la cadena y el producto:
-            \begin{align*}
-            \partial_x f =& \partial_x \left[ \frac{xy^3}{x^2 + y^2} - \frac{x^3y}{x^2+y^2}\right],\\
-            =& \frac{y^3}{x^2 + y^2} + \frac{(-1)xy^3(2x)}{(x^2 + y^2)^2} - \left[\frac{3x^2y}{x^2 + y^2} + \frac{(-1)x^3y(2x)}{(x^2+y^2)^2}\right],\\
-            =& \frac{y^3-3x^2y}{x^2 + y^2} - \frac{2x(xy^3 - x^3y)}{(x^2+y^2)^2}.
-            \end{align*}
-
-            Para encontrar la derivada parcial en $(0,0)$ consideramos el cociente diferencial
-            \begin{align*}
-            \frac{f(h,0)-f(0,0)}{h} =& \frac{\frac{h(0)^3 - h^3(0)}{h^2+0^2} - 0}{h},\\
-            =& \frac{0}{h},
-            \end{align*}
-            y por lo tanto $\partial_x f(0,0) = 0$.
-        </p>
-        <p>
-            Para calcular la derivada parcial respecto a $y$ podemos repetir el proceso anterior, o bien, notar que $f(x,y) = -f(y,x)$ de donde
-            se desprende que si $(x,y) \neq (0,0)$ entonces
-            \begin{equation*}
-            \partial_y f(x,y) = \frac{3y^2x - x^3}{x^2 + y^2} - \frac{2y(xy^3 - x^3y)}{(x^2+y^2)^2},
-            \end{equation*}
-            y
-            \begin{equation*}
-            \partial_y f(0,0) = \lim_{k \to 0} \frac{\frac{(0)k^3 - (0)^3k}{0^2+k^2}}{k} = \lim_{k \to 0}\frac{0}{k}=0.
-            \end{equation*}
-        </p>
-
-        <p>
-            Para concluir calculamos la derivadas parciales mixtas:
-            \begin{align*}
-            \partial_x \partial_y f(0,0) =& \lim_{h \to 0} \frac{\partial_y f(h,0) - \partial_y f(0,0)}{h},\\
-            =& \lim_{h \to 0} \frac{\frac{3(0)^2h - h^3}{h^2 + 0^2}}{h},\\
-            =& \lim_{h \to 0} \frac{\frac{-h^3}{h^2}}{h},\\
-            =& -1.
-            \end{align*}
-            De manera análoga,
-            \begin{align*}
-            \partial_y \partial_x f(0,0) =& \lim_{k \to 0} \frac{\partial_x f(0,k) - \partial_x f(0,0)}{k},\\
-            =& \lim_{k \to 0} \frac{\frac{k^3 - 3(0)^2k}{0^2 + k^2} - \frac{2(0)((0)k^3 - (0)^3k)}{(0^2 + k^2)^2}}{k},\\
-            =& \lim_{k \to 0} \frac{\frac{k^3}{k^2}}{k},\\
-            =& 1
-            \end{align*}
-        </p>
-    </div>
-</div>
-
-
+    
 
 
  </body>

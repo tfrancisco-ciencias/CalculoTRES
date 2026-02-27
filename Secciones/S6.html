@@ -76,963 +76,48 @@
         </header>
 
       <!-- This part is for title in tab-->
-      <title id="Sec"> § 6 </title>
+      <title id="Sec"> § 6</title>
     
   </head>
   <body class="fondo-body" >
 
-    <h1 class="number-title flexbox"> Topología en \(\mathbb{R}^n\) </h1> 
+    <h1 class="number-title flexbox"> Derivadas parciales </h1> 
 
        <!-- this part is for next and prev sections -->
    <button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>
    <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
 
 
-    <div class="definicion-box">
-        <h2 class="number-title"> Definición </h2>
-        <p>
-            Sea \(U\subseteq \mathbb{R}^n\). Decimos que \(U\) es un subconjunto abierto de \(\mathbb{R}^n\) 
-            (o simplemente abierto) sii 
-            para todo punto \(p_0\in U\) exsite \(r> 0\) tal que 
-            \(B_r(p_0)\subseteq U\). 
-        </p>
-        <p>
-           La idea sobre los conjuntos abiertos es que para todo punto de un abierto nos podemos 
-           aproximar al punto por cualquier dirección, permaneciendo siempre en el conjunto abierto. 
-        </p>
-        <p>
-            Por ejemplo el vacío es abierto por vacuidad. Tambien el total, \(U=\mathbb{R}^n\),
-            es abierto pues para todo punto \(p_0\in \mathbb{R}^n\) y toda bola tenemos 
-            \(B_r(p_0)\subset \mathbb{R}^n\).
-        </p>
-        <p>
-            Los conjuntos abiertos son importantes en cálculo pues van a ser los dominios de funciones 
-            para las cuales vamos a definir la derivada.
-        </p>
 
-    </div>
-    <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio</h2>
-        <ol>
-        <li>
-            Todo intervalo abierto en \(\mathbb{R}\) es un subconjunto abierto de \(\mathbb{R}\).
-        </li>
-        <li>
-            El intervalo \([a,b]\) no es abierto en \(\mathbb{R}\).
-        </li>
-        </ol>
-        <button class="respButton hvr-grow "> Solución inciso 1</button>
-        <div class="resp-box">
-        <p>
-            Tomamos un punto arbitrario \(x\in (a,b)\). Por \(\rho(x)\) denotamos la mínima distancia entre
-            \(x\) y \(a\) y entre \(x\) y \(b\), es decir 
-            \(\rho(x)=\min=\{x-a, b-x\}\). 
-        </p>
-        <p>
-            Por ejemplo si \(x\) es el punto medio entre \(a\) y \(b\)
-            entonces \(\rho(x)=(b-a)/2\) y el intervalo centrado en \(x\) y de radio 
-            \((b-a)/2\) está  totalmente contenido en \((a,b)\). 
-        </p>
-        <p>
-            En general, afirmamos que el intervalo centrado en \(x\) y radio \(\rho(x)\) está contendio 
-            en \((a,b)\), denotemos por \(I_x\) dicho intervalo es decir 
-            \(I_x=(x-\rho(x),x+\rho(x))\). Notamos
-            \begin{eqnarray*} 
-            x-\rho(x)  &\geq & x- (x-a)=a \\
-            x+\rho(x)  &\leq &  x + (b-x)=b 
-            \end{eqnarray*}
-            por lo que si \(t \in I_x\) entonces 
-            \begin{eqnarray*} 
-            a\leq x-\rho(x) < t < x+\rho(x)\leq b
-            \end{eqnarray*}
-            y por lo tanto \(a< t < b \) lo que prueba que \(I_x \subset (a,b)\).
-        </p>
-        </div>
-        <button class="respButton hvr-grow "> Solución inciso 2</button>
-        <div class="resp-box">
-        <p>
-            El intervalo \([a,b]\) no es abierto pues notamos que para los extremos cualquier 
-            invervalo abierto centrado en ellos siempre contiene puntos fuera del intervalo \([a,b]\). 
-            Escribiendo lo anterior de manera precisa dado \(I=(b-r,b+r)\), con \(r>0\),
-             siemre se tiene que \(b+r/2 \in I\) pero \(b+r/2\notin (a,b)\), por lo que 
-             \(I\) no está contenido en \((a,b)\).
-            
-        </p>
-        </div>
-    </div>
-
-    <div class="ejercicio-box">
-        <h2 class="number-title" id="Ejer:HiperPlanosAbiertosSonAbiertos"> Ejercicio </h2>
-        <ol>
-
-        
-        <li>
-            En \(\mathbb{R}^d\) fijamos un \(i=1,\dots, n\) y para \(\varepsilon \in \mathbb{R}\) definimos 
-            \[
-            U=\{ (x_1,\dots, x_d)\in \mathbf{R}^n: x_i > \varepsilon \}
-            \]
-            Entonces \(U\) es abierto. 
-        </li>
-        <p>
-            Nota: de manera similar el conjunto \(\{(x_1,\dots, x_d)\in \mathbf{R}^n: x_i < \varepsilon \}\)
-            es abierto.
-        </p>
-        <li>
-            El conjunto 
-            \[
-            F=\{ (x_1,\dots, x_d)\in \mathbf{R}^n: x_i \geq  \varepsilon \}
-            \]
-            no es abierto.
-        </li>
-        </ol>
-        <button class="respButton hvr-grow "> Solución inciso 1</button>
-        <div class="resp-box">
-        <p>
-            Fijamos un punto \((a_1,\dots, a_d) \in U\). Por lo tanto \(a_i> \varepsilon\). Debemos 
-            de encontrar un \(r> 0\) tal que \(B_r(a_1,\dots, a_d) \subset U\).
-        </p>
-        <p>
-            Tomando como ejemplo en \(\mathbb{R}^2\) con \(i=1\), 
-            notamos que \(B_{r}(a_1,a_2) \subset U\) donde \(r=(a_1-\varepsilon)/2\). Vamos a probar 
-            que esto mismo pasa en más dimensiones.
-        </p>
-        <p>
-            Sea \(r=(a_i-\varepsilon)/2\). Afirmamos que \(B_{r}(a_1,\dots, a_d)\subset U\), lo cual se hace por 
-            contención de conjuntos.
-        </p>
-        <p>
-            Tomamos un \((x_1,\dots, x_d)\in B_{r}(a_1,\dots, a_d) \). Debemos de 
-            probar que \((x_1,\dots, x_d)\in U\) es decir, \(x_i> \varepsilon\). 
-        </p>
-        <p>
-            Ya que \((x_1,\dots, x_d)\in B_{\varepsilon/2}(a_1,\dots, a_d)\) se sigue que:
-            \[
-            |x_i-a_i|\leq \|(x_1-a_1,\dots,x_d-a_d) \| < r 
-            \]
-            por lo tanto 
-            \(
-            -r< x_i-a_i < r \Rightarrow a_i-r < x_i
-            \)
-            pero 
-            \begin{eqnarray*}
-            a_i-r &=&  a_i - \frac{a_i-\varepsilon}{2}\\ 
-            &=&\frac{2a_i-a_i+\varepsilon}{2}\\
-            &=&\frac{a_i+\varepsilon}{2} \\
-            &>& \frac{\varepsilon+\varepsilon}{2}=\varepsilon.
-            \end{eqnarray*}
-            por lo tanto \(x_i > \varepsilon\).
-        </p>
-        </div>
-    </div>
-
-
-    <div class="ejercicio-box">
-        <h2 class="number-title" id="Ejer:BolasAbiertasSonAbiertas"> Ejercicio </h2>
-        <p>
-            Toda bola abierta 
-            \[
-            B_r(p_0)=\{p\in \mathbb{R}^n: \| p-p_0\| < r \}
-            \]
-            es un subconjunto abierto.
-        </p>
-        <button class="respButton hvr-grow "> Solución </button>
-        <div class="resp-box">
-        <p>
-           La idea es encontrar la distancia entre un punto de la esfera y su "cáscara". Entre 
-           más cerca este un punto a la "cáscara" el radio que se necesita para que 
-           la bola se quede dentro será más pequeño. 
-           Para un punto \(p\in B_r(p_0)\) proponemos 
-           \(\rho(p)=r-\|p-p_0\|\). Notar que \(\rho(x)> 0\) pues \(\| p-p_0\| < r \).     
-        </p>
-        <p>
-            Vamos a probar que \(B_{\rho(x)}(p) \subseteq B_r(p_0)\). Dado \(q \in B_{\rho(x)}(p)\)
-            se tiene que \(\|q-p\| < \rho(x)\) y al estimar la distancia de \(q\) a \(p_0\) tenemos,
-            por la desigualdad del triángulo, que 
-            \begin{eqnarray*} 
-                \| p_0-q\| &\leq & \|p_0-p\| + \| p-q\| \\
-                 &<&  \|p_0-p\| + \rho(x)\\
-                &=& \|p_0-p\|+ r-\|p-p_0\| \\
-                &=&r
-            \end{eqnarray*}
-             por lo tanto \(q\in B_{r}(p_0) \). Concluimos que \(B_{\rho(x)}(p)\subseteq B_r(p_0)\).   
-        </p>
-    </div>
-    </div>
-
-
-    <div class="ejercicio-box">
-        <h2 class="number-title" id="Ejer:ComplementoBolasSonAbiertos"> Ejercicio </h2>
-        <p>
-            EL conjunto 
-            \[
-            B_r(p_0)=\{p\in \mathbb{R}^n: \| p-p_0\| > r \}
-            \]
-            es abierto.
-        </p>
-
-    </div>
-
-
-    <div class="prop-box">
-        <h2 class="number-title" id="Prop:UnionInterAbiertos"> Proposición </h2>
-        <ol>
-            <li>
-                Intersección finita de conjuntos abiertos es abierta.
-            </li>
-            <li>
-                Unión arbitraria de conjuntos abiertos es abierta.
-            </li>
-        </ol>
-        <button class="respButton hvr-grow "> Demostración inciso 1</button>
-        <div class="resp-box">
-        <p>
-            Sean \(U_1,\dots, U_n \subseteq \mathbb{R}^d \) una familia de subconjuntos abiertos.
-            Para probar que \(\cap_{i=1}^n U_i\) es abierto debemos de probar que para todo 
-            \(p\in \cap_{i=1}^n U_i\) exsite \(r> 0\) tal que 
-            \(B_r(p)\subseteq \cap_{i=1}^n U_i\).
-        </p>
-        <p>
-            Al ser \(U_i\) abierto y tener que \(p\in U_i\) se sigue que existe un \(r_i>0\) tal que 
-            \(B_{r_i}(p) \subseteq U_i\). Si definimos \(r=\min_{i=1,\dots, n}\{r_i\}\) notamos que 
-            para toda \(i=1,\dots, n\):
-            \[
-            B_r(p)\subseteq B_{r_i}(p)\subseteq U_i
-            \]
-            por lo tanto \(B_r(p)\subseteq \cap_{i=1}^n U_i\).
-        </p>
-        </div>
-        <button class="respButton hvr-grow "> Demostración inciso 2</button>
-        <div class="resp-box">
-        <p>
-            Sea \(\{U_i\}_{i\in I}\) una familia arbitraria de abiertos (decimos arbitraria pues 
-            el conjunto de índices \(I\) puede ser  finito o infinito, por ejemplo 
-            \(I=\{1,\dots, n\}\) ó \(I=\mathbb{N}\)). Debemos de probar que 
-            \(\cup_{i\in I}U_i\) es abierto.
-        </p>
-        <p>
-            Fijamos \(p\in \cup_{i\in I}U_i\) arbitrario. Entonces existe almenos un \(i_0\) para el cual 
-            \(p\in U_{i_0}\). Al ser \(U_{i_0}\) abierto existe  un \(r>0\) para el cual 
-            \(B_r(p)\subseteq U_{i_0}\). Ya que \(U_{i_0}\subseteq \cup_{i\in I}U_i\) concluimos que 
-            \[
-            B_r(p)\subseteq \cup_{i\in I} U_i.
-            \]
-            Al ser \(p\) arbitrario concluimos que la unión es abierta.
-        </p>
-        </div>
-    </div>
-
-    <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-            Da un ejemplo que muestre que la Intersección arbitraria de conjuntos abiertos 
-            no es necesariamente abierto.
-        </p>
-        <button class="respButton hvr-grow "> Solución </button>
-        <div class="resp-box">
-        <p>
-            Para \(n\in \mathbb{N}\) definimos 
-            \[
-            U_n=(-\frac{1}{n}, 1+\frac{1}{n})
-            \]
-            Entonces cada \(U_n\) es abierto pero la intersección es 
-            \[
-            \cap_{n=1}^\infty U_n=[0,1]
-            \]
-            la cual no es abierto.
-        </p>
-        </div>
-    </div>
-
-    <div class="prop-box">
-        <h2 class="number-title"> Proposición  </h2>
-        <p>
-            Sean \(U_1\subset \mathbb{R}^n, U_2\subset \mathbb{R}^m\) subconjuntos abiertos. Entonces 
-            \(U_1\times U_2 \subset \mathbb{R}^{n+m}\) es abierto.
-        </p>
-
-    </div>
-
-    <div class="definicion-box">
-        <h2 class="number-title"> Definición </h2>
-        <p>
-            Un subconjunto \(F\subseteq \mathbb{R}^n\) se llama cerrado en \(\mathbb{R}^n\) (o simplemente 
-            cerrado) si su complemento es abierto.
-        </p>
-        <p>
-            Por ejemplo el conjunto vacío y el total \(\mathbb{R}^n\) son subconjuntos cerrados.
-        </p>
-
-    </div>
-
-    <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-            Prueba que los siguientes subconjuntos son cerrados.
-        </p>
-        <ol>
-            <li>
-                \([a,b]\).
-            </li>
-            <li>
-                \( \{ p\in \mathbb{R}^d: \| p-p_0\| \leq r\}\).
-            </li>
-            <li> 
-                Para \(a\in \mathbb{R}\) fijo, 
-                \(\{ (x,y,z)\in \mathbb{R}^3: x=a \}\).
-            </li>
-        </ol>
-        <button class="respButton hvr-grow "> Soluciónes </button>
-        <div class="resp-box">
-        <p>
-            En cada uno de los casos se probará que el complemento es un conjunto abierto.
-        </p>
-        <p>
-            El conjunto \([a,b]\) es cerrado pues su complemente es 
-            \[
-            [a,b]^c = (-\infty, a)\cup (b,\infty)
-            \]
-            y cada uno de los intervalos antriores es abierto pues se pueden escribir 
-            como unión de abiertos de la siguiente manera 
-            \begin{eqnarray*}
-            (-\infty,a)=\cup_{n\in \mathbb{N}: -n< a }(-n,a), \\
-            (b,+\infty)=\cup_{n\in \mathbb{N}: b<  n }(b,n).
-            \end{eqnarray*}
-        </p>
-        <p>
-            El conjunto \( \{ p\in \mathbb{R}^n: \| p-p_0\| \leq r\}\) es cerrado pues su complemento 
-            es 
-            \[
-            \{ p\in \mathbb{R}^d: \| p-p_0\| \leq r\}^c=\{p\in \mathbb{R}^d:\| p-p_0 \|> r \}
-            \]
-            el cual es abierto por el <a href="#Ejer:ComplementoBolasSonAbiertos">Ejercicio 6.5</a>
-        </p>
-        <p>
-            El complemento de \(\{ (x,y,z)\in \mathbb{R}^3: x=a \}\) se puede escribir como 
-            \[
-            \{ (x,y,z)\in \mathbb{R}^3: x=a \}^c=\{(x,y,z)\in \mathbb{R}^3: x< a \}\cup 
-            \{(x,y,z)\in \mathbb{R}^3: x > a \}
-            \]
-            y por el <a href="#Ejer:HiperPlanosAbiertosSonAbiertos">Ejercicio 6.3</a>
-            ambos conjuntos son abiertos por lo que su unión es abierto. 
-        </p>
-        </div>
-
-    </div>
-
-    <div class="prop-box">
-        <h2 class="number-title"> Proposición </h2>
-        <ol>
-            <li>
-                Intersección arbitraria de conjuntos cerrados es cerrada.
-            </li>
-            <li>
-                Unión finita de conjuntos cerrados es cerrada.
-            </li>
-        </ol>
-        <p>
-            Nota: la demostración se obtiene directamente de la <a href="#Prop:UnionInterAbiertos">Proposición 6.6</a>
-            usando las leyes de De-Morgan.
-        </p>
-    </div>
-
-    <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-            Da un ejemplo que muestre que la unión arbitraria de conjuntos cerrados
-            no es necesariamente cerrado.
-        </p>
-
-    </div>
-
-    <div class="prop-box">
-        <h2 class="number-title"> Proposición  </h2>
-        <p>
-            Sean \(F_1\subset \mathbb{R}^n, F_2\subset \mathbb{R}^m\) subconjuntos cerrados. Entonces 
-            \(F_1\times F_2 \subset \mathbb{R}^{n+m}\) es cerrado.
-        </p>
-    </div>
-
-    <div class="definicion-box">
-        <h2 class="number-title"> Definición</h2>
-        <p>
-            Sea \(A \subseteq \mathbb{R}^n\).
-        </p>
-    
-            <p>
-                Un punto \(p\in \mathbb{R}^n\) se llama punto 
-                interior de \(A\) si existe \(r> 0 \) tal que 
-                \(B_r(p)\subseteq A\).
-                
-            </p>
-            <p>
-                Observación: si \(p\) es un punto interior de 
-                \(A\) necesariamente se tiene que  \(p\in A\).
-            </p>
-            <p>
-                Al conjunto de puntos interiores del conjunto \(A\) se le llama 
-                el interior de \(A\) y se denota por \(\operatorname{int}(A)\) o \(A^o\). 
-                Nota: puede pasar que \(A^o=\emptyset\).
-            </p>
-
-
-    </div>
-
-    <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-            Encuentra el interior de los siguientes conjuntos.
-        </p>
-        <ol>
-            <li>
-                \(\{\frac{1}{n}: n\in \mathbb{N} \}\).
-            </li>
-            <li>
-                \([a,b]\).
-            </li>
-            <li>
-                \(\{ (x,y)\in \mathbb{R}^2: y=0, x\in [a,b]\}\).
-            </li>
-            <li>
-                \(\{p\in \mathbb{R}^d: \| p-p_0\| \leq r\}\), donde
-                \(p_0\in \mathbb{R}^d\) y \(r>0\).
-            </li>
-        </ol>
-
-
-        <button class="respButton hvr-grow "> Solución inciso 1</button>
-        <div class="resp-box">
-            <p>
-                Se afirma que $int(A)=\emptyset$. En efecto, sea $x \in \mathbb{R}$ y $r>0$, se
-                mostrará que $B_r(x) \not\subseteq A=\{\frac{1}{n}: n \in \mathbb{N}\}$. Si $x \notin A$
-                entonces claramente $B_r(x) \not\subseteq A$, por lo que inmediatamente se concluye que
-                $x \notin int(A)$.
-                Supongamos ahora que $x \in A$. Recordemos que entre dos números reales siempre existe un
-                número irracional, es decir, existe $y \in \mathbb{R}\setminus\mathbb{Q}$ tal que
-                $y \in B_r(x)$. Como todos los elementos de $A$ son números racionales entonces $y \notin A$
-                y por lo tanto $B_r(x) \not\subseteq A$. Concluimos que $x \notin int(A)$.
-            </p>
-        </div>
-
-        <button class="respButton hvr-grow "> Solución inciso 2</button>
-        <div class="resp-box">
-            <p>
-                Se afirma que el interior del conjunto $A=[a,b]$ es el intervalo $(a,b)$. Sea $x \in (a,b)$,
-                entonces $0<|x-a|,|x-b|$ Sea $r=\min(|x-a|,|x-b|)$, entonces si $y \in B_r(x)$ se tiene que
-                $a < y < b$ y por lo tanto $B_r(x) \subseteq A$. Con ésto se observa que
-                \begin{equation*}
-                (a,b) \subseteq int([a,b]).
-                \end{equation*}
-                Considere ahora $x \notin (a,b)$ y $r>0$. El claro que si $x \notin [a,b]$ entonces
-                $B_r(x) \not\subseteq [a,b]$, por otro lado si $x=a$ o $x=b$ entonces ya se ha visto que
-                $a-r/2 \in B_r(a)$ pero $a-r/2 < a$ y que $b+r/2 \in B_r(b)$ pero $b+r/2 > b$ por lo que
-                $x \notin int([a,b])$ y con ello
-                \begin{equation*}
-                int([a,b]) = (a,b).
-                \end{equation*}
-            </p>
-        </div>
-
-        <button class="respButton hvr-grow "> Solución inciso 3</button>
-        <div class="resp-box">
-            <p>
-                Veamos que si $A=\{(x,y) \in \mathbb{R}^2:y=0,x \in [a,b]\}$ entonces $int(A)=\emptyset$.
-                Como ya hemos visto, si $(u,v) \notin A$ entonces $(u,v) \notin int(A)$ por lo que podemos
-                considerar $(u,v) \in A$ y con ello $(u,v)=(x,0)$ para algún $x \in [a,b]$. Sea $r>0$ y note
-                que $\|(x,r/2)-(x,0)\|=r/2 < r$, por lo que $(x,r/2) \in B_r((x,0))$, sin embargo $(x,r/2) \notin A$
-                por lo que $B_r((u,v)) \not\subseteq A$ y $(u,v) \notin int(A)$.
-            </p>
-        </div>
-
-        <button class="respButton hvr-grow "> Solución inciso 4</button>
-        <div class="resp-box">
-            <p>
-                Sea $A = \{p \in \mathbb{R}^d: \|p-p_0\| \leq r\}$. Se demostrará que $int(A) = B_r(p_0)$. Sea
-                $x \in B_r(p_0)$, entonces $\|x-p_0\|< r.$ Considere $s = r-\|x-p_0\| >0$ y $z \in B_s(x).$
-                \begin{equation*}
-                \|z - p_0\| \leq \|z - x\| + \|x - p_0\| < s + \|x-p_0\| = (r-\|x-p_0\|) + \|x-p_0\| = r,
-                \end{equation*}
-                por lo que $z \in B_r(p_0)$, como $z$ es un punto arbitrario de la bola
-                $B_s(x) \subseteq B_r(p_0) ) \subseteq A$ y
-                \begin{equation*}
-                B_r(p_0) \subseteq int(A).
-                \end{equation*}
-            </p>
-            <p>
-                Sea $s>0$. Como $B_r(p_0) \cup \{p \in \mathbb{R}^2: \|p-p_0\|=r\}$ y si $p \notin A$ entonces
-                $p \notin int(A)$ entonces bastará mostar que si $\|p-p_0\|=r$ entonces $p \notin int(A)$.
-                Observe que
-                \begin{equation*}
-                \left\|p - \left(p + \frac{s(p-p_0)}{2\|p - p_0\|}\right)\right\| =  \left\| \frac{s(p-p_0)}{2\|p - p_0\|}\right\| = \frac{s}{2} < s,
-                \end{equation*}
-                por lo que $p + \frac{s(p-p_0)}{2\|p - p_0\|} \in B_s(p)$. Por otro lado
-                \begin{equation*}
-                \left\| \left( p + \frac{s(p-p_0)}{2\|p - p_0\|} \right) - p_0\right\| = \left( 1 + \frac{s}{2\|p-p_0\|}\right)\|p-p_0\|= \left( 1 + \frac{s}{2\|p-p_0\|}\right)r > r,
-                \end{equation*}
-                y con ello concluimos que $p + \frac{s(p-p_0)}{2\|p - p_0\|} \notin B_r(p)$. Como $s>0$ fue arbitraria
-                podemos deducir que no existe $s>0$ tal que $B_s(p) \supseteq A$ y por lo tanto $p \notin int(A)$, así
-                \begin{equation*}
-                int(A) = B_r(p_0).
-                \end{equation*}
-            </p>
-        </div>
-    </div>
-
-    <div class="prop-box">
-        <h2 class="number-title"> Proposición </h2>
-        <p>
-            Un subconjunto \(U\subseteq \mathbb{R}^n\) 
-            es abierto si y sólo si 
-            todo punto de \(U\) es un punto interior de \(U\).
-        </p>
-
-        <button class="respButton hvr-grow "> Demostración</button>
-        <div class="resp-box">
-            <p>
-                Sea $U$ un conjunto abierto y $x \in U$. Por definición existe $r>0$ tal que $B_r(x) \subseteq U$
-                y por lo tanto $x$ es un punto interior de $U$.
-            </p>
-            <p>
-                Supongamos ahora que todo punto de $U$ es punto interior, en otras palabras, para cada $x \in U$
-                existe $r>0$ tal que $B_r(x) \subseteq U$, pero ésto no es más que la definición de ser abierto.
-            </p>
-        </div>
-    </div>
-
-    <div class="prop-box">
-        <h2 class="number-title"> Proposición </h2>
-        <p>
-            Sea \(A\subseteq \mathbb{R}^p\). Prueba que 
-            el interior de \(A\), \(A^o\) es un conjunto abierto.
-        </p>
-        <p>
-            Además prueba que 
-            es el conjunto abierto más grande contenido en \(A\), es decir, 
-            si \(U\) es abierto y \(U\subseteq A\) entonces \(U\subseteq A^o\).
-        </p>
-        <button class="respButton hvr-grow "> Demostración</button>
-        <div class="resp-box">
-            <p>
-                Si $int(A) = \emptyset$ entonces por por vacuidad es abierto. Si $int(A) \neq \emptyset$
-                podemos considerar $x \in int(A)$. Al ser punto interior de $A$ existe $r>0$ tal que
-                $B_r(x) \subseteq A$. Veremos que $B_r(x) \subseteq int(A)$. Sea $y \in B_r(x)$, es decir,
-                $\|y-x \| < r.$ Definimos $s = r - \|y-x\| > 0$, entonces si $z \in B_s(y)$ tenemos que
-                \begin{equation*}
-                \|z - x\| \leq \|z - y\| + \|y - x\| < s + \|y - x\| = (r -\|y - x\|) + \|y - x\| = r,
-                \end{equation*}
-                por lo que $z \in B_r(x) \subseteq A$ y por lo tanto $B_s(y) \subseteq A$, lo cual significa
-                que $y \in int(A)$ y más en general que $B_r(x) \subseteq int(A)$. Con ello concluye la prueba
-                de que $int(A)$ es un conjunto abierto.
-            </p>
-            <p>
-                Veamos ahora que $int(A)$ es el abierto más grande contenido en $A$. Sea $U \subseteq A$ abierto,
-                veremos que todos los puntos de $U$ son puntos interiores de $A$. Considere $x \in U$, dado que
-                $U$ es abierto existe $r>0$ tal que $B_r(x)\subseteq U$. Por hipótesis $U \subseteq A$ así
-                $B_r(x) \subseteq A$ y se concluye que $x \in int(A)$, es decir, $U \subseteq int(A)$ y
-                el conjunto de puntos interiores de $A$ es el abierto más grande contenido en $A$.
-            </p>
-        </div>
-
-    </div>
-
-
-    <div class="definicion-box">
-        <h2 class="number-title" id="Def:PtoAcumulacion"> Definición</h2>
-        <p>
-            Sea \(A \subseteq \mathbb{R}^n\).
-        </p>
-        <p>
-            Un punto \(p\in \mathbb{R}^n\) se llama se llama 
-            punto de acumulación de \(A\) si para todo \(r>0\)
-            existe un punto \(q \in B_r(p)\cap A\) con \(q\ne p\). Es decir, toda bola centrada en
-            \(p\) contiene puntos de \(A\) distintos del centro.
-        </p>
-        <p>
-            En términos de bolas perforadas tenemos que para todo \(r>0\), \(\check{B}_r(p)\cap A \ne \emptyset \).
-        </p>
-        <p>
-            Por ejemplo el \(0\) es punto de acumulación del conjunto 
-            \(\{\frac{1}{n}\}_{n=1}^\infty\) pues para toda \(r>0\) existe un 
-            natural \(m\) con \(0 < \frac{1}{m} < r\).
-        </p>
-        <p>
-            Notas: 
-            <ol>
-                <li>
-                    Los puntos de acumulación de un conjunto puden o no pertenecer al conjunto. En 
-                    el ejemplo anterior \(0\), un punto de acumulación, no pertenecen al conjunto 
-                    \(\{\frac{1}{n}\}_{n=1}^\infty\).
-                </li>
-                <li>
-                    Un punto NO es punto de acumulación de \(A\) sii existe un radio \(r_0 >0\)
-                    tal que \(\check{B}_{r_0}(p)\cap A =\emptyset\) lo cual es equivalente a 
-                    que \(\check{B}_{r_0}(p)\subseteq A^c\).
-                </li>
-            </ol>
-        </p>
-    </div>
-
-    <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-            Encuentra los puntos de acumulación de los siguientes conjuntos. 
-        </p>
-        <ol>
-            <li>
-                \(\mathbb{N} \subseteq \mathbb{R}\).
-            </li>
-            <li>
-                \(\mathbb{Q}\subseteq \mathbb{R}\).
-            </li>
-            <li>
-                \(\{(x,y)\in \mathbb{R}^2: x=1, y\in \mathbb{Q}\}\).
-            </li>
-            <li>
-                \(B_r(p_0)=\{ p\in \mathbb{R}^d: \|p-p_0\| < r\}\).
-            </li>
-            <li>
-                Fijamos un punto \((a_1,\dots, a_d)\in \mathbb{R}^d\) y 
-                un número \(c\in \mathbb{R}\). Considera el conjunto 
-                \(\{ (x_1,\dots, x_d)\in \mathbb{R}^d: \sum_{i=1}^d x_ia_i < c \}\).
-            </li>
-        </ol>
-        <p>
-            Nota: intuitivamente un punto de acumulación de un conjunto \(A\) es un punto 
-            donde a su alrededor siempre hay una infinidad de puntos de \(A\). 
-        </p>
-        <button class="respButton hvr-grow "> Inciso 1</button>
-        <div class="resp-box">
-        <p>
-            Ya que los naturales están "separados" entre si la idea es que no tiene puntos 
-            de acumulación, es decir, el conjunto de acumulación es vacío. 
-        </p>
-        <p>
-            Para escribir 
-            lo anterior formalmente recordamos (<a href="#Def:PtoAcumulacion">notas en la 
-            Definición 6.18</a>) que punto \(p \in \mathbb{R} \) no es punto de 
-            acumulación de \(\mathbb{N}\) si existe un \(r_0>0\) tal que 
-            la bola perforada satisface \(\check{B}_{r_0}(p) \subseteq \mathbb{N}^c\). 
-            Ahora consideramos dos casos.
-        </p>
-        <p>
-            Si \(p\in \mathbb{N}\) entonces es directo que \(\check{B}_{1/2}(p)\subseteq \mathbb{N}^n\)
-            pues 
-            \[
-            \check{B}_{1/2}(p)=(p-1/2,p)\cup (p,p1/2) \Rightarrow
-            [(p-1/2,p) \cup (p,p1/2) ]\cap \mathbb{N}=\emptyset
-            \] 
-        </p>
-        <p>
-            Si \(p\in \mathbb{R}\) pero \(p\notin \mathbb{N}\) sea \(n\) el mayor entero menor o igual a 
-            \(p\). Ya que \(p\) no es entero se tiene que \(n< p < n+1\). Definimos 
-            \(r_0=\frac{1}{2}\min \{p-n, n+1-p\}\) entonces 
-            \[B_{r_0}(p)\cap \mathbb{N}=(p-r_0,p+r_0)\cap \mathbb{N}=\emptyset\]
-
-        </p>
-        </div>
-        <button class="respButton hvr-grow "> Inciso 2</button>
-        <div class="resp-box">
-        <p>
-            Para \(\mathbb{Q}\subset \mathbb{R}\) sabemos intuitivamente que alrededor de cualquier real
-            siempre hay una infinidad de racionales por lo que esto nos dice, intuitivamente, que  todo real es un 
-            punto de acumulación de \(\mathbb{Q}\). Para escribirlo formalmente procedemos como sigue.
-        </p>
-        <p>
-            Fijamos un \(p\in \mathbb{R}\) arbitrario. Debemos de probar que para toda 
-            \(r>0\), \(\check{B}_r(p)\cap \mathbb{Q} \ne \emptyset\). Ahora, tenemos que 
-            \(\check{B}_r(p)=(p-r,p) \cup (p,p+r)\) y sabemos que entre cualesquiera dos reales 
-            existe un racional por lo tanto entre \(p\) y \(p+r\) existe \(q\in \mathbb{Q}\) 
-            por lo tanto \(q\in (p,p+r)\cap \mathbb{Q} \subseteq \check{B_r}(p)\cap \mathbb{Q}\),
-            lo que implica que \(\check{B_r}(p)\cap \mathbb{Q} \ne \emptyset\).
-        </p>
-        </div>
-        <button class="respButton hvr-grow "> Inciso 3</button>
-        <div class="resp-box">
-        <p>
-            Este inciso es parecido al anterior sólo que ahora el conjunto está en \(\mathbb{R}^2\). 
-            Denotamos 
-            \(A=\{(x,y)\in \mathbb{R}^2: x=1,y\in \mathbb{Q}\}\). Afirmamos que los puntos de acumulación 
-            son los puntos de la recta 
-            \[
-            L=\{ (x,y)\in \mathbb{R}: x=1\}.
-            \]
-            Fijemos \((1,y_0)\in L\). Debemos de probar que para todo \(r>0\)
-            \(\check{B}_r((1,y_0))\cap A \ne \emptyset\).
-            Notamos que 
-            \(B_r((x_0,y_0))\) contiene al segmento \(\{(1,y): y_0-r< y < y_0+r\} \).
-            Ahora tomamos un racional \(q\) tal que \(y_0 < q < y_0+r\). Entonces 
-            \[
-            (1,q)\in \{(1,y): y_0-r< y < y_0+r\}\cap A  \subset \check{B}_r((1,y_0))\cap A
-            \]
-            por lo que \(\check{B}_r((1,y_0))\cap A \ne \emptyset\).
-        </p>
-        <p>
-            Finalmente notamos que los puntos de \(L\) son los únicos puntos de acumulación de 
-            \(A\), pues si \((x_0,y_0)\notin L\) entonces \(x_0\ne 1\) y por lo tanto 
-            \(|1-x_0|>0\). Si tomamos \(r=|1-x_0|\) entonces \(B_{r}((x_0,y_0))\cap A =\emptyset\)
-            pues todos los puntos de \(B_{r}((x_0,y_0)\) tienen su primera coordenada distinta de \(1\).
-        </p>
-        </div>
-        <button class="respButton hvr-grow "> Inciso 4</button>
-        <div class="resp-box">
-        <p>
-            Por simplicidad vamos a denotar 
-            \[
-            A=B_r(p_0).
-            \]
-        </p>
-        <p>
-            Primero notamos que los puntos en el conjunto 
-            \[
-            \{q\in \mathbb{R}^d: \| q-p_0\| > r\}
-            \] 
-            NO son puntos de acumulación de \(A\) pues por el Ejercicio 6.5, dado el 
-            punto \(q\) con \(\|q-p_0\| > r\) existe un radio \(\rho_0 > 0\) tal que 
-            \(B_{\rho_0}(q)\subseteq \{q\in \mathbb{R}^d: \| q-p_0\| > r\} \)
-            por lo que \(\check{B}_{\rho_0}(q)\cap A=\emptyset\).
-        </p>
-        <p>
-            Por lo tanto, los posibles puntos de acumulación de \(A\) están contenidos en 
-            \[
-            B:=\{ q \in \mathbb{R}^d: \| q-p_0\|\leq  r\}
-            \]
-            Afirmamos que todos los puntos de \(B\) son puntos de acumulación. Fijamos 
-            \(q\in B\) y queremos probar que para toda \(s > 0\), la bola PERFORADA tienes 
-            puntos de \(A\), es decir 
-            \[
-            \check{B}_s(q)\cap A \ne \emptyset
-            \]
-            Notamos que al tomar \(q\in B\) tenemos dos casos: \(\|q-p_0\| < r, \|q-p_0\| =r\).
-        </p>
-        <p>
-            Caso 1: \(\|q-p_0\| < r \), es decir \(q\in A\). Como la bola \(A\) 
-            es abierta por el <a>Ejercicio 6.4</a> exsite un 
-            \(\rho_0 > 0\) tal que \(B_{\rho_0}(q)\subseteq A\) lo que implica 
-            que para toda \( 0< s \leq \rho_0\), \(\check{B}_s(q) \cap A=\check{B}_s(q)\). Por lo tanto 
-            para toda \(s> 0\), 
-            \[
-             \emptyset \ne \check{B}_{\min\{s,\rho_0\}}(q)\cap A \subseteq \check{B}_s(q)\cap A  
-             \]
-        </p>
-        <p>
-            Caso 2: \(\|q-p_0\|=r\). 
-            <div class="flexbox">
-                <img src="./Images/S6-Img1.png" alt="LeyCosenos-CS" width="40%" height="auto">
-              </div>
-            <p>
-                En este caso tomamos 
-            el vector dirección \(v=\frac{1}{r}(p_0-q)\). Notar que \(\|v\|=1\). 
-            Tomamos cualquier \(t>0\) con \(t< s, r\). Afirmamos que el vector \(q+ t v \in \check{B}_s(q)\cap A\).
-            </p>
-            <p>
-                P.D. \(q+ tv \in \check{B}_s(q)\). 
-            </p>
-            <p>
-                Primeramente, \(q+tv \ne q\) pues si fuese igual entonces \( tv=0\),
-                lo cual no es cierto. Al calcular la distancia de 
-                \(q+tv\) a \(q\) obtenemos 
-                \[
-                \|q+tv- q\|=t\|v\|= t < s
-                \]
-                por lo que \(q+ tv \in \check{B}_s(q)\).
-            </p>
-            <p>
-                P.D. \(q+t v \in A\)
-            </p>
-            <p>
-                Recordar que \(A=B_r(p_0)\). Al calcular la 
-                distancia de \(q+t v \) a \(p_0\) obtenemos 
-                \begin{eqnarray*}
-                \|q+ t v - p_0 \| &=& \| tv+(q-p_0) \| \\
-                &=& |\frac{t}{r}(p_0-q) + (q-p_0)\| \\
-                &=& \| (\frac{t}{r} -1)(p_0-q)\|\\
-                &=& \left|\frac{t}{r}-1 \right|\|p_0-q\| \\
-                &=& \left|\frac{t}{r}-1 \right|r \\ 
-                &=& \frac{|t-r|}{r}r\\
-                &=& r-t < r 
-                \end{eqnarray*}
-                por lo que \(q+tv \in B_r(p_0)=A\).
-            </p>
-        </p>
-        </div>
-        </div>
-
-        
-
-        <div class="prop-box">
-        <h2 class="number-title"> Proposición </h2>
-        <p>
-            Un subconjunto \(F\subseteq \mathbb{R}^n\) es 
-            cerrado si y sólo si contiene a todos sus puntos 
-            de acumulación.
-        </p>
-        <button class="respButton hvr-grow "> Demostración</button>
-        <div class="resp-box">
-        <p>
-            \(\Rightarrow] \) Supongamos que \(F\) es un conjunto cerrado pero existe un 
-            punto de acumulación, digamos \(q\), tal que \(q\notin F\).
-        </p>
-        <p>
-            Ya que \(F\) es cerrado su complemento es abierto y ya que \(q\notin F\) existe un 
-            \(r>0\) tal que \(B_r(q)\) está contenido en \(F^c\). Finalmente ya que 
-            \(q\) es punto de acumulación de \(F\) existe un \(p\in F\), \(p\ne q\) con 
-            \(p\in B_r(q)\) lo cual es una contradicción pues \(p\in B_r(q)\subseteq F^c\).
-        </p>
-        <p>
-            \(\Leftarrow]\) Supongamos que todos los puntos de acumulación de \(F\)
-            pertenecen a \(F\). Debemos de probar que \(F\) es cerrado es decir, 
-            su complemento es abierto. Así pues debemos de probar que para todo punto de 
-            \(F^c\) existe una bola centrada en el punto totalmente contenida en \(F^c\).
-        </p>
-        <p>
-            Tomamos \(q\in F^c\). Ya que todos los puntos de acumulación están en \(F\) 
-            \(q\) no puede ser punto de acumulación de \(F\) por lo que 
-            existe un \(r_0>0\) tal que \(\check{B}_{r_0}(q) \subseteq F^c \) pero 
-            tomando en cuenta de que \(q\notin F\) el centro de la bola 
-            también está en \(F^c\) y por lo tanto \(B_r(q)\subseteq F^c\). 
-        </p>
-        </div>
-        
-        
-
-    </div>
-
-    <div class="lema-box">
-        <h2 class="number-title"> Lema </h2>
-        <p>
-            Sea \(A\subseteq \mathbb{R}^d\). Un punto \(p\in \mathbb{R}^d\) es 
-            punto de acumulación de \(A\) si y sólo si para toda \(r> 0\)
-            el conjunto \(B_r(p)\cap A\) es infinito.  
-        </p>
-        <button class="respButton hvr-grow "> Demostración</button>
-        <div class="resp-box">
-        <p>
-            \(\Rightarrow ] \) Fijamos un \(r>0\). Al ser \(p\) un punto de acumulación de \(A\)
-            existe un punto \(p_0 \in B_r(p)\cap A\) con \(p_0 \ne p\). Definimos \(r_1=\|p-p_0 \|/2 >0 \)
-            (positivo pues \(p_0\ne p\)).
-        </p>
-        <p>
-            Utilizando de nuevo que \(p\) es punto de acumulación de \(A\), para 
-            \(r_1\) existe \(p_1\in B_{r_1}(p)\cap A\) con \(p\ne p_1\).
-            Nota que \(p_1\ne p_0\) pues \(\| p-p_1\|< \|p-p_0 \|\). Definimos 
-            \(r_2=\|p-p_1\|/2 > 0\). 
-        </p>
-        <p>
-            Continuando de esta mandera dados los puntos \(p_0,\dots, p_k\) con 
-            \(\|p-p_k\|< \| p-p_{k-1}\| < \cdots < \|p-p_0\|< r \), tomamos \(r_{k+1}=\|p-p_k\|/2 >0\)
-            y un punto \(p_{k+1}\in B_{r_{k+1}}(p)\cap A\) con \(p_{k+1}\ne p\). Con esta construcción todos los 
-            puntos \(\{p_0, \dots, p_{k+1}\}\) son distintos y están en \(B_r(p)\cap A\). Con 
-            ésta construcción obtenemos un conjunto infinito \(\{p_k\}_{k\in \mathbb{N}}\) contenido en 
-            \(B_r(p)\cal A\).
-        </p>
-        <p>
-            \(\Leftarrow ]\) Es directo que si suponemos que \(B_r(p)\cap A\) es infinito entonces 
-            existe \(q\in B_r(p)\cap A\) con \(q\ne p\).
-        </p>
-        </div>
-
-    </div>
-
-    <div class="coro-box">
-        <h2 class="number-title"> Corolario </h2>
-        <p>
-            Si \(p\) es un punto de acumulación de \(A\) entonces existe \((p_n)_{n=1}^\infty\)
-            una sucesión de puntos de \(A\) tal que 
-            \[
-                \lim_{n\to \infty}\| p_n-p\|=0.
-            \]
-        </p>
-
-    </div>
-
-
-<!-- 
-    <div class="definicion-box">
-        <h2 class="number-title"> Definición </h2> 
-        <p>
-            Sea $U\subseteq \mathbb{R}^2$ un conjunto abierto y $f:U\to \mathbb{R}$ una función y 
-            $(x_0, y_0)\in U$ un punto fijo. Las derivadas parciales de $f$, en punto $(x_0,y_0)$, se definen
-            como:
-            <ol>
-                <li>
-                    parcial con respecto a la variable x:
-                    $$
-                    \partial_x f(x_0,y_0)=\frac{\partial f}{\partial x}(x_0,y_0)=\lim_{s\to 0} \frac{f(x_0+s,y_0)}{s} 
-                    $$
-                </li>
-                <li>
-                    parcial con respecto a la variable y:
-                    $$
-                    \partial_y f(x_0,y_0)=\frac{\partial f}{\partial y}(x_0,y_0)=\lim_{t\to 0} \frac{f(x_0,y_0+t)}{t} 
-                    $$
-                    siempre y cuando los límites existen.
-                </li>
-             </ol>
-        </p>
-   </div>
-   
-     <div class="nota-box">
-        <h2 class="number-title"> Nota </h2>
-            <p>
-                Dependiendo de las variables independientes la notación de parciales puede cambiar. Por
-                ejemplo, si tenemos una función $f(x_1,x_2)$, las parciales se denotan $\partial_{x_1}f$
-                y $\partial_{x_2}f$ o si es  $f(r,\theta)$ tendríamos $\partial_r f$, $\partial_\theta f$.
-            </p>
-            <p>
-                Para cada punto $(x_0,y_0)$,  al  calcular las  parciales
-                $$\partial_xf(x_0,y_0), \quad \partial_{y}f(x_0,y_0)$$
-                obtenemos  números reales. Pero,   si pensamos a $(x_0,y_0)$ variando en un dominio y
-                lo denotamos $(x,y)$ (notación de variable), obtenemos funciones
-                $$\partial_xf(x,y),\quad \partial_yf(x,y)$$
-           
-            </p>
-            <p>
-                Note que en las expresiones
-                anteriores las $x$ que aparecen son distintas. La de la parcial indica con respecto a qué
-                variable se diferencia y la otra indica en qué punto se está evaluando. Asi por ejemplo
-                si $\partial_xf(x,y)=6x-2y$ entonces  $\partial_xf(3,5)=6(3)-2(5)=8$, sin embargo $\partial_3f(x,y)$
-                o $\partial_3f(3,5)$ no tienen sentido.
-            </p>
-     </div>
-
-
-
- <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
+<div class="definicion-box">
+    <h2 class="number-title"> Definición </h2> 
     <p>
-        Sean $g,h:\mathbb{R}\to \mathbb{R}$ funciones de una variable, ambas diferenciables,  y define $f(x,y)=g(x)h(y)$.
-        Fija un punto $(x_0,y_0)$. Demuestra que
-        $$
-        \partial_xf(x_0,y_0)=g'(x_0)h(y_0), \quad \partial_yf(x_0,y_0)=g(x_0)h'(y_0).
-        $$
+        Sea $U\subseteq \mathbb{R}^2$ un conjunto abierto y $f:U\to \mathbb{R}$ una función y 
+        $(x_0, y_0)\in U$ un punto fijo. Las derivadas parciales de $f$, en punto $(x_0,y_0)$, se definen
+        como:
+        <ol>
+            <li>
+                parcial con respecto a la variable \(x\):
+                $$
+                \partial_x f(x_0,y_0)=\frac{\partial f}{\partial x}(x_0,y_0)=\lim_{s\to 0} \frac{f(x_0+s,y_0)-f(x_0,y_0)}{s} 
+                $$
+            </li>
+            <li>
+                parcial con respecto a la variable \(y\):
+                $$
+                \partial_y f(x_0,y_0)=\frac{\partial f}{\partial y}(x_0,y_0)=\lim_{t\to 0} \frac{f(x_0,y_0+t)-f(x_0,y_0)}{t} 
+                $$
+                siempre y cuando los límites existen.
+            </li>
+         </ol>
     </p>
+</div>
 
-        <div>
-            <p>
-                Primero formamos el cociente diferencial para $\partial_xf(x_0,y_0) $:
-                $$
-                \frac{f(x_0+t,y_0)-f(x_0,y_0)}{t}=\frac{g(x_0+t)h(y_0)-g(x_0)h(x_0)}{t}.
-                $$
-                Factorizando $h(x_0)$ se sigue que
-                $$
-                \frac{f(x_0+t,y_0)-f(x_0,y_0)}{t}=\left( \frac{g(x_0+t)-g(x_0)}{t}\right) h(y_0)
-                $$
-                Reconocemos el cociente diferencial para $g$, así que al tomar límite
-                cuando $t\to 0$ concluimos
-                $$
-                \partial_xf(x_0,y_0)=g'(x_0)h(y_0)
-                $$
-           
-                La fórmula $\partial_yf(x_0,y_0)=g(x_0)h'(y_0)$ se prueba de manera similar.
-            </p>
-        </div>
-     
- </div>
-   
 
-   
- 
- <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
+
+
+<div class="nota-box"> 
+    <h2 class="number-title"> Nota</h2> 
     <p>
         Sea $f(x,y)$ una función de dos variables definida en un abierto de $\mathbb{R}^2$ y fija
         $(x_0,y_0)$ un punto en dicho abierto. Supongamos que $\partial_xf(x_0,y_0)$
@@ -1040,11 +125,11 @@
         $$
         g(x)=f(x,y_0), \quad h(y)=f(x_0,y)
         $$
-        Usando la definición de derivada parcial y derivada usual, demuestra que $g'(x_0)=\partial_x(x_0,y_0)$
+        Usando la definición de derivada parcial y derivada usual vamos a probar $g'(x_0)=\partial_x(x_0,y_0)$
         y $h'(y)=\partial_yf(x_0,y_0)$.     
     </p>
     <p>
-        Es decir, este ejercicio muestra que para calcular las derivadas parciales simplemente se
+        Es decir, para calcular las derivadas parciales simplemente se
         calcula la derivada uno dimensional, pensando  las otras variables como constantes. 
      
     </p>
@@ -1070,306 +155,1036 @@
                 $$
             </p>
         </div>
-</div>
-   
-
-   
-    <div class="ejercicio-box"> 
-        <h2 class="number-title"> Ejercicio</h2> 
-        <p> 
-            Para cada una de las siguientes funciones encuentra la derivada parcial en los puntos indicados.
-            <ol>
-                <li>
-                    $f(x,y)=xy+x^2$ en $(1,0)$ y en $(0,1)$.
-                </li>
-                <li>
-                    $f(x,y)=\log(\sqrt{1+x^2y^2})$ en $(1,0)$ y en $(1,1)$.
-                </li>
-                <li>
-                    $f(x,y)=(x^2+y^2)e^{x^2+y^2}$ en $(1,1)$ y en $(2,2)$.
-                </li>
-                <li>
-                    $f(x,y)=xy\cos(2x+y)$ en $(\frac{\pi}{2},0)$ y en $(0,\frac{\pi}{2})$.
-                </li>
-            </ol>
-        </p>
     </div>
 
-
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2>
     <p>
-        Para cada una de las siguientes funciones $f(x,y)$, encuentra el dominio de definición
-        de las funciones $\partial_xf(x,y)$ y $\partial_yf(x,y)$.
-    
-        <ol>
-            <li>
-                $f(x,y)=\log(x^2+y^2+1)$.
-            </li>
-            <li>
-                $f(x,y)=\frac{1}{\sqrt{x^2+y^2}}$.
-            </li>
-            <li>
-                $f(x,y)=y\sqrt{1-x^2-y^2}$.
-            </li>
-            <li>
-                $f(x,y)=\frac{x}{y}$.
-            </li>
-        </ol>
-        
+        Encuentra las dos derivadas  parciales de las siguientes funciones.
     </p>
-   </div>
+    <ol>
+        <li>
+            \(f(x,y)=x^4y^6-7x^2y^4\).
+        </li>
+        <li>
+            \(g(x,t)=\sqrt{t}\log(x^2)\).
+        </li>
+        <li>
+            \(h(x,y)=\frac{y}{(x+y)^2}\).
+        </li>
+        <li>
+            \(F(x,y)=\frac{ax+by}{cx+dy}\).
+        </li>
+        <li>
+            \(G(r,\theta)=r\sen(\theta)\).
+        </li>
+        <li>
+            \(H(u,v)=\frac{e^u}{e^v+e^{2u}}\).
+        </li>
+        <li>
+            \(f(\varphi,\psi)=\sqrt{(a-\varphi)^2+(\psi-b)^2}\).
+        </li>
+        <li>
+            \(g(x,y)=x^y\).
+        </li>
+        <li>
+            \(h(s,t)=s^{1/t}\).
+        </li>
+        <li>
+            \(F(x,y)=\int_x^y \cos(t^2+t)dt\).
+        </li>
+    </ol>
 
-
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-        <p>
-            Sea $D:\mathbb{R}\to \mathbb{R}$ la función de Dirichlet
-            $$
-            D(x)=\left\{
-            \begin{array}{cc}
-            1, & \textrm{$x$ racional.}\\
-            0, & \textrm{$x$ irracional.}
-            \end{array}
-            \right.	
-            $$
-           Define la función $f:\mathbb{R}^2 \to \mathbb{R}$ dada por $f(x,y)=y^2D(x)$.
-        </p>
-        <p>
-            <ol>
-                <li>
-                    Demuestra que, para todo puntos $(x_0,y_0)$, $\partial_yf(x_0,y_0)$ siempre existe y calcula su valor.
-                </li>
-                <li>
-                    Además, prueba que si $y_0\ne 0$, $\partial_xf(x_0,y_0)$ no existe y que para todo
-                    $x_0$, $\partial_yf(x_0,0)=0$. 
-                </li>
-            </ol>
-        
-        </p>
-  </div>    
-        
-    <div class="ejercicio-box"> 
-        <h2 class="number-title"> Ejercicio</h2> 
-         <p>
-            Considera la función $f:\mathbb{R}^2 \to \mathbb{R}$ dada por $f(x,y)=\sqrt[3]{x}\sqrt[3]{y}$. Demuestra
-            que $\partial_xf(0,0)=0=\partial_yf(0,0)$. Además, muestra que para toda $y_0\ne0$, $\partial_xf(0,y_0)$
-            no existe.
-         </p>
-
-         <div>
-            <p>
-                Para $\partial_xf(0,0)$, primero calculamos el cociente diferencial
-                $$
-                \frac{f(0+s,0)-f(0,0)}{s}=\frac{\sqrt[3]{s}\sqrt[3]{0}-\sqrt[3]{0}\sqrt[3]{0}}{s}=\frac{0}{s}=0
-                $$
-                Tomando límite cuando $s\to 0$ concluimos que $\partial_xf(0,0)=0$.
-            </p>
-            <p>
-                De manera similar
-                $$
-                \frac{f(0,0+t)-f(0,0)}{t}=\frac{\sqrt[3]{0}\sqrt[3]{t}-\sqrt[3]{0}\sqrt[3]{0}}{t}=\frac{0}{t}=0
-                $$
-                y al tomar límite cuanto $t\to 0$ se obtiene $\partial_yf(0,0)=0$.
-          
-                Ahora fijemos $y_0\ne 0$. Al formar el cociente diferencial para $\partial_xf(0,y_0)$
-                obtenemos
-                $$
-                \frac{f(0+s,y_0)-f(0,y_0)}{s}=\frac{\sqrt[3]{s}\sqrt[3]{y_0}-\sqrt[3]{0}\sqrt[3]{y_0}}{s}
-                =\frac{\sqrt[3]{s}}{s} \sqrt[3]{y_0}=
-                \frac{1}{s^{2/3}}\sqrt[3]{y_0}
-                $$
-                Ya que
-                $$\lim_{s\to 0} \frac{1}{s^{2/3}}\sqrt[3]{y_0}=+\infty, \quad   \textrm{si $y_0>0$}$$
-                y
-                $$\lim_{s\to 0} \frac{1}{s^{2/3}}\sqrt[3]{y_0}=-\infty, \quad  \textrm{si $y_0 < 0$}$$
-                la derivada parcial $\partial_xf(0,y_0)$ no existe.
-            </p>
-         </div>
-    </div>
-
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-        Considera la función $f(x,y)=|x+y|-|x-y|$.
-        <ol>
-            <li>
-                Demuestra que, para todos $x_0,y_0\in \mathbb{R}$
-                $$
-                \partial_xf(x_0,0)=0, \quad \partial_yf(0,y_0)=0.
-                $$
-            </li>
-            <li>
-                Demuestra que $\partial_xf(1,1)$ no existe.
-            </li>
-        </ol>
-    </p>
-  </div> 
-  
-  
-  <div class="nota-box"> 
-    <h2 class="number-title"> Nota </h2> 
-    <h3> interpretación geométrica</h3>
-    <p>
-
-        Las derivadas parciales tienen las siguiente interpretación geométrica.
-        Dada una función $f: U\to \mathbb{R}$, definida en un abierto,
-        <ol>
-            <li>
-                $\partial_xf(x_0,y_0)$ es la pendiente de la recta tangente
-                a la gráfica que se obtiene al cortar la gráfica de $f$ con el plano $y=y_0$.
-            </li>
-            <li>
-                $\partial_yf(x_0,y_0)$  es le pendiente de la recta tangente a la gráfica
-                que se obtiene al cortar la gráfica de $f$ con el plano $x=x_0$.
-            </li>
-        </ol>
-    </p>
-    <p>
-        Ejemplo.
-    </p>
-    <p>
-        Considera el paraboloide de revolución $f(x,y)=x^2+xy+y^2$.       
-    
-        <ol>
-            <li>
-                Define $g(x)=f(x,0)$. Nota que $g$ es una parábola y nota que $g'(x)=\partial_xf(x,0)$.
-                Así las pendientes de las rectas tangentes a  $g$  están dadas por $\partial_xf(x,0)$.
-            </li>
-            <li>
-                Define $h(y)=f(0,y)$. Nota que $h$ es una parábola y not que $h'(y)=\partial_yf(0,y)$.
-                Así las pendientes de las rectas tangentes a  $h$  están dadas por $\partial_yf(0,y)$.
-            </li>
-            <li>
-                De manera más general, dados $x_0, y_0$ define 
-                $$g_{y_0}(x):=f(x,y_0), \quad h_{x_0}(y)=f(x_0,y)$$
-                Nota que $g_{y_0}$ y $h_{x_0}$ son parábolas.
-                <p>
-                    Por $G(g_{y_0})$ y $G(h_{x_0})$ denotamos las gráficas de $g_{y_0}$ y $h_{y_0}$, respectivamente.
-                    Encuentra los puntos $(x_0, y_0)$, para las cuales las rectas tangentes a $G(g_{x_0})$
-                    y a $G(h_{y_0})$, que pasan por $(1,g_{y_0}(1))$ y $(1,h_{y_0}(1))$ respectivamente, tienen pendiente iguales.		       
-                </p>
-            </li>
-        </ol>
-    </p>
-  </div>
-
-
-        
-
-        
-
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-        Considera la función
-        $$
-        f(x,y)=\left\{
-          \begin{array}{cc}
-            \frac{\sen(x^2+y^2)}{x^2+y^2} & (x,y)\ne (0,0) \\
-            1 & (x,y)=(0,0)
-          \end{array}
-          \right.
-          $$
-          
-          Calcula $\partial_xf(0,0)$ y $\partial_yf(0,0)$.
-          
-    </p>
- </div>
-
-      
-
-    
-  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-        Para cada una de las siguientes funciones calcula $\partial_x\left( \int_0^x f(s,y)ds \right)$. 
-        ¿ Encuentras algún patron?:
-        <ol>
-            <li>
-                $f(x,y)=x^2+xy+y^2$,
-            </li>
-            <li>
-                $f(x,y)=e^{xy}$,
-            </li>
-            <li>
-                $f(x,y)=\cos(x+2y)$.
-            </li>
-        </ol>
-    </p>
- </div>
-
-  <div class="ejercicio-box"> 
-    <h2 class="number-title" id="Ejer:TFCyParciales"> Ejercicio</h2> 
-    <p>
-        Para cada una de las siguientes funciones calcula,  $\int_0^x(\partial_s f(s,y))ds$.
-        ¿ Encuentras algún patron?
-     
-         <ol>
-             <li>
-                 $f(x,y)=x^3y^2+xy+x^2y$
-             </li>
-             <li>
-                 $f(x,y)=e^{x^2+y}$
-             </li>
-             <li>
-                 $f(x,y)=\sen(xy)$
-             </li>
-         </ol>
-    </p>
 </div>
 
-    
-   
+ <div class="nota-box">
+    <h2 class="number-title"> Notas </h2>
+        <ol>
+        <li>
+            Dependiendo de las variables independientes la notación de parciales puede cambiar. Por
+            ejemplo, si tenemos una función $f(x_1,x_2)$, las parciales se denotan $\partial_{x_1}f$
+            y $\partial_{x_2}f$ o si es  $f(r,\theta)$ tendríamos $\partial_r f$, $\partial_\theta f$.
+        </li>
+        <li>
+            Para cada punto $(x_0,y_0)$,  al  calcular las  parciales
+            $$\partial_xf(x_0,y_0), \quad \partial_{y}f(x_0,y_0)$$
+            obtenemos  números reales. Pero,   si pensamos a $(x_0,y_0)$ variando en un dominio y
+            lo denotamos $(x,y)$ (notación de variable), obtenemos funciones
+            $$\partial_xf(x,y),\quad \partial_yf(x,y)$$
+       
+        </li>
+        <li>
+            Note que en las expresiones
+            anteriores las $x$ que aparecen son distintas. La de la parcial indica con respecto a qué
+            variable se diferencia y la otra indica en qué punto se está evaluando. Asi por ejemplo
+            si $\partial_xf(x,y)=6x-2y$ entonces  $\partial_xf(3,5)=6(3)-2(5)=8$, sin embargo $\partial_3f(x,y)$
+            o $\partial_3f(3,5)$ no tienen sentido.
+        </li>
+        </ol>
+ </div>
+
+
+
 <div class="ejercicio-box"> 
     <h2 class="number-title"> Ejercicio</h2> 
+    <p> 
+        Para cada una de las siguientes funciones encuentra la derivada parcial en los puntos indicados.
+        <ol>
+            <li>
+                $f(x,y)=xy+x^2$ en $(1,0)$ y en $(0,1)$.
+            </li>
+            <li>
+                $f(x,y)=\log(\sqrt{1+x^2y^2})$ en $(1,0)$ y en $(1,1)$.
+            </li>
+            <li>
+                $f(x,y)=(x^2+y^2)e^{x^2+y^2}$ en $(1,1)$ y en $(2,2)$.
+            </li>
+            <li>
+                $f(x,y)=xy\cos(2x+y)$ en $(\frac{\pi}{2},0)$ y en $(0,\frac{\pi}{2})$.
+            </li>
+        </ol>
+    </p>
+</div>
+
+
+<div class="ejercicio-box"> 
+<h2 class="number-title"> Ejercicio</h2> 
+<p>
+    Sean $g,h:\mathbb{R}\to \mathbb{R}$ funciones de una variable, ambas diferenciables,  y define $f(x,y)=g(x)h(y)$.
+    Fija un punto $(x_0,y_0)$. Demuestra que
+    $$
+    \partial_xf(x_0,y_0)=g'(x_0)h(y_0), \quad \partial_yf(x_0,y_0)=g(x_0)h'(y_0).
+    $$
+</p>
+    <button class="respButton hvr-grow "> Solución </button>
+    <div class="resp-box">
         <p>
-            Este ejercicio generaliza al ejercicio \ref{Ejer:TFCyParciales}. Usa el Teorema Fundamental para probar
-            que $\int_0^x(\partial_s f(s,y))ds=f(x,y)-f(0,y)$.        
+            Primero formamos el cociente diferencial para $\partial_xf(x_0,y_0) $:
+            $$
+            \frac{f(x_0+t,y_0)-f(x_0,y_0)}{t}=\frac{g(x_0+t)h(y_0)-g(x_0)h(x_0)}{t}.
+            $$
+            Factorizando $h(x_0)$ se sigue que
+            $$
+            \frac{f(x_0+t,y_0)-f(x_0,y_0)}{t}=\left( \frac{g(x_0+t)-g(x_0)}{t}\right) h(y_0)
+            $$
+            Reconocemos el cociente diferencial para $g$, así que al tomar límite
+            cuando $t\to 0$ concluimos
+            $$
+            \partial_xf(x_0,y_0)=g'(x_0)h(y_0)
+            $$
+       
+            La fórmula $\partial_yf(x_0,y_0)=g(x_0)h'(y_0)$ se prueba de manera similar.
         </p>
-   </div>
+    </div>
+ 
+</div>
 
-    
 
 
+
+
+
+
+
+<div class="ejercicio-box"> 
+<h2 class="number-title"> Ejercicio</h2> 
+<p>
+    Para cada una de las siguientes funciones $f(x,y)$, encuentra el dominio de definición
+    de las funciones $\partial_xf(x,y)$ y $\partial_yf(x,y)$.
+
+    <ol>
+        <li>
+            $f(x,y)=\log(x^2+y^2+1)$.
+        </li>
+        <li>
+            $f(x,y)=\frac{1}{\sqrt{x^2+y^2}}$.
+        </li>
+        <li>
+            $f(x,y)=y\sqrt{1-x^2-y^2}$.
+        </li>
+        <li>
+            $f(x,y)=\frac{x}{y}$.
+        </li>
+    </ol>
     
+</p>
+<button class="respButton hvr-grow "> Solución</button>
+<div class="resp-box">
+    <p>
+        Sabemos que si existen las derivadas parciales entonces se pueden calcular derivando respecto a una
+        de las variables y tratando a las demás como constantes. Adicionalmente, dado que el cociente diferencial
+        contiene el término $f(x_0,y_0)$ es necesario que la función esté definida en dicho punto, por lo que
+        empezaremos con el dominio de las funciones propuestas y se trabajará únicamente con puntos interiores de
+        dichos dominios
+    </p>
+    <ol>
+        <li>
+            La función $\log$ está definida en $\mathbb{R}_{>0}$ y es diferenciable en todo su dominio. Usando la
+            regla de la cadena y el hecho de que $f$ es simétrica respecto a sus variables tenemos que para
+            $(x_0,y_0) \in \mathbb{R}^2$
+            \begin{align*}
+            \partial_x f(x_0,y_0) =& \frac{2x_0}{x_0^2+y_0^2 + 1},\\
+            \partial_y f(x_0,y_0) =& \frac{2y_0}{x_0^2+y_0^2 + 1}.
+            \end{align*}
+            Adicionalmente, notamos que para $s$ suficientemente chica el cociente diferencial
+            \begin{equation*}
+            \frac{f(x_0+s,y_0) - f(x_0,y_0)}{s}
+            \end{equation*}
+            está bien definido y coincide con el de la función real de variable real $\log(x^2+b)$ para algún
+            número $b \geq 1$. Con ello concluimos que el dominio de $\partial_x f$ y $\partial_y f$ es
+            \mathbb{R}^2.
+        </li>
+        <li>
+            Empezamos por notar que la función $f$ está definida en $\mathbb{R}^2 \setminus \{(0,0)\}$ y que
+            dicho conjunto es abierto. Las derivadas parciales están dadas por
+            \begin{align*}
+            \partial_x f(x_0,y_0) =& \frac{-1}{2}(x_0^2 + y_0^2)^{-3/2}2x_0,\\
+            =& \frac{-x_0}{(x_0^2 + y_0^2)^{3/2}},
+            \end{align*}
+            ésto está bien definido en puntos distintos a $(0,0)$ y si repetimos el argumento del primer inciso,
+            en el que estamos calculando el límite del cociente
+            \begin{equation*}
+            \frac{f(x_0+s,y_0)-f(x_0,y_0)}{s}
+            \end{equation*}
+            podemos observar que éste corresponde al cociente diferencial de una función real de variable real.
+            Concluimos que $\partial_x f$ y $\partial_y f$ están definidas en $\mathbb{R}^2 \setminus \{(0,0)\}$.
+        </li>
+        <li>
+            Debido a que la raíz cuadrada únicamente está definida en $\mathbb{R}_{\geq 0}$ tenemos que $f$
+            únicamente está definida para $(x^2 + y^2) \leq 1$, o equivalentemente, para $\|(x,y)\|\leq 1$. Como
+            se deben considerar puntos interiores de este conjunto entonces tenemos que las derivadas parciales
+            están definidas, a lo más, dentro de la bola unitaria $\|(x,y)\|<1$. Se tiene que
+            \begin{align*}
+            \partial_x f(x_0,y_0) =& y_0 \left[\frac{1}{2}(1-x_0^2-y_0^2)^{-1/2}(-2x_0) \right],\\
+            =& \frac{-x_0y_0}{\sqrt{1 - x_0^2 - y_0^2}},\\
+            \partial_y f(x_0,y_0) =& \sqrt{1-x_0^2-y_0^2} + (y_0)(-2y_0)\frac{1}{2}(1-x_0^2-y_0^2)^{-1/2},\\
+            =& \sqrt{1-x_0^2-y_0^2} - \frac{y_0^2}{\sqrt{1-x_0^2-y_0^2}}.
+            \end{align*}
+            Siguiendo los argumentos anteriores notamos que éstas están definidas en todo el dominio de la función $f$.
+        </li>
+        <li>
+            La función $f$ está definida si $y \neq 0$ y al calcular las derivadas parciales tenemos
+            \begin{align*}
+            \partial_x f(x_0,y_0) =& \frac{1}{y_0},\\
+            \partial_y f(x_0,y_0) =& \frac{-x_0}{y_0^2}. 
+            \end{align*}
+            De la misma manera, éstas están bien definidas si en $\{(x,y) \in \mathbb{R}^2:y \neq 0\}$.
+        </li>
+    </ol>
+</div>
+</div>
+
+
+<div class="ejercicio-box"> 
+<h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Sea $D:\mathbb{R}\to \mathbb{R}$ la función de Dirichlet
+        $$
+        D(x)=\left\{
+        \begin{array}{cc}
+        1, & \textrm{$x$ racional.}\\
+        0, & \textrm{$x$ irracional.}
+        \end{array}
+        \right.	
+        $$
+       Define la función $f:\mathbb{R}^2 \to \mathbb{R}$ dada por $f(x,y)=y^2D(x)$.
+    </p>
+    <p>
+        <ol>
+            <li>
+                Demuestra que, para todo puntos $(x_0,y_0)$, $\partial_yf(x_0,y_0)$ siempre existe y calcula su valor.
+            </li>
+            <li>
+                Además, prueba que si $y_0\ne 0$, $\partial_xf(x_0,y_0)$ no existe y que para todo
+                $x_0$, $\partial_yf(x_0,0)=0$. 
+            </li>
+        </ol>
     
-      <div class="definicion-box">
-        <h2 class="number-title"> Definición </h2> 
+    </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
         <p>
-            Sea $f(p)$ una función de n-variables, $p=(p_1,\dots, p_n)$ ,definida en un abierto en $\mathbb{R}^n$.Fija
-            $j\in\{1,\dots,n\}$. La derivada parcial de $f$, con respecto a la variable $p_j$ (también llamada  la j-ésima derivada
-            parcial), valuada en $p$ se define como
-            $$
-            \partial_{p_j}f(p)=\lim_{h\to 0} \frac{f(p+he_j)-f(p)}{h}
-            $$
-            donde $\{e_1,\dots, e_1\}$ es la base canónica de $\mathbb{R}^n$.
+            <ol>
+                <li>
+                    Sea $(x_0,y_0) \in \mathbb{R}^2$. Notemos que la función $y \mapsto y^2$ es diferenciable, sin embargo la función
+                    de Dirichlet $D(x)$ no lo es por lo que es necesario considerar el cociente diferencial para encontrar las derivadas
+                    parciales:
+                    \begin{align*}
+                    \frac{f(x_0,y_0 + s)- f(x_0,y_0)}{s}=& \frac{(y_0+s)^2 D(x_0) - y_0^2 D(x_0)}{s},\\
+                    =& \frac{(y_0+s)^2 - y_0^2}{s}D(x_0),\\
+                    =& \frac{2y_0s + s^2}{s}D(x_0),\\
+                    =& [2y_0 + s]D(x_0).
+                    \end{align*}
+                    Podemos reconocer que el factor izquierdo corresponde al cociente diferencial de la función $y \to y^2$ en el punto
+                    $y_0$ y el derecho es constante respecto a $s$, por lo que el límite de ambos existe y por tanto también el del producto.
+                    Más aún,
+                    \begin{equation*}
+                    \partial_x f(x_0,y_0) = 2y_0D(x_0).
+                    \end{equation*}
+                </li>
+                <li>
+                    Sea $y_0 \neq 0$. Comenzamos por escribir el cociente diferencial de la función para la derivada parcial respecto a $x$,
+                    \begin{equation*}
+                    \frac{f(x_0 + s,y_0)-f(x_0,y_0)}{s} = y_0^2\frac{D(x_0+s)-D(x_0)}{s}.
+                    \end{equation*}
+                    Empezaremos por considerar el caso en que $x_0 \in \mathbb{Q}$ y el caso restante será similar salvo por algunos detalles.
+                    <p>
+                        Si $s \in \mathbb{Q}$ entonces $x_0 + s \in \mathbb{Q}$ y se tiene que $f(x_0 + s,y_0) - f(x_0,y_0) = 1-1 = 0$, de manera
+                        que 0 es candidato para ser límite del cociente. Veamos que el límite no existe. Sea $\epsilon =1$, para cada
+                        $s \in \mathbb{R}\setminus\mathbb{Q}$ se observa que $x_0 + s \notin \mathbb{Q}$, por lo que $f(x_0 + s,y_0) - f(x_0,y_0) = -1$.
+                        Como $y_0 \neq 0$ entonces podemos considerar $s$ tal que $0 < |s| < y_0^2$, de manera que para cada $\delta>0$, cada
+                        número irracional $s$ tal que $0<|s| < \min (\delta,y_0^2)$ satisface que
+                        \begin{equation*}
+                        \left |y_0^2\frac{D(x_0+s)-D(x_0)}{s} \right |= \left | y_0^2\frac{-1}{s} \right | > 1,
+                        \end{equation*}
+                        con lo cual se concluye que el límite cuando $s \to 0$ no existe y por lo tanto $\partial_xf(x_0,y_0)$ no existe.
+                        El caso en que se toma $x_0 \notin \mathbb{Q}$ es similar. Por un lado se considera $s \in \mathbb{Q}$ de manera que
+                        $x_0$ y $x_0 + s$ sean números irracionales para que la diferencia en el numerador sea 0, y por el otro se considera
+                        $s$ tal que $0<|s|<\min (y_0^2, \delta)$ de manera que $x_0 + s \in \mathbb{Q}$ y el valor absoluto del cociente sea
+                        mayor que 1.
+                    </p>
+                    <p>
+                        Finalmente
+                        \begin{align*}
+                        \frac{f(x_0,0 + s)-f(x_0,0}{s} =& \frac{s^2D(x_0) - 0^2D(x_0)}{s},\\
+                        =& \frac{s^2D(x_0)}{s},\\
+                        =&sD(x_0).
+                        \end{align*}
+                        De esta manera $\partial_y f(x_0,0)=0$.
+                    </p>
+                </li>
+            </ol>
         </p>
-               
-      </div>
+    </div>
+</div>    
+    
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+     <p>
+        Considera la función $f:\mathbb{R}^2 \to \mathbb{R}$ dada por $f(x,y)=\sqrt[3]{x}\sqrt[3]{y}$. Demuestra
+        que $\partial_xf(0,0)=0=\partial_yf(0,0)$. 
+     </p>
+     <p>
+        Además, muestra que para toda $y_0\ne0$, $\partial_xf(0,y_0)$
+        no existe.
+     </p>
 
-        <div class="ejercicio-box"> 
-            <h2 class="number-title"> Ejercicio</h2> 
+     <button class="respButton hvr-grow "> Solución</button>
+        <div class="resp-box">
+        <p>
+            Para $\partial_xf(0,0)$, primero calculamos el cociente diferencial
+            $$
+            \frac{f(0+s,0)-f(0,0)}{s}=\frac{\sqrt[3]{s}\sqrt[3]{0}-\sqrt[3]{0}\sqrt[3]{0}}{s}=\frac{0}{s}=0
+            $$
+            Tomando límite cuando $s\to 0$ concluimos que $\partial_xf(0,0)=0$.
+        </p>
+        <p>
+            De manera similar
+            $$
+            \frac{f(0,0+t)-f(0,0)}{t}=\frac{\sqrt[3]{0}\sqrt[3]{t}-\sqrt[3]{0}\sqrt[3]{0}}{t}=\frac{0}{t}=0
+            $$
+            y al tomar límite cuanto $t\to 0$ se obtiene $\partial_yf(0,0)=0$.     
+        </p>
+        <p>
+            Ahora fijemos $y_0\ne 0$. Al formar el cociente diferencial para $\partial_xf(0,y_0)$
+            obtenemos
+            $$
+            \frac{f(0+s,y_0)-f(0,y_0)}{s}=\frac{\sqrt[3]{s}\sqrt[3]{y_0}-\sqrt[3]{0}\sqrt[3]{y_0}}{s}
+            =\frac{\sqrt[3]{s}}{s} \sqrt[3]{y_0}=
+            \frac{1}{s^{2/3}}\sqrt[3]{y_0}
+            $$
+            Ya que
+            $$\lim_{s\to 0} \frac{1}{s^{2/3}}\sqrt[3]{y_0}=+\infty, \quad   \textrm{si $y_0>0$}$$
+            y
+            $$\lim_{s\to 0} \frac{1}{s^{2/3}}\sqrt[3]{y_0}=-\infty, \quad  \textrm{si $y_0 < 0$}$$
+            la derivada parcial $\partial_xf(0,y_0)$ no existe.
+ 
+        </p>
+     </div>
+</div>
+
+<div class="ejercicio-box"> 
+<h2 class="number-title"> Ejercicio</h2> 
+<p>
+    Considera la función $f(x,y)=|x+y|-|x-y|$.
+    <ol>
+        <li>
+            Demuestra que, para todos $x_0,y_0\in \mathbb{R}$
+            $$
+            \partial_xf(x_0,0)=0, \quad \partial_yf(0,y_0)=0.
+            $$
+        </li>
+        <li>
+            Demuestra que $\partial_xf(1,1)$ no existe.
+        </li>
+    </ol>
+</p>
+</div> 
+
+
+<div class="nota-box"> 
+<h2 class="number-title"> Nota </h2> 
+<h3> Interpretación geométrica</h3>
+<p>
+
+    Las derivadas parciales tienen las siguiente interpretación geométrica.
+    Dada una función $f: U\to \mathbb{R}$, definida en un abierto,
+    <ol>
+        <li>
+            $\partial_xf(x_0,y_0)$ es la pendiente de la recta tangente
+            a la gráfica que se obtiene al cortar la gráfica de $f$ con el plano $y=y_0$.
+        </li>
+        <li>
+            $\partial_yf(x_0,y_0)$  es le pendiente de la recta tangente a la gráfica
+            que se obtiene al cortar la gráfica de $f$ con el plano $x=x_0$.
+        </li>
+    </ol>
+</p>
+<p>
+    Ejemplo.
+</p>
+<p>
+    Considera el paraboloide de revolución $f(x,y)=x^2+xy+y^2$.       
+
+    <ol>
+        <li>
+            Define $g(x)=f(x,0)$. Nota que $g$ es una parábola y nota que $g'(x)=\partial_xf(x,0)$.
+            Así las pendientes de las rectas tangentes a  $g$  están dadas por $\partial_xf(x,0)$.
+        </li>
+        <p>
+            <div class="flexbox" >
+                <img src="./Images/S7-Img1.png" alt="InterseccionYZ" width="40%" height="auto" >
+              </div>
+        </p>
+        
+        <li>
+            Define $h(y)=f(0,y)$. Nota que $h$ es una parábola y not que $h'(y)=\partial_yf(0,y)$.
+            Así las pendientes de las rectas tangentes a  $h$  están dadas por $\partial_yf(0,y)$.
+        </li>
+        <p>
+            <div class="flexbox">
+                <img src="./Images/S7-Img2.png" alt="InterseccionXZ" width="40%" height="auto">
+              </div>
+        </p>
+        
+        <li>
+            De manera más general, dados $x_0, y_0$ define 
+            $$g_{y_0}(x):=f(x,y_0), \quad h_{x_0}(y)=f(x_0,y)$$
+            Nota que $g_{y_0}$ y $h_{x_0}$ son parábolas y que las pendientes a las rectas tangentes 
+            de las gráficas de \(g_{y_0}(x)\) y \(h_{x_0}(y)\) están dadas por \(\partial_{x}f(x,y_0)\) 
+            y \(\partial_yf(y,x_0)\).
+        </li>
+    </ol>
+</p>
+</div>
+
+
+    
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+        Considera el paraboloide de revolución $f(x,y)=x^2+xy+y^2$. Fija \(x_0,y_0\) y define $g(x)=f(x,y_0)$,
+        \(h(y)=f(x_0,y)\).       
+    </p>
+    <p>
+        Por $G(g)$ y $G(h)$ denotamos las gráficas de $g$ y $h$, respectivamente.
+        Encuentra los puntos $(x_0, y_0)$, para las cuales las rectas tangentes a $G(g)$
+        y a $G(h)$, que pasan por $(x_0,g(x_0))$ y $(y_0,h(y_0))$ respectivamente, tienen pendiente iguales.		       
+    </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+    <p>
+        Las pendientes están dadas por las derivadas asi que buscamos los puntos donde 
+        \(g'=h'\) pero sabemos que \(g'=\partial_xf\), \(h'=\partial_y\), así que buscamos puntos
+        \((x_0,y_0)\) donde 
+        \[
+            \partial_xf(x_0,y_0)=\partial_yf(x_0,y_0).
+        \]
+        Un cálculo directo prueba 
+        \[
+        \partial_xf(x,y)=2x+y, \quad \partial_yf(x,y)=x+2y
+        \] 
+        así que debemos de encontrar los puntos que satisfagan 
+        \[
+        2x_0+y_0=x_0+2y_0 \Leftrightarrow x_0=y_0
+        \]
+        Así que todos los puntos de la recta identidad son los puntos donde las pendientes
+        de las rectas tangentes son iguales.
+    </p>
+    <p>
+        Gráficamente lo anterior dice que las pendientes de las rectas tangentes en el punto de intersección de las 
+        curvas son iguales siempre  y cuando la recta de intersección de los planos pasa por la recta identidad que se dibuja en el piso.
+        <div class="flexbox">
+            <img src="./Images/S7-Img3.png" alt="InterseccionPlanosCoordenados" width="40%" height="auto">
+          </div>
+    </p>
+    </div>
+
+</div>
+
+    
+
+<div class="ejercicio-box"> 
+<h2 class="number-title"> Ejercicio</h2> 
+<p>
+    Considera la función
+    $$
+    f(x,y)=\left\{
+      \begin{array}{cc}
+        \frac{\sen(x^2+y^2)}{x^2+y^2} & (x,y)\ne (0,0) \\
+        1 & (x,y)=(0,0)
+      \end{array}
+      \right.
+      $$
+      
+      Calcula $\partial_xf(0,0)$ y $\partial_yf(0,0)$.
+      
+</p>
+<button class="respButton hvr-grow "> Solución</button>
+<div class="resp-box">
+    <p>
+        Comencemos por notar que existe simetría entre las variables de la función $f(x,y)$. Lo que hagamos
+        para calcular $\partial_x f(0,0)$ será válido para la otra derivada parcial. Escribimos primero el
+        cociente diferencial
+        \begin{align*}
+        \frac{f(s,0)-f(0,0)}{s}=& \frac{\frac{\sen(s^2)}{s^2}-1}{s},\\
+        =& \frac{\sen(s^2) - s^2}{s^2},
+        \end{align*}
+        notamos que el límite del numerador y del denominador son 0 cuando $s \to 0$ y que ambos
+        son diferenciables alrededor del 0, por lo que podemos aplicar la regla de L'Hôpital,
+        \begin{equation*}
+        \frac{2s\cos(s^2) - 2s)}{3s^2} = \frac{2}{3}\left( \frac {\cos(s^2) - 1}{s}\right),
+        \end{equation*}
+        una vez más notamos que los límites del numerador y denominador son 0 y que las funciones son diferenciables
+        alrededor del 0 por lo que aplicamos la regla de L'Hôpital una vez más al factor del lado derecho para obtener
+        la expresión,
+        \begin{equation*}
+        \frac{-2s\sen(s^2)}{1},
+        \end{equation*}
+        como el límite de ésta cuando $s \to 0$ es 0, entonces concluimos que $\partial_x f(0,0) = 0$ y por el argumento
+        de simetría también se tiene que $\partial_y f(0,0) = 0$.
+    </p>
+</div>
+</div>
+
+  
+
+
+<div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> 
+<p>
+    Para cada una de las siguientes funciones calcula $\partial_x\left( \int_0^x f(s,y)ds \right)$. 
+    ¿ Encuentras algún patron?:
+    <ol>
+        <li>
+            $f(x,y)=x^2+xy+y^2$,
+        </li>
+        <li>
+            $f(x,y)=e^{xy}$,
+        </li>
+        <li>
+            $f(x,y)=\cos(x+2y)$.
+        </li>
+    </ol>
+</p>
+</div>
+
+<div class="ejercicio-box"> 
+<h2 class="number-title" id="Ejer:TFCyParciales"> Ejercicio</h2> 
+<p>
+    Para cada una de las siguientes funciones calcula,  $\int_0^x(\partial_s f(s,y))ds$.
+    ¿ Encuentras algún patron?
+ 
+     <ol>
+         <li>
+             $f(x,y)=x^3y^2+xy+x^2y$
+         </li>
+         <li>
+             $f(x,y)=e^{x^2+y}$
+         </li>
+         <li>
+             $f(x,y)=\sen(xy)$
+         </li>
+     </ol>
+</p>
+</div>
+
+
+
+<div class="ejercicio-box"> 
+<h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Este ejercicio generaliza al ejercicio <a href="#Ejer:TFCyParciales">Ejercicio 7.15</a>. Usa el Teorema Fundamental para probar
+        que 
+        \[\int_0^x(\partial_s f(s,y))ds=f(x,y)-f(0,y)\]
+    </p>
+</div>
+
+
+
+
+
+
+  <div class="definicion-box">
+    <h2 class="number-title"> Definición </h2> 
+    <p>
+        Sea $f(p)$ una función de n-variables, $p=(p_1,\dots, p_n)$ ,definida en un abierto en $\mathbb{R}^n$.Fija
+        $j\in\{1,\dots,n\}$. La derivada parcial de $f$, con respecto a la variable $p_j$ (también llamada  la j-ésima derivada
+        parcial), valuada en $p$ se define como
+        $$
+        \partial_{p_j}f(p)=\lim_{h\to 0} \frac{f(p+he_j)-f(p)}{h}
+        $$
+        donde $\{e_1,\dots, e_1\}$ es la base canónica de $\mathbb{R}^n$.
+    </p>
+           
+  </div>
+
+    <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio</h2> 
+        <p>
+            Para cada una de las siguientes funciones encuentra la derivada parcial con respecto a la variable indicada.
+            <ol>
+               <li>
+                   $f(p)=\sum_{i=1}^n p_i^2$. Calcular $\partial_{p_j}f(p)$.
+               </li>
+               <li>
+                   $f(x)=\langle x, y \rangle$, donde $x=(x_1,\dots, x_n)$ y $y=(y_1,\dots, y_n)$ es un vector fijo. 
+                   Calcular  $\partial_{x_j}f(x)$. ¿ La notación $\partial_{y_j}f(x)$ 
+                   tiene sentido en este ejemplo?
+               </li>
+               <li>
+                   $f(z)=\left( \sum_{i=1}^n \log(z_i^2+1) \right)^2$, donde $z=(z_1,\dots, z_n)$. Calcular $\partial_{z_j}f(z)$.
+               </li>
+               <li>
+                   $f(x,y,z)=100x^{1/2}y^{1/4}z^{1/5}$. Calcular $\partial_xf(x,y,z), \partial_yf(x,y,z)$ y $\partial_zf(x,y,z)$.
+               </li>
+            </ol>
+
+        </p>
+        <button class="respButton hvr-grow "> Solución 1</button>
+        <div class="resp-box">
             <p>
-                Para cada una de las siguientes funciones encuentra la derivada parcial con respecto a la variable indicada.
-                <ol>
-                   <li>
-                       $f(p)=\sum_{i=1}^n p_i^2$. Calcular $\partial_{p_j}f(p)$.
-                   </li>
-                   <li>
-                       $f(x)=\langle x, y \rangle$, donde $x=(x_1,\dots, x_n)$ y $y=(y_1,\dots, y_n)$ es un vector fijo. 
-                       Calcular  $\partial_{x_j}f(x)$. ¿ La notación $\partial_{y_j}f(x)$ 
-                       tiene sentido en este ejemplo?
-                   </li>
-                   <li>
-                       $f(z)=\left( \sum_{i=1}^n \log(z_i^2+1) \right)^2$, donde $z=(z_1,\dots, z_n)$. Calcular $\partial_{z_j}f(z)$.
-                   </li>
-                   <li>
-                       $f(x,y,z)=100x^{1/2}y^{1/4}z^{1/5}$. Calcular $\partial_xf(x,y,z), \partial_yf(x,y,z)$ y $\partial_zf(x,y,z)$.
-                   </li>
-                </ol>
-   
-            </p>    
+                \begin{align*}
+                \partial_{p_j}f(p) =& \lim_{s \to 0} \frac{f(p+se_j)-f(p)}{s},\\
+                =& \lim_{s\to 0} \frac{(p_1^2 + \ldots + (p_j+s)^2+ \ldots + p_n^2 - \sum_{i=1}^n p_i^2}{s},\\
+                =& \lim_{s \to 0} \frac{(p_j + s)^2 - p_j^2}{s},\\
+                =& \lim_{s \to 0} 2p_j + s,\\
+                =& 2p_j.
+                \end{align*}
+                Notamos que éstas derivadas son completamente análogas al caso bidimensional e incluso
+                podemos reescribir
+                \begin{equation*}
+                f(p + se_j) = f(p_1,p_2,\ldots,p_j + s,\ldots,p_n).
+                \end{equation*}
+                Así, podemos hacer la misma observación que se hizo anteriormente, si $\partial_{p_j}f(p)$ existe,
+                entonces la podemos calcular como la derivada de dimensión 1 respecto de la variable $p_j$, tratando
+                al resto de las variables como constantes (con respecto a $p_j$).
+            </p>
         </div>
--->
+        <button class="respButton hvr-grow "> Solución 3</button>
+        <div class="resp-box">
+            <p>
+                Usando la regla de la cadena y las observaciones hechas en el primer inciso se tiene que
+                \begin{align*}
+                \partial_{z_j}f(z) =& 2 \left( \sum_{i=1}^n \log(z_i^2 + 1)\right)\frac{1}{z_j^2+1}2z_j,\\
+                =& 4 \frac{z_j}{z_j^2 + 1}\sum_{i=1}^n \log(z_i^2 + 1).
+                \end{align*}
+            </p>
+        </div>
+    </div>
 
- </body>
+
+    <div class="nota-box">
+        <h2 class="number-title"> Derivadas de orden superior</h2>
+        <p>
+            Considerando las derivadas parciales, \(\partial_x f(x,y), \partial_yf(x,y)\), como funciones
+            podemos a su vez tomar sus derivadas parciales las cuales se llaman derivadas parciales de segundo orden.
+            En notación 
+            \begin{eqnarray*} 
+                \partial_{x^2}f=\partial_x(\partial_x f)=\frac{\partial^2 f}{\partial x^2}\\
+                \partial_{y^2}f=\partial_y(\partial_y f)=\frac{\partial^2 f}{\partial y^2}\\
+                \partial_{xy}f=\partial_x(\partial_y f)=\frac{\partial^2 f}{\partial x \partial y}\\
+                \partial_{yx}f=\partial_y(\partial_x f)=\frac{\partial^2 f}{\partial y \partial x}
+            \end{eqnarray*}
+        </p>
+        <p>
+            Por ejemplo, para \(f(x,y)=2y^3-yx^2+y^3x^3\),
+            \begin{eqnarray*} 
+            \partial_{x^2}f&=&\partial_x(\partial_xf)=\partial_x(-2yx+3y^3x^2)=-2y+6y^3x\\
+            \partial_{y^2}f&=&\partial_y(\partial_y f)=\partial_y(6y^2-x^2+3y^2x^3)= 12y+6yx^3\\
+            \partial_{xy}f&=&\partial_x(\partial_y f)=\partial_x(6y^2-x^2+3y^2x^3)=-2x+9y^2x^2\\
+            \partial_{yx}f&=&\partial_y(\partial_x f)=\partial_y(-2yx+3y^3x^2)=-2x+9y^2x^2
+            \end{eqnarray*}
+        </p>
+
+
+    </div>
+
+    <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+            Encuentra todas las segundas derivadas parciales de las siguientes funciones.
+        </p>
+        <ol>
+            <li>
+                \(f(x,y)=x^{10}y^9-x^{5}y^4\).
+            </li>
+            <li>
+                \(f(s,t)=\cos^2(as+bt)\).
+            </li>
+            <li>
+                \(f(z,w)=\arctan\left( \frac{x+y}{1-xy} \right)\).
+            </li>
+            <li>
+                \(f(u,v)=e^{ue^{uv}}\).
+            </li>
+        </ol>
+
+        <button class="respButton hvr-grow "> Solución 1</button>
+        <div class="resp-box">
+            <p>
+                Empezamos por calcular $\partial_x f$ y $\partial_y f$.
+                \begin{align*}
+                \partial_x f =& 10x^9y^9 - 5x^4y^4,\\
+                \partial_y f =& 9x^10y^8 - 4x^5y^3.
+                \end{align*}
+                Por lo tanto
+                \begin{align*}
+                \partial_{x^2}f = 90x^8y^9 - 20x^3y^4,\\
+                \partial_{xy} f= 90x^9y^8 - 20x^4y^3,\\
+                \partial_{yx}f = 90x^9y^8 - 20x^4y^3,\\
+                \partial_{y^2}f = 72x^{10}y^7 - 12x^5y^2.
+                \end{align*}
+            </p>
+        </div>
+        <button class="respButton hvr-grow "> Solución 3</button>
+        <div class="resp-box">
+            <p>
+                Usando la regla de la cadena
+                \begin{align*}
+                \partial_x f =& \frac{1}{1 + \left( \frac{x+y}{1-xy}\right)^2} \left[ \frac{1}{1-xy} - \frac{(-y)(x+y)}{(1-xy)^2}\right],\\
+                =& \frac{1}{\frac{(1-xy)^2 + (x+y)^2}{(1-xy)^2}} \frac{(1-xy) + y(x+y)}{(1-xy)^2},\\
+                =& \frac{(1-xy)^2}{(1-xy)^2 + (x+y)^2} \frac{(1-xy) + y(x+y)}{(1-xy)^2},\\
+                =& \frac{1 -xy + y(x+y)}{(1-xy)^2 + (x+y)^2},\\
+                =& \frac{1 + y^2}{1 + (xy)^2 + x^2 + y^2},\\
+                =& \frac{1+y^2}{(1+y^2)(x^2+1)},\\
+                =& \frac{1}{x^2 + 1}.
+                \end{align*}
+                Usando un argumento de simetría también se tiene que $\partial_y f = \frac{1}{y^2+1}$.
+                De lo anterior se tiene que
+                \begin{align*}
+                \partial_{x^2} =& \frac{-2x}{(1+x^2)^2},\\
+                \partial_{xy} =& 0,\\
+                \partial_{yx} =& 0,\\
+                \partial_{y^2} =& \frac{-2y}{(1+y^2)^2}.
+                \end{align*}
+            </p>
+        </div>
+    </div>
+
+
+    <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+            Comprueba que la función \(u(x,y,z)=\frac{1}{\sqrt{x^2+y^2+z^2}}\) es una solución 
+            de la ecuación de Laplace: 
+            \[
+            \partial_x^2 u + \partial_y^2 u + \partial_z^2 u = 0.
+            \]
+        </p>
+        <button class="respButton hvr-grow "> Solución</button>
+        <div class="resp-box">
+        <p>
+            Primero calculamos la 1a derivada parcial con respecto a \(x\):
+            \begin{eqnarray*} 
+            \partial_x\left( \frac{1}{\sqrt{x^2+y^2}}\right)&=& \partial_x((x^2+y^2+z^2)^{-1/2})\\
+            &=& -\frac{1}{2}(x^2+y^2+z^2)^{-3/2}(2x) \\
+            &=& \frac{-x}{(x^2+y^2+z^2)^{3/2}}
+            \end{eqnarray*}
+        </p>
+        <p>
+            Luego calculamos la 2a derivada parcial con respecto a \(x\):
+            \begin{eqnarray*} 
+            \partial_x^2\left( \frac{1}{\sqrt{x^2+y^2}}\right)&=&\partial_x\left( \partial_x\left(\frac{1}{\sqrt{x^2+y^2}}\right)\right)\\
+            &=& \partial_x\left( \frac{-x}{(x^2+y^2+z^2)^{3/2}} \right)\\
+            &=& \frac{-(x^2+y^2+z^2)^{3/2}+x\frac{3}{2}(x^2+y^2+z^2)^{1/2}(2x) }{(x^2+y^2+z^2)^3}\\
+            &=& \frac{-(x^2+y^2+z^2)^{3/2}}{(x^2+y^2+z^2)^3}+\frac{3x^2(x^2+y^2+z^2)^{1/2}}{(x^2+y^2+z^2)^3}\\
+            &=& \frac{-1}{(x^2+y^2+z^2)^{3/2}}+\frac{3x^2}{(x^2+y^2+z^2)^{5/2}}
+            \end{eqnarray*}
+        </p>
+        <p>
+            Ya que la función \(u(x,y,z)=\frac{1}{\sqrt{x^2+y^2+z^2}}\) permanece igual cuando se intercambian la
+            \(x\) con la \(y\) o la \(x\) con la \(z\), por simetía podemos obtenre las segundas derivadas 
+            parciales de las otras variables 
+            \begin{eqnarray*} 
+            \partial_y^2\left( \frac{1}{\sqrt{x^2+y^2}}\right)&=& \frac{-1}{(x^2+y^2+z^2)^{3/2}}+\frac{3y^2}{(x^2+y^2+z^2)^{5/2}} \\
+            \partial_z^2\left( \frac{1}{\sqrt{x^2+y^2}}\right)&=& \frac{-1}{(x^2+y^2+z^2)^{3/2}}+\frac{3z^2}{(x^2+y^2+z^2)^{5/2}} 
+            \end{eqnarray*}
+        </p>
+        <p>
+            Sumando las 3 segundas derivadas parciales obtenemos 
+            \begin{eqnarray*} 
+            \partial_x^2u+\partial_y^2u+\partial_z^2u&=& \frac{-3}{(x^2+y^2+z^2)^{3/2}}  \\
+            &+&\frac{3x^2}{(x^2+y^2+z^2)^{5/2}} +\frac{3y^2}{(x^2+y^2+z^2)^{5/2}} +\frac{3z^2}{(x^2+y^2+z^2)^{5/2}} \\
+            &=& \frac{-3}{(x^2+y^2+z^2)^{3/2}}  + \frac{3(x^2+y^2+z^2)}{(x^2+y^2+z^2)^{5/2}}\\
+            &=& \frac{-3}{(x^2+y^2+z^2)^{3/2}}  + \frac{3}{(x^2+y^2+z^2)^{3/2}}\\
+            &=&0.
+            \end{eqnarray*}
+        </p>
+        </div>
+
+    </div>
+
+
+    <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+            Demuestra que cada una de las funciones es una solución de la ecuación de onda:
+            \[
+                \partial_{t}^2u=a^2\partial_x^2 u.
+            \]
+        </p>
+        <ol>
+            <li>
+                \(u(x,t)=\sen(kt)\sen(akt)\).
+            </li>
+            <li>
+                \(u(x,t)=\frac{t}{a^2t^2-x^2}\).
+            </li>
+            <li>
+                \(u(x,t)=(x-at)^6+(x+at)^6\).
+            </li>
+            <li>
+                \(u(x,t)=\sen(x-at)+\ln(x+at)\).
+            </li>
+        </ol>
+
+    </div>
+
+    <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+            Sea \((a_1,\dots, a_n)\in \mathbb{R}^n\) que satisfaga \(a_1^2+\cdots+a_n^2=1\) y 
+            define la función  \(f(x_1,\dots, x_n)=e^{a_1x_1+\cdots+a_nx_n}\). Prueba que 
+            \(f\) satisface la ecuación diferencial:
+            \[
+                \partial_{x_1}^2f+\cdots + \partial_{x_n}^2 f= f.
+            \]
+        </p>
+
+        <button class="respButton hvr-grow "> Solución</button>
+        <div class="resp-box">
+            <p>
+                Notemos que para $j=1,\ldots,n$ se tiene que
+                \begin{equation*}
+                e^{\sum_{i=1}^n a_i x_i} = e^{\sum_{i\neq j} a_i x_i}e^{a_j x_j},
+                \end{equation*}
+                por lo tanto
+                \begin{equation*}
+                \partial_{x_j}f = e^{\sum_{i\neq j} a_i x_i} a_je^{a_j x_j},
+                \end{equation*}
+                y
+                \begin{equation*}
+                \partial_{x_j^2}f = e^{\sum_{i\neq j} a_i x_i} a_je^{a_j x_j} = a_j^2 e^{a_1 x_1 + \ldots + a_n x_n}.
+                \end{equation*}
+                Por lo tanto
+                \begin{align*}
+                \partial_{x_1}^2f+\cdots + \partial_{x_n}^2 f =& \sum_{i=1}^n a_j^2 e^{a_1 x_1 + \ldots + a_n x_n},\\
+                =& (a_1^2 + \ldots + a_n^2)(e^{a_1 x_1 + \ldots + a_n x_n}),\\
+                =& f.
+                \end{align*}
+            </p>
+        </div>
+
+    </div>
+
+    <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+            Prueba que la función de producción Cobb-Douglas 
+            \(P(L.K)=bL^{\alpha}K^{\beta}\), satisface la ecuación 
+            \[
+                L\partial_{L}P+K\partial_KP=(\alpha+\beta)P.
+            \]
+        </p>
+
+    </div>
+
+    <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+            La energía cinética de un cuerpo de masa \(m\) y velocidad \(v\) está dada por 
+            \(K(m,v)=\frac{1}{2}mv^2\). Prueba que 
+            \[
+                \partial_m K \partial_v^2K = K
+            \]
+        </p>
+
+        <button class="respButton hvr-grow "> Solución</button>
+        <div class="resp-box">
+            <p>
+                Empezamos por calcular
+                \begin{equation*}
+                \partial_m K = \frac{1}{2}v^2,
+                \end{equation*}
+                ahora
+                \begin{align*}
+                \partial_v K = mv,
+                \partial_{v}^2K = m,
+                \end{align*}
+                y concluimos que
+                \begin{equation*}
+                \partial_m K \partial_{v}^2K = \frac{1}{2}v^2 m = \frac{1}{2}mv^2 = K.
+                \end{equation*}
+            </p>
+        </div>
+
+    </div>
+
+    <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+            Usa diferenciación implícita para calcular \(\partial_x z, \partial_yz\).
+        </p>
+        <ol>
+            <li>
+                \(x^2+4y^2-5z^2=1\).
+            </li>
+            <li>
+                \(-x^2+6y^2+3z^2-z=7\).
+            </li>
+            <li>
+                \(e^{2z}=xy^2z\).
+            </li>
+            <li>
+                \(yz+y\ln(x)=z^2\).
+            </li>
+        </ol>
+        <button class="respButton hvr-grow "> Solución</button>
+        <div class="resp-box">
+            <p>
+                Recordemos que ecuaciones como las anteriores introducen restricciones en las
+                variables y nos permiten considerar a la variable $z$ como función de las variables
+                $(x,y)$, es decir, la variable $z$ implícitamente representa a una función $z(x,y)$.
+                Con esto en mente podemos realizar diferenciación implícita para calculara las derivadas
+                requeridas
+            </p>
+            <ol>
+                <li>
+                    \begin{equation*}
+                    \partial_x (x^2 + 4y^2 - 5z^2) = \partial_x 1 = 0,
+                    \end{equation*}
+                    Desarrollando el lado izquierdo y con la regla de la cadena presente, se tiene que
+                    \begin{align*}
+                    \partial_x (x^2 + 4y^2 - 5z^2)=& 2x - 10z \partial_x z,
+                    \end{align*}
+                    al despejar se obtiene que
+                    \begin{equation*}
+                    \partial_x z = \frac{2x}{-10z}=\frac{x}{-5z}.
+                    \end{equation*}
+                    Por otro lado,
+                    \begin{equation*}
+                    \partial_y((x^2 + 4y^2 - 5z^2) = 8y - 10z\partial_y z = \partial_y 1 = 0,
+                    \end{equation*}
+                    así
+                    \begin{equation*}
+                    \partial_y z = \frac{4y}{5z}
+                    \end{equation*}
+                </li>
+                <li>
+                    Repetimos el proceso anterior para obtener que
+                    \begin{align*}
+                    \partial_x (-x^2+6y^2+3z^2-z)=& -2x + 6z\partial_x z - \partial_x z=0,\\
+                    \partial_y (-x^2+6y^2+3z^2-z)=& 12y + 6z\partial_y z - \partial_y z=0.
+                    \end{align*}
+                    y en cada caso despejamos para obtener
+                    \begin{align*}
+                    \partial_x z =& \frac{2x}{6z -1},\\
+                    \partial_y z =& \frac{-12y}{6z-1}.
+                    \end{align*}
+                </li>
+                <li>
+                    Usando la regla de la cadena y la regla del producto
+                    \begin{align*}
+                    \partial_x e^{2z} =& 2\partial_x z e^{2z},\\
+                    \partial_y e^{2z} =& 2\partial_x z e^{2z},\\
+                    \partial_x xy^2z =& \partial_x (xy^2)(z),\\
+                    =& y^2z + xy^2\partial_x z,\\
+                    \partial_y yx^2z =& \partial_y (xy^2)z,\\
+                    =& 2xyz + xy^2\partial_y z.
+                    \end{align*}
+                    Con lo anterior tenemos que
+                    \begin{align*}
+                    (2e^{2z}-xy^2)\partial_x z =& y^2z,\\
+                    \partial_x z =& \frac{y^2z}{2e^{2z}-xy^2},
+                    \end{align*}
+                    y similarmente
+                    \begin{align*}
+                    (2e^{2z}-x^2)\partial_y z =& 2xyz,\\
+                    \partial_y z =& \frac{2xyz}{2e^{2z} - xy^2}.
+                    \end{align*}
+                </li>
+                <li>
+                    En primer lugar
+                    \begin{align*}
+                    \partial_x z^2 =& 2z \partial_x z,\\
+                    \partial_y z^2 =& 2z \partial_y z.
+                    \end{align*}
+                    Además
+                    \begin{align*}
+                    \partial_x (yz + y \ln(x)) =& y \partial_xz + \frac{y}{x},\\
+                    \partial_y (yz + y \ln(x)) =& z + y \partial_y z + \ln(x).
+                    \end{align*}
+                    Concluimos que
+                    \begin{align*}
+                    \partial_x z = \frac{y}{x(2z - y)},\\
+                    \partial_y z = \frac{z + \ln x}{2z-y}.
+                    \end{align*}
+                </li>
+            </ol>
+        </div>
+        </div>
+
+     <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+            Un polinomio en dos variables se puede escribir de manera general como 
+            \[
+            p(x,y)=\sum_{0\leq n,m \leq N} a_{n,m}x^ny^m
+            \]
+            donde los \(a_{n,m}\) son escalares.
+        </p>
+        <p>
+            Prueba que \(\partial_{xy}p=\partial_{yx}p\).
+        </p>
+        <p>
+            Nota: más adelante se probará que si \(\partial_{xy}f\) y \(\partial_{yx}f\) 
+            existen y son continuas  entonces \(\partial_{xy}f=\partial_{yx}f\).
+        </p>
+        <button class="respButton hvr-grow "> Solución</button>
+        <div class="resp-box">
+        <p>
+            Primero encontramos las primeras derivadas parciales:
+            \begin{eqnarray*} 
+                \partial_xp&=&\partial_x\left( \sum_{0\leq n,m \leq N}a_{n,m}x^ny^m\right)\\
+                &=& \sum_{0\leq n,m \leq N}\partial_x(a_{n,m} x^{n}y^m) \\
+                &=& \sum_{0\leq n,m \leq N}a_{n,m} nx^{n-1}y^m \\
+                \partial_yp&=&\partial_y\left( \sum_{0\leq n,m \leq N}a_{n,m}x^ny^m\right)\\
+                &=& \sum_{0\leq n,m \leq N}\partial_y(a_{n,m} x^{n}y^m) \\
+                &=& \sum_{0\leq n,m \leq N}a_{n,m} mx^{n}y^{m-1} \\
+            \end{eqnarray*}
+            Ahora calculamos las segundas derivadas parciales 
+            \begin{eqnarray*} 
+                \partial_{yx}p&=&\partial_y(\partial_x p)=\partial_y\left( \sum_{0\leq n,m \leq N}a_{n,m} nx^{n-1}y^m  \right) \\
+                &=& \sum_{0\leq n,m \leq N} \partial_y( a_{n,m} nx^{n-1}y^m ) \\
+                &=&\sum_{0\leq n,m \leq N}a_{n,m} nmx^{n-1}y^{m-1} \\
+                \partial_{xy}p&=&\partial_x(\partial_y p)=\partial_x\left( \sum_{0\leq n,m \leq N}a_{n,m} mx^{n}y^{m-1}  \right) \\
+                &=& \sum_{0\leq n,m \leq N} \partial_x( a_{n,m} mx^{n}y^{m-1} ) \\
+                &=&\sum_{0\leq n,m \leq N}a_{n,m} nmx^{n-1}y^{m-1} 
+            \end{eqnarray*}
+            Comparando las dos últimas identidades obtenemos \(\partial_{xy}p=\partial_{yx}p\).
+        </p>
+        </div>
+     </div>
+     
+    </div>
+    </body>
