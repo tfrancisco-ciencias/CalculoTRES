@@ -111,123 +111,10 @@
         </p>
 
     </div>
-    <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio</h2>
-        <ol>
-        <li>
-            Todo intervalo abierto en \(\mathbb{R}\) es un subconjunto abierto de \(\mathbb{R}\).
-        </li>
-        <li>
-            El intervalo \([a,b]\) no es abierto en \(\mathbb{R}\).
-        </li>
-        </ol>
-        <button class="respButton hvr-grow "> Solución inciso 1</button>
-        <div class="resp-box">
-        <p>
-            Tomamos un punto arbitrario \(x\in (a,b)\). Por \(\rho(x)\) denotamos la mínima distancia entre
-            \(x\) y \(a\) y entre \(x\) y \(b\), es decir 
-            \(\rho(x)=\min=\{x-a, b-x\}\). 
-        </p>
-        <p>
-            Por ejemplo si \(x\) es el punto medio entre \(a\) y \(b\)
-            entonces \(\rho(x)=(b-a)/2\) y el intervalo centrado en \(x\) y de radio 
-            \((b-a)/2\) está  totalmente contenido en \((a,b)\). 
-        </p>
-        <p>
-            En general, afirmamos que el intervalo centrado en \(x\) y radio \(\rho(x)\) está contendio 
-            en \((a,b)\), denotemos por \(I_x\) dicho intervalo es decir 
-            \(I_x=(x-\rho(x),x+\rho(x))\). Notamos
-            \begin{eqnarray*} 
-            x-\rho(x)  &\geq & x- (x-a)=a \\
-            x+\rho(x)  &\leq &  x + (b-x)=b 
-            \end{eqnarray*}
-            por lo que si \(t \in I_x\) entonces 
-            \begin{eqnarray*} 
-            a\leq x-\rho(x) < t < x+\rho(x)\leq b
-            \end{eqnarray*}
-            y por lo tanto \(a< t < b \) lo que prueba que \(I_x \subset (a,b)\).
-        </p>
-        </div>
-        <button class="respButton hvr-grow "> Solución inciso 2</button>
-        <div class="resp-box">
-        <p>
-            El intervalo \([a,b]\) no es abierto pues notamos que para los extremos cualquier 
-            invervalo abierto centrado en ellos siempre contiene puntos fuera del intervalo \([a,b]\). 
-            Escribiendo lo anterior de manera precisa dado \(I=(b-r,b+r)\), con \(r>0\),
-             siemre se tiene que \(b+r/2 \in I\) pero \(b+r/2\notin (a,b)\), por lo que 
-             \(I\) no está contenido en \((a,b)\).
-            
-        </p>
-        </div>
-    </div>
-
-    <div class="ejercicio-box">
-        <h2 class="number-title" id="Ejer:HiperPlanosAbiertosSonAbiertos"> Ejercicio </h2>
-        <ol>
-
-        
-        <li>
-            En \(\mathbb{R}^d\) fijamos un \(i=1,\dots, n\) y para \(\varepsilon \in \mathbb{R}\) definimos 
-            \[
-            U=\{ (x_1,\dots, x_d)\in \mathbf{R}^n: x_i > \varepsilon \}
-            \]
-            Entonces \(U\) es abierto. 
-        </li>
-        <p>
-            Nota: de manera similar el conjunto \(\{(x_1,\dots, x_d)\in \mathbf{R}^n: x_i < \varepsilon \}\)
-            es abierto.
-        </p>
-        <li>
-            El conjunto 
-            \[
-            F=\{ (x_1,\dots, x_d)\in \mathbf{R}^n: x_i \geq  \varepsilon \}
-            \]
-            no es abierto.
-        </li>
-        </ol>
-        <button class="respButton hvr-grow "> Solución inciso 1</button>
-        <div class="resp-box">
-        <p>
-            Fijamos un punto \((a_1,\dots, a_d) \in U\). Por lo tanto \(a_i> \varepsilon\). Debemos 
-            de encontrar un \(r> 0\) tal que \(B_r(a_1,\dots, a_d) \subset U\).
-        </p>
-        <p>
-            Tomando como ejemplo en \(\mathbb{R}^2\) con \(i=1\), 
-            notamos que \(B_{r}(a_1,a_2) \subset U\) donde \(r=(a_1-\varepsilon)/2\). Vamos a probar 
-            que esto mismo pasa en más dimensiones.
-        </p>
-        <p>
-            Sea \(r=(a_i-\varepsilon)/2\). Afirmamos que \(B_{r}(a_1,\dots, a_d)\subset U\), lo cual se hace por 
-            contención de conjuntos.
-        </p>
-        <p>
-            Tomamos un \((x_1,\dots, x_d)\in B_{r}(a_1,\dots, a_d) \). Debemos de 
-            probar que \((x_1,\dots, x_d)\in U\) es decir, \(x_i> \varepsilon\). 
-        </p>
-        <p>
-            Ya que \((x_1,\dots, x_d)\in B_{\varepsilon/2}(a_1,\dots, a_d)\) se sigue que:
-            \[
-            |x_i-a_i|\leq \|(x_1-a_1,\dots,x_d-a_d) \| < r 
-            \]
-            por lo tanto 
-            \(
-            -r< x_i-a_i < r \Rightarrow a_i-r < x_i
-            \)
-            pero 
-            \begin{eqnarray*}
-            a_i-r &=&  a_i - \frac{a_i-\varepsilon}{2}\\ 
-            &=&\frac{2a_i-a_i+\varepsilon}{2}\\
-            &=&\frac{a_i+\varepsilon}{2} \\
-            &>& \frac{\varepsilon+\varepsilon}{2}=\varepsilon.
-            \end{eqnarray*}
-            por lo tanto \(x_i > \varepsilon\).
-        </p>
-        </div>
-    </div>
 
 
-    <div class="ejercicio-box">
-        <h2 class="number-title" id="Ejer:BolasAbiertasSonAbiertas"> Ejercicio </h2>
+    <div class="lema-box">
+        <h2 class="number-title" id="Ejer:BolasAbiertasSonAbiertas"> Lema </h2>
         <p>
             Toda bola abierta 
             \[
@@ -235,7 +122,7 @@
             \]
             es un subconjunto abierto.
         </p>
-        <button class="respButton hvr-grow "> Solución </button>
+        <button class="respButton hvr-grow "> Demostración </button>
         <div class="resp-box">
         <p>
            La idea es encontrar la distancia entre un punto de la esfera y su "cáscara". Entre 
@@ -258,20 +145,6 @@
         </p>
     </div>
     </div>
-
-
-    <div class="ejercicio-box">
-        <h2 class="number-title" id="Ejer:ComplementoBolasSonAbiertos"> Ejercicio </h2>
-        <p>
-            EL conjunto 
-            \[
-            B_r(p_0)=\{p\in \mathbb{R}^n: \| p-p_0\| > r \}
-            \]
-            es abierto.
-        </p>
-
-    </div>
-
 
     <div class="prop-box">
         <h2 class="number-title" id="Prop:UnionInterAbiertos"> Proposición </h2>
@@ -321,27 +194,6 @@
         </div>
     </div>
 
-    <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-            Da un ejemplo que muestre que la Intersección arbitraria de conjuntos abiertos 
-            no es necesariamente abierto.
-        </p>
-        <button class="respButton hvr-grow "> Solución </button>
-        <div class="resp-box">
-        <p>
-            Para \(n\in \mathbb{N}\) definimos 
-            \[
-            U_n=(-\frac{1}{n}, 1+\frac{1}{n})
-            \]
-            Entonces cada \(U_n\) es abierto pero la intersección es 
-            \[
-            \cap_{n=1}^\infty U_n=[0,1]
-            \]
-            la cual no es abierto.
-        </p>
-        </div>
-    </div>
 
     <div class="prop-box">
         <h2 class="number-title"> Proposición  </h2>
@@ -364,60 +216,8 @@
 
     </div>
 
-    <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-            Prueba que los siguientes subconjuntos son cerrados.
-        </p>
-        <ol>
-            <li>
-                \([a,b]\).
-            </li>
-            <li>
-                \( \{ p\in \mathbb{R}^d: \| p-p_0\| \leq r\}\).
-            </li>
-            <li> 
-                Para \(a\in \mathbb{R}\) fijo, 
-                \(\{ (x,y,z)\in \mathbb{R}^3: x=a \}\).
-            </li>
-        </ol>
-        <button class="respButton hvr-grow "> Soluciónes </button>
-        <div class="resp-box">
-        <p>
-            En cada uno de los casos se probará que el complemento es un conjunto abierto.
-        </p>
-        <p>
-            El conjunto \([a,b]\) es cerrado pues su complemente es 
-            \[
-            [a,b]^c = (-\infty, a)\cup (b,\infty)
-            \]
-            y cada uno de los intervalos antriores es abierto pues se pueden escribir 
-            como unión de abiertos de la siguiente manera 
-            \begin{eqnarray*}
-            (-\infty,a)=\cup_{n\in \mathbb{N}: -n< a }(-n,a), \\
-            (b,+\infty)=\cup_{n\in \mathbb{N}: b<  n }(b,n).
-            \end{eqnarray*}
-        </p>
-        <p>
-            El conjunto \( \{ p\in \mathbb{R}^n: \| p-p_0\| \leq r\}\) es cerrado pues su complemento 
-            es 
-            \[
-            \{ p\in \mathbb{R}^d: \| p-p_0\| \leq r\}^c=\{p\in \mathbb{R}^d:\| p-p_0 \|> r \}
-            \]
-            el cual es abierto por el <a href="#Ejer:ComplementoBolasSonAbiertos">Ejercicio 6.5</a>
-        </p>
-        <p>
-            El complemento de \(\{ (x,y,z)\in \mathbb{R}^3: x=a \}\) se puede escribir como 
-            \[
-            \{ (x,y,z)\in \mathbb{R}^3: x=a \}^c=\{(x,y,z)\in \mathbb{R}^3: x< a \}\cup 
-            \{(x,y,z)\in \mathbb{R}^3: x > a \}
-            \]
-            y por el <a href="#Ejer:HiperPlanosAbiertosSonAbiertos">Ejercicio 6.3</a>
-            ambos conjuntos son abiertos por lo que su unión es abierto. 
-        </p>
-        </div>
 
-    </div>
+
 
     <div class="prop-box">
         <h2 class="number-title"> Proposición </h2>
@@ -435,14 +235,8 @@
         </p>
     </div>
 
-    <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-            Da un ejemplo que muestre que la unión arbitraria de conjuntos cerrados
-            no es necesariamente cerrado.
-        </p>
 
-    </div>
+
 
     <div class="prop-box">
         <h2 class="number-title"> Proposición  </h2>
@@ -477,105 +271,6 @@
 
     </div>
 
-    <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-            Encuentra el interior de los siguientes conjuntos.
-        </p>
-        <ol>
-            <li>
-                \(\{\frac{1}{n}: n\in \mathbb{N} \}\).
-            </li>
-            <li>
-                \([a,b]\).
-            </li>
-            <li>
-                \(\{ (x,y)\in \mathbb{R}^2: y=0, x\in [a,b]\}\).
-            </li>
-            <li>
-                \(\{p\in \mathbb{R}^d: \| p-p_0\| \leq r\}\), donde
-                \(p_0\in \mathbb{R}^d\) y \(r>0\).
-            </li>
-        </ol>
-
-
-        <button class="respButton hvr-grow "> Solución inciso 1</button>
-        <div class="resp-box">
-            <p>
-                Se afirma que $int(A)=\emptyset$. En efecto, sea $x \in \mathbb{R}$ y $r>0$, se
-                mostrará que $B_r(x) \not\subseteq A=\{\frac{1}{n}: n \in \mathbb{N}\}$. Si $x \notin A$
-                entonces claramente $B_r(x) \not\subseteq A$, por lo que inmediatamente se concluye que
-                $x \notin int(A)$.
-                Supongamos ahora que $x \in A$. Recordemos que entre dos números reales siempre existe un
-                número irracional, es decir, existe $y \in \mathbb{R}\setminus\mathbb{Q}$ tal que
-                $y \in B_r(x)$. Como todos los elementos de $A$ son números racionales entonces $y \notin A$
-                y por lo tanto $B_r(x) \not\subseteq A$. Concluimos que $x \notin int(A)$.
-            </p>
-        </div>
-
-        <button class="respButton hvr-grow "> Solución inciso 2</button>
-        <div class="resp-box">
-            <p>
-                Se afirma que el interior del conjunto $A=[a,b]$ es el intervalo $(a,b)$. Sea $x \in (a,b)$,
-                entonces $0<|x-a|,|x-b|$ Sea $r=\min(|x-a|,|x-b|)$, entonces si $y \in B_r(x)$ se tiene que
-                $a < y < b$ y por lo tanto $B_r(x) \subseteq A$. Con ésto se observa que
-                \begin{equation*}
-                (a,b) \subseteq int([a,b]).
-                \end{equation*}
-                Considere ahora $x \notin (a,b)$ y $r>0$. El claro que si $x \notin [a,b]$ entonces
-                $B_r(x) \not\subseteq [a,b]$, por otro lado si $x=a$ o $x=b$ entonces ya se ha visto que
-                $a-r/2 \in B_r(a)$ pero $a-r/2 < a$ y que $b+r/2 \in B_r(b)$ pero $b+r/2 > b$ por lo que
-                $x \notin int([a,b])$ y con ello
-                \begin{equation*}
-                int([a,b]) = (a,b).
-                \end{equation*}
-            </p>
-        </div>
-
-        <button class="respButton hvr-grow "> Solución inciso 3</button>
-        <div class="resp-box">
-            <p>
-                Veamos que si $A=\{(x,y) \in \mathbb{R}^2:y=0,x \in [a,b]\}$ entonces $int(A)=\emptyset$.
-                Como ya hemos visto, si $(u,v) \notin A$ entonces $(u,v) \notin int(A)$ por lo que podemos
-                considerar $(u,v) \in A$ y con ello $(u,v)=(x,0)$ para algún $x \in [a,b]$. Sea $r>0$ y note
-                que $\|(x,r/2)-(x,0)\|=r/2 < r$, por lo que $(x,r/2) \in B_r((x,0))$, sin embargo $(x,r/2) \notin A$
-                por lo que $B_r((u,v)) \not\subseteq A$ y $(u,v) \notin int(A)$.
-            </p>
-        </div>
-
-        <button class="respButton hvr-grow "> Solución inciso 4</button>
-        <div class="resp-box">
-            <p>
-                Sea $A = \{p \in \mathbb{R}^d: \|p-p_0\| \leq r\}$. Se demostrará que $int(A) = B_r(p_0)$. Sea
-                $x \in B_r(p_0)$, entonces $\|x-p_0\|< r.$ Considere $s = r-\|x-p_0\| >0$ y $z \in B_s(x).$
-                \begin{equation*}
-                \|z - p_0\| \leq \|z - x\| + \|x - p_0\| < s + \|x-p_0\| = (r-\|x-p_0\|) + \|x-p_0\| = r,
-                \end{equation*}
-                por lo que $z \in B_r(p_0)$, como $z$ es un punto arbitrario de la bola
-                $B_s(x) \subseteq B_r(p_0) ) \subseteq A$ y
-                \begin{equation*}
-                B_r(p_0) \subseteq int(A).
-                \end{equation*}
-            </p>
-            <p>
-                Sea $s>0$. Como $B_r(p_0) \cup \{p \in \mathbb{R}^2: \|p-p_0\|=r\}$ y si $p \notin A$ entonces
-                $p \notin int(A)$ entonces bastará mostar que si $\|p-p_0\|=r$ entonces $p \notin int(A)$.
-                Observe que
-                \begin{equation*}
-                \left\|p - \left(p + \frac{s(p-p_0)}{2\|p - p_0\|}\right)\right\| =  \left\| \frac{s(p-p_0)}{2\|p - p_0\|}\right\| = \frac{s}{2} < s,
-                \end{equation*}
-                por lo que $p + \frac{s(p-p_0)}{2\|p - p_0\|} \in B_s(p)$. Por otro lado
-                \begin{equation*}
-                \left\| \left( p + \frac{s(p-p_0)}{2\|p - p_0\|} \right) - p_0\right\| = \left( 1 + \frac{s}{2\|p-p_0\|}\right)\|p-p_0\|= \left( 1 + \frac{s}{2\|p-p_0\|}\right)r > r,
-                \end{equation*}
-                y con ello concluimos que $p + \frac{s(p-p_0)}{2\|p - p_0\|} \notin B_r(p)$. Como $s>0$ fue arbitraria
-                podemos deducir que no existe $s>0$ tal que $B_s(p) \supseteq A$ y por lo tanto $p \notin int(A)$, así
-                \begin{equation*}
-                int(A) = B_r(p_0).
-                \end{equation*}
-            </p>
-        </div>
-    </div>
 
     <div class="prop-box">
         <h2 class="number-title"> Proposición </h2>
@@ -671,6 +366,418 @@
         </p>
     </div>
 
+
+
+
+        <div class="prop-box">
+        <h2 class="number-title"> Proposición </h2>
+        <p>
+            Un subconjunto \(F\subseteq \mathbb{R}^n\) es 
+            cerrado si y sólo si contiene a todos sus puntos 
+            de acumulación.
+        </p>
+        <button class="respButton hvr-grow "> Demostración</button>
+        <div class="resp-box">
+        <p>
+            \(\Rightarrow] \) Supongamos que \(F\) es un conjunto cerrado pero existe un 
+            punto de acumulación, digamos \(q\), tal que \(q\notin F\).
+        </p>
+        <p>
+            Ya que \(F\) es cerrado su complemento es abierto y ya que \(q\notin F\) existe un 
+            \(r>0\) tal que \(B_r(q)\) está contenido en \(F^c\). Finalmente ya que 
+            \(q\) es punto de acumulación de \(F\) existe un \(p\in F\), \(p\ne q\) con 
+            \(p\in B_r(q)\) lo cual es una contradicción pues \(p\in B_r(q)\subseteq F^c\).
+        </p>
+        <p>
+            \(\Leftarrow]\) Supongamos que todos los puntos de acumulación de \(F\)
+            pertenecen a \(F\). Debemos de probar que \(F\) es cerrado es decir, 
+            su complemento es abierto. Así pues debemos de probar que para todo punto de 
+            \(F^c\) existe una bola centrada en el punto totalmente contenida en \(F^c\).
+        </p>
+        <p>
+            Tomamos \(q\in F^c\). Ya que todos los puntos de acumulación están en \(F\) 
+            \(q\) no puede ser punto de acumulación de \(F\) por lo que 
+            existe un \(r_0>0\) tal que \(\check{B}_{r_0}(q) \subseteq F^c \) pero 
+            tomando en cuenta de que \(q\notin F\) el centro de la bola 
+            también está en \(F^c\) y por lo tanto \(B_r(q)\subseteq F^c\). 
+        </p>
+        </div>
+        
+        
+
+    </div>
+
+    <div class="lema-box">
+        <h2 class="number-title"> Lema </h2>
+        <p>
+            Sea \(A\subseteq \mathbb{R}^d\). Un punto \(p\in \mathbb{R}^d\) es 
+            punto de acumulación de \(A\) si y sólo si para toda \(r> 0\)
+            el conjunto \(B_r(p)\cap A\) es infinito.  
+        </p>
+        <button class="respButton hvr-grow "> Demostración</button>
+        <div class="resp-box">
+        <p>
+            \(\Rightarrow ] \) Fijamos un \(r>0\). Al ser \(p\) un punto de acumulación de \(A\)
+            existe un punto \(p_0 \in B_r(p)\cap A\) con \(p_0 \ne p\). Definimos \(r_1=\|p-p_0 \|/2 >0 \)
+            (positivo pues \(p_0\ne p\)).
+        </p>
+        <p>
+            Utilizando de nuevo que \(p\) es punto de acumulación de \(A\), para 
+            \(r_1\) existe \(p_1\in B_{r_1}(p)\cap A\) con \(p\ne p_1\).
+            Nota que \(p_1\ne p_0\) pues \(\| p-p_1\|< \|p-p_0 \|\). Definimos 
+            \(r_2=\|p-p_1\|/2 > 0\). 
+        </p>
+        <p>
+            Continuando de esta mandera dados los puntos \(p_0,\dots, p_k\) con 
+            \(\|p-p_k\|< \| p-p_{k-1}\| < \cdots < \|p-p_0\|< r \), tomamos \(r_{k+1}=\|p-p_k\|/2 >0\)
+            y un punto \(p_{k+1}\in B_{r_{k+1}}(p)\cap A\) con \(p_{k+1}\ne p\). Con esta construcción todos los 
+            puntos \(\{p_0, \dots, p_{k+1}\}\) son distintos y están en \(B_r(p)\cap A\). Con 
+            ésta construcción obtenemos un conjunto infinito \(\{p_k\}_{k\in \mathbb{N}}\) contenido en 
+            \(B_r(p)\cal A\).
+        </p>
+        <p>
+            \(\Leftarrow ]\) Es directo que si suponemos que \(B_r(p)\cap A\) es infinito entonces 
+            existe \(q\in B_r(p)\cap A\) con \(q\ne p\).
+        </p>
+        </div>
+
+    </div>
+
+    <div class="coro-box">
+        <h2 class="number-title"> Corolario </h2>
+        <p>
+            Si \(p\) es un punto de acumulación de \(A\) entonces existe \((p_n)_{n=1}^\infty\)
+            una sucesión de puntos de \(A\) tal que 
+            \[
+                \lim_{n\to \infty}\| p_n-p\|=0.
+            \]
+        </p>
+
+    </div>
+
+
+
+    <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio</h2>
+        <ol>
+        <li>
+            Todo intervalo abierto en \(\mathbb{R}\) es un subconjunto abierto de \(\mathbb{R}\).
+        </li>
+        <li>
+            El intervalo \([a,b]\) no es abierto en \(\mathbb{R}\).
+        </li>
+        </ol>
+        <!-- <button class="respButton hvr-grow "> Solución inciso 1</button>
+        <div class="resp-box">
+        <p>
+            Tomamos un punto arbitrario \(x\in (a,b)\). Por \(\rho(x)\) denotamos la mínima distancia entre
+            \(x\) y \(a\) y entre \(x\) y \(b\), es decir 
+            \(\rho(x)=\min=\{x-a, b-x\}\). 
+        </p>
+        <p>
+            Por ejemplo si \(x\) es el punto medio entre \(a\) y \(b\)
+            entonces \(\rho(x)=(b-a)/2\) y el intervalo centrado en \(x\) y de radio 
+            \((b-a)/2\) está  totalmente contenido en \((a,b)\). 
+        </p>
+        <p>
+            En general, afirmamos que el intervalo centrado en \(x\) y radio \(\rho(x)\) está contendio 
+            en \((a,b)\), denotemos por \(I_x\) dicho intervalo es decir 
+            \(I_x=(x-\rho(x),x+\rho(x))\). Notamos
+            \begin{eqnarray*} 
+            x-\rho(x)  &\geq & x- (x-a)=a \\
+            x+\rho(x)  &\leq &  x + (b-x)=b 
+            \end{eqnarray*}
+            por lo que si \(t \in I_x\) entonces 
+            \begin{eqnarray*} 
+            a\leq x-\rho(x) < t < x+\rho(x)\leq b
+            \end{eqnarray*}
+            y por lo tanto \(a< t < b \) lo que prueba que \(I_x \subset (a,b)\).
+        </p>
+        </div>
+        <button class="respButton hvr-grow "> Solución inciso 2</button>
+        <div class="resp-box">
+        <p>
+            El intervalo \([a,b]\) no es abierto pues notamos que para los extremos cualquier 
+            invervalo abierto centrado en ellos siempre contiene puntos fuera del intervalo \([a,b]\). 
+            Escribiendo lo anterior de manera precisa dado \(I=(b-r,b+r)\), con \(r>0\),
+             siemre se tiene que \(b+r/2 \in I\) pero \(b+r/2\notin (a,b)\), por lo que 
+             \(I\) no está contenido en \((a,b)\).
+            
+        </p>
+        </div>-->
+    </div>
+
+    <div class="ejercicio-box">
+        <h2 class="number-title" id="Ejer:HiperPlanosAbiertosSonAbiertos"> Ejercicio </h2>
+        <ol>
+
+        
+        <li>
+            En \(\mathbb{R}^d\) fijamos un \(i=1,\dots, n\) y para \(\varepsilon \in \mathbb{R}\) definimos 
+            \[
+            U=\{ (x_1,\dots, x_d)\in \mathbf{R}^n: x_i > \varepsilon \}
+            \]
+            Entonces \(U\) es abierto. 
+        </li>
+        <p>
+            Nota: de manera similar el conjunto \(\{(x_1,\dots, x_d)\in \mathbf{R}^n: x_i < \varepsilon \}\)
+            es abierto.
+        </p>
+        <li>
+            El conjunto 
+            \[
+            F=\{ (x_1,\dots, x_d)\in \mathbf{R}^n: x_i \geq  \varepsilon \}
+            \]
+            no es abierto.
+        </li>
+        </ol>
+        <!-- <button class="respButton hvr-grow "> Solución inciso 1</button>
+        <div class="resp-box">
+        <p>
+            Fijamos un punto \((a_1,\dots, a_d) \in U\). Por lo tanto \(a_i> \varepsilon\). Debemos 
+            de encontrar un \(r> 0\) tal que \(B_r(a_1,\dots, a_d) \subset U\).
+        </p>
+        <p>
+            Tomando como ejemplo en \(\mathbb{R}^2\) con \(i=1\), 
+            notamos que \(B_{r}(a_1,a_2) \subset U\) donde \(r=(a_1-\varepsilon)/2\). Vamos a probar 
+            que esto mismo pasa en más dimensiones.
+        </p>
+        <p>
+            Sea \(r=(a_i-\varepsilon)/2\). Afirmamos que \(B_{r}(a_1,\dots, a_d)\subset U\), lo cual se hace por 
+            contención de conjuntos.
+        </p>
+        <p>
+            Tomamos un \((x_1,\dots, x_d)\in B_{r}(a_1,\dots, a_d) \). Debemos de 
+            probar que \((x_1,\dots, x_d)\in U\) es decir, \(x_i> \varepsilon\). 
+        </p>
+        <p>
+            Ya que \((x_1,\dots, x_d)\in B_{\varepsilon/2}(a_1,\dots, a_d)\) se sigue que:
+            \[
+            |x_i-a_i|\leq \|(x_1-a_1,\dots,x_d-a_d) \| < r 
+            \]
+            por lo tanto 
+            \(
+            -r< x_i-a_i < r \Rightarrow a_i-r < x_i
+            \)
+            pero 
+            \begin{eqnarray*}
+            a_i-r &=&  a_i - \frac{a_i-\varepsilon}{2}\\ 
+            &=&\frac{2a_i-a_i+\varepsilon}{2}\\
+            &=&\frac{a_i+\varepsilon}{2} \\
+            &>& \frac{\varepsilon+\varepsilon}{2}=\varepsilon.
+            \end{eqnarray*}
+            por lo tanto \(x_i > \varepsilon\).
+        </p>
+        </div>-->
+    </div>
+
+
+
+
+    <div class="ejercicio-box">
+        <h2 class="number-title" id="Ejer:ComplementoBolasSonAbiertos"> Ejercicio </h2>
+        <p>
+            EL conjunto 
+            \[
+            B_r(p_0)=\{p\in \mathbb{R}^n: \| p-p_0\| > r \}
+            \]
+            es abierto.
+        </p>
+
+    </div>
+
+
+
+    <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+            Da un ejemplo que muestre que la Intersección arbitraria de conjuntos abiertos 
+            no es necesariamente abierto.
+        </p>
+        <!-- <button class="respButton hvr-grow "> Solución </button>
+        <div class="resp-box">
+        <p>
+            Para \(n\in \mathbb{N}\) definimos 
+            \[
+            U_n=(-\frac{1}{n}, 1+\frac{1}{n})
+            \]
+            Entonces cada \(U_n\) es abierto pero la intersección es 
+            \[
+            \cap_{n=1}^\infty U_n=[0,1]
+            \]
+            la cual no es abierto.
+        </p>
+        </div>-->
+    </div>
+
+    
+    <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+            Prueba que los siguientes subconjuntos son cerrados.
+        </p>
+        <ol>
+            <li>
+                \([a,b]\).
+            </li>
+            <li>
+                \( \{ p\in \mathbb{R}^d: \| p-p_0\| \leq r\}\).
+            </li>
+            <li> 
+                Para \(a\in \mathbb{R}\) fijo, 
+                \(\{ (x,y,z)\in \mathbb{R}^3: x=a \}\).
+            </li>
+        </ol>
+        <!-- <button class="respButton hvr-grow "> Soluciónes </button>
+        <div class="resp-box">
+        <p>
+            En cada uno de los casos se probará que el complemento es un conjunto abierto.
+        </p>
+        <p>
+            El conjunto \([a,b]\) es cerrado pues su complemente es 
+            \[
+            [a,b]^c = (-\infty, a)\cup (b,\infty)
+            \]
+            y cada uno de los intervalos antriores es abierto pues se pueden escribir 
+            como unión de abiertos de la siguiente manera 
+            \begin{eqnarray*}
+            (-\infty,a)=\cup_{n\in \mathbb{N}: -n< a }(-n,a), \\
+            (b,+\infty)=\cup_{n\in \mathbb{N}: b<  n }(b,n).
+            \end{eqnarray*}
+        </p>
+        <p>
+            El conjunto \( \{ p\in \mathbb{R}^n: \| p-p_0\| \leq r\}\) es cerrado pues su complemento 
+            es 
+            \[
+            \{ p\in \mathbb{R}^d: \| p-p_0\| \leq r\}^c=\{p\in \mathbb{R}^d:\| p-p_0 \|> r \}
+            \]
+            el cual es abierto por el <a href="#Ejer:ComplementoBolasSonAbiertos">Ejercicio 6.5</a>
+        </p>
+        <p>
+            El complemento de \(\{ (x,y,z)\in \mathbb{R}^3: x=a \}\) se puede escribir como 
+            \[
+            \{ (x,y,z)\in \mathbb{R}^3: x=a \}^c=\{(x,y,z)\in \mathbb{R}^3: x< a \}\cup 
+            \{(x,y,z)\in \mathbb{R}^3: x > a \}
+            \]
+            y por el <a href="#Ejer:HiperPlanosAbiertosSonAbiertos">Ejercicio 6.3</a>
+            ambos conjuntos son abiertos por lo que su unión es abierto. 
+        </p>
+        </div>-->
+
+    </div>
+
+
+    <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+            Da un ejemplo que muestre que la unión arbitraria de conjuntos cerrados
+            no es necesariamente cerrado.
+        </p>
+
+    </div>
+
+    
+    <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+            Encuentra el interior de los siguientes conjuntos.
+        </p>
+        <ol>
+            <li>
+                \(\{\frac{1}{n}: n\in \mathbb{N} \}\).
+            </li>
+            <li>
+                \([a,b]\).
+            </li>
+            <li>
+                \(\{ (x,y)\in \mathbb{R}^2: y=0, x\in [a,b]\}\).
+            </li>
+            <li>
+                \(\{p\in \mathbb{R}^d: \| p-p_0\| \leq r\}\), donde
+                \(p_0\in \mathbb{R}^d\) y \(r>0\).
+            </li>
+        </ol>
+
+
+        <!-- <button class="respButton hvr-grow "> Solución inciso 1</button>
+        <div class="resp-box">
+            <p>
+                Se afirma que $int(A)=\emptyset$. En efecto, sea $x \in \mathbb{R}$ y $r>0$, se
+                mostrará que $B_r(x) \not\subseteq A=\{\frac{1}{n}: n \in \mathbb{N}\}$. Si $x \notin A$
+                entonces claramente $B_r(x) \not\subseteq A$, por lo que inmediatamente se concluye que
+                $x \notin int(A)$.
+                Supongamos ahora que $x \in A$. Recordemos que entre dos números reales siempre existe un
+                número irracional, es decir, existe $y \in \mathbb{R}\setminus\mathbb{Q}$ tal que
+                $y \in B_r(x)$. Como todos los elementos de $A$ son números racionales entonces $y \notin A$
+                y por lo tanto $B_r(x) \not\subseteq A$. Concluimos que $x \notin int(A)$.
+            </p>
+        </div>-->
+
+        <!-- <button class="respButton hvr-grow "> Solución inciso 2</button>
+        <div class="resp-box">
+            <p>
+                Se afirma que el interior del conjunto $A=[a,b]$ es el intervalo $(a,b)$. Sea $x \in (a,b)$,
+                entonces $0<|x-a|,|x-b|$ Sea $r=\min(|x-a|,|x-b|)$, entonces si $y \in B_r(x)$ se tiene que
+                $a < y < b$ y por lo tanto $B_r(x) \subseteq A$. Con ésto se observa que
+                \begin{equation*}
+                (a,b) \subseteq int([a,b]).
+                \end{equation*}
+                Considere ahora $x \notin (a,b)$ y $r>0$. El claro que si $x \notin [a,b]$ entonces
+                $B_r(x) \not\subseteq [a,b]$, por otro lado si $x=a$ o $x=b$ entonces ya se ha visto que
+                $a-r/2 \in B_r(a)$ pero $a-r/2 < a$ y que $b+r/2 \in B_r(b)$ pero $b+r/2 > b$ por lo que
+                $x \notin int([a,b])$ y con ello
+                \begin{equation*}
+                int([a,b]) = (a,b).
+                \end{equation*}
+            </p>
+        </div>--> 
+
+        <!-- <button class="respButton hvr-grow "> Solución inciso 3</button>
+        <div class="resp-box">
+            <p>
+                Veamos que si $A=\{(x,y) \in \mathbb{R}^2:y=0,x \in [a,b]\}$ entonces $int(A)=\emptyset$.
+                Como ya hemos visto, si $(u,v) \notin A$ entonces $(u,v) \notin int(A)$ por lo que podemos
+                considerar $(u,v) \in A$ y con ello $(u,v)=(x,0)$ para algún $x \in [a,b]$. Sea $r>0$ y note
+                que $\|(x,r/2)-(x,0)\|=r/2 < r$, por lo que $(x,r/2) \in B_r((x,0))$, sin embargo $(x,r/2) \notin A$
+                por lo que $B_r((u,v)) \not\subseteq A$ y $(u,v) \notin int(A)$.
+            </p>
+        </div>-->
+
+        <!-- <button class="respButton hvr-grow "> Solución inciso 4</button>
+        <div class="resp-box">
+            <p>
+                Sea $A = \{p \in \mathbb{R}^d: \|p-p_0\| \leq r\}$. Se demostrará que $int(A) = B_r(p_0)$. Sea
+                $x \in B_r(p_0)$, entonces $\|x-p_0\|< r.$ Considere $s = r-\|x-p_0\| >0$ y $z \in B_s(x).$
+                \begin{equation*}
+                \|z - p_0\| \leq \|z - x\| + \|x - p_0\| < s + \|x-p_0\| = (r-\|x-p_0\|) + \|x-p_0\| = r,
+                \end{equation*}
+                por lo que $z \in B_r(p_0)$, como $z$ es un punto arbitrario de la bola
+                $B_s(x) \subseteq B_r(p_0) ) \subseteq A$ y
+                \begin{equation*}
+                B_r(p_0) \subseteq int(A).
+                \end{equation*}
+            </p>
+            <p>
+                Sea $s>0$. Como $B_r(p_0) \cup \{p \in \mathbb{R}^2: \|p-p_0\|=r\}$ y si $p \notin A$ entonces
+                $p \notin int(A)$ entonces bastará mostar que si $\|p-p_0\|=r$ entonces $p \notin int(A)$.
+                Observe que
+                \begin{equation*}
+                \left\|p - \left(p + \frac{s(p-p_0)}{2\|p - p_0\|}\right)\right\| =  \left\| \frac{s(p-p_0)}{2\|p - p_0\|}\right\| = \frac{s}{2} < s,
+                \end{equation*}
+                por lo que $p + \frac{s(p-p_0)}{2\|p - p_0\|} \in B_s(p)$. Por otro lado
+                \begin{equation*}
+                \left\| \left( p + \frac{s(p-p_0)}{2\|p - p_0\|} \right) - p_0\right\| = \left( 1 + \frac{s}{2\|p-p_0\|}\right)\|p-p_0\|= \left( 1 + \frac{s}{2\|p-p_0\|}\right)r > r,
+                \end{equation*}
+                y con ello concluimos que $p + \frac{s(p-p_0)}{2\|p - p_0\|} \notin B_r(p)$. Como $s>0$ fue arbitraria
+                podemos deducir que no existe $s>0$ tal que $B_s(p) \supseteq A$ y por lo tanto $p \notin int(A)$, así
+                \begin{equation*}
+                int(A) = B_r(p_0).
+                \end{equation*}
+            </p>
+        </div>-->
+    </div>
+
+    
     <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio </h2>
         <p>
@@ -699,7 +806,7 @@
             Nota: intuitivamente un punto de acumulación de un conjunto \(A\) es un punto 
             donde a su alrededor siempre hay una infinidad de puntos de \(A\). 
         </p>
-        <button class="respButton hvr-grow "> Inciso 1</button>
+        <!-- <button class="respButton hvr-grow "> Inciso 1</button>
         <div class="resp-box">
         <p>
             Ya que los naturales están "separados" entre si la idea es que no tiene puntos 
@@ -853,523 +960,49 @@
                 por lo que \(q+tv \in B_r(p_0)=A\).
             </p>
         </p>
-        </div>
-        </div>
-
-        
-
-        <div class="prop-box">
-        <h2 class="number-title"> Proposición </h2>
-        <p>
-            Un subconjunto \(F\subseteq \mathbb{R}^n\) es 
-            cerrado si y sólo si contiene a todos sus puntos 
-            de acumulación.
-        </p>
-        <button class="respButton hvr-grow "> Demostración</button>
-        <div class="resp-box">
-        <p>
-            \(\Rightarrow] \) Supongamos que \(F\) es un conjunto cerrado pero existe un 
-            punto de acumulación, digamos \(q\), tal que \(q\notin F\).
-        </p>
-        <p>
-            Ya que \(F\) es cerrado su complemento es abierto y ya que \(q\notin F\) existe un 
-            \(r>0\) tal que \(B_r(q)\) está contenido en \(F^c\). Finalmente ya que 
-            \(q\) es punto de acumulación de \(F\) existe un \(p\in F\), \(p\ne q\) con 
-            \(p\in B_r(q)\) lo cual es una contradicción pues \(p\in B_r(q)\subseteq F^c\).
-        </p>
-        <p>
-            \(\Leftarrow]\) Supongamos que todos los puntos de acumulación de \(F\)
-            pertenecen a \(F\). Debemos de probar que \(F\) es cerrado es decir, 
-            su complemento es abierto. Así pues debemos de probar que para todo punto de 
-            \(F^c\) existe una bola centrada en el punto totalmente contenida en \(F^c\).
-        </p>
-        <p>
-            Tomamos \(q\in F^c\). Ya que todos los puntos de acumulación están en \(F\) 
-            \(q\) no puede ser punto de acumulación de \(F\) por lo que 
-            existe un \(r_0>0\) tal que \(\check{B}_{r_0}(q) \subseteq F^c \) pero 
-            tomando en cuenta de que \(q\notin F\) el centro de la bola 
-            también está en \(F^c\) y por lo tanto \(B_r(q)\subseteq F^c\). 
-        </p>
-        </div>
-        
-        
-
-    </div>
-
-    <div class="lema-box">
-        <h2 class="number-title"> Lema </h2>
-        <p>
-            Sea \(A\subseteq \mathbb{R}^d\). Un punto \(p\in \mathbb{R}^d\) es 
-            punto de acumulación de \(A\) si y sólo si para toda \(r> 0\)
-            el conjunto \(B_r(p)\cap A\) es infinito.  
-        </p>
-        <button class="respButton hvr-grow "> Demostración</button>
-        <div class="resp-box">
-        <p>
-            \(\Rightarrow ] \) Fijamos un \(r>0\). Al ser \(p\) un punto de acumulación de \(A\)
-            existe un punto \(p_0 \in B_r(p)\cap A\) con \(p_0 \ne p\). Definimos \(r_1=\|p-p_0 \|/2 >0 \)
-            (positivo pues \(p_0\ne p\)).
-        </p>
-        <p>
-            Utilizando de nuevo que \(p\) es punto de acumulación de \(A\), para 
-            \(r_1\) existe \(p_1\in B_{r_1}(p)\cap A\) con \(p\ne p_1\).
-            Nota que \(p_1\ne p_0\) pues \(\| p-p_1\|< \|p-p_0 \|\). Definimos 
-            \(r_2=\|p-p_1\|/2 > 0\). 
-        </p>
-        <p>
-            Continuando de esta mandera dados los puntos \(p_0,\dots, p_k\) con 
-            \(\|p-p_k\|< \| p-p_{k-1}\| < \cdots < \|p-p_0\|< r \), tomamos \(r_{k+1}=\|p-p_k\|/2 >0\)
-            y un punto \(p_{k+1}\in B_{r_{k+1}}(p)\cap A\) con \(p_{k+1}\ne p\). Con esta construcción todos los 
-            puntos \(\{p_0, \dots, p_{k+1}\}\) son distintos y están en \(B_r(p)\cap A\). Con 
-            ésta construcción obtenemos un conjunto infinito \(\{p_k\}_{k\in \mathbb{N}}\) contenido en 
-            \(B_r(p)\cal A\).
-        </p>
-        <p>
-            \(\Leftarrow ]\) Es directo que si suponemos que \(B_r(p)\cap A\) es infinito entonces 
-            existe \(q\in B_r(p)\cap A\) con \(q\ne p\).
-        </p>
+        </div>-->
         </div>
 
-    </div>
-
-    <div class="coro-box">
-        <h2 class="number-title"> Corolario </h2>
-        <p>
-            Si \(p\) es un punto de acumulación de \(A\) entonces existe \((p_n)_{n=1}^\infty\)
-            una sucesión de puntos de \(A\) tal que 
-            \[
-                \lim_{n\to \infty}\| p_n-p\|=0.
-            \]
-        </p>
-
-    </div>
-
-
-<!-- 
-    <div class="definicion-box">
-        <h2 class="number-title"> Definición </h2> 
-        <p>
-            Sea $U\subseteq \mathbb{R}^2$ un conjunto abierto y $f:U\to \mathbb{R}$ una función y 
-            $(x_0, y_0)\in U$ un punto fijo. Las derivadas parciales de $f$, en punto $(x_0,y_0)$, se definen
-            como:
-            <ol>
-                <li>
-                    parcial con respecto a la variable x:
-                    $$
-                    \partial_x f(x_0,y_0)=\frac{\partial f}{\partial x}(x_0,y_0)=\lim_{s\to 0} \frac{f(x_0+s,y_0)}{s} 
-                    $$
-                </li>
-                <li>
-                    parcial con respecto a la variable y:
-                    $$
-                    \partial_y f(x_0,y_0)=\frac{\partial f}{\partial y}(x_0,y_0)=\lim_{t\to 0} \frac{f(x_0,y_0+t)}{t} 
-                    $$
-                    siempre y cuando los límites existen.
-                </li>
-             </ol>
-        </p>
-   </div>
-   
-     <div class="nota-box">
-        <h2 class="number-title"> Nota </h2>
+        <div class="ejercicio-box">
+            <h2 class="number-title"> Ejercicio</h2>
             <p>
-                Dependiendo de las variables independientes la notación de parciales puede cambiar. Por
-                ejemplo, si tenemos una función $f(x_1,x_2)$, las parciales se denotan $\partial_{x_1}f$
-                y $\partial_{x_2}f$ o si es  $f(r,\theta)$ tendríamos $\partial_r f$, $\partial_\theta f$.
+                Dado \(A\subseteq \mathbb{R}^n\) un punto frontera de \(A\)
+                es un punto \(p\in \mathbb{R}^n\) que satisface:
+                \[
+                B_r(p)\cap A \ne \emptyset, \quad \textrm{y} \quad B_r(p)\cap A^c \ne \emptyset 
+                \]
+                para todo \(r>0\). Nota: \(A^c\) denota el complemento de \(A\).
             </p>
             <p>
-                Para cada punto $(x_0,y_0)$,  al  calcular las  parciales
-                $$\partial_xf(x_0,y_0), \quad \partial_{y}f(x_0,y_0)$$
-                obtenemos  números reales. Pero,   si pensamos a $(x_0,y_0)$ variando en un dominio y
-                lo denotamos $(x,y)$ (notación de variable), obtenemos funciones
-                $$\partial_xf(x,y),\quad \partial_yf(x,y)$$
-           
+                El conjunto formado por todos los puntos frontera de \(A\) se denota por 
+                \(\partial A\). Por ejemplo, \(\partial([a,b])=\{a,b\}\).
             </p>
             <p>
-                Note que en las expresiones
-                anteriores las $x$ que aparecen son distintas. La de la parcial indica con respecto a qué
-                variable se diferencia y la otra indica en qué punto se está evaluando. Asi por ejemplo
-                si $\partial_xf(x,y)=6x-2y$ entonces  $\partial_xf(3,5)=6(3)-2(5)=8$, sin embargo $\partial_3f(x,y)$
-                o $\partial_3f(3,5)$ no tienen sentido.
-            </p>
-     </div>
-
-
-
- <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-        Sean $g,h:\mathbb{R}\to \mathbb{R}$ funciones de una variable, ambas diferenciables,  y define $f(x,y)=g(x)h(y)$.
-        Fija un punto $(x_0,y_0)$. Demuestra que
-        $$
-        \partial_xf(x_0,y_0)=g'(x_0)h(y_0), \quad \partial_yf(x_0,y_0)=g(x_0)h'(y_0).
-        $$
-    </p>
-
-        <div>
-            <p>
-                Primero formamos el cociente diferencial para $\partial_xf(x_0,y_0) $:
-                $$
-                \frac{f(x_0+t,y_0)-f(x_0,y_0)}{t}=\frac{g(x_0+t)h(y_0)-g(x_0)h(x_0)}{t}.
-                $$
-                Factorizando $h(x_0)$ se sigue que
-                $$
-                \frac{f(x_0+t,y_0)-f(x_0,y_0)}{t}=\left( \frac{g(x_0+t)-g(x_0)}{t}\right) h(y_0)
-                $$
-                Reconocemos el cociente diferencial para $g$, así que al tomar límite
-                cuando $t\to 0$ concluimos
-                $$
-                \partial_xf(x_0,y_0)=g'(x_0)h(y_0)
-                $$
-           
-                La fórmula $\partial_yf(x_0,y_0)=g(x_0)h'(y_0)$ se prueba de manera similar.
-            </p>
-        </div>
-     
- </div>
-   
-
-   
- 
- <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-        Sea $f(x,y)$ una función de dos variables definida en un abierto de $\mathbb{R}^2$ y fija
-        $(x_0,y_0)$ un punto en dicho abierto. Supongamos que $\partial_xf(x_0,y_0)$
-        y $\partial_y f(x_0,y_0)$ existen. Define funciones de una variable
-        $$
-        g(x)=f(x,y_0), \quad h(y)=f(x_0,y)
-        $$
-        Usando la definición de derivada parcial y derivada usual, demuestra que $g'(x_0)=\partial_x(x_0,y_0)$
-        y $h'(y)=\partial_yf(x_0,y_0)$.     
-    </p>
-    <p>
-        Es decir, este ejercicio muestra que para calcular las derivadas parciales simplemente se
-        calcula la derivada uno dimensional, pensando  las otras variables como constantes. 
-     
-    </p>
-        <div>
-            <p>
-                Primero, usamos la definición de $g$ para formar  su el cociente diferencial:
-                $$
-                \frac{g(x_0+s)-g(x_0)}{t}=\frac{f(x_0+s,y_0)-f(x_0,y_0)}{s}
-                $$
-           
-                Tomando límite cuando $s\to 0$ vemos que el límite del cociente diferencial es el
-                mismo que el que aparece en la definición de derivada parcial y concluimos
-                $$
-                g'(x_0)=\partial_x f(x_0,y_0).
-                $$
-                De manera similar,
-                $$
-                \frac{h(y_0+t)-h(y_0)}{t}=\frac{f(x_0,y_0+t)-f(x_0,y_0)}{t}
-                $$
-                y al tomar el límite cuando $t\to 0$ concluimos
-                $$
-                h'(y_0)=\partial_yf(x_0,y_0).
-                $$
-            </p>
-        </div>
-</div>
-   
-
-   
-    <div class="ejercicio-box"> 
-        <h2 class="number-title"> Ejercicio</h2> 
-        <p> 
-            Para cada una de las siguientes funciones encuentra la derivada parcial en los puntos indicados.
-            <ol>
-                <li>
-                    $f(x,y)=xy+x^2$ en $(1,0)$ y en $(0,1)$.
-                </li>
-                <li>
-                    $f(x,y)=\log(\sqrt{1+x^2y^2})$ en $(1,0)$ y en $(1,1)$.
-                </li>
-                <li>
-                    $f(x,y)=(x^2+y^2)e^{x^2+y^2}$ en $(1,1)$ y en $(2,2)$.
-                </li>
-                <li>
-                    $f(x,y)=xy\cos(2x+y)$ en $(\frac{\pi}{2},0)$ y en $(0,\frac{\pi}{2})$.
-                </li>
-            </ol>
-        </p>
-    </div>
-
-
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-        Para cada una de las siguientes funciones $f(x,y)$, encuentra el dominio de definición
-        de las funciones $\partial_xf(x,y)$ y $\partial_yf(x,y)$.
-    
-        <ol>
-            <li>
-                $f(x,y)=\log(x^2+y^2+1)$.
-            </li>
-            <li>
-                $f(x,y)=\frac{1}{\sqrt{x^2+y^2}}$.
-            </li>
-            <li>
-                $f(x,y)=y\sqrt{1-x^2-y^2}$.
-            </li>
-            <li>
-                $f(x,y)=\frac{x}{y}$.
-            </li>
-        </ol>
-        
-    </p>
-   </div>
-
-
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-        <p>
-            Sea $D:\mathbb{R}\to \mathbb{R}$ la función de Dirichlet
-            $$
-            D(x)=\left\{
-            \begin{array}{cc}
-            1, & \textrm{$x$ racional.}\\
-            0, & \textrm{$x$ irracional.}
-            \end{array}
-            \right.	
-            $$
-           Define la función $f:\mathbb{R}^2 \to \mathbb{R}$ dada por $f(x,y)=y^2D(x)$.
-        </p>
-        <p>
-            <ol>
-                <li>
-                    Demuestra que, para todo puntos $(x_0,y_0)$, $\partial_yf(x_0,y_0)$ siempre existe y calcula su valor.
-                </li>
-                <li>
-                    Además, prueba que si $y_0\ne 0$, $\partial_xf(x_0,y_0)$ no existe y que para todo
-                    $x_0$, $\partial_yf(x_0,0)=0$. 
-                </li>
-            </ol>
-        
-        </p>
-  </div>    
-        
-    <div class="ejercicio-box"> 
-        <h2 class="number-title"> Ejercicio</h2> 
-         <p>
-            Considera la función $f:\mathbb{R}^2 \to \mathbb{R}$ dada por $f(x,y)=\sqrt[3]{x}\sqrt[3]{y}$. Demuestra
-            que $\partial_xf(0,0)=0=\partial_yf(0,0)$. Además, muestra que para toda $y_0\ne0$, $\partial_xf(0,y_0)$
-            no existe.
-         </p>
-
-         <div>
-            <p>
-                Para $\partial_xf(0,0)$, primero calculamos el cociente diferencial
-                $$
-                \frac{f(0+s,0)-f(0,0)}{s}=\frac{\sqrt[3]{s}\sqrt[3]{0}-\sqrt[3]{0}\sqrt[3]{0}}{s}=\frac{0}{s}=0
-                $$
-                Tomando límite cuando $s\to 0$ concluimos que $\partial_xf(0,0)=0$.
-            </p>
-            <p>
-                De manera similar
-                $$
-                \frac{f(0,0+t)-f(0,0)}{t}=\frac{\sqrt[3]{0}\sqrt[3]{t}-\sqrt[3]{0}\sqrt[3]{0}}{t}=\frac{0}{t}=0
-                $$
-                y al tomar límite cuanto $t\to 0$ se obtiene $\partial_yf(0,0)=0$.
-          
-                Ahora fijemos $y_0\ne 0$. Al formar el cociente diferencial para $\partial_xf(0,y_0)$
-                obtenemos
-                $$
-                \frac{f(0+s,y_0)-f(0,y_0)}{s}=\frac{\sqrt[3]{s}\sqrt[3]{y_0}-\sqrt[3]{0}\sqrt[3]{y_0}}{s}
-                =\frac{\sqrt[3]{s}}{s} \sqrt[3]{y_0}=
-                \frac{1}{s^{2/3}}\sqrt[3]{y_0}
-                $$
-                Ya que
-                $$\lim_{s\to 0} \frac{1}{s^{2/3}}\sqrt[3]{y_0}=+\infty, \quad   \textrm{si $y_0>0$}$$
-                y
-                $$\lim_{s\to 0} \frac{1}{s^{2/3}}\sqrt[3]{y_0}=-\infty, \quad  \textrm{si $y_0 < 0$}$$
-                la derivada parcial $\partial_xf(0,y_0)$ no existe.
-            </p>
-         </div>
-    </div>
-
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-        Considera la función $f(x,y)=|x+y|-|x-y|$.
-        <ol>
-            <li>
-                Demuestra que, para todos $x_0,y_0\in \mathbb{R}$
-                $$
-                \partial_xf(x_0,0)=0, \quad \partial_yf(0,y_0)=0.
-                $$
-            </li>
-            <li>
-                Demuestra que $\partial_xf(1,1)$ no existe.
-            </li>
-        </ol>
-    </p>
-  </div> 
-  
-  
-  <div class="nota-box"> 
-    <h2 class="number-title"> Nota </h2> 
-    <h3> interpretación geométrica</h3>
-    <p>
-
-        Las derivadas parciales tienen las siguiente interpretación geométrica.
-        Dada una función $f: U\to \mathbb{R}$, definida en un abierto,
-        <ol>
-            <li>
-                $\partial_xf(x_0,y_0)$ es la pendiente de la recta tangente
-                a la gráfica que se obtiene al cortar la gráfica de $f$ con el plano $y=y_0$.
-            </li>
-            <li>
-                $\partial_yf(x_0,y_0)$  es le pendiente de la recta tangente a la gráfica
-                que se obtiene al cortar la gráfica de $f$ con el plano $x=x_0$.
-            </li>
-        </ol>
-    </p>
-    <p>
-        Ejemplo.
-    </p>
-    <p>
-        Considera el paraboloide de revolución $f(x,y)=x^2+xy+y^2$.       
-    
-        <ol>
-            <li>
-                Define $g(x)=f(x,0)$. Nota que $g$ es una parábola y nota que $g'(x)=\partial_xf(x,0)$.
-                Así las pendientes de las rectas tangentes a  $g$  están dadas por $\partial_xf(x,0)$.
-            </li>
-            <li>
-                Define $h(y)=f(0,y)$. Nota que $h$ es una parábola y not que $h'(y)=\partial_yf(0,y)$.
-                Así las pendientes de las rectas tangentes a  $h$  están dadas por $\partial_yf(0,y)$.
-            </li>
-            <li>
-                De manera más general, dados $x_0, y_0$ define 
-                $$g_{y_0}(x):=f(x,y_0), \quad h_{x_0}(y)=f(x_0,y)$$
-                Nota que $g_{y_0}$ y $h_{x_0}$ son parábolas.
-                <p>
-                    Por $G(g_{y_0})$ y $G(h_{x_0})$ denotamos las gráficas de $g_{y_0}$ y $h_{y_0}$, respectivamente.
-                    Encuentra los puntos $(x_0, y_0)$, para las cuales las rectas tangentes a $G(g_{x_0})$
-                    y a $G(h_{y_0})$, que pasan por $(1,g_{y_0}(1))$ y $(1,h_{y_0}(1))$ respectivamente, tienen pendiente iguales.		       
-                </p>
-            </li>
-        </ol>
-    </p>
-  </div>
-
-
-        
-
-        
-
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-        Considera la función
-        $$
-        f(x,y)=\left\{
-          \begin{array}{cc}
-            \frac{\sen(x^2+y^2)}{x^2+y^2} & (x,y)\ne (0,0) \\
-            1 & (x,y)=(0,0)
-          \end{array}
-          \right.
-          $$
-          
-          Calcula $\partial_xf(0,0)$ y $\partial_yf(0,0)$.
-          
-    </p>
- </div>
-
-      
-
-    
-  <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-        Para cada una de las siguientes funciones calcula $\partial_x\left( \int_0^x f(s,y)ds \right)$. 
-        ¿ Encuentras algún patron?:
-        <ol>
-            <li>
-                $f(x,y)=x^2+xy+y^2$,
-            </li>
-            <li>
-                $f(x,y)=e^{xy}$,
-            </li>
-            <li>
-                $f(x,y)=\cos(x+2y)$.
-            </li>
-        </ol>
-    </p>
- </div>
-
-  <div class="ejercicio-box"> 
-    <h2 class="number-title" id="Ejer:TFCyParciales"> Ejercicio</h2> 
-    <p>
-        Para cada una de las siguientes funciones calcula,  $\int_0^x(\partial_s f(s,y))ds$.
-        ¿ Encuentras algún patron?
-     
-         <ol>
-             <li>
-                 $f(x,y)=x^3y^2+xy+x^2y$
-             </li>
-             <li>
-                 $f(x,y)=e^{x^2+y}$
-             </li>
-             <li>
-                 $f(x,y)=\sen(xy)$
-             </li>
-         </ol>
-    </p>
-</div>
-
-    
-   
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-        <p>
-            Este ejercicio generaliza al ejercicio \ref{Ejer:TFCyParciales}. Usa el Teorema Fundamental para probar
-            que $\int_0^x(\partial_s f(s,y))ds=f(x,y)-f(0,y)$.        
-        </p>
-   </div>
-
-    
-
-
-    
-    
-      <div class="definicion-box">
-        <h2 class="number-title"> Definición </h2> 
-        <p>
-            Sea $f(p)$ una función de n-variables, $p=(p_1,\dots, p_n)$ ,definida en un abierto en $\mathbb{R}^n$.Fija
-            $j\in\{1,\dots,n\}$. La derivada parcial de $f$, con respecto a la variable $p_j$ (también llamada  la j-ésima derivada
-            parcial), valuada en $p$ se define como
-            $$
-            \partial_{p_j}f(p)=\lim_{h\to 0} \frac{f(p+he_j)-f(p)}{h}
-            $$
-            donde $\{e_1,\dots, e_1\}$ es la base canónica de $\mathbb{R}^n$.
-        </p>
-               
-      </div>
-
-        <div class="ejercicio-box"> 
-            <h2 class="number-title"> Ejercicio</h2> 
-            <p>
-                Para cada una de las siguientes funciones encuentra la derivada parcial con respecto a la variable indicada.
+                Para los siguientes conjuntos encuentra \(\partial A\).
                 <ol>
-                   <li>
-                       $f(p)=\sum_{i=1}^n p_i^2$. Calcular $\partial_{p_j}f(p)$.
-                   </li>
-                   <li>
-                       $f(x)=\langle x, y \rangle$, donde $x=(x_1,\dots, x_n)$ y $y=(y_1,\dots, y_n)$ es un vector fijo. 
-                       Calcular  $\partial_{x_j}f(x)$. ¿ La notación $\partial_{y_j}f(x)$ 
-                       tiene sentido en este ejemplo?
-                   </li>
-                   <li>
-                       $f(z)=\left( \sum_{i=1}^n \log(z_i^2+1) \right)^2$, donde $z=(z_1,\dots, z_n)$. Calcular $\partial_{z_j}f(z)$.
-                   </li>
-                   <li>
-                       $f(x,y,z)=100x^{1/2}y^{1/4}z^{1/5}$. Calcular $\partial_xf(x,y,z), \partial_yf(x,y,z)$ y $\partial_zf(x,y,z)$.
-                   </li>
+                    <li>
+                        \(A=B_r(q)\).
+                    </li>
+                    <p>
+                    </p>
+                    <li>
+                        \(A=\{(x,y)\in \mathbb{R}^2: x+y=1\}\).
+                    </li>
+                    <p>
+                    </p>
+                    <li>
+                        \(A=\mathbb{Q}\). Hint: recuerda la densidad de los racionales.
+                    </li>
+                    <p>
+                    </p>
+                    <li>
+                        \(A=\{p\in \mathbb{R}^n: p_i \geq 0 \} \) (donde \(i\in \{1,\dots, n\}\) es fijo).
+                    </li>
                 </ol>
-   
-            </p>    
+            </p>
+
         </div>
--->
+        
+
 
  </body>
