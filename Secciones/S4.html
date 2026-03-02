@@ -572,20 +572,44 @@
         \]
     </p>
     <p>
-        Si \((\mathbf{p}_n)_{n=1}^\infty\) es una sucesión convergente con 
+        Sea \((\mathbf{p}_n)_{n=1}^\infty\) una sucesión convergente con 
         \[
-        \lim_{n\to \infty} p_{n}=L
+        \lim_{n\to \infty} p_{n}=L.
         \]
     </p>
     <p>
-        Entonces para toda subsucesión \((p_{n_s})_{s=1}^\infty\) se cumple 
+        Entonces, para toda subsucesión \((p_{n_s})_{s=1}^\infty\) se cumple 
         \[
         \lim_{s\to \infty} p_{n_s} = L.
         \]
     </p>
     <button class="respButton hvr-grow "> Demostración</button>
     <div class="resp-box">
-
+        <p>
+            Sea \(\varepsilon >0\) fija y arbitraria.
+        </p>
+        <p>
+            P.D. existe \(s_0 \in \mathbb{N}\) tal que, para toda \(s\geq s_0\):
+            \[
+            \| p_{n_s}-L\|< \varepsilon.
+            \]
+        </p>
+        <p>
+            Usando que \(\lim_{n\to \infty}p_n=L\) aseguramos la existencia de 
+            un \(N\in \mathbb{N}\) tal que 
+            \begin{equation}\label{EqnAux:Subsucesiones}
+            \|p_n - L \| < \varepsilon, \quad \forall n\geq N
+            \end{equation}
+        </p>
+        <p>
+            Usando que \(n_1< n_2 < \cdots < n_{s}< n_{s+1}\) podemos encontrar un
+            \(s_0 \in \mathbb{N}\) tal que \(n_{s_0} >N\). Entonces si \(s\geq s_0\)
+            se cumple que \(N< n_{s_0}\leq n_s\) y por \eqref{EqnAux:Subsucesiones}
+            concluimos
+            \[
+            \|p_{n_s}-L \| < \varepsilon.
+            \]
+        </p>
     </div>
 
 </div>
@@ -868,7 +892,7 @@
             \[
             \gamma:\left[\frac{1}{n+1},\frac{1}{n}\right] \to \mathbb{R}^n
             \] 
-            dada por \(\gamma(t)=n(n+1)(p_{n+1}-p_n)\left(\frac{1}{n}-t \right)+ p_n\) y 
+            dada por \(\gamma(t)=n(n+1)(p_{n+1}-p_n)\left(t-\frac{1}{n+1}\right)+ p_n\) y 
             \(\gamma(0)=p_0\).
         </p>
         <p>
@@ -879,7 +903,7 @@
             Si \(0< t < \frac{1}{N} \) encontramos el \(n> N\) para el cual 
             \(t\in [1/(n+1), 1/n]\) entonces 
             \begin{eqnarray*}
-            \| \gamma(t)-p_0\|&=& \left\|n(n+1)(p_{n+1}-p_n)\left(\frac{1}{n}-t \right)+ p_n - p_0 \right\| \\
+            \| \gamma(t)-p_0\|&=& \left\|n(n+1)(p_{n+1}-p_n)\left(t-\frac{1}{n+1} \right)+ p_n - p_0 \right\| \\
             &\leq & n(n+1)\left| \frac{1}{n}-t \right|\|p_{n+1}-p_n\|+ \|p_n-p_0\| \\
             &\leq & n(n+1)\left| \frac{1}{n}-\frac{1}{n+1} \right|\|p_{n+1}-p_n\|+\|p_n-p_0\|\\
             &\leq &\|p_{n+1}-p_n\|+\|p_n-p_0\|\\
