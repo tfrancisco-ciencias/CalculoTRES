@@ -371,6 +371,7 @@
 
 
 
+
         <div class="prop-box">
         <h2 class="number-title"> Proposición </h2>
         <p>
@@ -408,6 +409,101 @@
         
 
     </div>
+
+
+        <div class="definicion-box">
+        <h2  > Definición </h2>
+        <p>
+            Sea \(A\subseteq \mathbb{R}^n\). La cerradura de \(A\), denotada \(\overline{A}\), 
+            se define como 
+            \[
+            \overline{A}=A\cup \{p\in \mathbb{R}^n: \textrm{ \(p\) es punto de acumulación de \(A\)} \}
+            \]
+        </p>
+        <p>
+            Por ejemplo 
+            \[
+            \overline{\{(x,y)\in \mathbb{R}^2: x^2 +y^2 < r^2\}}=\{(x,y)\in \mathbb{R}^2: x^2 +y^2 \leq r^2\}
+            \]
+        </p>
+    </div>
+
+    <div class="prop-box">
+        <h2 > Proposición</h2>
+        <p>
+            Sea \(A\subseteq \mathbb{R}^n\). Su cerradura, \(\overline{A}\) es un subconjunto cerrado. 
+        </p>
+        <p>
+            Además 
+            es el subconjunto cerrado más chico que contiene a \(A\). Es decir, si \(F\) es cerrado 
+            y \(A\subseteq F\) entonces \(\overline{A}\subseteq F\).
+        </p>
+        <button class="respButton hvr-grow "> Demostración</button>
+        <div class="resp-box">
+        <p>
+            Por simplicidad denotamos 
+            \[
+            A'=\{p\in \mathbb{R}^n: \textrm{ \(p\) es punto de acumulación de \(A\)} \}.
+            \]
+        </p>
+        <p>
+            Con esta notación tenemos que  \(\overline{A}=A\cup A'\).
+        </p>
+        <p>
+            Vamos a probar que \(\overline{A}\) es cerrado o 
+            equivalentemente que \((\overline{A})^c=A^c \cap (A')^c\) es abierto.  
+        </p>
+        <p>
+            Sea \(p\in (\overline{A})^c\). P.D. existe \(r>0\) tal que \(B_r(p)\subseteq (\overline{A})^c\).
+        </p>
+        <p>
+            Como \(p\in (\overline{A})^c=A^c \cap (A')^c\) entonces \(p\in (A')^c\) y por lo tanto 
+            existe \(r>0\) tal que \( \hat{B}_r(p)\cap A =\emptyset \) ó equivalentemente 
+            \(\hat{B}_r(p)\subseteq A^c\).
+        </p>
+        <p>
+            Afirmación: \(B_r(p)\subseteq (\overline{A})^c \). 
+        </p>
+        <p>
+            Razón: sea \(q\in B_r(p) \) arbitrario. P.D. \( q\in (\overline{A})^c=A^c \cap (A')^c\).
+        </p>
+        <p>
+            Caso 1: \(q=p\). En este caso es inmediato que \(q=p\in (\overline{A})^c\).
+        </p>
+        <p>
+            Caso 2: \(q\ne p\). En este caso \(q\in \hat{B}_r(p)\subseteq A^c \) lo 
+            que implica 
+            \begin{equation}\label{Eqn:Aux1Cerradura}
+            q\in A^c.
+            \end{equation}
+            Por otro lado como \(q\in \hat{B}_r(p)\) y \(\hat{B}_r(p)\) es abierto 
+            existe \(s>0\) tal que \(B_s(q) \subseteq \hat{B}_r(p)\) lo que implica 
+            \(\hat{B}_s(q)\subseteq \hat{B}_r(p)\subseteq A^c\) y por lo tanto 
+            \begin{equation}\label{Eqn:Aux2Cerradura}
+            q\in (A')^c.
+            \end{equation}
+        </p>
+        <p>
+            Por \eqref{Eqn:Aux1Cerradura} y \eqref{Eqn:Aux2Cerradura} 
+            concluimos \(q\in (\overline{A})^c\).
+        </p>
+        <p>
+            Sea \(F\subset \mathbb{R}^n\) cerrado con \(A\subseteq F\). P.D. \(\overline{A}\subseteq F\).
+        </p>
+        <p>
+            Como \(\overline{A}=A\cup A'\) y \(A\subseteq F\) es suficiente probar que \(A'\subseteq F\).
+        </p>
+        <p>
+            Sea \(p\in A'\). Entonces para todo \(r> 0\), \(\hat{B}_r(p)\cap A \ne \emptyset\). Ahora, 
+            tenemos que \(A\subset F\) por lo también tenemos \(\hat{B}_r(p)\cap F\ne \emptyset\) y 
+            al ser \(r>0\) arbitrario conlcuimos que \(p\) es punto de acumulación de \(F\). Como 
+            \(F\) es cerrado se sigue que \(p\in F\). Al ser \(p\) arbitrario 
+            concluimos \(A'\subseteq F\).
+        </p>
+        </div>
+    </div>
+
+
 
     <div class="lema-box">
         <h2 class="number-title"> Lema </h2>
