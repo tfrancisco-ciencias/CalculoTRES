@@ -157,6 +157,266 @@
         </div>
     </div>
 
+
+
+<div class="info-box"> 
+<h2 class="number-title"> Ejemplo </h2> 
+    <p>
+        Sea $D:\mathbb{R}\to \mathbb{R}$ la función de Dirichlet:
+        $$
+        D(x)=\left\{
+        \begin{array}{cc}
+        1, & \textrm{$x$ racional,}\\
+        0, & \textrm{$x$ irracional.}
+        \end{array}
+        \right.	
+        $$
+       Define la función $f:\mathbb{R}^2 \to \mathbb{R}$ dada por $f(x,y)=y^2D(x)$.
+    </p>
+    <p>
+        <ol>
+            <li>
+                Demuestra que, para cualesquiera puntos $(x_0,y_0)$, $\partial_yf(x_0,y_0)$ siempre existe y calcula su valor.
+            </li>
+            <li>
+                Prueba que si $y_0\ne 0$, $\partial_xf(x_0,y_0)$ no existe. 
+            </li>
+            <li>
+                Finalmente prueba que para todo
+                $x_0$, $\partial_yf(x_0,0)=0$. 
+            </li>
+        </ol>
+    
+    </p>
+    
+           <h3> Inciso 1.</h3> 
+                <p>
+                    Sea $(x_0,y_0) \in \mathbb{R}^2$. Notemos que la función $y \mapsto y^2$ es diferenciable, sin embargo la función
+                    de Dirichlet $D(x)$ no lo es por lo que es necesario considerar el cociente diferencial para encontrar las derivadas
+                    parciales:
+                    \begin{align*}
+                    \frac{f(x_0,y_0 + s)- f(x_0,y_0)}{s}=& \frac{(y_0+s)^2 D(x_0) - y_0^2 D(x_0)}{s},\\
+                    =& \frac{(y_0+s)^2 - y_0^2}{s}D(x_0),\\
+                    =& \frac{2y_0s + s^2}{s}D(x_0),\\
+                    =& [2y_0 + s]D(x_0).
+                    \end{align*}
+                    Podemos reconocer que el factor izquierdo corresponde al cociente diferencial de la función $y \to y^2$ en el punto
+                    $y_0$ y el derecho es constante respecto a $s$, por lo que el límite de ambos existe y por tanto también el del producto.
+                    Más aún,
+                    \begin{equation*}
+                    \partial_x f(x_0,y_0) = 2y_0D(x_0).
+                    \end{equation*}
+                </p>
+                <h3> Inciso 2.</h3>
+                <p>
+                    Sea $y_0 \neq 0$. Comenzamos por escribir el cociente diferencial de la función para la derivada parcial respecto a $x$,
+                    \begin{equation*}
+                    \frac{f(x_0 + s,y_0)-f(x_0,y_0)}{s} = y_0^2\frac{D(x_0+s)-D(x_0)}{s}.
+                    \end{equation*}
+                    Empezaremos por considerar el caso en que $x_0 \in \mathbb{Q}$. En este caso \(D(x_0)=1\).
+                </p>
+                <p>
+                    Ahora vamos a hacercarnos al cero de dos distintas formas.
+                </p>
+                <p>
+                    Caso 1: tomando \(s_n=\frac{1}{n}\) tenemos que \(\lim_{n\to \infty}s_n=0\), \(D(x_0+s_n)=1\) y 
+                    \begin{eqnarray*} 
+                    \lim_{n\to \infty} \frac{f(x_0 + s_n,y_0)-f(x_0,y_0)}{s_n} 
+                    &=& \lim_{n\to \infty} y_0^2\frac{1-1}{s_n} \\
+                    &=& \lim_{n\to \infty} y_0^2 \frac{0}{s_n}=0.
+                    \end{eqnarray*}
+                </p>
+                <p>
+                    Caso 2: tomando \(s_n=\frac{\sqrt{2}}{n}\) tenemos que \(\lim_{n\to \infty} s_n=0\),
+                    \(D(x_0+s_n)=0\) y 
+                    \begin{eqnarray*} 
+                    \lim_{n\to \infty} \frac{f(x_0 + s_n,y_0)-f(x_0,y_0)}{s_n} 
+                    &=& \lim_{n\to \infty} y_0^2\frac{0-1}{s_n} \\
+                    &=& \lim_{n\to \infty} -y_0^2 \frac{n}{\sqrt{2}}=-\infty.
+                    \end{eqnarray*}
+                </p>
+                    <!-- <p>
+                        Si $s \in \mathbb{Q}$ entonces $x_0 + s \in \mathbb{Q}$ y se tiene que $f(x_0 + s,y_0) - f(x_0,y_0) = 1-1 = 0$, de manera
+                        que 0 es candidato para ser límite del cociente. Veamos que el límite no existe. Sea $\epsilon =1$, para cada
+                        $s \in \mathbb{R}\setminus\mathbb{Q}$ se observa que $x_0 + s \notin \mathbb{Q}$, por lo que $f(x_0 + s,y_0) - f(x_0,y_0) = -1$.
+                        Como $y_0 \neq 0$ entonces podemos considerar $s$ tal que $0 < |s| < y_0^2$, de manera que para cada $\delta>0$, cada
+                        número irracional $s$ tal que $0<|s| < \min (\delta,y_0^2)$ satisface que
+                        \begin{equation*}
+                        \left |y_0^2\frac{D(x_0+s)-D(x_0)}{s} \right |= \left | y_0^2\frac{-1}{s} \right | > 1,
+                        \end{equation*}
+                        con lo cual se concluye que el límite cuando $s \to 0$ no existe y por lo tanto $\partial_xf(x_0,y_0)$ no existe.
+                        El caso en que se toma $x_0 \notin \mathbb{Q}$ es similar. Por un lado se considera $s \in \mathbb{Q}$ de manera que
+                        $x_0$ y $x_0 + s$ sean números irracionales para que la diferencia en el numerador sea 0, y por el otro se considera
+                        $s$ tal que $0<|s|<\min (y_0^2, \delta)$ de manera que $x_0 + s \in \mathbb{Q}$ y el valor absoluto del cociente sea
+                        mayor que 1.
+                    </p>-->
+                    <h3> Inciso 3.</h3>
+                    <p>
+                        Finalmente si fijamos \(x_0\):
+                        \begin{align*}
+                        \frac{f(x_0,0 + s)-f(x_0,0)}{s} =& \frac{s^2D(x_0) - 0^2D(x_0)}{s},\\
+                        =& \frac{s^2D(x_0)}{s},\\
+                        =&sD(x_0).
+                        \end{align*}
+                        De esta manera 
+                        \begin{eqnarray*} 
+                        \partial_y f(x_0,0)&=&\lim_{s\to 0}\frac{f(x_0,0 + s)-f(x_0,0)}{s} \\
+                        &=& \lim_{s\to 0} sD(x_0) =0
+                        \end{eqnarray*}
+                    </p>
+    </div>
+</div>    
+
+
+ <div class="nota-box">
+    <h2 class="number-title"> Notas </h2>
+        <ol>
+        <li>
+            Dependiendo de las variables independientes la notación de parciales puede cambiar. Por
+            ejemplo, si tenemos una función $f(x_1,x_2)$, las parciales se denotan $\partial_{x_1}f$
+            y $\partial_{x_2}f$ o si es  $f(r,\theta)$ tendríamos $\partial_r f$, $\partial_\theta f$.
+        </li>
+        <li>
+            Para cada punto $(x_0,y_0)$,  al  calcular las  parciales
+            $$\partial_xf(x_0,y_0), \quad \partial_{y}f(x_0,y_0)$$
+            obtenemos  números reales. Pero,   si pensamos a $(x_0,y_0)$ variando en un dominio y
+            lo denotamos $(x,y)$ (notación de variable), obtenemos funciones
+            $$\partial_xf(x,y),\quad \partial_yf(x,y)$$
+       
+        </li>
+        <li>
+            Note que en las expresiones
+            anteriores las $x$ que aparecen son distintas. La de la parcial indica con respecto a qué
+            variable se diferencia y la otra indica en qué punto se está evaluando. Asi por ejemplo
+            si $\partial_xf(x,y)=6x-2y$ entonces  $\partial_xf(3,5)=6(3)-2(5)=8$, sin embargo $\partial_3f(x,y)$
+            o $\partial_3f(3,5)$ no tienen sentido.
+        </li>
+        </ol>
+ </div>
+
+ <div class="nota-box"> 
+<h2 class="number-title"> Nota </h2> 
+<h3> Interpretación geométrica</h3>
+<p>
+
+    Las derivadas parciales tienen las siguiente interpretación geométrica.
+    Dada una función $f: U\to \mathbb{R}$, definida en un abierto,
+    <ol>
+        <li>
+            $\partial_xf(x_0,y_0)$ es la pendiente de la recta tangente
+            a la gráfica que se obtiene al cortar la gráfica de $f$ con el plano $y=y_0$.
+        </li>
+        <li>
+            $\partial_yf(x_0,y_0)$  es le pendiente de la recta tangente a la gráfica
+            que se obtiene al cortar la gráfica de $f$ con el plano $x=x_0$.
+        </li>
+    </ol>
+</p>
+<p>
+    Ejemplo.
+</p>
+<p>
+    Considera el paraboloide de revolución $f(x,y)=x^2+xy+y^2$.       
+
+    <ol>
+        <li>
+            Define $g(x)=f(x,0)$. Nota que $g$ es una parábola y nota que $g'(x)=\partial_xf(x,0)$.
+            Así las pendientes de las rectas tangentes a  $g$  están dadas por $\partial_xf(x,0)$.
+        </li>
+        <p>
+            <div class="flexbox" >
+                <img src="./Images/S7-Img1.png" alt="InterseccionYZ" width="40%" height="auto" >
+              </div>
+        </p>
+        
+        <li>
+            Define $h(y)=f(0,y)$. Nota que $h$ es una parábola y not que $h'(y)=\partial_yf(0,y)$.
+            Así las pendientes de las rectas tangentes a  $h$  están dadas por $\partial_yf(0,y)$.
+        </li>
+        <p>
+            <div class="flexbox">
+                <img src="./Images/S7-Img2.png" alt="InterseccionXZ" width="40%" height="auto">
+              </div>
+        </p>
+        
+        <li>
+            De manera más general, dados $x_0, y_0$ define 
+            $$g_{y_0}(x):=f(x,y_0), \quad h_{x_0}(y)=f(x_0,y)$$
+            Nota que $g_{y_0}$ y $h_{x_0}$ son parábolas y que las pendientes a las rectas tangentes 
+            de las gráficas de \(g_{y_0}(x)\) y \(h_{x_0}(y)\) están dadas por \(\partial_{x}f(x,y_0)\) 
+            y \(\partial_yf(y,x_0)\).
+        </li>
+    </ol>
+</p>
+</div>
+
+
+
+  <div class="definicion-box">
+    <h2 class="number-title"> Definición </h2> 
+    <p>
+        Sea $f(p)$ una función de n-variables, $p=(p_1,\dots, p_n)$ ,definida en un abierto en $\mathbb{R}^n$.Fija
+        $j\in\{1,\dots,n\}$. La derivada parcial de $f$, con respecto a la variable $p_j$ (también llamada  la j-ésima derivada
+        parcial), valuada en $p$ se define como
+        $$
+        \partial_{p_j}f(p)=\lim_{h\to 0} \frac{f(p+he_j)-f(p)}{h}
+        $$
+        donde $\{e_1,\dots, e_1\}$ es la base canónica de $\mathbb{R}^n$.
+    </p>
+           
+  </div>
+
+  <div class="info-box">
+    <h2 class="number-title"> Ejemplo </h2>
+    <p>
+        Considera la función de \(n\)-varaibles dada por 
+        \[
+        f(z)=\left( \sum_{i=1}^n \log(z_i^2+1) \right)^2
+        \]
+        donde $z=(z_1,\dots, z_n)$. 
+    </p>
+    <p>
+        Para calcular $\partial_{z_j}f(z)$ podemos calcularla como la derivada 
+        de dimensión 1 respecto de la variable $z_j$, tratando al resto de las 
+        variables como constantes (con respecto a $z_j$). Entonces, usando la regla de la cadena 
+         se tiene que
+                \begin{align*}
+                \partial_{z_j}f(z) =& 2 \left( \sum_{i=1}^n \log(z_i^2 + 1)\right)\frac{1}{z_j^2+1}2z_j,\\
+                =& 4 \frac{z_j}{z_j^2 + 1}\sum_{i=1}^n \log(z_i^2 + 1).
+                \end{align*}
+            </p>
+    </p>
+  </div>
+
+
+
+    <div class="nota-box">
+        <h2 class="number-title"> Derivadas de orden superior</h2>
+        <p>
+            Considerando las derivadas parciales, \(\partial_x f(x,y), \partial_yf(x,y)\), como funciones
+            podemos a su vez tomar sus derivadas parciales las cuales se llaman derivadas parciales de segundo orden.
+            En notación 
+            \begin{eqnarray*} 
+                \partial_{x}^2f=\partial_x(\partial_x f)=\frac{\partial^2 f}{\partial x^2}\\
+                \partial_{y}^2f=\partial_y(\partial_y f)=\frac{\partial^2 f}{\partial y^2}\\
+                \partial_{xy}f=\partial_x(\partial_y f)=\frac{\partial^2 f}{\partial x \partial y}\\
+                \partial_{yx}f=\partial_y(\partial_x f)=\frac{\partial^2 f}{\partial y \partial x}
+            \end{eqnarray*}
+        </p>
+        <p>
+            Por ejemplo, para \(f(x,y)=2y^3-yx^2+y^3x^3\),
+            \begin{eqnarray*} 
+            \partial_{x}^2f&=&\partial_x(\partial_xf)=\partial_x(-2yx+3y^3x^2)=-2y+6y^3x\\
+            \partial_{y}^2f&=&\partial_y(\partial_y f)=\partial_y(6y^2-x^2+3y^2x^3)= 12y+6yx^3\\
+            \partial_{xy}f&=&\partial_x(\partial_y f)=\partial_x(6y^2-x^2+3y^2x^3)=-2x+9y^2x^2\\
+            \partial_{yx}f&=&\partial_y(\partial_x f)=\partial_y(-2yx+3y^3x^2)=-2x+9y^2x^2
+            \end{eqnarray*}
+        </p>
+
+
+    </div>
+
+
 <div class="ejercicio-box">
     <h2 class="number-title"> Ejercicio</h2>
     <p>
@@ -197,31 +457,6 @@
 
 </div>
 
- <div class="nota-box">
-    <h2 class="number-title"> Notas </h2>
-        <ol>
-        <li>
-            Dependiendo de las variables independientes la notación de parciales puede cambiar. Por
-            ejemplo, si tenemos una función $f(x_1,x_2)$, las parciales se denotan $\partial_{x_1}f$
-            y $\partial_{x_2}f$ o si es  $f(r,\theta)$ tendríamos $\partial_r f$, $\partial_\theta f$.
-        </li>
-        <li>
-            Para cada punto $(x_0,y_0)$,  al  calcular las  parciales
-            $$\partial_xf(x_0,y_0), \quad \partial_{y}f(x_0,y_0)$$
-            obtenemos  números reales. Pero,   si pensamos a $(x_0,y_0)$ variando en un dominio y
-            lo denotamos $(x,y)$ (notación de variable), obtenemos funciones
-            $$\partial_xf(x,y),\quad \partial_yf(x,y)$$
-       
-        </li>
-        <li>
-            Note que en las expresiones
-            anteriores las $x$ que aparecen son distintas. La de la parcial indica con respecto a qué
-            variable se diferencia y la otra indica en qué punto se está evaluando. Asi por ejemplo
-            si $\partial_xf(x,y)=6x-2y$ entonces  $\partial_xf(3,5)=6(3)-2(5)=8$, sin embargo $\partial_3f(x,y)$
-            o $\partial_3f(3,5)$ no tienen sentido.
-        </li>
-        </ol>
- </div>
 
 
 
@@ -375,88 +610,6 @@
 </div>
 
 
-<div class="ejercicio-box"> 
-<h2 class="number-title"> Ejercicio</h2> 
-    <p>
-        Sea $D:\mathbb{R}\to \mathbb{R}$ la función de Dirichlet
-        $$
-        D(x)=\left\{
-        \begin{array}{cc}
-        1, & \textrm{$x$ racional.}\\
-        0, & \textrm{$x$ irracional.}
-        \end{array}
-        \right.	
-        $$
-       Define la función $f:\mathbb{R}^2 \to \mathbb{R}$ dada por $f(x,y)=y^2D(x)$.
-    </p>
-    <p>
-        <ol>
-            <li>
-                Demuestra que, para todo puntos $(x_0,y_0)$, $\partial_yf(x_0,y_0)$ siempre existe y calcula su valor.
-            </li>
-            <li>
-                Además, prueba que si $y_0\ne 0$, $\partial_xf(x_0,y_0)$ no existe y que para todo
-                $x_0$, $\partial_yf(x_0,0)=0$. 
-            </li>
-        </ol>
-    
-    </p>
-    <button class="respButton hvr-grow "> Solución</button>
-    <div class="resp-box">
-        <p>
-            <ol>
-                <li>
-                    Sea $(x_0,y_0) \in \mathbb{R}^2$. Notemos que la función $y \mapsto y^2$ es diferenciable, sin embargo la función
-                    de Dirichlet $D(x)$ no lo es por lo que es necesario considerar el cociente diferencial para encontrar las derivadas
-                    parciales:
-                    \begin{align*}
-                    \frac{f(x_0,y_0 + s)- f(x_0,y_0)}{s}=& \frac{(y_0+s)^2 D(x_0) - y_0^2 D(x_0)}{s},\\
-                    =& \frac{(y_0+s)^2 - y_0^2}{s}D(x_0),\\
-                    =& \frac{2y_0s + s^2}{s}D(x_0),\\
-                    =& [2y_0 + s]D(x_0).
-                    \end{align*}
-                    Podemos reconocer que el factor izquierdo corresponde al cociente diferencial de la función $y \to y^2$ en el punto
-                    $y_0$ y el derecho es constante respecto a $s$, por lo que el límite de ambos existe y por tanto también el del producto.
-                    Más aún,
-                    \begin{equation*}
-                    \partial_x f(x_0,y_0) = 2y_0D(x_0).
-                    \end{equation*}
-                </li>
-                <li>
-                    Sea $y_0 \neq 0$. Comenzamos por escribir el cociente diferencial de la función para la derivada parcial respecto a $x$,
-                    \begin{equation*}
-                    \frac{f(x_0 + s,y_0)-f(x_0,y_0)}{s} = y_0^2\frac{D(x_0+s)-D(x_0)}{s}.
-                    \end{equation*}
-                    Empezaremos por considerar el caso en que $x_0 \in \mathbb{Q}$ y el caso restante será similar salvo por algunos detalles.
-                    <p>
-                        Si $s \in \mathbb{Q}$ entonces $x_0 + s \in \mathbb{Q}$ y se tiene que $f(x_0 + s,y_0) - f(x_0,y_0) = 1-1 = 0$, de manera
-                        que 0 es candidato para ser límite del cociente. Veamos que el límite no existe. Sea $\epsilon =1$, para cada
-                        $s \in \mathbb{R}\setminus\mathbb{Q}$ se observa que $x_0 + s \notin \mathbb{Q}$, por lo que $f(x_0 + s,y_0) - f(x_0,y_0) = -1$.
-                        Como $y_0 \neq 0$ entonces podemos considerar $s$ tal que $0 < |s| < y_0^2$, de manera que para cada $\delta>0$, cada
-                        número irracional $s$ tal que $0<|s| < \min (\delta,y_0^2)$ satisface que
-                        \begin{equation*}
-                        \left |y_0^2\frac{D(x_0+s)-D(x_0)}{s} \right |= \left | y_0^2\frac{-1}{s} \right | > 1,
-                        \end{equation*}
-                        con lo cual se concluye que el límite cuando $s \to 0$ no existe y por lo tanto $\partial_xf(x_0,y_0)$ no existe.
-                        El caso en que se toma $x_0 \notin \mathbb{Q}$ es similar. Por un lado se considera $s \in \mathbb{Q}$ de manera que
-                        $x_0$ y $x_0 + s$ sean números irracionales para que la diferencia en el numerador sea 0, y por el otro se considera
-                        $s$ tal que $0<|s|<\min (y_0^2, \delta)$ de manera que $x_0 + s \in \mathbb{Q}$ y el valor absoluto del cociente sea
-                        mayor que 1.
-                    </p>
-                    <p>
-                        Finalmente
-                        \begin{align*}
-                        \frac{f(x_0,0 + s)-f(x_0,0}{s} =& \frac{s^2D(x_0) - 0^2D(x_0)}{s},\\
-                        =& \frac{s^2D(x_0)}{s},\\
-                        =&sD(x_0).
-                        \end{align*}
-                        De esta manera $\partial_y f(x_0,0)=0$.
-                    </p>
-                </li>
-            </ol>
-        </p>
-    </div>
-</div>    
     
 <div class="ejercicio-box"> 
     <h2 class="number-title"> Ejercicio</h2> 
@@ -522,61 +675,6 @@
 </div> 
 
 
-<div class="nota-box"> 
-<h2 class="number-title"> Nota </h2> 
-<h3> Interpretación geométrica</h3>
-<p>
-
-    Las derivadas parciales tienen las siguiente interpretación geométrica.
-    Dada una función $f: U\to \mathbb{R}$, definida en un abierto,
-    <ol>
-        <li>
-            $\partial_xf(x_0,y_0)$ es la pendiente de la recta tangente
-            a la gráfica que se obtiene al cortar la gráfica de $f$ con el plano $y=y_0$.
-        </li>
-        <li>
-            $\partial_yf(x_0,y_0)$  es le pendiente de la recta tangente a la gráfica
-            que se obtiene al cortar la gráfica de $f$ con el plano $x=x_0$.
-        </li>
-    </ol>
-</p>
-<p>
-    Ejemplo.
-</p>
-<p>
-    Considera el paraboloide de revolución $f(x,y)=x^2+xy+y^2$.       
-
-    <ol>
-        <li>
-            Define $g(x)=f(x,0)$. Nota que $g$ es una parábola y nota que $g'(x)=\partial_xf(x,0)$.
-            Así las pendientes de las rectas tangentes a  $g$  están dadas por $\partial_xf(x,0)$.
-        </li>
-        <p>
-            <div class="flexbox" >
-                <img src="./Images/S7-Img1.png" alt="InterseccionYZ" width="40%" height="auto" >
-              </div>
-        </p>
-        
-        <li>
-            Define $h(y)=f(0,y)$. Nota que $h$ es una parábola y not que $h'(y)=\partial_yf(0,y)$.
-            Así las pendientes de las rectas tangentes a  $h$  están dadas por $\partial_yf(0,y)$.
-        </li>
-        <p>
-            <div class="flexbox">
-                <img src="./Images/S7-Img2.png" alt="InterseccionXZ" width="40%" height="auto">
-              </div>
-        </p>
-        
-        <li>
-            De manera más general, dados $x_0, y_0$ define 
-            $$g_{y_0}(x):=f(x,y_0), \quad h_{x_0}(y)=f(x_0,y)$$
-            Nota que $g_{y_0}$ y $h_{x_0}$ son parábolas y que las pendientes a las rectas tangentes 
-            de las gráficas de \(g_{y_0}(x)\) y \(h_{x_0}(y)\) están dadas por \(\partial_{x}f(x,y_0)\) 
-            y \(\partial_yf(y,x_0)\).
-        </li>
-    </ol>
-</p>
-</div>
 
 
     
@@ -724,19 +822,6 @@
 
 
 
-  <div class="definicion-box">
-    <h2 class="number-title"> Definición </h2> 
-    <p>
-        Sea $f(p)$ una función de n-variables, $p=(p_1,\dots, p_n)$ ,definida en un abierto en $\mathbb{R}^n$.Fija
-        $j\in\{1,\dots,n\}$. La derivada parcial de $f$, con respecto a la variable $p_j$ (también llamada  la j-ésima derivada
-        parcial), valuada en $p$ se define como
-        $$
-        \partial_{p_j}f(p)=\lim_{h\to 0} \frac{f(p+he_j)-f(p)}{h}
-        $$
-        donde $\{e_1,\dots, e_1\}$ es la base canónica de $\mathbb{R}^n$.
-    </p>
-           
-  </div>
 
     <div class="ejercicio-box"> 
         <h2 class="number-title"> Ejercicio</h2> 
@@ -751,16 +836,14 @@
                    Calcular  $\partial_{x_j}f(x)$. ¿ La notación $\partial_{y_j}f(x)$ 
                    tiene sentido en este ejemplo?
                </li>
-               <li>
-                   $f(z)=\left( \sum_{i=1}^n \log(z_i^2+1) \right)^2$, donde $z=(z_1,\dots, z_n)$. Calcular $\partial_{z_j}f(z)$.
-               </li>
+               
                <li>
                    $f(x,y,z)=100x^{1/2}y^{1/4}z^{1/5}$. Calcular $\partial_xf(x,y,z), \partial_yf(x,y,z)$ y $\partial_zf(x,y,z)$.
                </li>
             </ol>
 
         </p>
-        <button class="respButton hvr-grow "> Solución 1</button>
+        <!-- <button class="respButton hvr-grow "> Solución 1</button>
         <div class="resp-box">
             <p>
                 \begin{align*}
@@ -778,46 +861,11 @@
                 Así, podemos hacer la misma observación que se hizo anteriormente, si $\partial_{p_j}f(p)$ existe,
                 entonces la podemos calcular como la derivada de dimensión 1 respecto de la variable $p_j$, tratando
                 al resto de las variables como constantes (con respecto a $p_j$).
-            </p>
+            </p>-->
         </div>
-        <button class="respButton hvr-grow "> Solución 3</button>
-        <div class="resp-box">
-            <p>
-                Usando la regla de la cadena y las observaciones hechas en el primer inciso se tiene que
-                \begin{align*}
-                \partial_{z_j}f(z) =& 2 \left( \sum_{i=1}^n \log(z_i^2 + 1)\right)\frac{1}{z_j^2+1}2z_j,\\
-                =& 4 \frac{z_j}{z_j^2 + 1}\sum_{i=1}^n \log(z_i^2 + 1).
-                \end{align*}
-            </p>
-        </div>
+       
     </div>
 
-
-    <div class="nota-box">
-        <h2 class="number-title"> Derivadas de orden superior</h2>
-        <p>
-            Considerando las derivadas parciales, \(\partial_x f(x,y), \partial_yf(x,y)\), como funciones
-            podemos a su vez tomar sus derivadas parciales las cuales se llaman derivadas parciales de segundo orden.
-            En notación 
-            \begin{eqnarray*} 
-                \partial_{x^2}f=\partial_x(\partial_x f)=\frac{\partial^2 f}{\partial x^2}\\
-                \partial_{y^2}f=\partial_y(\partial_y f)=\frac{\partial^2 f}{\partial y^2}\\
-                \partial_{xy}f=\partial_x(\partial_y f)=\frac{\partial^2 f}{\partial x \partial y}\\
-                \partial_{yx}f=\partial_y(\partial_x f)=\frac{\partial^2 f}{\partial y \partial x}
-            \end{eqnarray*}
-        </p>
-        <p>
-            Por ejemplo, para \(f(x,y)=2y^3-yx^2+y^3x^3\),
-            \begin{eqnarray*} 
-            \partial_{x^2}f&=&\partial_x(\partial_xf)=\partial_x(-2yx+3y^3x^2)=-2y+6y^3x\\
-            \partial_{y^2}f&=&\partial_y(\partial_y f)=\partial_y(6y^2-x^2+3y^2x^3)= 12y+6yx^3\\
-            \partial_{xy}f&=&\partial_x(\partial_y f)=\partial_x(6y^2-x^2+3y^2x^3)=-2x+9y^2x^2\\
-            \partial_{yx}f&=&\partial_y(\partial_x f)=\partial_y(-2yx+3y^3x^2)=-2x+9y^2x^2
-            \end{eqnarray*}
-        </p>
-
-
-    </div>
 
     <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio </h2>
