@@ -92,7 +92,7 @@
 <div class="definicion-box">
     <h2 class="number-title"> Definición </h2> 
     <p>
-        Sea $U\subseteq \mathbb{R}^2$ un conjunto abierto y $f:U\to \mathbb{R}$ una función y 
+        Sea $U\subseteq \mathbb{R}^2$ un conjunto abierto, $f:U\to \mathbb{R}$ una función y 
         $(x_0, y_0)\in U$ un punto fijo. Las derivadas parciales de $f$, en punto $(x_0,y_0)$, se definen
         como:
         <ol>
@@ -107,9 +107,10 @@
                 $$
                 \partial_y f(x_0,y_0)=\frac{\partial f}{\partial y}(x_0,y_0)=\lim_{t\to 0} \frac{f(x_0,y_0+t)-f(x_0,y_0)}{t} 
                 $$
-                siempre y cuando los límites existen.
+                
             </li>
          </ol>
+         siempre y cuando los límites existen.
     </p>
 </div>
 
@@ -250,6 +251,9 @@
                         $s$ tal que $0<|s|<\min (y_0^2, \delta)$ de manera que $x_0 + s \in \mathbb{Q}$ y el valor absoluto del cociente sea
                         mayor que 1.
                     </p>-->
+                    <p>
+                        El caso en que $x_0 \notin \mathbb{Q}$ es similar.
+                    </p>
                     <h3> Inciso 3.</h3>
                     <p>
                         Finalmente si fijamos \(x_0\):
@@ -307,7 +311,7 @@
             a la gráfica que se obtiene al cortar la gráfica de $f$ con el plano $y=y_0$.
         </li>
         <li>
-            $\partial_yf(x_0,y_0)$  es le pendiente de la recta tangente a la gráfica
+            $\partial_yf(x_0,y_0)$  es la pendiente de la recta tangente a la gráfica
             que se obtiene al cortar la gráfica de $f$ con el plano $x=x_0$.
         </li>
     </ol>
@@ -423,33 +427,23 @@
         Encuentra las dos derivadas  parciales de las siguientes funciones.
     </p>
     <ol>
-        <li>
-            \(f(x,y)=x^4y^6-7x^2y^4\).
-        </li>
+        
         <li>
             \(g(x,t)=\sqrt{t}\log(x^2)\).
         </li>
-        <li>
-            \(h(x,y)=\frac{y}{(x+y)^2}\).
-        </li>
+        
         <li>
             \(F(x,y)=\frac{ax+by}{cx+dy}\).
         </li>
-        <li>
-            \(G(r,\theta)=r\sen(\theta)\).
-        </li>
+        
         <li>
             \(H(u,v)=\frac{e^u}{e^v+e^{2u}}\).
         </li>
-        <li>
-            \(f(\varphi,\psi)=\sqrt{(a-\varphi)^2+(\psi-b)^2}\).
-        </li>
+        
         <li>
             \(g(x,y)=x^y\).
         </li>
-        <li>
-            \(h(s,t)=s^{1/t}\).
-        </li>
+        
         <li>
             \(F(x,y)=\int_x^y \cos(t^2+t)dt\).
         </li>
@@ -459,27 +453,37 @@
 
 
 
-
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p> 
-        Para cada una de las siguientes funciones encuentra la derivada parcial en los puntos indicados.
-        <ol>
-            <li>
-                $f(x,y)=xy+x^2$ en $(1,0)$ y en $(0,1)$.
-            </li>
-            <li>
-                $f(x,y)=\log(\sqrt{1+x^2y^2})$ en $(1,0)$ y en $(1,1)$.
-            </li>
-            <li>
-                $f(x,y)=(x^2+y^2)e^{x^2+y^2}$ en $(1,1)$ y en $(2,2)$.
-            </li>
-            <li>
-                $f(x,y)=xy\cos(2x+y)$ en $(\frac{\pi}{2},0)$ y en $(0,\frac{\pi}{2})$.
-            </li>
-        </ol>
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2>
+    <p>
+        Encuentra las dos derivadas  parciales de las siguientes funciones.
     </p>
+    <ol>
+        <li>
+            \(f(x,y)=x^4y^6-7x^2y^4\).
+        </li>
+        
+        <li>
+            \(h(x,y)=\frac{y}{(x+y)^2}\).
+        </li>
+        
+        <li>
+            \(G(r,\theta)=r\sen(\theta)\).
+        </li>
+        
+        <li>
+            \(f(\varphi,\psi)=\sqrt{(a-\varphi)^2+(\psi-b)^2}\).
+        </li>
+        
+        <li>
+            \(h(s,t)=s^{1/t}\).
+        </li>
+        
+    </ol>
+
 </div>
+
+
 
 
 <div class="ejercicio-box"> 
@@ -515,6 +519,28 @@
 </div>
 
 
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p> 
+        Para cada una de las siguientes funciones encuentra la derivada parcial en los puntos indicados.
+        <ol>
+            <li>
+                $f(x,y)=xy+x^2$ en $(1,0)$ y en $(0,1)$.
+            </li>
+            <li>
+                $f(x,y)=\log(\sqrt{1+x^2y^2})$ en $(1,0)$ y en $(1,1)$.
+            </li>
+            <li>
+                $f(x,y)=(x^2+y^2)e^{x^2+y^2}$ en $(1,1)$ y en $(2,2)$.
+            </li>
+            <li>
+                $f(x,y)=xy\cos(2x+y)$ en $(\frac{\pi}{2},0)$ y en $(0,\frac{\pi}{2})$.
+            </li>
+        </ol>
+    </p>
+</div>
 
 
 
@@ -622,7 +648,7 @@
         no existe.
      </p>
 
-     <button class="respButton hvr-grow "> Solución</button>
+     <!-- <button class="respButton hvr-grow "> Solución</button>
         <div class="resp-box">
         <p>
             Para $\partial_xf(0,0)$, primero calculamos el cociente diferencial
@@ -653,7 +679,7 @@
             la derivada parcial $\partial_xf(0,y_0)$ no existe.
  
         </p>
-     </div>
+     </div>-->
 </div>
 
 <div class="ejercicio-box"> 
@@ -689,7 +715,7 @@
         Encuentra los puntos $(x_0, y_0)$, para las cuales las rectas tangentes a $G(g)$
         y a $G(h)$, que pasan por $(x_0,g(x_0))$ y $(y_0,h(y_0))$ respectivamente, tienen pendiente iguales.		       
     </p>
-    <button class="respButton hvr-grow "> Solución</button>
+    <!-- <button class="respButton hvr-grow "> Solución</button>
     <div class="resp-box">
     <p>
         Las pendientes están dadas por las derivadas asi que buscamos los puntos donde 
@@ -716,7 +742,7 @@
             <img src="./Images/S7-Img3.png" alt="InterseccionPlanosCoordenados" width="40%" height="auto">
           </div>
     </p>
-    </div>
+    </div>-->
 
 </div>
 
@@ -811,7 +837,7 @@
 <div class="ejercicio-box"> 
 <h2 class="number-title"> Ejercicio</h2> 
     <p>
-        Este ejercicio generaliza al ejercicio <a href="#Ejer:TFCyParciales">Ejercicio 7.15</a>. Usa el Teorema Fundamental para probar
+        Este ejercicio generaliza los ejercicios anteriores. Usa el Teorema Fundamental para probar
         que 
         \[\int_0^x(\partial_s f(s,y))ds=f(x,y)-f(0,y)\]
     </p>
@@ -887,7 +913,7 @@
             </li>
         </ol>
 
-        <button class="respButton hvr-grow "> Solución 1</button>
+        <!-- <button class="respButton hvr-grow "> Solución 1</button>
         <div class="resp-box">
             <p>
                 Empezamos por calcular $\partial_x f$ y $\partial_y f$.
@@ -926,7 +952,7 @@
                 \partial_{y^2} =& \frac{-2y}{(1+y^2)^2}.
                 \end{align*}
             </p>
-        </div>
+        </div>-->
     </div>
 
 
@@ -1019,7 +1045,7 @@
             \]
         </p>
 
-        <button class="respButton hvr-grow "> Solución</button>
+        <!-- <button class="respButton hvr-grow "> Solución</button>
         <div class="resp-box">
             <p>
                 Notemos que para $j=1,\ldots,n$ se tiene que
@@ -1041,21 +1067,10 @@
                 =& f.
                 \end{align*}
             </p>
-        </div>
+        </div>-->
 
     </div>
 
-    <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-            Prueba que la función de producción Cobb-Douglas 
-            \(P(L.K)=bL^{\alpha}K^{\beta}\), satisface la ecuación 
-            \[
-                L\partial_{L}P+K\partial_KP=(\alpha+\beta)P.
-            \]
-        </p>
-
-    </div>
 
     <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio </h2>
@@ -1067,7 +1082,7 @@
             \]
         </p>
 
-        <button class="respButton hvr-grow "> Solución</button>
+        <!-- <button class="respButton hvr-grow "> Solución</button>
         <div class="resp-box">
             <p>
                 Empezamos por calcular
@@ -1084,11 +1099,69 @@
                 \partial_m K \partial_{v}^2K = \frac{1}{2}v^2 m = \frac{1}{2}mv^2 = K.
                 \end{equation*}
             </p>
-        </div>
+        </div>-->
 
     </div>
 
+
     <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+            Prueba que la función de producción Cobb-Douglas 
+            \(P(L.K)=bL^{\alpha}K^{\beta}\), satisface la ecuación 
+            \[
+                L\partial_{L}P+K\partial_KP=(\alpha+\beta)P.
+            \]
+        </p>
+
+    </div>
+
+    
+
+     <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+            Un polinomio en dos variables se puede escribir de manera general como 
+            \[
+            p(x,y)=\sum_{0\leq n,m \leq N} a_{n,m}x^ny^m
+            \]
+            donde los \(a_{n,m}\) son escalares.
+        </p>
+        <p>
+            Prueba que \(\partial_{xy}p=\partial_{yx}p\).
+        </p>
+        <p>
+            Nota: más adelante se probará que si \(\partial_{xy}f\) y \(\partial_{yx}f\) 
+            existen y son continuas  entonces \(\partial_{xy}f=\partial_{yx}f\).
+        </p>
+        <!-- <button class="respButton hvr-grow "> Solución</button>
+        <div class="resp-box">
+        <p>
+            Primero encontramos las primeras derivadas parciales:
+            \begin{eqnarray*} 
+                \partial_xp&=&\partial_x\left( \sum_{0\leq n,m \leq N}a_{n,m}x^ny^m\right)\\
+                &=& \sum_{0\leq n,m \leq N}\partial_x(a_{n,m} x^{n}y^m) \\
+                &=& \sum_{0\leq n,m \leq N}a_{n,m} nx^{n-1}y^m \\
+                \partial_yp&=&\partial_y\left( \sum_{0\leq n,m \leq N}a_{n,m}x^ny^m\right)\\
+                &=& \sum_{0\leq n,m \leq N}\partial_y(a_{n,m} x^{n}y^m) \\
+                &=& \sum_{0\leq n,m \leq N}a_{n,m} mx^{n}y^{m-1} \\
+            \end{eqnarray*}
+            Ahora calculamos las segundas derivadas parciales 
+            \begin{eqnarray*} 
+                \partial_{yx}p&=&\partial_y(\partial_x p)=\partial_y\left( \sum_{0\leq n,m \leq N}a_{n,m} nx^{n-1}y^m  \right) \\
+                &=& \sum_{0\leq n,m \leq N} \partial_y( a_{n,m} nx^{n-1}y^m ) \\
+                &=&\sum_{0\leq n,m \leq N}a_{n,m} nmx^{n-1}y^{m-1} \\
+                \partial_{xy}p&=&\partial_x(\partial_y p)=\partial_x\left( \sum_{0\leq n,m \leq N}a_{n,m} mx^{n}y^{m-1}  \right) \\
+                &=& \sum_{0\leq n,m \leq N} \partial_x( a_{n,m} mx^{n}y^{m-1} ) \\
+                &=&\sum_{0\leq n,m \leq N}a_{n,m} nmx^{n-1}y^{m-1} 
+            \end{eqnarray*}
+            Comparando las dos últimas identidades obtenemos \(\partial_{xy}p=\partial_{yx}p\).
+        </p>
+        </div>-->
+     </div>
+     
+
+         <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio </h2>
         <p>
             Usa diferenciación implícita para calcular \(\partial_x z, \partial_yz\).
@@ -1107,7 +1180,7 @@
                 \(yz+y\ln(x)=z^2\).
             </li>
         </ol>
-        <button class="respButton hvr-grow "> Solución</button>
+        <!-- <button class="respButton hvr-grow "> Solución</button>
         <div class="resp-box">
             <p>
                 Recordemos que ecuaciones como las anteriores introducen restricciones en las
@@ -1190,49 +1263,8 @@
                 </li>
             </ol>
         </div>
-        </div>
+        </div>-->
 
-     <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-            Un polinomio en dos variables se puede escribir de manera general como 
-            \[
-            p(x,y)=\sum_{0\leq n,m \leq N} a_{n,m}x^ny^m
-            \]
-            donde los \(a_{n,m}\) son escalares.
-        </p>
-        <p>
-            Prueba que \(\partial_{xy}p=\partial_{yx}p\).
-        </p>
-        <p>
-            Nota: más adelante se probará que si \(\partial_{xy}f\) y \(\partial_{yx}f\) 
-            existen y son continuas  entonces \(\partial_{xy}f=\partial_{yx}f\).
-        </p>
-        <button class="respButton hvr-grow "> Solución</button>
-        <div class="resp-box">
-        <p>
-            Primero encontramos las primeras derivadas parciales:
-            \begin{eqnarray*} 
-                \partial_xp&=&\partial_x\left( \sum_{0\leq n,m \leq N}a_{n,m}x^ny^m\right)\\
-                &=& \sum_{0\leq n,m \leq N}\partial_x(a_{n,m} x^{n}y^m) \\
-                &=& \sum_{0\leq n,m \leq N}a_{n,m} nx^{n-1}y^m \\
-                \partial_yp&=&\partial_y\left( \sum_{0\leq n,m \leq N}a_{n,m}x^ny^m\right)\\
-                &=& \sum_{0\leq n,m \leq N}\partial_y(a_{n,m} x^{n}y^m) \\
-                &=& \sum_{0\leq n,m \leq N}a_{n,m} mx^{n}y^{m-1} \\
-            \end{eqnarray*}
-            Ahora calculamos las segundas derivadas parciales 
-            \begin{eqnarray*} 
-                \partial_{yx}p&=&\partial_y(\partial_x p)=\partial_y\left( \sum_{0\leq n,m \leq N}a_{n,m} nx^{n-1}y^m  \right) \\
-                &=& \sum_{0\leq n,m \leq N} \partial_y( a_{n,m} nx^{n-1}y^m ) \\
-                &=&\sum_{0\leq n,m \leq N}a_{n,m} nmx^{n-1}y^{m-1} \\
-                \partial_{xy}p&=&\partial_x(\partial_y p)=\partial_x\left( \sum_{0\leq n,m \leq N}a_{n,m} mx^{n}y^{m-1}  \right) \\
-                &=& \sum_{0\leq n,m \leq N} \partial_x( a_{n,m} mx^{n}y^{m-1} ) \\
-                &=&\sum_{0\leq n,m \leq N}a_{n,m} nmx^{n-1}y^{m-1} 
-            \end{eqnarray*}
-            Comparando las dos últimas identidades obtenemos \(\partial_{xy}p=\partial_{yx}p\).
-        </p>
-        </div>
-     </div>
-     
+
     </div>
     </body>
