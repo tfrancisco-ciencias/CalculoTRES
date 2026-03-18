@@ -438,6 +438,141 @@
 
     </div>
 
+<div class="definicion-box">
+    <h2 class="number-title"> Definición</h2>
+    <p>
+        Sea \(U\subseteq \mathbb{R}^n\) un subconjunto abierto y 
+        \(f:U \to \mathbb{R}\) una función. 
+    </p>
+    <p>
+        Dado \(v\in \mathbb{R}^n\) con \(\|v\|=1\) definimos 
+        la derivada direccional de \(f\) en el punto \(p\) en la 
+        dirección \(v\) (ó a lo largo de \(v\)) como 
+        \[
+        \partial_vf(p):=\lim_{s\to 0} \frac{f(p+ sv)-f(p)}{s} 
+        \]
+        siempre y cuando dicho límite exista.
+    </p>
+    <p>
+        Si tomamos el caso particular de \(v=e_j\) entonces 
+        \(\partial_vf(p)=\partial_{p_j} f(p)\). Por lo tanto 
+        la derivada direccional es una generalización de la derivada parcial.
+    </p>
+</div>
+
+<div class="nota-box"> 
+    <h2 class="number-title"> Ejemplo </h2>
+    <p>
+        Defimimos \(f:\mathbb{R}^2\to \mathbb{R}\) por 
+        \begin{eqnarray*}
+        f(x,y)=\left\{
+            \begin{array}{cc} 
+            0 & (x,y)=(0,0) \\
+            \frac{xy^2}{x^2+y^2} & (x,y)\ne (0,0)
+            \end{array}
+        \right.
+        \end{eqnarray*}
+    </p>
+    <p>
+        <div class="flexbox">
+                <img src="./Images/Sec6-Img2.png" alt="Ejemplo" width="40%" height="auto">
+        </div>
+    </p>
+    <p>
+        Sea \(v=(v_1,v_2)\) un vector unitario. 
+        <ol>
+            <li>
+              Prueba que           
+              \[
+              \partial_vf(0,0)=v_1v_2^2
+              \]
+              En particular: \(\partial_xf((0,0))=\partial_yf((0,0))=0\).
+            </li>
+            <p></p>
+            <li>
+                Encuentra el vector unitario \(v\) donde \(\partial_vf((0,0))\)
+                tenga el valor más grande.
+            </li>
+        </ol>
+        
+    </p>
+    <p>
+        Demostración inciso 1.
+    </p>
+    <p>
+        Sea \(v=(v_1,v_2)\) un vector unitario. Calculando el cociente diferencial tenemos,
+        para \(s\ne 0\) y pequeña:  
+        \begin{eqnarray*} 
+        \frac{f((0,0)+sv)-f((0,0))}{s}&=& \frac{1}{s} f((sv_1,sv_2)) \\
+        &=& \frac{1}{s}\frac{(sv_1)(sv_2)^2}{(sv_1)^2+(sv_2)^2} \\
+        &=& \frac{1}{s}\frac{s^3v_1v_2^2}{s^2(v_1^2+v_2^2)} \\
+        &=& \frac{v_1v_2^2}{v_1^2+v_2^2} \\
+        &=& v_1v_2^2
+        \end{eqnarray*}
+        dónde en la última igualdad usamos que \(v\) es unitario, es decir \(v_1^2+v_2^2=1\).
+    </p>
+    <p>
+        Demostración inciso 2.
+    </p>
+    <p>
+        Queremos maximizar la cantidad \(v_1v_2^2\) sujeta a la condición \(v_1^2+v_2^2=1\). Como 
+        es un problema de dos variables vamos a reducirlo a una para poder aplicar las herramientas 
+        de cálculo 1. Usando \(v_1^2+v_2^2=1\) obtenemos \(v_2^2=1-v_1^2\) la cual 
+        substituyendo en \(v_1v_2^2\) resulta en 
+        \[
+        v_1v_2^2=v_1(1-v_1^2)=v_1-v_1^3
+        \]
+        Ahora, como \(v_1^2+v_2^2=1\) ésto impone la condición de que \(|v_1|\leq 1\). 
+        
+        
+    </p>
+    <p>
+        Por lo tanto tenemos una función de una variable: \(g(x)=x-x^3\) con \(|x|\leq 1\), 
+        la cual tenemos que maximizar. Tomando la derivada tenemos \(g'(x)=1-3x^2\)
+        la cual se anula en \(x_0=1/\sqrt{3}\). Tomando la segunda derivada 
+        tenemos \(g''(x)=-6x\) y por lo tanto \(g''(x_0)=-6/\sqrt{3}\). Por el criterio 
+        de la segunda derivada \(g\) tiene un máximo local en \(x_0\). 
+    </p>
+
+</div>
+
+<div class="lema-box">
+    <h2 class="number-title"> Lema </h2>
+    <p>
+        Sea \(U\subseteq \mathbb{R}^n\) un conjunto abierto no vacío, 
+        \(f:U\to \mathbb{R}\) una función, \(p\in U\) y 
+        \(v\in \mathbb{R}^n\) con \(\|v\|=1\).  Si \(\partial_vf(p)\) existe 
+        entonces 
+        \[
+        \lim_{s\to 0} f(p+sv)=f(p).
+        \]
+    </p>
+</div>
+
+
+
+<div class="prop-box">
+    <h2 class="number-title"> Proposición </h2>
+    <p>
+        Sea \(U\subseteq \mathbb{R}^n\) un conjunto abierto no vacío, 
+        \(g,f:U\to \mathbb{R}\) funciones,  \(p\in U\) y 
+        \(v\in \mathbb{R}^n\) con \(\|v\|=1\). Si \(\partial_vf(p)\)
+         y \(\partial_vg(p)\) existen entonces 
+         <ol>
+            <li>
+                \(\partial_v(f+g)(p)=\partial_vf(p)+\partial_vg(p)\).
+            </li>
+            <p></p>
+            <li>
+                Para un escalar \(c\), \(\partial_v(cf)(p)=c\partial_vf(p)\).
+            </li>
+            <p></p>
+            <li>
+                \(\partial_v(fg)(p)=f(p)\partial_vg(p)+g(p)\partial_vf(p)\).
+            </li>
+         </ol>
+    </p>
+</div>
 
 <div class="ejercicio-box">
     <h2 class="number-title"> Ejercicio</h2>
