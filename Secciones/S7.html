@@ -86,6 +86,100 @@
 <button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>
 <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
 
+
+
+
+<div class="nota-box">
+  <h2 class="number-title"> La derivada en más dimensiones </h2>
+  <p>
+    Vamos a motivar la definición de la derivada en 2 o más dimensiones y para esto vamos 
+    a regresar a cálculo 1 y vamos a ver qué es la derivada.
+  </p>
+  <ul>
+    <li>
+      <p>La derivada como la razón de cambio.</p>
+      <p>
+        Por ejemplo, si \(f(t)\) representa la posición de una partícula 
+        en el eje real, con respecto al tiempo \(t\), la razón de cambio 
+        de \(f\) del tiempo \(t\) al tiempo \(\Delta t\) está dada por 
+        \[
+        \frac{f(t+\Delta t)-f(t)}{\Delta t}.
+        \]
+        Si tomamos el límite cuando \(\Delta t \to 0\) obtenemos 
+        la razón de cambio instantánea, es decir, la derivada 
+        \[
+        f'(t)=\lim_{\Delta t\to 0} \frac{f(t+\Delta t)-f(t)}{\Delta t}.
+        \]
+      </p>
+    </li>
+    <li>
+      <p>La derivsda como pendiente de la recta tangente </p>
+      <p>
+        Si \(f:(a,b) \to \mathbb{R}\) es una función diferenciable em \(x_0\)
+        la pendiente de una recta secante que pasa por \((x_0,f(x_0))\) es 
+        \[
+        \frac{f(x)-f(x_0)}{x-x_0}
+        \]
+        para \(x\) cercano a \(x_0\) pero sin tocarlo.
+      </p>
+      <p>
+        Tomando el límite cuando \(x\to x_0\) obtenemos la 
+        pendiente de la recta tangente 
+        \[
+        f'(x_0)=\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}
+        \]
+        y la rectan tangente a la gráfica de \(f\) que pasa por \((x_0,f(x_0))\)
+        es 
+        \[
+        y=f(x_0)+f'(x_0)(x-x_0)
+        \]
+      </p>
+    </li>
+    <li>
+      Aproximación lineal.
+    </li>
+    <p>
+      Esta interpretación tiene que ver mucho con la recta tangente.
+    </p>
+    <p>
+      La función \(f\) tiene aproximación lineal en el punto \(x_0\) si 
+      existe un número \(d\) tal que 
+      \[
+      f(x)=f(x_0)+d(x-x_0)+E(x)
+      \]
+      donde \(E\) es el error que además se va a cero como 
+      \[
+      \lim_{x\to x_0} \frac{E(x)}{x-x_0}=0.
+      \]
+      Uno prueba que tener aproximación lineal es lo mismo que 
+      ser diferenciable y en tal caso siempre se tiene que \(d=f'(x_0)\).
+    </p>
+    <h3> ¿Cómo adaptar las definiciones anteriores a funciones de varias variables?</h3>
+    <p>
+      Vemos que las primeras dos interpretacions son básicamente las mismas, 
+      involucran límites de cocientes diferenciales:
+      \begin{eqnarray*} 
+      \frac{f(t+\Delta t)-f(t)}{\Delta t}, \\
+      \frac{f(x)-f(x_0)}{x-x_0}.
+      \end{eqnarray*}
+      Ahora pensemos a \(f\) como una función \(F\) de un subconjunto de \(\mathbb{R}^n\)
+      a \(\mathbb{R}^m\) y veamos que cambia en estos cocientes, digamos el segundo.
+      Como ahora son puntos en el espacio vamos a cambiar las \(x\)'s por \(p\)'s. El cociente 
+      queda 
+      \[
+      \frac{F(p)-F(p_0)}{p-p_0}.
+      \]
+       El numerador sigue teniendo sentido pues al ser \(F(p)\) y \(F(p_0)\) 
+    los podemos restar, pero el numerador es un vector, \(p-p_0\), el cual no podemos dividir. Una forma 
+    de solucionarlo es cambiar \(p-p_0\) por \(\|p-p_0\|\) esl cual ya es un escalar, para obtener: 
+    \[
+    F'(p_0)=\lim_{p\to p_0}\frac{F(p)-F(p_0)}{\|p-p_0\|}
+    \]
+    ¿Es ésta una buena definición de la derivada?
+    </p>
+   
+  </ul>
+</div>
  
     <div class="definicion-box"> 
         <h2 class="number-title" id="Def:DerivadaR2"> Definición </h2>
