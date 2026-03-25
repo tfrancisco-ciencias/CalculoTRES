@@ -154,7 +154,9 @@
       Uno prueba que tener aproximación lineal es lo mismo que 
       ser diferenciable y en tal caso siempre se tiene que \(d=f'(x_0)\).
     </p>
+    </ul>
     <h3> ¿Cómo adaptar las definiciones anteriores a funciones de varias variables?</h3>
+    <h3> Un primer intento.</h3>
     <p>
       Vemos que las primeras dos interpretacions son básicamente las mismas, 
       involucran límites de cocientes diferenciales:
@@ -169,32 +171,176 @@
       \[
       \frac{F(p)-F(p_0)}{p-p_0}.
       \]
-       El numerador sigue teniendo sentido pues al ser \(F(p)\) y \(F(p_0)\) 
+       El numerador sigue teniendo sentido pues al ser \(F(p)\) y \(F(p_0)\) vectores
     los podemos restar, pero el numerador es un vector, \(p-p_0\), el cual no podemos dividir. Una forma 
     de solucionarlo es cambiar \(p-p_0\) por \(\|p-p_0\|\) esl cual ya es un escalar, para obtener: 
     \[
     F'(p_0)=\lim_{p\to p_0}\frac{F(p)-F(p_0)}{\|p-p_0\|}
     \]
-    ¿Es ésta una buena definición de la derivada?
+    ¿Es ésta una buena definición de la derivada? Para ser una buena definición primeramente 
+    no debemos de rompar la definición en dimensión 1. Para checar esto vamos a checar 
+    la "nueva definición" con la función \(f(x)=x^2\). Con la "nueva definición" tenemos 
+    que la derivada se puede calcular como:
+    \begin{eqnarray*} 
+    \lim_{x\to x_0} \frac{f(x)-f(x_0)}{|x-x_0|}&=&\lim_{x\to x_0}\frac{x^2-x_0^2}{|x-x_0|} \\
+    &=& \lim_{x\to x_0} \frac{(x+x_0)(x-x_0)}{|x-x_0|}
+    \end{eqnarray*}
+    y notamos que 
+    \begin{eqnarray*} 
+     \lim_{x\to x_0^+} \frac{(x+x_0)(x-x_0)}{|x-x_0|}&=&\lim_{x\to x_0^+} \frac{(x+x_0)(x-x_0)}{(x-x_0)} \\
+     &=& \lim_{x\to x_0} (x+x_0)\\
+     &=&2x_0
+    \end{eqnarray*}
+    además 
+    \begin{eqnarray*} 
+     \lim_{x\to x_0^-} \frac{(x+x_0)(x-x_0)}{|x-x_0|}&=&\lim_{x\to x_0^-} \frac{(x+x_0)(x-x_0)}{-(x-x_0)} \\
+     &=& \lim_{x\to x_0} -(x+x_0)\\
+     &=&-2x_0
+     \end{eqnarray*}
+     De lo anterior concluimos que, para \(x_0\ne 0\), el límite 
+     \[
+     \lim_{x\to x_0} \frac{f(x)-f(x_0)}{|x-x_0|}
+     \]
+    así que rompimos la definición de la derivada en una dimensión.
     </p>
    
-  </ul>
+    <h3> Un segundo intento.</h3>
+    <p>
+      Ahora usemos la interpretación de la dervada como aproximación lineal. De nuevo 
+      pensando ahora en una función \(F\) de ub subconjunto de \(\mathbb{R}^n\) a \(\mathbb{R}^m\)
+      copiando la aproximación lineal tenemos 
+      \[
+      F(p)=F(p_0)+d(p-p_0)+E(p)
+      \]
+      donde 
+      \[
+      \lim_{p\to p_0} \frac{E(p)}{p-p_0}=0.
+      \]
+      De nuevo tenemos el problema de que estamos dividiendo por un vector. Tratando de arreglarlo 
+      podemos pedir \(\lim_{p\to p_0} \frac{E(p)}{\|p-p_0\|}=0\). Parece que hacemos lo mismo 
+      que en el primer intento pero hay una diferencial crucial, el límite 
+      de una función vectorial es cero si y sólo si el límite de su norma es cero, es decir:
+      \[
+      \lim_{p\to p_0} \frac{E(p)}{\|p-p_0\|}=0  \Leftrightarrow \lim_{p\to p_0} \frac{\|E(p)\|\\}{\|p-p_0\|}=0.
+      \]
+      y ahora que tanto el numerador como el denominador tengan norma arreglan 
+      el problema de los signos en los límites laterales que teníamos antes.
+    </p>
+    <p>
+      Ahora ponemos toda esta información en una sola ecuación y tratamos de dar 
+      la definición de derivada diciendo que \(F\) es diferenciable en \(p_0\)
+      si existe un escalar \(d\) tal que 
+      \[
+      \lim_{p\to p_0} \frac{F(p)-F(p_0)-d(p-p_0)}{\|p-p_0\|}=0
+      \]
+      De nuevo vamos a probar la "nueva definición". Queremos que la definición funciones 
+      para funciones entre espacios de cualquier dimensión y en las dimensiones encontramos 
+      el problema. Supongamos que \(F:\mathbb{R}^2 \to \mathbb{R}\), en este caso la 
+      expresión del numerador:
+      \[
+      F(p)-F(p_0)-d(p-p_0)
+      \]
+      no tiene sentido pues \(F(p)-F(p_0)\) es un escalar pero \(d(p-p_0)\)
+      es un vector de dimensión 2, así que no se pueden sumar. El problema 
+      es \(d(p-p_0)\) que es el término que precisamente involucra nuestro intento 
+      de derivada (la \(d\) en este caso).
+    </p>
+    <h3> Tercer intento</h3>
+    <p>
+      Lo que nos va a dar la última pista es el plano tangente. Si la función 
+      es de la forma \(F:\mathbb{R}^2 \to R\)
+      la gráfica es una superficie en \(\mathbb{R}^3\) y la noción de rectan tangente 
+      ahora debe de ser un plano tangente y éste (intuitivamente) 
+      tiene que tener relación con la derivada. La ecuación de un plano que pasa por 
+      \((p_0, F(p_0))\), donde \(p_0=(x_0,y_0)\), es de la forma 
+      \[
+      z=F(p_0)+a(x-x_0)+b(x-x_0)
+      \] 
+      donde \(a,b\) son unas constantes.
+       Es decir, el plano está completamente determinado por 
+       las constantes \(a\) y \(b\) y el punto \((x,y,z)\) cae en el plano si y sólo si  sus coordenadas 
+       satisfacen la ecuación anterior. 
+    </p>
+    <p>
+      Observación: podemos reescribir la ecuación del plano como 
+      \[
+      z=F(p_0)+ v\cdot (p-p_0)
+      \]
+      donde \(v=(a,b)\). Comparando con lo que teníamos de la aproximación lineal 
+      vamos a cambiar la expresión \(d(p-p_0)\) por \(v\cdot (p-p_0)\). 
+    </p>
+    <p>
+      Con este cambio la "nueva definición" de la derivada dice que \(F\) es diferenciable en 
+      el punto \(p_0\) si existe un vector \(v\) que satisface 
+      \[
+      \lim_{p\to p_0} \frac{F(p)-F(p_0)-v\cdot (p-p_0)}{\|p-p_0\|}=0
+      \]
+    </p>
+    <p>
+      Volvamos a probar la "nueva definición". El problema que teníamos eran 
+      las dimensiones. Si \(F\) es una función en general que va de \(\mathbb{R}^n\)
+      a \(\mathbb{R}^m\) la expresión del  numerador en la "nueva definición" queda:
+      \[
+      F(p)-F(p_0)-v\cdot (p-p_0)
+      \]
+      que tiene sentido si la función \(F\) toma valores escalares (es decir, \(m=1\))
+      pero si \(F\) toma valores vectoriales \(F(p)-F(p_0)\) es un vector 
+      pero \(v\cdot (p-p_0)\) es un escalar, por lo que no se pueden sumar. Para arreglar 
+      éste último paso los matemáticos hicieron la siguiente observación.
+    </p>
+    <p>
+      Super observación: podemos pensar la expresión \(v\cdot (p-p_0)\)
+      como una función lineal:
+      \[
+      q \mapsto v\cdot q
+      \]
+      Entonces la idea es reemplazar \(v\cdot (p-p_0)\) por una función lineal que 
+      "arregle" las dimensiones, algo de la forma \(T(p-p_0)\)
+      donde \(T\) es una función lineal que toma vectores de dimensión \(n\)
+      y arroja vectores de dimensión \(m\) (para que cuadren los valores de \(F\)).
+    </p>
+    <p>
+      La definición formal se da acontinuación.
+    </p>
+  
 </div>
  
     <div class="definicion-box"> 
-        <h2 class="number-title" id="Def:DerivadaR2"> Definición </h2>
-        <p>
-            Sea $U\subseteq\mathbb{R}^2$ un abierto y $f:U\to \mathbb{R}$ una función.
+        
+      <h2 class="number-title" id="Def:DerivadaR2"> Definición </h2>
+
+      <h3> Caso general </h3>
+      <p>
+            Sea $U\subseteq\mathbb{R}^n$ un abierto y $F:U\to \mathbb{R}^m$ una función general.
         </p>
         <p>
-            Dado un punto $(x_0,y_0)\in U$, decimos que $f$ es diferenciable en $(x_0,y_0)$ si,
-            existe una función lineal $T:\mathbb{R}^2 \to \mathbb{R}$, tal que
+            Dado un punto $p_0\in U$, decimos que $F$ es diferenciable en $p_0$ si,
+            existe una función lineal $T:\mathbb{R}^n \to \mathbb{R}^m$, tal que
             $$
-            \lim_{(x,y)\to (x_0,y_0)} \frac{f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)  }{\|(x-x_0,y-y_0)\|}=0
+            \lim_{p \to p_0} \frac{F(p)-F(p_0)-T(p-p_0)}{\|p-p_0\|}=0
             $$
             
-            Si es así, la función lineal $T$ se llama la derivada de $f$ en $(x_0,y_0)$ y la vamos
-            a denotar $D_{(x_0,y_0)}f$.
+            Si es así, la función lineal $T$ se llama la derivada de $F$ en $p_0$ y la vamos
+            a denotar por $D_{p_0}F$.
+        </p>
+        <h3> Caso escalar </h3>
+        <p>
+          El caso escalar es importante así que vamos a ver cómo la definición anterior 
+          se especializa en este caso. 
+        </p>
+        <p>
+            Sea $U\subseteq\mathbb{R}^n$ un abierto y $f:U\to \mathbb{R}$ una función escalar (por ejemplo la temperatura).
+        </p>
+        <p>
+            Dado un punto $p_0\in U$, decimos que $f$ es diferenciable en $p_0$ si,
+            existe un vector \(v\in \mathbb{R}^n\), tal que
+            $$
+            \lim_{p \to p_0} \frac{f(x,y)-f(p_0)-v\cdot (p-p_0)}{\|p-p_0\|}=0
+            $$
+            
+            Esta definición cuadra con la anterior porque recordemos que por el <a href="./S3.html#Ejer:TeoRiesz">Teorema de Riesz</a>
+            toda función lineal de la forma \(T:\mathbb{R}^n\to \mathbb{R}\) se 
+            puede reescribir como \(T(q)=v\cdot q\), para un único vector  \(v\).
         </p>
         <p>
           Notas:
@@ -211,25 +357,25 @@
             se verá una forma sistemática de proponerla (y la cual involucra las derivadas parciales). 
           </li>
           <li>
-            Ya que el límite de una cantidad es cero si y sólo si su valor absoluto tiende a cero, el límite en la definición 
+            Ya que el límite de una función es cero si y sólo si su norma  absoluto tiende a cero, el límite en la definición 
             también puede escribirse como 
             $$
-            \lim_{(x,y)\to (x_0,y_0)} \frac{|f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0))  |}{\|(x-x_0,y-y_0)\|}=0
+            \lim_{p \to p_0} \frac{\|F(p)-F(p_0)-T(p-p_0)\|}{\|p-p_0\|}=0
             $$
-            El valor absoluto tiende a hacer la prueba de los límites más sencilla.
+            Por lo general tomar normas  tiende a hacer las pruebas de los límites más sencillas.
           </li>
           <li>
             Similarmente al caso uno-dimensional el cociente diferencial es la expresión 
             \[
-            \frac{f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)  }{\|(x-x_0,y-y_0)\|}
+            \frac{F(p)-f(p_0)-T(p-p_0)  }{\|p-p_0\|}
             \]
           </li>
           <li>
-            Otra forma equivalente de escribir el límite es 
+            Recordando la noción de razón de cambio otra forma equivalente de escribir el límite es 
             $$
-            \lim_{ (h,k)\to (0,0)} \frac{|f(x_0+h,y_0+k)-f(x_0,y_0)-T(h,k))  |}{\|(h,k)\|}=0
+            \lim_{ u \to 0} \frac{\|F(p_0+u)-F(p_0)-T(u)  \|}{\|u\|}=0
             $$
-            Para pasar de una a la otra se usa el cambio de variable \((h,k)=(x,y)-(x_0,y_0)\).
+            Para pasar de una a la otra se usa el cambio de variable \(u=p-p_0\).
 
           </li>
           <li>
@@ -240,6 +386,72 @@
         </ol>
         
    </div>
+
+
+
+<div class="nota-box">
+    <h2 class="number-title"> Nota</h2>
+    <ol>
+        <li>
+            Cuando escribimos  $D_{p_0}F$ es importante notar que se representa
+            a una función lineal, la cual puede ser evaluada en un punto $q$, lo cual
+            se denota $(D_{p_0}f)(q)$.
+        </li>
+        
+        <li>
+            También se pueden encontrar con  la notación $Df(p_0)$, para
+            indicar la defivada de $f$ en el punto $p_0$. Con esta notación,
+            el evaluar la derivda en el punto $q$ se denota $Df(p_0)(q)$.
+        </li>
+  </ol>
+</div>  
+  
+
+
+
+          
+<div class="info-box"> 
+    <h2 class="number-title"> Ejemplo </h2>  
+    <p>
+        Considera la función, $f(x,y)=x^2+y^2$.
+    </p>
+    <p>
+        Fija un punto $p_0=(x_0,y_0)$ en $\mathbb{R}^2$ y considera la transformación lineal
+        $T:\mathbb{R}^2 \to \mathbb{R}$ dada por $T(x,y)=v\cdot p = 2x_0x+2y_0y$, 
+        donde \(v=(2x_0,2y_0)\).      
+    </p>
+    <p>
+        Prueba que
+        $$
+        \lim_{(x,y)\to (x_0,y_0)} \frac{|f(x,y)-f(x_0,y_0)-v\cdot (x-x_0,y-y_0)|}{\| (x-x_0,y-y_0)\|}=0
+        $$      
+        Concluye que $f$ es diferenciable en $(x_0,y_0)$ con $D_{(x_0,y_0)}f=v$.
+    </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+    <p>
+      Paso 1: Proponer la derivada, en este caso \(T(x,y)=2x_0x+2y_0y\).
+    </p>
+    <p>
+      Paso 2: Cociente diferencial 
+      \begin{eqnarray*} 
+        & & \frac{f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)}{\|(x-x_0,y-y_0)\|} \\
+        &=& \frac{x^2+y^2-x_0^2-y_0^2-2x_0(x-x_0)-2y_0(y-y_0)}{\|(x-x_0,y-y_0)\|}\\
+        &=&\frac{x^2+y^2-x_0^2-y_0^2-2xx_0+2x_0^2-2yy_0+2y_0^2}{\|(x-x_0,y-y_0)\|}\\
+        &=&\frac{x^2+y^2-2xx_0+x_0^2-2yy_0+2y_0^2}{\|(x-x_0,y-y_0)\|}\\
+        &=& \frac{(x-x_0)^2+(y-y_0)^2}{\sqrt{(x-x_0)^2+(y-y_0)^2}} \\
+        &=& \sqrt{(x-x_0)^2+(y-y_0)^2}\\
+        &=& \|(x-x_0,y-y_0)\|
+      \end{eqnarray*}
+    </p>
+    <p>
+      Paso 3: límite del cociente diferencial 
+      \[
+      \lim_{(x,y)\to 0}\frac{f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)}{\|(x-x_0,y-y_0)\|}=\lim_{(x,y)\to 0}\|(x-x_0,y-y_0)\|=0.
+      \]
+    </p>
+    </div>
+</div>
 
   
 <div class="ejercicio-box"> 
@@ -312,79 +524,7 @@
 </div>
 
 
-<div class="nota-box">
-    <h2 class="number-title"> Nota</h2>
-    <ol>
-        <li>
-            Cuando escribimos  $D_{(x_0,y_0)}f$ es importante notar que se representa
-            a una función lineal, la cual puede ser evaluada en un punto $(x,y)$, lo cual
-            se denota $(D_{(x,_0,y_0)}f)(x,y)$.
-        </li>
-        <li>
-            ya que $D_{(x_0,y_0)}f$ es una función lineal que va de $\mathbb{R}^2$ a $\mathbb{R}$,
-            sabemos (ver <a href="./S3.html#Ejer:TeoRiesz">Teorema de Riesz</a> ) que existe
-            un vector $(a,b)$ tal que
-            $$
-            (D_{(x_0,y_0)}f)(x,y)=\langle (a,b), (x,y)\rangle=ax+by. 
-            $$
-            Por esto, el vector renglón $[a,b]$ es la matriz que
-            representa a $D_{(x_0,y_0)}f$. Aveces se identifica la
-            transformación lineal  con su matriz y se escribe
-            $D_{(x_0,y_0)}f=[a,b]$.
-        </li>
-        <li>
-            También se pueden encontrar con  la notación $Df(x_0,y_0)$, para
-            indicar la defivada de $f$ en el punto $(x_0,y_0)$. Con esta notación,
-            el evaluar la derivda en el punto $(x,y)$ se denota $Df(x_0,y_0)(x,y)$.
-        </li>
-  </ol>
-</div>  
   
-  
-
-          
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2>  
-    <p>
-        Considera la función, $f(x,y)=x^2+y^2$.
-    </p>
-    <p>
-        Fija un punto $(x_0,y_0)$ en $\mathbb{R}^2$ y considera la transformación lineal
-        $T:\mathbb{R}^2 \to \mathbb{R}$ dada por $T(x,y)=2x_0x+2y_0y$.      
-    </p>
-    <p>
-        Prueba que
-        $$
-        \lim_{(x,y)\to (x_0,y_0)} \frac{|f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)|}{\| (x-x_0,y-y_0)\|}=0
-        $$      
-        Concluye que $f$ es diferenciable en $(x_0,y_0)$ con $D_{(x_0,y_0)}f=T$ y
-        la matriz renglón $[2x_0, 2y_0]$ representa a $D_{(x_0,y_0)}f$.
-    </p>
-    <button class="respButton hvr-grow "> Solución</button>
-    <div class="resp-box">
-    <p>
-      Paso 1: Proponer la derivada, en este caso \(T(x,y)=2x_0x+2y_0y\).
-    </p>
-    <p>
-      Paso 2: Cociente diferencial 
-      \begin{eqnarray*} 
-        & & \frac{f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)}{\|(x-x_0,y-y_0)\|} \\
-        &=& \frac{x^2+y^2-x_0^2-y_0^2-2x_0(x-x_0)-2y_0(y-y_0)}{\|(x-x_0,y-y_0)\|}\\
-        &=&\frac{x^2+y^2-x_0^2-y_0^2-2xx_0+2x_0^2-2yy_0+2y_0^2}{\|(x-x_0,y-y_0)\|}\\
-        &=&\frac{x^2+y^2-2xx_0+x_0^2-2yy_0+2y_0^2}{\|(x-x_0,y-y_0)\|}\\
-        &=& \frac{(x-x_0)^2+(y-y_0)^2}{\sqrt{(x-x_0)^2+(y-y_0)^2}} \\
-        &=& \sqrt{(x-x_0)^2+(y-y_0)^2}\\
-        &=& \|(x-x_0,y-y_0)\|
-      \end{eqnarray*}
-    </p>
-    <p>
-      Paso 3: límite del cociente diferencial 
-      \[
-      \lim_{(x,y)\to 0}\frac{f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)}{\|(x-x_0,y-y_0)\|}=\lim_{(x,y)\to 0}\|(x-x_0,y-y_0)\|=0.
-      \]
-    </p>
-    </div>
-</div>
 
   
   
