@@ -724,7 +724,7 @@
   <p>
     Sea \(U\subseteq \mathbb{R}^n\) un abierto y \(F:U\to \mathbb{R}^m\)
     una función. Escribamos sus funciones coordenadas como 
-    \(F=(f_1,\dots, f_n)\).
+    \(F=(f_1,\dots, f_m)\).
   </p>
   <p>
     Entonces \(F\) es diferenciable en \(p_0\) si y sólo si 
@@ -733,6 +733,49 @@
   <p>
     Además la representación matricial de \(D_{p_0}F\)
     es la matriz \([\partial_{j}f_i(p_0)]_{1\leq i \leq m, 1\leq j \leq n}\).
+  </p>
+  <p>
+    Antes de iniciar recordamos las desigualdades
+    \begin{equation}\label{Eqn:Aux0DiferenciableRn}
+    |q_i|\leq \|q\|\leq \sum_{k=1}^m |q_i|, 
+    \end{equation}
+    válidas para tod \(i=1,\dots, m\) y todo \(q=(q_1,\dots, q_m)\in \mathbb{R}^m\).
+  </p>
+  <p>
+    \(\Rightarrow] \) Supongamos que \(F\) es diferenciable en \(p_0\).
+  </p>
+  <p>
+    P.D. para toda \(i=1,\dots, m\), \(f_i\) es diferenciable en \(p_0\).
+  </p>
+  <p>
+    Al ser \(F\) diferenciable en \(p_0\) existe una función lineal 
+    \(T:\mathbb{R}^n \to \mathbb{R}^m\) que satisface
+    \begin{equation}\label{Eqn:Aux1DiferenciableRn}
+    \lim_{p\to p_0} \frac{\|F(p)-F(p_0)-T(p-p_0) \|}{\|p-p_0\|}=0.
+    \end{equation}
+    Escribimos las funciones coordenadas de \(T\) como 
+    \[
+    T=(\tau_1, \dots , \tau_m).
+    \]
+    Al ser \(T\) lineal se tiene que todas las funciones, \(\tau_1,\dots, \tau_m: \mathbb{R}^n \to \mathbb{R}\)
+    también son lineales. 
+  </p>
+  <p>
+    
+    De la primera desigualdad en \eqref{Eqn:Aux1DiferenciableRn} obtenemos 
+    \[
+    |f_i(p)-f_i(p_0)-\tau_i(p-p_0)|\leq \|F(p)-F(p_0)-T(p-p_0) \|
+    \]
+    y dividiendo por \(\|p-p_0\\\) llegamos a 
+    \[
+    0\leq \frac{|f_i(p)-f_i(p_0)-\tau_i(p-p_0)|}{\|p-p_0\|}\leq \frac{\|F(p)-F(p_0)-T(p-p_0)\|}{\|p-p_0\|}
+    \]
+    Al tomar límite cuanto \(p\to p_0\) en la desigualdad anterior y usando \eqref{Eqn:Aux1DiferenciableRn}
+    la ley del sandwich implica
+    \[
+    \frac{|f_i(p)-f_i(p_0)-\tau_i(p-p_0)|}{\|p-p_0\|}=0
+    \]
+    Concluyendo que \(f_i\) es diferenciable en \(p_0\).
   </p>
 </div>
 
