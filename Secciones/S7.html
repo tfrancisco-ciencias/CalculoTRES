@@ -443,6 +443,7 @@
     <p>
         Fija un punto $p_0=(x_0,y_0)$ en $\mathbb{R}^2$ y define  \(v=(2x_0,2y_0)\).      
     </p>
+    
     <p>
         Vamos a probar que
         \[
@@ -637,6 +638,11 @@
         \end{array}
       \right.
         $$
+        <p>
+      <div class="flexbox">
+                <img src="./Images/Sec6-Img2.png" alt="Ejemplo" width="40%" height="auto">
+        </div>
+    </p>
               <ol>
                 <li>
                     Demuestra, usando la definición de límite de las derivas parciales,
@@ -732,8 +738,20 @@
   </p>
   <p>
     Además la representación matricial de \(D_{p_0}F\)
-    es la matriz \([\partial_{j}f_i(p_0)]_{1\leq i \leq m, 1\leq j \leq n}\).
+    es la matriz de \(m\times n\) dada por las 
+    derivadas parciales \([\partial_{j}f_i(p_0)]_{1\leq i \leq m, 1\leq j \leq n}\), es decir 
+    \[
+    \left[ \begin{array}{cccc} 
+    \partial_1f_1(p_0) & \partial_2 f_1(p_0) & \cdots & \partial_n f_1(p_0) \\
+    \partial_1f_2(p_0) & \partial_2 f_2(p_0) & \cdots & \partial_n f_2(p_0) \\
+    \vdots             & \vdots              & \vdots & \vdots            \\
+    \partial_1f_m(p_0) & \partial_2 f_m(p_0) & \cdots & \partial_n f_m(p_0) \\    
+    \end{array}
+    \right]
+    \]
   </p>
+  <button class="respButton hvr-grow "> Demostración </button>
+    <div class="resp-box">
   <p>
     Antes de iniciar recordamos las desigualdades
     \begin{equation}\label{Eqn:Aux0DiferenciableRn}
@@ -766,7 +784,7 @@
     \[
     |f_i(p)-f_i(p_0)-\tau_i(p-p_0)|\leq \|F(p)-F(p_0)-T(p-p_0) \|
     \]
-    y dividiendo por \(\|p-p_0\\\) llegamos a 
+    y dividiendo por \(\|p-p_0\| \) llegamos a 
     \[
     0\leq \frac{|f_i(p)-f_i(p_0)-\tau_i(p-p_0)|}{\|p-p_0\|}\leq \frac{\|F(p)-F(p_0)-T(p-p_0)\|}{\|p-p_0\|}
     \]
@@ -777,6 +795,74 @@
     \]
     Concluyendo que \(f_i\) es diferenciable en \(p_0\).
   </p>
+  <p>
+    \(\Leftarrow ]\) Ahora supongamos que para toda \(i=1,\dots,m\), 
+    la función coordenada \(f_i\) es diferenciable en \(p_0\).
+  </p>
+  <p>
+    P.D. F es diferenciable en \(p_0\).
+  </p>
+  <p>
+    Como \(f_i\) es diferenciable en \(p_0\) existe el vector 
+    gradiente \(\nabla_{p_0}f_i\). Ahora por \(\tau_i:\mathbb{R}^n \to \mathbb{R}\)
+    denotamos a la función lineal dada por \(\tau_{i}(p)=\nabla_{p_0}f_i \cdot p\).
+  </p>
+  <p>
+    Al ser \(f_i\) diferenciable en \(p_0\) ésto nos asegura que 
+    \begin{equation}\label{Eqn:Aux2DiferenciableRn}
+    \lim_{p\to p_0} \frac{|f_i(p)-f_i(p_0)-\tau_i(p-p_0)|}{\|p-p_0\|}=0
+    \end{equation}
+    para todo \(i=1,\dots, m\).
+  </p>
+  <p>
+    Ahora definimos \(T:\mathbb{R}^n \to \mathbb{R}^m\) dada por 
+    \[
+    T(p)=(\tau_1(p), \dots, \tau_m(p))
+    \]
+    Como cada función \(\tau_i\) es lineal resulta que \(T\) es lineal.
+  </p>
+  <p>
+    Por la segunda desigualdad en \eqref{Eqn:Aux1DiferenciableRn} tenemos 
+    \[
+    \|F(p)-F(p_0)-T(p-p_0)\| \leq \sum_{k=1}^m |f_k(p)-f_k(p_0)-\tau_k(p-p_0)|. 
+    \]
+    Dividiendo entre \(\|p-p_0\|\) obtenemos 
+    \[
+    0\leq \frac{\|F(p)-F(p_0)-T(p-p_0)\|}{\|p-p_0\|} \leq \sum_{k=1}^m \frac{|f_k(p)-f_k(p_0)-\tau_k(p-p_0)|}{\|p-p_0\|}
+    \]
+    Finalmente usando \eqref{Eqn:Aux2DiferenciableRn} y la ley del sandwich llegamos a 
+    \[
+    \lim_{p\to p_0 }\frac{\|F(p)-F(p_0)-T(p-p_0)\|}{\|p-p_0\|} =0
+    \]
+    concluyendo que \(F\) es diferenciable.
+  </p>
+  <p>
+    Por último vamos a probar que la matriz que representa a \(D_{p_0}F\) es la matriz 
+    de derivadas parciales \([\partial_j f_i(p_0)]_{1\leq i \leq m, 1\leq j \leq n}\).
+  </p>
+  <p>
+    Con la notación anterior tenemos que \(D_{p_0}F=T\). Por otro lado las funciones 
+    coordenadas de \(T\) son \(\tau_i\), \(i=1,\dots, m\) y a su vez las \(\tau_i\)
+    vienen dadas con el producto punto con el vector gradiente \(\nabla_{p_0}f_i\). Ahora 
+    por <a href="#Ejer:ParcialesYDerivada">Proposición 7.7</a> tenemos que las entradas del vector gradiente son 
+    \[
+    \nabla_{p_0}f_i= (\partial_1 f_i(p_0), \dots, \partial_n f_i(p_0))
+    \]
+    Por último, de la sección 3 <a href="./S3.html#Thm:MatrixRepresentation">Teorema 3.12</a> tenemos que 
+    la matriz que representa a \(T\) es la que tiene por renglones 
+    a los vectores asociados a las funciones coordenadas, es decir a 
+    los vectores \(\nabla_{p_0}f_i\). Entonces la matriz que representa a \(T\) es 
+    \[
+    \left[ \begin{array}{cccc} 
+    \partial_1f_1(p_0) & \partial_2 f_1(p_0) & \cdots & \partial_n f_1(p_0) \\
+    \partial_1f_2(p_0) & \partial_2 f_2(p_0) & \cdots & \partial_n f_2(p_0) \\
+    \vdots             & \vdots              & \vdots & \vdots            \\
+    \partial_1f_m(p_0) & \partial_2 f_m(p_0) & \cdots & \partial_n f_m(p_0) \\    
+    \end{array}
+    \right]
+    \]
+  </p>
+  </div>
 </div>
 
   <div class="definicion-box"> 
@@ -841,103 +927,29 @@
   </div>
 
 
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2> 
-    <p>
-        Demuestra que toda función constante $f:\mathbb{R}^2 \to \mathbb{R}$
-        es diferenciable en todo punto $(x_0,y_0)$. Es más, demuestra que $D_{(x_0,y_0)}f$
-        es la función constante cero.
-    </p>
-    <!--<p>
-      Supongamos que la función es constante igual a \(c\).
-    </p>
-    <p>
-      Proponemos (en este caso nos proponen) a la derivada: denotamos \(T\)  a la función cero. 
-    </p>
-    <p>
-      Escribimos el cociente diferencial y simplificamos:
-      \begin{eqnarray*} 
-      \frac{f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)  }{\|(x-x_0,y-y_0)\|}&=&\frac{c-c-0}{\|(x-x_0,y-y_0)\|}\\
-      &=& 0
-      \end{eqnarray*}
-      Nota: la última igualdad es cero pues para el cociente diferencial siempre se asume que 
-      \((x,y)\ne (x_0,y_0)\) (pues se va a tomar el límite cuando \((x,y)\to (x_0,y_0)\)).
-    </p>
-    <p>
-      Finalmente, tomamos el límite del cociente diferencial:
-      \begin{eqnarray*} 
-      \lim_{(x,y)\to (x_0,y_0)}\frac{f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)  }{\|(x-x_0,y-y_0)\|}
-      &=&\lim_{(x,y)\to (x_0,y_0)}0\\
-      &=&0.
-      \end{eqnarray*}
 
-    </p>
-    <p>
-      Por lo tanto la función es diferenciable y la derivada en todo punto es la función cero.
-    </p>-->
-</div>
-
-
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2> 
-    <p>
-        Sea $f:\mathbb{R}^2 \to \mathbb{R}$ una función lineal. Demuestra
-        que $f$ es diferenciable en todo punto $(x_0,y_0)$. Es más, demuestra
-        que $D_{(x_0,y_0)}f=f$.
-    </p>
-    <!-- 
-    <p>
-      Proponemos a la derivada: denotamos \(T=f\). 
-    </p>
-    <p>
-      Escribimos el cociente diferencial y simplificamos: 
-      \begin{eqnarray*} 
-      \frac{f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)}{\|(x-x_0,y-y_0)\|}&=&\frac{f(x-x_0,y-y_0)-f(x-x_0,y-y_0)}{\|(x,y)-(x_0,y_0)\|}\\
-      &=& 0
-      \end{eqnarray*}
-      donde en la primera igualdad se usa que \(f\) es lineal.
-    </p>
-    <p>
-      Límite del cociente diferencial:
-      \begin{eqnarray*} 
-      \lim_{(x,y)\to (x_0,y_0)}\frac{f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)  }{\|(x-x_0,y-y_0)\|}
-      &=&0.
-      \end{eqnarray*}
-    </p>
-    <p>
-      Por lo tanto la función es diferenciable y en todo punto la derivada es la función \(f\).
-    </p>
-    -->
-</div>
-
-
-  
-
-  
-  
   
   
 <div class="ejercicio-box"> 
     <h2 class="number-title"> Ejercicio </h2> 
     <p>
-        Considera la función $f(x,y)=xy$. Fija $(x_0,y_0)\in \mathbb{R}^2$ y considera la función lineal $T:\mathbb{R}^2 \to \mathbb{R}$
-        dada por $T(x,y)=y_0x+x_0y$.
+        Considera la función $f(x,y)=xy$. Fija $(x_0,y_0)\in \mathbb{R}^2$ y considera
+        el vector \(v=(y_0,x_0)\).
     </p>
     <p>
         Prueba que
         $$
-        \lim_{(x,y)\to (x_0,y_0)} \frac{|f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)|}{\| (x-x_0,y-y_0)\|}=0
+        \lim_{(x,y)\to (x_0,y_0)} \frac{|f(x,y)-f(x_0,y_0)-v\cdot (x-x_0,y-y_0)|}{\| (x-x_0,y-y_0)\|}=0
         $$
         
         Hint: primero prueba
         $$
-        f(x,y)-f(x_0,y_0)- T(x-x_0,y-y_0) = (x-x_0)(y-y_0)
+        f(x,y)-f(x_0,y_0)- v\cdot (x-x_0,y-y_0) = (x-x_0)(y-y_0)
         $$
       
-        Concluye que $f$ es diferenciable en todo punto $(x_0,y_0)$, $D_{(x_0,y_0)}f=T$ y la
-        matriz renglón $[y_0, x_0]$ representa a $D_{(x_0,y_0)}f$.      
+        Concluye que $f$ es diferenciable en todo punto $(x_0,y_0)$ y que $\nabla_{(x_0,y_0)}f=(y_0,x_0)$.
     </p>
-    <button class="respButton hvr-grow "> Solución</button>
+    <!-- <button class="respButton hvr-grow "> Solución</button>
     <div class="resp-box">
     <p>
       Paso 1: proponemos la derivada, \(T(x,y)=y_0x+x_0y\).
@@ -973,7 +985,7 @@
       \lim_{(x,y)\to 0}\frac{|f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)|}{\|(x-x_0,y-y_0)\|} =0 
       \end{eqnarray*}
     </p>
-    </div>
+    </div>-->
 </div>
 
 
@@ -981,21 +993,99 @@
 <div class="ejercicio-box"> 
   <h2 class="number-title"> Ejercicio </h2> 
   <p>
-      Considera la función $f(x,y)=x^3+y^3$. Fija $(x_0,y_0)\in \mathbb{R}^2$ y considera la función lineal $T:\mathbb{R}^2 \to \mathbb{R}$
-      dada por $T(x,y)=3x_0^2x+3y_0^2y$.
+      Considera la función $f(x,y)=x^3+y^3$. Fija $(x_0,y_0)\in \mathbb{R}^2$ y considera 
+      el vector \(v=(3x_0^2, 3y_0^2)\)
   </p>
   <p>
       Prueba que
       $$
-      \lim_{(x,y)\to (x_0,y_0)} \frac{|f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)|}{\| (x-x_0,y-y_0)\|}=0
+      \lim_{(x,y)\to (x_0,y_0)} \frac{|f(x,y)-f(x_0,y_0)-v\cdot (x-x_0,y-y_0)|}{\| (x-x_0,y-y_0)\|}=0
       $$
     
     
-      Concluye que $f$ es diferenciable en todo punto $(x_0,y_0)$, $D_{(x_0,y_0)}f=T$ y la
-      matriz renglón $[3y_0^2, 3x_0^2]$ representa a $D_{(x_0,y_0)}f$.      
+      Concluye que $f$ es diferenciable en todo punto $(x_0,y_0)$ y que 
+       $\nabla_{(x_0,y_0)}f=(3x_0^2, 3y_0^2)$.
   </p>
   </div>
 
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+    <p>
+        Demuestra que toda función constante $F:\mathbb{R}^n \to \mathbb{R}^m$
+        es diferenciable en todo punto $p_0$ y  que $D_{p_0}f$
+        es la función constante cero.
+    </p>
+    <!--<p>
+      Supongamos que la función es constante igual a \(c\).
+    </p>
+    <p>
+      Proponemos (en este caso nos proponen) a la derivada: denotamos \(T\)  a la función cero. 
+    </p>
+    <p>
+      Escribimos el cociente diferencial y simplificamos:
+      \begin{eqnarray*} 
+      \frac{f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)  }{\|(x-x_0,y-y_0)\|}&=&\frac{c-c-0}{\|(x-x_0,y-y_0)\|}\\
+      &=& 0
+      \end{eqnarray*}
+      Nota: la última igualdad es cero pues para el cociente diferencial siempre se asume que 
+      \((x,y)\ne (x_0,y_0)\) (pues se va a tomar el límite cuando \((x,y)\to (x_0,y_0)\)).
+    </p>
+    <p>
+      Finalmente, tomamos el límite del cociente diferencial:
+      \begin{eqnarray*} 
+      \lim_{(x,y)\to (x_0,y_0)}\frac{f(x,y)-f(x_0,y_0)-T(x-x_0,y-y_0)  }{\|(x-x_0,y-y_0)\|}
+      &=&\lim_{(x,y)\to (x_0,y_0)}0\\
+      &=&0.
+      \end{eqnarray*}
+
+    </p>
+    <p>
+      Por lo tanto la función es diferenciable y la derivada en todo punto es la función cero.
+    </p>-->
+</div>
+
+
+
+<div class="ejercicio-box"> 
+  <h2 class="number-title"> Ejercicio</h2> 
+  <p>
+      Supongamos que  $F:\mathbb{R}^n \to \mathbb{R}^m$ es una función lineal.
+      Demuestra que, para todo $p_0\in \mathbb{R}^n$, $F$ es
+      diferenciable en $p_0$ y además para todo \(p_0\),  $D_{p_0}F=F$.
+  </p>
+  <!-- <button class="respButton hvr-grow "> Solución </button>
+  <div class="resp-box">
+  <p>
+    Escribimos las funciones coordenadas de \(F\) como 
+    \[
+    F(p)=(f_1(p),\dots, f_m(p))
+    \]
+    Al ser \(F\) lineal resulta que cada \(f_i:\mathbb{R}^n \to \mathbb{R}\) es una función lineal. 
+    Ya que las funciones lineales son diferenciables en todo punto concluimos que \(F\) es 
+    diferenciable en todo \(\mathbb{R}^n\). 
+  </p>
+  <p>
+    Continuando con la matriz que representa a \(F\), al ser \(f_i\)  lineal 
+    existe un vector \((a_{i,1}, \dots,a_{i,m} )\in \mathbb{R}^n \) tal que 
+    \begin{equation}\label{Eqn:AuxEjmploFunLineal}
+    f_i(p_1,\dots, p_n)=a_{i,1}p_1+\cdots + a_{i,n}p_n
+    \end{equation}
+    y por lo tanto \(M=[a_{i,j}]_{1\leq i \leq n, 1\leq j \leq m}\). 
+  </p>
+  <p>
+    Finalmente tomando la derivada parcial con respecto a \(p_j\) en 
+    \eqref{Eqn:AuxEjmploFunLineal} obtenemos 
+    \(\partial_{p_j}f_i=a_{i,j}\) y por lo tanto \(D_{p_0}F=M\).
+  </p>
+  </div>-->
+</div>
+
+
+
+    
+  
 
 
   
@@ -1003,7 +1093,7 @@
 <div class="ejercicio-box">
   <h2 class="number-title"> Ejercicio </h2>
   <p>
-    Sean \(A :(a,b)\to \mathbb{R}, B:(c,d)\to \mathbb{R}\) dos funciones diferenciables en todo el intervalo.
+    Sean \(f :(a,b)\to \mathbb{R}, g:(c,d)\to \mathbb{R}\) dos funciones diferenciables en todo el intervalo.
   </p>
   <!--<p>
     Define \(F:(a,b)\times (c,d)\) por \(F(x,y)=f(x)g(y)\). Demuestra que \(F\) es diferenciable en todo 
@@ -1013,10 +1103,10 @@
     \]
   </p>-->
   <p>
-    Define \(G:(a,b)\times (c,d)\) por \(G(x,y)=A(x)+B(y)\). Demuestra que \(G\) es diferenciable en todo 
-    punto  \((x_0,y_0)\in (a,b)\times (c,d)\) y la derivada está dada por 
+    Define \(h:(a,b)\times (c,d)\) por \(h(x,y)=f(x)+g(y)\). Demuestra que \(h\) es diferenciable en 
+    todo  punto  \((x_0,y_0)\in (a,b)\times (c,d)\) y que 
     \[
-    (D_{(x_0,y_0)}G)(x,y)=A'(x_0)x+ B'(x_0)y.
+    \nabla_{(x_0,y_0)}h=(f'(x_0), g'(y_0)).
     \]
   </p>
 
@@ -1028,7 +1118,8 @@
 <div class="ejercicio-box"> 
     <h2 class="number-title"> Ejercicio </h2> 
     <p>
-        Para cada una de las siguientes funciones calcula el gradiente.
+        Para cada una de las siguientes funciones calcula el gradiente. Asume que las 
+        funciones dadas son diferenciables en el interior de los dominios de definición.
         <ol>
           <li>
               $f(x,y)=\frac{xy}{(x^2+y^2)^{1/2}}$
@@ -1039,6 +1130,18 @@
           <li>
               $f(x,y)=\frac{x}{y}+\frac{y}{x}$
           </li>
+          <li>
+                  $f(x,y)=d+a_1x+b_1y+cxy+a_2x^2+b_2y^2$, donde $a_i,b_i,c,d$ son constantes.
+              </li>
+              <li>
+                  $f(x,y,z)=\sqrt{x^2+y^2+z^2}$.
+              </li>
+              <li>
+                  $f(p)=\langle q, p \rangle$, donde $q\in \mathbb{R}^n$ es un vector fijo.  
+              </li>
+              <li>
+                  $f(p)=\sum_{i=1}^n p_i^2$.
+              </li>
         </ol>
     </p>
 </div>
@@ -1147,7 +1250,7 @@
         que pasa por $(x_0,y_0,z_0)$ pasa por el origen y forma un ángulo de $45$
         con el eje $z$.
     </p>
-    <button class="respButton hvr-grow "> Solución</button>
+    <!-- <button class="respButton hvr-grow "> Solución</button>
     <div class="resp-box">
         <p>
             De la ecuación que define a la superficie se tiene que $z= \sqrt{x^2 + y^2}=f(x,y)$,
@@ -1189,68 +1292,38 @@
             $f(x,y) = -\sqrt{x^2+y^2}$ y se puede seguir el mismo procedimiento, ya que en la primera parte del ejercicio las derivadas parciales
             también cambian de signo y en la segunda parte el nuevo vector normal al plano nos brinda directamente que $\cos(\theta) = \frac{1}{\sqrt{2}}$.
         </p>
-    </div>
+    </div>-->
   </div>
 
 
     
+  <div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+      Este ejercicio es una modificación del Ejemplo 7.9.
+    </p>
+    <p>
+      Considera la función
+      $$
+      f(x,y)=\left\{
+        \begin{array}{cc}
+          \frac{|x|^{\varepsilon}y^2}{x^2+y^2} & (x,y)\ne (0,0) \\
+          0 & (x,y)=(0,0)
+        \end{array}
+      \right.
+        $$
+        donde \(\varepsilon> \frac{3}{2}\).
+    </p>
+    <p>
+      Prueba que \(f\) es diferenciable en \((0,0)\) y \(\nabla_{(0,0)}f=(0,0)\).
+    </p>
+  </div>
+
 
   <div class="ejercicio-box"> 
     <h2 class="number-title"> Ejercicio </h2> 
     <p>
-        Este ejercicio generaliza la <a>Proposición 8.7</a> pues muestra que si $f$ es diferenciable en $p_0$, todas
-        las derivdas parciales en $p_0$ existen.
-    </p>
-    <p>
-        Sea $U\neq \emptyset $ un abierto de $\mathbb{R}^n$, $p_0\in U$ y $f:U\to \mathbb{R}$.
-    </p>
-    <p>
-        Supon que $f$ es diferenciable en $p_0$ y sea $T:\mathbb{R}^n \to \mathbb{R}$
-        la derivada de $f$ en $p_0$, es decir, $T$ satisface
-        \begin{eqnarray}
-        \lim_{ v \to 0} \frac{|f(p_0+v)-f(p_0)-T(v)|}{\| v\|}=0. \label{Eqn:AuxDifImplicaParciales}
-        \end{eqnarray}
-    </p>
-    <p>
-      Prueba que todas las derivadas parciales existen en \(p_0\) y además 
-      \[
-      T(x_1,\dots, x_n)=\sum_{i=1}^n \partial_{p_i}f(p_0)x_i
-      \]
-    </p>
-    <button class="respButton hvr-grow "> Demostración</button>
-    <div class="resp-box">
-    <p>
-      Recuerda que al ser $T$ lineal, existe un vector  $a=(a_1,\dots, a_n )\in \mathbb{R}^n$ tal que
-      $$
-      T(x_1,\dots, x_n)=\sum_{i=1}a_ix_i \quad  \forall (x_1,\dots, x_n)\in \mathbb{R}^n.
-      $$
-  
-      Tomando $v=\gamma(h)$ de la forma $\gamma(h)=he_j$, $h\ne 0$ (con $j$ fijo) el límite 
-      \eqref{Eqn:AuxDifImplicaParciales} implica que 
-      \begin{eqnarray*} 
-        0&=&\lim_{h\to 0} \frac{|f(p_0+he_j)-f(p_0)-T(he_i)|}{\|he_j\|}\\
-        &=& \lim_{h\to 0} \left| \frac{f(p_0+he_j)-f(p_0)-hT(e_j)|}{h} \right\| \\
-        &=& \lim_{h\to 0}\left| \frac{f(p_0+he_j)-f(p_0)}{t}-a_j  \right|
-      \end{eqnarray*}
-
-    </p>
-    <p>
-      Por lo tanto el límite anterior implica que \(\partial_{p_j}f(p_0)\) existe y es igual a \(a_j\).
-     </p>
-    <p>
-        Por lo tanto, usando la notación de la derivda como $T=D_{p_0}f$, resulta que
-        la derivada es la transformación lineal inducida  por el gradiente en $p_0$, es decir
-        $$
-        (D_{p_0}f)(x_1,\dots, x_n)=\sum_{i=1}^n \partial_{p_i}f(p_0)x_i \quad \forall (x_1,\dots, x_n)\in \mathbb{R}^n.
-        $$
-    </p>
-    </div>
-</div>
-
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2> 
-    <p>
-        Sea$f:\mathbb{R}^n\to \mathbb{R}$
+        Sea $f:\mathbb{R}^n\to \mathbb{R}$
         una función diferenciable en todo punto de $\mathbb{R}^n$.¿  Tiene sentido la fórmula
         $$
         \nabla_{p_0+p_0'}f=\nabla_{p_0}f+\nabla_{p_0'}f ?
@@ -1260,44 +1333,18 @@
  
 
     <div class="ejercicio-box">
-      <h2 class="number-title"> Ejercicio </h2>
-      <p>
-        La definición de derivada en 1-dimensión es 
-        \[
-        \lim_{h\to 0} \frac{f(x+h)-f(x)}{h}
-        \]
-      </p>
-      <p>
-        Si copiamos esta definición para funciones en dos variables y tomamos la norma 
-        en el denominador (para que tenga sentido) tenemos 
-        \begin{equation}\label{Eqn:AuxLimiteMaloDerivada}
-        \lim_{(h,k)\to 0} \frac{f(x+h,y+k)-f(x,y)}{\|(h,k)\|}
-        \end{equation}
-      </p>
-      <p>
-        Este ejercicio muestra que esta definición no sirve para la derivada.
-      </p>
-      <p>
-        Prueba que para la función \(f(x,y)=x^2+y^2\), si tomamos un  
-        \((x,y)\ne 0 \),  el límite \eqref{Eqn:AuxLimiteMaloDerivada} no existe.
-      </p>
-
-    </div>
-
-    <div class="ejercicio-box">
       <h2 class="number-title"> Ejercicio</h2>
       <p>
         Sean \(f:(a,b)\to \mathbb{R}, g:(c,d)\to \mathbb{R}\) dos funciones diferenciables.
       </p>
       <p>
-        Define \(F:(a,b)\times (c,d)\to \mathbb{R}\) dada por \(F(x,y)=f(x)g(y)\). Entonces 
-        \(F\) es diferenciable en todo punto de \((a,b)\times (c,d)\) y la derivada en el 
-        punto \((x_0,y_0)\in (a,b)\times (c,d)\) está dada por 
+        Define \(h:(a,b)\times (c,d)\to \mathbb{R}\) dada por \(h(x,y)=f(x)g(y)\). Entonces 
+        \(h\) es diferenciable en todo punto de \((a,b)\times (c,d)\) y 
         \[
-        D_{(x_0,y_0)}F(x,y)=f'(x_0)g(y_0)x+f(x_0)g'(y_0)y. 
+        \nabla_{(x_0,y_0)}h=( f'(x_0)g(y_0), f(x_0)g'(y_0)). 
         \]
       </p>
-      <button class="respButton hvr-grow "> Solución</button>
+      <!-- <button class="respButton hvr-grow "> Solución</button>
       <div class="resp-box">
           <p>
               Definimos $T(x,y) = f'(x_0)g(y_0)x+f(x_0)g'(y_0)y$ y comenzamos por escribir
@@ -1369,30 +1416,96 @@
               \lim_{(x,y) \to (x_0,y_0)} \frac{F(x,y) - F(x_0,y_0) - T(x-x_0,y-y_0)}{\|(x-x_0,y-y_0\|} = 0.
               \end{equation*}
           </p>
-      </div>
+      </div>-->
     </div>
 
-    <div class="ejercicio-box"> 
-      <h2 class="number-title"> Ejercicio</h2> 
-      <p>
-          Para las siguientes funciones encuntras las derivadas parciales hasta orden 2.
   
-          <ol>
-              <li>
-                  $f(x,y)=d+a_1x+b_1y+cxy+a_2x^2+b_2y^2$, donde $a_i,b_i,c,d$ son constantes.
-              </li>
-              <li>
-                  $f(x,y,z)=\sqrt{x^2+y^2+z^2}$.
-              </li>
-              <li>
-                  $f(p)=\langle q, p \rangle$, donde $q\in \mathbb{R}^n$ es un vector fijo.  
-              </li>
-              <li>
-                  $f(p)=\sum_{i=1}^n p_i^2$.
-              </li>
-          </ol>
+  
+
+<div class="ejercicio-box"> 
+  <h2 class="number-title"> Ejercicio</h2> 
+  <p>
+      Para cada una de las siguientes funciones encuentra la matriz de derivadas
+      parciales
+      <ol>
+          <li>
+              $F(x,y)=(xe^y, ye^x)$
+          </li>
+          <li>
+              $F(x,y)=(xy\cos(x), xy\sen(y))$
+          </li>
+          <li>
+              $F(x,y)=(xy+x^2,x^2+y^2, x^3+xy+y^3)$
+          </li>
+          <li>
+              $F(x,y,z)=(xyz, x^2y^2z^2)$
+          </li>
+          <li>
+            \(F(x,y,z)=(xy, xe^{xy}, \ln(1+x^2z^2))\)
+          </li>
+          <li>
+            \(F(x,y,z)=(x+y+z, x^2+y^2+z^2, e^{xyz}, \ln(x^2+y^2+z^2))\)
+          </li>
+      </ol>
+  </p>
+  <!-- <button class="respButton hvr-grow "> Solución 1</button>
+  <div class="resp-box">
+      <p>
+          Calculamos $\nabla_p f_1$ y $\nabla_p f_2$
+          \begin{align*}
+          \nabla_{p}f_1 =& (e^y , xe^y),\\
+          \nabla_{p}f_2 =& (ye^x, e^x).
+          \end{align*}
+          Por lo tanto la matriz de derivadas parciales está dada por
+          \begin{equation*}
+          D_p F = \begin{pmatrix}
+          e^y & xe^y \\
+          ye^x & e^x
+          \end{pmatrix}.
+          \end{equation*}
       </p>
   </div>
-  
-  
+
+  <button class="respButton hvr-grow "> Solución 3</button>
+  <div class="resp-box">
+      <p>
+          Tenemos que calcular $\nabla_p f_1, \nabla_p f_2, \nabla_p f_3$,
+          \begin{align*}
+          \nabla_p f_1 =& (y + 2x, x),\\
+          \nabla_p f_2 =& (2x, 2y),\\
+          \nabla_p f_3 =& (3x^2 + y, x+3y^2),
+          \end{align*}
+          con ello
+          \begin{equation*}
+          D_p F = \begin{pmatrix}
+          y+2x & x\\
+          2x & 2y\\
+          3x^2+y & x+3y^2
+          \end{pmatrix}.
+          \end{equation*}
+      </p>
+  </div>
+
+  <button class="respButton hvr-grow "> Solución 5</button>
+  <div class="resp-box">
+      <p>
+          Al igual que en los casos anteriores, primero calculamos los gradientes de
+          las funciones coordenada
+          \begin{align*}
+          \nabla_p f_1 =& (x,y,0),\\
+          \nabla_p f_2 =& (e^{xy} + xye^{xy}, x^2e^{xy}, 0),\\
+          \nabla_p f_3 =& (\frac{2xz^2}{1+x^2z^2}, 0, \frac{2zx^2}{1+x^2z^2}),
+          \end{align*}
+          por lo tanto
+          \begin{equation*}
+          D_p F = \begin{pmatrix}
+          y & x & 0\\
+          e^{xy} + xye^{xy} & x^2e^{xy} & 0\\
+          \frac{2xz^2}{1+x^2z^2}) & 0 & \frac{2zx^2}{1+x^2z^2}\\
+          \end{pmatrix}.
+          \end{equation*}
+      </p>
+  </div>
+</div>-->
+
 </body>
