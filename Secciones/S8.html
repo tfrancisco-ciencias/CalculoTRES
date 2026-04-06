@@ -89,135 +89,118 @@
   
     <div class="definicion-box"><h2 class="number-title">  Definición</h2>
         <p>
-            Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$ y $f:U \to \mathbb{R}$.
-            Decimos que la función $f$ es continua en un punto $q \in U$ si
+            Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$ y $F:U \to \mathbb{R}^m$ una función.
+            Decimos que $F$ es continua en un punto $p_0 \in U$ si
             $$
-            \lim_{p\to q} f(p)=f(q).
+            \lim_{p\to p_0} F(p)=F(p_0).
             $$        
+        </p>
+        <p>
+            Decimos que \(F\) es continua en \(U\) si es continua en todo punto  
+            de \(U\).
         </p>
         
   </div>
 
-
-
-
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
+<div class="info-box">
+    <h2 class="number-title"> Ejemplo </h2>
     <p>
-        Sea \(f:\mathbb{R}^n \to \mathbb{R}\) una función lineal. Prueba que \(f\) es continua en 
-        todo punto de \(\mathbb{R}^n\).
+        Si \(\pi_i:\mathbb{R}^n \to \mathbb{R}\) es la proyección en la \(i\)-ésima 
+        coordenada, \(\pi(p)=p_i\), el <a href="./S4.html#Ejemplo:ProyeccionesContinuas">Ejemplo 4.7</a> muestra que \(\pi_i\) es continua en 
+        todo \(\mathbb{R}^n\).
     </p>
     <p>
-        Sugerencia: usa el <a href="./S3.html#Ejer:TeoRiesz">Teorema de Riesz</a>.
+        Más en general el <a href="./S4.html#Coro:ContinuidadPolinomios&Racionales"> Corolario  4.9</a> muestra que todo polinomio en 
+        \(n\)-variables es continuo en todo punto de \(\mathbb{R}^n\). En particular toda función lineal 
+        \(f:\mathbb{R}^n \to \mathbb{R}\), \(f(x_1,\dots, x_n)=a_1x_1+\cdots a_nx_n\)
+        es continua en todo punto de \(\mathbb{R}^n\).
     </p>
-    <button class="respButton hvr-grow "> Solución </button>
-    <div class="resp-box">
-        <p>
-            Debemos de probar que para todo \(q\in \mathbb{R}^n\), 
-            \[
-            \lim_{p\to q}f(p)=f(q).
-            \]
-        </p>
-        <p>
-            Por el <a href="./S3.html#Ejer:TeoRiesz">Teorema de Riesz</a> sabemos que existe un 
-            vector \(p_0\in \mathbb{R}^n\) tal que 
-            \[
-            f(p)=\langle p, p_0 \rangle, \quad \forall  p\in \mathbb{R}^n
-            \]
-            Por lo tanto tenemos que 
-            \begin{eqnarray*} 
-            |f(p)-f(q)|&=&|\langle p,p_0\rangle -\langle q,p_0\rangle |\\
-            &=& |\langle p-q, p_0\rangle| \\
-            &\leq & \|p-q\| \|p_0\|
-            \end{eqnarray*}
-            donde la última desigualdad se debe a l adesigualdad de Cauchy-Schwartz.
-        </p>
-        <p>
-            Finalmente, dado \(\varepsilon > 0\) si tomamos \(\delta=\frac{\varepsilon}{1+\|p_0\|}\) 
-            entonces para todo \(p\) con \(0< \|p-q\|< \delta \) se cumple que 
-            \[
-            |f(p)-f(q)|\leq \|p-q\|\|p_0\| <  \delta \|p_0| < \varepsilon.
-            \]
-            Por lo tanto \(\lim_{p\to q}f(p)=f(q)\).
-        </p>
-        
-
-    </div>
+    <p>
+        El  <a href="./S4.html#Coro:ContinuidadPolinomios&Racionales"> Corolario  4.9</a>  también asegura 
+        que  toda 
+        función racional en \(n\)-variables es continua en su dominio de definición 
+        (es decir los puntos donde el denominador no se anula). Por ejemplo la función 
+        \(f(x,y)=\frac{xy+2y^2}{1-x^2-y^2}\) es continua en \(U=\{(x,y): x^2+y^2< 1\}\cup \{(x,y): x^2+y^2>1 \}\).
+    </p>
 </div>
 
-<div class="nota-box">
-    <h2 class="number-title"> Nota </h2>
-    <p>
-        Por el ejercicio anterior, las proyecciones \(f_1,f_2:\mathbb{R}^2\to \mathbb{R}\) 
-        \[
-        f_1(x,y)=x, f_2(x,y)=y 
-        \] 
-        son continuas 
-        en todo \(\mathbb{R}^2\). Por la <a href="./S5.html#LeyesLimites">Ley del producto para límites</a> se sigue que para todo 
-        \(n\in \mathbb{N}\):
-        \begin{eqnarray*}
-        \lim_{(x,y)\to (x_0,y_0)} f_1^n(x,y)=(\lim_{(x,y)\to (x_0,y_0)} f_1(x,y))^n=x_0^n=f_1^n(x_0,y_0) \\
-        \lim_{(x,y)\to (x_0,y_0)} f_2^n(x,y)=(\lim_{(x,y)\to (x_0,y_0)} f_2(x,y))^n=y_0^n=f_2^n(x_0,y_0) \\
-        \end{eqnarray*}
-    </p>
-    <p>
-        Por lo tanto, las funciones \(f_1(x,y)=x^n, f_2^n(x,y)=y^n\) son continuas en todo 
-        \(\mathbb{R}^2\). De manera similar otra aplicación de la ley del producto para límites implica que 
-        las funciones \(f(x,y)=x^ny^m\), \(n,m\in \mathbb{N}\), son continuas en todo \(\mathbb{R}^2\).
-        Finalmente, usando la ley de la suma para límites concluimos que los polinimios 
-        \[
-        p(x,y)=\sum_{n=0}^N\sum_{m=0}^M a_{n,m}x^ny^m
-        \]
-        son continuas en todo \(\mathbb{R}^2\).
-    </p>
-    <p>
-        Nota: de manera similar se tiene que todo polinomio en más de dos variables es continuo en todo punto del espacio.
-    </p>
 
-</div>
 
 <div class="prop-box">
     <h2 class="number-title" id="Prop:ComposicionCont"> Proposición</h2>
-    <p>
+    <h3>
         La composición de funciones continuas es continua.
+    </h3>
+    <p>
+        Supongamos que tenemos funciones \(g: U \to \mathbb{R}^m \),
+        \(f: V \to \mathbb{R}^d\), donde \(U \subseteq \mathbb{R}^n, V \subseteq \mathbb{R}^m\) son 
+        abiertos  y 
+        \(g(U)\subseteq V \) (para que la composición \(f\circ g\) está definida).
     </p>
     <p>
-        En específico, supongamos que tenemos funciones \(f: D \to \mathbb{R}^m \),
-        \(g: E \to \mathbb{R}^d\), donde \(D\subseteq \mathbb{R}^n, E\subseteq \mathbb{R}^m\) y 
-        \(f(D)\subseteq E\) (para que la composición \(g\circ f\) está definida).
-    </p>
-    <p>
-        Si \(f\) es continua en \(p_0\in D\) y \(g\) es continua en \(f(p_0)\in E\) entonces 
-        \(g\circ f\) es continua en \(p_0\). Es decir 
+        Si \(g\) es continua en \(p_0\in U\) y \(f\) es continua en \(g(p_0)\in U\) entonces 
+        \(f \circ g\) es continua en \(p_0\). Es decir 
         \[
-        \lim_{p\to p_0} (g\circ f)(p)=(g\circ f)(p_0)
+        \lim_{p\to p_0} (f \circ g)(p)=(f\circ g)(p_0)
         \]
         Lo anterior también se puede escribir como 
         \[
-        \lim_{p\to p_0} g(f(p))=g(\lim_{p\to p_0} f(p))
+        \lim_{p\to p_0} f(g(p))=f(\lim_{p\to p_0} g(p))
         \]
         lo cual se abrevia diciendo que las funciones continuas meten el límite.
     </p>
 
 
+    <button class="respButton hvr-grow "> Demostración </button>
+         <div class="resp-box">
+    <p>
+        Como \(p_0\in U\) y \(U\) es abierto existe \(r>0\) tal que \(B_r(p_0)\subseteq U\). Análogamente 
+        existe \(s>0\) tal que \(B_s(g(p_0))\subseteq V\).
+    </p>
+    <p>
+        La continuidad de \(g\) en \(g(p_0)\) nos dice:
+        \[
+        \lim_{p\to p_0} g(p)=g(p_0),
+        \]
+        y usando la definición de límite (con \(\varepsilon= s\)) existe un \(t>0\) tal que 
+        \[
+        \|p-p_0\|< t \Rightarrow \| g(p) - g(p_0) \| < s 
+        \]
+        Lo anterior lo podemos reescribir como \(g(B_t(p_0)) \subseteq B_s(g(p_0))\).
+    </p>
+    <p>
+        Finalmente como 
+        \[
+        \lim_{p\to p_0} g(p)=g(p_0) , \quad  \lim_{q\to g(p_0)} f(q)=f(g(p_0)),
+        \] 
+        tenemos todas las hipótesis 
+        para aplicar <a href="./S4.html#Prop:LimiteCompFunciones"> Proposición 4.15</a> para obtener 
+        \[
+        \lim_{p \to p_0} f(g(p))=f(g(p_0)).
+        \]
+    </p>
+    </div>
 </div>
 
 
 <div class="nota-box">
     <h2 class="number-title"> Algebra de las funciones continuas  </h2>
     <p>
-        Similarmente a los polinomios, si las funciones \(f, g : U \to \mathbb{R}\) son funciones continuas 
-        en un punto \(p_0\in U\), las <a href="./S5.html#LeyesLimites">Leyes de los límites</a> implican que 
-        las funciones
+        Las  <a href="./S5.html#LeyesLimites">Leyes de los límites</a> implican
+        la continuidad de varias funciones.
+        <p>
+            Sea \(U\subseteq \mathbb{R}^n\) un abierto, \(F,G:U\to \mathbb{R}^m\)
+            funciones continuas en \(p_0\in U\). Entonces las siguientes funciones 
+        </p>
         <ol>
             <li>
-                combinaciones lineales: \(\alpha f + g\), \(\alpha \in \mathbb{R}\),
+                combinaciones lineales: \(\alpha F + G\\), 
             </li>
             <li>
-                productos: \(fg\),
+                si \(F\) y \(G\) toman valores escalares, productos: \(FG\),
             </li>
             <li>
-              divisiones: \(f/g\), con \(g(p_0)\ne 0\),
+              si \(F\) y \(G\) toman valores escalares, divisiones: \(F/G\), con \(F(p_0)\ne 0\),
             </li>
         </ol>  
         son todas continuas en \(p_0\). 
@@ -225,24 +208,11 @@
     <p>
         Así pues, muchas de las operaciones elementales entre funciones arrojan funciones continuas. Otras 
         operaciones como raíces, logaritmo y exponenciación también toman funciones continuas y producen 
-        funciones continuas. Lo anterior se sigue de la <a href="#Prop:ComposicionCont">Proposición 9.4</a>. 
+        funciones continuas. Lo anterior se sigue de la <a href="#Prop:ComposicionCont">Proposición 8.3</a>. 
         Por ejemplo, si \(f\) es continua en \(p_0\) y \(f(p_0) > 0\) entonces la función 
         \(\ln(f(p))\) es continua en \(p_0\).
 </div>
 
-<div class="ejercicio-box"> 
-    <h2 class="number-title" id="Ejer:ContinuidadFunLipschitz"> Ejercicio  </h2>
-    <p>
-        Sea $U\ne \emptyset$ un abierto de $\mathbb{R^n}$ y  $f:U \to \mathbb{R}$.
-    </p>
-    <p>
-        Supón que $p_0\in U$ satisface que existe una bola $B_r(p_0)\subset U$ y una constante $k>0$
-        tal que $|f(p)-f(p_0)|\leq k \|p-p_0 \|$, para toda $p\in B_r(p_0)$.      
-    </p>
-    <p>
-        Demuestra que $f$ es continua en $p_0$.
-    </p>
-</div>
   
 
 
@@ -251,17 +221,17 @@
     <h2 class="number-title" id="Prop:DifImplicaCont"> Proposición </h2> 
     <p>
         Sea $U\ne \emptyset$ un conjunto abierto en $\mathbb{R}^n$, $p_0\in U$
-        y $f: U \to \mathbb{R}$.
+        y $F: U \to \mathbb{R}^m$.
       
     </p>
     <p>
-        Si $f$ es diferenciable en $p_0$ entonces
-        $f$ es continua en $p_0$. 
+        Si $F$ es diferenciable en $p_0$ entonces
+        $F$ es continua en $p_0$. 
     </p>
     <p>
         Nota: el reverso no es cierto. Por ejemplo en dimensión 1 un 
         contra-ejemplo es la función valor absoluto; en dimensión 2 
-        un contra-ejemplo está dado en el <a href="./S8.html#Ejer:ExistenParcialesPeroNoDif"> Ejercicio 8.13</a>.
+        un contra-ejemplo está dado en el <a href="./S7.html#Ejer:ExistenParcialesPeroNoDif"> Ejercicio 7.9</a>.
     </p>
     <button class="respButton hvr-grow "> Demostración</button>
     <div class="resp-box">
@@ -278,13 +248,14 @@
         <p>
             Debemos de probar que 
             \[
-                \lim_{p\to p_0} f(p)=f(p_0)
+                \lim_{p\to p_0} F(p)=F(p_0)
             \]
-            Pero, al ser \(f\) diferenciable sabemos que 
+        </p>
+        <p>
+            Pero, al ser \(F\) diferenciable sabemos que 
             \[
-            \lim_{p\to p_0} \frac{f(p)-f(p_0)-T(p-p_0)}{\|p-p_0\|}=0
+            \lim_{p\to p_0} \frac{F(p)-F(p_0)-D_{p_0}F(p-p_0)}{\|p-p_0\|}=0
             \]
-            donde \(T(x_1,\dots, x_n)=\sum_{i=1}^n (\partial_{p_i}f(p_0))x_i\).
         </p>
         <p>
             Pero es claro que 
@@ -293,26 +264,26 @@
             \]
             así que por la ley del producto para límites 
             \begin{eqnarray*}
-            0&=&\left(\lim_{p\to p_0} \|p-p_0\|\right)\left( \lim_{p\to p_0} \frac{f(p)-f(p_0)-T(p-p_0)}{\|p-p_0\|} \right) \\
-             &=& \lim_{p\to p_0} \left( \|p-p_0\|\frac{f(p)-f(p_0)-T(p-p_0)}{\|p-p_0\|}\right) \\
-             &=& \lim_{p\to p_0} (f(p)-f(p_0)-T(p-p_0))
+            0&=&\left(\lim_{p\to p_0} \|p-p_0\|\right)\left( \lim_{p\to p_0} \frac{F(p)-F(p_0)-D_{p_0}F(p-p_0)}{\|p-p_0\|} \right) \\
+             &=& \lim_{p\to p_0} \left( \|p-p_0\|\frac{F(p)-F(p_0)-D_{p_0}F(p-p_0)}{\|p-p_0\|}\right) \\
+             &=& \lim_{p\to p_0} (F(p)-F(p_0)-D_{p_0}F(p-p_0))
             \end{eqnarray*}
         </p>
         <p>
-            Ahora, por el <a>Ejercicio 9.2</a> 
+            Ahora, usando que las funciones lineales son continuas:
             \[
-            \lim_{p\to p_0}T(p-p_0)=T(p_0-p_0)=T(0)=0
+            \lim_{p\to p_0}D_{p_0}F(p-p_0)=D_{p_0}F(p_0-p_0)=D_{p_0}F(0)=0
             \]
-            donde usamos \(T(0)=0\), al ser \(T\) función lineal.
+            donde usamos \(D_{p_0}F(0)=0\), al ser \(D_{p_F0}\) una función lineal.
         </p>
         <p>
             Se sigue de las leyes de los límites para sumas tenemos 
             \begin{eqnarray*} 
-            0&=&\lim_{p\to p_0} (f(p)-f(p_0)-T(p-p_0))+ \lim_{p\to p_0}(T(p-p_0)) \\
-            &=& \lim_{p\to p_0} (f(p)-f(p_0)-T(p-p_0)+T(p-p_0))\\
-            &=& \lim_{p\to p_0} (f(p)-f(p_0))
+            0&=&\lim_{p\to p_0} (F(p)-F(p_0)-D_{p_0}F(p-p_0))+ \lim_{p\to p_0}(D_{p_0}F(p-p_0)) \\
+            &=& \lim_{p\to p_0} (f(p)-f(p_0)-D_{p_0}F (p-p_0)+D_{p_0}F(p-p_0))\\
+            &=& \lim_{p\to p_0} (F(p)-F(p_0))
             \end{eqnarray*}
-            lo que es equivalente a \(\lim_{p\to p_0} f(p)=f(p_0)\).
+            lo que es equivalente a \(\lim_{p\to p_0} F(p)=F(p_0)\).
         </p>
     </div>
     </div>
@@ -325,7 +296,7 @@
     <h2 class="number-title">  Definición</h2>
     <p>
         Sea $U\ne \emptyset$ un subconjunto abierto de $\mathbb{R}^n$
-        y $f:U\to \mathbb{R}$. Decimos que $f$ es de clase
+        y $f:U\to \mathbb{R}$ una función escalar. Decimos que $f$ es de clase
         $C^1$ en $U$, si todas las derivadas parciales existen y son
         continuas en todo punto de $U$.
     </p>
@@ -334,57 +305,43 @@
         sus derivadas parciales vuelven a ser polinomios, los cuales son funciones 
         continuas.
     </p>
+    <p>
+        Para una función vectorial \(F:U\to \mathbb{R}^m\) decimos que \(F\)
+        es clase \(C^1\) si todas las funciones coordenadas de \(F\) son clase \(C^1\).
+    </p>
   </div>
 
 
-
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-        Considera la función de una variable
-        $$
-        f(x)=\left\{\begin{array}{cc}
-                      x^2\sen(1/x) & x\ne 0 \\
-                      0 & x=0
-                    \end{array}
-                  \right.
-                  $$
-                  
-        Demuestra
-        que para todo $x$, $f'(x)$ existe pero la función $f'(x)$ no es continua. Por
-        lo tanto, ésta función es un ejemplo de una función diferenciable, que no
-        es clase $C^1$.
-      
-    </p>
-</div>
-
-  
+    
 <div class="teorema-box"> 
     <h2 class="number-title" id="Ejer:C1ImplicaDif"> Teorema </h2> 
     <p>
-        Toda función de dos variables clase $C^1$ es diferenciable.
+        Toda función de  clase $C^1$ es diferenciable.
     </p>
     <p>
-        En concreto, sea $U\ne \emptyset$ un subconjunto abierto de $\mathbb{R}^2$ y $f:U \to \mathbb{R}$
-        una función clase $C^1$ en $U$. Entonces para todo $(x_0,y_0)\in U$, 
-        \(f\) es diferenciable en \((x_0,y_0)\). 
+        En concreto, sea $U\subseteq \mathbb{R}^n$ un subconjunto abierto  y $f:U \to \mathbb{R}$
+        una función clase $C^1$ en $U$. Entonces para todo $p_0\in U$, 
+        \(f\) es diferenciable en \(p_0\). 
     </p>
     <button class="respButton hvr-grow "> Demostración</button>
     <div class="resp-box">
+        <p>
+            Para simplificar la demostración  vamos a hacer la prueba en dos dimensiones. 
+        </p>
     <p>
         Recordemos que para probar que \(f\) es diferenciable en \((x_0,y_0)\) debemos de probar que 
         existe una función lineal \(T:\mathbb{R}^2 \to \mathbb{R}\) tal que 
         \[
-        \lim_{(h,k)\to 0} \frac{f(x_0+h,y+0+k)-f(x_0,y_0)-T(h,k)}{\|(h,k)\|}=0.
+        \lim_{(h,k)\to 0} \frac{f(x_0+h,y_0+k)-f(x_0,y_0)-T(h,k)}{\|(h,k)\|}=0.
         \]
     </p>
     <p>
-        Ya que las derivadas parciales existen la <a href="./S8.html#Ejer:ParcialesYDerivada">Proposición 8.11</a> sugiere que la 
+        Ya que las derivadas parciales existen la <a href="./S7.html#Ejer:ParcialesYDerivada">Proposición 7.7</a> sugiere que la 
         transformación lineal es 
         \[
         T(x,y)=\partial_xf(x_0,y_0)x+\partial_yf(x_0,y_0)y
         \]
-        Nota: NO podemos aplicar directamente la Proposición 8.11 pues no sabemos que la 
+        Nota: NO podemos aplicar directamente la Proposición 7.7 pues no sabemos que la 
         función \(f\) es diferenciable PERO sí nos sugiere cuál transformación lineal 
         debemos de considerar.
     </p>
@@ -465,117 +422,19 @@
 </div>
 
 
-<div class="teorema-box"> 
-    <h2 class="number-title" id="Teo:C1ImplicaDif"> Teorema </h2> 
+<div class="coro-box"> 
+    <h2 class="number-title" id="Ejer:C1ImplicaDif"> Corolario </h2> 
+    
     <p>
-        El teorema anterior se generaliza a más variables. 
+        Sea $U\subseteq \mathbb{R}^n$ un subconjunto abierto  y $F:U \to \mathbb{R}^m$
+        una función clase $C^1$ en $U$. Entonces para todo $p_0\in U$, 
+        \(F\) es diferenciable en \(p_0\). 
     </p>
     <p>
-        Sea $U\ne \emptyset$
-        es un conjunto abierto de $\mathbb{R}^n$ y
-          $f:U\to \mathbb{R}$, de clase $C^1$ en $U$. Entonces $f$ es diferenciable en todo punto 
-          de  $U$.
+        Nota: la demostración es aplicar el teorema anterior a cada función coordenada de \(F\).
     </p>
-</div>
+    </div>
 
-
-
-
-
-    <div class="ejercicio-box"> 
-        <h2 class="number-title"> Ejercicio</h2> 
-        <p>
-            Para las siguientes funciones, usa el criterio
-            de las derivadas parciales para encontrar  un dominio
-            para el cual la función sea diferencible en
-            todo punto del dominio.
-
-            <ol>
-                <li>
-                    $f(x,y)=e^{\sqrt{x^2+y^2}}$.
-                </li>
-                <p>
-
-                </p>
-                <li>
-                    \(f(x,y)=\frac{x}{y}+\frac{y}{x}\).
-                </li>
-                <p>
-                    
-                </p>
-                <li>
-                    \(f(x,y)=\sen^{-1}(x-y)\).
-                </li>
-                <p>
-                    
-                </p>
-                <li>
-                    $f(x,y)=\log(e^{\sqrt[4]{(x-1)^2+(y-2)^2}}+e^{\sqrt{(x-5)^2+(y-6)^2}})$.
-                </li>
-                <p>
-                    
-                </p>
-                <li>
-                    $f(x,y)=\log(1+\sqrt{(x-1)^2+(y+1)^2})$.
-                </li>
-                <p>
-                    
-                </p>
-                <li>
-                    \(f(x,y)=3x^{0.1}y^{\pi}\).
-                </li>
-                <p>
-                    
-                </p>
-                <li>
-                    \(f(x,y)=x^y y^x\).
-                </li>
-                <p>
-                    
-                </p>
-                <li>
-                    \(f(x,y,z)=\frac{z}{x+y+z}\).
-                </li>
-                <p>
-                    
-                </p>
-                <li>
-                    \(f(x,y,z)=\sqrt{\sen^2(x)+\sen^2(y)+\sen^2(z)}\).
-                </li>
-                <p>
-                    
-                </p>
-                <li>
-                    \(f(x_1,\dots, x_n)=\sum_{i=1}^n \frac{1}{x_i}\).
-                </li>
-            </ol>
-            
-        </p>
-   </div>            
-
-
-   
-
-
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-        Para cada una de las siguientes funciones
-        calcula $\partial_{x}\partial_yf(x,y)$ y $\partial_y\partial_xf(x,y)$.
-        ¿ Qué notas ?
-        <ol>
-            <li>
-                $f(x,y)=x^2+xy^2+y^3$
-            </li>
-            <li>
-                $f(x,y)=\log(x^2+y^4)$
-            </li>
-            <li>
-                $f(x,y)=e^{3x+2xy+y^2}$                 
-            </li>
-        </ol>
-    </p>
-</div>
 
 
 <div class="definicion-box">
@@ -671,7 +530,6 @@
 </div>
 </div>
 
-
 <div class="definicion-box">
     <h2 class="number-title">  Definición</h2>
     <p>
@@ -685,6 +543,147 @@
     </p>
 </div>
 
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title" id="Ejer:ContinuidadFunLipschitz"> Ejercicio  </h2>
+    <p>
+        Sea $U\ne \emptyset$ un abierto de $\mathbb{R^n}$ y  $f:U \to \mathbb{R}$.
+    </p>
+    <p>
+        Supón que $p_0\in U$ satisface que existe una bola $B_r(p_0)\subset U$ y una constante $k>0$
+        tal que $|f(p)-f(p_0)|\leq k \|p-p_0 \|$, para toda $p\in B_r(p_0)$.      
+    </p>
+    <p>
+        Demuestra que $f$ es continua en $p_0$.
+    </p>
+</div>
+
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Considera la función de una variable
+        $$
+        f(x)=\left\{\begin{array}{cc}
+                      x^2\sen(1/x) & x\ne 0 \\
+                      0 & x=0
+                    \end{array}
+                  \right.
+                  $$
+                  
+        Demuestra
+        que para todo $x$, $f'(x)$ existe pero la función $f'(x)$ no es continua. Por
+        lo tanto, ésta función es un ejemplo de una función diferenciable, que no
+        es clase $C^1$.
+      
+    </p>
+</div>
+
+
+
+
+
+
+
+    <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio</h2> 
+        <p>
+            Para las siguientes funciones, usa el criterio
+            de las derivadas parciales para encontrar  un dominio
+            para el cual la función sea diferencible en
+            todo punto del dominio.
+
+            <ol>
+                <li>
+                    $f(x,y)=e^{\sqrt{x^2+y^2}}$.
+                </li>
+                <p>
+
+                </p>
+                <li>
+                    \(f(x,y)=\frac{x}{y}+\frac{y}{x}\).
+                </li>
+                <p>
+                    
+                </p>
+                <li>
+                    \(f(x,y)=\sen^{-1}(x-y)\).
+                </li>
+                <p>
+                    
+                </p>
+                <li>
+                    $f(x,y)=\log(e^{\sqrt[4]{(x-1)^2+(y-2)^2}}+e^{\sqrt{(x-5)^2+(y-6)^2}})$.
+                </li>
+                <p>
+                    
+                </p>
+                <li>
+                    $f(x,y)=\log(1+\sqrt{(x-1)^2+(y+1)^2})$.
+                </li>
+                <p>
+                    
+                </p>
+                <li>
+                    \(f(x,y)=3x^{0.1}y^{\pi}\).
+                </li>
+                <p>
+                    
+                </p>
+                <li>
+                    \(f(x,y)=x^y y^x\).
+                </li>
+                <p>
+                    
+                </p>
+                <li>
+                    \(f(x,y,z)=\frac{z}{x+y+z}\).
+                </li>
+                <p>
+                    
+                </p>
+                <li>
+                    \(f(x,y,z)=\sqrt{\sen^2(x)+\sen^2(y)+\sen^2(z)}\).
+                </li>
+                <p>
+                    
+                </p>
+                <li>
+                    \(f(x_1,\dots, x_n)=\sum_{i=1}^n \frac{1}{x_i}\).
+                </li>
+            </ol>
+            
+        </p>
+   </div>            
+
+
+   
+
+
+
+
+
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Para cada una de las siguientes funciones
+        calcula $\partial_{x}\partial_yf(x,y)$ y $\partial_y\partial_xf(x,y)$.
+        <ol>
+            <li>
+                $f(x,y)=x^2+xy^2+y^3$
+            </li>
+            <li>
+                $f(x,y)=\log(x^2+y^4)$
+            </li>
+            <li>
+                $f(x,y)=e^{3x+2xy+y^2}$                 
+            </li>
+        </ol>
+    </p>
+</div>
 
 <div class="ejercicio-box"> 
     <h2 class="number-title"> Ejercicio</h2>
