@@ -533,16 +533,55 @@
 <div class="definicion-box">
     <h2 class="number-title">  Definición</h2>
     <p>
-        Una función $f:U\to \mathbb{R}$, definida en un abierto, se llama armónica en $U$ si las
-        derivadas parciales de segundo orden $\partial_x^2 f$ y $\partial_y^2 f$, existen y son continuas
-        en todo punto de $U$ (es decir, clase $C^1$ en $U$) y
+        Una función $f:U\subseteq \mathbb{R}^@\to \mathbb{R}$, definida en un abierto, se llama armónica en $U$ si las
+        derivadas parciales de  segundo orden $\partial_x^2 f$ y $\partial_y^2 f$, existen y son continuas
+        en todo punto de $U$ (es decir, clase $C^2$ en $U$) y
         $$
         \partial_x^2f(x,y)+\partial_y^2f(x,y)=0
         $$ 
         para todo $(x,y)\in U$. 
     </p>
+    <p>
+        Más en general, una función de varias variables \(f:U\subseteq \mathbb{R}^n \to \mathbb{R}\)
+        se llama armónica en \(U\) si es clase \(C^2\) en \(U\) y además
+        \[
+        \sum_{i=1}^n \partial_{x_i}^2 f(p)=0
+        \]
+        para todo \(p\in U\).
+    </p>
 </div>
 
+
+<div class="info-box">
+    <h2 class="number-title"> Ejemplo </h2>
+    <p>
+        La función del potencial de gravedad:
+        \[
+        F(x,y,z)=-\frac{GM}{\sqrt{x^2+y^2+z^2}}
+        \]
+        (donde \(G\) y \(M\) son constantes) es armónica en \(\mathbb{R}^3\setminus \{0\}\).
+    </p>
+
+</div>
+
+
+<div class="teorema-box">
+    <h2 class="number-title"> Teorema </h2>
+    <p>
+        Sea \(U\subseteq \mathbb{R}^n\) un abierto y \(F:U\to \mathbb{R}^m\) una función. 
+    </p>
+    <p>
+        \(F\) es continua en \(U\) si y sólo si imagen inversa de abiertos es abierta. 
+        
+    </p>
+    <p>
+        Es decir, si \(V\subseteq \mathbb{R}^m\) es abierto entonces 
+        \[
+        F^{-1}(V):=\{p\in \mathbb{R}^n: F(p)\in V\}
+        \]
+        es un subconjunto abierto.
+    </p>
+</div>
 
 <div class="ejercicio-box"> 
     <h2 class="number-title" id="Ejer:ContinuidadFunLipschitz"> Ejercicio  </h2>
@@ -917,6 +956,51 @@
 </div>
 
 
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2>
+    <p>
+        Para las siguientes funciones encuentra encuentra: 
+        (i) el  subconjunto abierto más grande  
+        dónde la función sea continua y (ii) el 
+        subconjunto abierto más grande donde puedas 
+        asegurar que la función es diferenciable en todo punto de dicho abierto. 
+    </p>
+    <p>
+        Justifica 
+        tu respuesta.
+    </p>
+    <ol>
+        
+        <p></p>
+        <li>
+            \(f(x,y)=\frac{3xy+6y+7x^2-8y^2}{4-x^2-y^2}\)
+        </li>
+        <p></p>
+        <li>
+            \(f(x,y)=\frac{\cos(x^2+3y+y^2)}{\sen(3x+2y)}\)
+        </li>
+        <p></p>
+        <li>
+            \(f(x,y)=\frac{6x^2+\cos(xy)+6y^2}{e^{x^2+y^2-1}}\)
+        </li>
+        <p></p>
+        <li>
+            \(f(x,y)=\ln(x^2-y^2)\)
+        </li>
+        <p></p>
+        <li>
+            \(f(x,y)=\frac{e^{x^2+y^2}+e^{x^2}+e^{y^2}}{\ln(6x-2y)}\)
+        </li>
+        <p></p>
+        <li>
+            \(f(x,y,z)=\ln(x^2+y^2+z^2)\).
+        </li>
+        <p></p>
+        <li>
+            \(f(x,y)=\frac{xy-y^2}{\ln(3x+2y-z)}\)
+        </li>
+    </ol>
+</div>
 
 
  </body>
