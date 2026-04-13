@@ -81,612 +81,740 @@
   </head>
   <body class="fondo-body" >
 
-    <h1 class="number-title flexbox"> Aproximación lineal </h1> 
+    <h1 class="number-title flexbox"> Gradiente y derivada direccional </h1> 
 <!-- this part is for next and prev sections -->
 <button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>
 <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
 
 
-          
-    
-    <div class="definicion-box"><h2 class="number-title">  Definición</h2>
+   
+
+    <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
         <p>
-            Sea $U\ne \emptyset $  un abierto de $\mathbb{R}^n$,
-            $p_0\in U$ y $f:U\to \mathbb{R}$ una función diferenciable en $p_0$.
-    
-            A la función
-            $$L_{p_0}(p)= f(p_0)+ \langle \nabla_{p_0}f, p-p_0 \rangle$$
-           
-            se le llama la aproximación
-            de orden 1 (o lineal) para $f$ alrededor de $p_0$. Por simplicidad nos 
-            referirnos al punto \(p_0\) como el punto de tangencia de la aproximación lineal.
+            Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$ y
+            $f:U\to \mathbb{R}$.
         </p>
         <p>
-            Por ejemplo, en dimensión 2, \(p_0=(x_0,y_0), p=(x,y)\) por lo que  tenemos 
+            En la sección 6, dado un vector $v$ con \(\|v\|=1\), definimos la derivada 
+            direccional de $f$ en el punto \(p\) en la dirección de \(v\) como el límite
+            $$
+            \lim_{h \to 0} \frac{f(p+hv)-f(p)}{h}
+            $$
+            Se denota $\partial_vf(p)$. 
+        </p>
+        <p>
+            Pedir que el vector \(v\) sea unitario no es necesario y para un vector arbitrario \(u\), 
+            se define la derivada direccional de \(f\) en el punto \(p\) en la dirección de \(u\) 
+            como el límite
+            $$
+            \lim_{h \to 0} \frac{f(p+hu)-f(p)}{h}
+            $$
+        </p>
+            <p>
+                Si el límite anterior existe, se denota por $\partial_uf(p)$.
+            </p>
+        
+    </div>
+
+
+    <div class="prop-box"> 
+        <h2 class="number-title" id="Prop:FormulaDerDir"> Proposición  </h2>
+
+        <p>
+            Sea $U\ne \emptyset$ un subconjunto abierto de $\mathbb{R}^n$
+            y $f:U\to \mathbb{R}$ una función diferenciable en $p_0\in U$.
+        </p>
+
+        <p>
+            Para todo \(u=(u_1,\dots, u_n)\in \mathbb{R}^n\), se tiene que 
             \[
-            L_{(x_0,y_0)}(x,y)= f(x_0,y_0)+\partial_xf(x_0,y_0)(x-x_0)+ \partial_yf(x_0,y_0)(y-y_0)
+            \partial_uf(p_0)= \nabla_{p_0}f\cdot  u  
             \]
-            por lo que la aproximación lineal en \(p_0\) es simplemente la función cuya gráfica 
-            es precisamente el plano tangente a la gráfica de \(f\) en \(p_0\)
-            (ver <a href="./S8.html#Def:PlanoTangente">Definición 8.16</a>).
-
+            es decir 
+            \[
+            \partial_uf(p_0)=\sum_{i=1}^n \partial_{x_i}f(p_0)u_i.
+            \]
         </p>
-        Notas
-        <ol>
-            <li>
-                La idea es que, cerca del punto de tangencia (el punto \(p_0\) en la notación de arriba) la 
-                función y la aproximación lineal son muy parecidas. Así podemos utilizar la aproximación lineal 
-                para aproximar los valores de la  función cerca de \(p_0\).
-            </li>
-            <li>
-                La aproximación lineal dependen del punto de tangencia. Si tratamos de aproximar la 
-                función alrededor de dos puntos distintos las aproximaciones lineales serán distintas.
-            </li>
-            <li>
-                A diferencia de la función \(f\), el dominio de \(L_{p_0}\) es todo \(\mathbb{R}^n\).
-            </li>
-        </ol>
-        
-      </div>
-      
-
-      <div class="ejercicio-box"> 
-        <h2 class="number-title"> Ejercicio </h2> 
-        <p>
-            Considera la función $f:\mathbb{R}^2 \to \mathbb{R}$
-            dada por $f(p)=\sqrt{x^2+y^2}$. Sus derivadas parciales  son
-            \begin{eqnarray*} 
-            \partial_xf(x,y)=\frac{x}{\sqrt{x^2+y^2}}, \quad \partial_yf(x,y)=\frac{y}{\sqrt{x^2+y^2}}
-            \end{eqnarray*} 
-            las cuales son continuas en todo punto \((x,y)\ne 0\). Por lo tanto 
-            \(f\) es diferenciable en todo punto distinto del origen.
-            
-        </p>
-        <p>
-            <ol>
-                <li>
-                    Demuestra que la  aproximación lineal de $f(x,y)=\sqrt{x^2+y^2}$,
-                    cerca del punto $(x_0,y_0)\ne (0,0)$ está dada por
-                    $$
-                    L(x,y)=r_0 +\frac{x_0}{r_0}(x-x_0)+\frac{y_0}{r_0}(y-y_0) 
-                    $$
-                    donde $r_0=\sqrt{x_0^2+y_0^2}$.
-                </li>
-                <li>
-                    Ya que el plano tangente se aproxima a la función cerca del punto de tangencia podemos 
-                    escribir 
-                    $$
-                    \sqrt{x^2+y^2}\approx r_0+\frac{x_0}{r_0}(x-x_0)+\frac{y_0}{r_0}(y-y_0)
-                    $$
-                    donde $(x,y)$ es un punto cercano a $(x_0,y_0)$.
-                </li>
-                <li>
-                    Usando lo anterior estima $\sqrt{(3.1)^2+(4.2)^2}$.
-                </li>
-            </ol>
-        </p>
-      </div>
-      
-      
-              
-    <div class="prop-box"> 
-        <h2 class="number-title" id="Ejer:AproxLineal"> Proposición </h2> 
-        <p>
-            Sea $U$ un abierto de $\mathbb{R}^n$,  $p_0\in U$ y $f:U\to \mathbb{R}$
-            una función diferenciable en $p_0$.
-        </p>
-        <p>
-            Existe una función $E_{p_0}(p)$, definida en una bola abierta centrada en \(p_0\), denotada $B_r(p_0)$, 
-            que satisface
-        </p>
-        <p>
-            <ol>
-                <li>
-                    para toda $p\in B_r(p_0)$, $f(p)=f(p_0)+\langle \nabla_{p_0}f, p-p_0 \rangle +E_{p_0}(p)$
-                </li>
-                <li>
-                    $\lim_{p\to p_0} \frac{|E_{p_0}(p)|}{\|p-p_0\|}=0$
-                </li>
-              </ol>
-        
-        </p>
-        <p>
-            Sugerencia: simplemente define $E_{p_0}(p):=f(p)-f(p_0)- \langle \nabla_{p_0}f, p-p_0 \rangle$
-            y prueba que el límite que se pide es cero.
-        </p>
-    </div>
-
-        
-        
-
-      
-      
-
-    <div class="prop-box"> 
-        <h2 class="number-title" id="Ejer:CaracterizacionAproxLineal"> Proposición </h2>
-        <p>
-            Este ejercicio es importante pues da un criterio para que una función sea diferenciable. 
-        </p>
-        <p>
-            El criterio
-            dice que si una función admite una aproximación lineal entonces es diferenciable.	
-        </p>
-        <p>
-            Sea $U$ un abierto de $\mathbb{R}^n$, $p_0\in U$ y $f:U\to \mathbb{R}$ una función.
-        </p>
-        <p>
-            Supongamos que existe una bola abierta $B_r(p_0)\subseteq U$,
-            una función $\tilde{E}:B_r(p_0) \to \mathbb{R}$
-            y una función lineal $T:\mathbb{R}^n \to \mathbb{R}$ que satisfacen
-    
-            <ol>
-                <li id="Hip:1">
-                    para $p\in B_r(p_0)$, $f(p)=f(p_0)+T(p-p_0)+\tilde{E}(p)$
-                </li>
-                <li id="Hip:2">
-                    $$
-                    \lim_{p \to p_0} \frac{|\tilde{E}(p)|}{\|p-p_0\|}=0
-                    $$
-                </li>
-            </ol>
-            Entonces $f$ es diferenciable en $p_0$ y $D_{p_0}f=T$.
-        </p>
-        
-    </div>
-
-      
-
-        
-      
-
-      <!-- <div class="ejercicio-box"> 
-        <h2 class="number-title"> Ejercicio </h2> 
-        <p>
-            Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$, $p_0\in U$ y $f,g :U \to \mathbb{R}$
-            funciones diferenciables en $p_0$. Usando aproximaciones
-            lineales (ejercicio \ref{Ejer:CaracterizacionAproxLineal}) demuestra
-            que $cf+g$ es diferenciable (donde  $c\in \mathbb{R}$)
-            en $p_0$ y
-            $$
-            \nabla_{p_0}(cf+g)=c\nabla_{p_0} f+ \nabla_{p_0}g.
-            $$
-    
-        </p>
-      </div>-->
-
-    
-    
-
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2> 
-    <p>
-        Usando aproximaciones lineales  estima las siguientes cantidades
-    </p>
-    <ol>
-        <li>
-            $\sqrt{(9.1)(15.9)}$.
-        </li>
-        <li>
-            $\sqrt{(4.1)^2+(3.95)^2+(2.01)^2}$
-        </li>
-        <li>
-            $(2.01)^3+(1.99)^3-5(2.01)(1.99)$
-        </li>
-    </ol>
- </div>
-
-  <!--<div class="ejercicio-box"> 
-    <h2 class="number-title" id="Ejer:DifProductoDos1D"> Ejercicio </h2> 
-    <p>
-        Sean $g:(a,b) \to \mathbb{R}$, \(h:(c,d)\to \mathbb{R}\) dos funciones diferenciables.
-    </p>
-    <p>
-        Fija
-        dos puntos $x_0\in (a,b), y_0\in (c,d)$ y  considera las aproximaciones lineales
-        de $g$ y $h$ alrededor de $x_0$ y $y_0$ respectivamente, es decir
-        \begin{equation}\label{Eqn:Ejer1DAproxLinealg}
-          g(x)=g(x_0)+g'(x_0)(x-x_0)+E_1(x)
-        \end{equation}
-        done   $\lim_{x\to x_0} \frac{|E_1(x)|}{|x-x_0|}=0$;
-        \begin{equation}\label{Eqn:Ejer1DAproxLinealh}
-          h(y)=h(y_0)+h'(y_0)(y-y_0)+E_2(y)
-        \end{equation}
-        donde  $\lim_{y\to y_0}\frac{|E_2(y)|}{|y-y_0|}=0$.
-    </p>
-    <p>
-        Considera la función de dos variables $f:(a,b)\times (c,d) \to \mathbb{R}$ dada por
-        $f(x,y)=g(x)h(y)$.
-        <ol>
-            <li>
-                Multiplica las ecuaciones \eqref{Eqn:Ejer1DAproxLinealg} y  \eqref{Eqn:Ejer1DAproxLinealg}
-                para probar que
-                $$
-                f(x,y)=f(x_0,y_0)+g'(x_0)h(y_0)(x-x_0)+g(x_0)h'(y_0)(y-y_0)+\tilde{E}(x,y)
-                $$
-                donde
-                \begin{eqnarray*}
-                \tilde{E}(x,y)&=&g'(x_0)h'(y_0)(x-x_0)(y-y_0)+E_1(x)E_2(y) \\
-                &+ & E_1(x)(h(y_0)+h'(y_0)(y-y_0))\\
-                 &+&E_2(y)(g(x_0)+g'(x_0)(x-x_0))
-                \end{eqnarray*}      
-            </li>
-            <li>
-                Demuestra que
-                $$
-                \lim_{(x,y)\to (x_0,y_0)}\frac{|\tilde{E}(x,y)|}{\|(x-x_0, y-y_0)\|}=0.
-                $$
-            </li>
-            <li>
-                Usando  la <a href="#Ejer:CaracterizacionAproxLineal">Proposición 10.4</a> concluye
-                que $f$ es diferenciable en $(x_0,y_0)$ y que
-                $$
-                \nabla_{(x_0,y_0)}f=( g'(x_0)h(y_0), g(x_0)h'(y_0)  )
-                $$
-            </li>
-            <li>
-                Usando el ejercicio anterior estima $\sen(\frac{\pi}{2}+\frac{\pi}{10})e^{0.1}$. 
-            </li>
-        </ol>
-    
-    </p>
-</div>-->
-    
-
-
-    
-    
-
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2> 
-    <p>
-        Sea $U$ un abierto de $\mathbb{R}^n$  y $g,h:U\to \mathbb{R}$ dos funciones.
-        Sea $p_0 \in U$ un punto tal que tanto $g$ como $h$ son diferenciables en $p_0$.
-    </p>
-    
-    <p>
-        Considera las aproximaciones lineales de $g$ y $h$ en $p_0$, es decir
-        \begin{equation}\label{Eqn:EjerAproxLinealg}
-          g(p)=g(p_0)+ \langle \nabla_{p_0}g, p-p_0 \rangle  + E_1(p)
-        \end{equation}
-        con $\lim_{p\to p_0}\frac{|E_1(p)|}{\|p-p_0\|}=0$ y
-        \begin{equation}\label{Eqn:EjerAproxLinealh}
-          h(p)=h(p_0)+\langle  \nabla_{p_0}h, p_k -p_0 \rangle + E_2(p)
-        \end{equation}
-        con $\lim_{p\to p_0}\frac{|E_2(p)|}{\|p-p_0\|}=0$.
-    </p>
-    <p>
-        Define $f(p)=g(p)h(p)$.
-        <ol>
-            <li>
-                Multiplicando las ecuaciones \eqref{Eqn:EjerAproxLinealg} y \eqref{Eqn:EjerAproxLinealh}
-                demuestra que
-                $$
-                f(p)= f(p_0)+ \langle h(p_0)\nabla_{p_0}g+ g(p_0)\nabla_{p_0}h, p-p_0 \rangle +\tilde{E}(p)
-                $$
-                donde
-                \begin{eqnarray*}
-                \tilde{E}(p)&=& \langle \nabla_{p_0}g, p-p_0\rangle \langle \nabla_{p_0}h,p-p_0  \rangle +E_1(p)E_2(p) \\
-                &+ & E_1(p)(h(p_0)+ \langle \nabla_{p_0}h, p-p_0 \rangle )\\
-                 &+&E_2(y)(g(p_0) + \langle \nabla_{p_0}g, p-p_0 \rangle)
-               \end{eqnarray*}
-          
-            </li>
-            <li>
-                Demuestra que $\lim_{p\to p_0} \frac{|\tilde{E}(p)|}{\|p-p_0 \|}=0$.
-            </li>
-            <li>
-                Usando  la <a href="#Ejer:CaracterizacionAproxLineal">Proposición 10.4</a> concluye que $f$ es diferenciable
-                en $p_0$ y que
-                $$
-                \nabla_{p_0}(gh)=g(p_0)\nabla_{p_0}h + h(p_0)\nabla_{p_0}g.
-                $$
-            </li>
-        </ol>
-    </p>
-  </div>
-    
-
-    
-
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2> 
-    <p>
-        Considera  la función  $r:\mathbb{R}^3 \to \mathbb{R}$ dada por $r(x,y,z)=\|(x,y,z)\|$. Durante
-        este ejercicio vamos a suponer que $r$ es difeferenciable en todo punto $(x_0,y_0,z_0)\ne (0,0,0)$.
-    </p>
-    <p>
-        Por simplicidad vamos a denotar: $p_0=(x_0,y_0,z_0)$.
-        <ol>
-            <li>
-                Demuestra que $\nabla_{p_0}r$ es el  vector unitario, en la misma dirección que
-                $p_0$.
-            </li>
-            <li>
-                Demuestra que $\nabla_{p_0}(r^n)=[nr^{(n-2)}(x_0)]p_0$, donde $n \geq 1$ es un natural.
-            </li>
-            <li>
-                La fórmula del inciso anterio ¿ es válida si $n$ es un entero negativo?
-            </li>
-        </ol>
-    </p>
-  </div>
-    
-    
-
-
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio </h2> 
-    <p>
-        Sea $U$ un abierto de $\mathbb{R}^n$  y $g:U\to \mathbb{R}$ dos funciones.
-        Sea $p_0 \in U$ un punto tal que $g$  son diferenciables en $p_0$ y \(g(p_0)\ne 0\).
-    </p>
-    <p>
-        Entonces \(g\) es diferenciable y 
-        \[
-        \nabla_{p_0}\left(\frac{1}{g}\right)=-\frac{1}{g(p_0)^2}\nabla_{p_0}g.
-        \]
-    </p>
-    <button class="respButton hvr-grow "> Demostración</button>
+        <button class="respButton hvr-grow "> Solución </button>
         <div class="resp-box">
-    <p>
-        Considera las aproximación  lineal de $g$ en $p_0$, es decir, 
-        \begin{equation}\label{Eqn:Aux2EjerAproxLinealg}
-          g(p)=g(p_0)+ \langle \nabla_{p_0}g, p-p_0 \rangle  + E(p)
-        \end{equation}
-        con $\lim_{p\to p_0}\frac{|E(p)|}{\|p-p_0\|}=0$.
-    </p>
-        
-            <p>
-                Ya que \(g(p_0)\ne 0\) y \(g\) es continua en \(p_0\) (al ser difernciable) existe un 
-                \(r>0 \) tal que \(g(p)\ne 0\) para todo \(p\in B_r(p_0)\). Así pues restringimos 
-                \(g\) a la bola \(B_r(p_0)\) para poder tomar \(\frac{1}{g(p)}\).
-            </p>
-            <ol>
-            <p>
-                Si 
-                dividimos  \eqref{Eqn:Aux2EjerAproxLinealg}  por \(g(p)g(p_0)\).
-                obtenemos que
-                \begin{equation}\label{Eqn:Aux3DifInversaMulti}
-                \frac{1}{g(p)}= \frac{1}{g(p_0)} - \frac{1}{g(p_0)g(p)}\langle \nabla_{p_0}g, p-p_0 \rangle -\frac{E(p)}{g(p_0)g(p)}
-                \end{equation}
-            </p>
-            <p>
-                Sumando el cero \(\frac{1}{g(p_0)^2}\langle \nabla_{p_0}g, p-p_0\rangle -\frac{1}{g(p_0)^2}\langle \nabla_{p_0}g, p-p_0\rangle \),
-                en la ecuación \eqref{Eqn:Aux3DifInversaMulti} se obtiene 
-                \begin{equation}\label{Eqn:Aux4DifInversaMulti}
-                \frac{1}{g(p)}= \frac{1}{g(p_0)}- \frac{1}{g(p_0)^2}\langle \nabla_{p_0}g, p-p_0 \rangle +\tilde{E}(p)
-                \end{equation}
-                donde 
-                \begin{eqnarray*}
-                \tilde{E}(p)&=& \frac{1}{g(p_0)}\langle \nabla_{p_0}g, p-p_0\rangle \left(\frac{1}{g(p_0)}-\frac{1}{g(p)} \right) \\
-                &+& \frac{E(p)}{g(p)g(p_0)}
-               \end{eqnarray*}
-            </p>
-            <p>
-                Ahora afirmamos que  $\lim_{p\to p_0} \frac{|\tilde{E}(p)|}{\|p-p_0 \|}=0$.
-            </p>
-            <p>
-                Escribimos el cociente anterior como 
-                \begin{eqnarray*}
-                \frac{\tilde{E}(p)}{\|p-p_0 \|}&=&\frac{E(p)}{g(p)g(p_0)\|p-p_0\|} \\
-                &+&  \frac{1}{g(p_0)} \frac{\langle \nabla_{p_0}g, p-p_0\rangle}{\|p-p_0\|}\left( \frac{1}{g(p)}-\frac{1}{g(p_0)}\right) 
-                \end{eqnarray*}
-                Para probar $\lim_{p\to p_0} \frac{|\tilde{E}(p)|}{\|p-p_0 \|}=0$ vamos a probar que el límite de cada sumando es cero.
-                <p>
-                    Para el primer sumando de la igualdad anterior, usando que  
-                    \(\lim_{p\to p_0}\frac{E(p)}{\|p-p_0\|}=0\) y \(\lim_{p\to p_0}\frac{1}{g(p)g(p_0)}=\frac{1}{g(p_0)^2}\), obtenemos 
-                    \[
-                    \lim_{p\to p_0}\frac{E(p)}{g(p)g(p_0)\|p-p_0\|}=\left( \lim_{p\to p_0}\frac{E(p)}{\|p-p_0\|} \right)\left(\lim_{p\to p_0}\frac{1}{g(p)g(p_0)} \right)=0
-                    \]
-                     
-                </p>
-                <p>
-                    Para el segundo sumando 
-                    usamos la desigualdad de Cauchy-Schwartz para llegar 
-                    \begin{eqnarray*} 
-                    \left| \frac{1}{g(p_0)}\right| \frac{|\langle \nabla_{p_0}g, p-p_0\rangle|}{\|p-p_0\|} 
-                    \left| \frac{1}{g(p_0)}-\frac{1}{g(p)|} \right| 
-                    &\leq& 
-                    \left| \frac{1}{g(p_0)}\right| \frac{\|\nabla_{p_0}g\| \|p-p_0\|}{\|p-p_0\|}\left| \frac{1}{g(p_0)}-\frac{1}{g(p)|} \right|  \\
-                    &\leq & \left| \frac{1}{g(p_0)}\right| \|\nabla_{p_0}g\| \left| \frac{1}{g(p_0)}-\frac{1}{g(p)|} \right| 
-                    \end{eqnarray*}
-                    Usando la continuidad de \(g\) tenemos \(\lim_{p\to p_0}\left| \frac{1}{g(p_0)}-\frac{1}{g(p)|} \right| =0\), por lo tanto 
-                    \[
-                    \lim_{p\to p_0} \left| \frac{1}{g(p_0)}\right| \frac{|\langle \nabla_{p_0}g, p-p_0\rangle|}{\|p-p_0\|} 
-                    \left| \frac{1}{g(p_0)}-\frac{1}{g(p)|} \right| =0
-                    \]
-                </p>
-            
-            </p>
-            <p>
-                Finalmente de la ecuación  \eqref{Eqn:Aux4DifInversaMulti}, el límite \(\lim_{p\to p_0}\frac{\tilde{E}(p)}{\|p-p_0\|}=0\) y 
-                la  <a href="#Ejer:CaracterizacionAproxLineal">Proposición 10.4</a> concluimos que $1/g$ es diferenciable
-                en $p_0$ y que
-                $$
-                \nabla_{p_0}\left(\frac{1}{g} \right)=-\frac{1}{g(p_0)^2}\nabla_{p_0}g
-                $$
-            </p>
-        </ol>
-        
-    
-    </div>
-  </div>
-
-
-    
-   <!--<div class="ejercicio-box"> 
-    <h2 class="number-title" id="Ejer:AproxLinealReglaCadena"> Ejercicio </h2> 
-    <p>
-        Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$, $p_0\in U $ y $g:U \to \mathbb{R}$
-        una función diferenciable en $p_0$.
-        <ol>
-            <li>
-                Demuestra que existe una bola $B_r(p_0)$, una función
-                $F:B_{r}(p_0) \to \mathbb{R}$ tal que
-            </li>    
-          <ol>
-            <li>
-                para toda $p\in B_r(p_0)$, $g(p)=g(p_0)+\langle \nabla_{p_0}g, p-p_0\rangle +\|p-p_0\|F(p)$,
-            </li>
-            <li>
-                $\lim_{p\to p_0}F(p)=0$,
-            </li>
-            <p>
-                Sugerencia: si $E$ es la función error de la aproximación lineal de $g$ en $p_0$ define:
-                $$
-                F(p)=\left\{
-                  \begin{array}{cc}
-                    \frac{E(p)}{\|p-p_0\|} & p\ne p_0 \\
-                    0 & p=p_0.
-                  \end{array}
-                \right.
-                $$
-            </p>
-          </ol>
-            <li>
-                Demuestra que existe una bola $B_s(p_0)$ tal que para toda $p\in B_s(p_0)$,
-                $\|F(p)\|\leq 1/2$.
-                <p>
-                    Sugerencia: en la definición $\varepsilon,\delta$ del límite $\lim_{p\to p_0}F(p)=0$
-                    toma $\varepsilon =1/2$.
-                </p>
-            </li>
-            <li>
-                Demuestra que  para toda $p\in B_s(p_0)$
-                $$
-                |g(p)-g(p_0)|\leq \|p-p_0\| (\|\nabla_{p_0}g\|+1/2).
-                $$
-                <p>
-                    Sugerencia: usa el inciso anterior y la desigualdad de Cacuchy-Schwartz.          
-                </p>
-            </li>
-        </ol>    
-    </p>
-  </div>
--->
-
-<!--    <div class="ejercicio-box"> 
-        <h2 class="number-title"> Ejercicio </h2>  
         <p>
-            Considera la función  $t\mapsto 1/t$, definida para $t\in \mathbb{R}, t\ne 0$.
-
-            <ol>
-              <li>
-                  Prueba que,  dado $t_0\ne 0$ fijo y arbitrario, existe $s>0$ tal que para toda $t\in B_s(t_0)$  
-                  $$
-                  \frac{1}{t}=\frac{1}{t_0}-\frac{1}{t_0^2}(t-t_0)+|t-t_0|F_1(t)
-                  $$
-                  donde $\lim_{t\to t_0} |F_1(t)| =0$.
-              </li>
-              <li>
-                  Sean $a,b\in \{1,2,3,4,5,6,7,8,9\}$ tal que $a+b=10$. Usa el inciso anterior para
-                  probar que el inverso multiplicativo de $1.a$ es aproximadamente $0.b$.
-              </li>
-          </ol>
-          
+            Al ser \(U\) abierto existe $r>0$ tal que $B_r(p_0)\subseteq U$. Nota que
+            para todo vector $w$ con $\|w\|< r$, $p_0+w \in U$. Fija
+            $u\ne 0$. Nota que si \(h\) es pequeño  \(p_0+ hu \in U\)
+            y por lo tanto \(f(p_0+hu)\) tiene sentido.
         </p>
+            <p>
+                Ya que \(f\) es diferenciable en \(p_0\) las parciales existen y tomando 
+                el gradiente de \(f\) en \(p_0\) se tiene que:
+                \begin{equation}\label{Eqn:Aux1DerDireccional}
+                \lim_{\|w\|\to 0}\frac{|f(p_0+w)-f(p_0)-\langle \nabla_{p_0}f, w\rangle|}{\|w\|}=0
+                \end{equation}
+                
+            </p>
+            <p>
+                Tomando \(w=tu\) en la ecuación \eqref{Eqn:Aux1DerDireccional} se obtiene
+                \begin{equation}\label{Eqn:Aux2DerDireccional}
+                \lim_{t\to 0}\frac{|f(p_0+tu)-f(p_0)-\langle \nabla_{p_0}f, tu\rangle|}{\|tu\|}=0
+                \end{equation}
+                ya que \(\|tu\|=|t|\|u\|\) podemos reescribir la ecuación \eqref{Eqn:Aux2DerDireccional} como
+                \begin{eqnarray*} 
+                & \lim_{t\to 0} & \left| \frac{f(p_0+tu)-f(p_0)-\nabla_{p_0}f\cdot tu}{t\|u\|} \right|=0 \\
+               \Rightarrow & \lim_{t\to 0} & \left| \frac{f(p_0+tu)-f(p_0)}{t\|u\|}-\frac{t \nabla_{p_0}f\cdot u}{t\|u\|} \right|=0 \\
+                \Rightarrow & \lim_{t\to 0} & \left| \frac{f(p_0+tu)-f(p_0)}{t\|u\|}-\frac{\nabla_{p_0}f\cdot u}{\|u\|} \right|=0 
+                \end{eqnarray*}
+                y multiplicando por \(\|u\|\) se obtiene 
+                    \begin{equation}\label{Eqn:Aux3DerDireccional}
+                \lim_{t\to 0} \left| \frac{f(p_0+tu)-f(p_0)}{t}-\nabla_{p_0}f\cdot u \right|=0
+                \end{equation}
+                    lo cual se puede escribir como  
+                \[  
+                \lim_{t\to 0} \frac{f(p_0+tu)-f(p_0)}{t}=\nabla_{p_0}f\cdot u
+                \]
+                es decir, \(\partial_uf(p_0)=\nabla_{p_0}f\cdot u\). 
+            </p>
+            
+        </div>
     </div>
 
-
-        <div class="ejercicio-box"> 
-            <h2 class="number-title" id="Ejer:ReglaCadenaInversoMult"> Ejercicio </h2> 
-            <p>
-                Este ejercicio muestra que si $g$ es diferenciable, y distinta de cero, 	entonces
-                $1/g$ es diferenciable.            	
-            </p>
-            <p>
-                Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$ y $p_0\in U$.
-                <ol>
-                   <li>
-                       Sea $g:U\to \mathbb{R}$, diferenciable en $p_0$ con $g(p_0)\ne 0$. Demuestra
-                       que existe una bola $B_r(p_0)$, tal que para toda
-                       $p\in B_r(p_0)$
-                       $$
-                       \frac{1}{g(p)}=\frac{1}{g(p_0)} -\frac{1}{g(p_0)^2}(g(p)-g(p_0))+ |g(p)-g(p_0)|F_1(g(p))
-                       $$
-                       donde $\lim_{t\to g(p_0)}|F_1(t)|=0$.
-                   </li>
-                   <li>
-                       Demuestra que, para todo $p\in B_r(p_0)$, $p\ne p_0$
-                       \begin{eqnarray*}
-                         \frac{1}{g(p)}=\frac{1}{g(p_0)}+ \langle \frac{-1}{g(p_0)^2}\nabla_{p_0}g, p-p_0\rangle 
-                                         +\|p-p_0\| \tilde{F}(p)
-                       \end{eqnarray*}
-                       donde
-                       $$
-                       \tilde{F}(p)=-\frac{1}{g(p_0)^2}F_2(p)+ \frac{|g(p)-g(p_0)|}{\|p-p_0\|}F_1(g(p)).
-                       $$
-                       y $F_2$ es una función que satisface $\lim_{p\to p_0}F_2(p)=0$.
-                       <p>
-                           Sugerencia: usa el inciso anterior y ejercicio \ref{Ejer:AproxLinealReglaCadena}
-                           para reescribir $g(p)-g(p_0)$.          
-                       </p>
-                   </li>
-                   <li>
-                       Demuestra que $\tilde{F}$, la función del inciso anterior satisface $\lim_{p\to p_0}\tilde{F}(p)=0$.
-                   </li>
-                   <li>
-                       Concluye, del ejercicio \ref{Ejer:CaracterizacionAproxLineal}, que la función $p\mapsto 1/g(p)$
-                       es diferenciable en $p_0$ con
-                       $$
-                       \nabla_{p_0}(1/g)= -\frac{1}{g(p_0)^2}\nabla_{p_0}g.
-                       $$
-                   </li>
-               </ol>
-            </p>
-         </div>    
-
-      
     
+    
+    
+      <div class="prop-box">
+        <h2 class="number-title" id="Prop:DirCrecimientoMax"> Proposición </h2>
+        <p>
+            Sea \(U\subseteq \mathbb{R}^n\) un abierto y \(f:U\to \mathbb{R}\). Si \(f\) es 
+            diferenciable en \(p_0\) y \(\nabla_{p_0}f\ne 0\) entonces \(f\) crece más 
+            rápidamente en la dirección de \(\frac{1}{\|\nabla_{p_0}f\|}\nabla_{p_0}f\).
+        </p>
+        <p>
+            Es decir 
+            \[
+            \max_{\|u\|=1}\{ \partial_u f(p_0) \}=\partial_{u^*}f(p_0)
+            \]
+            donde \(u^*=\frac{1}{\|\nabla_{p_0}f\|}\nabla_{p_0}f\).
+        </p>
+        <p>
+            De manera similar también se tiene que 
+            \[
+            \min_{\|u\|=1}\{ \partial_u f(p_0) \}=\partial_{u_*}f(p_0)
+            \]
+            donde \(u_*=-\frac{1}{\|\nabla_{p_0}f\|}\nabla_{p_0}f\).
+        </p>
+        <button class="respButton hvr-grow "> Demostración </button>
+        <div class="resp-box">
+        <p>
+            Por la <a href="#Prop:FormulaDerDir">Proposición 9.2</a> tenemos 
+            \[
+            \partial_uf(p_0)= \nabla_{p_0}f \cdot u
+            \]
+            por Cauchy-Schwartz
+            \[
+             \nabla_{p_0}f, u = \|\nabla_{p_0}f\| \|u\| \cos(\alpha)=\|\nabla_{p_0}f\| \cos(\alpha)
+            \]
+            donde \(\alpha\) es el ángulo entre \(\nabla_{p_0}f\) y \(u\). Ya que \(|\cos(t)|\leq 1\) para todo \(t\)
+            vemos que el máximo se alcanza cuando \(\cos(\alpha)=1\), es decir cuando  \(\alpha =0\). Por lo tanto 
+            el máximo se alcanza cuando \(u\) apunta en la misma dirección de \(\nabla_{p_0}f\) y ya que \(\|u\|=1\)
+            concluimos que el máximos se alcanza en \(u^*=\frac{1}{\|\nabla_{p_0}f\|}\nabla_{p_0}f\).
+        </p>
+        <p>
+            Para el mínimo tenemos que se alcanza cuando \(\cos(\alpha)=-1\), es decir cuando \(\alpha=\pi\). Por 
+            lo tanto se alcanza cuando \(u\) y \(\nabla_{p_0}f\) tiene direcciones opuestas, es decir 
+            el mínimo se alcanza en \(u_*=-\frac{1}{\|\nabla_{p_0}f\|}\nabla_{p_0}f\)
+        </p>
+        </div>
+      </div>
+
+      <div class="teorema-box">
+        <h2 class="number-title"> Teorema </h2>
+        <h3 > Teorema del valor medio </h3>
+        <p>
+            Sea \(U\subseteq \mathbb{R}^n\) un abierto y \(f:U\to \mathbb{R}\) una función diferenciable en \(U\). 
+            Si \(p_0, p_1 \in U\) y el segmento que une \(p_0\) y \(p_1\) está contenido en \(U\), 
+            entonces existe un punto \(c\) en este segmento tal que
+            \[
+                f(p_1)-f(p_0)= \nabla_{c}f \cdot (p_1-p_0).
+            \]
+        </p>
+        <button class="respButton hvr-grow "> Demostración </button>
+        <div class="resp-box">
+        <p>
+            Definamos la función \(g:[0,1]\to \mathbb{R}\) dada por \(g(t)=f(p_0+t(p_1-p_0))\). 
+            Notamos que 
+            \begin{eqnarray*} 
+            g'(t)&=& \lim_{h\to 0} \frac{g(t+h)-g(t)}{u} \\
+            &= & \lim_{h\to 0} \frac{f(p_0+(t+h)(p_1-p_0))-f(p_0+t(p_1-p_0))}{h} \\
+            &=& \lim_{h\to 0} \frac{f(p_0+t(p_1-p_0)+h(p_1-p_0))-f(p_0+t(p_1-p_0))}{h}  
+            \end{eqnarray*}
+            tomando \(p_2=p_0+t(p_1-p_0)\) podemos reescribir la expresión anterior como
+            \begin{eqnarray*}
+            \lim_{h\to 0} \frac{f(p_2+h(p_1-p_0))-f(p_2)}{h} &=&  \partial_{p_1-p_0}f(p_2) \\
+            &=& \nabla_{p_2}f \cdot (p_1-p_0).
+            \end{eqnarray*}
+            por lo tanto \(g'(t)=\nabla_{p_0+t(p_1-p_0)}f \cdot (p_1-p_0)\).
+            
+        </p>
+        <p>
+            Por otro lado, por  el teorema del valor medio para funciones de una variable, 
+            existe un \(t^*\in (0,1)\) tal que
+            \[
+            g(1)-g(0)=g'(t^*)(1-0)=g(t^*).
+            \]
+            lo cual se puede escribir como 
+            \[
+            f(p_1)-f(p_0)= g'(t^*)=\nabla_{p_0+t^*(p_1-p_0)}f \cdot (p_1-p_0).
+            \]
+            Definiendo \(c=p_0+t^*(p_1-p_0)\) se obtiene el resultado deseado.
+        </p>    
+        </div>
+      </div>
+
+    
+    
+
     <div class="ejercicio-box"> 
         <h2 class="number-title"> Ejercicio </h2> 
-        <p>
-            Este ejercicio generaliza el ejercicio \ref{Ejer:ReglaCadenaInversoMult}.
+        <p> 
+            Para las funciones dadas, calcula:  $\nabla_{(x,y)}f$;
+             $\langle \nabla_{(x,y)} f, u \rangle$;
+            $\partial_{u}f(p)$.
         </p>
-        <p>
-            Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$, $p_0\in U$ y
-            $g:U \to \mathbb{R}$ una función diferenciable.
-        </p>
-        <p>
-            Asume que $u:I \to \mathbb{R}$ es una función de una variable
-            definida y diferenciable en todo punto del  intervalo $I$ que satisface $g(U)\subset I$.
-      
-            <ol>
-              <li>
-                  Fija $t_0\in I$. Prueba que existe una bola  $B_s(t_0)$, tal que, para toda
-                  $t\in B_s(t_0)$
-                  $$
-                  u(t)=u(t_0)+u'(t_0)(t-t_0)+|t-t_0|F_1(t)
-                  $$
-                  donde $F_1$ es una función que satisface $\lim_{t\to t_0}|F_1(t)|=0$.
-              </li>
-              <li>
-                  Demuestra que existe una bola $B_r(p_0)$ tal que, para toda $p\in B_r(p_0)$
-                  $$
-                  u(g(p))=u(g(p_0))+ u'(g(p_0))(g(p)-g(p_0))+\|g(p)-g(p_0)\| F_1(g(p))
-                  $$
-                  donde $F$ es una función que satisface $\lim_{p\to p_0}F(g(p))=0$.
-              </li>
-              <li>
-                  Demuestra que, para toda $p\in B_r(p_0)$, $p\ne p_0$:
-                  $$
-                  u(g(p))=u(g(p_0))+ u'(g(p_0))\langle \nabla_{p_0}g, p-p_0\rangle+ \|p-p_0\|\tilde{F}(p)
-                  $$
-                  donde
-                  $$
-                  \tilde{F}(p)=u'(g(p_0))F_2(p)+\frac{|g(p)-g(p_0)|}{||p-p\|}F_1(g(p))
-                  $$
-                  y $F_2$ es una función que satisface $\lim_{p\to p_0}F_2(p)=0$.            
-              </li>
-              <li>
-                  Concluye que $u\circ g$ es diferenciable y $\nabla_{p_0} (u \circ g)= u'(g(p_0))\nabla_{p_0} g$.
-              </li>
-            </ol>
-      
-        </p>
-    </div>-->
-      
             
+            <ol>
+                <li>
+                    $f(x,y)=x^2-y^2$, $u=(\sqrt{3}/2,1/2)$, $p=(1,0)$.
+                </li>
+                <li>
+                    $f(x,y)=e^x\cos(y)$, $u=(0,1)$, $p=(0,\pi/2)$.
+                </li>
+                <li>
+                    $f(x,y)=y^{10}$, $u=(0,-1)$, $p=(1,-1)$.
+                </li>
+                <li>
+                    $f(x,y)=$ distancia de $(x,y)$ a $(0,3)$, $u=(1,0)$, $p=(1,1)$.
+                </li>
+            </ol>
+            <button class="respButton hvr-grow "> Solución 1</button>
+            <div class="resp-box">
+                <p>
+                    Comenzamos por calcular las derivadas parciales de $f$:
+                    \begin{equation*}
+                    \partial_x f = 2x, \quad \partial_y f= -2y
+                    \end{equation*}
+                    por lo tanto $\nabla_{(x,y)}f = (2x,-2y)$.
+                </p>
+                <p>
+                    Ahora,
+                    \begin{equation*}
+                    \langle \nabla_{(x,y)},u \rangle = \langle (2x,-2y), (\sqrt{3}/2,1/2) \rangle = \sqrt 3 x - y.
+                    \end{equation*}
+
+                    De esta manera
+                    \begin{equation*}
+                    \partial_u f(p) = \langle \nabla_p f, u \rangle = \sqrt{3} \cdot 1 - 0 = \sqrt 3.
+                    \end{equation*}
+                </p>
+            </div>
+
+            <button class="respButton hvr-grow "> Solución 3</button>
+            <div class="resp-box">
+                <p>
+                    Se realiza el mismo proceso que en el inciso anterior, al calcular las derivadas parciales se obtiene
+                    \begin{equation*}
+                    \partial_x f = 0, \quad \partial_y f = 10y^9; \quad \nabla_{(x,y)}f = (0,10y^9).
+                    \end{equation*}
+
+                    De aquí
+                    \begin{equation*}
+                    \langle \nabla_{(x,y)}f,u \rangle = \langle (0,10y^9) , (0,-1) \rangle = -10y^9, 
+                    \end{equation*}
+
+                    finalmente al trabajar en el punto $p=(1,-1)$
+
+                    \begin{equation*}
+                    \partial_u f(p) = \langle \nabla_{p}f , u \rangle = -10(-1)^9 = 10.
+                    \end{equation*}
+                </p>
+            </div>
+    </div>
+
+
+    <!-- <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+            Para las siguientes funciones calcula $\nabla_{(x,y,z)}f$ y además haz un bosquejo
+            del campo vectorial $(x,y,z)\mapsto \nabla_{(x,y,z)}f$.
+        </p>    
+     
+            <ol>
+                <li>
+                    $f(x,y,z)=\frac{1}{\sqrt{x^2+y^2+z^2}}$, (fuente saliendo del origen).
+                </li>
+                <li>
+                    $f(x,y,z)=\log(x^2+y^2)$, (fuente axial sobre el eje z).
+                </li>
+                <li>
+                    $f(x,y,z)=\frac{1}{\sqrt{(x-1)^2+y^2+z^2}}-\frac{1}{\sqrt{(x+1)^2+y^2+z^2}}$, (dipolo). 
+                </li>
+            </ol>
+     </div>-->
+
+      
+     <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        <p>
+            Para $f(x,y)=3x^2+2y^2$, encuentra la dirección (vector unitario)  en la cual la gráfica
+            de la función está:
+            <ol>
+                <li>
+                    más inclinada,
+                </li>
+                <li>
+                    en la cual se mantiene nivelada,
+                </li>
+            </ol>   
+            si estas parad@ en el punto $(1,2)$.
+        </p>
+        <button class="respButton hvr-grow "> Solución </button>
+        <div class="resp-box">
+        <p>
+            Primera parte.
+        </p>
+        <p>
+            Un vector unitario arbitrario \(u\), se puede escribir como \(u(\theta)=(\cos(\theta), \sen(\theta))\), 
+            con \(\theta\in [0,2\pi)\). La primera parte del  problema pide encontrar \(\theta^*\) tal que 
+            \[ 
+             \partial_{u(\theta)}f(1,2)\leq \partial_{u(\theta^*)}f(1,2)
+            \] 
+            para cualquer \(\theta\).
+        </p>
+        <p>
+            Calculando directamente obtenemos 
+            \begin{eqnarray*}
+            \partial_{u(\theta)}f(1,2)&=& \partial_xf(1,2)\cos(\theta)+\partial_yf(1,2)\sen(\theta)\\
+            &=& (6(1))\cos(\theta)+(4(2))\sen(\theta)\\
+            &=&6\cos(\theta)+8\sen(\theta)
+            \end{eqnarray*}
+            Por lo tanto, tenemos que maximizar 
+            \[
+            \max_{\theta \in [0,2\pi]}\{ 6\cos(\theta)+8\sen(\theta) \}
+            \]
+            Para lo cual definimos \(h(\theta)=6\cos(\theta)+8\sen(\theta)\) y usamos cálculo 1 para maximizar.
+            Tenemos 
+            \begin{eqnarray*} 
+            h'(\theta)=-6\sen(\theta)+8\cos(\theta) \\ 
+            h'(\theta)=0 \Leftrightarrow \frac{4}{3}=\frac{8}{6}=\tan(\theta)
+            \end{eqnarray*}
+            Por lo que  \(\theta^*=\arctan(4/3)\) es un punto crítico para \(h\).
+            
+            
+        </p>
+        <div class="flexbox" >
+            <img src="./Images/S11-Img1.png" alt="InterseccionYZ" width="40%" height="auto" >
+          </div>
+        <p>
+            Para saber si en \(\theta^*\) se alcanza máximo o mínimo o punto de inflexión usamos el criterio de la 
+            segunda derivada: 
+            \begin{eqnarray*}
+            h''(\arctan(4/3))&=& -6\cos(\theta^*)-8\sen(\theta^*)\\
+            &=& -6 \frac{3}{5}-8\frac{4}{5}\\
+            &=& -\frac{18+32}{5}\\
+            &=& -10< 0
+            \end{eqnarray*}
+        </p>
+        <p>
+            Por lo tanto, si estamos en el punto \((1,2)\), en la dirección 
+            \[u=(\cos(\theta^*),\sen(\theta^*))=(\frac{3}{5}, \frac{4}{5})\] 
+            la función crece más rápido y por lo tanto la gráfica está más inclinada. 
+        </p>
+        <p>
+            Segunda parte.
+        </p>
+        <p>
+            Para la segunda parte debemos de encontar un \(\theta_0\in [0,2\pi)\) tal que 
+            \[
+            0=\partial_{u(\theta_0)}f(1,2)=6\cos(\theta_0)+8\sen(\theta_0)
+            \]
+            lo cual es  equivalente a \(\arctan(\theta_0)=-\frac{3}{4}\).  
+        </p>
+        <p>
+            Por lo tanto la dirección donde la gráfica permanece nivelada es 
+            \[
+            u=(\cos(\theta_0), \sen(\theta_0))=(-\frac{4}{5}, \frac{3}{5}).
+            \]
+        </p>
+        <p>
+            Observación: los vectores que se obtienen en la primera y segunda parte son ortogonales.
+        </p>
+        </div>
+
+
+      </div>
+
+
+
+      
+      <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+            ¿ Cual es el gradiente de una función de una variable?
+            ¿ Cuál son las dos posibles direcciones de $u$ (unitario ) al calcular
+            la derivada direccional de $f$ a lo largo de $u$ ?
+        </p>  
+      </div>
+
+
+
+
+     <div class="ejercicio-box">
+        <h2 class="number-title">  Ejercicio </h2>
+
+        <p>
+            Sea \(U\subseteq \mathbb{R}^2\) abierto y \(f:U\to \mathbb{R}\) una función diferenciable en 
+            \(p_0\in U\). Sean \(u^*,u_0\) vectores unitarios para los cuales, si estamos sobre \(p_0\), \(f\)
+            crece más rapidamente en la dirección \(u^*\) y \(f\) es constante en la dirección \(u_0\). 
+            
+        </p>
+        <p>
+            Si \(\nabla_{p_0}f\ne 0\), prueba que \(\langle u^*, u_0\rangle =0\).
+        </p>
+        <button class="respButton hvr-grow "> Demostración </button>
+        <div class="resp-box">
+        <p>
+            En términos 
+            de derivadas direccionales lo anterior se puede escribir como 
+            \begin{eqnarray*} 
+                \max_{\|u\|=1}\{\partial_uf(p_0) \}&=&\partial_{u^*}f(p_0)\\
+                \partial_{u_0}f(p_0)&=&0.
+            \end{eqnarray*}
+        </p>
+
+        <p>
+            Por la <a href="#Prop:DirCrecimientoMax">Proposición </a> tenemos que 
+            \(u^*=\frac{1}{\|\nabla_{p_0}f\|}\nabla_{p_0}f\).
+        </p>
+        <p>
+            Usando la fórmula de la <a href="#Prop:FormulaDerDir">Proposición </a> 
+            \(\partial_{u_0}f(p_0)=0\) se puede escribir como 
+            \[
+            0=\langle \nabla_{p_0} f, u_0 \rangle 
+            \]
+            Se sigue que \(\langle u^*, u_0\rangle =0\).
+        </p>
+        </div>
+     </div>
+
+
+     <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+            Encuentra la dirección $u$ ( $\|u\|=1$) para la cual al moverse en la dirección de \(u\):
+            <ol>
+            <li>
+                $f$ crece más rápidamente
+                si estás parado en $(1,2)$.
+            </li>
+            <li>
+                \(f\) permance constante si estás parado en \((1,2)\).
+            </li>
+            </ol> 
+                <ol>
+                    <li>
+                        $f(x,y)=e^{x-y}$,
+                    </li>
+                    <li>
+                        $f(x,y)=\sqrt{5-x^2-y^2}$,
+                    </li>
+                    <li>
+                        $f(x,y)=ax+by$.
+                    </li>
+                </ol>
+        </p> 
+        
+     </div>
+
+    <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+            Asume que \(U\subseteq \mathbb{R}^2\) es un abierto, $f,g:U\to \mathbb{R}$ son  funciones  lineales, tal que
+            $\nabla_{p_0} f$ es perpendicular a $(3,2)$ con su longitud
+            igual a 1 y $\nabla_{p_0}g$ es paralelo a $(3,2)$
+            con su longitud igual a $5$. Encuentra $\nabla_{p_0}f$,
+            $\nabla_{p_0}g$, $f$ y $g$.
+        </p>  
+        
+    </div>
+      
+    <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2>  
+        <p>
+            Si $f(0,1)=0, f(1,0)=1$ y $f(2,1)=2$, encuentra
+            $\nabla_{(x,y)}f$ suponiendo que $f(x,y)=Ax+By+C$.
+        </p>
+        <button class="respButton hvr-grow "> Solución</button>
+        <div class="resp-box">
+            <p>
+                El conocer la forma que toma la función así como sus valores en tres
+                puntos distintos nos dan un sistema linenal en las variables $A,B,C$,
+                \begin{align*}
+                A \cdot 0 + B + C =& 0,\\
+                A + B \cdot 0 + C =& 1,\\
+                A \cdot 2 + B + C =& 2
+                \end{align*}
+                Si al tercer renglón se le resta 2 veces el segundo renglón y una
+                vez el primer renglón entonces se obtiene el sistema equivalente
+                \begin{align*}
+                B + C =& 0,\\
+                A + C =& 1,\\
+                -2C =& 0.
+                \end{align*}
+                De aquí deducimos que $C=0=B$ y $A=1$, por lo que la función $f$ está
+                dada por $f(x,y) = x$. Ahora calculamos sus derivadas parciales
+                \begin{equation*}
+                \partial_x f =1, \quad \partial_y f = 0; \quad \nabla_{(x,y)} f = (1,0).
+                \end{equation*}
+            </p>
+        </div>
+    </div>
+      
+    <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2>  
+        <p>
+            ¿ Qué funciones tienen los siguientes
+            gradientes?
+        </p>
+                
+            <ol>
+                <li>
+                    $(2x+y,x)$,
+                </li>
+                <li>
+                    $(e^{x-y},-e^{x-y})$,
+                </li>
+                <li>
+                    $(y,-x)$.
+                </li>
+                <li>
+                    \((\frac{x}{x^2+y^2+z^2},\frac{y}{y^2+x^2+z^2}, \frac{z}{x^2+y^2+z^2} )\).
+                </li>
+            </ol>
+
+            <button class="respButton hvr-grow "> Solución 1</button>
+            <div class="resp-box">
+                <p>
+                    Supongamos que existe una función $f$ cuyo gradiente es $(2x+y,x)$, es decir
+                    \begin{equation*}
+                    \partial_x f = 2x + y, \quad \partial_y f = x.
+                    \end{equation*}
+                    Integramos respecto a la variable $x$ y tenemos que
+                    \begin{equation*}
+                    f(x,y) = x^2 + xy + g(y),
+                    \end{equation*}
+                    donde, como la notación lo indica, $g$ es una función que depende únicamente
+                    de la variable $y$ y es constante respecto a la variable $x$. Si se calcula
+                    ahora la derivada parcial respecto a $y$ y utilizamos nuestra hipótesis se
+                    tiene que
+                    \begin{equation*}
+                    x = \partial_y f = x + g'(y),
+                    \end{equation*}
+                    es decir, $g'(y)'=0$ lo cual significa que es una función constante. Con ello
+                    concluimos que dicho gradiente le corresponde a la familia de funciones de
+                    la forma $f(x,y) = x^2 + xy + c, \quad c \in \mathbb{R}$.
+
+                </p>
+            </div>
+
+            <button class="respButton hvr-grow "> Solución 3</button>
+            <div class="resp-box">
+                <p>
+                    Se afirma que no existe ninguna función $f$ con gradiente $(y,-x)$. Veremos
+                    dos formas de mostrar ésto:
+                    <p>
+                        <b>
+                            Idea 1.
+                        </b>
+                        Aplicaremos el mismo procedimiento que en el inciso anterior. De existir tal
+                        función entonces $\partial_x f = y$ por lo que $f(x,y) = xy + g(y)$. Al calcular
+                        la derivada parcial respecto a $y$ e igualar con la expresión propuesta se tiene
+                        que $-x = x + g'(y)$ o equivalentemente $-2x = g'(y)$ lo cual es absurdo, pues
+                        la función $g$ es independiente de la variable $x$. Adicionalmente, si integramos
+                        respecto a la variable $y$ entonces $g(y) = -2xy + c$ y $f(x,y) = -xy$, pero
+                        $\partial_x -xy = -y \neq y$, lo cual es una contradicción.
+                    </p>
+                    <p>
+                        <b>
+                            Idea 2.
+                        </b>
+                        Veamos que si $f$ tiene el gradiente propuesto entonces es de clase $C^2$,
+                        \begin{align*}
+                        \partial_{x^2}^2 f =& 0,\\
+                        \partial_{y^2}^2 f =& 0,\\
+                        \partial_{xy}^2 f =& -1,\\
+                        \partial_{yx}^2 f =& 1.
+                        \end{align*}
+                        Se sabe que si una función es de clase $C^2$ entonces sus derivadas parciales
+                        mixtas de orden 2 son iguales y en este caso no es así, lo cual es una contradicción.
+                    </p>
+                </p>
+            </div>
+    </div>
+    
+    
+
+    <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2>  
+        <p>
+            Una función $f:\mathbb{R}^n \to \mathbb{R}$ se llama par si
+            $f(-p)=f(p)$, para toda $p\in \mathbb{R}^n$.
+        </p>
+            <ol>
+                <li>
+                    Sea $f:\mathbb{R} \to \mathbb{R}$ una función par, de una variable
+                    y diferenciable en el origen. Demuestra que $f'(0)=0$. 
+                </li>
+                <li>
+                    Sea $f:\mathbb{R}^n \to \mathbb{R}$ una función par,
+                    diferenciable en el origen. Demuestra que $\nabla_{0}f=0$.
+                    <p>
+                        Sugerencia: usa el inciso anterior.
+                    </p>
+                </li>
+                <li>
+                    Sea $g:\mathbb{R}^2\to \mathbb{R}$ una función diferenciable en
+                    el origen. Supón que existen dos vectores ortonormales (es decir,
+                    unitarios y ortogonales)$u$,$v$, tales que
+                    \begin{eqnarray*}
+                    g(tu)=g(-tu), \quad g(tv)=g(-tv),\quad \forall t\in \mathbb{R}. 
+                    \end{eqnarray*}
+            
+                    Demuestra que $\nabla_{(0,0)}g=0$.
+                    <p>
+                        Sugerencia: comienza probando que   $\partial_ug(0,0)=0$ y $\partial_{v}g(0,0)=0$. 
+                    </p>
+                </li>
+            </ol>
+
+            <button class="respButton hvr-grow "> Solución</button>
+            <div class="resp-box">
+                <p>
+                    <ol>
+                        <li>
+                            Si $f(p) = f(-p)$ para toda $p$ entonces sus cocientes diferenciales
+                            en $p=0$ deben ser iguales
+                            \begin{align*}
+                            \frac{f(t) - f(0)}{t-0} =& \frac{f(-t) - f(0)}{t - 0},\\
+                            =& \frac{f(t) - f(0)}{-t},\\
+                            =& - \frac{f(t) - f(0)}{t},
+                            \end{align*}
+                            al tomar el límite cuando $t \to 0$ de ambos lados se tiene que
+                            $f'(0) = - f'(0)$ y claramente $f'(0) = 0$.
+                        </li>
+                        <li>
+                            Para el i-ésimo vector canónico definimos $g(t) = f(te_i)$ por lo
+                            que el cociente diferencial correspondiente a la derivada parcial
+                            de $f$ respecto a la i-ésima variable en $0$ es
+                            \begin{align*}
+                            \frac{f(0 + te_i) - f(0)}{t} = \frac{g(t) - g(0)}{t}.
+                            \end{align*}
+                            Como $f$ es par, entonces $g(t) = f(te_i) = f(-te_i) = g(-t)$ para
+                            toda $t$, asímismo, dado que $f$ es diferenciable en $0$ entonces
+                            sus derivadas parciales en $0$ existen y $g$ es diferenciable en $0$.
+                            Finalmente, dado que $g$ es par entonces por el primer inciso
+                            $\partial_{x_i}f(0) = g'(0) = 0$. Si se repite el mismo argumento
+                            con cada una de las variables se concluye que $\nabla_{0}f = 0$.
+                        </li>
+                        <li>
+                            <p>
+                                Realizaremos un proceso similar a los incisos anteriores para demostrar
+                                que $\partial_u g(0,0) = \partial_v g(0,0) = 0$ y con ello que el gradiente
+                                también se anula.
+                            </p>
+                            <p>
+                                Comenzamos por definir funciones $h_1,h_2:\mathbb{R} \to \mathbb{R}$ como
+                                $h_1(t) = g(tu)$ y $h_2(t) = g(tv)$. Como se vió en el inciso anterior, al
+                                definir $h_1$ y $h_2$ de esta manera se tiene que éstas son funciones pares
+                                y son diferenciables en $0$ pues las derivadas direccionales en $0$ en las
+                                direcciones $u$ y $v$ existen y
+                                \begin{equation*}
+                                \frac{g(tu) - g(0,0)}{t} = \frac{h_1(t)-h_1(0)}{0}; \quad \frac{g(tv)-g(0,0)}{t} = \frac{h_2(t)-h_2(0)}{t},
+                                \end{equation*}
+                                es decir, $h_1'(0)=0=h_2'(0)$. Escrito de otra forma $\partial_u g(0,0) = 0 = \partial_v  g(0,0)$.
+                            </p>
+                            <p>
+                                Como $u,v$ son ortonormales entonces son una base para $\mathbb{R}^2$, en particular sabemos
+                                que existen escalares $a_x,b_x,a_y,b_y \in \mathbb{R}$ tales que $e_1 = a_x u + b_x v$ y
+                                $e_2 = a_y u + b_y v$. Las derivadas direccionales en la dirección de $e_1$ y $e_2$ no son más
+                                que las derivades parciales respecto a $x$ y $y$ por lo que
+                                \begin{align*}
+                                \partial_x g (0,0) =& \partial_{e_1} g (0,0),\\
+                                =& \langle \nabla_{(0,0)} g , e_1 \rangle,\\
+                                =& \langle \nabla_{(0,0)} g , a_x u + b_x v \rangle,\\
+                                =& a_x \langle \nabla_{(0,0)} g , u \rangle + b_x \langle \nabla_{(0,0)} g, v \rangle,\\
+                                =& a_x \partial_u g(0,0) + b_x \partial_v g(0,0),\\
+                                =& 0.
+                                \end{align*}
+                                De manera análoga $\partial_y g(0,0) = a_y \partial_u g(0,0) + b_y \partial_v g(0,0) = 0$ y se concluye que
+                                $\nabla_{(0,0)}g = 0$.
+                            </p>
+                        </li>
+                    </ol>
+                </p>
+            </div>
+    </div>
+
+
+
+    <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio  </h2>
+        <p>
+            Considera la función \(f(x,y)=3x^2+2y^2\). Encuentra la curva \(\gamma(t)\), en el plano \(xy\), 
+            para la cual \(f(\gamma(t))\) crece a la razón más rápida y que al tiempo \(t=0\) pasa 
+            por \((1,2)\). Es decir, existe un \(\lambda >0 \) tal que, para toda \(t\) 
+            \begin{equation}\label{Eqn:AuxCurvasMayorCrecimiento}
+            \lambda \nabla_{\gamma(t)}f =\gamma'(t)
+            \end{equation}
+            La razón de la ecuación anterior es: \(\gamma'(t)\) representa el vector tangente a la curva en \(\gamma(t)\)
+            y \(\nabla_{p}f\) es el vector que apunto en la dirección donde \(f\) crece más rapidamente (<a href="#Prop:DirCrecimientoMax">Proposición 11.6</a>).
+            Por lo tanto \(\gamma'(t)\) debe de apuntar en la  dirección donde \(f\) crece más rápidamente.
+        </p>
+        <button class="respButton hvr-grow "> Solución </button>
+        <div class="resp-box">
+        <p>
+            Tenemos que \(\nabla_{(x,y)}f=(6x,4y)\). Si dentamos las entradas de \(\gamma\) como 
+            \(\gamma(t)=(x(t),y(t))\). Por lo tanto la ecuación \eqref{Eqn:AuxCurvasMayorCrecimiento} 
+            se puede escribir como el siguiente sistema de ecuaciones 
+            \begin{eqnarray*} 
+            \lambda 6x(t)=x'(t) \\
+            \lambda 4y(t)=y'(t)
+            \end{eqnarray*}
+        </p>
+        <p>
+            Dada una constante \(k\), la solución más general de la ecuación diferencial \(g'(t)=k g(t)\) es 
+            \(g(t)=ce^{kt}\), donde \(c\) es una constante. Por lo tanto una solución del sistema es 
+            \(x(t)=c_1e^{\lambda 6 t}, y(t)=c_2e^{\lambda 4 t}\).
+        </p>
+        <p>
+            Finalmente, queremos que \(\gamma(0)=(1,2)\). Substituyendo en las fórmulas para \(x\) y \(y\) llegamos 
+            \[
+            1=x(0)=c_1e^{\lambda 6 (0)}=c_1,\quad  2=y(0)=c_2e^{\lambda 4 (0)}=c_2
+            \]
+            Por lo tanto la curva que buscamos es \(\gamma(t)=(e^{\lambda 6 t},2e^{\lambda 4 t} )\).
+        </p>
+        <p>
+            La curva \(\gamma\).
+        </p>
+        <div class="flexbox" >
+            <img src="./Images/S11-Img2.png" alt="PlanoXY" width="40%" height="auto" >
+          </div>
+          <p>
+            Los valores de \(f\) sobre la curva \(\gamma\).
+          </p>
+          <div class="flexbox" >
+            <img src="./Images/S11-Img3.png" alt="SobreSuperficie" width="40%" height="auto" >
+          </div>
+          </div>
+    </div>
+
 
     
 
