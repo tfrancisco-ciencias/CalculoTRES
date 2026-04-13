@@ -271,6 +271,79 @@
 
     
     
+      <div class="teorema-box">
+        <h2 class="number-title"> Teorema </h2>
+        <h3 > Regla de la cadena para funciones escalares </h3>
+        <p>
+            Sea \(U\subseteq \mathbb{R}^n\) un abierto, \(f:U\to \mathbb{R}\) una función diferenciable en \(U\) y 
+            \(\gamma :(a,b) \to U\) una curva diferenciable en \((a,b)\). Entonces la función compuesta 
+            \(f\circ \gamma:\mathbb{R}\to \mathbb{R}\) es diferenciable y su derivada se puede calcular como
+            \[
+            (f\circ \gamma)'(t_0)= \nabla_{\gamma(t_0)}f \cdot \gamma'(t_0).
+            \]
+            para todo \(t_0\in (a,b)\).
+        </p>
+        <button class="respButton hvr-grow "> Demostración </button>
+        <div class="resp-box">
+            <p>
+                Para simplificar la prueba vamos a suponer que 
+                existe una vecindad perforada de \(t_0\) en donde para \(t\) en dicha 
+                vecindad se cumple \(\gamma(t)\ne \gamma(t_0)\). El 
+                caso más general se verá en la sección de la regla de la cadena para funciones vectoriales.
+            </p>
+            <p>
+                Por definición de la derivada para curvas tenemos 
+                \[
+                \lim_{t\to t_0} \left\|\frac{\gamma(t)-\gamma(t_0)}{t-t_0} - \gamma'(t_0)\right\|=0.
+                \]
+                Por la otra desigualdad del triángulo se tiene que 
+                \[
+                \left| \left\| \frac{\gamma(t)-\gamma(t_0)}{t-t_0}  \right\|- \|\gamma'(t_0)\| \right| \leq \left\|\frac{\gamma(t)-\gamma(t_0)}{t-t_0} - \gamma'(t_0)\right\|
+                \]
+                asi que del límite anterior y de la ley del sandwich para límites se obtiene que 
+                \begin{equation}\label{Eqn:Aux4DerDir}
+                \lim_{t\to t_0} \frac{\left\|\gamma(t)-\gamma(t_0)\right\|}{|t-t_0|}  =\|\gamma'(t_0)\|.
+                \end{equation}
+            </p>
+            <p>
+                Por ser \(f\) diferenciable en \(U\) para todo \(p_0\in U\) 
+                \[
+                \lim_{p\to p_0}\frac{|f(p)-f(p_0)- \nabla_{p_0}f\cdot (p-p_0)|}{\|p-p_0\|}=0
+                \]
+                Tomamos \(p_0=\gamma(t_0)\) y \(p=\gamma(t)\) podemos reescribir la ecuación anterior como
+                \begin{equation}\label{Eqn:Aux5DerDir}
+                \lim_{t\to t_0}\left| \frac{f(\gamma(t))-f(\gamma(t_0))- \nabla_{\gamma(t_0)}f\cdot (\gamma(t)-\gamma(t_0))}{\|\gamma(t)-\gamma(t_0)\|}\right|=0.
+                \end{equation}
+               
+            </p>
+            <p>
+                Multiplicando los límites \eqref{Eqn:Aux4DerDir} y \eqref{Eqn:Aux5DerDir} se obtiene
+                \begin{eqnarray*} 
+                &  \lim_{t\to t_0} & \frac{\left\|\gamma(t)-\gamma(t_0)\right\|}{|t-t_0|}  \left| \frac{f(\gamma(t))-f(\gamma(t_0))- \nabla_{\gamma(t_0)}f\cdot (\gamma(t)-\gamma(t_0))}{\|\gamma(t)-\gamma(t_0)\|}\right| \\
+                &=& \|\gamma'(t_0)\|\cdot 0\\
+                &=& 0
+                \end{eqnarray*}
+                Cancelando \(\|\gamma(t)-\gamma(t_0)\|\) (pues pedimos que \(\gamma(t)\neq \gamma(t_0)\)) en el límite anterior llegamos a: 
+                \[
+                    \lim_{t\to t_0} \left| \frac{f(\gamma(t))-f(\gamma(t_0))}{t-t_0}- \nabla_{\gamma(t_0)}f\cdot \left(\frac{\gamma(t)-\gamma(t_0)}{t-t_0}\right)\right|=0
+                \]
+            </p>
+            <p>
+                Por último, usando que 
+                \[
+                \lim_{t\to t_0} \frac{\gamma(t)-\gamma(t_0)}{t-t_0} = \gamma'(t_0)
+                \]
+                del límite se obtiene que 
+                \[
+                \lim_{t\to t_0}\frac{f(\gamma(t))-f(\gamma(t_0))}{t-t_0}= \nabla_{\gamma(t_0)}f\cdot \gamma'(t_0).
+                \]
+                lo cual se puede escribir como
+                \[
+                (f\circ \gamma)'(t_0)= \nabla_{\gamma(t_0)}f \cdot \gamma'(t_0).
+                \]
+            </p>
+        </div>
+      </div>
 
     <div class="ejercicio-box"> 
         <h2 class="number-title"> Ejercicio </h2> 
