@@ -76,7 +76,7 @@
         </header>
 
       <!-- This part is for title in tab-->
-      <title id="Sec"> § 6</title>
+      <title id="Sec"> § 6 </title>
     
   </head>
   <body class="fondo-body" >
@@ -445,7 +445,7 @@
         \(f:U \to \mathbb{R}\) una función. 
     </p>
     <p>
-        Dado \(v\in \mathbb{R}^n\) con \(\|v\|=1\) definimos 
+        Dado \(v\in \mathbb{R}^n\) con \(v\ne 0\) definimos 
         la derivada direccional de \(f\) en el punto \(p\) en la 
         dirección \(v\) (ó a lo largo de \(v\)) como 
         \[
@@ -457,6 +457,16 @@
         Si tomamos el caso particular de \(v=e_j\) entonces 
         \(\partial_vf(p)\) es la \(j\)-ésima derivada parcial. Por lo tanto 
         la derivada direccional es una generalización de la derivada parcial.
+    </p>
+    <p>Nota.</p>
+    <p>
+        Si \(v=0\) el cociente que se utiliza para definir la derivada direccional 
+        es 
+        \[
+        \frac{f(p+ s0)-f(p)}{s}=\frac{f(p)-f(p)}{s}=0
+        \]
+        por lo que \(\partial_0f(p)=0\), por lo que no es muy interesante definir la derivada direccional 
+        a lo largo del vector \(0\), se puede pero siempre da cero.
     </p>
 </div>
 
@@ -552,7 +562,7 @@
     <p>
         Sea \(U\subseteq \mathbb{R}^n\) un conjunto abierto no vacío, 
         \(f:U\to \mathbb{R}\) una función, \(p\in U\) y 
-        \(v\in \mathbb{R}^n\) con \(\|v\|=1\).  Si \(\partial_vf(p)\) existe 
+        \(v\in \mathbb{R}^n\) con \(v\ne 0\).  Si \(\partial_vf(p)\) existe 
         entonces 
         \[
         \lim_{s\to 0} f(p+sv)=f(p).
@@ -567,7 +577,7 @@
     <p>
         Sea \(U\subseteq \mathbb{R}^n\) un conjunto abierto no vacío, 
         \(g,f:U\to \mathbb{R}\) funciones,  \(p\in U\) y 
-        \(v\in \mathbb{R}^n\) con \(\|v\|=1\). Si \(\partial_vf(p)\)
+        \(v\in \mathbb{R}^n\) con \(v\ne 0\). Si \(\partial_vf(p)\)
          y \(\partial_vg(p)\) existen entonces 
          <ol>
             <li>
@@ -580,6 +590,10 @@
             <p></p>
             <li>
                 \(\partial_v(fg)(p)=f(p)\partial_vg(p)+g(p)\partial_vf(p)\).
+            </li>
+            <p></p>
+            <li>
+                Si \(g(p)\ne 0\) entonces \(\partial_v(f/g)(p)=\frac{g(p)\partial_vf(p)-f(p)\partial_vg(p)}{g(p)^2}\).
             </li>
          </ol>
     </p>

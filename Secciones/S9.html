@@ -96,24 +96,13 @@
             $f:U\to \mathbb{R}$.
         </p>
         <p>
-            En la sección 6, dado un vector $v$ con \(\|v\|=1\), definimos la derivada 
+            En la sección 6, dado un vector $v\in \mathbb{R}^n$, definimos la derivada 
             direccional de $f$ en el punto \(p\) en la dirección de \(v\) como el límite
             $$
             \lim_{h \to 0} \frac{f(p+hv)-f(p)}{h}
             $$
-            Se denota $\partial_vf(p)$. 
+            el cual se denota como $\partial_vf(p)$. 
         </p>
-        <p>
-            Pedir que el vector \(v\) sea unitario no es necesario y para un vector arbitrario \(u\), 
-            se define la derivada direccional de \(f\) en el punto \(p\) en la dirección de \(u\) 
-            como el límite
-            $$
-            \lim_{h \to 0} \frac{f(p+hu)-f(p)}{h}
-            $$
-        </p>
-            <p>
-                Si el límite anterior existe, se denota por $\partial_uf(p)$.
-            </p>
         
     </div>
 
@@ -272,8 +261,8 @@
     
     
       <div class="teorema-box">
-        <h2 class="number-title"> Teorema </h2>
-        <h3 > Regla de la cadena para funciones escalares </h3>
+        <h2 class="number-title" id="Teo:ReglaCadenaCurvas"> Teorema </h2>
+        <h3 > Regla de la cadena para curvas y funciones escalares </h3>
         <p>
             Sea \(U\subseteq \mathbb{R}^n\) un abierto, \(f:U\to \mathbb{R}\) una función diferenciable en \(U\) y 
             \(\gamma :(a,b) \to U\) una curva diferenciable en \((a,b)\). Entonces la función compuesta 
@@ -345,11 +334,118 @@
         </div>
       </div>
 
+      <div class="nota-box">
+        <h2 class="number-title"> Nota </h2>
+        <p>
+            La fórmula de la <a href="#Teo:ReglaCadenaCurvas"> Regla de la Cadena </a>  se puede escribir como 
+            \[
+            \frac{d f\circ \gamma(t)}{dt}= \nabla_{\gamma(t)}f \cdot  \gamma'(t) 
+            \]
+            pero si escribimos las coordenadas de \(f\) y las funciones  coordenadas de \(\gamma\) podemos escribirlo de la siguiente manera. 
+        </p>
+        <p>
+            Supongamos que la función \(f\) tiene variables \(f(x,y)\) y que \(\gamma\) tiene funciones 
+            coordenadas \(\gamma(t)=(x(t),y(t))\). En este caso la regla de la cadena se puede escribir como 
+            \[
+            \frac{d f}{dt}=\frac{\partial f}{\partial x} \frac{dx}{dt}+\frac{\partial f}{\partial y} \frac{dy}{dt}
+            \]
+            En tres variables se vuelve
+            \[
+            \frac{d f}{dt}=\frac{\partial f}{\partial x} \frac{dx}{dt}+\frac{\partial f}{\partial y} \frac{dy}{dt}+
+            \frac{\partial f}{\partial z}\frac{dz}{dt}
+            \]
+            y de manera general  si \(f\) depende de las variables \(f(x_1,\dots, x_n)\) y a su vez 
+            las coordenadas \(x_i\) dependen de la variable \(t\), \(x_i(t)\), entonces (con las hipótesis del teorema)
+            \[
+            \frac{d f}{d t} =\sum_{i=1}^n \frac{\partial f}{\partial x_i} \frac{dx_i}{dt}
+            \]
+        </p>
+
+    </div>
+    <div class="prop-box">
+        <h2 class="number-title"> Proposición</h2>
+        <p>
+            Sea \(f:U\subseteq \mathbb{R}^n \to \mathbb{R}\) una función clase \(C^1\) en \(U\).
+        </p>
+        <p>
+            Sea \(\gamma:I\to U\) una curva diferenciable. 
+        </p>
+        <p>
+            Entonces \(f\) es constante a lo largo de \(\gamma\) sii 
+            \(\nabla_{\gamma(t)}f\) y \(\gamma'(t)\) son perpendiculares en cada punto \(t\in I\).
+        </p>
+        <button class="respButton hvr-grow "> Demostración</button>
+        <div class="resp-box">
+        <p>
+            Ya que las funciones \(f\) y \(\gamma\) son diferencibles tenemos que su composición 
+            \(f\circ \gamma\) es diferenciable en \(I\). Por lo tanto \(f\) restringida a \(\gamma\) es constante 
+            sii su derivada es cero. Pero por la regla de la cadena su derivada es 
+            \[
+             \nabla_{\gamma(t)}f \cdot  \gamma'(t) 
+            \]
+            Por lo tanto, \(f\) es constante a lo largo de \(\gamma\) sii 
+            \(\nabla_{\gamma(t)}f \cdot \gamma'(t) =0\) sii \(\nabla_{\gamma(t)}f\) y 
+            \(\gamma'(t)\) son ortogonales.
+        </p>
+        </div>
+    </div>
+
+    <div class="coro-box">
+        <h2 class="number-title"> Corolario </h2>
+        <p>
+            Sea \(f:U\subseteq \mathbb{R}^2 \to \mathbb{R}\) una función clase \(C^1\) en \(U\). 
+            Dado \(p_0\in U\), las direcciones para las cuales \(f\) permanece constante son 
+            las direcciones ortoogonales a \(\nabla_{p_0}f\).
+        
+        </p>
+        <p>
+            Sugeremcia: teorema del valor medio.
+        </p>
+
+
+    </div>
+
+
+    <div class="nota-box">
+        <h2 class="number-title"> Nota </h2>
+        <p>
+            Sea \(f:U\to \mathbb{R}\) una función clase \(C^1\) en \(U\). Fija un punto \(c\in \mathbb{R}\)
+            y considera la superficie de nivel 
+            \[
+            S=\{(x,y,z)\in \mathbb{R}^3: f(x,y,z)=c\}
+            \]
+            Sea \(p_0\in S\). Supongamos que \(\gamma:I\to \mathbb{R}^3\) es una curva diferenciable 
+            tal que \(\gamma(t)\in S\) para toda \(t\in I\) y digamos que \(\gamma(t_0)=p_0\). 
+            Por la regla de la cadena 
+            \[
+            \nabla_{\gamma(t)}f \cdot \gamma'(t) =(f\circ \gamma)'(t)
+            \]
+            Pero \((f\circ \gamma )'(t)=0\) pues \(\gamma\) cae dentro de la superficie de nivel de \(f\).
+            Por lo tanto \(\nabla_{\gamma(t_0)}f\) y \(\gamma'(t_0)\) son ortogonales. 
+        </p>
+        <p>
+            Ahora como \(\gamma\) cae dentro de la superficie de nivel, \(\gamma'(t)\) es un vector tangente 
+            a la superficie. Por lo tanto tomando diferentes curvas \(\gamma\) podemos obtener los vectores 
+            directores del plano tangente en \(\gamma(t_0)=p_0\) y como todos estos vectores son 
+            ortogonales a \(\nabla_{p_0}f\) concluimos que \(\nabla_{p_0}f\) es el vector normal al plano tangente 
+            en \(p_0\). Concluimos que la ecuación del plano tangente en \(p_0\) es 
+            \[
+            \nabla_{p_0}f \cdot p-p_0 =0
+            \]
+            Si escribimos la ecuación anterior en términos de coordenadas \(f(x,y,z), p_0=(x_0,y_0,z_0)\) llegamos 
+            a la ecuación 
+            \[
+            \partial_xf(p_0)(x-x_0)+\partial_yf(p_0)(y-y_0)+\partial_zf(p_0)(z-z_0)=0.
+            \]
+        </p>
+        
+    </div>
+
     <div class="ejercicio-box"> 
         <h2 class="number-title"> Ejercicio </h2> 
         <p> 
             Para las funciones dadas, calcula:  $\nabla_{(x,y)}f$;
-             $\langle \nabla_{(x,y)} f, u \rangle$;
+             $ \nabla_{(x,y)} f \cdot u$;
             $\partial_{u}f(p)$.
         </p>
             
@@ -389,7 +485,7 @@
                 </p>
             </div>
 
-            <button class="respButton hvr-grow "> Solución 3</button>
+            <!-- <button class="respButton hvr-grow "> Solución 3</button>
             <div class="resp-box">
                 <p>
                     Se realiza el mismo proceso que en el inciso anterior, al calcular las derivadas parciales se obtiene
@@ -408,11 +504,25 @@
                     \partial_u f(p) = \langle \nabla_{p}f , u \rangle = -10(-1)^9 = 10.
                     \end{equation*}
                 </p>
-            </div>
+            </div>-->
     </div>
 
+    <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        <p>
+            Demuestra que para todo \((x,y)\in \mathbb{R}^2\) 
+            \[
+            |\sen(xy)|\leq \|(x,y)\|^2
+            \]
+            Concluye que 
+            \[
+            \lim_{(x,y)\to (0,0)} \frac{|\sen(xy)|}{\|(x,y)\|}=0
+            \]
+        </p>
 
-    <!-- <div class="ejercicio-box"> 
+    </div>
+
+    <div class="ejercicio-box"> 
         <h2 class="number-title"> Ejercicio </h2>
         <p>
             Para las siguientes funciones calcula $\nabla_{(x,y,z)}f$ y además haz un bosquejo
@@ -430,25 +540,25 @@
                     $f(x,y,z)=\frac{1}{\sqrt{(x-1)^2+y^2+z^2}}-\frac{1}{\sqrt{(x+1)^2+y^2+z^2}}$, (dipolo). 
                 </li>
             </ol>
-     </div>-->
+     </div>
 
       
      <div class="ejercicio-box"> 
         <h2 class="number-title"> Ejercicio </h2> 
         <p>
-            Para $f(x,y)=3x^2+2y^2$, encuentra la dirección (vector unitario)  en la cual la gráfica
+            Para $f(x,y)=3x^2+2y^2$, encuentra el vector unitario para el cual la función \(f\):
             de la función está:
             <ol>
                 <li>
-                    más inclinada,
+                    crece más rápido,
                 </li>
                 <li>
-                    en la cual se mantiene nivelada,
+                    en la cual se mantiene constante,
                 </li>
             </ol>   
-            si estas parad@ en el punto $(1,2)$.
+            si inicias a moverte desde el punto $(1,5)$.
         </p>
-        <button class="respButton hvr-grow "> Solución </button>
+        <!-- <button class="respButton hvr-grow "> Solución </button> 
         <div class="resp-box">
         <p>
             Primera parte.
@@ -519,9 +629,12 @@
         <p>
             Observación: los vectores que se obtienen en la primera y segunda parte son ortogonales.
         </p>
-        </div>
+        </div>-->
 
-
+        <p>
+            Más en general, encuetra una curva \(\gamma:\mathbb{R}\to \mathbb{R}^2\) tal que  
+            \(f\) crece lo más rapido posible a lo largo de \(\gamma\) y que pasa por el punto \((1,5)\).
+        </p>
       </div>
 
 
@@ -539,56 +652,31 @@
 
 
 
-     <div class="ejercicio-box">
-        <h2 class="number-title">  Ejercicio </h2>
-
+     
+    <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2>
         <p>
-            Sea \(U\subseteq \mathbb{R}^2\) abierto y \(f:U\to \mathbb{R}\) una función diferenciable en 
-            \(p_0\in U\). Sean \(u^*,u_0\) vectores unitarios para los cuales, si estamos sobre \(p_0\), \(f\)
-            crece más rapidamente en la dirección \(u^*\) y \(f\) es constante en la dirección \(u_0\). 
-            
-        </p>
-        <p>
-            Si \(\nabla_{p_0}f\ne 0\), prueba que \(\langle u^*, u_0\rangle =0\).
-        </p>
-        <button class="respButton hvr-grow "> Demostración </button>
-        <div class="resp-box">
-        <p>
-            En términos 
-            de derivadas direccionales lo anterior se puede escribir como 
-            \begin{eqnarray*} 
-                \max_{\|u\|=1}\{\partial_uf(p_0) \}&=&\partial_{u^*}f(p_0)\\
-                \partial_{u_0}f(p_0)&=&0.
-            \end{eqnarray*}
-        </p>
-
-        <p>
-            Por la <a href="#Prop:DirCrecimientoMax">Proposición </a> tenemos que 
-            \(u^*=\frac{1}{\|\nabla_{p_0}f\|}\nabla_{p_0}f\).
-        </p>
-        <p>
-            Usando la fórmula de la <a href="#Prop:FormulaDerDir">Proposición </a> 
-            \(\partial_{u_0}f(p_0)=0\) se puede escribir como 
-            \[
-            0=\langle \nabla_{p_0} f, u_0 \rangle 
-            \]
-            Se sigue que \(\langle u^*, u_0\rangle =0\).
-        </p>
-        </div>
-     </div>
+            Asume que \(U\subseteq \mathbb{R}^2\) es un abierto, $f,g:U\to \mathbb{R}$ son  funciones  lineales, tal que
+            $\nabla_{p_0} f$ es perpendicular a $(3,2)$ con su longitud
+            igual a 1 y $\nabla_{p_0}g$ es paralelo a $(3,2)$
+            con su longitud igual a $5$. Encuentra $\nabla_{p_0}f$,
+            $\nabla_{p_0}g$, $f$ y $g$.
+        </p>  
+        
+    </div>
 
 
      <div class="ejercicio-box"> 
         <h2 class="number-title"> Ejercicio </h2>
         <p>
-            Encuentra la dirección $u$ ( $\|u\|=1$) para la cual al moverse en la dirección de \(u\):
+            Encuentra el vector unitario $u$  para la cual al moverse en la dirección de \(u\):
             <ol>
             <li>
                 $f$ crece más rápidamente
-                si estás parado en $(1,2)$.
+                si inicias a moverte desde $(1,2)$.
             </li>
             <li>
-                \(f\) permance constante si estás parado en \((1,2)\).
+                \(f\) permance constante si inicias a moverte desde $(1,2)$.
             </li>
             </ol> 
                 <ol>
@@ -606,17 +694,6 @@
         
      </div>
 
-    <div class="ejercicio-box"> 
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-            Asume que \(U\subseteq \mathbb{R}^2\) es un abierto, $f,g:U\to \mathbb{R}$ son  funciones  lineales, tal que
-            $\nabla_{p_0} f$ es perpendicular a $(3,2)$ con su longitud
-            igual a 1 y $\nabla_{p_0}g$ es paralelo a $(3,2)$
-            con su longitud igual a $5$. Encuentra $\nabla_{p_0}f$,
-            $\nabla_{p_0}g$, $f$ y $g$.
-        </p>  
-        
-    </div>
       
     <div class="ejercicio-box"> 
         <h2 class="number-title"> Ejercicio </h2>  
@@ -624,7 +701,7 @@
             Si $f(0,1)=0, f(1,0)=1$ y $f(2,1)=2$, encuentra
             $\nabla_{(x,y)}f$ suponiendo que $f(x,y)=Ax+By+C$.
         </p>
-        <button class="respButton hvr-grow "> Solución</button>
+        <!-- <button class="respButton hvr-grow "> Solución</button> 
         <div class="resp-box">
             <p>
                 El conocer la forma que toma la función así como sus valores en tres
@@ -647,7 +724,7 @@
                 \partial_x f =1, \quad \partial_y f = 0; \quad \nabla_{(x,y)} f = (1,0).
                 \end{equation*}
             </p>
-        </div>
+        </div> -->
     </div>
       
     <div class="ejercicio-box"> 
@@ -697,7 +774,7 @@
                 </p>
             </div>
 
-            <button class="respButton hvr-grow "> Solución 3</button>
+            <!-- <button class="respButton hvr-grow "> Solución 3</button>
             <div class="resp-box">
                 <p>
                     Se afirma que no existe ninguna función $f$ con gradiente $(y,-x)$. Veremos
@@ -729,7 +806,7 @@
                         mixtas de orden 2 son iguales y en este caso no es así, lo cual es una contradicción.
                     </p>
                 </p>
-            </div>
+            </div>-->
     </div>
     
     
@@ -767,7 +844,7 @@
                 </li>
             </ol>
 
-            <button class="respButton hvr-grow "> Solución</button>
+            <!-- <button class="respButton hvr-grow "> Solución</button>
             <div class="resp-box">
                 <p>
                     <ol>
@@ -832,7 +909,7 @@
                         </li>
                     </ol>
                 </p>
-            </div>
+            </div>-->
     </div>
 
 
@@ -887,6 +964,89 @@
           </div>
           </div>
     </div>
+
+
+    <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+            Para las siguientes funciones \(f(x,y,z)\), \(x(t),y(t),z(t)\) calcula \(\frac{df}{dt}\).
+        </p>
+        <ol>
+            <li>
+                \(f(x,y,z)=xy^2+2xz-4x^2y^2z^3\), \(x(t)=\sen(t),y(t)=\sen(2t), z(t)=\cos(3t)\).
+            </li>
+            <p>
+
+            </p>
+            <li>
+                \(f(x,y,z)=\frac{\ln(1+x^2+3z^2)}{1+y^2}\), \(x(t)=t,y(t)=1-t, z(t)=\cos(t)\).
+            </li>
+            <p>
+                
+            </p>
+            <li>
+                \(f(x,y,z)=\frac{x^2}{1+\cos(y)+z^2}\), \(x(t)=e^{t}, y(t)=e^{-t},z(t)=0\).
+            </li>
+            <p>
+                
+            </p>
+            <li>
+                \(f(x,y,z)=\sqrt{x^2+y^{2}+z^2}\), \(x(t)=\cos(t)\sen(2t), y(t)=\cos(t)\cos(2t),z(t)=\sen(t)\).
+            </li>
+            <p>
+                
+            </p>
+            <li>
+                \(f(x,y,z)=ze^{x^2-y^2}\), \(x(t)=1-t,y(t)=t, z(t)=e^{t}\).
+            </li>
+            <p>
+                
+            </p>
+            <li>
+                \(f(x,y,z)=e^{x+y+z}\), \(x(t)=\ln(1+t^2), y(t)=\ln(t), z(t)=\ln(1+t^3)\).
+            </li>
+        </ol>
+
+    </div>
+
+
+
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Sea $U\ne \emptyset$ un abierto de
+        $\mathbb{R}^2$, $g:U\to \mathbb{R}$ una función de clase $C^1$
+        y $x,y:I\to \mathbb{R}$ funciones  de clase $C^1$
+        (con $I$ un intervalo abierto).
+        Encuentra $h'(t)$, la derivada de
+        $h$ (función de una variable), para las siguientes funciones:
+    </p>
+        <ol>
+            <li>
+                $h(t)=(g(x(t), y(t)))^2$.
+            </li>
+            <p>
+
+            </p>
+            <li>
+                $h(t)=e^{g(x(t),y(t))}$.
+            </li>
+            <p>
+                
+            </p>
+            <li>
+                $h(t)=\sen(g(x(t),y(t)))$.
+            </li>
+            <p>
+                
+            </p>
+            <li>
+                \(h(t)=\ln(1+g(x(t),y(t)))\).
+            </li>
+        </ol>
+</div>
+
 
 
     
