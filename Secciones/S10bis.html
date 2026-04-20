@@ -1,0 +1,694 @@
+<!DOCTYPE html PUBLIC >
+
+<html lang="es">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
+
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1],
+            id: "\\operatorname{id}",
+          },
+          tags: "ams", /* this part is for numbered equations */
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+      };
+    </script>
+
+    <!-- This part is for using single $ for latex input, instead of \(\) -->
+    <!--<script>
+        MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>-->
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../style.css" />
+
+    <!-- This part restart counter of cards to start at n+1 -->
+    <style>
+        body.number-title{
+          counter-reset: sectionCounter 9 cardCounter ;
+        }
+        h1.number-title{
+          counter-reset: sectionCounter 9 cardCounter ;
+        }
+      </style>
+  
+    <!-- Top Menu  -->
+
+
+        <header class="main-header">
+          <h1> Cálculo TRES </h1>
+         <nav class="top-nav">
+           <ul>
+              <li> <a href="../Home.html"> Inicio  </a> </li>
+              <li> <a href="../InfoPrimerDia.html"> Información general </a> </li>
+              <li> <a href="../Secciones.html"> Secciones  </a> </li>
+              <li> <a href="../ExternalLinks.html"> Links </a> </li>
+              
+            </ul>
+          </nav>
+          <label class="switch">
+            <input type="checkbox" onclick="myFunction()">
+            <span class="slider"></span>
+          </label>
+        </header>
+
+      <!-- This part is for title in tab-->
+      <title id="Sec"> § 10 </title>
+    
+  </head>
+  <body class="fondo-body" >
+
+    <h1 class="number-title flexbox"> Aproximación lineal </h1> 
+<!-- this part is for next and prev sections -->
+<button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>
+<button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
+
+
+          
+    
+    <div class="definicion-box"><h2 class="number-title">  Definición</h2>
+        <p>
+            Sea $U\ne \emptyset $  un abierto de $\mathbb{R}^n$,
+            $p_0\in U$ y $f:U\to \mathbb{R}$ una función diferenciable en $p_0$.
+    
+            A la función
+            $$L_{p_0}(p)= f(p_0)+ \langle \nabla_{p_0}f, p-p_0 \rangle$$
+           
+            se le llama la aproximación
+            de orden 1 (o lineal) para $f$ alrededor de $p_0$. Por simplicidad nos 
+            referirnos al punto \(p_0\) como el punto de tangencia de la aproximación lineal.
+        </p>
+        <p>
+            Por ejemplo, en dimensión 2, \(p_0=(x_0,y_0), p=(x,y)\) por lo que  tenemos 
+            \[
+            L_{(x_0,y_0)}(x,y)= f(x_0,y_0)+\partial_xf(x_0,y_0)(x-x_0)+ \partial_yf(x_0,y_0)(y-y_0)
+            \]
+            por lo que la aproximación lineal en \(p_0\) es simplemente la función cuya gráfica 
+            es precisamente el plano tangente a la gráfica de \(f\) en \(p_0\)
+            (ver <a href="./S8.html#Def:PlanoTangente">Definición 8.16</a>).
+
+        </p>
+        Notas
+        <ol>
+            <li>
+                La idea es que, cerca del punto de tangencia (el punto \(p_0\) en la notación de arriba) la 
+                función y la aproximación lineal son muy parecidas. Así podemos utilizar la aproximación lineal 
+                para aproximar los valores de la  función cerca de \(p_0\).
+            </li>
+            <li>
+                La aproximación lineal dependen del punto de tangencia. Si tratamos de aproximar la 
+                función alrededor de dos puntos distintos las aproximaciones lineales serán distintas.
+            </li>
+            <li>
+                A diferencia de la función \(f\), el dominio de \(L_{p_0}\) es todo \(\mathbb{R}^n\).
+            </li>
+        </ol>
+        
+      </div>
+      
+
+      <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        <p>
+            Considera la función $f:\mathbb{R}^2 \to \mathbb{R}$
+            dada por $f(p)=\sqrt{x^2+y^2}$. Sus derivadas parciales  son
+            \begin{eqnarray*} 
+            \partial_xf(x,y)=\frac{x}{\sqrt{x^2+y^2}}, \quad \partial_yf(x,y)=\frac{y}{\sqrt{x^2+y^2}}
+            \end{eqnarray*} 
+            las cuales son continuas en todo punto \((x,y)\ne 0\). Por lo tanto 
+            \(f\) es diferenciable en todo punto distinto del origen.
+            
+        </p>
+        <p>
+            <ol>
+                <li>
+                    Demuestra que la  aproximación lineal de $f(x,y)=\sqrt{x^2+y^2}$,
+                    cerca del punto $(x_0,y_0)\ne (0,0)$ está dada por
+                    $$
+                    L(x,y)=r_0 +\frac{x_0}{r_0}(x-x_0)+\frac{y_0}{r_0}(y-y_0) 
+                    $$
+                    donde $r_0=\sqrt{x_0^2+y_0^2}$.
+                </li>
+                <li>
+                    Ya que el plano tangente se aproxima a la función cerca del punto de tangencia podemos 
+                    escribir 
+                    $$
+                    \sqrt{x^2+y^2}\approx r_0+\frac{x_0}{r_0}(x-x_0)+\frac{y_0}{r_0}(y-y_0)
+                    $$
+                    donde $(x,y)$ es un punto cercano a $(x_0,y_0)$.
+                </li>
+                <li>
+                    Usando lo anterior estima $\sqrt{(3.1)^2+(4.2)^2}$.
+                </li>
+            </ol>
+        </p>
+      </div>
+      
+      
+              
+    <div class="prop-box"> 
+        <h2 class="number-title" id="Ejer:AproxLineal"> Proposición </h2> 
+        <p>
+            Sea $U$ un abierto de $\mathbb{R}^n$,  $p_0\in U$ y $f:U\to \mathbb{R}$
+            una función diferenciable en $p_0$.
+        </p>
+        <p>
+            Existe una función $E_{p_0}(p)$, definida en una bola abierta centrada en \(p_0\), denotada $B_r(p_0)$, 
+            que satisface
+        </p>
+        <p>
+            <ol>
+                <li>
+                    para toda $p\in B_r(p_0)$, $f(p)=f(p_0)+\langle \nabla_{p_0}f, p-p_0 \rangle +E_{p_0}(p)$
+                </li>
+                <li>
+                    $\lim_{p\to p_0} \frac{|E_{p_0}(p)|}{\|p-p_0\|}=0$
+                </li>
+              </ol>
+        
+        </p>
+        <p>
+            Sugerencia: simplemente define $E_{p_0}(p):=f(p)-f(p_0)- \langle \nabla_{p_0}f, p-p_0 \rangle$
+            y prueba que el límite que se pide es cero.
+        </p>
+    </div>
+
+        
+        
+
+      
+      
+
+    <div class="prop-box"> 
+        <h2 class="number-title" id="Ejer:CaracterizacionAproxLineal"> Proposición </h2>
+        <p>
+            Este ejercicio es importante pues da un criterio para que una función sea diferenciable. 
+        </p>
+        <p>
+            El criterio
+            dice que si una función admite una aproximación lineal entonces es diferenciable.	
+        </p>
+        <p>
+            Sea $U$ un abierto de $\mathbb{R}^n$, $p_0\in U$ y $f:U\to \mathbb{R}$ una función.
+        </p>
+        <p>
+            Supongamos que existe una bola abierta $B_r(p_0)\subseteq U$,
+            una función $\tilde{E}:B_r(p_0) \to \mathbb{R}$
+            y una función lineal $T:\mathbb{R}^n \to \mathbb{R}$ que satisfacen
+    
+            <ol>
+                <li id="Hip:1">
+                    para $p\in B_r(p_0)$, $f(p)=f(p_0)+T(p-p_0)+\tilde{E}(p)$
+                </li>
+                <li id="Hip:2">
+                    $$
+                    \lim_{p \to p_0} \frac{|\tilde{E}(p)|}{\|p-p_0\|}=0
+                    $$
+                </li>
+            </ol>
+            Entonces $f$ es diferenciable en $p_0$ y $D_{p_0}f=T$.
+        </p>
+        
+    </div>
+
+      
+
+        
+      
+
+      <!-- <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        <p>
+            Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$, $p_0\in U$ y $f,g :U \to \mathbb{R}$
+            funciones diferenciables en $p_0$. Usando aproximaciones
+            lineales (ejercicio \ref{Ejer:CaracterizacionAproxLineal}) demuestra
+            que $cf+g$ es diferenciable (donde  $c\in \mathbb{R}$)
+            en $p_0$ y
+            $$
+            \nabla_{p_0}(cf+g)=c\nabla_{p_0} f+ \nabla_{p_0}g.
+            $$
+    
+        </p>
+      </div>-->
+
+    
+    
+
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+    <p>
+        Usando aproximaciones lineales  estima las siguientes cantidades
+    </p>
+    <ol>
+        <li>
+            $\sqrt{(9.1)(15.9)}$.
+        </li>
+        <li>
+            $\sqrt{(4.1)^2+(3.95)^2+(2.01)^2}$
+        </li>
+        <li>
+            $(2.01)^3+(1.99)^3-5(2.01)(1.99)$
+        </li>
+    </ol>
+ </div>
+
+  <!--<div class="ejercicio-box"> 
+    <h2 class="number-title" id="Ejer:DifProductoDos1D"> Ejercicio </h2> 
+    <p>
+        Sean $g:(a,b) \to \mathbb{R}$, \(h:(c,d)\to \mathbb{R}\) dos funciones diferenciables.
+    </p>
+    <p>
+        Fija
+        dos puntos $x_0\in (a,b), y_0\in (c,d)$ y  considera las aproximaciones lineales
+        de $g$ y $h$ alrededor de $x_0$ y $y_0$ respectivamente, es decir
+        \begin{equation}\label{Eqn:Ejer1DAproxLinealg}
+          g(x)=g(x_0)+g'(x_0)(x-x_0)+E_1(x)
+        \end{equation}
+        done   $\lim_{x\to x_0} \frac{|E_1(x)|}{|x-x_0|}=0$;
+        \begin{equation}\label{Eqn:Ejer1DAproxLinealh}
+          h(y)=h(y_0)+h'(y_0)(y-y_0)+E_2(y)
+        \end{equation}
+        donde  $\lim_{y\to y_0}\frac{|E_2(y)|}{|y-y_0|}=0$.
+    </p>
+    <p>
+        Considera la función de dos variables $f:(a,b)\times (c,d) \to \mathbb{R}$ dada por
+        $f(x,y)=g(x)h(y)$.
+        <ol>
+            <li>
+                Multiplica las ecuaciones \eqref{Eqn:Ejer1DAproxLinealg} y  \eqref{Eqn:Ejer1DAproxLinealg}
+                para probar que
+                $$
+                f(x,y)=f(x_0,y_0)+g'(x_0)h(y_0)(x-x_0)+g(x_0)h'(y_0)(y-y_0)+\tilde{E}(x,y)
+                $$
+                donde
+                \begin{eqnarray*}
+                \tilde{E}(x,y)&=&g'(x_0)h'(y_0)(x-x_0)(y-y_0)+E_1(x)E_2(y) \\
+                &+ & E_1(x)(h(y_0)+h'(y_0)(y-y_0))\\
+                 &+&E_2(y)(g(x_0)+g'(x_0)(x-x_0))
+                \end{eqnarray*}      
+            </li>
+            <li>
+                Demuestra que
+                $$
+                \lim_{(x,y)\to (x_0,y_0)}\frac{|\tilde{E}(x,y)|}{\|(x-x_0, y-y_0)\|}=0.
+                $$
+            </li>
+            <li>
+                Usando  la <a href="#Ejer:CaracterizacionAproxLineal">Proposición 10.4</a> concluye
+                que $f$ es diferenciable en $(x_0,y_0)$ y que
+                $$
+                \nabla_{(x_0,y_0)}f=( g'(x_0)h(y_0), g(x_0)h'(y_0)  )
+                $$
+            </li>
+            <li>
+                Usando el ejercicio anterior estima $\sen(\frac{\pi}{2}+\frac{\pi}{10})e^{0.1}$. 
+            </li>
+        </ol>
+    
+    </p>
+</div>-->
+    
+
+
+    
+    
+
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+    <p>
+        Sea $U$ un abierto de $\mathbb{R}^n$  y $g,h:U\to \mathbb{R}$ dos funciones.
+        Sea $p_0 \in U$ un punto tal que tanto $g$ como $h$ son diferenciables en $p_0$.
+    </p>
+    
+    <p>
+        Considera las aproximaciones lineales de $g$ y $h$ en $p_0$, es decir
+        \begin{equation}\label{Eqn:EjerAproxLinealg}
+          g(p)=g(p_0)+ \langle \nabla_{p_0}g, p-p_0 \rangle  + E_1(p)
+        \end{equation}
+        con $\lim_{p\to p_0}\frac{|E_1(p)|}{\|p-p_0\|}=0$ y
+        \begin{equation}\label{Eqn:EjerAproxLinealh}
+          h(p)=h(p_0)+\langle  \nabla_{p_0}h, p_k -p_0 \rangle + E_2(p)
+        \end{equation}
+        con $\lim_{p\to p_0}\frac{|E_2(p)|}{\|p-p_0\|}=0$.
+    </p>
+    <p>
+        Define $f(p)=g(p)h(p)$.
+        <ol>
+            <li>
+                Multiplicando las ecuaciones \eqref{Eqn:EjerAproxLinealg} y \eqref{Eqn:EjerAproxLinealh}
+                demuestra que
+                $$
+                f(p)= f(p_0)+ \langle h(p_0)\nabla_{p_0}g+ g(p_0)\nabla_{p_0}h, p-p_0 \rangle +\tilde{E}(p)
+                $$
+                donde
+                \begin{eqnarray*}
+                \tilde{E}(p)&=& \langle \nabla_{p_0}g, p-p_0\rangle \langle \nabla_{p_0}h,p-p_0  \rangle +E_1(p)E_2(p) \\
+                &+ & E_1(p)(h(p_0)+ \langle \nabla_{p_0}h, p-p_0 \rangle )\\
+                 &+&E_2(y)(g(p_0) + \langle \nabla_{p_0}g, p-p_0 \rangle)
+               \end{eqnarray*}
+          
+            </li>
+            <li>
+                Demuestra que $\lim_{p\to p_0} \frac{|\tilde{E}(p)|}{\|p-p_0 \|}=0$.
+            </li>
+            <li>
+                Usando  la <a href="#Ejer:CaracterizacionAproxLineal">Proposición 10.4</a> concluye que $f$ es diferenciable
+                en $p_0$ y que
+                $$
+                \nabla_{p_0}(gh)=g(p_0)\nabla_{p_0}h + h(p_0)\nabla_{p_0}g.
+                $$
+            </li>
+        </ol>
+    </p>
+  </div>
+    
+
+    
+
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+    <p>
+        Considera  la función  $r:\mathbb{R}^3 \to \mathbb{R}$ dada por $r(x,y,z)=\|(x,y,z)\|$. Durante
+        este ejercicio vamos a suponer que $r$ es difeferenciable en todo punto $(x_0,y_0,z_0)\ne (0,0,0)$.
+    </p>
+    <p>
+        Por simplicidad vamos a denotar: $p_0=(x_0,y_0,z_0)$.
+        <ol>
+            <li>
+                Demuestra que $\nabla_{p_0}r$ es el  vector unitario, en la misma dirección que
+                $p_0$.
+            </li>
+            <li>
+                Demuestra que $\nabla_{p_0}(r^n)=[nr^{(n-2)}(x_0)]p_0$, donde $n \geq 1$ es un natural.
+            </li>
+            <li>
+                La fórmula del inciso anterio ¿ es válida si $n$ es un entero negativo?
+            </li>
+        </ol>
+    </p>
+  </div>
+    
+    
+
+
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio </h2> 
+    <p>
+        Sea $U$ un abierto de $\mathbb{R}^n$  y $g:U\to \mathbb{R}$ dos funciones.
+        Sea $p_0 \in U$ un punto tal que $g$  son diferenciables en $p_0$ y \(g(p_0)\ne 0\).
+    </p>
+    <p>
+        Entonces \(g\) es diferenciable y 
+        \[
+        \nabla_{p_0}\left(\frac{1}{g}\right)=-\frac{1}{g(p_0)^2}\nabla_{p_0}g.
+        \]
+    </p>
+    <button class="respButton hvr-grow "> Demostración</button>
+        <div class="resp-box">
+    <p>
+        Considera las aproximación  lineal de $g$ en $p_0$, es decir, 
+        \begin{equation}\label{Eqn:Aux2EjerAproxLinealg}
+          g(p)=g(p_0)+ \langle \nabla_{p_0}g, p-p_0 \rangle  + E(p)
+        \end{equation}
+        con $\lim_{p\to p_0}\frac{|E(p)|}{\|p-p_0\|}=0$.
+    </p>
+        
+            <p>
+                Ya que \(g(p_0)\ne 0\) y \(g\) es continua en \(p_0\) (al ser difernciable) existe un 
+                \(r>0 \) tal que \(g(p)\ne 0\) para todo \(p\in B_r(p_0)\). Así pues restringimos 
+                \(g\) a la bola \(B_r(p_0)\) para poder tomar \(\frac{1}{g(p)}\).
+            </p>
+            <ol>
+            <p>
+                Si 
+                dividimos  \eqref{Eqn:Aux2EjerAproxLinealg}  por \(g(p)g(p_0)\).
+                obtenemos que
+                \begin{equation}\label{Eqn:Aux3DifInversaMulti}
+                \frac{1}{g(p)}= \frac{1}{g(p_0)} - \frac{1}{g(p_0)g(p)}\langle \nabla_{p_0}g, p-p_0 \rangle -\frac{E(p)}{g(p_0)g(p)}
+                \end{equation}
+            </p>
+            <p>
+                Sumando el cero \(\frac{1}{g(p_0)^2}\langle \nabla_{p_0}g, p-p_0\rangle -\frac{1}{g(p_0)^2}\langle \nabla_{p_0}g, p-p_0\rangle \),
+                en la ecuación \eqref{Eqn:Aux3DifInversaMulti} se obtiene 
+                \begin{equation}\label{Eqn:Aux4DifInversaMulti}
+                \frac{1}{g(p)}= \frac{1}{g(p_0)}- \frac{1}{g(p_0)^2}\langle \nabla_{p_0}g, p-p_0 \rangle +\tilde{E}(p)
+                \end{equation}
+                donde 
+                \begin{eqnarray*}
+                \tilde{E}(p)&=& \frac{1}{g(p_0)}\langle \nabla_{p_0}g, p-p_0\rangle \left(\frac{1}{g(p_0)}-\frac{1}{g(p)} \right) \\
+                &+& \frac{E(p)}{g(p)g(p_0)}
+               \end{eqnarray*}
+            </p>
+            <p>
+                Ahora afirmamos que  $\lim_{p\to p_0} \frac{|\tilde{E}(p)|}{\|p-p_0 \|}=0$.
+            </p>
+            <p>
+                Escribimos el cociente anterior como 
+                \begin{eqnarray*}
+                \frac{\tilde{E}(p)}{\|p-p_0 \|}&=&\frac{E(p)}{g(p)g(p_0)\|p-p_0\|} \\
+                &+&  \frac{1}{g(p_0)} \frac{\langle \nabla_{p_0}g, p-p_0\rangle}{\|p-p_0\|}\left( \frac{1}{g(p)}-\frac{1}{g(p_0)}\right) 
+                \end{eqnarray*}
+                Para probar $\lim_{p\to p_0} \frac{|\tilde{E}(p)|}{\|p-p_0 \|}=0$ vamos a probar que el límite de cada sumando es cero.
+                <p>
+                    Para el primer sumando de la igualdad anterior, usando que  
+                    \(\lim_{p\to p_0}\frac{E(p)}{\|p-p_0\|}=0\) y \(\lim_{p\to p_0}\frac{1}{g(p)g(p_0)}=\frac{1}{g(p_0)^2}\), obtenemos 
+                    \[
+                    \lim_{p\to p_0}\frac{E(p)}{g(p)g(p_0)\|p-p_0\|}=\left( \lim_{p\to p_0}\frac{E(p)}{\|p-p_0\|} \right)\left(\lim_{p\to p_0}\frac{1}{g(p)g(p_0)} \right)=0
+                    \]
+                     
+                </p>
+                <p>
+                    Para el segundo sumando 
+                    usamos la desigualdad de Cauchy-Schwartz para llegar 
+                    \begin{eqnarray*} 
+                    \left| \frac{1}{g(p_0)}\right| \frac{|\langle \nabla_{p_0}g, p-p_0\rangle|}{\|p-p_0\|} 
+                    \left| \frac{1}{g(p_0)}-\frac{1}{g(p)|} \right| 
+                    &\leq& 
+                    \left| \frac{1}{g(p_0)}\right| \frac{\|\nabla_{p_0}g\| \|p-p_0\|}{\|p-p_0\|}\left| \frac{1}{g(p_0)}-\frac{1}{g(p)|} \right|  \\
+                    &\leq & \left| \frac{1}{g(p_0)}\right| \|\nabla_{p_0}g\| \left| \frac{1}{g(p_0)}-\frac{1}{g(p)|} \right| 
+                    \end{eqnarray*}
+                    Usando la continuidad de \(g\) tenemos \(\lim_{p\to p_0}\left| \frac{1}{g(p_0)}-\frac{1}{g(p)|} \right| =0\), por lo tanto 
+                    \[
+                    \lim_{p\to p_0} \left| \frac{1}{g(p_0)}\right| \frac{|\langle \nabla_{p_0}g, p-p_0\rangle|}{\|p-p_0\|} 
+                    \left| \frac{1}{g(p_0)}-\frac{1}{g(p)|} \right| =0
+                    \]
+                </p>
+            
+            </p>
+            <p>
+                Finalmente de la ecuación  \eqref{Eqn:Aux4DifInversaMulti}, el límite \(\lim_{p\to p_0}\frac{\tilde{E}(p)}{\|p-p_0\|}=0\) y 
+                la  <a href="#Ejer:CaracterizacionAproxLineal">Proposición 10.4</a> concluimos que $1/g$ es diferenciable
+                en $p_0$ y que
+                $$
+                \nabla_{p_0}\left(\frac{1}{g} \right)=-\frac{1}{g(p_0)^2}\nabla_{p_0}g
+                $$
+            </p>
+        </ol>
+        
+    
+    </div>
+  </div>
+
+
+    
+   <!--<div class="ejercicio-box"> 
+    <h2 class="number-title" id="Ejer:AproxLinealReglaCadena"> Ejercicio </h2> 
+    <p>
+        Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$, $p_0\in U $ y $g:U \to \mathbb{R}$
+        una función diferenciable en $p_0$.
+        <ol>
+            <li>
+                Demuestra que existe una bola $B_r(p_0)$, una función
+                $F:B_{r}(p_0) \to \mathbb{R}$ tal que
+            </li>    
+          <ol>
+            <li>
+                para toda $p\in B_r(p_0)$, $g(p)=g(p_0)+\langle \nabla_{p_0}g, p-p_0\rangle +\|p-p_0\|F(p)$,
+            </li>
+            <li>
+                $\lim_{p\to p_0}F(p)=0$,
+            </li>
+            <p>
+                Sugerencia: si $E$ es la función error de la aproximación lineal de $g$ en $p_0$ define:
+                $$
+                F(p)=\left\{
+                  \begin{array}{cc}
+                    \frac{E(p)}{\|p-p_0\|} & p\ne p_0 \\
+                    0 & p=p_0.
+                  \end{array}
+                \right.
+                $$
+            </p>
+          </ol>
+            <li>
+                Demuestra que existe una bola $B_s(p_0)$ tal que para toda $p\in B_s(p_0)$,
+                $\|F(p)\|\leq 1/2$.
+                <p>
+                    Sugerencia: en la definición $\varepsilon,\delta$ del límite $\lim_{p\to p_0}F(p)=0$
+                    toma $\varepsilon =1/2$.
+                </p>
+            </li>
+            <li>
+                Demuestra que  para toda $p\in B_s(p_0)$
+                $$
+                |g(p)-g(p_0)|\leq \|p-p_0\| (\|\nabla_{p_0}g\|+1/2).
+                $$
+                <p>
+                    Sugerencia: usa el inciso anterior y la desigualdad de Cacuchy-Schwartz.          
+                </p>
+            </li>
+        </ol>    
+    </p>
+  </div>
+-->
+
+<!--    <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2>  
+        <p>
+            Considera la función  $t\mapsto 1/t$, definida para $t\in \mathbb{R}, t\ne 0$.
+
+            <ol>
+              <li>
+                  Prueba que,  dado $t_0\ne 0$ fijo y arbitrario, existe $s>0$ tal que para toda $t\in B_s(t_0)$  
+                  $$
+                  \frac{1}{t}=\frac{1}{t_0}-\frac{1}{t_0^2}(t-t_0)+|t-t_0|F_1(t)
+                  $$
+                  donde $\lim_{t\to t_0} |F_1(t)| =0$.
+              </li>
+              <li>
+                  Sean $a,b\in \{1,2,3,4,5,6,7,8,9\}$ tal que $a+b=10$. Usa el inciso anterior para
+                  probar que el inverso multiplicativo de $1.a$ es aproximadamente $0.b$.
+              </li>
+          </ol>
+          
+        </p>
+    </div>
+
+
+        <div class="ejercicio-box"> 
+            <h2 class="number-title" id="Ejer:ReglaCadenaInversoMult"> Ejercicio </h2> 
+            <p>
+                Este ejercicio muestra que si $g$ es diferenciable, y distinta de cero, 	entonces
+                $1/g$ es diferenciable.            	
+            </p>
+            <p>
+                Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$ y $p_0\in U$.
+                <ol>
+                   <li>
+                       Sea $g:U\to \mathbb{R}$, diferenciable en $p_0$ con $g(p_0)\ne 0$. Demuestra
+                       que existe una bola $B_r(p_0)$, tal que para toda
+                       $p\in B_r(p_0)$
+                       $$
+                       \frac{1}{g(p)}=\frac{1}{g(p_0)} -\frac{1}{g(p_0)^2}(g(p)-g(p_0))+ |g(p)-g(p_0)|F_1(g(p))
+                       $$
+                       donde $\lim_{t\to g(p_0)}|F_1(t)|=0$.
+                   </li>
+                   <li>
+                       Demuestra que, para todo $p\in B_r(p_0)$, $p\ne p_0$
+                       \begin{eqnarray*}
+                         \frac{1}{g(p)}=\frac{1}{g(p_0)}+ \langle \frac{-1}{g(p_0)^2}\nabla_{p_0}g, p-p_0\rangle 
+                                         +\|p-p_0\| \tilde{F}(p)
+                       \end{eqnarray*}
+                       donde
+                       $$
+                       \tilde{F}(p)=-\frac{1}{g(p_0)^2}F_2(p)+ \frac{|g(p)-g(p_0)|}{\|p-p_0\|}F_1(g(p)).
+                       $$
+                       y $F_2$ es una función que satisface $\lim_{p\to p_0}F_2(p)=0$.
+                       <p>
+                           Sugerencia: usa el inciso anterior y ejercicio \ref{Ejer:AproxLinealReglaCadena}
+                           para reescribir $g(p)-g(p_0)$.          
+                       </p>
+                   </li>
+                   <li>
+                       Demuestra que $\tilde{F}$, la función del inciso anterior satisface $\lim_{p\to p_0}\tilde{F}(p)=0$.
+                   </li>
+                   <li>
+                       Concluye, del ejercicio \ref{Ejer:CaracterizacionAproxLineal}, que la función $p\mapsto 1/g(p)$
+                       es diferenciable en $p_0$ con
+                       $$
+                       \nabla_{p_0}(1/g)= -\frac{1}{g(p_0)^2}\nabla_{p_0}g.
+                       $$
+                   </li>
+               </ol>
+            </p>
+         </div>    
+
+      
+    
+    <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio </h2> 
+        <p>
+            Este ejercicio generaliza el ejercicio \ref{Ejer:ReglaCadenaInversoMult}.
+        </p>
+        <p>
+            Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$, $p_0\in U$ y
+            $g:U \to \mathbb{R}$ una función diferenciable.
+        </p>
+        <p>
+            Asume que $u:I \to \mathbb{R}$ es una función de una variable
+            definida y diferenciable en todo punto del  intervalo $I$ que satisface $g(U)\subset I$.
+      
+            <ol>
+              <li>
+                  Fija $t_0\in I$. Prueba que existe una bola  $B_s(t_0)$, tal que, para toda
+                  $t\in B_s(t_0)$
+                  $$
+                  u(t)=u(t_0)+u'(t_0)(t-t_0)+|t-t_0|F_1(t)
+                  $$
+                  donde $F_1$ es una función que satisface $\lim_{t\to t_0}|F_1(t)|=0$.
+              </li>
+              <li>
+                  Demuestra que existe una bola $B_r(p_0)$ tal que, para toda $p\in B_r(p_0)$
+                  $$
+                  u(g(p))=u(g(p_0))+ u'(g(p_0))(g(p)-g(p_0))+\|g(p)-g(p_0)\| F_1(g(p))
+                  $$
+                  donde $F$ es una función que satisface $\lim_{p\to p_0}F(g(p))=0$.
+              </li>
+              <li>
+                  Demuestra que, para toda $p\in B_r(p_0)$, $p\ne p_0$:
+                  $$
+                  u(g(p))=u(g(p_0))+ u'(g(p_0))\langle \nabla_{p_0}g, p-p_0\rangle+ \|p-p_0\|\tilde{F}(p)
+                  $$
+                  donde
+                  $$
+                  \tilde{F}(p)=u'(g(p_0))F_2(p)+\frac{|g(p)-g(p_0)|}{||p-p\|}F_1(g(p))
+                  $$
+                  y $F_2$ es una función que satisface $\lim_{p\to p_0}F_2(p)=0$.            
+              </li>
+              <li>
+                  Concluye que $u\circ g$ es diferenciable y $\nabla_{p_0} (u \circ g)= u'(g(p_0))\nabla_{p_0} g$.
+              </li>
+            </ol>
+      
+        </p>
+    </div>-->
+      
+            
+
+    
+
+
+ </body>
