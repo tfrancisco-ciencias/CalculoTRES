@@ -164,8 +164,8 @@
 
 
     
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
+  <div class="info-box"> 
+    <h2 class="number-title"> Ejemplo</h2> 
     <p>
       Encuentra $c>0$ tal que la función $f(x,y)=x^2+xy+cy^2$ tiene un
       punto silla en $(0,0)$.
@@ -204,7 +204,7 @@
         </p>
         <p>
             Ahora buscamos una dirección en la que siempre podamos encontrar vectores
-            $(x,y)$ de norma arbitrariamente pequeña tales que $f(x,y)<0$, proponemos
+            $(x,y)$ de norma arbitrariamente pequeña tales que $f(x,y)< 0$, proponemos
             $y=-mx$ para alguna $m>0$ y sustituimos en $f$:
             \begin{equation*}
             f(x,y) = x^2 - x(mx) +(0.2)(-mx)^2 = x^2 - mx^2 + 0.2m^2x^2 < 0,
@@ -218,7 +218,7 @@
             de valores para los cuales $f$ es negativo será vacío, un punto, o un intervalo.
             Aplicamos la fórmula para encontrar ceros de polinomios de grado 2 para obtener
             que $m = \frac{1 \pm \sqrt{0.2}}{2}$, por lo que al considerar $m \in
-            (\frac{1 - \sqrt{0.2}}{2},\frac{1 + \sqrt{0.2}}{2})$ se asegura que $f(x,-mx)<0$
+            (\frac{1 - \sqrt{0.2}}{2},\frac{1 + \sqrt{0.2}}{2})$ se asegura que $f(x,-mx)< 0$
             y por lo tanto $(0,0)$ es un punto silla.
         </p>
 
@@ -286,6 +286,52 @@
       </div>
 
 
+      <div class="prop-box"> 
+    <h2 class="number-title" id="Ejer:LemaCriterioHessiano"> Proposición </h2>
+    <p>
+      Sea $Q$ una forma cuadrática definitivamente
+      positiva. Demuestra que existe una constante $k>0$ tal que
+      $$
+      Q(x_1,\dots, x_n) \geq k \|(x_1,\dots x_n)\|^2
+      $$
+      para todo $(x_1,\dots, x_n)\in \mathbb{R}^n$.
+    </p>
+    <p>
+      Sugerencia: toma  $k$ como el mínimo de $Q$ sobre
+      la esfera unitaria de $\mathbb{R}^n$.
+    </p>
+    <button class="respButton hvr-grow "> Demostración</button>
+    <div class="resp-box">
+    <p>
+      Como \(Q\) es polinomio es una función continua por lo que alcanza su valor mínimo 
+      en la esfera unitaria, es decir si  
+      \[
+      k=\min \{ Q(x_1,\dots, x_n): \|(x_1,\dots , x_n)\|=1\}
+      \] 
+      entonces existe \((z_1,\dots z_n)\) un vector unitario tal que \(Q(z_1,\dots, z_n)=k\). Notamos 
+      que \(k>0\) pues si \(k=0\) entonces \(Q(z_1,\dots, z_n)=0\) pero al ser 
+      \(Q\) positiva definida debe de pasar que \((z_1,\dots, z_n)=0\), una contradiccíon 
+      al ser \((z_1,\dots, z_n)\) unitario.
+      </p>
+      <p>
+      Si \(y\in \mathbb{R}^n\) es distinto de cero entonces \(y/\|y\| \) está en la esfera unitaria 
+      y por lo tanto 
+      \[
+      Q\left(\frac{1}{\|y\|}y_1,\dots, \frac{1}{\|y\|}y_n\right) \geq k 
+       \]
+       al ser \(Q\) cuadrática 
+       \[
+       Q\left(\frac{1}{\|y\|}y_1,\dots, \frac{1}{\|y\|}y_n\right)=\frac{1}{\|y\|^2} Q(y_1,\dots, y_n)
+       \]
+       por lo tanto 
+       \begin{eqnarray*} 
+       \frac{1}{\|y\|^2} Q(y_1,\dots, y_n)\geq k \Rightarrow Q(y_1,\dots, y_n) \geq k \|y\|^2
+       \end{eqnarray*}
+    </p>
+    </div>
+  </div>
+  
+
       <div class="teorema-box" id="Ejer:CriterioHessiano"> 
         <h2 class="number-title"> Teorema </h2>
         <p>
@@ -306,9 +352,7 @@
                 negativo entonces $p_0$ es un máximo local para $f$.
             </li>
         </ol>
-        <p>
-          Sugerencia: usa el <a href="./S14.html#Ejer:LemaCriterioHessiano"> Ejercicio 14.5</a>.
-        </p>
+        
         <button class="respButton hvr-grow "> Demostración</button>
         <div class="resp-box">
         <p>
@@ -316,7 +360,7 @@
           \(f(p)\geq f(p_0)\) para \(p\) en una bola abierta centrada en \(p_0\).
         </p>
         <p>
-          Por el <a href="./S14.html#Teo:TaylorGrado2">Teorema de Taylor </a> existe una  bola 
+          Por la  <a href="./S11.html#Teo:TaylorGrado2">Teorema de Taylor </a> existe una  bola 
           \(B_r(p_0)\) tal que 
           \[
           f(p_0+h)=f(p_0)+\sum_{i=1}^n \partial_{p_i}f(p_0)h_i +
@@ -336,7 +380,7 @@
         </p>
         <p>
           Además al ser \(H_{p_0}f\) positiva definida 
-          por el <a href="./S14.html#Ejer:LemaCriterioHessiano"> Ejercicio 14.5</a> 
+          por la <a href="#Ejer:LemaCriterioHessiano"> Proposición 15.4</a> 
           existe un \(k>0\) tal que para toda \(h=(h_1,\dots, h_n)\)
           \[
           \frac{1}{2}\sum_{i,j=1}^n \partial_{p_i,p_j}^2f(p_0)h_ih_j \geq k \|h\|^2

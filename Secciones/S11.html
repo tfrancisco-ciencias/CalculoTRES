@@ -49,10 +49,10 @@
     <!-- This part restart counter of cards to start at n+1 -->
     <style>
         body.number-title{
-          counter-reset: sectionCounter 13 cardCounter ;
+          counter-reset: sectionCounter 10 cardCounter ;
         }
         h1.number-title{
-          counter-reset: sectionCounter 13 cardCounter ;
+          counter-reset: sectionCounter 10 cardCounter ;
         }
       </style>
   
@@ -77,7 +77,7 @@
         </header>
 
       <!-- This part is for title in tab-->
-      <title id="Sec"> § 14 </title>
+      <title id="Sec"> § 11 </title>
     
   </head>
   <body class="fondo-body" >
@@ -116,36 +116,11 @@
       </p>
   </div>
   
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-      Este ejercicio da la razón del nombre de forma cuadrática.
-    </p>
-    <p>
-      Demuestra que si $Q$ es una forma cuadrática entonces, para toda
-      $\lambda\in \mathbb{R}$
-      $$
-      Q(\lambda x_1,\dots, \lambda x_n)=\lambda^2Q(x_1,\dots x_n)
-      $$
-    </p>
-    <button class="respButton hvr-grow "> Solución </button>
-    <div class="resp-box">
-    <p>
-      \begin{eqnarray*} 
-      Q(\lambda x_1,\dots, \lambda x_n)&=&\sum_{i,j=1}^n (\lambda x_i)(\lambda x_j) \\
-      &=& \sum_{i,j=1}^n \lambda ^2(x_ix_j) \\
-      &=& \lambda^2Q(x_1,\dots, x_n)
-      \end{eqnarray*}
-    </p>
-    </div>
-  </div>
+
+
   
-    
-  
-    
-  
-  <div class="ejercicio-box"> 
-    <h2 class="number-title" id="Ejer:EquivalenciasFormaCuadratica"> Ejercicio</h2> 
+  <div class="lema-box"> 
+    <h2 class="number-title" id="Ejer:EquivalenciasFormaCuadratica"> Lema</h2> 
     <p>
       Considera  la forma cuadrática
       $$
@@ -186,7 +161,7 @@
             Prueba que $Q$ se puede escribir
     
             $$
-            Q(x_1,\dots, x_n)=\langle Ax,x \rangle
+            Q(x_1,\dots, x_n)=(Ax) \cdot x 
             $$
           
             donde $x$ es el vector $(x_1,\dots, x_n)$ y $A$ es la matriz
@@ -262,7 +237,7 @@
     <p>
       Por lo tanto 
       \begin{eqnarray*} 
-      \langle Ax, x \rangle &=&A x[1]x_1+Ax[2]x_2+Ax[3]x_3 \\
+      (Ax)\cdot x  &=&A x[1]x_1+Ax[2]x_2+Ax[3]x_3 \\
       &=& (a_{1,1}x_1+a_{1,2}x_2+ a_{1,3}x_3 )x_1 \\
       &+& (a_{2,1}x_1 + a_{2,2}x_2 +a_{2,3}x_3)x_2 \\
       &+& (a_{3,1}x_1+a_{3,2}x_2 + a_{3,3}x_3)x_3 \\
@@ -272,13 +247,15 @@
     </div>
   </div>
 
-  <div class="ejercicio-box">
-    <h2 class="number-title" id="Ejer:PropiedadFundTranspuesta"> Ejercicio </h2>
+
+
+  <div class="lema-box">
+    <h2 class="number-title" id="Ejer:PropiedadFundTranspuesta"> Lema </h2>
     <p>
       Sea \(A\) una matriz de \(n\times n\). Entonces para todos \(x,y\in \mathbb{R}^n\) 
       se cumple la identidad 
       \[
-      \langle Ax, y \rangle = \langle x, A^t y\rangle
+      (Ax) \cdot y  =  x\cdot (A^t y)
       \]
       donde \(A^t\) denota la matriz transpuesta de \(A\).
     </p>
@@ -297,7 +274,7 @@
       <p>
         El lado izquiero de la identida es 
         \begin{eqnarray*} 
-        \langle Ax,y\rangle &=& \sum_{i=1}^n Ax[i]y_i \\
+         (Ax)\cdot y &=& \sum_{i=1}^n Ax[i]y_i \\
         &=& \sum_{i=1}^n (\sum_{j=1}^n A[i,j]x_j  )y_i \\
         &=& \sum_{i=1}^n \sum_{j=1}^n A[i,j]x_j y_i
         \end{eqnarray*}
@@ -305,18 +282,21 @@
       <p>
         El lado derecho es 
         \begin{eqnarray*} 
-        \langle x, A^t y \rangle &=& \sum_{i=1}^n x_i A^ty[i] \\
+         x\cdot  (A^t) \y  &=& \sum_{i=1}^n x_i A^ty[i] \\
         &=& \sum_{i=1}^n x_i(\sum_{j=1}^n  A^t[i,j]y_j) \\
         &=& \sum_{i=1}^n \sum_{j=1}^n A[j,i]x_i y_j
         \end{eqnarray*} 
       </p>
       <p>
-        Comparando ambos obtenemos \(\langle Ax,y\rangle = \langle x,A^ty\rangle\).
+        Comparando ambos obtenemos \( (Ax)\cdot y =  x\cdot (A^ty)\).
       </p>
       </div>
 
   </div>
   
+
+
+    
   
   <div class="definicion-box"><h2 class="number-title">  Definición</h2>
       <p>
@@ -328,8 +308,8 @@
       </p>
   </div>
   
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
+  <div class="lema-box"> 
+    <h2 class="number-title"> Lema </h2> 
     <p>
       Considera una matriz de $n\times n$,  $A$ y define
       la matriz $B=\frac{1}{2}(A+A^t)$, donde $A^t$ denota
@@ -351,7 +331,7 @@
         </li>  
     </ol>
       <p>
-        Este ejercicio dice que siempre podemos suponer simétrica
+        Este lema dice que siempre podemos suponer simétrica
             a la matriz asociada a una forma cuadrática.
       </p>
       <button class="respButton hvr-grow "> Demostración inciso 1</button>
@@ -409,61 +389,6 @@
   </div>
 
 
-  <div class="ejercicio-box"> 
-    <h2 class="number-title" id="Ejer:MatrizSimetrica"> Ejercicio</h2>
-    <p>
-      Considera la matriz de $n\times n$,
-      $A=[a_{i,j}]$. 
-    </p>
-    <p>
-      Demuestra que $A$ es simétrica
-      si y sólo si $\langle Ax,y \rangle=\langle x,Ay \rangle$, para todos 
-      $x,y \in \mathbb{R}^n$.
-    
-    </p>
-    <button class="respButton hvr-grow "> Solución</button>
-    <div class="resp-box">
-        <p>
-            Empecemos por suponer que $A$ es simétrica, es decir, $A^t=A$,
-            además se sabe que para todo $x,y \in \mathbb{R}^n$ se tiene que
-            $\langle Ax,y \rangle = \langle x,A^ty \rangle$, por lo tanto
-            \begin{equation*}
-            \langle Ax,y \rangle = \langle x,A^t y \rangle = \langle x,Ay \rangle.
-            \end{equation*}
-        </p>
-        <p>
-            Supongamos ahora que se satisface la identidad descrita anteriormente.
-            Empecemos por notar que la entrada $a_{ij}$ de la matriz $A$ se puede
-            obtener como
-            \begin{equation*}
-            a_{ij} = \langle Ae_j,e_i \rangle,
-            \end{equation*}
-            donde $e_i,e_j$ son vectores canónicos. De esta manera
-            \begin{equation*}
-            a_{ij}=\langle Ae_j,e_i \rangle = \langle e_j,Ae_i \rangle = a_{ji},
-            \end{equation*}
-            para cada $1\leq i,j \leq n$, por lo que $A$ es una matriz simétrica.
-        </p>
-    </div>
-  </div>
-  
-  
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-      Considera la forma cuadrática
-      $$
-      Q(x_1,\dots, x_n)=\sum_{i,j=1}^n a_{i,j}x_ix_j
-      $$
-    
-      Demuestra
-      $$
-      \langle \nabla Q, (x_1,\dots, x_n) \rangle=
-      2Q(x_1,\dots, x_n) 
-      $$
-    </p>
-   </div>
-
   
     <div class="definicion-box">
       <h2 class="number-title">  Definición</h2>
@@ -500,11 +425,7 @@
             $$Q(x_1,\dots, x_n)=\sum_{i,j=1}^na_{i,j}x_ix_j$$
             es positiva definida.
           </p>
-          <p>
-            Usando el <a href="#Ejer:EquivalenciasFormaCuadratica">Ejercicio 14.3</a> 
-            resulta que una matriz \(A\) es positiva definida sii 
-            \(\langle Ax,x \rangle \geq 0\) para toda \(x\in \mathbb{R}^n\).
-          </p>
+          
           <p>
             Una matriz \(B\) es negativa definida si \(-B\) es positiva definida.
           </p>
@@ -514,90 +435,138 @@
             entonces más adelante se verá que \(A+B\) es positiva definida; si \(A\) es 
             positiva definida e invertible entonces \(A^{-1}\) es positiva definida.
           </p>
+          <p>
+            Usando el <a href="#Ejer:EquivalenciasFormaCuadratica">Ejercicio 11.2</a> 
+            resulta que una matriz \(A\) es positiva definida si y sólo si:
+            <ol>
+              <li>
+                \( (Ax)\cdot x  \geq 0\) para toda \(x\in \mathbb{R}^n\),
+              </li>
+              <li>
+                si \( (Ax)\cdot x  = 0\) entonces \(x=0\).
+              </li>
+            </ol> 
+             Este criterio 
+            no es muy práctico así que vamos a mencionar otro más adelante.
+          </p>
+        </div>
+
+        <div class="definicion-box"> 
+          <h2 class="number-title"> Definición </h2>
+          <p>
+            Dado una matriz A, un valor pripio de \(A\) es 
+            un escalar \(\lambda \in \mathbb{R}\) tal que la ecuación 
+            \[
+            Ax=\lambda x
+            \]
+            tiene una solución \(x\) distinta de cero. 
+          </p>
+          <p>
+            Por ejemplo, si la matriz es una matriz diagonal de \(n\times n\):
+            \[
+            A=\left[ 
+            \begin{array}{ccc} 
+              \lambda_1 & \cdots  & 0 \\
+                &   \ddots & \\
+               0 &  \dots & \lambda_n
+            \end{array}
+            \right]
+            \]
+            resulta que todos los elementos de la diagonal son valores propios de \(A\)
+            pues para los vectores canónicos \(\{e_1,\dots, e_n\}\) resulta 
+            \(Ae_i=\lambda_ie_i\).
+          </p>
+
         </div>
   
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-      Considera $D$, una matriz diagonal, cuyas entradas en la diagonalc son
-      $\lambda_1,\dots, \lambda_n$.  
-    </p>
-    <p>
-      Demuestra que $D$ es definitivamente
-      positiva si y sólo si $\lambda_i >0$, para toda $i$.
-    </p>
-    <p>
-      Demuestra que $D$ es definitivamente
-      negativa si y sólo si $\lambda_i < 0$, para toda $i$.
-    </p>
-    <button class="respButton hvr-grow "> Solución</button>
-    <div class="resp-box">
 
-    <p>
-      Primero notamos que si \(D\) es una matriz diagonal entonces su forma cuadrática se ve 
-      \begin{eqnarray*} 
-      Q(x_1,\dots, x_n)&=&\sum_{i,j=1}^n D[i,j]x_ix_j \\
-      &=& \sum_{i=1}^n \lambda_i x_i^2
-      \end{eqnarray*}
-      pues \(D[i,j]= 0\) para todos  \(i,j\) con \(i\ne j\) y \(D[i,i]=\lambda_i\).
-    </p>
-    <p>
-      Ahora, si \(\lambda_j >0\) para toda \(j\) se sigue que \(Q(x_1,\dots, x_n) \geq 0\) 
-      para todos \(x_1,\dots, x_n\) y si \(Q(x_1,\dots, x_n)=\sum_{i=1}^n \lambda_i x_i^2=0\)
-      entonces \(x_1=\dots=x_n=0\). Por lo tanto \(D\) se positiva definida. 
-    </p>
-    <p>
-      Si \(\lambda_j< 0 \) para toda \(j\) se prueba de manera similar que \(-D\) es definitivamente 
-      positiva por lo que \(D\) es negativa definida.
-    </p>
-    </div>
-    </div>
-
-
-
-    
-  
-    
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-      Demuestra que si las matrices cuadradas $A$ y $B$ son
-      positiva definidas y $a>0$, entonces la matriz
-      $aA+B$ también es positiva definida.
-    </p>
-    <button class="respButton hvr-grow "> Solución</button>
-    <div class="resp-box">
-        <p>
-            Si $x \in \mathbb{R}^n$ entonces
-            \begin{equation*}
-            \langle(aA+B)x, x\rangle = a\langle Ax,x \rangle + \langle Bx,x \rangle,
-            \end{equation*}
-            y la expresión del lado derecho siempre es no negativa pues $a>0$ y cada
-            una de las matrices es positiva definida. De aquí también se deduce que
-            si $\langle (aA+B)x,x \rangle =0$ para algún $x \in \mathbb{R}^n$ entonces
-            $\langle Ax,x \rangle = \langle Bx,x \rangle = 0$ y por lo tanto
-            $x = 0$.
-        </p>
-    </div>
-  </div>
-
-
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-      Da un ejemplo de una matriz de $2\times 2$ que no es
-      ni negativa definida ni positiva definida.
-    </p>
-    <p>
-      Sugerencia: busca entre las matrices triangulares superiores.
-    </p>
-      </div>
+        <div class="lema-box">
+            <h2 class="number-title"> Lema </h2>
+            <p>
+              Sea \(A\) una matriz simétrica que satisface 
+              \[
+              (Ap)\cdot p \geq 0
+              \]
+              para toda \(p\in \mathbb{R}^n\). 
+            </p>
+            <p>
+              Si \(y\in \mathbb{R}^n\)
+              satisface
+              \((Ay)\cdot y=0\),
+              entonces \(Ay=0\).
+            </p>
+            <button class="respButton hvr-grow "> Demostración </button>
+            <div class="resp-box">  
+            <p>
+              Dado \(x\in \mathbb{R}^n\) fijo y arbitrario define \(g:\mathbb{R}\to \mathbb{R}\)
+              por \(g(t)=(A(y+tx))\cdot (y+tx) \). Por las propiedades 
+              del producto punto y la linealidad del producto de matrices:
+              \[
+              g(t)=(Ay)\cdot y + t(Ay)\cdot x + t(y\cdot Ax)+ t^2\|x\|^2
+              \]
+              pero \((Ay)\cdot y=0\) por hipótesis y \(y\cdot (Ax) =(Ay)\cdot x\), al ser
+              \(A\) simétrica, entonces 
+              \[
+              g(t)=2[(Ay)\cdot x]t+ \|x\|^2t^2=2bt+at^2
+              \]
+              con \(b=(Ay)\cdot x\) y \(a=\|x\|^2\), por lo que \(g(t)\) es una parábola.
+            </p>
+            <p>
+              Pero por hipótesis \((Ap)\cdot p \geq 0\) para toda \(p\in \mathbb{R}^n\)
+              lo que implica que \(g(t)\geq 0\) para toda \(t\). 
+            </p>
+            <p>
+              Recapitulando: 
+              \[
+              g(t)=2bt+at^2=(2b+at)t \geq 0
+              \]
+              para toda \(t\in \mathbb{R}\) entonces su mínimo se alcanza en  \(t=0\) 
+              por lo que \(g'(0)=0\). Pero
+              \(g'(t)=2b+2at\) por lo que \(0=2b=2(Ay)\cdot x\) lo que implica \((Ay)\cdot x=0\). 
+            </p>
+            <p>
+              Finalmente como \(x\) fue arbitrario y \((Ay)\cdot x=0\) concluimos 
+              (tomando \(x=Ay\)) que \(Ay=0\).
+            </p>
+            
+          </div>
+        </div>
+        
+        
+        <div class="teorema-box">
+          <h2 class="number-title"> Teorema </h2>
+          <p>
+            Sea \(A\) una matriz simétrica de \(n\times n\). Entonces existen 
+            \(n\)-escalares, \(\lambda_1\leq \cdots \leq \lambda_n \) 
+            (se admiten repeticiones) tal que todo \(\lambda_i\) es un valor propio
+            de \(A\) y existe un conjunto ortonormal de vectores \(\{u_i\}_{i=1}^n\)
+            tal que \(Au_i=\lambda_iu_i\), \(i=1,\dots, n\).
+            
+          </p>
+          <p>
+            Es decir exxiste una base ortonormal de \(A\) formada por vectores propios de 
+            \(A\). En consecuencia existe una matriz ortogonal \(U\) tal que 
+            \[
+            UAU^t=\left[ 
+            \begin{array}{ccc} 
+              \lambda_1 & \cdots  & 0 \\
+                &   \ddots & \\
+               0 &  \dots & \lambda_n
+            \end{array}
+            \right]
+            \]
+          </p>
+          <p>
+            Nota: una matriz se llama ortogonal si \(UU^{t}=I=U^{t}U\), donde 
+            \(I\) es la matriz identidad.
+          </p>
+        </div>
 
 
     <div class="teorema-box">
       <h2 class="number-title"> Teorema </h2>
       <p>
-        Sea \(A=[a_{i,j}]_{i,j}\) una matriz de \(n\times n\) simétrica considera su forma cuadrática 
+        Sea \(A=[a_{i,j}]_{i,j}\) una matriz de \(n\times n\) simétrica y considera su forma cuadrática 
         \[
         Q(x_1,\dots, x_n)=\sum_{i,j=1}^n a_{i,j}x_ix_j
         \]
@@ -637,51 +606,314 @@
 
 
    
-  <div class="ejercicio-box"> 
-    <h2 class="number-title" id="Ejer:LemaCriterioHessiano"> Ejercicio</h2>
+
+
+  
+  
+    <div class="definicion-box">
+      <h2 class="number-title">  Definición</h2>
+      <p>
+        Sea $f:U \to \mathbb{R}$ una función clase $C^2$, definida
+        en un abierto $U$ de $\mathbb{R}^n$. El Hessiano de $f$,
+        en el punto $p_0\in U$, denotado $H_{p_0}f$, es la
+        función cuadrática en $n$ variables definida por
+        $$
+        H_{p_0}f(x_1,\dots, x_n)=\frac{1}{2}\sum_{i,j=1}^n
+        \partial^2_{i,j}f(p_0) x_ix_j
+        $$
+        Es decir, es la forma cuadrática asociada
+        a la matriz de segundas derivadas parciales, multiplicada
+        por un factor de $1/2$, es decir 
+        $A=(1/2)[\partial_{i,j}^2f(p_0)]_{i,j=1}^n$, evaluadas en $p_0$.
+      </p>
+      <p>
+        La matriz Hessiana de \(f\), en \(p_0\), se define como la matriz 
+        \([\partial_{i,j}f(p_0)]_{i,j}\). 
+      </p>
+    </div>
+  
+
+     
+  <div class="teorema-box">
+    <h2 class="number-title" id="Teo:TaylorGrado2"> Teorema </h2>
+    <h3> Teorma de Taylor (de segundo grado)</h3>
     <p>
-      Sea $Q$ una forma cuadrática definitivamente
-      positiva. Demuestra que existe una constante $k>0$ tal que
-      $$
-      Q(x_1,\dots, x_n) \geq k \|(x_1,\dots x_n)\|^2
-      $$
-      para todo $(x_1,\dots, x_n)\in \mathbb{R}^n$.
+      Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$ y $f:U \to \mathbb{R}$
+      una función de clase $C^2$.
     </p>
     <p>
-      Sugerencia: toma  $k$ como el mínimo de $Q$ sobre
-      la esfera unitaria de $\mathbb{R}^n$.
+      Fija $p_0\in U$ arbitrario y $r>0$ tal que $B_r(p_0)\subset U$.
+    </p>
+    <p>
+      Para
+      toda $h=(h_1,\dots, h_n)$ con $\|h\| < r$, existe un \(0< c < 1 \)
+      tal que 
+      \[
+      f(p_0+h)=f(p_0)+\sum_{i=1}^n \partial_{p_i}f(p_0)h_i +
+      \frac{1}{2}\sum_{i,j=1}^n \partial_{p_i,p_j}^2f(p_0+ c h)h_ih_j
+      \]
+      además también se puede escribir 
+      $$
+      f(p_0+h)=f(p_0)+\sum_{i=1}^n \partial_{p_i}f(p_0)h_i +
+      \frac{1}{2}\sum_{i,j=1}^n \partial_{p_i,p_j}^2f(p_0)h_ih_j
+      +E_{p_0}(h)
+      $$
+      donde $E_{p_0}$ satisface $\lim_{h\to 0} \frac{|E_{p_0}(h)|}{\|h\|^2}=0$.
     </p>
     <button class="respButton hvr-grow "> Demostración</button>
     <div class="resp-box">
     <p>
-      Como \(Q\) es polinomio es una función continua por lo que alcanza su valor mínimo 
-      en la esfera unitaria, es decir si  
+      Fija \(h\) con \(\|h\|< r\) y define \(g:[-1,1]\to \mathbb{R}\) por 
       \[
-      k=\min \{ Q(x_1,\dots, x_n): \|(x_1,\dots , x_n)\|=1\}
-      \] 
-      entonces existe \((z_1,\dots z_n)\) un vector unitario tal que \(Q(z_1,\dots, z_n)=k\). Notamos 
-      que \(k>0\) pues si \(k=0\) entonces \(Q(z_1,\dots, z_n)=0\) pero al ser 
-      \(Q\) positiva definida debe de pasar que \((z_1,\dots, z_n)=0\), una contradiccíon 
-      al ser \((z_1,\dots, z_n)\) unitario.
-      </p>
-      <p>
-      Si \(y\in \mathbb{R}^n\) es distinto de cero entonces \(y/\|y\| \) está en la esfera unitaria 
-      y por lo tanto 
+      g(t)=f(p_0+th)
+      \]
+      Nota que \(g(1)-g(0)=f(p_0+ h)-f(p_0)\). Ahora se aplica el teorema de Taylor 
+      a la función de 1-variable \(g\). Entonces existe un \(0< c < t \) tal que 
       \[
-      Q\left(\frac{1}{\|y\|}y_1,\dots, \frac{1}{\|y\|}y_n\right) \geq k 
-       \]
-       al ser \(Q\) cuadrática 
-       \[
-       Q\left(\frac{1}{\|y\|}y_1,\dots, \frac{1}{\|y\|}y_n\right)=\frac{1}{\|y\|^2} Q(y_1,\dots, y_n)
-       \]
-       por lo tanto 
-       \begin{eqnarray*} 
-       \frac{1}{\|y\|^2} Q(y_1,\dots, y_n)\geq k \Rightarrow Q(y_1,\dots, y_n) \geq k \|y\|^2
-       \end{eqnarray*}
+      g(t)= g(0)+g'(0)t+ \frac{1}{2}g''(c)t^2 
+      \]
+    </p>
+    <p>
+      Ya que \(g(t)=f(\gamma(t))\) con \(\gamma(t)=p_0+th\) tenemos, por la regla de la cadena  
+      \[ 
+      g'(t)=\langle \nabla_{\gamma(t)}f,\gamma'(t)\rangle = \sum_{i=1}^n \partial_{p_i}f(p_0+tu) h_i 
+      \]
+      en particular \(g'(0)=\sum_{i=1}^n \partial_{p_i}f(p_0)h_i\). Además 
+      \begin{eqnarray*}
+      g''(t)&=&\frac{d}{dt}\left( \sum_{i=1}^n \partial_{p_i}f(p_0+th) h_i \right) \\
+        &=& \sum_{i=1}^n \frac{d}{dt}\left( \frac{\partial f(\gamma(t))}{\partial p_i}  \right) h_i\\
+        &=& \sum_{i=1}^n \left\{  \sum_{j=1}^n \frac{\partial}{\partial p_j}\left( \frac{\partial f(\gamma(t))}{\partial p_i}\right)\frac{ d p_j(t)}{dt}   \right\}h_i\\
+        &=& \sum_{i=1}^n \left\{  \sum_{j=1}^n \frac{\partial^2 f(\gamma(t))}{\partial p_j \partial p_i} h_j \right\}h_i\\
+        &=& \sum_{i=1}^n \sum_{j=1}^n \partial^2_{p_jp_j }f(p_0+th )h_jh_i
+      \end{eqnarray*}
+      en particular 
+      \[
+      g''(0)=\sum_{i=1}^n \sum_{j=1}^n \partial^2_{p_jp_j }f(p_0)h_jh_i
+      \]
+    </p>
+    <p>
+      Concuimos 
+      \begin{eqnarray*} 
+      f(p_0+h)-f(p_0)&=&g(1)-g(0) \\
+      &=& g'(0)+ \frac{1}{2}g''(c) \\
+      &=& \sum_{i=1}^n \partial_{p_i}f(p_0)h_i +\frac{1}{2} \sum_{i=1}^n\sum_{j=1}^n \partial^2_{p_j p_j}f(p_0+ch)h_ih_j\\
+      \end{eqnarray*}
+      \[
+      \Rightarrow  f(p_0+h)= f(p_0)+\sum_{i=1}^n \partial_{p_i}f(p_0)h_i +\frac{1}{2} \sum_{i=1}^n\sum_{j=1}^n \partial^2_{p_j p_j}f(p_0+ch)h_ih_j
+      \]
+    </p>
+    <p>
+      Para el error debemos de probar \(\lim_{h\to 0}\frac{\|E_{p_0}(h)\|}{\|h\|^2}=0\) donde 
+      \[
+      E_{p_0}(h)=f(p_0+h)-f(p_0)-\sum_{i=1}^n \partial_{p_i}f(p_0)h_i -\sum_{i,j=1}^n \partial_{p_j, p_i}f(p_0)h_ih_j 
+      \]
+    </p>
+    <p>
+      Por la primera parte 
+      \[
+      f(p_0+h)-f(p_0)-\sum_{i=1}^n \partial_{p_i}f(p_0)h_i= \sum_{i,j=1}^n \partial_{p_j, p_i}f(p_0+ch)h_ih_j 
+      \]
+      por lo que 
+      \begin{eqnarray*} 
+      E_{p_0}(h)&=&\sum_{i,j=1}^n \partial_{p_j p_i}^2f(p_0+ch)h_ih_j-\sum_{i,j=1}^n \partial_{p_jp_i}^2 f(p_0)h_ih_j \\
+      &=& \sum_{i,j=1}^n (\partial_{p_j p_i}^2f(p_0+ch)-\partial_{p_jp_i}^2 f(p_0)) h_ih_j 
+      \end{eqnarray*}
+    </p>
+    <p>
+      Finalemente, usando la desigualdad del triángulo y las desigualdades \(|h_i|\leq \|h\|\) llegamos 
+      \begin{eqnarray*} 
+      \frac{|E_{p_0}(h)|}{\|h\|^2} & \leq  & \sum_{i,j=1}^n |\partial_{p_j p_i}^2f(p_0+ch)-\partial_{p_jp_i}^2 f(p_0)|\frac{ |h_i||h_j| }{\|h\|^2} \\
+      &\leq &\sum_{i,j=1}^n |\partial_{p_j p_i}^2f(p_0+ch)-\partial_{p_jp_i}^2 f(p_0)|
+      \end{eqnarray*}
+    </p>
+    <p>
+      Ya que \(f\) es clase \(C^2\), para toda \(i,j\), \(\lim_{h\to 0} \partial_{p_jp_i}^2f(p_0+ch)=\partial_{p_jp_i}^2f(p_0) \) por lo   que 
+      \begin{eqnarray*} 
+      0\leq \lim_{h\to 0} \frac{|E_{p_0}(h)|}{\|h\|^2}\leq \lim_{h\to 0} \sum_{i,j=1}^n |\partial_{p_j p_i}^2f(p_0+ch)-\partial_{p_jp_i}^2 f(p_0)|=0
+      \end{eqnarray*}
+
     </p>
     </div>
   </div>
   
+  
+   
+  
+      <div class="definicion-box">
+        <h2 class="number-title">  Definición</h2>
+        <p>
+          Sea $f:U  \to \mathbb{R}$,
+          una función diferenciable en el abierto $U\subseteq \mathbb{R}^n$.
+          Decimos
+          que un $p_0\in U$ es un punto crítico
+          o estacionario de $f$ si $\nabla_{p_0}f=0$. Es decir, si todas
+          las derivadas parciales de $f$ se anulan en $p_0$.
+        </p>
+      </div>
+
+
+  
+
+  <div class="ejercicio-box"> 
+    <h2 class="number-title" id="Ejer:MatrizSimetrica"> Ejercicio</h2>
+    <p>
+      Considera la matriz de $n\times n$,
+      $A=[a_{i,j}]$. 
+    </p>
+    <p>
+      Demuestra que $A$ es simétrica
+      si y sólo si $\langle Ax,y \rangle=\langle x,Ay \rangle$, para todos 
+      $x,y \in \mathbb{R}^n$.
+    
+    </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            Empecemos por suponer que $A$ es simétrica, es decir, $A^t=A$,
+            además se sabe que para todo $x,y \in \mathbb{R}^n$ se tiene que
+            $\langle Ax,y \rangle = \langle x,A^ty \rangle$, por lo tanto
+            \begin{equation*}
+            \langle Ax,y \rangle = \langle x,A^t y \rangle = \langle x,Ay \rangle.
+            \end{equation*}
+        </p>
+        <p>
+            Supongamos ahora que se satisface la identidad descrita anteriormente.
+            Empecemos por notar que la entrada $a_{ij}$ de la matriz $A$ se puede
+            obtener como
+            \begin{equation*}
+            a_{ij} = \langle Ae_j,e_i \rangle,
+            \end{equation*}
+            donde $e_i,e_j$ son vectores canónicos. De esta manera
+            \begin{equation*}
+            a_{ij}=\langle Ae_j,e_i \rangle = \langle e_j,Ae_i \rangle = a_{ji},
+            \end{equation*}
+            para cada $1\leq i,j \leq n$, por lo que $A$ es una matriz simétrica.
+        </p>
+    </div>
+  </div>
+  
+
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Este ejercicio da la razón del nombre de forma cuadrática.
+    </p>
+    <p>
+      Demuestra que si $Q$ es una forma cuadrática entonces, para toda
+      $\lambda\in \mathbb{R}$
+      $$
+      Q(\lambda x_1,\dots, \lambda x_n)=\lambda^2Q(x_1,\dots x_n)
+      $$
+    </p>
+    <!-- <button class="respButton hvr-grow "> Solución </button>
+    <div class="resp-box">
+    <p>
+      \begin{eqnarray*} 
+      Q(\lambda x_1,\dots, \lambda x_n)&=&\sum_{i,j=1}^n (\lambda x_i)(\lambda x_j) \\
+      &=& \sum_{i,j=1}^n \lambda ^2(x_ix_j) \\
+      &=& \lambda^2Q(x_1,\dots, x_n)
+      \end{eqnarray*}
+    </p>
+    </div>-->
+  </div>
+  
+  
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Considera la forma cuadrática
+      $$
+      Q(x_1,\dots, x_n)=\sum_{i,j=1}^n a_{i,j}x_ix_j
+      $$
+    
+       Si \(p=(x_1,\dots, x_n)\) demuestra,
+      $$
+      \nabla_p Q\cdot p=
+      2Q(x_1,\dots, x_n) 
+      $$
+    </p>
+   </div>
+
+
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Considera $D$, una matriz diagonal, cuyas entradas en la diagonalc son
+      $\lambda_1,\dots, \lambda_n$.  
+    </p>
+    <p>
+      Demuestra que $D$ es definitivamente
+      positiva si y sólo si $\lambda_i >0$, para toda $i$.
+    </p>
+    <p>
+      Demuestra que $D$ es definitivamente
+      negativa si y sólo si $\lambda_i < 0$, para toda $i$.
+    </p>
+    <!-- <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+
+    <p>
+      Primero notamos que si \(D\) es una matriz diagonal entonces su forma cuadrática se ve 
+      \begin{eqnarray*} 
+      Q(x_1,\dots, x_n)&=&\sum_{i,j=1}^n D[i,j]x_ix_j \\
+      &=& \sum_{i=1}^n \lambda_i x_i^2
+      \end{eqnarray*}
+      pues \(D[i,j]= 0\) para todos  \(i,j\) con \(i\ne j\) y \(D[i,i]=\lambda_i\).
+    </p>
+    <p>
+      Ahora, si \(\lambda_j >0\) para toda \(j\) se sigue que \(Q(x_1,\dots, x_n) \geq 0\) 
+      para todos \(x_1,\dots, x_n\) y si \(Q(x_1,\dots, x_n)=\sum_{i=1}^n \lambda_i x_i^2=0\)
+      entonces \(x_1=\dots=x_n=0\). Por lo tanto \(D\) se positiva definida. 
+    </p>
+    <p>
+      Si \(\lambda_j< 0 \) para toda \(j\) se prueba de manera similar que \(-D\) es definitivamente 
+      positiva por lo que \(D\) es negativa definida.
+    </p>
+    </div>-->
+    </div>
+
+
+
+    
+  
+    
+  
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Da un ejemplo de una matriz de $2\times 2$ que no es
+      ni negativa definida ni positiva definida.
+    </p>
+    <p>
+      Sugerencia: busca entre las matrices triangulares superiores.
+    </p>
+      </div>
+
+  
+      <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Demuestra que si las matrices cuadradas $A$ y $B$ son
+      positiva definidas y $a>0$, entonces la matriz
+      $aA+B$ también es positiva definida.
+    </p>
+    <!-- <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            Si $x \in \mathbb{R}^n$ entonces
+            \begin{equation*}
+            \langle(aA+B)x, x\rangle = a\langle Ax,x \rangle + \langle Bx,x \rangle,
+            \end{equation*}
+            y la expresión del lado derecho siempre es no negativa pues $a>0$ y cada
+            una de las matrices es positiva definida. De aquí también se deduce que
+            si $\langle (aA+B)x,x \rangle =0$ para algún $x \in \mathbb{R}^n$ entonces
+            $\langle Ax,x \rangle = \langle Bx,x \rangle = 0$ y por lo tanto
+            $x = 0$.
+        </p>
+    </div>-->
+  </div>
+
+
     
     
   <div class="ejercicio-box"> 
@@ -756,30 +988,6 @@
 
     
     
-  
-  
-    <div class="definicion-box">
-      <h2 class="number-title">  Definición</h2>
-      <p>
-        Sea $f:U \to \mathbb{R}$ una función clase $C^2$, definida
-        en un abierto $U$ de $\mathbb{R}^n$. El Hessiano de $f$,
-        en el punto $p_0\in U$, denotado $H_{p_0}f$, es la
-        función cuadrática en $n$ variables definida por
-        $$
-        H_{p_0}f(x_1,\dots, x_n)=\frac{1}{2}\sum_{i,j=1}^n
-        \partial^2_{i,j}f(p_0) x_ix_j
-        $$
-        Es decir, es la forma cuadrática asociada
-        a la matriz de segundas derivadas parciales, multiplicada
-        por un factor de $1/2$, es decir 
-        $A=(1/2)[\partial_{i,j}^2f(p_0)]_{i,j=1}^n$, evaluadas en $p_0$.
-      </p>
-      <p>
-        La matriz Hessiana de \(f\), en \(p_0\), se define como la matriz 
-        \([\partial_{i,j}f(p_0)]_{i,j}\). 
-      </p>
-    </div>
-  
   
   <div class="ejercicio-box"> 
     <h2 class="number-title"> Ejercicio</h2> 
@@ -905,110 +1113,6 @@
     </ol>
     </div>
 
-    
-  <div class="teorema-box">
-    <h2 class="number-title" id="Teo:TaylorGrado2"> Teorema </h2>
-    <h3> Teorma de Taylor (de segundo grado)</h3>
-    <p>
-      Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$ y $f:U \to \mathbb{R}$
-      una función de clase $C^2$.
-    </p>
-    <p>
-      Fija $p_0\in U$ arbitrario y $r>0$ tal que $B_r(p_0)\subset U$.
-    </p>
-    <p>
-      Para
-      toda $h=(h_1,\dots, h_n)$ con $\|h\| < r$, existe un \(0< c < 1 \)
-      tal que 
-      \[
-      f(p_0+h)=f(p_0)+\sum_{i=1}^n \partial_{p_i}f(p_0)h_i +
-      \frac{1}{2}\sum_{i,j=1}^n \partial_{p_i,p_j}^2f(p_0+ c h)h_ih_j
-      \]
-      además también se puede escribir 
-      $$
-      f(p_0+h)=f(p_0)+\sum_{i=1}^n \partial_{p_i}f(p_0)h_i +
-      \frac{1}{2}\sum_{i,j=1}^n \partial_{p_i,p_j}^2f(p_0)h_ih_j
-      +E_{p_0}(h)
-      $$
-      donde $E_{p_0}$ satisface $\lim_{h\to 0} \frac{|E_{p_0}(h)|}{\|h\|^2}=0$.
-    </p>
-    <button class="respButton hvr-grow "> Demostración</button>
-    <div class="resp-box">
-    <p>
-      Fija \(h\) con \(\|h\|< r\) y define \(g:[-1,1]\to \mathbb{R}\) por 
-      \[
-      g(t)=f(p_0+th)
-      \]
-      Nota que \(g(1)-g(0)=f(p_0+ h)-f(p_0)\). Ahora se aplica el teorema de Taylor 
-      a la función de 1-variable \(g\). Entonces existe un \(0< c < t \) tal que 
-      \[
-      g(t)= g(0)+g'(0)t+ \frac{1}{2}g''(c)t^2 
-      \]
-    </p>
-    <p>
-      Ya que \(g(t)=f(\gamma(t))\) con \(\gamma(t)=p_0+th\) tenemos, por la regla de la cadena  
-      \[ 
-      g'(t)=\langle \nabla_{\gamma(t)}f,\gamma'(t)\rangle = \sum_{i=1}^n \partial_{p_i}f(p_0+tu) h_i 
-      \]
-      en particular \(g'(0)=\sum_{i=1}^n \partial_{p_i}f(p_0)h_i\). Además 
-      \begin{eqnarray*}
-      g''(t)&=&\frac{d}{dt}\left( \sum_{i=1}^n \partial_{p_i}f(p_0+th) h_i \right) \\
-        &=& \sum_{i=1}^n \frac{d}{dt}\left( \frac{\partial f(\gamma(t))}{\partial p_i}  \right) h_i\\
-        &=& \sum_{i=1}^n \left\{  \sum_{j=1}^n \frac{\partial}{\partial p_j}\left( \frac{\partial f(\gamma(t))}{\partial p_i}\right)\frac{ d p_j(t)}{dt}   \right\}h_i\\
-        &=& \sum_{i=1}^n \left\{  \sum_{j=1}^n \frac{\partial^2 f(\gamma(t))}{\partial p_j \partial p_i} h_j \right\}h_i\\
-        &=& \sum_{i=1}^n \sum_{j=1}^n \partial^2_{p_jp_j }f(p_0+th )h_jh_i
-      \end{eqnarray*}
-      en particular 
-      \[
-      g''(0)=\sum_{i=1}^n \sum_{j=1}^n \partial^2_{p_jp_j }f(p_0)h_jh_i
-      \]
-    </p>
-    <p>
-      Concuimos 
-      \begin{eqnarray*} 
-      f(p_0+h)-f(p_0)&=&g(1)-g(0) \\
-      &=& g'(0)+ \frac{1}{2}g''(c) \\
-      &=& \sum_{i=1}^n \partial_{p_i}f(p_0)h_i +\frac{1}{2} \sum_{i=1}^n\sum_{j=1}^n \partial^2_{p_j p_j}f(p_0+ch)h_ih_j\\
-      \end{eqnarray*}
-      \[
-      \Rightarrow  f(p_0+h)= f(p_0)+\sum_{i=1}^n \partial_{p_i}f(p_0)h_i +\frac{1}{2} \sum_{i=1}^n\sum_{j=1}^n \partial^2_{p_j p_j}f(p_0+ch)h_ih_j
-      \]
-    </p>
-    <p>
-      Para el error debemos de probar \(\lim_{h\to 0}\frac{\|E_{p_0}(h)\|}{\|h\|^2}=0\) donde 
-      \[
-      E_{p_0}(h)=f(p_0+h)-f(p_0)-\sum_{i=1}^n \partial_{p_i}f(p_0)h_i -\sum_{i,j=1}^n \partial_{p_j, p_i}f(p_0)h_ih_j 
-      \]
-    </p>
-    <p>
-      Por la primera parte 
-      \[
-      f(p_0+h)-f(p_0)-\sum_{i=1}^n \partial_{p_i}f(p_0)h_i= \sum_{i,j=1}^n \partial_{p_j, p_i}f(p_0+ch)h_ih_j 
-      \]
-      por lo que 
-      \begin{eqnarray*} 
-      E_{p_0}(h)&=&\sum_{i,j=1}^n \partial_{p_j p_i}^2f(p_0+ch)h_ih_j-\sum_{i,j=1}^n \partial_{p_jp_i}^2 f(p_0)h_ih_j \\
-      &=& \sum_{i,j=1}^n (\partial_{p_j p_i}^2f(p_0+ch)-\partial_{p_jp_i}^2 f(p_0)) h_ih_j 
-      \end{eqnarray*}
-    </p>
-    <p>
-      Finalemente, usando la desigualdad del triángulo y las desigualdades \(|h_i|\leq \|h\|\) llegamos 
-      \begin{eqnarray*} 
-      \frac{|E_{p_0}(h)|}{\|h\|^2} & \leq  & \sum_{i,j=1}^n |\partial_{p_j p_i}^2f(p_0+ch)-\partial_{p_jp_i}^2 f(p_0)|\frac{ |h_i||h_j| }{\|h\|^2} \\
-      &\leq &\sum_{i,j=1}^n |\partial_{p_j p_i}^2f(p_0+ch)-\partial_{p_jp_i}^2 f(p_0)|
-      \end{eqnarray*}
-    </p>
-    <p>
-      Ya que \(f\) es clase \(C^2\), para toda \(i,j\), \(\lim_{h\to 0} \partial_{p_jp_i}^2f(p_0+ch)=\partial_{p_jp_i}^2f(p_0) \) por lo   que 
-      \begin{eqnarray*} 
-      0\leq \lim_{h\to 0} \frac{|E_{p_0}(h)|}{\|h\|^2}\leq \lim_{h\to 0} \sum_{i,j=1}^n |\partial_{p_j p_i}^2f(p_0+ch)-\partial_{p_jp_i}^2 f(p_0)|=0
-      \end{eqnarray*}
-
-    </p>
-    </div>
-  </div>
-  
-  
     <div class="ejercicio-box"> 
       <h2 class="number-title"> Ejercicio</h2> 
       <p>
@@ -1028,18 +1132,6 @@
       </ol>
     </div>
 
-  
-      <div class="definicion-box">
-        <h2 class="number-title">  Definición</h2>
-        <p>
-          Sea $f:U  \to \mathbb{R}$,
-          una función diferenciable en el abierto $U\subseteq \mathbb{R}^n$.
-          Decimos
-          que un $p_0\in U$ es un punto crítico
-          o estacionario de $f$ si $\nabla_{p_0}f=0$. Es decir, si todas
-          las derivadas parciales de $f$ se anulan en $p_0$.
-        </p>
-      </div>
       
       
     <div class="ejercicio-box"> 
@@ -1175,7 +1267,7 @@
         Después calcula el Hessiano en dichos puntos y determina si es
         positivo definido, definitivamente negativo o ninguno.
       </p>
-      <button class="respButton hvr-grow "> Solución</button>
+      <!-- <button class="respButton hvr-grow "> Solución</button>
       <div class="resp-box">
           <p>
               Podemos observar que $f$ es una forma cuadrática y por lo
@@ -1211,7 +1303,7 @@
               éstos son estrictamente positivos entonces concluimos que el
               Hessiano es positivo definido.
           </p>
-      </div>
+      </div>-->
     </div>
 
 
