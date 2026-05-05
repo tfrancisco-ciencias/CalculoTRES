@@ -164,67 +164,6 @@
 
 
     
-  <div class="info-box"> 
-    <h2 class="number-title"> Ejemplo</h2> 
-    <p>
-      Encuentra $c>0$ tal que la función $f(x,y)=x^2+xy+cy^2$ tiene un
-      punto silla en $(0,0)$.
-    </p>
-    <button class="respButton hvr-grow "> Solución</button>
-    <div class="resp-box">
-        <p>
-            $f$ es una forma cuadrática, por lo que coincide con su Hessiano
-            y de esta manera afirmamos que su matriz Hessiana es
-            \begin{equation*}
-            H=
-            \begin{pmatrix}
-            2 & 1\\
-            1 & 2c
-            \end{pmatrix}.
-            \end{equation*}
-            Si $H$ es positiva definida entonces $(0,0)$ es un mínimo local,
-            si es negativa entonces es un máximo local, entonces tenemos que
-            encontrar para qué valores de $c$ la matriz tiene un valor propio
-            positivo y otro negativo.
-        </p>
-        <p>
-            \begin{align*}
-            det H = (2-\lambda)(2c-\lambda)-1,\\
-            =& \lambda^2 + \lambda(-2 - 2c) + (4c-1),
-            \end{align*}
-            tiene soluciones $\lambda = 1+c \pm \sqrt{c^2 - 2c + 2}$, claramente
-            en el caso de la suma $\lambda$ es estrictamente positivo, por lo que
-            para que el segundo valor propio sea negativo es necesario que
-            \begin{equation*}
-            1 + c < \sqrt{c^2 - 2c + 2},
-            \end{equation*}
-            lo cual es equivalente a que $(1+c)^2 < c^2 -2c + 2$, dado que el
-            término cuadrático aparece en ambos lados de la desigualdad se puede
-            cancelar y basta despejar a $c$ para obtener que $0< c < 1/4$.
-        </p>
-        <p>
-            Ahora buscamos una dirección en la que siempre podamos encontrar vectores
-            $(x,y)$ de norma arbitrariamente pequeña tales que $f(x,y)< 0$, proponemos
-            $y=-mx$ para alguna $m>0$ y sustituimos en $f$:
-            \begin{equation*}
-            f(x,y) = x^2 - x(mx) +(0.2)(-mx)^2 = x^2 - mx^2 + 0.2m^2x^2 < 0,
-            \end{equation*}
-            como $x^2 > 0$ si $x \neq 0$ entonces podemos cancelarlo para obtener
-            un polinomio de grado 2 en $m$
-            \begin{equation*}
-            0.2m^2 - m + 1,
-            \end{equation*}
-            éste corresponde a una parábola que abre hacia arriba por lo que el conjunto
-            de valores para los cuales $f$ es negativo será vacío, un punto, o un intervalo.
-            Aplicamos la fórmula para encontrar ceros de polinomios de grado 2 para obtener
-            que $m = \frac{1 \pm \sqrt{0.2}}{2}$, por lo que al considerar $m \in
-            (\frac{1 - \sqrt{0.2}}{2},\frac{1 + \sqrt{0.2}}{2})$ se asegura que $f(x,-mx)< 0$
-            y por lo tanto $(0,0)$ es un punto silla.
-        </p>
-
-    </div>
-  </div>
-
     
 
     <div class="prop-box"> 
@@ -413,6 +352,70 @@
         </div>
         </div>
 
+
+
+        <div class="info-box"> 
+    <h2 class="number-title"> Ejemplo</h2> 
+    <p>
+      Encuentra $c>0$ tal que la función $f(x,y)=x^2+xy+cy^2$ tiene un
+      punto silla en $(0,0)$.
+    </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            $f$ es una forma cuadrática, por lo que coincide con su Hessiano
+            y de esta manera afirmamos que su matriz Hessiana es
+            \begin{equation*}
+            H=
+            \begin{pmatrix}
+            2 & 1\\
+            1 & 2c
+            \end{pmatrix}.
+            \end{equation*}
+            Si $H$ es positiva definida entonces $(0,0)$ es un mínimo local,
+            si es negativa entonces es un máximo local, entonces tenemos que
+            encontrar para qué valores de $c$ la matriz tiene un valor propio
+            positivo y otro negativo.
+        </p>
+        <p>
+            \begin{align*}
+            det H = (2-\lambda)(2c-\lambda)-1,\\
+            =& \lambda^2 + \lambda(-2 - 2c) + (4c-1),
+            \end{align*}
+            tiene soluciones $\lambda = 1+c \pm \sqrt{c^2 - 2c + 2}$, claramente
+            en el caso de la suma $\lambda$ es estrictamente positivo, por lo que
+            para que el segundo valor propio sea negativo es necesario que
+            \begin{equation*}
+            1 + c < \sqrt{c^2 - 2c + 2},
+            \end{equation*}
+            lo cual es equivalente a que $(1+c)^2 < c^2 -2c + 2$, dado que el
+            término cuadrático aparece en ambos lados de la desigualdad se puede
+            cancelar y basta despejar a $c$ para obtener que $0< c < 1/4$.
+        </p>
+        <p>
+            Ahora buscamos una dirección en la que siempre podamos encontrar vectores
+            $(x,y)$ de norma arbitrariamente pequeña tales que $f(x,y)< 0$, proponemos
+            $y=-mx$ para alguna $m>0$ y sustituimos en $f$:
+            \begin{equation*}
+            f(x,y) = x^2 - x(mx) +(0.2)(-mx)^2 = x^2 - mx^2 + 0.2m^2x^2 < 0,
+            \end{equation*}
+            como $x^2 > 0$ si $x \neq 0$ entonces podemos cancelarlo para obtener
+            un polinomio de grado 2 en $m$
+            \begin{equation*}
+            0.2m^2 - m + 1,
+            \end{equation*}
+            éste corresponde a una parábola que abre hacia arriba por lo que el conjunto
+            de valores para los cuales $f$ es negativo será vacío, un punto, o un intervalo.
+            Aplicamos la fórmula para encontrar ceros de polinomios de grado 2 para obtener
+            que $m = \frac{1 \pm \sqrt{0.2}}{2}$, por lo que al considerar $m \in
+            (\frac{1 - \sqrt{0.2}}{2},\frac{1 + \sqrt{0.2}}{2})$ se asegura que $f(x,-mx)< 0$
+            y por lo tanto $(0,0)$ es un punto silla.
+        </p>
+
+    </div>
+  </div>
+
+  
 
       <div class="info-box"> 
         <h2 class="number-title"> Ejemplo</h2> 
