@@ -1,0 +1,1191 @@
+<!DOCTYPE html PUBLIC >
+
+<html lang="es">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
+
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1],
+            id: "\\operatorname{id}",
+            senh:"\\operatorname{senh}"
+          },
+          tags: "ams", /* this part is for numbered equations */
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+      };
+    </script>
+
+    <!-- This part is for using single $ for latex input, instead of \(\) -->
+    <!--<script>
+        MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>-->
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../style.css" />
+
+    <!-- This part restart counter of cards to start at n+1 -->
+    <style>
+        body.number-title{
+          counter-reset: sectionCounter 11 cardCounter ;
+        }
+        h1.number-title{
+          counter-reset: sectionCounter 11 cardCounter ;
+        }
+      </style>
+  
+    <!-- Top Menu  -->
+
+
+        <header class="main-header">
+          <h1> Cálculo TRES </h1>
+         <nav class="top-nav">
+           <ul>
+              <li> <a href="../Home.html"> Inicio  </a> </li>
+              <li> <a href="../InfoPrimerDia.html"> Información general </a> </li>
+              <li> <a href="../Secciones.html"> Secciones  </a> </li>
+              <li> <a href="../ExternalLinks.html"> Links </a> </li>
+              
+            </ul>
+          </nav>
+          <label class="switch">
+            <input type="checkbox" onclick="myFunction()">
+            <span class="slider"></span>
+          </label>
+        </header>
+
+      <!-- This part is for title in tab-->
+      <title id="Sec"> § 12 </title>
+    
+  </head>
+  <body class="fondo-body" >
+
+    <h1 class="number-title flexbox"> Puntos extremos  </h1> 
+<button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>
+<button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
+
+    <div class="definicion-box">
+      <h2 class="number-title">  Definición</h2>
+      <p>
+        Sea $U\ne \emptyset$ un abierto en $\mathbb{R}^n$,
+        $f:U\to \mathbb{R}$ una función y $p_0\in U$.
+  
+      </p>
+      
+      <ol>
+        <li>
+            Decimos que $p_0$ es un mínimo local para
+            $f$ si existe $r>0$ tal que, para toda $p\in B_r(p_0)$
+            $$
+            f(p_0) \leq f(p)
+            $$
+            <!--<p>
+              Por ejemplo $f(x,y)=x^2+y^2+1$ 
+              tiene  un mínimo local en $p_0=(0,0)$.
+            </p>-->
+            <p>
+
+            </p>
+            <div class="flexbox" >
+              <img src="./Images/S15-Img2.png" alt="MinRel" width="40%" height="auto" >
+            </div>
+            <p>
+              
+            </p>
+        </li>
+        <li>
+            Decimos que $p_0$ es un máximo local para
+            $f$ si existe $r>0$ tal que, para toda $p\in B_r(p_0)$
+            $$
+            f(p) \leq f(p_0)
+            $$
+            <!--<p>
+              Por ejemplo $f(x,y)=2-(x-1)^2-y^2$ 
+              es un máximo local en $p_0=(1,0)$.
+            </p>-->
+            <p>
+
+            </p>
+            <div class="flexbox" >
+              <img src="./Images/S15-Img1.png" alt="MaxRel" width="40%" height="auto" >
+            </div>
+            <p>
+              
+            </p>
+        </li>
+        <li>
+            Decimos que $p_0$ es un punto silla  para
+            $f$ si para todo  $r>0$, tal que $B_r(p_0) \subset U$,
+            existen puntos $p\in B_r(p_0)$ para los cuales
+            $f(p) < f(p_0)$ y existen otros puntos $q\in B_r(p_0)$
+            para los cuales $f(p_0) < f(p)$.
+            <!--<p>
+              Por ejemplo la función $f(x,y)=xy$ tiene un punto silla en  $p_0=(0,0)$.
+            </p>-->
+            <p>
+
+            </p>
+            <div class="flexbox" >
+              <img src="./Images/S15-Img3.png" alt="PtoSilla" width="40%" height="auto" >
+            </div>
+        </li>
+      </ol>
+
+      <p>
+        Nota: Si $p_0$ es un máximo o mínimo local
+        para $f$, se dice que $p_0$ es un punto extremo de $f$.
+      </p>
+       
+    </div>
+
+    
+
+
+    
+  <div class="info-box"> 
+    <h2 class="number-title"> Ejemplo</h2> 
+    <p>
+      Encuentra $c>0$ tal que la función $f(x,y)=x^2+xy+cy^2$ tiene un
+      punto silla en $(0,0)$.
+    </p>
+    <button class="respButton hvr-grow "> Solución</button>
+    <div class="resp-box">
+        <p>
+            $f$ es una forma cuadrática, por lo que coincide con su Hessiano
+            y de esta manera afirmamos que su matriz Hessiana es
+            \begin{equation*}
+            H=
+            \begin{pmatrix}
+            2 & 1\\
+            1 & 2c
+            \end{pmatrix}.
+            \end{equation*}
+            Si $H$ es positiva definida entonces $(0,0)$ es un mínimo local,
+            si es negativa entonces es un máximo local, entonces tenemos que
+            encontrar para qué valores de $c$ la matriz tiene un valor propio
+            positivo y otro negativo.
+        </p>
+        <p>
+            \begin{align*}
+            det H = (2-\lambda)(2c-\lambda)-1,\\
+            =& \lambda^2 + \lambda(-2 - 2c) + (4c-1),
+            \end{align*}
+            tiene soluciones $\lambda = 1+c \pm \sqrt{c^2 - 2c + 2}$, claramente
+            en el caso de la suma $\lambda$ es estrictamente positivo, por lo que
+            para que el segundo valor propio sea negativo es necesario que
+            \begin{equation*}
+            1 + c < \sqrt{c^2 - 2c + 2},
+            \end{equation*}
+            lo cual es equivalente a que $(1+c)^2 < c^2 -2c + 2$, dado que el
+            término cuadrático aparece en ambos lados de la desigualdad se puede
+            cancelar y basta despejar a $c$ para obtener que $0< c < 1/4$.
+        </p>
+        <p>
+            Ahora buscamos una dirección en la que siempre podamos encontrar vectores
+            $(x,y)$ de norma arbitrariamente pequeña tales que $f(x,y)< 0$, proponemos
+            $y=-mx$ para alguna $m>0$ y sustituimos en $f$:
+            \begin{equation*}
+            f(x,y) = x^2 - x(mx) +(0.2)(-mx)^2 = x^2 - mx^2 + 0.2m^2x^2 < 0,
+            \end{equation*}
+            como $x^2 > 0$ si $x \neq 0$ entonces podemos cancelarlo para obtener
+            un polinomio de grado 2 en $m$
+            \begin{equation*}
+            0.2m^2 - m + 1,
+            \end{equation*}
+            éste corresponde a una parábola que abre hacia arriba por lo que el conjunto
+            de valores para los cuales $f$ es negativo será vacío, un punto, o un intervalo.
+            Aplicamos la fórmula para encontrar ceros de polinomios de grado 2 para obtener
+            que $m = \frac{1 \pm \sqrt{0.2}}{2}$, por lo que al considerar $m \in
+            (\frac{1 - \sqrt{0.2}}{2},\frac{1 + \sqrt{0.2}}{2})$ se asegura que $f(x,-mx)< 0$
+            y por lo tanto $(0,0)$ es un punto silla.
+        </p>
+
+    </div>
+  </div>
+
+    
+
+    <div class="prop-box"> 
+      <h2 class="number-title" id="Ejer:GradienteNuloPuntoExtremo"> Proposición </h2>
+      <p>
+        Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$,
+        $f:U\to \mathbb{R}$ y $p_0\in U$.
+      </p>
+      <ol>
+        <li>
+            Demuestra que si
+            $p_0$ es un punto extremo de $f$ y $f_0$ es diferenciable
+            en $p_0$, entonces $\nabla_{p_0}f=0$, es decir, todas
+            las derivadas parciales de $f$ es anulan en $p_0$.
+        </li>
+        <li>
+            Da un ejemplo de una $f$ y un $p_0$, tal que
+            $f$ tenga un punto extremo en $p_0$, pero $f$
+            no sea diferenciable en $p_0$
+        </li>
+      </ol>
+      <button class="respButton hvr-grow "> Demostración inciso 1</button>
+        <div class="resp-box">
+      <p>
+        Sin pérdida de generalidad supongamos que \(p_0\) es un máximo local para \(f\). 
+      </p>
+      <p>
+        Fijamos un vector \(u\in \mathbb{R}^n\) con \(\|u\|=1\), definimos la curva 
+        \(\gamma(t)=p_0+tu\) y la función 1-dimensional \(g(t)=f(\gamma(t))\). Nota que 
+        \(g\) es diferenciable (por la regla de la cadena). 
+      </p>
+      <p>
+        Ya que  \(f\) tiene un máximo local en \(p_0\) se sigue que \(g\) tiene un máximo local en 
+        \(t=0\). De cálculo 1 se sigue que \(g'(0)=0\) y por la regla de la cadena lo anterior se puede 
+        escribir como 
+        \[
+        0=g'(0)=\langle \nabla_{p_0}f, \gamma'(0)\rangle= \langle \nabla_{p_0}f, u \rangle 
+        \]
+        Ahora, ya que el vector \(u\) es un vector unitario arbitrario la igualdad anterior implica que 
+        \(\nabla_{p_0}f=0\).
+      </p>
+      </div>
+
+
+      <button class="respButton hvr-grow "> Demostración inciso 2</button>
+      <div class="resp-box">
+      <p>
+        Considermos la función \(f(x,y)=\sqrt{x^2+y^2}\). La gráfica de la función es un cono con vértice 
+        en el origen. Al intentar calcular la derivada parcial con respecto a \(x\) en \((0,0)\) llegamos 
+        \[
+        \lim_{h\to 0}\frac{f(h,0)-f(0,0)}{h}=\lim_{h\to 0} \frac{\sqrt{h^2}}{h}=\lim_{h\to 0}\frac{|h|}{h}
+        \]
+        y dicho límite no existe.
+      </p>
+      <p>
+        Sin embargo \((0,0)\) es un mínimo local.
+      </p>
+      </div>
+      </div>
+
+
+      <div class="prop-box"> 
+    <h2 class="number-title" id="Ejer:LemaCriterioHessiano"> Proposición </h2>
+    <p>
+      Sea $Q$ una forma cuadrática definitivamente
+      positiva. Demuestra que existe una constante $k>0$ tal que
+      $$
+      Q(x_1,\dots, x_n) \geq k \|(x_1,\dots x_n)\|^2
+      $$
+      para todo $(x_1,\dots, x_n)\in \mathbb{R}^n$.
+    </p>
+    <p>
+      Sugerencia: toma  $k$ como el mínimo de $Q$ sobre
+      la esfera unitaria de $\mathbb{R}^n$.
+    </p>
+    <button class="respButton hvr-grow "> Demostración</button>
+    <div class="resp-box">
+    <p>
+      Como \(Q\) es polinomio es una función continua por lo que alcanza su valor mínimo 
+      en la esfera unitaria, es decir si  
+      \[
+      k=\min \{ Q(x_1,\dots, x_n): \|(x_1,\dots , x_n)\|=1\}
+      \] 
+      entonces existe \((z_1,\dots z_n)\) un vector unitario tal que \(Q(z_1,\dots, z_n)=k\). Notamos 
+      que \(k>0\) pues si \(k=0\) entonces \(Q(z_1,\dots, z_n)=0\) pero al ser 
+      \(Q\) positiva definida debe de pasar que \((z_1,\dots, z_n)=0\), una contradiccíon 
+      al ser \((z_1,\dots, z_n)\) unitario.
+      </p>
+      <p>
+      Si \(y\in \mathbb{R}^n\) es distinto de cero entonces \(y/\|y\| \) está en la esfera unitaria 
+      y por lo tanto 
+      \[
+      Q\left(\frac{1}{\|y\|}y_1,\dots, \frac{1}{\|y\|}y_n\right) \geq k 
+       \]
+       al ser \(Q\) cuadrática 
+       \[
+       Q\left(\frac{1}{\|y\|}y_1,\dots, \frac{1}{\|y\|}y_n\right)=\frac{1}{\|y\|^2} Q(y_1,\dots, y_n)
+       \]
+       por lo tanto 
+       \begin{eqnarray*} 
+       \frac{1}{\|y\|^2} Q(y_1,\dots, y_n)\geq k \Rightarrow Q(y_1,\dots, y_n) \geq k \|y\|^2
+       \end{eqnarray*}
+    </p>
+    </div>
+  </div>
+  
+
+      <div class="teorema-box" id="Ejer:CriterioHessiano"> 
+        <h2 class="number-title"> Teorema </h2>
+        <p>
+          Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^n$ y
+          $f:U\to \mathbb{R}$ una función de clase $C^1$ en $U$
+          y $p_0\in U$ un punto crítico de $f$.
+        </p>
+        
+
+        <ol>
+            <li>
+                Demuestra que si $H_{p_0}f$ es positivo definido
+                 entonces $p_0$ es un mínimo local
+                para $f$.
+            </li>
+            <li>
+                Demuestra que si $H_{p_0}f$ es negativo definido
+                 entonces $p_0$ es un máximo local para $f$.
+            </li>
+        </ol>
+        
+        <button class="respButton hvr-grow "> Demostración</button>
+        <div class="resp-box">
+        <p>
+          Supongamos que \(H_{p_0}f\) es positivo definido. Debemos de probar que 
+          \(f(p)\geq f(p_0)\) para \(p\) en una bola abierta centrada en \(p_0\).
+        </p>
+        <p>
+          Por la  <a href="./S11.html#Teo:TaylorGrado2">Teorema de Taylor </a> existe una  bola 
+          \(B_r(p_0)\) tal que 
+          \[
+          f(p_0+h)=f(p_0)+\sum_{i=1}^n \partial_{p_i}f(p_0)h_i +
+          \frac{1}{2}\sum_{i,j=1}^n \partial_{p_i,p_j}^2f(p_0)h_ih_j
+          +E_{p_0}(h)
+          \]
+          para \(\|h\|< r\) y \(\lim_{h\to 0}\frac{|E_{p_0}(h)|}{\|h\|^2} =0\). 
+        </p>
+        <p>
+          Pero \(p_0\) es un punto crítico, por lo que \(\partial_{p_i}f(p_0)=0\) para toda \(i\) por lo 
+          que la ecuación anterior se reduce a 
+          \begin{eqnarray*}
+          f(p_0+h)&=&f(p_0)+
+          \frac{1}{2}\sum_{i,j=1}^n \partial_{p_i,p_j}^2f(p_0)h_ih_j
+          +E_{p_0}(h) 
+          \end{eqnarray*}
+        </p>
+        <p>
+          Además al ser \(H_{p_0}f\) positiva definida 
+          por la <a href="#Ejer:LemaCriterioHessiano"> Proposición 15.4</a> 
+          existe un \(k>0\) tal que para toda \(h=(h_1,\dots, h_n)\)
+          \[
+          \frac{1}{2}\sum_{i,j=1}^n \partial_{p_i,p_j}^2f(p_0)h_ih_j \geq k \|h\|^2
+          \]
+        </p>
+        <p>
+        Además ya que  \(\lim_{h\to 0}\frac{|E_{p_0}(h)|}{\|h\|^2} =0\) existe un \(\delta >0\) tal que 
+        se cumple que 
+        \begin{eqnarray*}
+        \frac{|E_{p_0}(h)|}{\|h\|^2} < \frac{k}{2} & \Rightarrow  & \frac{E_{p_0}(h)}{\|h\|^2}> -\frac{k}{2} \\
+        &\Rightarrow &E_{p_0}(h) \geq -\frac{k}{2}\|h\|^2
+        \end{eqnarray*}
+        siempre que  \(\|h\|< \delta\).
+        </p>
+        <p>
+          Por lo tanto para todo \(h\) con \(0< \|h\|< \delta\) se sigue que 
+          \begin{eqnarray*} 
+          f(p_0+h)&=&f(p_0)+\frac{1}{2}\sum_{i,j=1}^n \partial_{p_i,p_j}^2f(p_0)h_ih_j+E_{p_0}(h) \\
+          &\geq & f(p_0)+ k\|h\|^2-\frac{k}{2}\|h\|^2 \\
+          &=& f(p_0)+\frac{k}{2}\|h\|^2
+          \end{eqnarray*}
+        </p>
+        <p>
+          Concluimos que para todo \(0<\|h\| < \delta \)
+          \[
+          f(p_0+h)-f(p_0) \geq k\|h\|^2 > 0 \Rightarrow f(p_0+h) > f(p_0)
+          \]
+          por lo que \(p_0\) es un mínimo relativo. 
+        </p>
+        </div>
+        </div>
+
+
+      <div class="info-box"> 
+        <h2 class="number-title"> Ejemplo</h2> 
+        <p>
+          Considera la función $f(x,y)=x^2+y^4$. Demuestra
+          que $f$ tiene un mínimo en $p_0=(0,0)$ y sin embargo
+          $H_{p_0}f$ no es positivo definido.
+        </p>
+
+        <button class="respButton hvr-grow "> Solución </button>
+        <div class="resp-box">
+        <p>
+          Ya que \(f(x,y)\geq 0\) para todo \((x,y)\) y \(f(0,0)=0\) es claro que 
+          \(f\) tiene un mínimo en \(p_0\). 
+        </p>
+        <p>
+          Para calcular el Hessiano iniciamos calculando las parciales 
+          \begin{eqnarray*} 
+          \partial_x f = 2x \\
+          \partial_y f = y^3 \\
+          \partial_{xx}^2 f = 2 \\
+          \partial_{yy}^2 f = 3y^2 \\
+          \partial_{xy}^2 f = 0 
+          \end{eqnarray*}
+          Por lo tanto el Hessiano es 
+          \begin{eqnarray*} 
+          H_{(0,0)}f(x,y)&=&\frac{1}{2}(\partial_{xx}^2f(0,0) x^2+\partial_{xy}^2f(0,0)xy+\partial_{yx}^2f(0,0)yx+\partial_{yy}^2f(0,0)y^2 )  \\
+          &=& \frac{1}{2}( 2x^2+ 0*xy+0*y^2   )\\
+          &=&x^2
+          \end{eqnarray*}
+          Ya que \(H_{(0,0)}f(0,1)=0\) y \((1,0)\ne 0\), el Hessiano \(H_{(0,0}f\) no es 
+          positivo definido.
+        </p>
+        </div>
+      </div>
+
+        
+        
+
+        <div class="definicion-box">
+          <h2 class="number-title">  Definición</h2>
+          <p>
+            Sea $D\ne \emptyset$ un subconjunto de $\mathbb{R}^n$
+            (no necesariamente abierto) y $f:D\to \mathbb{R}$
+            una función (no necesariamente diferenciable).
+          </p>
+          
+
+          <ol>
+            <li>
+                Decimos que $f$ alcanza su máximo absoluto en
+                un punto $p_0\in D$ si, para todo $p\in D$,
+                $$
+                f(p)\leq f(p_0).
+                $$
+            </li>
+            <li>
+                Decimos que $f$ alcanza su mínimo absoluto en
+                un punto $p_0\in D$ si, para todo $p\in D$,
+                $$
+                f(p_0)\leq f(p).
+                $$
+            </li>
+          </ol>
+          
+        </div>
+
+
+      
+        
+
+      <div class="teorema-box"> 
+        <h2 class="number-title"> Teorema </h2> 
+        <p>
+          Sea $C$ un subconjunto compacto de $\mathbb{R}^n$  (es decir, cerrado y acotado) y
+          $f:C \to \mathbb{R}$ una función continua en todo punto de $C$.
+        </p>
+        <p>
+          Entonces, existen almenos un $p_*, p^* D$ tales que
+          $f$ alcanza su mínimo absoluto en $p_*$ y su máximo
+          absoluto en $p^*$.
+        </p>
+        <button class="respButton hvr-grow "> Demostración</button>
+        <div class="resp-box">
+          <p>
+            Sólo se probará el resultado para máximos pues para mínimos es similar.
+          </p>
+        <p>
+          Primero probamos que el conjunto 
+          \[
+          f(C)=\{f(p): p\in C \}
+          \]
+          es un subconjunto acotado superiormente, lo cual se hace por contradicción.
+        </p>
+        <p>
+          Si \(f(C)\) no es acotado superiormente, para todo \(n \in \mathbb{N}\) existe un \(q_n\in C\) 
+          tal que \(f(q_n) > n \). Aplicando el Teorema de Weirestrass a la sucesión \((p_n)_{n=1}^\infty\)
+          podemos encontrar una subsucesión \((q_{n_m})_{m=1}^\infty\) y un punto \(q\in C\) tal que 
+          \(\lim_{m\to \infty} q_{n_m}=q\). Por continuodad de \(f\), \(\lim_{m\to \infty} f(q_{n_m})=f(q)\),
+          pero ya que \(f(q_{n_m})>  n_m\) tomando límite llegamos a que \(f(q)\geq \infty\), una contradicción.
+        </p>
+        <p>
+          Denotemos \(\alpha= \sup_{p \in C}\{ f(p)\}\). Por la propiedad fundamental del supremo, para toda 
+          \(\varepsilon >0\) existe un punto \(p\in C\) tal que 
+          \[
+           \alpha - \varepsilon < f(p) \leq \alpha
+          \]
+          Variando \(\varepsilon = 1/n\), \(n=1,2,\dots\), podemos construir una sucesión 
+          de puntos en \(C\) tal que, \(\alpha- 1/n < f(p_n)\leq \alpha\) lo que lleva a  
+          \[
+          \lim_{n\to \infty} f(p_n)=\alpha 
+          \]
+          Por el Teorema de Bolzano Weirestrass existe un punto \(p^*\in C\) y una subsucesión \((p_k)_{k=1}^\infty\)
+          tal que \(\lim_{k\to \infty}p_{n_k}=p^*\). 
+        </p>
+        <p>
+          Finalmente, al ser \(f\) continua se tiene 
+          \[
+          \lim_{k\to \infty} f(p_{n_k})=f(p^*)
+          \]
+          por lo que concluimos 
+          \[
+          f(p^*)=\alpha = \sup_{p\in C}\{f(p) \}
+          \]
+          es decir, \(f\) alcanza su máximo absoluto en \(p^*\).
+        </p>
+        </div>
+      </div>
+
+        
+
+    
+
+  <!--<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Hallar el punto en el plano $2x-y+2z=20$ más cercano al origen.
+    </p>
+  </div>-->
+
+  <div class="nota-box">
+    <h2 class="number-title"> Nota </h2>
+    <p>
+      Con las herramientas revisadas hasta ahora se puede dar un método para 
+      encontrar máximos/mínimos absolutos sobre conjuntos abiertos con cerradura compacta.
+    </p>
+    <p>
+      Sea \(U\) un abierto acotado de \(\mathbb{R}^n\) y 
+      \(f:\overline{U}\to \mathbb{R}\) una función continua en \(\overline{U}\) y diferenciable en \(U\). 
+      Ya que \(\overline{U}\) es cerrado y acotado resulta ser un conjunto compacto y por lo tanto  
+      \(f\) alcanza su máximo y mínimo. Para encontrar el máximo/mínimo se procede:
+      <ol>
+        <li>
+          Se encuentran los puntos críticos de \(f\) en \(U\).
+        </li>
+        <li>
+          Se determinan si los puntos críticos son máximos relativos, mínimos relativos o puntos silla. 
+        </li>
+        <li>
+          Se encuentran  máximos/mínimos de la función \(f\) restringido a la frontera de \(\overline{U}\).
+          Por lo general la dimensión de \(\partial \overline{U}\) es una menos que la de \(U\) lo cual 
+          reduce el problema de encontrar los máximos/mínimos  de \(f\) en \(\partial \overline{U}\) y para 
+          lo cual se parametriza  la frontera.
+        </li>
+        <li>
+          Calcular los valores de \(f\) en los puntos críticos y en los máximos/mínimos en la frontera.
+            El mayor de estos valores es el máximo absoluto y el menor es el mímimo absoluto.
+        </li>
+      </ol>
+      <p>
+        Nota: un punto \(p\) se llama punto frontera de un conjunto \(A\) si para todo \(r>0\),
+        \(B_r(p)\cap A\ne \emptyset\) y \(B_r(p)\cap A^c \ne \emptyset\). Al conjunto de 
+        puntos frontera de \(A\) se le denota por \(\partial A\).
+      </p>
+    </p>
+
+  </div>
+
+
+
+    <div class="definicion-box"><h2 class="number-title">  Definición</h2>
+      <p>
+        Sea $U$ un abierto de $R^2$. Una función $u:U \to R$
+        se llama estrictamente sub-armónica en $U$ si
+        $$
+        \partial_{x}^2u(p)+\partial_{y}^2u(p) >0,
+        \quad \textrm{para todo punto  $p \in U$}
+        $$
+  
+        Por ejemplo $u(x,y)=x^2+y^2$ es estrictamente
+        sub-armónican en cualquier abierto de $R^2$ pues 
+        \(\partial_x^2 u +\partial_y^2 u = 2+2 >0\).
+      </p>
+    </div>
+
+
+
+    <div class="prop-box">
+      <h2 class="number-title"> Proposición </h2>
+      <p>
+        Por $U \subseteq \mathbb{R}^2$ denotamos un conjunto abierto
+      tal que su cerradura $\overline{U}$, sea compacta.
+      Sea $u:\overline{U}\to R$ una función continua en \(\overline{U}\) y clase
+      $C^2$ en el abierto $U$ y  supon que $u$ es estrictamente
+      sub-armónica en $U$.
+      </p>
+      <p>
+        Entonces  el máximo de $u$ se alcanzan en la frontera de $U$.
+      </p>
+
+      <button class="respButton hvr-grow "> Demostración</button>
+        <div class="resp-box">
+      <p>
+        Por contradicción.
+      </p>
+      <p>
+        Supongamos que existe $p_0=(x_0,y_0)\in  U$ con
+        $$
+        u(p_0)=\max_{ p \in \overline{U}}\{ u(p) \}
+        $$
+      </p>
+      <p>
+
+      Por el <a href="./S14.html#Teo:TaylorGrado2">Teorema de Taylor </a>,
+      si $h=(x,y)$ es un vector (de norma pequeña tal que $p_0+h \in U$) se tiene 
+      \begin{eqnarray*}
+      u(p_0+h)&=&  u(p_0)+ \partial_xf(p_0)x+\partial_yf(p_0)y \\
+      &+&  \frac{1}{2}\left( \partial_x^2u(p_0)x^2+
+        2 \partial^2_{xy}u(p_0) xy + \partial_y^2u(p_0) y^2 \right) \\
+      &+&  E_{p_0}(h)
+      \end{eqnarray*}
+      con $\lim_{h\to 0} \frac{E_{p_0}(h)}{\|h\|^2}=0$. 
+      </p>
+      <p>         
+        Como $p_0$ está en el interior necesariamente
+        debemos de tener $\nabla_{p_0} u=0$, es decir
+        $\partial_x u (p_0)=0=\partial_yu(p_0)$ por lo que obtenemos 
+        \begin{eqnarray*} 
+        u(p_0+h)-u(p_0)&=& \frac{1}{2}\left( \partial_x^2u(p_0)x^2+
+        2 \partial^2_{xy}u(p_0) xy + \partial_y^2u(p_0) y^2 \right) \\
+      &+&  E_{p_0}(h)
+        \end{eqnarray*}
+      </p>
+      <p>
+
+      Tomando $h=(t,0)$, para $t>0$ y cercano a cero, tenemos
+      $$
+      u((x_0+t,0))-u((x_0,y_0))=\frac{t^2}{2}\partial_{x}^2u(p_0) +E_{p_0}((t,0))
+      $$
+      Dividiendo entre $t^2$ obtenemos
+      $$
+      \frac{u((x_0+t,0))-u((x_0,y_0))}{t^2}= \frac{\partial_{x}^2u(p_0)}{2}
+      +\frac{E_{p_0}((t,0)}{t^2}
+      $$
+      Como suponemos que $u$ alcanza su máximo en
+      $p_0$, $u((x_0+t,0))-u((x_0,y_0)) \leq 0$,  por lo  que
+      $$
+      \frac{\partial_{x}^2u(p_0)}{2}+\frac{E_{p_0}((t,0))}{t^2} \leq 0.
+      $$
+      
+      De manera similar 
+      
+      $$
+      \frac{\partial_{y}^2u(p_0)}{2}+\frac{E_{p_0}((0,t))}{t^2} \leq 0
+      $$
+      </p>
+      <p>
+        Sumando las ultimas ecuaciones llegamos
+        $$
+        \frac{\partial_{y}u(p_0)}{2}+\frac{E_{p_0}((0,t))}{t^2}
+        +\frac{\partial_{x}^2u(p_0)}{2}+\frac{E_p((0,t))}{t^2} \leq 0 
+        $$
+        tomando límite cuando $t\to 0$ concluimos que
+        $$
+        \partial_{x}^2u(p_0)+\partial_{y}^2u(p_0)\leq 0
+        $$
+        contradiciendo que $u$ sea estrictamente sub-armónica.
+        
+      </p>
+      </div>
+    </div>
+    
+
+    
+      
+      
+
+
+
+
+      
+      
+    </div>
+  </div> 
+    
+     <div class="prop-box">
+      <h2 class="number-title"> Proposición </h2>
+      <h3> Principio débil del máximo para funciones armónicas </h3>
+      <p>
+        Por $U \subseteq \mathbb{R}^2$ denotamos un conjunto abierto
+        tal que su cerradura $\overline{U}$, sea compacta.
+        Sea $u:\mathbf{U}\to R$ continua
+        en $\overline{U}$ y clase $C^2$ en $U$. Supon que $u$ es
+        armónica en $U$, es decir
+        $$
+        \partial_{x}^2u(p)+\partial_{y}^2u(p)=0,
+        \quad \textrm{para todo $p\in D$}
+        $$ 
+        
+        Probar que si $u$ alcanza su máximo en $U$ entonces
+        también lo alcanza en $\partial U$.
+      </p>
+      <button class="respButton hvr-grow "> Demostración</button>
+        <div class="resp-box">
+        <p>
+          Para $n\geq 1$ natural, definimos $u_n:\overline{U}\to R$
+          dada por 
+          \[
+          u_n(x.y)=u(x,y)+\frac{1}{n}e^{x}
+          \]
+        </p>
+          <p>
+            Entonces $\partial_{x}^2 u_n +\partial_{y}^2 u_n
+            = (\partial_{x}^2u+\partial_{y}^2u)+\frac{1}{n}e^x=\frac{1}{n}e^x >0$,
+            por lo que $u_n$ es estrictamente sub-armónica en $U$.
+      
+          </p>
+          <p>
+            Por la Proposición anterior, existe $p_n=(x_n,y_n) \in \partial U$ tal que 
+  
+            $$
+            u_n(p_n)=\max_{(x,y)\in \overline{U}}\{ u_n(x,y) \}
+            $$
+            
+            Se sigue que, para todo $(x,y)\in U$
+            $$
+            u(x_n,y_n)+\frac{1}{n}e^{x_n} \geq u(x,y)+\frac{1}{n}e^x > u(x,y)
+            $$
+            Tomando máximo del lado derecho, variando
+            los $(x,y)\in \overline{U}$, llegamos a que
+            $$
+            u(x_n,y_n)+\frac{1}{n}e^{x_n} \geq \max_{(x,y)\in \overline{U}}\{u(x,y)\}
+            $$
+            Denotemos $M=\max_{(x,y)\in \overline{U}}\{u(x,y)\}$.
+      
+          </p>
+          <p>
+            Concluimos que para toda $n$
+            $$
+            0 \leq   M -u(p_n) < \frac{1}{n}e^{x_n}
+            $$
+      
+          </p>
+        
+          <p>
+            Ahora, como $\partial U$ es cerrado y acotado,
+            por Bolzano-Weirestrass exsite una subsucesión
+            $p_{n_k}=(x_{n_k},y_{n_k})$ y $p^*\in \partial U$
+            tal que $\lim_{k\to \infty} p_{n_k}=p^*$.
+      
+          </p>
+          <p>
+            De la desigualdad, (válida para toda $k$)
+            $$
+            0 \leq   M-u(p_{n_k}) < \frac{1}{n_k}e^{x_{n_k}}
+            $$
+            tomando límite cuando $k\to \infty$ se tiene
+            (usando la continuidad de $u$ ) que 
+            $$
+            0\leq M -u(p^*) \leq 0
+            $$
+            por lo tanto existe $p^*\in \partial U$ com
+
+              $$
+              u(p^*)=\max_{(x,y)\in \overline{U}}\{u(x,y)\}.
+              $$
+          </p>
+      </div>
+
+     </div>
+      
+     <div class="coro-box">
+      <h2 class="number-title"> Corolario </h2>
+      <p>
+        Por $U \subseteq \mathbb{R}^2$ denotamos un conjunto abierto
+        tal que su cerradura $\overline{U}$, sea compacta.
+        Sea $u:\mathbf{U}\to R$ continua
+        en $\overline{U}$ y clase $C^2$ en $U$. Supon que $u$
+        es armónica en $U$, es decir
+        $$
+        \partial_{x}^2u(p)+\partial_{y}^2u(p)=0,
+        \quad \textrm{para todo $p\in D$}
+        $$ 
+  
+        Para encontrar el máximo de  $u$ en $\overline{U}$,
+        es suficiente encontrar
+        el máximo de $u$ restringido a la frontera $\partial U$.
+      </p>
+        
+     </div>
+
+
+
+  <div class="lema-box"> 
+    <h2 class="number-title"> Lema</h2> 
+    <p>
+      $f:\mathbb{R}\to \mathbb{R}$ de la forma $f(t)=mt+c$, donde
+      $m$ y $c$ son constantes. 
+    </p> 
+    <p>
+      Entonces el máximo y mínimo de
+      $f$, restringida al intervalo $[a,b]$ se alcanzan en los extremos
+      del intervalo.
+    </p>
+    <button class="respButton hvr-grow "> Demostración</button>
+        <div class="resp-box">
+    <p>
+      Caso 1: \(m=0\).
+    </p>
+    <p>
+      En este caso la función es constante y el resultado es claro.
+    </p>
+    <p>
+      Caso 2: \(m>0\).
+    </p>
+    <p>
+      En este caso la función \(f\) es estrictamente creciente por lo que 
+      el mínimo global se alcanza en el extremo izquierdo, \(a\) y 
+      el máximo en el lado derecho, \(b\).
+    </p>
+    <p>
+      Caso 3: \(m< 0\).
+    </p>
+    <p>
+      En este caso la función \(f\) es estrictamente decreciente por lo que 
+      el mínimo global se alcanza en el extremo derecho, \(b\) y 
+      el máximo en el lado izquierdo, \(a\).
+    </p>
+    </div>
+  </div>
+    
+    
+    <div class="coro-box">
+      <h2 class="number-title"> Corolario </h2>
+      <p>
+        Sea $U\subset \mathbb{R}^2$ una región poligonal,
+        abierta tal que $\overline{U}$  sea un compacto.
+        Sea $u:\mathbb{R}^2\to \mathbb{R}$ de la forma $u(x,y)=Ax+By+C$,
+        donde $A,B,C\in \mathbb{R}$ son constantes.
+        Entonces, el valor máximo de $u$ se alcanza en uno de los
+        vértices de $U$.
+      </p>
+      <button class="respButton hvr-grow "> Demostración</button>
+        <div class="resp-box">
+        <p>
+          Primero notamos que 
+          $$
+          \partial_x u(x,y)=A, \partial_x^2 u(x,y)=0,
+          \partial_yu(x,y)=B, \partial_y^2u(x,y)=0,
+          $$
+          por lo que $u$ es armónica en $U$, además de que
+          claramente es continua en 
+          $\overline{U}$.
+      </p>
+      <p>
+          Por la proposición anterior, para encontrar
+          el máximo de $U$ es suficiente 
+          encontrar el máximo de $u$, restringido a la frontera. 
+          
+       </p>   
+       <p>
+          Después, notamos
+          que la frontera de $U$ está formada por segementos de recta, los cuales
+          se parametrizan de manera general como
+          $$
+          (1-t)(x_0,y_0)+t(x_1,y_1)=((1-t)x_0+tx_1, (1-t)y_0+ty_1), \quad t\in [0,1]
+          $$
+          donde $(x_0,y_0)$ y $(x_1,y_1)$ son los extremos del segmento.
+        </p>
+
+          Si restingimos $u$ a este segmento se convierte una función de la variable
+          $t$ con regla de correspondencia
+          $$
+          u((1-t)x_0+tx_1, (1-t)y_0+ty_1)= mt+c
+          $$
+    
+          (para algunas constantes $m$ y $c$) la cual alcanza
+          su máximo en $t=0$ o en $t=1$. Por lo tanto, $u$,
+          restringida al segmento alcanza su máximo en $(x_0,y_0)$
+          o en $(x_1,y_1)$.  
+        </p>
+        <p>
+          Finalmente, recorriendo
+          todos los segmentos de la frontera, obtenemos quel máximo se 
+          alcanza en uno de los vértices.
+    
+        </p>
+
+      </div>
+    </div>
+     
+    <div class="nota-box">
+      <h2 class="number-title">  Notas </h2>
+
+    
+      <ol>
+        <li>
+            El corolario anterior se vale en dimensión $n \geq 2$.
+        </li>
+        <li>
+            Si \(U\) es una región poligonal, encontrar el máximo de 
+            una función de la forma $u(x_1,\dots, x_n)=\sum_{i=1}^n a_i x_i + b$  en $\partial U$ en
+            general es más sencillo
+            que encontrar el máximo de $u$ en $\overline{U}$,
+            pues usualmente $\partial U$ tiene una
+            dimensión menos que la de $U$.
+        </li>
+        <li>
+            El corolario anterior siguen siendo válido si se reemplaza
+            máxmo por mínimo.
+        </li>
+      </ol>
+      
+    </div>
+
+    
+
+      <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio</h2> 
+        <p>
+          Para las funciones dadas,
+          encuentra los puntos críticos y determina si son 
+          máximos locales, mínimos locales o puntos silla.
+        </p>
+        
+        <ol>
+            <li>
+                $f(x,y)=y+x\sen(y)$,
+            </li>
+            <li>
+                $f(x,y)=x^2+(y-1)^2$,
+            </li>
+            <li>
+                $f(x,y)=x^3+y^3-3xy$.
+            </li>
+        </ol>			 	
+      </div> 
+        
+
+
+      <div class="ejercicio-box"> 
+        <h2 class="number-title"> Ejercicio</h2> 
+        <p>
+          Considera la función $f(x,y)=3x^4-4x^2y+y^2$.
+        </p>
+        <ol>
+            <li>
+                Prueba que, para cada línea por el origen $y=mx$, la función
+                alcanza un mínimo sobre dicha línea.
+            </li>
+            <li>
+                Prueba que no existe un mínimo local en $(0,0)$.
+            </li>
+            <li>
+                Haz un bosquejo de los puntos $(x,y)$ en el plano para los cuales
+                $f(x,y)>0$ y para los cuales $f(x,y) < 0$.
+            </li>
+        </ol>
+        </div>
+
+
+
+        <div class="ejercicio-box"> 
+          <h2 class="number-title"> Ejercicio</h2> 
+          <h3> Método de mínimos cuadrados </h3>
+          <p>
+            Dados $n$ números distintos,
+            $x_1,\dots, x_n$ y otros $n$ números $y_1,\dots y_n$
+            (no necesariamente distintos), por lo general
+            no es posible encontrar una función de la
+            forma $f(x)=ax+b$, que satisfaga $f(x_i)=y_i$,
+            para toda $i$. Sin embargo se puede
+            tratar de encontrar una función que minimize el error cuadrado
+            $$
+            E(a,b)=\sum_{i=1}^n (f(x_i)-y_i)^2
+            $$
+            
+            Determinar los valores de $a$ y $b$ que hagan esto.
+          </p>
+          <button class="respButton hvr-grow "> Solución</button>
+          <div class="resp-box">
+              <p>
+                  Empecemos por notar que
+                  \begin{equation*}
+                  k = (0x_1 + (y_1 + k) - y_1)^2 \leq E(0,y_1+k),
+                  \end{equation*}
+                  por lo que el error no está superiormente acotado, al buscar puntos
+                  críticos únicamente encontraremos mínimos o puntos silla.
+              </p>
+              <p>
+                  Los puntos críticos se encontran cuando el gradiente se anula, por
+                  lo que comenzamos por calcular el gradiente en puntos arbitrarios,
+                  \begin{align*}
+                  \frac{\partial E}{\partial a} =& \sum_{i=1}^n 2(ax_i + b - y_i)x_i,\\
+                  \frac{\partial E}{\partial b} =& \sum_{i=1}^n 2(ax_i + b - y_i,
+                  \end{align*}
+                  lo anterior da lugar a un sistema de dos ecuaciones lineales con dos incógnitas:
+                  \begin{align*}
+                  \sum_{i=1}^n 2(ax_i + b - y_i)x_i = 0,\\
+                  \sum_{i=1}^n 2(ax_i + b - y_i = 0,
+                  \end{align*}
+                  podemos empezar por dividir ambos lados por 2 y luego despejar $b$ de la segunda ecuación:
+                  \begin{equation*}
+                  b= \frac{\sum_{i=1}^n y_i - a(\sum_{i=1}^n x_i)}{\sum_{i=1}^n} = \frac{1}{n} \sum_{i=1}^n y_i - a \frac{1}{n}\sum_{i=1}^n x_i = \overline y - a \overline x,
+                  \end{equation*}
+                  con $\overline x,\overline y$ los promedios de los $x_i$ y $y_i$, respectivamente.
+                  Ahora sustituimos en la primera ecuación para encontrar $a$
+                  \begin{align*}
+                  a =& \frac{\sum_{i=1}^n x_i(y_i-\overline y}{\sum_{i=1}^n x_i(x_i-\overline x},\\
+                  =& \frac{\sum_{i=1}^n (x_i- \overline x + \overline x)(y_i - \overline y)}{\sum_{i=1}^n (x_i - \overline x + \overline x)(x_i - \overline x)},\\
+                  =& \frac{\sum_{i=1}^n (x_i - \overline x)(y_i - \overline y) \sum_{i=1}^n \overline x (y_i - \overline y)}{\sum_{i=1}^n (x_i - \overline x)^2 + \sum_{i=1}^n \overline x (x_i - \overline x)},\\
+                  =& \frac{\sum_{i=1}^n (x_i - \overline x)(y_i - \overline y) + n(\frac{1}{n} \sum_{i=1}^n \overline x (y_i - \overline y))}{\sum_{i=1}^n (x_i - \overline x)^2 + n (\frac{1}{n} \sum \overline x (x_i - \overline x))},\\
+                  =& \frac{\sum_{i=1}^n (x_i - \overline x)(y_i - \overline y) + n(\overline x \frac{1}{n} \sum_{i=1}^n  y_i - \frac{1}{n} n \overline x \overline y)}{\sum (x_i - \overline x)^2 + n (\overline x \frac{1}{n} \sum_{i=1}^n x_i - \frac{1}{n} n \overline x^2)},\\
+                  =& \frac{\sum_{i=1}^n (x_i - \overline x)(y_i - \overline y)}{\sum_{i=1}^n (x_i - \overline x)^2},
+                  \end{align*}
+                  sustituimos nuevamente en $b$ y tenemos
+                  $b = \overline y - \frac{\sum_{i=1}^n (x_i - \overline x)(y_i - \overline y)}{\sum_{i=1}^n (x_i - x)^2}$.
+              </p>
+          </div>
+        </div>
+
+
+
+
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Sean $z_1,\dots, z_k $, $k$ puntos distintos en $\mathbb{R}^n$.
+      Para $x\in \mathbb{R}^n$ define
+      $$
+      f(x)=\sum_{j=1}^k \| x- z_k\|^2
+      $$
+      
+      Prueba que $f$ alcanza su mínimo en el punto
+      $\frac{1}{k}\sum_{j=1}^k z_j$ (conocido como el centroide de los
+      puntos $z_1,\dots, z_k$).
+    </p>
+  </div>
+
+    
+        
+
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Hallar los valores máximos y mínimos absolutos
+      de la función $f(x,y)=ax^2+by^2-1$,
+      definida en $ax^2+by^2 \leq 1$, (donde $a$ y $b$ son constantes positivas).
+    </p>
+    </div>
+    
+    
+	
+
+
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Determina los máximos, mínimos relativos y absolutos,
+      así como los puntos silla de la función $f(x,y)=xy(1-x^2-y^2)$
+      en el cuadrado $0\leq x \leq 1$,
+      $0 \leq y \leq 1$.
+    </p>
+    </div>
+
+    
+
+    
+
+
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Halla los valores máximos y mínimos absolutos
+      para $f(x,y)=\sen(x)+\cos(y)$, en el rectángulo
+      $[0,2\pi]\times [0, 2\pi]$.
+    </p>
+  </div>
+
+
+
+
+
+
+
+
+    
+
+    
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Para las siguientes funciones armónicas, encuentra
+      el máximo y mínimo absolutos sobre la región dada.
+    </p>
+      
+    
+    <ol>
+        <li>
+            $f(x,y)=\log(x^2+y^2)$, sobre el anillo
+            $S=\{(x,y)\in \mathbb{R}^2:  1\leq  x^2+y^2\leq 4\}$.
+        </li>
+        <li>
+            $f(x,y)=e^y\cos(x)$, sobre el triángulo (relleno)
+            con vértices $(0,\log(5))$, $(-\pi,0)$, $(\pi,0)$.
+        </li>
+        <li>
+            $f(x,y,z)=x^2-y^2+z$, sobre la esfera
+            $S=\{(x,y)\in \mathbb{R}^2: x^2+y^2+z^2=1\}$.
+        </li>
+    </ol>
+  </div>
+
+    
+    
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Para las siguientes funciones optimiza la función dada sujeto a las restricciones dadas.
+    </p>
+    <ol>
+      <li>
+        Maximia y minimiza \(f(x,y) = 4x + 7y+2\) 
+        sujeto a las restricciones $x \geq 0, y \geq 0$ y $x + y \leq 3$.
+      </li>
+      <p></p>
+      <li>
+        Maximiza y minimiza $f(x,y,z)=2x+3y+5z$ sujeto
+      a las restricciones $x\geq 0, y\geq 0, z\geq 0 $ y
+      $x+y+z \leq 1$.
+      </li>
+      <p></p>
+      <li>
+        Maximiza y minimiza $f(x,y,z) = 3x + 2y + 8z$ sujeto a las restricciones
+        $x \geq 1, y \geq 2, z \geq 0$ y $x + 2y + 4z \leq 8.$
+      </li>
+      <p></p>
+      <li>
+        Maximiza y minimiza $f(x,y) = 5x + 2y + 10$ sujeto a las 
+        restricciones $x \geq 0, y \geq 0$ y $x + 2y \leq 5$.
+      </li>
+      <p></p>
+      <li>
+        Maximiza y minimiza $f(x, y, z) = 3x + 5y + 2z$ sujeto a las restricciones
+        $x + y + z \leq 10$, $2x + y \leq 8$ , $x \geq 0, y \geq 0, z \geq 0$.
+      </li>
+      <p></p>
+      <li>
+        Minimiza $f(x, y, z) = x + y + z$
+        sujeto a las restricciones $x + 2y \geq 4$, $y + 2z \geq 4$, $x \geq 0, y \geq 0, z \geq 0$.
+      </li>
+    </ol>
+    
+  
+  </div>
+
+
+  <!--<div class="teorema-box">
+    <h2 class="number-title"> Teorema </h2>
+    <p>
+        Sea
+    </p>
+
+  </div>-->
+
+ </body>
