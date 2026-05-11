@@ -22,7 +22,9 @@
             sen: "\\operatorname{sen}",
             seg: ["\\overrightarrow{#1}", 1],
             id: "\\operatorname{id}",
-            senh:"\\operatorname{senh}"
+            senh:"\\operatorname{senh}",
+            tr:"\\operatorname{traza}",
+             /* this part is for new commands, for example \seg{v} will give you an arrow on top of v */
           },
           tags: "ams", /* this part is for numbered equations */
           inlineMath: [['$', '$'], ['\\(', '\\)']]
@@ -353,6 +355,27 @@
         </div>
 
 
+
+        <div class="prop-box">
+          <h2 class="number-title"> Proposición </h2>
+          <p>
+            Sea \(U\ne \emptyset\) un abierto de \(\mathbb{R}^2\) y 
+            \(f:U\to \mathbb{R}\) una función de clase \(C^2\). Si 
+            \(p_0\in U\) es un punto crítico de \(f\) 
+            y sea \(A\) la matriz Hessiana de \(f\) en \(p_0\), entonces:
+            <ol>
+              <li>
+                Si \(\det(A)>0\) y \(\tr(A)>0\) entonces \(p_0\) es un mínimo local para \(f\).
+              </li>
+              <li>
+                Si \(\det(A)> 0\) y \(\tr(A)< 0\) entonces \(p_0\) es un máximo  local para \(f\).
+              </li>
+              <li>
+                Si \(\det(A)< 0\) entonces \(p_0\) es un punto silla para \(f\).
+              </li>
+            </ol>
+          </p>
+          </div>
 
         <div class="info-box"> 
     <h2 class="number-title"> Ejemplo</h2> 
@@ -1178,8 +1201,38 @@
         sujeto a las restricciones $x + 2y \geq 4$, $y + 2z \geq 4$, $x \geq 0, y \geq 0, z \geq 0$.
       </li>
     </ol>
-    
   
+  </div>
+
+  <div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2>
+    <p>
+      Para las funciones dadas, encuentra los puntos críticos y determina si son máximos 
+      locales, mínimos locales o puntos silla.
+    </p>
+    <ol>
+      <li>
+        \(f(x,y)=(x^2-y^2)e^{-(x^2+y^2)}\)
+      </li>
+      <li>
+        \(f(x,y)=x^4-2x^2+y^2\).
+      </li>
+      <li>
+        \(f(x,y) = x^3 + y^3 - 3x - 3y\)
+      </li>
+      <li>
+        \(f(x,y) = x^4 + y^4 - 4xy + 1\)
+      </li>
+      <li>
+        \(f(x,y) = \operatorname{sen}(x) + \operatorname{sen}(y) + \cos(x+y)\).
+      </li>
+      <li>
+        $f(x,y) = \cos(x) + \cos(y)$ en el dominio $[0, \pi] \times [0, \pi]$.
+      </li>
+      <li>
+        $f(x,y) = \operatorname{sen}(x)\cos(y)$ en el dominio $[0, \pi] \times [0, \pi]$
+      </li>
+    </ol>
   </div>
 
 
