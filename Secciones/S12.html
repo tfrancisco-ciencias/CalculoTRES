@@ -375,6 +375,128 @@
               </li>
             </ol>
           </p>
+          <button class="respButton hvr-grow "> Demostración</button>
+        <div class="resp-box">
+          <p>
+            Como \(A\) es una matriz simétrica (al ser \(f\) de clase \(C^2\)) entonces 
+            existen \(\lambda_1 \leq \lambda_2 \) reales y \(\{v,w\}\) vectores 
+            ortogonales, distintos de cero, tales que 
+            \[
+            Av=\lambda_1 v, \quad Aw=\lambda_2 w
+            \]
+            y una matriz ortogonal \(U\) tal que
+            \[
+            UAU^{-1}=\left[ 
+            \begin{array}{cc}
+            \lambda_1 & 0 \\
+            0 & \lambda_2
+            \end{array}
+            \right]
+            \]
+          </p>
+          <p>
+            Ahora vamos a usar algunas propiedades de las matrices. Vamos a 
+            usar que para matrices cuadradas \(C\) y \(D\), \(\det(CD)=\det(C)\det(D) \). 
+            Entonces 
+            \[
+            \det(UAU^{-1})=\det(U)\det(A)\det(U^{-1})=\det(U)\det(A)\det(U)^{-1}=\det(A)
+            \]
+            pero por otro lado 
+            \[
+            \det\left[ 
+            \begin{array}{cc}
+            \lambda_1 & 0 \\
+            0 & \lambda_2
+            \end{array}
+            \right] = \lambda_1\lambda_2
+            \]
+            por lo que \(\det(A)=\lambda_1\lambda_2\).
+          </p>
+          <p>
+            Ahora vamos a usar otra propiedad de las matrices. Para matrices cuadradas \(C\) y \(D\), \(\tr(CD)=\tr(DC)\). 
+            Entonces \(\tr(UAU^{-1})=\tr(AU^{-1}U)=\tr(A)\). Pero por otro lado 
+            \[
+            \tr \left[ 
+            \begin{array}{cc}
+            \lambda_1 & 0 \\
+            0 & \lambda_2
+            \end{array}
+            \right] = \lambda_1 + \lambda_2
+            \]
+            por lo que \(\tr(A)=\lambda_1 + \lambda_2\).
+          </p>
+          <p>
+            Ahora veamos los posibles casos.
+          </p>
+          <p>
+            Si \(\det(A)=\lambda_1\lambda_2>0 \) ambos valores propios tienen el mismo signo, 
+            si además \(\tr(A)=\lambda_1 + \lambda_2 >0\) entonces ambos valores propios son positivos 
+            y por lo tanto \(p_0\) es un mínimo local.
+          </p>
+          <p>
+            Si \(\det(A)=\lambda_1\lambda_2>0 \) ambos valores propios tienen el mismo signo, 
+            si además \(\tr(A)=\lambda_1 + \lambda_2 < 0\) entonces ambos valores propios son negativos 
+            y por lo tanto \(p_0\) es un máximo local.
+          </p>
+          <p>
+            Si \(\det(A)=\lambda_1\lambda_2< 0\) entonces los valores propios tienen signos opuestos, 
+            digamos que \(\lambda_1< 0 < \lambda_2\). Ahora vamos a usar la fórmula de Taylor 
+            de orden 2 para ver que \(p_0\) es un punto silla. La fórmula dice que para \(h\) con norma chica se cumple que:
+            \[
+            f(p_0+h)=f(p_0)+\sum_{i=1}^2\partial_{p_i}f(p_0)h_i +\frac{1}{2}\sum_{i,j=1}^2 \partial_{p_i,p_j}^2f(p_0)h_ih_j+E_{p_0}(h),
+            \]
+            al ser \(p_0\) un punto crítico de \(f\) las parciales se anulan así que la fórmula se 
+            simplifica a 
+            \[
+            f(p_0+h)=f(p_0) +\frac{1}{2}\sum_{i,j=1}^2 \partial_{p_i,p_j}^2f(p_0)h_ih_j+E_{p_0}(h)
+            \]
+            y si \(A\) es la matrix Hessiana en \(p_0\) podemos escribir lo anterior como 
+            \[
+            f(p_0+h)=f(p_0)+\frac{1}{2}(Ah)\cdot h +E_{p_0}(h)
+            \]
+            y pasando \(f(p_0)\) del lado izquierdo y  dividiendo entre \(\|h\|^2\) se obtiene que
+            \[
+            \frac{f(p_0+h)-f(p_0)}{\|h\|^2}=\frac{1}{2}\frac{(Ah)\cdot h}{\|h\|^2} +\frac{E_{p_0}(h)}{\|h\|^2} 
+            \]
+          </p>
+          <p>
+            En este punto vamos a tomar distintas \(h\) y hacer algunas cuentas. Para \(h=tv\), con \(t\) pequeña distinta de cero 
+            se sigue que
+            \begin{eqnarray*}
+            \frac{f(p_0+tv)-f(p_0)}{t^2\|v\|^2}=\frac{1}{2}\frac{(Atv)\cdot tv}{t^2\|v\|^2} +\frac{E_{p_0}(tv)}{t^2\|v\|^2}  \\
+            \frac{f(p_0+tv)-f(p_0)}{t^2\|v\|^2}=\frac{1}{2}\frac{t^2 (Av)\cdot v}{t^2\|v\|^2} +\frac{E_{p_0}(tv)}{t^2\|v\|^2} \\
+            \frac{f(p_0+tv)-f(p_0)}{t^2\|v\|^2}=\frac{1}{2}\frac{(Av)\cdot v}{\|v\|^2} +\frac{E_{p_0}(tv)}{t^2\|v\|^2} 
+            \end{eqnarray*}
+            pero usando que \(v\) es vector propio tenemos que \(Av=\lambda_1 v\) por lo que
+            \begin{eqnarray*}
+            \frac{f(p_0+tv)-f(p_0)}{t^2\|v\|^2}=\frac{1}{2}\frac{(Av)\cdot v}{\|v\|^2} +\frac{E_{p_0}(tv)}{t^2\|v\|^2} \\
+            \frac{f(p_0+tv)-f(p_0)}{t^2\|v\|^2}=\frac{1}{2}\frac{(\lambda_1 v)\cdot v}{\|v\|^2} +\frac{E_{p_0}(tv)}{t^2\|v\|^2} \\
+            \frac{f(p_0+tv)-f(p_0)}{t^2\|v\|^2}=\frac{1}{2}\frac{\lambda_1 \|v\|^2}{\|v\|^2} +\frac{E_{p_0}(tv)}{t^2\|v\|^2} \\
+            \frac{f(p_0+tv)-f(p_0)}{t^2\|v\|^2}=\frac{1}{2}\lambda_1 +\frac{E_{p_0}(tv)}{t^2\|v\|^2} 
+            \end{eqnarray*}
+           </p>
+           <p>
+            Finalmente, usando que \(\lim_{t \to 0} \frac{E_{p_0}(tv)}{t^2\|v\|^2} = 0\) y que \(\lambda_1 < 0 \)
+            podemos asegurar que para \(t\) suficientemente pequeño se cumple que
+            \[
+            \frac{f(p_0+tv)-f(p_0)}{t^2\|v\|^2} < 0 \Rightarrow f(p_0+tv) < f(p_0)
+            \]
+           </p>
+           <p>
+            De manera similar tomando \(h=tw\) se puede probar que 
+            \[
+            \frac{f(p_0+tw)-f(p_0)}{t^2\|w\|^2}=\frac{1}{2}\lambda_2 +\frac{E_{p_0}(tw)}{t^2\|w\|^2} 
+            \]
+            y de igual forma que antes se puede asegurar que para \(t\) suficientemente pequeño se cumple que
+            \[
+            \frac{f(p_0+tw)-f(p_0)}{t^2\|w\|^2} > 0 \Rightarrow f(p_0+tw) > f(p_0)
+            \]
+           </p>
+           <p>
+            Con conclusion hay puntos \(t\) done \(f(p_0+tv)< f(p_0)\) y \( f(p_0+tw) > f(p_0)\), 
+            por lo que \(p_0\) es un punto silla.
+           </p>
+          </div>
           </div>
 
         <div class="info-box"> 
@@ -708,7 +830,7 @@
       <p>
         Sumando las ultimas ecuaciones llegamos
         $$
-        \frac{\partial_{y}u(p_0)}{2}+\frac{E_{p_0}((0,t))}{t^2}
+        \frac{\partial_{y}^2u(p_0)}{2}+\frac{E_{p_0}((0,t))}{t^2}
         +\frac{\partial_{x}^2u(p_0)}{2}+\frac{E_p((0,t))}{t^2} \leq 0 
         $$
         tomando límite cuando $t\to 0$ concluimos que
