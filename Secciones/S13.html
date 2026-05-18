@@ -110,7 +110,58 @@
         \nabla_{p_0}f =\lambda \nabla_{p_0}g.
         $$
       </p>
-      
+      <button class="respButton hvr-grow "> Demostración</button>
+        <div class="resp-box">
+      <p>
+        Para la demostración vamos a usar el siguiente resultado de álgebra lineal: si \(u \in \mathbb{R}^n \) 
+        es un vector distinto de \(0\) entonces todo  \(p\in \mathbb{R}^n\) puede escribirse de manera única como 
+        \[
+        p=\lambda u + w
+         \]
+         donde \(w\) es un vector ortogonal a \(u\) y \(\lambda \in \mathbb{R}\).
+        
+      </p>
+      <p>
+        Vamos a tomar \(u=\nabla_{p_0}g\). Aplicando el resultado de álgebra lineal podemos 
+        escribir 
+        \[
+        \nabla_{p_0}f = \lambda \nabla_{p_0}g + w
+         \]
+         donde \(w\) es un vector ortogonal a \(\nabla_{p_0}g\).
+      </p>
+      <p>
+        Nuestro objetivo ahora es probar que \(w=0\) lo que hacemos por contradiccíon. 
+      </p>
+      <p>
+        Si \(w\neq 0\)
+        entonces \(w\) es un vector ortogonal a \(\nabla_{p_0}g\) y por lo tanto \(w\) 
+        está en el espacio tangente al conjunto de nivel \(\{p\in U: g(p)=0\}\). Por lo tanto 
+        podemos encontrar una curva \(\gamma:(-\epsilon, \epsilon)\to U\) tal que \(\gamma(0)=p_0\), 
+        \(g(\gamma(t))=0\) para todo \(t\) y \(\gamma'(0)=w\). Nota: ésta última afirmación 
+        se tiene que probar de manera formal (usando el teorema de la función inversa o implicita) 
+        pero de manera intuitiva se puede ver en el siguiente dibujo.
+        <div class="flexbox">
+                <img src="./Images/S13-Img4.png" alt="CurvaTangente" width="40%" height="auto">
+          </div>
+      </p>
+      <p>
+        Por otro lado, estamos suponiendo 
+        que \(p_0\) es una máximo o mínimo relativo de \(f\) con la restricción \(g(p)=0\) 
+        lo que implica que 
+        \[
+        \left. \frac{d f(\gamma(t))}{dt}\right|_{t=0}=0
+        \]
+        Pero por la regla de la cadena se sigue que
+        \[
+        \frac{d f(\gamma(t))}{dt}=\nabla_{\gamma(t)}f \cdot \gamma'(t)
+         \]
+         y por lo tanto 
+         \[
+         0=\left. \frac{d f(\gamma(t))}{dt}\right|_{t=0}=\nabla_{p_0}f \cdot w = (\lambda \nabla_{p_0}g + w)\cdot w = w\cdot w >0
+        \]
+        llegando a una contradicción. Por lo tanto \(w=0\) y \(\nabla_{p_0}f = \lambda \nabla_{p_0}g\).
+      </p>
+      </div>
     </div>
       
     <div class="nota-box">
@@ -559,7 +610,7 @@
     <p>
       Sean $U\subseteq \mathbb{R}^n$ un abierto y
       $f,g_1,\dots, g_m:U \to \mathbb{R}$
-      funciones clase $C^1$ en $U$. Supongamos que $p_0\in U$ es un punto extremo de \(f\)
+      funciones clase $C^1$ en $U$. Supongamos que $p_0\in U$ es  extremo local de \(f\)
       con las restricciones $g_1(p)=0, \cdots ,  g_m(p)=0$.
     
     </p>
@@ -587,12 +638,8 @@
   <h3> Teorema de Lagrange, una desigualdad </h3>
     <p>
       Sean $U\subseteq \mathbb{R}^n$ un abierto y $f,g:U \to \mathbb{R}$
-      funciones clase $C^1$ en $U$. Supongamos que $p_0\in U$ satisface
-      $$
-      f(p) \leq f(p_0) \quad o \quad f(p) \geq f(p_0),
-      $$
-      para toda $p$ en una vecindad de $p_0$ que además satisfacen
-      la restricción $g(p) \geq 0$.
+      funciones clase $C^1$ en $U$. Supongamos que $p_0\in U$ es un 
+      extremo local de \(f\) con la restricción $g(p) \geq 0$.
     </p>
     <p>
       Si $\nabla_{p_0}g \ne 0$ entonces existe $\lambda \geq 0$ tal
@@ -607,6 +654,94 @@
     </p>
  </div>
 
+ <div class="info-box">
+  <h2 class="number-title"> Ejemplo </h2>
+  <p>
+    Encuentra los valores máximo y mínimo de la función 
+    $f(x,y,z) = x + y + z$ sujeta a las restricciones de 
+    que el punto debe estar en el cilindro $x^2 + y^2 = 2$ y 
+    en el plano $x + z = 1$.
+  </p>
+  <button class="respButton hvr-grow "> Solución </button>
+    <div class="resp-box">
+  <p>
+    Paso 1: existencia de máximos y mínimos. 
+  </p>
+  <p>
+    El dominio dado por la intersección del cilindro y el plano es compacto, 
+    por lo que el máximo y mínimo se alcanzan.
+  </p>
+  <p>
+    Paso 2: solución del multiplicador de Lagrange.
+  </p>
+  <p>
+    Tomamos las funciones clase \(C^1\) dadas por \(g_1(x,y,z)=x^2+y^2-2\) y \(g_2(x,y,z)=x+z-1\). 
+    Los gradientes de estas funciones son \(\nabla_{(x,y,z)}f=(1,1,1)\), \(\nabla_{(x,y,z)} g_1 = (2x,2y,0)\) 
+    y \(\nabla_{(x,y,z)} g_2 = (1,0,1)\) respectivamente.  
+  </p>
+  <p>
+    Resolvemos el sistema 
+    \begin{eqnarray*} 
+    \left\{
+    \begin{array}{c}
+    \nabla_{p}f &=&\lambda_1 \nabla_p g_1 + \lambda_2 \nabla_p g_2 \\
+    g_1(p) &=& 0 \\
+    g_2(p) &=& 0
+    \end{array}
+    \right.
+    \Leftrightarrow
+    \left\{
+    \begin{array}{c}
+    1 &=& 2\lambda_1 x + \lambda_2 \\
+    1 &=& 2\lambda_1 y \\
+    1 &=& \lambda_2 \\
+    x^2+y^2-2 &=& 0 \\
+    x+z-1 &=& 0
+    \end{array}
+    \right.
+    \end{eqnarray*}
+  </p>
+  <p>
+    Este sistema es muy noble gracias a la tercera ecuación, 
+    la cual nos dice directamente que:
+    $$\lambda_2 = 1$$ 
+    Sustituimos el valor de $\lambda_2 = 1$ en la primera ecuación :
+    $$1 = 2 \lambda_1 x + 1 \implies 2x \cdot \lambda_1 = 0$$
+    Para que el producto $2x\lambda_1 = 0$, 
+    tenemos dos casos posibles: o $x = 0$ o $\lambda_1 = 0$.
+  </p>
+  <p>
+    Analicemos el caso $\lambda_1 = 0$:
+    Si sustituimos $\lambda_1 = 0$ en la segunda ecuación, 
+    obtenemos $1 = 2y(0) \implies 1 = 0$, lo cual es una contradicción matemática. 
+    Por lo tanto, $\lambda_1$ no puede ser 0.
+  </p>
+  <p>
+    Entonces necesariamente $x = 0$. Sustituyendo $x = 0$ en la cuarta ecuación,
+    obtenemos $0^2 + y^2 - 2 = 0 \implies y^2 = 2 \implies y = \pm \sqrt{2}$.
+    Finalmente, sustituyendo $x = 0$ en la quinta ecuación, obtenemos $0 + z - 1 = 0 \implies z = 1$.
+    Por lo tanto, los puntos candidatos a ser máximos o mínimos son 
+    \begin{equation*}
+      p_1=(0, \sqrt{2}, 1) \quad \text{y} \quad p_2=(0, -\sqrt{2}, 1)
+    \end{equation*}
+  </p>
+  <p>
+    Paso 3: asignación de máximos y mínimos.
+  </p>
+  <p>
+    Evaluamos ambos en $f(x,y,z) = x + y + z$:
+    \begin{eqnarray*}
+      f(p_1) &=& 0 + \sqrt{2} + 1 = 1 + \sqrt{2} \approx 2.41 \\
+      f(p_2) &=& 0 - \sqrt{2} + 1 = 1 - \sqrt{2} \approx -0.41
+    \end{eqnarray*}
+  </p>
+  <p>
+    Concluimos que el máximo de $f$ sujeto a las restricciones dadas es $1 + \sqrt{2}$ 
+    y se alcanza en el punto $p_1=(0, \sqrt{2}, 1)$, mientras 
+    que el mínimo es $1 - \sqrt{2}$ y se alcanza en el punto $p_2=(0, -\sqrt{2}, 1)$.
+  </p>
+  </div>
+ </div>
 
 
 <!-- <div class="teorema-box">
@@ -643,10 +778,6 @@
 
 
 
-
-
-
-    
   <div class="ejercicio-box"> 
     <h2 class="number-title"> Ejercicio</h2> 
     <p>
@@ -657,6 +788,30 @@
       Sugerencia: es más sencillo minimizar la distancias al cuadrado.
     </p>
   </div>
+
+ <div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Usa multiplicadores de Lagrange para encontrar los máximos y mínimos de 
+    las funciones dadas con las restricciones dadas.
+  </p>
+  <ol>
+    <li>
+      \(f(x,y)=x^2+y^2\) con la restricción \(xy=1\).
+    </li>
+    <li>
+      \(f(x,y)=y^2-x^2\) con la restricción \(x^2+\frac{1}{9}y^2=1\).
+    </li>
+    <li>
+      \(f(x,y)=e^{xy}\) con la restricción \(x^3+y^3=25\).
+    </li>
+    <li>
+      \(f(x,y,z)=x^4+y^4+z^4\) con la restricción \(x^2+y^2+z^2=a^2\) con \(a>0\).
+    </li>
+  </ol>
+ </div>
+
+    
     
 
        
@@ -678,67 +833,27 @@
    </div>
    
 
-  
-
-
-
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-      Este ejercicio da una demostración para el Teorema de
-      multiplicadores de Lagrange, para dimensión 3.
-  
-    </p>
-    <p>
-      Sea $U\ne \emptyset$ un abierto de $\mathbb{R}^3$ y
-      dos funciones clase $C^1$, $f,g:U\to \mathbb{R}$. Considera
-      la superficie de nivel
-      $$
-      S=\{p\in U: g(p)=0 \}
-      $$
-  
-    </p>
-    <p>
-      Recuerda que dado punto $p_0\in S$, el plano
-      tangente a $S$ en $p_0$ se define como
-      $$
-      \{p\in \mathbb{R}^3: \langle \nabla_{p_0}g, p-p_0 \rangle=0\}.
-      $$
-  
-    </p>
-    
-    <ol>
-        <li>
-            Sea $I$ un intervalo abierto de $\mathbb{R}$ y
-            se $\gamma:I \to \mathbb{R}^3$ una curva
-            diferenciable con la propiedad de que $\gamma(I)\subset S$.
-            Supongamos que
-            $\gamma(t_0)=p_0$. Demuestra que $\gamma'(t_0)$
-            y $\nabla_{p_0}g$ son ortogonales.
-      
-        </li>
-        <li>
-            Supongamos que $p_0\in S$ es un máximo
-            local para $f$ en $S$. Demuestra que, para
-            toda curva diferenciable $\gamma:I \to \mathbb{R}^3$,
-            tal que $\gamma(t)\subset S$ y $\gamma(t_0)=p_0$,
-            $ \nabla_{p_0}f$ y  $\gamma'(t_0)$ son ortogonales.
-            <p>
-                Sugerencia: nota que la función de una variable
-                $f\circ \gamma(t)$ tiene un máximo en $t_0$ y usa
-                la regla de la cadena.
-            </p>
-        </li>
-        <li>
-            Si $\nabla_{p_0}g\ne 0$ prueba que
-            existe un escalar $\lambda $ tal que
-            $\nabla_{p_0}f=\lambda \nabla_{p_0}g$.
-        </li>
-    </ol>
-  </div>
 
     
-
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio</h2> 
+  <p>
+    La producción total de cierto producto  está dada por la función de Cobb-Douglas,
+    $P=bL^\alpha K^{1-\alpha}$ donde $L$ es la cantidad de trabajo, $K$ la cantidad de capital, 
+    $b>0$ es una constante y $\alpha \in (0,1)$ es un parámetro que mide la importancia relativa 
+    del trabajo en la producción. 
+  </p>
+  <p>
+    Si el costo de una unidad de trabajo es $m>0$ y el costo de una unidad de capital es $n>0$ y 
+    la compañia sólo puede gastar $\rho>0$ de dinero como presupuesto total. Por lo tanto 
+    maximizar la producción sujeta a la restricción de presupuesto es equivalente a maximizar
+    $P$ sujeto a la restricción $mL+nK=\rho$. Usando multiplicadores de Lagrange 
+    muestra que el máximo de la producción se alcanza en 
+    \[
+    L=\frac{\alpha \rho}{m}, \quad K=\frac{(1-\alpha)\rho}{n}
+    \]
+  </p>
+</div>
 
   
   
@@ -784,6 +899,7 @@
     </p>
   </div>
 
+
     
   <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2> 
     <ol>
@@ -808,6 +924,16 @@
     </ol>
   </div>
   
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2>
+    Encuentra las dimensiones de una caja rectangular con lados paralelos a 
+    los ejes coordenados, inscrita en el elipsoide $x^2 + 4y^2 + 9z^2 = 36$, 
+    sabiendo además que la suma de sus longitudes en los ejes $x$ e $y$ debe 
+    ser igual a $4$, es decir  $x + y = 4$. Supón que la caja está en el primer 
+    octante ($x > 0, y > 0, z > 0$) para representar las longitudes de sus aristas.
+  </div>
+
+    
   
   <div class="ejercicio-box"> <h2 class="number-title"> Ejercicio</h2>
     <ol>
