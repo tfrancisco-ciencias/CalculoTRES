@@ -648,7 +648,7 @@
       <button class="respButton hvr-grow "> Demostración</button>
       <div class="resp-box">
         <p>
-          Por el <a href="#Lema:ContiMatrizDerivadasPar">Lema 17.10</a> existe  $\delta>0$ tal que 
+          Por el <a href="#Lema:ContiMatrizDerivadasPar">Lema 14.9</a> existe  $\delta>0$ tal que 
           $$
           \textrm{ $\mathbf{p}\in U$ y $ \| \mathbf{p}-\mathbf{p}_0\| <\delta$ } 
           \rightarrow \| D_{\mathbf{p}}F-D_{\mathbf{p}_0}F \|_2 < \varepsilon
@@ -665,7 +665,7 @@
             $$
         </p>
         <p>
-              Por el <a href="#Lema:LinealNorma">Lema 17.9</a>  existe $\mathbf{u}\in \mathbb{R}^n$ de norma 1 con
+              Por el <a href="#Lema:LinealNorma">Lema 14.8</a>  existe $\mathbf{u}\in \mathbb{R}^n$ de norma 1 con
               \begin{eqnarray*}
               \| F(\mathbf{p}_0+\mathbf{v})-F(\mathbf{p_0}+\mathbf{w})-D_{\mathbf{p}_0}F(\mathbf{v}-\mathbf{w})\|
               \\
@@ -932,14 +932,14 @@
     <button class="respButton hvr-grow "> Demostración </button>
         <div class="resp-box">
     <p>
-      Por el <a href="#Lema:CotaAbajoDif">Lema 7.13</a> existen  constantes positivas \(r,c>0\) tales que 
+      Por el <a href="#Lema:CotaAbajoDif">Lema 14.12</a> existen  constantes positivas \(r,c>0\) tales que 
       \begin{equation}\label{Eqn:CotaAbajoDerivada}
       c\|u\| \leq \|D_{p}Fu\|
       \end{equation}
       para todo \(u \in \mathbb{R}^n\) y todo \(p_1,p_2\in B_r(p_0)\).
     </p>
     <p>
-      Por la <a href="#Prop:DifQuotienBounded">Proposición 17.11</a> existe una constante positiva \(\alpha >0\) tal que 
+      Por la <a href="#Prop:DifQuotienBounded">Proposición 14.10</a> existe una constante positiva \(\alpha >0\) tal que 
       \[
         \| F(p_0+v)-F(p_0+w) - D_{p_0}F(v-w)\| < \frac{c}{2}\| v-w\|
       \]
@@ -1010,7 +1010,7 @@
           </ol>
         </p>
         <p>
-          Por la <a href="#Prop:PrelimSolobilidad">Proposición 17.12</a> para 
+          Por la <a href="#Prop:PrelimSolobilidad">Proposición 14.11</a> para 
           $w=q-F(p_0) \in B_{1/2m}(\mathbf{0})$, exsite $v\in B_\alpha(0)$ tal que $g(v)=w$, es decir
           $F(p_0+v)-F(p_0)=q-F(p_0)$ por lo que $F(p_0+v)=q$. Se toma $p=p_0+v$.
         </p>
@@ -1070,7 +1070,7 @@
 
       <p>
 
-        Por el <a href="#Lema:CotaAbajoDif"> Lema 17.3</a> existen constantes positivas \(r,c>0\) con 
+        Por el <a href="#Lema:CotaAbajoDif"> Lema 14.12</a> existen constantes positivas \(r,c>0\) con 
 
         \[
         c\|v\| \leq \|D_pFv\|
@@ -1082,7 +1082,7 @@
         \(n\times n\) ésto implica que es invertible.
       </p>
       <p>
-        Por la <a href="#Prop:InyectividadLocal"> Proposición 17.14</a> existen constantes positivas \(s,d>0\)
+        Por la <a href="#Prop:InyectividadLocal"> Proposición 14.13</a> existen constantes positivas \(s,d>0\)
         con 
         \[
         d\|p_1-p_2\|\leq \|F(p_1)-F(p_2)\|
@@ -1095,7 +1095,7 @@
         invertible para todo 
         \(p\in B_t(p_0)\) se sigue de <a href="#Teo:MaperoAbierto">Teorema del mapeo abierto </a> 
         que \(F(W)\) es un conjunto abierto abierto. Definimos \(V=F(W)\). Nota que 
-        por la <a href="##Prop:InyectividadLocal"> Proposición 17.14</a> \(F\) es inyectiva en 
+        por la <a href="##Prop:InyectividadLocal"> Proposición 14.13</a> \(F\) es inyectiva en 
         \(B_t(p_0)\) y por lo tanto \(F\) es una biyección entre \(W\) y \(V\) y por lo tanto 
         existe su inversa bajo composición. Denotemos por \(G\) a la inversa de \(F\). 
       </p>
@@ -1182,7 +1182,7 @@
           \frac{\|ME(G(q))\|}{\| q-q_1\|}&\leq & \|M\|_2 \frac{\|E(G(q))\|}{\|q-q_1\|} \\
           &=& \|M\|_2 \frac{\|E(p)\|}{\|p-p_1\|}\frac{\|p-p_1\|}{\|F(p)-F(p_1) \|}
         \end{eqnarray*}
-        Por la proposición 17.14, existe \(d>0\) tal que si \(p\) está cerca de \(p_1\) entonces 
+        Por la proposición 14.13, existe \(d>0\) tal que si \(p\) está cerca de \(p_1\) entonces 
         \(d\|p-p_1\| \leq \|F(p)-F(p_1)\|\). Si \(p\neq p_1\) se sigue que 
         \( \frac{\|p-p_1\|}{\|F(p)-F(p_1)\| } \leq \frac{1}{d}\).
       </p>
