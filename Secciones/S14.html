@@ -370,6 +370,11 @@
       + \frac{1}{r^2}\frac{\partial^2 f}{\partial^2 \theta}
       \]
     </p>
+    <button class="respButton hvr-grow "> Demostración</button>
+    <div class="resp-box">
+    <h3>
+      Primera parte: aplicando el teorema de la función inversa.
+    </h3>
     <p>
       Para empezar tenemos pensar a las variables $x,y$ como funciones, 
       en este caso como funciones en coordenadas polares: 
@@ -439,9 +444,34 @@
       \partial_x \theta & \partial_y \theta
       \end{array}
       \right]
-
+      \end{eqnarray*}
+      asi que igualando las entradas de las matrices obtenemos
+      \begin{eqnarray*}
+      \partial_x r &=& \cos(\theta) \\
+      \partial_y r &=& \sen(\theta) \\
+      \partial_x \theta &=& -\frac{1}{r}\sen(\theta) \\
+      \partial_y \theta &=& \frac{1}{r}\cos(\theta)
       \end{eqnarray*}
     </p>
+    <p>
+      Ahora, usando diferenciación implícita calculamos las derivadas de segundo orden de $r$:
+      \begin{eqnarray*}
+      \frac{\partial^2 r}{\partial x^2} &=& \frac{\partial}{\partial x} \left( \cos(\theta) \right)=-\sen(\theta)\frac{\partial \theta}{\partial x}=\frac{1}{r} \sen^2(\theta)\\
+      \frac{\partial^2 r}{\partial y^2} &=& \frac{\partial}{\partial y} \left( \sen(\theta) \right) = \cos(\theta)\frac{\partial \theta}{\partial y}=\frac{1}{r} \cos^2(\theta) \\
+      \end{eqnarray*}
+      las de $\theta$ cuestan un poco más de trabajo 
+      \begin{eqnarray*}
+      \frac{\partial^2 \theta}{\partial x^2} &=& \frac{\partial}{\partial x} \left( -\frac{1}{r}\sen(\theta) \right)\\
+      &=& \frac{1}{r^2}\cos(\theta)\sen(\theta) +\frac{1}{r^2}\cos(\theta)\sen(\theta) \\
+      &=& \frac{2}{r^2}\cos(\theta)\sen(\theta) \\
+      \frac{\partial^2 \theta}{\partial y^2} &=& \frac{\partial}{\partial y} \left( \frac{1}{r}\cos(\theta) \right)v \\
+      &=& -\frac{1}{r^2}\sen(\theta)\cos(\theta) - \frac{1}{r^2}\sen(\theta)\cos(\theta) \\
+      &=& -\frac{2}{r^2}\sen(\theta)\cos(\theta)
+      \end{eqnarray*}
+    </p>
+    <h3 >
+       Segunda parte: aplicando la regla de la cadena.
+    </h3>
     <p>
       Ahora por la regla de la cadena
       \[
@@ -498,6 +528,52 @@
       +\frac{\partial \theta}{\partial y}  \frac{\partial^2 f}{\partial  r \partial \theta} \frac{\partial r}{\partial y}  
       \end{eqnarray*}
     </p>
+    <h3>
+      Ultima parte: simplificaciones. 
+    </h3>
+    <p>
+      Veamos los coeficientes de cada parcial de $f$ en el Laplaciano.
+    </p>
+    <p>
+      Para $\frac{df}{dr}$ tenemos que el coeficiente es
+      \[
+      \frac{\partial^2 r }{\partial^2 x} + \frac{\partial^2 r }{\partial^2 y} = \frac{1}{r}\sen^2(\theta) + \frac{1}{r}\cos^2(\theta)=\frac{1}{r}
+      \]
+    </p>
+    <p>
+      Para $\frac{\partial^2 f}{\partial^2 r}$ el coeficiente es 
+      \[
+      \left( \frac{\partial r}{\partial x} \right)^2 + \left( \frac{\partial r}{\partial y} \right)^2 = \cos^2(\theta) + \sen^2(\theta)=1
+      \]
+    </p>
+    <p>
+      Para $\frac{\partial^2 f}{\partial^2 \theta}$ el coeficiente es 
+      \[
+      \left( \frac{\partial \theta}{\partial x} \right)^2 + \left( \frac{\partial \theta}{\partial y} \right)^2 = \frac{1}{r^2}\sen^2(\theta) + \frac{1}{r^2}\cos^2(\theta)=\frac{1}{r^2}
+      \]
+    </p>
+    <p>
+      Para $\frac{\partial^2 f}{\partial r \partial \theta}$ el coeficiente es
+      \[
+      2\frac{\partial r}{\partial x}\frac{\partial \theta}{\partial x} + 2\frac{\partial r}{\partial y}\frac{\partial \theta}{\partial y} = -2\frac{1}{r}\cos(\theta)\sen(\theta) + 2\frac{1}{r}\sen(\theta)\cos(\theta)=0
+      \]
+       por lo que no aparece en el Laplaciano. 
+    </p>
+    <p>
+      Finalmente, para $\frac{\partial f}{\partial \theta}$ el coeficiente es
+      \[
+      \frac{\partial^2 \theta}{\partial^2 x} + \frac{\partial^2 \theta}{\partial^2 y} = \frac{2}{r^2}\cos(\theta)\sen(\theta) - \frac{2}{r^2}\sen(\theta)\cos(\theta)=0
+      \]
+       por lo que tampoco aparece en el Laplaciano.
+    </p>
+    <p>
+      Concluyendo, el Laplaciano de $f$ en coordenadas polares se calcula como
+      \[
+      \Delta f = \frac{\partial^2 f}{\partial^2 r} + \frac{1}{r}\frac{\partial f}{\partial r} 
+      + \frac{1}{r^2}\frac{\partial^2 f}{\partial^2 \theta}
+      \]
+    </p>
+    </div>
     </div>
 
 
