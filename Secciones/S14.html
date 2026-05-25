@@ -22,7 +22,8 @@
             sen: "\\operatorname{sen}",
             seg: ["\\overrightarrow{#1}", 1],
             id: "\\operatorname{id}",
-            senh:"\\operatorname{senh}"
+            senh:"\\operatorname{senh}",
+            arcsen:"\\operatorname{arcsen}"
           },
           tags: "ams", /* this part is for numbered equations */
           inlineMath: [['$', '$'], ['\\(', '\\)']]
@@ -86,7 +87,87 @@
     <button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>
   <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
     
+<div class="info-box">
+<h2 class="number-title"> Introducción </h2>
 
+  <p>
+    Recordamos que dada una función lineal $F:\mathbb{R}^n \to \mathbb{R}^n$, $F$ es invertible 
+    si y sólo si existe una función $F^{-1}:\mathbb{R}^n \to \mathbb{R}^n$ tal que 
+    $F^{-1}\circ F(p)=p=F\circ F^{-1}(p)$, para todo $p\in \mathbb{R}^n$. 
+     En este caso, $F^{-1}$ se llama la función inversa de $F$. También se dice 
+     que $F$ es una biyección de $\mathbb{R}^n$ a $\mathbb{R}^n$ o que tiene una inversa global.
+  </p>
+  <p>
+    En la <a href="./S3.html">Sección 3</a> vimos que dada una función lineal entre espacios de la misma 
+    dimensión, $F:\mathbb{R}^n \to \mathbb{R}^n$, $F$ es invertible si y sólo si 
+    la matriz asociada a $F$ es invertible (<a href="./S3.html#teo:funcion-inversa">Teorema 3.23</a>). 
+    Además si $A$ es la matriz asociada a $F$ 
+    entonces $A$ es invertible si y sólo si $\det(A)\ne 0$. En resumen, 
+    la invertibilidad de la función $F$ se reduce a ver si un número (el determinante)
+    es distinto de cero o no. 
+  </p>  
+  <p>
+    El teorema de la función inversa es un 
+    resultado que generaliza esta idea, pero para funciones clase $C^1$. Sin embargo, 
+    el teorema no es tan fácil de enunciar como el caso lineal. Para empezar 
+    la invertibilidad de la función sólo será local no global como en el caso 
+    lineal. Por ejemplo, la función $f(x)=x^3$ es invertible globalmente (es decir, es una biyección 
+    de $\mathbb{R}$ a $\mathbb{R}$)
+    con inversa $f^{-1}(x)=\sqrt[3]{x}$, pero la función $f(x)=x^2$ 
+    no lo es pues en particular no es inyectiva. Asi pues tenemos que empezar a hablar de vecindades
+    para poder hablar de inversibilidad local. 
+  </p>
+  
+  </div>
+
+
+  <div class="definicion-box">
+    <h2 class="number-title"> Definición </h2>
+
+      <p>
+         Dado $p\in \mathbb{R}^n$ por una vecindad de $p$ entendemos a cualquier conjunto 
+         $V \subset \mathbb{R}^n$ tal que $p\in V$ y tal que $V$ es abierto. 
+      </p>
+      <p>
+        Si $F:U \subseteq \mathbb{R}^n \to \mathbb{R}^n$ es una función y $p\in U$,
+        decimos que $F$ tiene una inversa local en $p$ si existe $V$, una vecindad de $p$, tal que:
+        <ol>
+          <li>
+            $F$ restringida a $V$ es inyectiva, 
+          </li>
+          <li>
+            $F(V)$ es una vecindad de $F(p)$.
+          </li>
+        </ol> 
+
+        En otras palabras, $F$ es una biyección de $V$ a $F(V)$. 
+      </p>
+      <p>
+        Por ejemplo, aunque la función $f:\mathbb{R}\to \mathbb{R}$, dada por $f(x)=x^2$,
+        no tiene inversa global (al no ser inyectiva), $f$ tiene una inversa local tomando $V=(0,\infty)$ pues entonces
+        entonces $f(V)=(0,\infty)$ y $f$ da  una biyección 
+        entre $V$ y $f(V)$ con inversa $f^{-1}(x)=\sqrt{x}$.
+      </p>
+  </div>
+    
+
+<div class="nota-box">
+  <h2 class="number-title"> Notas </h2>
+  <ol>
+    
+    <li>
+        Recuerda que si $F:U\subseteq \mathbb{R}^n \to \mathbb{R}^n$ es diferenciable en $p_0$,
+        entonces $D_{\mathbf{p}_0}F$ es una transformación lineal cuya
+        matriz asociada en la base canónica, es la matrix de derivadas parciales
+        $\partial_{x_i}f_j(\mathbf{p}_0)$, donde $F=(f_1,\dots f_n)$.
+    </li>
+    <li>
+        $D_{\mathbf{p}_0}F$ es una biyección  si y sólo si (vista como matriz)
+        $\det(D_{\mathbf{p}_0}F)\ne 0$.
+    </li>
+    
+  </ol>
+</div>  
 
 
 
@@ -103,223 +184,323 @@
       Sea $\mathbf{p}_0\in U$  y supongamos que la derivada de $F$ en $\mathbf{p}_0$,
       denotada $D_{\mathbf{p}_0}F$,
       es una biyección de $\mathbb{R}^n$ a $\mathbb{R}^n$ (es decir,
-      inyectiva y supreyectiva).
+      $\det(D_{\mathbf{p}_0}F)\ne 0$).
   </p>
   <p>
-    Entonces existe $W$, una vecindad de $\mathbf{p}_0$, tal que $F(W)$ es una
-    vecindad de $F(\mathbf{p}_0)$ donde se cumple:
+    Entonces $F$ tiene una inversa local en $p_0$ que además es clase $C^1$. Es decir:
+    existe $W$, una vecindad de $\mathbf{p}_0$, tal que $F(W)$ es una
+    vecindad de $F(\mathbf{p}_0)$ y además se cumple:
   </p>
 
   <ol>
     <li>
-        denotando $V:=F(W)$, $F$ es una biyección de $W$ a $V$
-        (es decir, inyectiva en $W$ y
-        suprayectiva a $V$);
+        denotando $V:=F(W)$, $F$ es una biyección de $W$ a $V$;
     </li>
     <li>
-        $G:V \to W$, la  función inversa de $F$,  es continua en $V$;
+        $F^{-1}:V \to W$, la  función inversa de $F$,  es de clase $C^1$ en $V$;
     </li>
-    <li>
-        además, $G$ es de clase $C^1$ en $V$ y si $\mathbf{q}\in V$ y
-        $\mathbf{p}=G(\mathbf{q})$
-        entonces $D_{\mathbf{q}}G$ es la inversa de $D_{\mathbf{p}}F$.
-    </li>
+    
   </ol>
-
+  <p>
+    Finalmente las derivadas se relacionan como 
+    \[
+    D_{q}F^{-1} = (D_{p}F)^{-1}.
+    \] 
+    para $p\in W$ con $q=F(p)$.
+  </p>
+  <p>
+    Nota: como consecuencia, si $p=(p_1,\dots, p_n), F=(f_1,\dots, f_n)$
+    y $F(p)=q=(q_1,\dots, q_n)$ entonces el sistema, $F(p)=q$, que se puede desarrollar como:
+    \begin{eqnarray*} 
+    q_1=f_1(p_1,\dots, p_n) \\
+    q_2=f_1(p_1,\dots, p_n) \\
+    \vdots \\
+    q_n=f_n(p_1,\dots, p_n)
+    \end{eqnarray*}
+    se puede resolver para $p_1,\dots, p_n$, es decir, despejar las $p_i's$
+    en terminos de las $q_i's$. 
+  </p>
 </div>
 
 
+<div class="coro-box">
+  <h2 class="number-title"> Corolario </h2>
+  <p>
+    Sea \(f:(a,b)\to \mathbb{R}\) una función de clase \(C^1\) en $(a,b)$. Si 
+    \(f'(x_0)\ne 0\) entonces existen  intervalos 
+    tal que \(f: (x_0-\delta,x_0+\delta)\to (f(x_0)-\epsilon,f(x_0)+\epsilon)\) 
+    es invertible (es decir, biyectiva) además \(f^{-1}(y)\) es de clase \(C^1\)  con
+      \[
+      \frac{d f^{-1}}{d y}(f(x)) = \frac{1}{\frac{d f}{d x}(x)}.
+      \]
+      para $x\in (x_0-\delta,x_0+\delta)$.
+  </p>
+  </div>
 
-
-
-
-<div class="nota-box">
-  <h2 class="number-title"> Notas </h2>
-  <ol>
-    <li>
-        una vecindad de un punto $\mathbf{p}$ es
-        simplemente un abierto que contiene
-        a $p$.
-    </li>
-    <li>
-        recuerda que $D_{\mathbf{p}_0}F$ es una transformación lineal cuya
-        matriz asociada en la base canónica, es la matrix de derivadas parciales
-        $\partial_{p_i}f_j(\mathbf{p}_0)$, donde $F=(f_1,\dots f_n)$.
-    </li>
-    <li>
-        $D_{\mathbf{p}_0}F$ es inyectiva sii, vista como matriz,
-        $\det(D_{\mathbf{p}_0}F)\ne 0$.
-    </li>
-    <li>
-        $D_{\mathbf{p}_0}F$ es suprayectiva sii su rango es $n$.
-    </li>
-    <li>
-        Existe un teorema de álgebra lineal que dice que,
-        dada una matriz de $n\times n$, la transformación lineal
-        (que va de $\mathbb{R}^n$ a $\mathbb{R}^n$)
-        inducida por la matriz es inyectiva si y sólo si es suprayectiva. Por
-        lo tanto, para aplicar el Teorema de la Función Inversa, es suficiente
-        checar que $\det(D_{\mathbf{p}_0}F)\ne 0$.
-        
-    </li>
-  </ol>
-</div>  
-
-
+  <div class="info-box">
+    <h2 class="number-title"> Ejemplo </h2>
+    <h3> Derivadas de funciones trigonométricas inversas </h3>
+    <p>
+      Las funciones $\sen:(-\pi/2,\pi/2)\to (-1,1)$ y $\cos:(0,\pi)\to (-1,1)$ son invertibles.
+       Sus inversas son las funciones $\arcsen:(-1,1)\to (-\pi/2,\pi/2)$ y $\arccos:(-1,1)\to (0,\pi)$ respectivamente. 
+       Además, $\arcsen$ y $\arccos$ son de clase $C^1$ con
+       \[
+       \frac{d \arcsen}{d y}(y) = \frac{1}{\sqrt{1-y^2}} \quad \textrm{y} \quad 
+       \frac{d \arccos}{d x}(y) = -\frac{1}{\sqrt{1-y^2}}.
+       \]
+    </p>
+    <p>
+      La función $\tan:(-\pi/2,\pi/2)\to \mathbb{R}$ es invertible con inversa $\arctan:\mathbb{R}\to (-\pi/2,\pi/2)$ de clase $C^1$ con
+      \[
+      \frac{d \arctan}{d y}(y) = \frac{1}{1+y^2}.
+      \]
+    </p>
 
     
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2>
+    <button class="respButton hvr-grow "> Caso: $\sen$  </button>
+        <div class="resp-box">
     <p>
-      Considera la función
-      $f:\mathbb{R}^2\setminus\{(0,0)\} \to \mathbb{R}^2$ dada por
-      $$f(x,y)=\left(\frac{x^2-y^2}{x^2+y^2}, \frac{2xy}{x^2+y^2}  \right)$$
+      Denotemos $f(x)=\sen(x)$ para $x\in (-\pi/2,\pi/2)$. Entonces $f'(x)=\cos(x)$ y
+      como $\cos(x)\ne 0$ para toda $x\in (-\pi/2,\pi/2)$, $f$ es invertible localmente con inversa $f^{-1}(y)$
+      clase $C^1$ y además 
+      \[
+      \frac{d f^{-1}}{d y}(f(x)) = \frac{1}{\frac{d f}{d x}(x)}.
+      \]
+       Por $x$ denotamos la variable de $f$ y $y$ la variable de $f^{-1}$. Entonces 
+       estas variables se relacionan como $f(x)=y, f^{-1}(y)=x$. 
+    </p>
+    <p>
+      Ahora tenemos que escribir $\frac{1}{\frac{d f}{d x}(x)}$ en término de la variable $y$
+      para obtener las fórmulas de las derivadas de las funciones trigonométricas inversas. 
+    </p>
+    <p>
+      Tenemos que: $\sen^2(x)+\cos^2(x)=1$ y $\frac{df}{dx}(x)=\cos(x)$ por lo que 
+      \[
+      f(x)^2+ \left(\frac{df}{dx}(x) \right)^2=1
+      \]
+      despejando tenemos
+      \[
+      \frac{1}{\sqrt{(\frac{df}{dx}(x))^2}}=\frac{1}{\sqrt{1-f(x)^2}}
+      \]
+      pero como en $(-\pi,\pi)$, $\frac{df}{dx}(x)=\cos(x)>0$, se tiene que 
+      $\sqrt{(\frac{df}{dx}(x))^2}=\frac{df}{dx}(x)$ por lo tanto obtenemos
+      \[
+      \frac{1}{\frac{df}{dx}(x)}=\frac{1}{\sqrt{1-f(x)^2}}. 
+      \]
+      Finalmente substituyendo $f(x)=y$ y $\frac{1}{\frac{df}{dx}(x)}=\frac{df^{-1}}{dy}(f(x))$
+      concluimos
+      \[
+      \frac{df^{-1}}{dy}(y)=\frac{d \arcsen}{dy}(y)=\frac{1}{\sqrt{1-y^2}}
+      \]
+    </p>
+  </div>
+    <button class="respButton hvr-grow "> Caso: $\cos$  </button>
+        <div class="resp-box">
+    <p>
+      Denotemos $g(x)=\cos(x)$ para $x\in (0,\pi)$. Como $g'(x)=-\sen(x)\ne 0$
+      para todo $x\in (0,\pi)$, $g$ es invertible localmente con $g^{-1}(y)$ clase $C^1$. Además 
+      \[
+      \frac{d g^{-1}}{d y}(g(x)) = \frac{1}{\frac{d g}{d x}(x)}.
+      \]
+      Al igual que en el caso de seno, usando $\cos^2(x)+\sen^2(x)=1$ obtenemos 
+      \[
+      g(x)^2+ \left(\frac{dg}{dx}(x) \right)^2=1
+      \]
+      despejando tenemos
+      \[
+      \frac{1}{\sqrt{(\frac{dg}{dx}(x))^2}}=\frac{1}{\sqrt{1-g(x)^2}}
+      \]
+      pero como en $(0,\pi)$, $\frac{dg}{dx}(x)=-\sen(x) < 0$, se tiene que 
+      $\sqrt{(\frac{dg}{dx}(x))^2}=-\frac{dg}{dx}(x)$ por lo tanto obtenemos
+      \[
+      -\frac{1}{\frac{dg}{dx}(x)}=\frac{1}{\sqrt{1-g(x)^2}}. 
+      \]
+      Finalmente substituyendo $g(x)=y$ y $\frac{1}{\frac{dg}{dx}(x)}=\frac{dg^{-1}}{dy}(g(x))$
+      concluimos
+      \[
+      \frac{dg^{-1}}{dy}(y)=\frac{d \arccos}{dy}(y)=-\frac{1}{\sqrt{1-y^2}}
+      \]
+    </p>
+    <p>
       
-      ¿ Tiene $f$ una inversa local
-      cerca del punto $(0,r)$, con $r>0$ ?
-    </p> 
-  </div>
-
-
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-      Considera la función $f:\mathbb{R}^2 \to \mathbb{R}^2$ dada por
-      $$
-      f(x,y)=(x^2-y^2,2xy)
-      $$
     </p>
-    
-    <ol>
-        <li>
-            Fija una constante $\alpha\in \mathbb{R}$. Encuentra
-            las imagines inversas de las
-            curvas $u=\alpha$ y $v=\alpha$. Es decir, describe
-            los siguientes conjuntos:
-            $$
-            f^{-1}(\{(u,v)\in \mathbb{R}^2:u=\alpha \}),
-            f^{-1}(\{(u,v)\in \mathbb{R}^2: v=\alpha\}).
-            $$
-            A los puntos en el dominio de $f$ los vamos a denotar
-            como $(u,v)$ y  a los puntos en con
-            contradominio de $f$ los vamos a denotar $(u,v)$.
-        </li>
-        <li>
-            Fija una constante $\alpha \in \mathbb{R}$. Encuentra
-            las imagines directas de las
-            curvas $x=\alpha$ y $y=\alpha$. Es decir, describe los conjuntos: 
-            $$
-            f(\{(x,y)\in \mathbb{R}^2: x=\alpha \}),
-            f(\{(x,y)\in \mathbb{R}^2: y=\alpha\}).
-            $$
-        </li>
-        <li>
-            Encuentra en cuál región se transforma el 
-            rectángulo $\{(x,y):0\leq x \leq 1, 0\leq y \leq 1\}$ al aplicar $f$.      
-        </li>
-        <li>
-            Encuentra la región tal que, al aplicar $f$,
-            se obtiene el  rectángulo
-            $\{(u,v): 0\leq u \leq 1,0\leq v \leq 1\}$.
-        </li>
-        <li>
-            Demuestra que, para todo $(x,y)$, existe una vecindad
-            del punto tal que $f$ restringida a
-            dicha vecindad es inyectiva, excepto para el punto $(0,0)$.
-            Además prueba que $f$ no es inyectiva en
-            todo $\mathbb{R}^2$.
-        </li>  
-    </ol>
-  </div>
-
-    
-    
-
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
+    </div>
+    <button class="respButton hvr-grow "> Caso: $\tan$ </button>
+        <div class="resp-box">
     <p>
-      Sea $f:\mathbb{R}\to \mathbb{R}$ una función de
-      clase $C^1$. Define $F:\mathbb{R}^2 \to \mathbb{R}^2$
-      dada por $$F(x,y)=(f(x), xf(x)-y).$$
+      Denotemos $h(x)=\tan(x)$ para $x\in (-\pi/2,\pi/2)$. Como $h'(x)=\sec^2(x) > 0$
+      para todo $x\in (-\pi/2,\pi/2)$, $h$ es invertible localmente con $h^{-1}(y)$ clase $C^1$. Además 
+      \[
+      \frac{d h^{-1}}{d y}(h(x)) = \frac{1}{\frac{d h}{d x}(x)}.
+      \]
+      Ahora utilizamos la identidad $1+\tan^2(x)=\sec^2(x)$ para obtener
+      \[
+      1 + h(x)^2= \frac{dh}{dx}(x)
+      \]
+      despejando tenemos
+      \[
+      \frac{1}{\frac{dh}{dx}(x)}=\frac{1}{1+h(x)^2} 
+      \]
+      
+      Finalmente substituyendo $h(x)=y$ y $\frac{1}{\frac{dh}{dx}(x)}=\frac{dh^{-1}}{dy}(h(x))$
+      concluimos
+      \[
+      \frac{dh^{-1}}{dy}(y)=\frac{d \arctan}{dy}(y)=\frac{1}{1+y^2}
+      \]
+    </p>
+    </div>
+    </div>
+
+
+    
+      <div class="info-box">
+    <h2 class="number-title"> Ejemplo </h2>
+    <h3> El Laplaciano en coordenadas polares  </h3>
+    <p>
+      Sea $f:U\subseteq \mathbb{R}^2 \to \mathbb{R}$ una función de clase $C^2$ en el abierto $U$. 
+      El Laplaciano de $f$ se define como la función $\Delta f: U \to \mathbb{R}$
+      dada por 
+      \[
+      \Delta f= \frac{\partial^2 f}{\partial^2 x}+\frac{\partial^2 f}{\partial^2 y}
+      \]
+      Ahora queremos probar que, suponiendo $f$ como una función en coordenadas 
+      polares $(r,\theta)$, el Laplaciano se calcula como 
+      \[
+      \Delta f = \frac{\partial^2 f}{\partial^2 r} + \frac{1}{r}\frac{\partial f}{\partial r} 
+      + \frac{1}{r^2}\frac{\partial^2 f}{\partial^2 \theta}
+      \]
     </p>
     <p>
-      Si $f'(x_0)\ne 0$ demuestra que $F$ tiene una inversa local
-      cerca de $(x_0,y_0)$ (donde $y_0$ es arbitrario).
-      Además, prueba que ésta inversa está dada por
-      $$F^{-1}(u,v)=(f^{-1}(u),uf^{-1}(u)-v).$$
+      Para empezar tenemos pensar a las variables $x,y$ como funciones, 
+      en este caso como funciones en coordenadas polares: 
+      \[
+      x=r\cos(\theta), \quad y= r\sen(\theta).
+      \]
+
+      Este cambio de variables lo podemos codificar en la función $F:\mathbb{R}^2 \to \mathbb{R}^2$
+      dada por $F(r,\theta)=(r\cos(\theta), r\sen(\theta))$. Notamos que si $F$ tuviese inversa 
+      entonces podemos escribir $F^{-1}(x,y)=(r(x,y), \theta(x,y))$. En vez de calcular 
+      directamente $r$ y $\theta$ como funciones de $x,y$, vamos a usar 
+      el teorema de la función inversa para encontrar expresiones para $\frac{\partial r}{\partial x},\frac{\partial r}{\partial y}$,
+      $\frac{\partial \theta}{\partial x}$, $\frac{\partial \theta}{\partial y}$, las cuales utilizaremos más adelante.
     </p>
-  </div>
-
-
-
-
-    
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2>
     <p>
-      Sea $f:\mathbb{R}^n \to \mathbb{R}^n$ una función.
-      ¿ Es cierto que si,
-      $f$ es diferenciable en $p_0$ y $f$ admite una inversa
-      diferenciable, entonces $D_cf$ es inyectiva?
-    </p> 
-  </div>
-  
-  
-     <div class="ejercicio-box"> 
-      <h2 class="number-title"> Ejercicio</h2> 
-      <p>
-        Considera la función $f:\mathbb{R}\to \mathbb{R}$ dada por
-        $$
-        f(x)=\left\{
-          \begin{array}{cc}
-            x+2x^2\sen(1/x) & x\ne 0 \\
-            0 & x=0
-            \end{array}
-          \right.
-        $$
-
-        En este caso recuerda que $D_0f$ es simplemente $f'(0)$ y que
-        la condición de que $D_0f$ sea inyectiva simplemente se traduce
-        a $f'(0)\ne0$.
-
-      </p>
-      <p>
-        Prueba que $f'(0)$ existe, es distinta de cero, pero sin embargo,
-        $f$ no es invertible cerca de $x=0$.
-      </p>
-      <p>
-        ¿ Contradice esto el teorema de la función inversa?
-      </p>
-          
-  </div>
-
-       
-
-  <div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-      Considera la función $F(x,y)=(x^4+2xy+3,y)$ y considera las ecuaciones
+      La matriz de derivadas parciales de $F$ es 
       \begin{eqnarray*}
-        x^4+2xy+3&=&u \\
-        y&=&v\\
+      D_{(r,\theta)}F&=&\left[ \begin{array}{cc} 
+      \partial_r x &  \partial_\theta x \\
+      \partial_r  y & \partial_\theta y 
+      \end{array}
+      \right] \\
+      &=&\left[ \begin{array}{cc} 
+      \cos(\theta) &  -r\sen(\theta) \\
+      \sen(\theta) & r\cos(\theta)
+      \end{array}
+      \right]
       \end{eqnarray*}
-      
+      Tomando el determinante tenemo
+      \begin{eqnarray*}
+      \det(D_{(r,\theta)}F)&=&\det\left[ \begin{array}{cc} 
+      \cos(\theta) &  -r\sen(\theta) \\
+      \sen(\theta) & r\cos(\theta)
+      \end{array}
+      \right]\\
+      &=&r\cos^2(\theta)+r\sen^2(\theta)\\
+      &=&r
+      \end{eqnarray*}
+      Asi que para $r>0$ el teorema de la función inversa dice que $F$ tiene una 
+      inversa local y además 
+
+      \begin{eqnarray*} 
+      D_{(x,y)}F^{-1}&=&(D_{(r,\theta)}F)^{-1} \\
+      &=& \left[ \begin{array}{cc} 
+      \cos(\theta) &  -r\sen(\theta) \\
+      \sen(\theta) & r\cos(\theta)
+      \end{array}
+      \right]^{-1} \\
+      &=&\frac{1}{\det(D_{(r,\theta)}F)}\left[ \begin{array}{cc} 
+      r \cos(\theta) &  r\sen(\theta) \\
+      -\sen(\theta) & \cos(\theta)
+      \end{array}
+      \right] \\
+      &=&\left[ \begin{array}{cc} 
+      \cos(\theta) &  \sen(\theta) \\
+      -\frac{1}{r}\sen(\theta) & \frac{1}{r}\cos(\theta)
+      \end{array}
+      \right]
+      \end{eqnarray*}
+
     </p>
-    <ol>
-        <li>
-            Muestra que para $(u,v)=(0,1)$, una solución es $(x,y)=(2,1)$.
-        </li>
-        <li>
-            Encuentra $D_{(x,y)}F$, para todo punto $(x,y)$.
-        </li>
-        <li>
-            Prueba que $D_{(2,1)}F$ es invertible, por lo tanto $F$
-            es invertible en una vecindad de $(2,1)$.
-              Usa una aproximación lineal para estimar
-            $F^{\langle -1 \rangle }(2.2,1.01)$.
-        </li>
-    </ol>
-  </div>
+    <p>
+      Por otro lado, directamente de la definición de la matriz de derivadas parciales
+      \begin{eqnarray*} 
+      D_{(x,y)}F^{-1}=\left[ \begin{array}{cc} 
+      \partial_x r &  \partial_y r \\
+      \partial_x \theta & \partial_y \theta
+      \end{array}
+      \right]
+
+      \end{eqnarray*}
+    </p>
+    <p>
+      Ahora por la regla de la cadena
+      \[
+      \frac{\partial f}{\partial x}= \frac{\partial f}{\partial r} \frac{\partial r}{\partial x}
+      + \frac{\partial f}{\partial \theta}\frac{\partial \theta}{\partial x}
+      \]
+      \[
+      \frac{\partial f}{\partial y}= \frac{\partial f}{\partial r} \frac{\partial r}{\partial y}
+      + \frac{\partial f}{\partial \theta}\frac{\partial \theta}{\partial y}
+      \]
+    </p>
+    <p>
+      Ahora, tomando las segundas derivadas parciales y aplicando la regla del producto obtenemos
+      \begin{eqnarray*} 
+      \frac{\partial^2 f}{\partial x^2}&=& \frac{\partial }{\partial x}\left( \frac{\partial f}{\partial r} \frac{\partial r}{\partial x}
+      + \frac{\partial f}{\partial \theta}\frac{\partial \theta}{\partial x} \right) \\
+      &=& \frac{\partial f}{\partial r} \frac{\partial^2 r }{\partial^2 x} 
+      + \frac{\partial r}{\partial x} \frac{\partial}{\partial x} \left(\frac{\partial f}{\partial r} \right)\\
+      &+& \frac{\partial f}{\partial \theta} \frac{\partial^2 \theta}{\partial^2 x} 
+      + \frac{\partial \theta}{\partial x} \frac{\partial }{\partial x} \left( \frac{\partial f}{\partial \theta} \right)
+      \end{eqnarray*}
+      de nuevo por regla de la cadena calculamos las derivadas mixtas en la expresion anterior:
+      \begin{eqnarray*} 
+      \frac{\partial }{\partial x} \left( \frac{\partial f}{\partial r} \right)=
+      \frac{\partial^2 f}{\partial^2 r} \frac{\partial r}{\partial x}+
+      \frac{\partial^2 f}{\partial  \theta \partial r} \frac{\partial \theta}{\partial x}
+      \end{eqnarray*}
+
+      \begin{eqnarray*} 
+      \frac{\partial }{\partial x} \left( \frac{\partial f}{\partial \theta} \right)=
+      \frac{\partial^2 f}{\partial^2 \theta} \frac{\partial \theta}{\partial x}+
+      \frac{\partial^2 f}{\partial r \partial \theta} \frac{\partial r}{\partial x}
+      \end{eqnarray*}
+    </p>
+    <p>
+      Substituyendo estas expresiones en $\frac{\partial^2 f}{\partial^2 x}$ obtenemos
+      \begin{eqnarray*} 
+      \frac{\partial^2 f}{\partial^2 x} &=& \frac{\partial f}{\partial r} \frac{\partial^2 r }{\partial^2 x} 
+      + \frac{\partial^2 f}{\partial^2 r}\left( \frac{\partial r}{\partial x} \right)^2 
+      + \frac{\partial r}{\partial x}\frac{\partial^2 f}{\partial  \theta \partial r} \frac{\partial \theta}{\partial x} \\
+      &+&\frac{\partial f}{\partial \theta} \frac{\partial^2 \theta}{\partial^2 x} 
+      + \frac{\partial^2 f}{\partial^2 \theta}\left( \frac{\partial \theta}{\partial x} \right)^2 
+      +\frac{\partial \theta}{\partial x}  \frac{\partial^2 f}{\partial  r \partial \theta} \frac{\partial r}{\partial x}  
+      \end{eqnarray*}
+    </p>
+    <p>
+      De manera similar obtenemos
+      \begin{eqnarray*} 
+      \frac{\partial^2 f}{\partial^2 y} &=& \frac{\partial f}{\partial r} \frac{\partial^2 r }{\partial^2 y} 
+      + \frac{\partial^2 f}{\partial^2 r}\left( \frac{\partial r}{\partial y} \right)^2 
+      + \frac{\partial r}{\partial y}\frac{\partial^2 f}{\partial  \theta \partial r} \frac{\partial \theta}{\partial y} \\
+      &+&\frac{\partial f}{\partial \theta} \frac{\partial^2 \theta}{\partial^2 y} 
+      + \frac{\partial^2 f}{\partial^2 \theta}\left( \frac{\partial \theta}{\partial y} \right)^2 
+      +\frac{\partial \theta}{\partial y}  \frac{\partial^2 f}{\partial  r \partial \theta} \frac{\partial r}{\partial y}  
+      \end{eqnarray*}
+    </p>
+    </div>
+
+
 
 
   <div class="lema-box">
@@ -944,6 +1125,176 @@
         \]
       </p>
     </div>
+
+
+
+
+
+    
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2>
+    <p>
+      Considera la función
+      $F:\mathbb{R}^2\setminus\{(0,0)\} \to \mathbb{R}^2$ dada por
+      $$F(x,y)=\left(\frac{x^2-y^2}{x^2+y^2}, \frac{2xy}{x^2+y^2}  \right)$$
+      <ol>
+        <li>
+          Encuentra los puntos $(x,y)\ne (0,0)$ en donde $F$ es loclamente invertible.
+        </li>
+        <li>
+          Denota $u(x,y)=\frac{x^2-y^2}{x^2+y^2}, v(x,y)=\frac{2xy}{x^2+y^2}$. Prueba 
+          que para todo $(x,y)\ne (0,0)$
+          \[
+          u(x,y)^2+v(x,y)^2=1
+          \]
+          ¿Concuerda la ecuación anterior con el inciso 1?
+        </li>
+      </ol>
+    </p> 
+  </div>
+
+
+  <!-- <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Considera la función $F:\mathbb{R}^2 \to \mathbb{R}^2$ dada por
+      $$
+      F(x,y)=(x^2-y^2,2xy)
+      $$
+    </p>
+    
+    <ol>
+        <li>
+            Fija una constante $\alpha\in \mathbb{R}$. Encuentra
+            las imagines inversas de las
+            curvas $u=\alpha$ y $v=\alpha$. Es decir, describe
+            los siguientes conjuntos:
+            $$
+            F^{-1}(\{(u,v)\in \mathbb{R}^2:u=\alpha \}),
+            F^{-1}(\{(u,v)\in \mathbb{R}^2: v=\alpha\}).
+            $$
+            A los puntos en el dominio de $f$ los vamos a denotar
+            como $(u,v)$ y  a los puntos en con
+            contradominio de $f$ los vamos a denotar $(u,v)$.
+        </li>
+        <li>
+            Fija una constante $\alpha \in \mathbb{R}$. Encuentra
+            las imagines directas de las
+            curvas $x=\alpha$ y $y=\alpha$. Es decir, describe los conjuntos: 
+            $$
+            f(\{(x,y)\in \mathbb{R}^2: x=\alpha \}),
+            f(\{(x,y)\in \mathbb{R}^2: y=\alpha\}).
+            $$
+        </li>
+        <li>
+            Encuentra en cuál región se transforma el 
+            rectángulo $\{(x,y):0\leq x \leq 1, 0\leq y \leq 1\}$ al aplicar $f$.      
+        </li>
+        <li>
+            Encuentra la región tal que, al aplicar $f$,
+            se obtiene el  rectángulo
+            $\{(u,v): 0\leq u \leq 1,0\leq v \leq 1\}$.
+        </li>
+        <li>
+            Demuestra que, para todo $(x,y)$, existe una vecindad
+            del punto tal que $f$ restringida a
+            dicha vecindad es inyectiva, excepto para el punto $(0,0)$.
+            Además prueba que $f$ no es inyectiva en
+            todo $\mathbb{R}^2$.
+        </li>  
+    </ol>
+  </div>-->
+
+    
+    
+
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Sea $f:\mathbb{R}\to \mathbb{R}$ una función de
+      clase $C^1$. Define $F:\mathbb{R}^2 \to \mathbb{R}^2$
+      dada por $$F(x,y)=(f(x), xf(x)-y).$$
+    </p>
+    <p>
+      Si $f'(x_0)\ne 0$ demuestra que $F$ tiene una inversa local
+      cerca de $(x_0,y_0)$ (donde $y_0$ es arbitrario).
+      Además, prueba que ésta inversa está dada por
+      $$F^{-1}(u,v)=(f^{-1}(u),uf^{-1}(u)-v).$$
+    </p>
+  </div>
+
+
+
+
+    
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2>
+    <p>
+      Sea $F:\mathbb{R}^n \to \mathbb{R}^n$ una función.
+      ¿ Es cierto que si,
+      $F$ es diferenciable en $p_0$ y $F$ admite una inversa
+      diferenciable, entonces $D_{p_0}F$ es inyectiva?
+    </p> 
+  </div>
+  
+  
+     <div class="ejercicio-box"> 
+      <h2 class="number-title"> Ejercicio</h2> 
+      <p>
+        Considera la función $f:\mathbb{R}\to \mathbb{R}$ dada por
+        $$
+        f(x)=\left\{
+          \begin{array}{cc}
+            x+2x^2\sen(1/x) & x\ne 0 \\
+            0 & x=0
+            \end{array}
+          \right.
+        $$
+
+        En este caso recuerda que $D_0f$ es simplemente $f'(0)$ y que
+        la condición de que $D_0f$ sea inyectiva simplemente se traduce
+        a $f'(0)\ne0$.
+
+      </p>
+      <p>
+        Prueba que $f'(0)$ existe, es distinta de cero, pero sin embargo,
+        $f$ no es invertible cerca de $x=0$.
+      </p>
+      <p>
+        ¿ Contradice esto el teorema de la función inversa?
+      </p>
+          
+  </div>
+
+       
+
+  <div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Considera la función $F(x,y)=(x^4+2xy+3,y)$ y considera las ecuaciones
+      \begin{eqnarray*}
+        x^4+2xy+3&=&u \\
+        y&=&v\\
+      \end{eqnarray*}
+      
+    </p>
+    <ol>
+        <li>
+            Muestra que para $(u,v)=(0,1)$, una solución es $(x,y)=(2,1)$.
+        </li>
+        <li>
+            Encuentra $D_{(x,y)}F$, para todo punto $(x,y)$.
+        </li>
+        <li>
+            Prueba que $D_{(2,1)}F$ es invertible, por lo tanto $F$
+            es invertible en una vecindad de $(2,1)$.
+              Usa una aproximación lineal para estimar
+            $F^{\langle -1 \rangle }(2.2,1.01)$.
+        </li>
+    </ol>
+  </div>
+
+
   </body>
 
 
