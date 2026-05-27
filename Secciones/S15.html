@@ -86,38 +86,135 @@
     
     <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
     
+ 
+    <div class="info-box">
+      <h2 class="number-title"> Introducción </h2>
+      <p>
+        EL teorema de la función implícita se puede ver como una forma de simplificar 
+        el estudio de conjuntos de nivel. 
+      </p>
+      <p>
+        En la Sección 3 vimos una versión del teorema de la función implícita, 
+        para funciones lineales (<a href="./S3.html#teo:funcion-implicita"> Teorema 3.25</a>).
+        Si $F:\mathbb{R}^{n+m}\to \mathbb{R}^m$  es una función lineal el teorema 
+        de la función implícita nos permite ver el conjunto de nivel
+        \[
+        S=\{ p\in \mathbb{R}^{n+m}: F(p)=0\}
+        \]
+        como la gráfica de una función, siempre y cuando se cumplan ciertas condiciones 
+        sorbre la matriz que representa $F$. Denotemos por $M$ la matriz asociada a $F$. 
+        Como $F$ va de $\mathbb{R}^{n+m}$ a $\mathbb{R}^m$,  $M$ es una matriz de $m\times (n+m) $
+        la que podemos escribir como 
+        \[
+        M= 
+          [ A \quad B]
+        \]
+        donde $A$ es una matriz de $m\times n$ y $B$ es una matriz de $m\times m$.
+      </p>
+      <p>
+        El la versión lineal del teorema de la función implícita dice que si $\det(B)\ne 0$
+        entonces existe una función lineal $G:\mathbb{R}^n \to \mathbb{R}^m$ tal que 
+        \[
+        S=\{(x,G(x)): x \in \mathbb{R}^n\}
+        \] 
+        es decir, $S$ es la gráfica de $G$.
+      </p>
+      <p>
+        En el caso general, queremos reemplazar $F$ por una función de clase $C^1$
+        y en ese caso la función $G$ no va a estar definida en todo $\mathbb{R}^n$ sino sólo localmente, 
+        como en el teorema de la función inveresa, pero la conclusion va a ser similar, no vamos a tener  
+        una igualdad pero sí una inclusión: 
+        \[\{(x,G(x)): x\in V\} \subseteq S\]
+        donde \(V\) es un abierto de \(\mathbb{R}^n\).
+      </p>
+      <p>
+        Pero antes necesitamos un poco de notación.
+      </p>
+    </div>
+
+    <div class="nota-box">
+      <h2 class="number-title"> Notas </h2>
+      <p>
+        Usamos
+       letras negritas $\mathbf{x}, \mathbf{z}$ para denotar vectores
+      y letras normales, $x,z$ para denotar escalares.
+      </p>
+      <p>
+        Los puntos de \(\mathbb{R}^{n+m}\) los vamos a denotar como 
+        \((\mathbf{x}, \mathbf{z})\), donde \(\mathbf{x}\in \mathbb{R}^n\)
+        y \(\mathbf{z}\in \mathbb{R}^m\).
+      </p>
+      <p>
+        Si $f:U\subseteq \mathbb{R}^{n+m}\to \mathbb{R}$ es diferenciable las derivadas parciales de $f$ 
+        con respecto a las variables $(\mathbf{x}, \mathbf{z})$ las vamos denotar como  
+        $\partial_{x_i}f(\mathbf{x},\mathbf{z})$, $i=1,\dots, n$ y 
+        $\partial_{z_j}f(\mathbf{x},\mathbf{z})$, $j=1,\dots, m$.
+      </p>
+    </div>
+
 
 
    <div class="teorema-box">
     <h2 class="number-title"> Teorema </h2>
-    <p>
-      Antes de enunciar el teorema usamos la siguiente convención: usamos
-      letras negritas $\mathbf{x}, \mathbf{z}$ para denotar vectores
-      y letras normales, $x,z$ para denotar escalares.
-    </p>
-    <p>
-      Sea $U$ un abierto de $\mathbb{R}^n\times \mathbb{R}^m$ que contenga
-      al punto $(\mathbf{x}_0,\mathbf{z}_0)$ y sea $F:U \to \mathbb{R}^m$
-      una función de clase $C^1$ en $U$. Nota: a los puntos
-      de primer espacio $\mathbb{R}^n$ los vamos a denotar $\mathbf{x}$ y a los
-      puntos del segundo espacio $\mathbf{R}^m$ los vamos a denotar $\mathbf{z}$.
     
+    <p>
+      Sea $U \subseteq \mathbb{R}^{n+m}$ un abierto y $F:U \to \mathbb{R}^m$
+      una función de clase $C^1$ en $U$.  Escribamos las funciones 
+      coordenadas de \(F\) como \(F=(f_1,\dots, f_m)\).
     </p>
     <p>
-      Supongamos que $F(\mathbf{x}_0,\mathbf{z}_0)=0$
-      y que la función lineal dada por
-      $$
-      L(\mathbf{z})=D_{(\mathbf{x}_0, \mathbf{z}_0)}F(0,\mathbf{z}),
-      \mathbf{z} \in \mathbb{R}^m
-      $$
-    
-      es una función inyectiva, de $\mathbb{R}^m$ a $\mathbb{R}^m$.    
+      Sea 
+      \[
+      S=\{\mathbf{p}\in U: F(\mathbf{p})=0\}
+      \]
     </p>
     <p>
-      Entonces existe una vecindad de $\mathbf{x}_0$ en $\mathbb{R}^n$, denotada $V$
-      y una función de clase $C^1$, $G:V\to\mathbb{R}^m$ tal que
-      $G(\mathbf{x}_0)=\mathbf{z}_0$ y, para toda $\mathbf{x}\in V$,
-      $F(\mathbf{x},G(\mathbf{x}))=0$.    
+      Supongamos que $(\mathbf{x}_0,\mathbf{z}_0)\in S$  
+      y que la matriz de derivadas parciales \(D_{(\mathbf{x}_0, \mathbf{z}_0)}F\)
+      se puede escribir como 
+      \[
+      D_{(\mathbf{x}_0, \mathbf{z}_0)}F=[A\quad B ]
+      \]
+      con $A$ la matriz de \(m\times n\) dada por:
+      \[
+      A=\left[\begin{matrix} 
+       \partial_{x_1}f_1(\mathbf{x}_0,\mathbf{z}_0) &  \cdots & \partial_{x_n}f_1(\mathbf{x}_0,\mathbf{z}_0)  \\
+       \partial_{x_1}f_2(\mathbf{x}_0,\mathbf{z}_0) &  \cdots & \partial_{x_n}f_2(\mathbf{x}_0,\mathbf{z}_0)  \\
+       \vdots & \cdots & \vdots \\
+       \partial_{x_1}f_m(\mathbf{x}_0,\mathbf{z}_0) &  \cdots & \partial_{x_n}f_m(\mathbf{x}_0,\mathbf{z}_0)  
+      \end{matrix}
+      \right]
+      \]
+      y $B$ la matriz de \(m\times m\) dada por:
+ 
+      \[
+      B=\left[\begin{matrix} 
+       \partial_{z_1}f_1(\mathbf{x}_0,\mathbf{z}_0) &  \cdots & \partial_{z_m}f_1(\mathbf{x}_0,\mathbf{z}_0)  \\
+       \partial_{z_1}f_2(\mathbf{x}_0,\mathbf{z}_0) &  \cdots & \partial_{z_m}f_2(\mathbf{x}_0,\mathbf{z}_0)  \\
+       \vdots & \cdots & \vdots \\
+       \partial_{z_1}f_m(\mathbf{x}_0,\mathbf{z}_0) &  \cdots & \partial_{z_n}f_m(\mathbf{x}_0,\mathbf{z}_0)  
+      \end{matrix}
+      \right]
+      \]
+      </p>
+    <p>
+      Si \(\det(B)\ne 0\), entonces existe una vecindad de $\mathbf{x}_0$ en $\mathbb{R}^n$, denotada $V$
+      y una función de clase $C^1$, $G:V\to\mathbb{R}^m$ tal que:
+      <ol>
+        <li>
+            $G(\mathbf{x}_0)=\mathbf{z}_0$
+        </li>
+        <li>
+            para toda $\mathbf{x}\in V$,
+            $F(\mathbf{x},G(\mathbf{x}))=0$.    
+        </li>
+      </ol>
+      
+    </p>
+    <p>
+      En otras palabras $\{(\mathbf{x}, G(\mathbf{x})): \mathbf{x}\in V\}\subset S$, por lo 
+      que parametrizamos una parte de $S$ con la función $G$.
+
     </p>
     <p>
       <b>NOTA</b>
@@ -140,11 +237,10 @@
  % si $\partial_zF(\mathbf{x}_0,z_0) \ne 0$.-->
 
   <li>
-    La condición de que la transformación lineal
-    $L(\mathbf{z})=D_{(\mathbf{x}_0, \mathbf{z}_0)}F(0,\mathbf{z})$
-    sea inyectiva se puede reescribir usando un determinante,
-    pero se necesita algo de notación. 
-    <p>
+    La condición de que \(\det(B)\ne 0\) es equivalente a que la transformación lineal
+    dada por $L(\mathbf{z})=D_{(\mathbf{x}_0, \mathbf{z}_0)}F(0,\mathbf{z})$ sea inyectiva.
+    
+    <!-- <p>
         Para $\mathbf{x}\in \mathbf{R}^n$ escribimos
         $\mathbf{x}=(x_1,\dots, x_n)$
         y a los puntos $\mathbf{z}\in \mathbf{R}^m$ los escribimos
@@ -167,7 +263,7 @@
                \end{array}
                \right]
          $$
-    </p>
+    </p>-->
   </li>
   
   
@@ -221,37 +317,47 @@
 <div class="nota-box">
   <h2 class="number-title"> Demostración del Teorema de la función implítica </h2>
   <p>
-    Sea $U$ un abierto de $\mathbb{R}^n\times \mathbb{R}^m$ que contenga
-    al punto $(\mathbf{x}_0,\mathbf{z}_0)$ y sea $F:U \to \mathbb{R}^m$
+    Sea $U$ un abierto de $\mathbb{R}^{n+m}$, $F:U \to \mathbb{R}^m$
     una función de clase $C^1$ en $U$. Nota: a los puntos
     de primer espacio $\mathbb{R}^n$ los vamos a denotar $\mathbf{x}$ y a los
     puntos del segundo espacio $\mathbf{R}^m$ los vamos a denotar $\mathbf{z}$.
+    Denotemos 
+    \[
+    S=\{(\mathbf{x},\mathbf{z})\in U: F(\mathbf{x},\mathbf{z})=0\}
+    \]
   
   </p>
   <p>
-    Supongamos que $F(\mathbf{x}_0,\mathbf{z}_0)=0$
-    y que la función lineal, \(L:\mathbb{R}^m \to \mathbb{R}^m \), dada por
-    $$
-    L(\mathbf{z})=D_{(\mathbf{x}_0, \mathbf{z}_0)}F(0,\mathbf{z}),
-    \mathbf{z} \in \mathbb{R}^m
-    $$
-  
-    es una función inyectiva. Otra forma de pensar a \(L\) es como la 
-    función lineal dada por la matriz:
-    \begin{eqnarray*} 
-    \left[
-    \begin{array}{ccc}
-      \partial_{z_1}f_1(\mathbf{x}_0,\mathbf{z}_0)  & \cdots & \partial_{z_m}f_1 (\mathbf{x}_0,\mathbf{z}_0)\\
-      \vdots & \cdots & \vdots         \\
-      \partial_{z_1}f_m(\mathbf{x}_0,\mathbf{z}_0) & \cdots & \partial_{z_m}f_m(\mathbf{x}_0,\mathbf{z}_0)    
-    \end{array}
+    Supongamos que $(\mathbf{x}_0,\mathbf{z}_0)\in S$
+    y que la matriz de derivadas parciales \(D_{(\mathbf{x}_0, \mathbf{z}_0)}F\) se puede escribir como
+    \[  
+    D_{(\mathbf{x}_0, \mathbf{z}_0)}F=[A\quad B ] 
+    \]
+    con $A$ la matriz de \(m\times n\) dada por:  
+    \[    
+    A=\left[\begin{matrix} 
+     \partial_{x_1}f_1(\mathbf{x}_0,\mathbf{z}_0) &  \cdots & \partial_{x_n}f_1(\mathbf{x}_0,\mathbf{z}_0)  \\
+     \partial_{x_1}f_2(\mathbf{x}_0,\mathbf{z}_0) &  \cdots & \partial_{x_n}f_2(\mathbf{x}_0,\mathbf{z}_0)  \\
+     \vdots & \cdots & \vdots \\
+     \partial_{x_1}f_m(\mathbf{x}_0,\mathbf{z}_0) &  \cdots & \partial_{x_n}f_m(\mathbf{x}_0,\mathbf{z}_0)
+    \end{matrix}
     \right]
-    \end{eqnarray*}
-    donde \(F=(f_1,\dots, f_m)\).
+    \]
+    y $B$ la matriz de \(m\times m\) dada por:
+    \[ B=\left[\begin{matrix} 
+     \partial_{z_1}f_1(\mathbf{x}_0,\mathbf{z}_0) &  \cdots & \partial_{z_m}f_1(\mathbf{x}_0,\mathbf{z}_0)  \\
+     \partial_{z_1}f_2(\mathbf{x}_0,\mathbf{z}_0) &  \cdots & \partial_{z_m}f_2(\mathbf{x}_0,\mathbf{z}_0)  \\
+     \vdots & \cdots & \vdots \\
+     \partial_{z_1}f_m(\mathbf{x}_0,\mathbf{z}_0) &  \cdots & \partial_{z_m}f_m(\mathbf{x}_0,\mathbf{z}_0)
+    \end{matrix}
+    \right] 
+    \]
+  
+    con \(\det(B)\ne 0\).
   </p>
   <p>
-    Consideramos la función clase \(C^1\) dada por 
-    \(H:U  \to \mathbb{R}^n\times \mathbb{R}^m\)
+    Ahora vamos a introducir una función auxiliar de clase \(C^1\), 
+    \(H:U  \to \mathbb{R}^{n+m}\)
     dada por 
     \[
     H(\mathbf{x},\mathbf{z})=(\mathbf{x},F(\mathbf{x},\mathbf{z}))
@@ -262,26 +368,17 @@
     \left[ 
     \begin{array}{cc} 
       I_{n} & \mathbf{0} \\
-      M & L
+      A & B
     \end{array}
     \right]
     \]
-    donde 
-    \begin{eqnarray*} 
-    M=\left[
-    \begin{array}{ccc}
-      \partial_{x_1}f_1(\mathbf{x}_0,\mathbf{z}_0)  & \cdots & \partial_{x_n}f_1 (\mathbf{x}_0,\mathbf{z}_0)\\
-      \vdots & \cdots & \vdots         \\
-      \partial_{x_1}f_m(\mathbf{x}_0,\mathbf{z}_0) & \cdots & \partial_{x_n}f_m(\mathbf{x}_0,\mathbf{z}_0)    
-    \end{array}
-    \right]
-    \end{eqnarray*}
+    donde \(I_n\) es la matriz identidad de orden \(n\). Hay un resultado de lineal que dice,
+    para matrices triangulares inferiores (o superiores), justo como \(D_{(\mathbf{x}_0, \mathbf{z}_0)}H\), 
+    el determinante se puede calcular como el producto de los determinantes de las matrices en la diagonal, es decir 
+    \[
+    \det(D_{(\mathbf{x}_0,\mathbf{z}_0)}) H=\det(I_n)\cdot \det(B)=\det(B)\ne 0
+    \]
 
-    Ya que \(L\) es inyectiva se sigue que \(D_{(\mathbf{x}_0,\mathbf{z}_0)}H\) es invertible, en efecto:
-    si \(D_{(\mathbf{x}_0,\mathbf{z}_0)}H(\mathbf{x},\mathbf{z})=0 \) se sigue que 
-    \(\mathbf{x}=0\) y por lo tanto \(L(\mathbf{z})=D_{(\mathbf{x}_0, \mathbf{z}_0)}F(0,\mathbf{z})=0\) y al ser \(L\)
-    inyectiva se tiene  
-    que \(\mathbf{z}=0\), conclusión, el núcleo de \(D_{(\mathbf{x}_0,\mathbf{z}_0)}H\) es cero.
   </p>
   <p>
     Por el 
@@ -318,6 +415,166 @@
   </p>
 
 </div>
+
+<div class="teorema-box">
+    <h2 class="number-title"> Teorema </h2>
+    <h3>Multiplicadores de Lagrange (varias restricciones)</h3> 
+    <p>
+      Sean $U\subseteq \mathbb{R}^n$ un abierto y
+      $f,g_1,\dots, g_m:U \to \mathbb{R}$
+      funciones clase $C^1$ en $U$. Supongamos que $p_0\in U$ es  extremo local de \(f\)
+      con las restricciones $g_1(p)=0, \cdots ,  g_m(p)=0$.
+    
+    </p>
+    <p>
+        Si $\{\nabla_{p_0}g_1,\dots, \nabla_{p_0}g_m \}$
+        es un conjunto linealmente independiente entonces
+        existen $\lambda_1,\dots, \lambda_m  \in \mathbb{R}$ tal
+        que
+        $$
+        \nabla_{p_0}f =\lambda_1\nabla_{p_0}g_1+\cdots
+        + \lambda_m \nabla_{p_0}g_m.
+        $$
+
+        La demostración de este teorema se verá más adeltante, en la
+        sección del Teorema de la Función implícita.
+    </p>
+     <p>
+      Definamos la función vectorial de restricciones $R: U \to \mathbb{R}^m$ como:
+      $$R(p) = (g_1(p), g_2(p), \dots, g_m(p))$$
+      Las restricciones del problema se pueden escribir simplemente como la ecuación 
+      vectorial $R(p) = \mathbf{0}$, 
+     </p>
+     <p>
+      La matriz Jacobiana de $R$ evaluada en el punto extremo 
+      $p_0$, denotada por $D_{p_0}R$, es una matriz de tamaño  
+      $m \times n$ cuyas filas son los vectores gradiente de las restricciones:
+      $$D_{p_0}R = \begin{pmatrix} \nabla g_1(p_0) \\ \nabla g_2(p_0) \\ \vdots \\ \nabla g_m(p_0) \end{pmatrix}$$
+     </p>
+     <p>
+      Por hipótesis, el conjunto de vectores $\{\nabla g_1(p_0), \dots, \nabla g_m(p_0)\}$ es linealmente independiente 
+      en $\mathbb{R}^n$. Esto significa que las filas de la matriz $D_{p_0}R$ son linealmente independientes, 
+      por lo tanto, el rango de la matriz es máximo, es decir, 
+      $\text{rango}(D_{p_0}R) = m$. En consecuencia, debe cumplirse que $m \le n$.
+     </p>
+     <p>
+      Como el rango de $D_{p_0}R$ es $m$, existen $m$ columnas de la matriz que son 
+      linealmente independientes. Sin pérdida de generalidad 
+      (cambiando el orden de las coordenadas de $\mathbb{R}^n$ si fuera necesario), 
+      podemos asumir que las últimas $m$ columnas forman una matriz invertible de 
+      $m \times m$. Dividamos el espacio $\mathbb{R}^n$ como el producto cartesiano 
+      $\mathbb{R}^{n-m}\times \mathbb{R}^m$. De esta forma, 
+      cualquier punto $p \in U$ se puede escribir como $p = (\mathbf{x}, \mathbf{z})$, 
+      donde $\mathbf{x} = (x_1, \dots, x_{n-m}) \in \mathbb{R}^{n-m}$ e 
+      $\mathbf{z} = (z_1, \dots, z_m) \in \mathbb{R}^m$. 
+      Bajo esta notación, expresamos el punto extremo como $p_0 = (\mathbf{x}_0, \mathbf{z}_0)$.
+     </p>
+     <p>
+      La matriz de darivadas parciales de $R$ respecto a las variables 
+      $\mathbf{z}$ en el punto $p_0$, denotada como $B$, es la matriz de $m \times m$ 
+      constituida por esas últimas $m$ columnas. Por nuestra elección, 
+      esta matriz es invertible (su determinante es distinto de cero).
+     </p>
+     <p>
+      Dado que: 
+      <ol>
+          <li>$R(\mathbf{x}_0, \mathbf{z}_0) = \mathbf{0}$.</li>
+          <li>$R$ es de clase $C^1$ en un abierto que contiene a $(\mathbf{x}_0, \mathbf{z}_0)$.</li>
+          <li>$\det(B)\ne 0$.</li>
+      </ol>
+      El Teorema de la Función Implícita garantiza que existen una 
+      vecindad abierta \(V\) de $\mathbf{x}_0$ en $\mathbb{R}^{n-m}$ y 
+      una función $\phi: V \to \mathbb{R}^n$ de clase $C^1$ tal que:
+      $$\phi(\mathbf{x}_0) = \mathbf{z}_0 \quad \text{y} \quad R(\mathbf{x},\phi(\mathbf{x})) = \mathbf{0} \quad \forall \mathbf{x} \in V$$
+     </p>
+     <p>
+      Dado que $(\mathbf{x}_0, \mathbf{z}_0) = (\mathbf{x}_0,\phi(\mathbf{x}_0) )$ es un punto del extremo local 
+      de la función $f$ sujeta a las restricciones $R(p)=0$, la función 
+      libre de restricciones:
+      $$h(\mathbf{x}) =f(\mathbf{x},\phi(\mathbf{x}))$$ 
+      debe tener un extremo local  (u ordinario) en el punto $\mathbf{x}_0 \in V$. Por lo tanto 
+      $$\nabla_{\mathbf{x}_0} h= \mathbf{0}$$
+      por la regla de la cadena se sigue que: 
+      \begin{eqnarray*} 
+      \frac{\partial h}{\partial x_j}(\mathbf{x}_0) = \frac{\partial f}{\partial x_j}(p_0)+ \sum_{i=1}^{m} \frac{\partial f}{\partial z_i}(p_0) \frac{\partial \phi_i}{\partial x_j}(\mathbf{x}_0)  = 0
+      \end{eqnarray*}
+      para $j=1,\dots,n-m$.
+     </p>
+     <p>
+      Despejando el último término, llegamos a la siguiente relación para cada $j$:
+      \begin{equation}\label{Eqn:Aux1Lagrange} 
+      \frac{\partial f}{\partial x_j}(p_0) = - \sum_{i=1}^{m} \frac{\partial f}{\partial z_i}(p_0) \frac{\partial \phi_i}{\partial x_j}(\mathbf{x}_0) 
+      \end{equation}
+     </p>
+     <p>
+      Por otro lado, sabemos que la identidad de la restricción $R(\mathbf{x},\phi(\mathbf{x})) = 0$ se cumple 
+      en $\mathbf{x} \in V$. Si derivamos cada componente $g_k$ (para $k = 1, \dots, m$) respecto a $x_j$ usando
+       nuevamente la Regla de la Cadena, se tiene:
+       \[
+       \frac{\partial g_k}{\partial x_j}(p_0) + \sum_{i=1}^{m} \frac{\partial g_k}{\partial z_i}(p_0) \frac{\partial \phi_i}{\partial x_j}(x_0) = 0
+       \]
+       y despejando el último término se obtiene:
+       \begin{equation}\label{Eqn:Aux2Lagrange}
+      \frac{\partial g_k}{\partial x_j}(p_0) = - \sum_{i=1}^{m} \frac{\partial g_k}{\partial z_i}(p_0) \frac{\partial \phi_i}{\partial x_j}(x_0) 
+        \end{equation}
+     </p>
+     <p>
+      Centrémonos ahora en las derivadas parciales de $f$ y $g_k$ únicamente respecto a las últimas $m$ variables 
+      ($z_1, \dots, z_m$). Queremos ver si el vector parcial de $f$ se 
+      puede escribir como combinación lineal de los vectores parciales de las $g_k$. 
+      Es decir, buscamos escalares $\lambda_1, \dots, \lambda_m \in \mathbb{R}$ tales 
+      que:
+      \begin{equation}\label{Eqn:Aux3Lagrange}
+      \frac{\partial f}{\partial z_i}(p_0) = 
+      \sum_{k=1}^{m} \lambda_k \frac{\partial g_k}{\partial z_i}(p_0) 
+      \end{equation}
+      para cada \(i = 1, \dots, m\). Este requerimiento es equivalente a un sistema de $m$ 
+      ecuaciones lineales con $m$ incógnitas ($\lambda_1, \dots, \lambda_m$). 
+      En forma matricial, el sistema se expresa como:
+      $$\begin{pmatrix} 
+      \frac{\partial g_1}{\partial z_1}(p_0) & \dots & \frac{\partial g_m}{\partial z_1}(p_0) \\ 
+      \vdots & \ddots & \vdots \\ 
+      \frac{\partial g_1}{\partial z_m}(p_0) & \dots & \frac{\partial g_m}{\partial z_m}(p_0) 
+      \end{pmatrix} 
+      \begin{pmatrix} \lambda_1 \\ \vdots \\ \lambda_m \end{pmatrix} 
+      = \begin{pmatrix} \frac{\partial f}{\partial z_1}(p_0) \\ 
+      \vdots \\ 
+      \frac{\partial f}{\partial z_m}(p_0) \end{pmatrix}
+      $$
+      Notamos que la matriz de coeficientes del sistema es precisamente la matriz $B$ que es invertible. 
+      Por lo tanto los escalares $\lambda_1, \dots, \lambda_m$ existen y son únicos.
+     </p>
+     <p>
+      Ya hemos asegurado por definición de los $\lambda_k$ que la relación de Lagrange se cumple 
+      para las últimas $m$ componentes del gradiente. 
+      Ahora debemos demostrar que estos mismos $\lambda_k$ hacen que se cumpla 
+      para las componentes restantes correspondientes a las variables $\mathbf{x}$.
+     </p>
+     <p>
+      Tomemos una componente cualquiera $j$ de las variables $\mathbf{x}$ 
+      (con $j \in \{1, \dots, n-m\}$). Sustituyamos \eqref{Eqn:Aux3Lagrange} en \eqref{Eqn:Aux1Lagrange} para obtener:
+       $$\frac{\partial f}{\partial x_j}(p_0) = - \sum_{i=1}^{m} \left( \sum_{k=1}^{m} \lambda_k \frac{\partial g_k}{\partial z_i}(p_0) \right) 
+       \frac{\partial \phi_i}{\partial x_j}(x_0)$$
+       
+       Podemos intercambiar el orden de las sumatorias:
+       $$\frac{\partial f}{\partial x_j}(p_0) = \sum_{k=1}^{m} \lambda_k 
+       \left( - \sum_{i=1}^{m} \frac{\partial g_k}{\partial z_i}(p_0) \frac{\partial \phi_i}{\partial x_j}(x_0) \right)$$
+       Observemos el término que quedó entre paréntesis es exactamente \eqref{Eqn:Aux2Lagrange}. 
+       Por lo tanto, podemos sustituirlo por $\frac{\partial g_k}{\partial x_j}(p_0)$:
+       
+       \begin{equation}\label{Eqn:Aux4Lagrange}
+       \frac{\partial f}{\partial x_j}(p_0) = \sum_{k=1}^{m} \lambda_k \frac{\partial g_k}{\partial x_j}(p_0)
+        \end{equation}
+       Esto demuestra que la relación lineal se preserva perfectamente 
+       para todas las variables restantes $x_1, \dots, x_{n-m}$.
+     </p>
+     <p>
+      De las ecuaciones \eqref{Eqn:Aux3Lagrange} y \eqref{Eqn:Aux4Lagrange} se sigue que la relación de Lagrange se cumple para todas las componentes del gradiente, es decir:
+      $$\nabla f(p_0) = \lambda_1 \nabla g_1(p_0) + \lambda_2 \nabla g_2(p_0) + \dots + \lambda_m \nabla g_m(p_0)$$
+     </p>
+  </div>
+
+   
 
     
   <div class="ejercicio-box"> 
